@@ -55,6 +55,10 @@ tmp/
 temp/
 Temp/
 
+# Large files
+*.zip
+.playwright/
+
 # Capacitor native builds
 android/
 ios/
