@@ -1,0 +1,2552 @@
+{
+	"info": {
+		"_postman_id": "e898100e-8484-4a9b-bef9-8276478ed026",
+		"name": "bo-g01-d04-admin-school-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "a15-api-student-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/students?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"students"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "a68a893d-845a-4122-b04f-fb2f5b3414c2",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "Ber",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "Gis",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-student-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/students/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"students",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-12-16T06:50:07.699Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-12-17T06:50:07.699Z",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "2",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-student-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/pwn/Downloads/students.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/students/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"students",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "2",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-student-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "school_id",
+							"value": "12345",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "student_id",
+							"value": "{{$guid}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.1",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id_number",
+							"value": "{{$randomPhoneNumberExt}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "birth_date",
+							"value": "{{$isoTimestamp}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "nationality",
+							"value": "ไทย",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "ethnicity",
+							"value": "ไทย",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "religion",
+							"value": "พุทธ",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "father_title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "father_first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "father_last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mother_title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mother_first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mother_last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_marital_status",
+							"value": "divorce",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_relationship",
+							"value": "ลุง",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "house_number",
+							"value": "9/7",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "moo",
+							"value": "1",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "อ.หาดใหญ่",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sub_district",
+							"value": "ต.หาดใหญ่",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "province",
+							"value": "กรุงเทพ",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "101001",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "profile_image",
+							"description": "optionalh",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/images (3).jpg",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-auth-pin-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"3545d99a-ccf7-4506-8c50-00f705671fa5\",\r\n    \"pin\": \"2239\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/auth/pin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"auth",
+						"pin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a21-api-student-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a22-api-student-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "{{$randomLastName}}",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "school_id",
+							"value": "1",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "student_id",
+							"value": "{{$guid}}",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "year",
+							"value": "ป.1",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "id_number",
+							"value": "{{$randomPhoneNumberExt}}",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "{{$isoTimestamp}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "nationality",
+							"value": "ไทย",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "ethnicity",
+							"value": "ไทย",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "religion",
+							"value": "พุทธ",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "father_title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "father_first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "father_last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mother_title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mother_first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mother_last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_marital_status",
+							"value": "divorce",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_relationship",
+							"value": "ลุง",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_title",
+							"value": "{{$randomNamePrefix}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_first_name",
+							"value": "{{$randomFirstName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "parent_last_name",
+							"value": "{{$randomLastName}}",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "house_number",
+							"value": "9/7",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "moo",
+							"value": "1",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "อ.หาดใหญ่",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sub_district",
+							"value": "ต.หาดใหญ่",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "province",
+							"value": "กรุงเทพ",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "post_code",
+							"value": "10100",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "profile_image",
+							"description": "optional",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Austere Academy splarge.jpg",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a25-api-student-case-list-classes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/classes?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"classes"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a26-api-student-case-lesson-play-log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/classes/:classId/lesson-play-log?page=1&limit=10&curriculum_group=มหาวิท&subject=ภาษา&lesson=Less",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"classes",
+						":classId",
+						"lesson-play-log"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "start_date",
+							"value": "2014-05-01T14:30:00Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2014-05-01T14:30:00Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"description": "optional, ปีการศึกษา",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional, ID ของสังกัดวิชา",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional, ID ของวิชา",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "2",
+							"description": "optional, ID ของบทเรียน",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group",
+							"value": "มหาวิท",
+							"description": "optional, ชื่อสังกัด"
+						},
+						{
+							"key": "subject",
+							"value": "ภาษา",
+							"description": "optional, วิชา"
+						},
+						{
+							"key": "lesson",
+							"value": "Less",
+							"description": "optional, บทเรียน"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						},
+						{
+							"key": "classId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a27-api-student-case-list-teacher-note",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/teacher-notes?page=1&limit=10&curriculum_group_id=1&subject_id=1&lesson_id=1&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"teacher-notes"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "start_date",
+							"value": "1990-09-12T23:07:14.314Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "1998-09-01T14:30:00Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "440765",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a28-api-student-case-lesson-play-log-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/classes/:classId/lesson-play-log/download/csv?start_date=1993-11-26T05:05:52.659Z&end_date=1993-11-26T05:05:52.659Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"classes",
+						":classId",
+						"lesson-play-log",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "1993-11-26T05:05:52.659Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "1993-11-26T05:05:52.659Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1271fb2f-9d66-4adc-b8dd-8b4f2862dec1",
+							"description": "required"
+						},
+						{
+							"key": "classId",
+							"value": "76",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a29-api-student-case-get-family",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/family",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"family"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "fa7f93ca-db82-4c64-8f91-e5e64e8aae2e",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a30-api-teacher-note-case-list-academic-years",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:studentId/teacher-note/academic-years",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":studentId",
+						"teacher-note",
+						"academic-years"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a36-api-teacher-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teachers?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teachers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "เชื้อ",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "Doe",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "teacher",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "อภิ",
+							"description": "optional. search all text field with or condition",
+							"disabled": true
+						},
+						{
+							"key": "teacher_access",
+							"value": "1",
+							"description": "optional. select teacher that have match access",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example search #1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-school/v1/teachers?page=1&limit=10&search=อภิเช",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-school",
+								"v1",
+								"teachers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional, default = 1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional, default = 10"
+								},
+								{
+									"key": "id",
+									"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "Mr",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "เชื้อ",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "Doe",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "teacher",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "อภิเช",
+									"description": "optional. search all text field with or condition"
+								},
+								{
+									"key": "teacher_access",
+									"value": null,
+									"description": "optional. select teacher that have match access",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 09:20:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "687"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "65efb427-cd76-44e3-b0ee-c85f00c9dc94"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"id\": \"2343fb94-6083-4772-b5ea-0a56726fd9c5\",\n            \"school_id\": 1,\n            \"school_name\": \"โรงเรียนสาธิตมัธยม\",\n            \"school_code\": \"C-123\",\n            \"school_image_url\": null,\n            \"email\": \"apichet.chartmarkmee@emal.com\",\n            \"title\": \"นาย\",\n            \"first_name\": \"อภิเชศ\",\n            \"last_name\": \"ชาติมากมี\",\n            \"id_number\": null,\n            \"image_url\": null,\n            \"status\": \"enabled\",\n            \"created_at\": \"2025-04-09T11:00:40.615085Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": null,\n            \"updated_by\": null,\n            \"last_login\": null,\n            \"have_password\": true,\n            \"line_user_id\": null,\n            \"teacher_roles\": [\n                1,\n                3,\n                2\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "Example search #2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-school/v1/teachers?page=1&limit=10&search=อภิ",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-school",
+								"v1",
+								"teachers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional, default = 1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional, default = 10"
+								},
+								{
+									"key": "id",
+									"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "Mr",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "เชื้อ",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "Doe",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "teacher",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "อภิ",
+									"description": "optional. search all text field with or condition"
+								},
+								{
+									"key": "teacher_access",
+									"value": null,
+									"description": "optional. select teacher that have match access",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 09:21:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1336"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "66efb427-cd76-44e3-b0ee-c85f00c9dc94"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n            \"school_id\": 1,\n            \"school_name\": \"โรงเรียนสาธิตมัธยม\",\n            \"school_code\": \"C-123\",\n            \"school_image_url\": null,\n            \"email\": \"teacher@teacher.com\",\n            \"title\": \"ครู\",\n            \"first_name\": \"เชื้อ\",\n            \"last_name\": \"อภิชาติ\",\n            \"id_number\": \"220234993243\",\n            \"image_url\": \"https://example.com/dummy.png\",\n            \"status\": \"enabled\",\n            \"created_at\": \"2024-11-18T17:25:19.821779Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-04-15T17:05:41.501676Z\",\n            \"updated_by\": \"Pat\",\n            \"last_login\": \"2025-05-20T04:39:25.222583Z\",\n            \"have_password\": true,\n            \"line_user_id\": null,\n            \"teacher_roles\": [\n                1,\n                2,\n                3\n            ]\n        },\n        {\n            \"id\": \"2343fb94-6083-4772-b5ea-0a56726fd9c5\",\n            \"school_id\": 1,\n            \"school_name\": \"โรงเรียนสาธิตมัธยม\",\n            \"school_code\": \"C-123\",\n            \"school_image_url\": null,\n            \"email\": \"apichet.chartmarkmee@emal.com\",\n            \"title\": \"นาย\",\n            \"first_name\": \"อภิเชศ\",\n            \"last_name\": \"ชาติมากมี\",\n            \"id_number\": null,\n            \"image_url\": null,\n            \"status\": \"enabled\",\n            \"created_at\": \"2025-04-09T11:00:40.615085Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": null,\n            \"updated_by\": null,\n            \"last_login\": null,\n            \"have_password\": true,\n            \"line_user_id\": null,\n            \"teacher_roles\": [\n                1,\n                3,\n                2\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a37-api-teacher-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/teachers/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"teachers",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-10-25T17:30:39.025Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-17T06:50:07.699Z",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "2",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a38-api-teacher-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/pwn/Downloads/teachers.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/teachers/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"teachers",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "2",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a40-api-auth-case-admin-login-as",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"target_user_id\": \"a9feb624-ac1c-4758-bec3-8c7b6a602a80\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/auth/login/admin-login-as",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"auth",
+						"login",
+						"admin-login-as"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a41-api-teacher-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "mr",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "teacher first name",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "teacher last name",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "dddd@dd.com",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "teacher_accesses",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "teacher_accesses",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "teacher_accesses",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teachers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teachers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a42-api-teacher-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teachers/:teacherId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teachers",
+						":teacherId"
+					],
+					"variable": [
+						{
+							"key": "teacherId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a44-api-user-case-delete-oauth",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider\": \"line\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/users/:userId/oauth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"users",
+						":userId",
+						"oauth"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "3545d99a-ccf7-4506-8c50-00f705671fa5",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a46-api-teacher-case-list-teaching-log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teachers/:teacherId/teaching-log?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teachers",
+						":teacherId",
+						"teaching-log"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "teacherId",
+							"value": "00f1b13e-0e62-45d2-9718-099cd545b3ac",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a47-api-teacher-case-list-class-log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teachers/:teacherId/class-log?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teachers",
+						":teacherId",
+						"class-log"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "teacherId",
+							"value": "00f1b13e-0e62-45d2-9718-099cd545b3ac",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a48-api-announcer-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/announcers?page=1&limit=10&school_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"announcers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "school_id",
+							"value": "1",
+							"description": "optional, ID โรงเรียน"
+						},
+						{
+							"key": "first_name",
+							"value": "do",
+							"description": "optional, ชื่อ",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "",
+							"description": "optional, นามสกุล",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a49-api-announcer-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{$randomEmail}}",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "{{$randomNamePrefix}}",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "{{$randomFirstName}}",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "{{$randomLastName}}",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "id_number",
+							"value": "{{$randomBankAccount}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/announcers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"announcers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a50-api-user-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "mrs",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "doe",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "pat",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Smoking-fat-man.jpg"
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "newemail@email.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/users/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"users",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "7cf523d4-344a-48db-a060-4e314e71336e",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a51-api-auth-email-password-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"73e6f2a6-453d-451e-835d-76a50e4a53d4\",\r\n    \"password\": \"patdoes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/auth/email-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"auth",
+						"email-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a52-api-user-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"user_id\": \"a1b280fc-3f20-41aa-931d-c339b6dfd18f\",\r\n            \"status\": \"enabled\"\r\n        },\r\n        {\r\n            \"user_id\": \"aae5948d-112c-46f8-85e9-c6181023543a\",\r\n            \"status\": \"enabled\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/users/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"users",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a53-api-observer-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/observers?page=1&limit=10&school_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"observers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "observer_access_id",
+							"value": "4",
+							"description": "optional, ID ของความรับผิดชอบผู้สังเกตุการณ์",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": "1",
+							"description": "optional, ID ของโรงเรียน"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled = ใช้งาน / disabled = ไม่ใช้งาน / draft = แบบร่าง)",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional, ID ของผู้สังเกตุการณ์",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"description": "optional, คำนำหน้า",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "Pat",
+							"description": "optioonal, ชื่อ",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "Doe",
+							"description": "optional, นามสกุล",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"description": "optiona, อีเมล",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a54-api-observer-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/observers/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"observers",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "31ceee5d-ee10-462b-a1e3-659a2187ca95",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a55-api-observer-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "patdoe2dddd3@email.com",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "John",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Doe",
+							"type": "text"
+						},
+						{
+							"key": "id_number",
+							"value": "0001",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/observers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"observers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a56-api-user-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/users/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"users",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a57-api-teacher-case-update-teacher-accesses",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teacher_accesses\": [1, 2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teachers/:userId/teacher-accesses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teachers",
+						":userId",
+						"teacher-accesses"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "f620b598-957c-4d58-9b06-7a2d266d5802",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a58-api-teacher-access-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/teacher-accesses?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"teacher-accesses"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optiona, default = 10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a59-api-lesson-play-log-case-list-academic-year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/academic-years",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"academic-years"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1271fb2f-9d66-4adc-b8dd-8b4f2862dec1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a60-api-lesson-play-log-case-list-curriculum-group",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/curriculum-groups?academic_year=354522",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"curriculum-groups"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "354522",
+							"description": "optional, ปีการศึกษา"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "aae5948d-112c-46f8-85e9-c6181023543a",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a61-api-lesson-play-log-case-list-subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/subjects?curriculum_group_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"subjects"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "354522",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eef62610-dac2-4b07-8ebe-56b448e9c368",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a62-api-lesson-play-log-case-list-lesson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/lessons?curriculum_group_id=1&subject_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"lessons"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "354522",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eef62610-dac2-4b07-8ebe-56b448e9c368",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a63-api-student-case-list-sub-lesson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/students/:userId/sub-lessons?lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"students",
+						":userId",
+						"sub-lessons"
+					],
+					"query": [
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eef62610-dac2-4b07-8ebe-56b448e9c368",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a64-api-announcer-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/announcers/download/csv?start_date=1993-11-26T05:05:52.659Z&end_date=2024-11-19T05:05:52.659Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"announcers",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "1993-11-26T05:05:52.659Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-19T05:05:52.659Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a65-api-announcer-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/announcers-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/announcers/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"announcers",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a66-api-observer-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/observers/download/csv?start_date=2024-11-18T05:05:52.659Z&end_date=2024-11-19T05:05:52.659Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"observers",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-11-18T05:05:52.659Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-19T05:05:52.659Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a67-api-observer-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/observers-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/schools/:schoolId/observers/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"schools",
+						":schoolId",
+						"observers",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a68-api-seed-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-school/v1/seed-years?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-school",
+						"v1",
+						"seed-years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

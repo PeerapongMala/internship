@@ -1,0 +1,44 @@
+{
+  "test": "Boss Stage",
+  "pretest": "Pretest",
+  "posttest": "Posttest",
+  "execise": "Exercise",
+  "answercount": "Number of Questions",
+  "timeset": "Time Limit",
+  "timeuse": "Time Used",
+  "your_play": "Your Play",
+  "level_type": {
+    "test": "Exercise",
+    "sub-lesson-post-test": "Sub-lesson Post-Test",
+    "pre-post-test": "Pre/Post Test",
+    "pre-test": "Pre-Test",
+    "post-test": "Post-Test"
+  },
+  "level": {
+    "dialog": {
+      "title": "Level {{level}}",
+      "exercise": "Exercise",
+      "difficulty": "Difficulty",
+      "timeLimit": "Time Limit",
+      "noTimeLimit": "No time limit",
+      "questionCount": "Number of questions",
+      "yourPlay": "Your Play",
+      "score": "Score",
+      "star": "star",
+      "emptyStar": "empty star",
+      "timeUsed": "Time used",
+      "honor": "Honor/Title",
+      "honorAlt": "honor",
+      "offline": {
+        "status": "You are offline",
+        "savedHistory": "Your play history will be saved",
+        "rewardsWhenOnline": "You will receive rewards when back online"
+      }
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    }
+  }
+}

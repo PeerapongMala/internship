@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "292c437c-b7fd-48e3-9476-674b9d987ae3",
+		"name": "bo-g01-d08-admin-family-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40289851"
+	},
+	"item": [
+		{
+			"name": "a01-api-family-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/info/families?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"info",
+						"families"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "family_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "659a2187",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "punya",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "line_id",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "member_count",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-family-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/info/family/:family_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"info",
+						"family",
+						":family_id"
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-family-member-owner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/info/family/:family_id/members",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"info",
+						"family",
+						":family_id",
+						"members"
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-family-update-owner",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2e3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/info/family/:family_id/owner",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"info",
+						"family",
+						":family_id",
+						"owner"
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-family-add-member",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"users_id\": [\r\n        \"05a35f68-fa65-4b7a-917c-a2d64ef2c2q4\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/family/:family_id/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"family",
+						":family_id",
+						"member"
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-family-update-status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/family/:id/:status",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"family",
+						":id",
+						":status"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6"
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"description": "disabled, enabled"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-family-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/family/:family_id/download/csv?start=2024-11-18&end=2024-11-18",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"family",
+						":family_id",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2024-11-18"
+						},
+						{
+							"key": "end",
+							"value": "2024-11-18"
+						}
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-family-add-family",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"users\": [\r\n        {\r\n            \"user_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2q4\",\r\n            \"is_owner\": true\r\n        }\r\n    ],\r\n    \"status\": \"disabled\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/family",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-get-member-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/family/:family_id/:role?user_id=99c0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"family",
+						":family_id",
+						":role"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "99c0"
+						},
+						{
+							"key": "first_name",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "line_id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "1"
+						},
+						{
+							"key": "role",
+							"value": "student",
+							"description": "parent, student"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-parent-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/parents",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"parents"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "rent",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-student-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/students?school_id=1&academic_year=2567&year=ป.4&class_name=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"students"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": "1"
+						},
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_name",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a14-api-family-bulk-edit",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"family_ids\": [4, 5]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-delete-member",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/:family_id/member?user_id=d1b2baaa-377e-4bc1-bafd-3bfb7ed56205",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						":family_id",
+						"member"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "d1b2baaa-377e-4bc1-bafd-3bfb7ed56205"
+						}
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-school-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/dropdown/school?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"dropdown",
+						"school"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-academic-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/dropdown/academic-year?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"dropdown",
+						"academic-year"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/dropdown/year?page=1&limit=-1&school_id=1&academic_year=2568",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"dropdown",
+						"year"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "-1"
+						},
+						{
+							"key": "school_id",
+							"value": "1"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-class-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/dropdown/class?page=1&limit=-1&school_id=1&academic_year=2568&year=ป.4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"dropdown",
+						"class"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "-1"
+						},
+						{
+							"key": "school_id",
+							"value": "1"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-bulk-edit-user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"users\": [\r\n        \"e2698584-16a0-45e9-8c4e-3169738eb8df\",\r\n        \"d1b2baaa-377e-4bc1-bafd-3bfb7ed56205\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/bulk-edit/user/:family_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"bulk-edit",
+						"user",
+						":family_id"
+					],
+					"variable": [
+						{
+							"key": "family_id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a21-api-delete-family",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"family_id\": 10,\r\n    \"password\": \"patdoepass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-family/v1/family",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-family",
+						"v1",
+						"family"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

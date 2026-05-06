@@ -1,0 +1,55 @@
+/* ============================================
+   BSS Shared — Table Section Header & Count
+   ใช้ร่วมกัน: Verify, Revoke, Reconcile
+   Pattern: section header bar inside table card (title + count)
+   ============================================ */
+
+.table-section-header {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.table-section-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 600 !important;
+    color: #212121;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.table-section-title--danger {
+    color: #dc3545;
+}
+
+.table-section-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.table-section-count-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 2.3px;
+}
+
+.table-section-count-value {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 2.3px;
+}
+
+.count-danger {
+    font-weight: 700 !important;
+    color: #dc3545;
+}

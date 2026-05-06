@@ -1,0 +1,851 @@
+{
+	"info": {
+		"_postman_id": "c42c70e3-5d32-49c9-8712-68ba8f07ec5d",
+		"name": "bo-g05-d02-line-parent-v1 Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-announcement-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/announcements/:user_id?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"announcements",
+						":user_id"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-announcement-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/announcement/:announcement_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"announcement",
+						":announcement_id"
+					],
+					"variable": [
+						{
+							"key": "announcement_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-get-student-in-family",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/homework/students?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"homework",
+						"students"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-homework-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/homeworks/:user_id/:class_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"homeworks",
+						":user_id",
+						":class_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						},
+						{
+							"key": "class_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "a04-api-homework-list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/line-parent/v1/homeworks/:user_id/:class_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"line-parent",
+								"v1",
+								"homeworks",
+								":user_id",
+								":class_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "cd1592be-7302-4805-a172-86956b0bf2a1"
+								},
+								{
+									"key": "class_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 09:03:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "399"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8b7d9004-27e2-4676-a43d-f677f6b89a00"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"homework_id\": 1,\n            \"homework_name\": \"การบ้าน 1\",\n            \"subject_name\": \"ภาษาอังกฤษ ป.4\",\n            \"lesson\": \"Lesson 1\",\n            \"sub_lesson\": \"Sub-lesson 1\",\n            \"assign_to\": \"ป.4/1\",\n            \"started_at\": \"2024-12-16T06:50:07.699Z\",\n            \"due_at\": \"2024-12-16T06:50:07.699Z\",\n            \"level_count\": 1,\n            \"status\": \"Late\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a05-api-get-family-members",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/family/members",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"family",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-overview-homework-status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/homework/status/:user_id/:class_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"homework",
+						"status",
+						":user_id",
+						":class_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1"
+						},
+						{
+							"key": "class_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "a06-api-overview-homework-status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/line-parent/v1/homework/status/:user_id/:class_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"line-parent",
+								"v1",
+								"homework",
+								"status",
+								":user_id",
+								":class_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "cd1592be-7302-4805-a172-86956b0bf2a1"
+								},
+								{
+									"key": "class_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 08:46:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "241"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "9b53dec0-0db1-4167-b8d5-b4322dd80df0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"status_name\": \"Not Finish\",\n            \"count\": 0,\n            \"total\": 1\n        },\n        {\n            \"status_name\": \"On Time\",\n            \"count\": 0,\n            \"total\": 1\n        },\n        {\n            \"status_name\": \"Late\",\n            \"count\": 1,\n            \"total\": 1\n        },\n        {\n            \"status_name\": \"Not Start\",\n            \"count\": 0,\n            \"total\": 1\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a07-api-report-bug-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "created_at",
+							"value": "2025-03-03T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "os",
+							"value": "Window 10",
+							"type": "text"
+						},
+						{
+							"key": "browser",
+							"value": "chrome",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "Content",
+							"type": "text"
+						},
+						{
+							"key": "platform",
+							"value": "App",
+							"type": "text"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "text"
+						},
+						{
+							"key": "priority",
+							"value": "Low",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "https://clms.com",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"description": "รอตรวจสอบ = pending\nกำลังแก้ไข = in-progress\nแก้ไขสำเร็จ = resolved\nปิดงาน = closed",
+							"type": "text"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": "/Users/patwanich/Pictures/screenshots/Screenshot 2568-04-02 at 16.52.14.png"
+						},
+						{
+							"key": "images",
+							"type": "file",
+							"src": "/Users/patwanich/Pictures/screenshots/Screenshot 2568-04-02 at 16.52.14.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/report-bug/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"report-bug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-report-bug-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/report-bug/:bug_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"report-bug",
+						":bug_id"
+					],
+					"query": [
+						{
+							"key": "bug_id",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "bug_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-family-update-data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// --- Create family ---\r\n{\r\n    \"users\": [\r\n        // {\r\n        //     \"user_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2e3\",\r\n        //     \"task\": \"add\"\r\n        // },\r\n        // {\r\n        //     \"user_id\": \"e2698584-16a0-45e9-8c4e-3169738eb5df\",\r\n        //     \"task\": \"add\"\r\n        // }\r\n    ],\r\n    \"manage_family\": \"create\" //create, delete, manage\r\n}\r\n\r\n// --- Delete family ---\r\n// {\r\n//     \"family_id\": 135,\r\n//     \"manage_family\": \"delete\"\r\n// }\r\n\r\n\r\n// --- Manage users ---\r\n    // -- Transfer Owner --\r\n// {\r\n//     \"users\": [\r\n//         {\r\n//             \"user_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2e4\",\r\n//             \"task\": \"transfer_owner\"\r\n//         }\r\n//     ],\r\n//     \"family_id\": 2,\r\n//     \"manage_family\": \"manage\"\r\n// }\r\n\r\n    // -- Add User --\r\n// {\r\n//     \"users\": [\r\n//         {\r\n//             \"user_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2e4\",\r\n//             \"task\": \"add\"\r\n//         }\r\n//     ],\r\n//     \"family_id\": 2,\r\n//     \"manage_family\": \"manage\"\r\n// }\r\n\r\n    // -- Delete User --\r\n// {\r\n//     \"users\": [\r\n//         {\r\n//             \"user_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2e4\",\r\n//             \"task\": \"delete\"\r\n//         }\r\n//     ],\r\n//     \"family_id\": 2,\r\n//     \"manage_family\": \"manage\"\r\n// }\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/family/update-data",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"family",
+						"update-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-dashboard-overview-stat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/dashboard/overview-stat/:user_id/:class_id/:subject_id?started_at=2025-03-08&ended_at=2025-03-09",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"dashboard",
+						"overview-stat",
+						":user_id",
+						":class_id",
+						":subject_id"
+					],
+					"query": [
+						{
+							"key": "started_at",
+							"value": "2025-03-08"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-03-09"
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						},
+						{
+							"key": "class_id",
+							"value": "2"
+						},
+						{
+							"key": "subject_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-lesson-progress",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/dashboard/lesson-progress/:user_id/:class_id/:subject_id?page=1&limit=10&started_at=2025-03-10&ended_at=2025-03-15",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"dashboard",
+						"lesson-progress",
+						":user_id",
+						":class_id",
+						":subject_id"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-03-10"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-03-15"
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						},
+						{
+							"key": "class_id",
+							"value": "2"
+						},
+						{
+							"key": "subject_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-sub-lesson-progress",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/dashboard/sub-lesson-progress/:user_id/:class_id/:subject_id/:lesson_id?page=1&limit=10&started_at=2025-03-10&ended_at=2025-03-15",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"dashboard",
+						"sub-lesson-progress",
+						":user_id",
+						":class_id",
+						":subject_id",
+						":lesson_id"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-03-10"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-03-15"
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						},
+						{
+							"key": "class_id",
+							"value": "2"
+						},
+						{
+							"key": "subject_id",
+							"value": "2"
+						},
+						{
+							"key": "lesson_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-subject-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/dashboard/subjects/:user_id/:class_id?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"dashboard",
+						"subjects",
+						":user_id",
+						":class_id"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						},
+						{
+							"key": "class_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a14-api-get-student-info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/homework/student/:user_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"homework",
+						"student",
+						":user_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-report-bug-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/report-bug",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"report-bug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-lesson-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "a16-api-lesson-list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/line-parent/v1/dashboard/lessons/:user_id/:subject_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"line-parent",
+								"v1",
+								"dashboard",
+								"lessons",
+								":user_id",
+								":subject_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+								},
+								{
+									"key": "subject_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 19 Apr 2025 11:03:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a382e8fd-45b7-41a7-9b5c-8d5ece5b029d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"lesson_id\": 2,\n            \"lesson_name\": \"Math 5 lesson 1\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a17-api-check-member-not-exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/family/check-member/:user_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"family",
+						"check-member",
+						":user_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "05a35f68-fa65-4b7a-917c-a2d64ef2c2e3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-add-member",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"family_id\": 1,\r\n    \"user_id\": \"45a47203-9d83-4e4f-b7b8-6eb748b2eed8\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/family/add-member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"family",
+						"add-member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-get-school-details-by-class-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/line-parent/v1/school-details/:classId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-parent",
+						"v1",
+						"school-details",
+						":classId"
+					],
+					"variable": [
+						{
+							"key": "classId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

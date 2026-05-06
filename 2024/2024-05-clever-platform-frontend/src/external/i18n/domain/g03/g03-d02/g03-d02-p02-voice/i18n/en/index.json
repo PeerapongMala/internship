@@ -1,0 +1,10 @@
+{
+    "dialog_1": "Listen to the sentence and pronounce it correctly.",
+    "dialog_2": "Press to listen to the sentence.",
+    "dialog_3": "Press to select the listen to sentence mode.",
+    "dialog_4": "Press to speak the answer.",
+    "card_title": "Speak the answer",
+    "card_title_2": "Listen to the question",
+    "card_label": "Press to start speaking",
+    "question_title": "Listen to the sentence and speak the answer"
+}

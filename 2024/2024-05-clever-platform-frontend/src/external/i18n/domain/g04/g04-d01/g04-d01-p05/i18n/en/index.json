@@ -1,0 +1,17 @@
+{
+  "about_sublesson_title": "About the Sublesson",
+  "amount_of_level_label": "Number of Levels",
+  "amount_of_sublesson_file_size_label": "File Size",
+  "download_sublesson_sound_btn_label": "Download Narration",
+  "download_sublesson_btn_label": "Download",
+  "download_audio_files_btn_label": "Download Audio Files ({{count}} files)",
+  "files_label": "files",
+  "delete_local_sublesson_data_btn_label": "Delete Local Data",
+  "delete_local_sublesson_data_modal_title": "Delete Local Narration Data",
+  "delete_local_sublesson_data_modal_message": "Do you want to delete the local narration data?<br/>Deleting the narration data will <strong>not affect your play history</strong>.<br/><br/>Keeping the narration data on your device allows you to play offline, and you can download it again when you connect to the internet.",
+  "confirm_delete_local_sublesson_data_modal_btn_label": "Confirm Deletion",
+  "play_btn_label": "Start Playing",
+  "checkbox_language_th_label": "Thai",
+  "checkbox_language_en_label": "English",
+  "checkbox_language_cn_label": "Chinese"
+}

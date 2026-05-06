@@ -1,0 +1,78 @@
+{
+  "waveList": [
+    {
+      "name": "wave1",
+      "waveDuration": 5,
+      "spawnList": [
+        {
+          "timeAt": 1,
+          "objectList": [
+            {
+              "type": "fruit",
+              "amount": 5,
+              "scoreMultiplier": 2,
+              "statMultiplier": 1
+            },
+            {
+              "type": "bomb",
+              "amount": 1,
+              "scoreMultiplier": 2,
+              "statMultiplier": 1
+            }
+          ]
+        },
+        {
+          "timeAt": 3,
+          "objectList": [
+            {
+              "type": "fruit",
+              "amount": 5,
+              "statMultiplier": 2
+            },
+            {
+              "type": "bomb",
+              "amount": 1
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "wave2",
+      "waveDuration": 6,
+      "spawnList": [
+        {
+          "timeAt": 1,
+          "objectList": [
+            {
+              "type": "fruit",
+              "amount": 5,
+              "scoreMultiplier": 2,
+              "statMultiplier": 1
+            },
+            {
+              "type": "bomb",
+              "amount": 5,
+              "scoreMultiplier": 2,
+              "statMultiplier": 1
+            }
+          ]
+        },
+        {
+          "timeAt": 3,
+          "objectList": [
+            {
+              "type": "fruit",
+              "amount": 5
+            },
+            {
+              "type": "bomb",
+              "amount": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

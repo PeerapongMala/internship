@@ -1,0 +1,11 @@
+{
+  "title": "คู่มือการใช้งาน",
+  "input_text": "ป้อนข้อความ",
+  "input_voice": "ป้อนเสียง",
+  "tutorial_label": "คู่มือการใช้งาน",
+  "multiple_choices": "คำถามปรนัย (Multiple\u00A0Choices)",
+  "sort": "คำถามแบบเรียงลำดับ (Sorting)",
+  "pair": "คำถามแบบจับคู่ (Pairing)",
+  "placeholder": "คำถามแบบเติมคำแบบมีตัวเลือก (Placeholder)",
+  "input": "คำถามแบบเติมคำ (Input)"
+}

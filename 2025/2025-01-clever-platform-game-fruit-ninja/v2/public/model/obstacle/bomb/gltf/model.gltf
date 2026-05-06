@@ -1,0 +1,159 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0.9999999999999866,
+                1.629206707320911e-7,
+                0,
+                0,
+                -1.629206707320911e-7,
+                0.9999999999999866,
+                0,
+                0,
+                0,
+                0,
+                1
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "In-Game_Collectables_Color_Palette_01.001",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Collectable_Bomb_02",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "model.bin",
+            "byteLength": 150228
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 16692,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 16692,
+            "byteLength": 50076,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 66768,
+            "byteLength": 50076,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 116844,
+            "byteLength": 33384,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 4173,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4173,
+            "min": [
+                -34.67207336425781,
+                -44.17699432373047,
+                -46.89468765258789
+            ],
+            "max": [
+                32.697505950927734,
+                49.85267639160156,
+                22.340269088745117
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4173,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 4173,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "base_color_texture.png"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "上传数据",
+  "classroom": "教室",
+  "year": "年级",
+  "affiliation": "隶属",
+  "country": "国家",
+  "uploaded_history_tab_label": "上传历史",
+  "last_login": "最后登录: {{ date }}",
+  "latest_uploaded": "最新上传: {{ date }}",
+  "event": "活动"
+}

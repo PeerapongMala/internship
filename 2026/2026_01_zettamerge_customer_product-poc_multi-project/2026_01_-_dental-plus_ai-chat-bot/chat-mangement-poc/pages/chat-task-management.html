@@ -1,0 +1,1369 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin-Chat - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .task-card { cursor: pointer; transition: all 0.2s; }
+      .task-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      .task-card.selected { ring: 2px; ring-color: #14b8a6; background-color: #f0fdfa; }
+
+      /* Customer Info Drawer - Push style (compresses chat) */
+      .customer-drawer {
+        width: 0;
+        min-width: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        border-left: none;
+      }
+      .customer-drawer.open {
+        width: 288px; /* w-72 = 18rem = 288px */
+        min-width: 288px;
+        border-left: 1px solid #e5e7eb;
+      }
+      .customer-drawer-content {
+        width: 288px;
+        min-width: 288px;
+      }
+      /* Hide overlay for push drawer */
+      .drawer-overlay {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Simple Sidebar for Admin -->
+      <aside class="w-64 bg-white border-r border-gray-200 flex flex-col shadow-sm h-full">
+        <!-- Header -->
+        <div class="h-20 border-b border-gray-100 flex items-center px-5">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-dental-500 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-dental-700">Dental Plus</h1>
+              <p class="text-xs text-gray-400">Admin Panel</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex-1 p-3 overflow-y-auto">
+          <p class="h-6 flex items-center px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Admin</p>
+          <div class="space-y-1">
+            <a href="chat-task-management.html" class="w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left bg-dental-50 text-dental-700 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+              <span class="font-medium">Admin-Chat</span>
+            </a>
+          </div>
+        </nav>
+
+        <!-- User Profile -->
+        <div class="h-16 border-t border-gray-100 flex items-center px-4">
+          <div class="flex items-center gap-3 w-full">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+              <span class="text-blue-700 font-semibold">A</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium text-gray-800">Admin</p>
+              <p class="text-xs text-blue-500">Admin Panel</p>
+            </div>
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Quick Stats Header -->
+        <div class="bg-white px-8 py-3 border-b border-gray-200">
+          <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">รอดำเนินการ</p>
+                <p class="text-lg font-bold text-yellow-600" id="stat-pending">0</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">งานวันนี้</p>
+                <p class="text-lg font-bold text-blue-600" id="stat-today">0</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500">เสร็จแล้ว</p>
+                <p class="text-lg font-bold text-green-600" id="stat-completed">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Tabs -->
+        <div class="bg-white px-8 py-3 border-b border-gray-200">
+          <div class="flex items-center gap-2">
+            <button onclick="switchTab('all')" class="status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-gray-700 text-white relative" data-tab="all">
+              All
+              <span class="ml-1 px-1.5 py-0.5 bg-gray-500 text-white text-xs rounded-full" id="count-all">0</span>
+              <span id="unread-all" class="hidden absolute -top-1 -right-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[18px] text-center">0</span>
+            </button>
+            <button onclick="switchTab('consult')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-yellow-100 text-yellow-700 hover:bg-yellow-200 relative" data-tab="consult">
+              ปรึกษา
+              <span class="ml-1 px-1.5 py-0.5 bg-yellow-200 text-yellow-700 text-xs rounded-full" id="count-consult">0</span>
+              <span id="unread-consult" class="hidden absolute -top-1 -right-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[18px] text-center">0</span>
+            </button>
+            <button onclick="switchTab('appoint')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-blue-100 text-blue-700 hover:bg-blue-200 relative" data-tab="appoint">
+              นัดหมาย
+              <span class="ml-1 px-1.5 py-0.5 bg-blue-200 text-blue-700 text-xs rounded-full" id="count-appoint">0</span>
+              <span id="unread-appoint" class="hidden absolute -top-1 -right-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[18px] text-center">0</span>
+            </button>
+            <button onclick="switchTab('treatment')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-purple-100 text-purple-700 hover:bg-purple-200 relative" data-tab="treatment">
+              พบแพทย์
+              <span class="ml-1 px-1.5 py-0.5 bg-purple-200 text-purple-700 text-xs rounded-full" id="count-treatment">0</span>
+              <span id="unread-treatment" class="hidden absolute -top-1 -right-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[18px] text-center">0</span>
+            </button>
+            <button onclick="switchTab('payment')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-orange-100 text-orange-700 hover:bg-orange-200 relative" data-tab="payment">
+              ชำระเงิน
+              <span class="ml-1 px-1.5 py-0.5 bg-orange-200 text-orange-700 text-xs rounded-full" id="count-payment">0</span>
+              <span id="unread-payment" class="hidden absolute -top-1 -right-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[18px] text-center">0</span>
+            </button>
+            <button onclick="switchTab('completed')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-green-100 text-green-700 hover:bg-green-200 relative" data-tab="completed">
+              เสร็จสิ้น
+              <span class="ml-1 px-1.5 py-0.5 bg-green-200 text-green-700 text-xs rounded-full" id="count-completed">0</span>
+              <span id="unread-completed" class="hidden absolute -top-1 -right-1 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[18px] text-center">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+          <!-- Task Card List (Left) -->
+          <div class="w-96 border-r border-gray-200 bg-gray-50 flex flex-col">
+            <div class="p-4 border-b border-gray-200 bg-white">
+              <div class="relative mb-3">
+                <input type="text" placeholder="ค้นหาชื่อ / บริการ..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" oninput="searchTask(this.value)" />
+                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <!-- Social Filter -->
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs text-gray-500 mr-1">ช่องทาง:</span>
+                <button onclick="filterByChannel('all')" class="channel-filter active px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gray-700 text-white" data-channel="all">
+                  ทั้งหมด
+                </button>
+                <button onclick="filterByChannel('LINE')" class="channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-green-100 text-green-700 hover:bg-green-200" data-channel="LINE">
+                  <span class="inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                    LINE
+                  </span>
+                </button>
+                <button onclick="filterByChannel('Facebook')" class="channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-blue-100 text-blue-700 hover:bg-blue-200" data-channel="Facebook">
+                  <span class="inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                  </span>
+                </button>
+                <button onclick="filterByChannel('Instagram')" class="channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-pink-100 text-pink-700 hover:bg-pink-200" data-channel="Instagram">
+                  <span class="inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    Instagram
+                  </span>
+                </button>
+                <button onclick="filterByChannel('TikTok')" class="channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200" data-channel="TikTok">
+                  <span class="inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    TikTok
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4 space-y-3" id="task-list">
+            </div>
+          </div>
+
+          <!-- Chat Detail / Conversation (Right) -->
+          <div class="flex-1 flex flex-col bg-gray-50" id="chat-detail">
+            <div class="flex items-center justify-center h-full text-gray-400">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <p>เลือก Task จากรายการด้านซ้าย</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 px-8 py-3">
+          <div class="flex items-center justify-between text-white">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+              <span class="font-medium">สรุปงานวันนี้</span>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-consult">0</p>
+                <p class="text-xs text-blue-200">ปรึกษา</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-appoint">0</p>
+                <p class="text-xs text-blue-200">นัดหมาย</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-treatment">0</p>
+                <p class="text-xs text-blue-200">พบแพทย์</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-payment">0</p>
+                <p class="text-xs text-blue-200">ชำระเงิน</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-completed">0</p>
+                <p class="text-xs text-blue-200">เสร็จสิ้น</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Change Modal -->
+    <div id="status-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">เปลี่ยนสถานะ</h3>
+          <button onclick="closeStatusModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-5 space-y-2">
+          <button onclick="changeTaskStatus('consult')" class="w-full px-4 py-2.5 bg-yellow-100 text-yellow-700 rounded-xl font-medium hover:bg-yellow-200">
+            ปรึกษา
+          </button>
+          <button onclick="changeTaskStatus('appoint')" class="w-full px-4 py-2.5 bg-blue-100 text-blue-700 rounded-xl font-medium hover:bg-blue-200">
+            นัดหมาย
+          </button>
+          <button onclick="changeTaskStatus('treatment')" class="w-full px-4 py-2.5 bg-purple-100 text-purple-700 rounded-xl font-medium hover:bg-purple-200">
+            พบแพทย์
+          </button>
+          <button onclick="changeTaskStatus('payment')" class="w-full px-4 py-2.5 bg-orange-100 text-orange-700 rounded-xl font-medium hover:bg-orange-200">
+            ชำระเงิน
+          </button>
+          <button onclick="changeTaskStatus('completed')" class="w-full px-4 py-2.5 bg-green-100 text-green-700 rounded-xl font-medium hover:bg-green-200">
+            เสร็จสิ้น
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200 bg-indigo-50">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-800">นัดหมาย</h3>
+              <p class="text-sm text-gray-500" id="booking-patient-name"></p>
+            </div>
+          </div>
+          <button onclick="closeBookingModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-5 space-y-4">
+          <!-- Branch -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">สาขา</label>
+            <select id="booking-branch" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="siam">สาขาสยาม</option>
+              <option value="ari">สาขาอารีย์</option>
+              <option value="thonglor">สาขาทองหล่อ</option>
+            </select>
+          </div>
+          <!-- Treatment -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">การรักษา</label>
+            <select id="booking-treatment" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option>ขูดหินปูน</option>
+              <option>ผ่าฟันคุด</option>
+              <option>อุดฟัน</option>
+              <option>ถอนฟัน</option>
+              <option>จัดฟัน</option>
+              <option>ฟอกสีฟัน</option>
+              <option>วีเนียร์</option>
+              <option>รากเทียม</option>
+              <option>ตรวจสุขภาพฟัน</option>
+            </select>
+          </div>
+          <!-- Date & Time -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">วันที่</label>
+              <input type="date" id="booking-date" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">เวลา</label>
+              <select id="booking-time" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <option>09:00</option>
+                <option>09:30</option>
+                <option>10:00</option>
+                <option>10:30</option>
+                <option>11:00</option>
+                <option>11:30</option>
+                <option>13:00</option>
+                <option>13:30</option>
+                <option>14:00</option>
+                <option>14:30</option>
+                <option>15:00</option>
+                <option>15:30</option>
+                <option>16:00</option>
+                <option>16:30</option>
+                <option>17:00</option>
+              </select>
+            </div>
+          </div>
+          <!-- Doctor -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">แพทย์</label>
+            <select id="booking-doctor" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option>ทพ.สมศรี</option>
+              <option>ทพญ.มนัสวี</option>
+              <option>ทพ.ประเสริฐ</option>
+              <option>ทพญ.นิดา</option>
+              <option>ทพ.วิชัย</option>
+            </select>
+          </div>
+          <!-- Note -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">หมายเหตุ</label>
+            <textarea id="booking-note" rows="2" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="หมายเหตุเพิ่มเติม..."></textarea>
+          </div>
+          <!-- Notification Options -->
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" checked class="rounded text-indigo-500 focus:ring-indigo-500">
+              <span class="text-sm text-gray-700">ส่งยืนยันนัดหมายทาง LINE</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" checked class="rounded text-indigo-500 focus:ring-indigo-500">
+              <span class="text-sm text-gray-700">แจ้งเตือนก่อนนัด 1 วัน</span>
+            </label>
+          </div>
+        </div>
+        <div class="p-5 border-t border-gray-200 flex gap-3 bg-gray-50">
+          <button onclick="closeBookingModal()" class="flex-1 px-4 py-2.5 bg-gray-200 text-gray-700 rounded-xl font-medium hover:bg-gray-300">ยกเลิก</button>
+          <button onclick="confirmBooking()" class="flex-1 px-4 py-2.5 bg-indigo-500 text-white rounded-xl font-medium hover:bg-indigo-600">ยืนยันนัดหมาย</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mock Data - Chat Tasks
+      const mockTasks = [
+        { id: 1, name: 'คุณสมชาย', phone: '081-234-5678', channel: 'LINE', avatar: 'ส', status: 'consult', lastMessage: 'อยากจะนัดผ่าฟันคุดครับ', time: '10:32', service: 'ผ่าฟันคุด', priority: 'high', branch: 'สาขาสยาม', tags: ['ลูกค้าใหม่'], unread: 2,
+          messages: [
+            { sender: 'customer', text: 'สวัสดีครับ', time: '10:30' },
+            { sender: 'customer', text: 'อยากจะนัดผ่าฟันคุดครับ', time: '10:32' },
+          ]
+        },
+        { id: 2, name: 'คุณพิมพ์ลดา', phone: '089-876-5432', channel: 'Facebook', avatar: 'พ', status: 'consult', lastMessage: 'สนใจแบบไหนเป็นพิเศษคะ?', time: '10:28', service: 'จัดฟัน', priority: 'medium', branch: 'สาขาสยาม',
+          messages: [
+            { sender: 'customer', text: 'สวัสดีค่ะ', time: '10:25' },
+            { sender: 'customer', text: 'รบกวนสอบถามราคาจัดฟันค่ะ', time: '10:28' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nสำหรับการจัดฟันที่ Dental Plus มีหลายแบบให้เลือกค่ะ:\n\n1. จัดฟันแบบโลหะ: เริ่มต้น 35,000 บาท\n2. จัดฟันแบบเซรามิก: เริ่มต้น 45,000 บาท\n3. จัดฟันใส (Invisalign): เริ่มต้น 120,000 บาท\n\nสนใจแบบไหนเป็นพิเศษคะ?', time: '10:28' },
+          ]
+        },
+        { id: 3, name: 'คุณวิชัย', phone: '062-111-2222', channel: 'LINE', avatar: 'ว', status: 'appoint', lastMessage: 'ขอบคุณครับ นัดวันเสาร์นะครับ', time: '10:15', service: 'ขูดหินปูน', priority: 'low', branch: 'สาขาสยาม',
+          messages: [
+            { sender: 'customer', text: 'สอบถามเรื่องขูดหินปูนครับ', time: '09:50' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nบริการขูดหินปูนที่ Dental Plus\n💰 ราคา: 800-1,200 บาท\n⏰ ใช้เวลา: 30-45 นาที\n\nต้องการนัดวันไหนดีคะ?', time: '09:51' },
+            { sender: 'customer', text: 'วันเสาร์ว่างไหมครับ', time: '10:00' },
+            { sender: 'ai', text: '🤖 วันเสาร์ที่ 20 ม.ค. ว่างค่ะ\n\nช่วงเวลาที่ว่าง:\n- 09:00\n- 10:30\n- 14:00\n- 15:30\n\nสะดวกช่วงไหนคะ?', time: '10:01' },
+            { sender: 'customer', text: '10:30 ครับ ชื่อ วิชัย โทร 062-111-2222', time: '10:10' },
+            { sender: 'ai', text: '🤖 รับทราบค่ะ ยืนยันการนัดหมาย:\n\n📅 วันเสาร์ที่ 20 ม.ค. 2567\n⏰ เวลา 10:30 น.\n🦷 บริการ: ขูดหินปูน\n👤 คุณวิชัย (062-111-2222)\n📍 สาขาสยาม\n\nระบบจะส่งข้อความแจ้งเตือนก่อนนัด 1 วันค่ะ ขอบคุณที่ใช้บริการค่ะ 🙏', time: '10:11' },
+            { sender: 'customer', text: 'ขอบคุณครับ นัดวันเสาร์นะครับ', time: '10:15' },
+          ]
+        },
+        { id: 4, name: 'คุณนารี', phone: '091-333-4444', channel: 'Instagram', avatar: 'น', status: 'consult', lastMessage: 'รบกวนขอราคาพิเศษได้ไหมคะ ทำหลายซี่', time: '10:05', service: 'วีเนียร์', priority: 'high', branch: 'สาขาอารีย์', tags: ['VIP', 'ติดตาม'], unread: 1,
+          messages: [
+            { sender: 'customer', text: 'สนใจทำวีเนียร์ 6 ซี่ค่ะ', time: '09:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nวีเนียร์ที่ Dental Plus\n💰 ราคา: 15,000-25,000 บาท/ซี่\n\nสำหรับ 6 ซี่ ราคาประมาณ 90,000-150,000 บาทค่ะ\n\nต้องการนัดมาปรึกษาก่อนไหมคะ?', time: '09:31' },
+            { sender: 'customer', text: 'ราคาเท่าไหร่คะถ้าทำ 6 ซี่พร้อมกัน', time: '09:45' },
+            { sender: 'ai', text: '🤖 สำหรับวีเนียร์ 6 ซี่ ราคาปกติ 120,000 บาทค่ะ\n\n✨ รวมบริการ:\n- ตรวจและออกแบบรอยยิ้ม\n- วีเนียร์ E-max 6 ซี่\n- ติดตามผล 1 ปี\n\nสนใจนัดปรึกษาไหมคะ?', time: '09:46' },
+            { sender: 'customer', text: 'รบกวนขอราคาพิเศษได้ไหมคะ ทำหลายซี่', time: '10:05' },
+          ]
+        },
+        { id: 5, name: 'คุณประเสริฐ', phone: '085-555-6666', channel: 'LINE', avatar: 'ป', status: 'consult', lastMessage: 'ฟันผุหลายซี่ ต้องทำยังไงบ้างครับ', time: '09:55', service: 'อุดฟัน', priority: 'medium', branch: 'สาขาสยาม',
+          messages: [
+            { sender: 'customer', text: 'สวัสดีครับ', time: '09:50' },
+            { sender: 'customer', text: 'ฟันผุหลายซี่ ต้องทำยังไงบ้างครับ', time: '09:55' },
+          ]
+        },
+        { id: 6, name: 'คุณสุภา', phone: '087-777-8888', channel: 'Facebook', avatar: 'ส', status: 'consult', lastMessage: 'สนใจบริการไหนเป็นพิเศษคะ?', time: '09:41', service: 'ปรึกษา', priority: 'low', branch: 'สาขาอารีย์',
+          messages: [
+            { sender: 'customer', text: 'มีโปรโมชั่นอะไรบ้างคะ', time: '09:40' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ โปรโมชั่นเดือนนี้ค่ะ:\n\n🎉 1. ฟอกสีฟัน ลด 20% เหลือ 3,200 บาท\n🎉 2. ขูดหินปูน + ขัดฟัน 999 บาท (จาก 1,500)\n🎉 3. จัดฟันใส ผ่อน 0% 12 เดือน\n\nสนใจบริการไหนเป็นพิเศษคะ?', time: '09:41' },
+          ]
+        },
+        { id: 7, name: 'คุณมานะ', phone: '083-999-0000', channel: 'LINE', avatar: 'ม', status: 'appoint', lastMessage: 'ได้เลยครับ ขอบคุณมากครับ', time: '09:20', service: 'ฟอกสีฟัน', priority: 'medium', branch: 'สาขาสยาม',
+          messages: [
+            { sender: 'customer', text: 'ฟอกสีฟันราคาเท่าไหร่ครับ', time: '09:00' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ฟอกสีฟันที่ Dental Plus:\n\n💎 Zoom Whitening: 4,000 บาท (ปกติ 5,000)\n⏰ ใช้เวลา: 1-1.5 ชั่วโมง\n✨ ขาวขึ้น 3-8 เฉด\n\nโปรเดือนนี้ลด 20% เหลือ 3,200 บาทค่ะ!', time: '09:01' },
+            { sender: 'customer', text: 'สนใจครับ นัดวันอาทิตย์ได้ไหม', time: '09:10' },
+            { sender: 'ai', text: '🤖 วันอาทิตย์ที่ 21 ม.ค. ว่างค่ะ\n\nช่วงเวลาที่ว่าง:\n- 10:00\n- 13:00\n- 15:00\n\nสะดวกช่วงไหนคะ?', time: '09:11' },
+            { sender: 'customer', text: '13:00 ครับ ชื่อมานะ', time: '09:15' },
+            { sender: 'ai', text: '🤖 ยืนยันการนัดหมาย:\n\n📅 วันอาทิตย์ที่ 21 ม.ค. 2567\n⏰ เวลา 13:00 น.\n🦷 บริการ: ฟอกสีฟัน Zoom\n💰 ราคาโปร: 3,200 บาท\n👤 คุณมานะ\n📍 สาขาสยาม\n\nขอบคุณที่ใช้บริการค่ะ 🙏', time: '09:16' },
+            { sender: 'customer', text: 'ได้เลยครับ ขอบคุณมากครับ', time: '09:20' },
+          ]
+        },
+        { id: 8, name: 'คุณจินตนา', phone: '086-111-3333', channel: 'LINE', avatar: 'จ', status: 'appoint', lastMessage: 'ทำประกันได้ไหมคะ ประกัน AIA', time: '09:00', service: 'รากเทียม', priority: 'high', branch: 'สาขาสยาม', tags: ['ประกัน', 'VIP'], unread: 1,
+          messages: [
+            { sender: 'customer', text: 'สอบถามเรื่องรากเทียมค่ะ', time: '08:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ รากเทียมที่ Dental Plus:\n\n🦷 รากเทียม Straumann (Swiss): 80,000 บาท/ซี่\n🦷 รากเทียม Osstem (Korea): 45,000 บาท/ซี่\n\nรวมครอบฟันและติดตามผล 5 ปีค่ะ', time: '08:31' },
+            { sender: 'customer', text: 'ทำประกันได้ไหมคะ ประกัน AIA', time: '09:00' },
+            { sender: 'ai', text: '🤖 รับทราบค่ะ Dental Plus รับประกัน AIA ค่ะ\n\nดิฉันจะส่งเรื่องให้ทีมประกันตรวจสอบสิทธิ์ให้นะคะ\n\nกรุณารอสักครู่ จะแจ้งกลับโดยเร็วที่สุดค่ะ 🙏', time: '09:01' },
+          ]
+        },
+        { id: 9, name: 'คุณธนา', phone: '084-222-4444', channel: 'Facebook', avatar: 'ธ', status: 'consult', lastMessage: 'มีหมอเฉพาะทางจัดฟันไหมครับ', time: '08:45', service: 'จัดฟัน', priority: 'medium', branch: 'สาขาอารีย์',
+          messages: [
+            { sender: 'customer', text: 'มีหมอเฉพาะทางจัดฟันไหมครับ', time: '08:45' },
+          ]
+        },
+        { id: 10, name: 'คุณกัญญา', phone: '088-333-5555', channel: 'Instagram', avatar: 'ก', status: 'treatment', lastMessage: 'ต้องเตรียมตัวยังไงบ้างคะก่อนมา', time: '08:30', service: 'ผ่าฟันคุด', priority: 'medium', branch: 'สาขาสยาม',
+          messages: [
+            { sender: 'customer', text: 'พรุ่งนี้นัดผ่าฟันคุดค่ะ ต้องเตรียมตัวยังไงบ้างคะก่อนมา', time: '08:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ การเตรียมตัวก่อนผ่าฟันคุด:\n\n✅ พักผ่อนให้เพียงพอ\n✅ รับประทานอาหารก่อนมา 2-3 ชม.\n✅ ไม่ดื่มแอลกอฮอล์ 24 ชม. ก่อน\n✅ แจ้งยาที่รับประทานอยู่\n✅ นำบัตรประชาชนมาด้วย\n\n❌ งดสูบบุหรี่ก่อน-หลังผ่า\n\nมีคนมาส่งไหมคะ? แนะนำให้มีคนมาด้วยค่ะ', time: '08:31' },
+          ]
+        },
+        { id: 11, name: 'คุณอนันต์', phone: '082-444-6666', channel: 'LINE', avatar: 'อ', status: 'completed', lastMessage: 'เข้าใจแล้วครับ ขอบคุณครับ', time: '08:15', service: 'ปรึกษา', priority: 'low', branch: 'สาขาสยาม',
+          messages: [
+            { sender: 'customer', text: 'ทำไมต้องถ่าย X-ray ก่อนครับ', time: '08:00' },
+            { sender: 'ai', text: '🤖 การถ่าย X-ray ก่อนรักษาสำคัญมากค่ะ:\n\n🔍 เพื่อดู:\n- รากฟันและกระดูกใต้เหงือก\n- ฟันคุดที่ซ่อนอยู่\n- โพรงประสาทฟัน\n- ปัญหาที่มองไม่เห็นด้วยตา\n\n✨ ช่วยให้หมอวางแผนการรักษาได้แม่นยำค่ะ\n\nที่คลินิกใช้ Digital X-ray ซึ่งปลอดภัย รังสีน้อยมากค่ะ', time: '08:01' },
+            { sender: 'customer', text: 'เข้าใจแล้วครับ ขอบคุณครับ', time: '08:15' },
+          ]
+        },
+        { id: 12, name: 'คุณรัตนา', phone: '089-555-7777', channel: 'LINE', avatar: 'ร', status: 'payment', lastMessage: 'โอเคค่ะ เจอกันวันพฤหัส', time: '07:50', service: 'ตรวจสุขภาพฟัน', priority: 'low', branch: 'สาขาอารีย์',
+          messages: [
+            { sender: 'customer', text: 'จะพาลูกมาตรวจฟันค่ะ อายุ 5 ขวบ', time: '07:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\n👶 สำหรับน้องอายุ 5 ขวบ:\n- ตรวจสุขภาพฟัน: ฟรี!\n- เคลือบฟลูออไรด์: 300 บาท\n- เคลือบหลุมร่องฟัน: 400 บาท/ซี่\n\nมีหมอเฉพาะทางเด็กค่ะ นัดวันไหนดีคะ?', time: '07:31' },
+            { sender: 'customer', text: 'วันพฤหัสบ่ายว่างไหมคะ', time: '07:40' },
+            { sender: 'ai', text: '🤖 วันพฤหัสที่ 18 ม.ค. ช่วงบ่ายว่างค่ะ:\n- 13:00\n- 14:30\n- 16:00\n\nสะดวกช่วงไหนคะ?', time: '07:41' },
+            { sender: 'customer', text: '14:30 ค่ะ ชื่อแม่ รัตนา ลูกชื่อน้องบีม', time: '07:45' },
+            { sender: 'ai', text: '🤖 ยืนยันการนัดหมาย:\n\n📅 วันพฤหัสที่ 18 ม.ค. 2567\n⏰ เวลา 14:30 น.\n👶 น้องบีม (5 ขวบ)\n👩 ผู้ปกครอง: คุณรัตนา\n🦷 บริการ: ตรวจสุขภาพฟัน\n📍 สาขาสยาม\n\nขอบคุณที่ใช้บริการค่ะ 🙏', time: '07:46' },
+            { sender: 'customer', text: 'โอเคค่ะ เจอกันวันพฤหัส', time: '07:50' },
+          ]
+        },
+      ];
+
+      let tasks = [...mockTasks];
+      let currentTab = 'all';
+      let currentTaskId = null;
+      let searchQuery = '';
+      let currentChannel = 'all';
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        renderTaskList();
+        updateCounts();
+      });
+
+      // Switch Tab
+      function switchTab(tab) {
+        currentTab = tab;
+        document.querySelectorAll('.status-tab').forEach(btn => {
+          btn.classList.remove('active');
+          const btnTab = btn.dataset.tab;
+          if (btnTab === tab) {
+            btn.classList.add('active');
+            if (tab === 'all') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-gray-700 text-white relative';
+            else if (tab === 'consult') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-yellow-500 text-white relative';
+            else if (tab === 'appoint') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-blue-500 text-white relative';
+            else if (tab === 'treatment') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-purple-500 text-white relative';
+            else if (tab === 'payment') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-orange-500 text-white relative';
+            else if (tab === 'completed') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-green-500 text-white relative';
+          } else {
+            if (btnTab === 'all') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200 relative';
+            else if (btnTab === 'consult') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-yellow-100 text-yellow-700 hover:bg-yellow-200 relative';
+            else if (btnTab === 'appoint') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-blue-100 text-blue-700 hover:bg-blue-200 relative';
+            else if (btnTab === 'treatment') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-purple-100 text-purple-700 hover:bg-purple-200 relative';
+            else if (btnTab === 'payment') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-orange-100 text-orange-700 hover:bg-orange-200 relative';
+            else if (btnTab === 'completed') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-green-100 text-green-700 hover:bg-green-200 relative';
+          }
+        });
+        renderTaskList();
+      }
+
+      // Render Task List
+      function renderTaskList() {
+        let filteredTasks = tasks;
+
+        // Filter by tab
+        if (currentTab !== 'all') {
+          filteredTasks = filteredTasks.filter(t => t.status === currentTab);
+        }
+
+        // Filter by channel
+        if (currentChannel !== 'all') {
+          filteredTasks = filteredTasks.filter(t => t.channel === currentChannel);
+        }
+
+        // Filter by search
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          filteredTasks = filteredTasks.filter(t =>
+            t.name.toLowerCase().includes(q) ||
+            t.service.toLowerCase().includes(q) ||
+            t.phone.includes(q)
+          );
+        }
+
+        // Sort: current chat first, then unread, then by time (like Messenger)
+        filteredTasks = [...filteredTasks].sort((a, b) => {
+          // First priority: currently selected task stays at top
+          if (a.id === currentTaskId) return -1;
+          if (b.id === currentTaskId) return 1;
+          // Second priority: unread messages at top
+          const aUnread = a.unread || 0;
+          const bUnread = b.unread || 0;
+          if (aUnread > 0 && bUnread === 0) return -1;
+          if (aUnread === 0 && bUnread > 0) return 1;
+          // Third priority: by time (newer first) - like Messenger
+          return b.time.localeCompare(a.time);
+        });
+
+        const taskList = document.getElementById('task-list');
+
+        if (filteredTasks.length === 0) {
+          taskList.innerHTML = `
+            <div class="flex items-center justify-center h-full text-gray-400 p-8">
+              <p class="text-center text-sm">ไม่มีงานในหมวดนี้</p>
+            </div>
+          `;
+          return;
+        }
+
+        taskList.innerHTML = filteredTasks.map(task => createTaskCard(task)).join('');
+      }
+
+      // Create Task Card HTML
+      function createTaskCard(task) {
+        const channelColors = {
+          'LINE': 'bg-green-500',
+          'Facebook': 'bg-blue-500',
+          'Instagram': 'bg-gradient-to-br from-purple-500 to-pink-500',
+          'TikTok': 'bg-gray-800'
+        };
+
+        const channelIcons = {
+          'LINE': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>`,
+          'Facebook': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+          'Instagram': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`,
+          'TikTok': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>`
+        };
+
+        const channelIconColors = {
+          'LINE': 'text-green-500',
+          'Facebook': 'text-blue-600',
+          'Instagram': 'text-pink-500',
+          'TikTok': 'text-gray-800'
+        };
+
+        const statusColors = {
+          'consult': { bg: 'bg-yellow-50', border: 'border-l-yellow-500', badge: 'bg-yellow-100 text-yellow-700', icon: '' },
+          'appoint': { bg: 'bg-blue-50', border: 'border-l-blue-500', badge: 'bg-blue-100 text-blue-700', icon: '' },
+          'treatment': { bg: 'bg-purple-50', border: 'border-l-purple-500', badge: 'bg-purple-100 text-purple-700', icon: '' },
+          'payment': { bg: 'bg-orange-50', border: 'border-l-orange-500', badge: 'bg-orange-100 text-orange-700', icon: '' },
+          'completed': { bg: 'bg-green-50', border: 'border-l-green-500', badge: 'bg-green-100 text-green-700', icon: '' }
+        };
+
+        const priorityColors = {
+          'high': 'bg-red-100 text-red-700',
+          'medium': 'bg-yellow-100 text-yellow-700',
+          'low': 'bg-gray-100 text-gray-600'
+        };
+
+        const priorityText = { high: 'ด่วน', medium: 'ปานกลาง', low: 'ปกติ' };
+        const statusText = { consult: 'ปรึกษา', appoint: 'นัดหมาย', treatment: 'พบแพทย์', payment: 'ชำระเงิน', completed: 'เสร็จสิ้น' };
+
+        const statusStyle = statusColors[task.status] || statusColors['consult'];
+
+        const unreadBadge = task.unread > 0
+          ? `<span class="ml-2 px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[20px] text-center">${task.unread}</span>`
+          : '';
+
+        return `
+          <div class="task-card bg-white rounded-xl p-4 shadow-sm border-l-4 ${statusStyle.border} ${currentTaskId === task.id ? 'ring-2 ring-dental-500 bg-dental-50' : ''}" onclick="selectTask(${task.id})">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="relative">
+                  <div class="w-10 h-10 ${channelColors[task.channel] || 'bg-gray-500'} rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    ${task.avatar}
+                  </div>
+                  <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-sm ${channelIconColors[task.channel] || 'text-gray-500'}">
+                    ${channelIcons[task.channel] || ''}
+                  </div>
+                  ${task.unread > 0 ? '<div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></div>' : ''}
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">${task.name}</p>
+                  <p class="text-xs text-gray-500">${task.phone}</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="text-xs text-gray-400">${task.time}</span>
+                ${unreadBadge}
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">${task.lastMessage}</p>
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 ${statusStyle.badge} text-xs rounded-full font-medium">${statusText[task.status] || task.status}</span>
+                <span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">${task.service}</span>
+              </div>
+              <span class="px-2 py-0.5 ${priorityColors[task.priority]} text-xs rounded-full">${priorityText[task.priority]}</span>
+            </div>
+
+            <div class="mt-2 pt-2 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
+              <span class="flex items-center gap-1 ${channelIconColors[task.channel] || 'text-gray-500'}">
+                ${channelIcons[task.channel] || ''}
+                <span>${task.channel}</span>
+              </span>
+              <span>${task.branch}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      // Select Task
+      function selectTask(taskId) {
+        currentTaskId = taskId;
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        // Clear unread when task is selected
+        if (task.unread > 0) {
+          task.unread = 0;
+          updateCounts();
+        }
+
+        renderTaskList();
+
+        const statusBadge = {
+          'consult': { class: 'bg-yellow-100 text-yellow-700', text: 'ปรึกษา' },
+          'appoint': { class: 'bg-blue-100 text-blue-700', text: 'นัดหมาย' },
+          'treatment': { class: 'bg-purple-100 text-purple-700', text: 'พบแพทย์' },
+          'payment': { class: 'bg-orange-100 text-orange-700', text: 'ชำระเงิน' },
+          'completed': { class: 'bg-green-100 text-green-700', text: 'เสร็จสิ้น' }
+        };
+
+        // Get channel icon
+        const channelIcons = {
+          'LINE': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>`,
+          'Facebook': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+          'Instagram': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`,
+          'TikTok': `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>`
+        };
+        const channelIconColors = { 'LINE': 'text-green-500', 'Facebook': 'text-blue-600', 'Instagram': 'text-pink-500', 'TikTok': 'text-gray-800' };
+
+        // Get task tags
+        const taskTags = task.tags || [];
+
+        // Render conversation with sidebar
+        const chatDetail = document.getElementById('chat-detail');
+        chatDetail.innerHTML = `
+          <!-- Drawer Overlay for Mobile -->
+          <div id="drawer-overlay" class="drawer-overlay" onclick="closeCustomerDrawer()"></div>
+
+          <div class="flex h-full">
+            <!-- Main Chat Area -->
+            <div class="flex-1 flex flex-col">
+              <!-- Chat Header -->
+              <div class="bg-white px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-dental-500 rounded-full flex items-center justify-center text-white font-bold">
+                    ${task.avatar}
+                  </div>
+                  <div>
+                    <p class="font-bold text-gray-800">${task.name}</p>
+                    <p class="text-xs text-gray-500">${task.phone} • ${task.channel}</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <!-- Customer Info Toggle Button -->
+                  <button onclick="toggleCustomerDrawer()" id="drawer-toggle-btn" class="px-3 py-2 rounded-xl text-sm font-medium transition-all bg-dental-100 text-dental-700 hover:bg-dental-200 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <span>ข้อมูลลูกค้า</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Messages -->
+              <div class="flex-1 overflow-y-auto p-6 space-y-4" id="message-area">
+                ${task.messages.map(msg => createMessageBubble(msg)).join('')}
+              </div>
+
+              <!-- Tags & Booking Section (Above Reply Input) -->
+              <div class="bg-gray-50 px-6 py-2 border-t border-gray-100">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="text-xs text-gray-400">แท็ก:</span>
+                  <div class="flex flex-wrap gap-1" id="inline-tags-${task.id}">
+                    ${(task.tags || []).map(tag => `
+                      <span class="px-1.5 py-0.5 bg-dental-100 text-dental-700 text-xs rounded-full flex items-center gap-0.5">
+                        ${tag}
+                        <button onclick="removeTag(${task.id}, '${tag}')" class="hover:text-red-500">
+                          <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </span>
+                    `).join('')}
+                  </div>
+                  <div class="flex items-center gap-1 ml-auto">
+                    <input type="text" id="inline-tag-input-${task.id}" placeholder="+แท็ก" class="w-16 px-1.5 py-0.5 border border-gray-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-dental-500 bg-white" onkeypress="if(event.key==='Enter')addInlineTag(${task.id})" />
+                    <button onclick="addQuickTag(${task.id}, 'VIP')" class="px-1 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded hover:bg-yellow-200" title="VIP">⭐</button>
+                    <button onclick="addQuickTag(${task.id}, 'ติดตาม')" class="px-1 py-0.5 bg-blue-100 text-blue-700 text-xs rounded hover:bg-blue-200" title="ติดตาม">📌</button>
+                    <button onclick="addQuickTag(${task.id}, 'ประกัน')" class="px-1 py-0.5 bg-purple-100 text-purple-700 text-xs rounded hover:bg-purple-200" title="ประกัน">🏥</button>
+                    <span class="mx-1 text-gray-300">|</span>
+                    <button onclick="openBooking(${task.id})" class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded hover:bg-indigo-200 flex items-center gap-1" title="Booking">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      Booking
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reply Input -->
+              <div class="bg-white px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center gap-3">
+                  <input type="text" id="reply-input" placeholder="พิมพ์ข้อความตอบกลับ..." class="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" onkeypress="handleReplyKeypress(event, ${task.id})" />
+                  <button onclick="sendReply(${task.id})" class="px-4 py-2.5 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Info Sidebar (Push Drawer - Compresses chat) -->
+            <div id="customer-drawer" class="customer-drawer bg-white flex flex-col">
+              <div class="customer-drawer-content flex flex-col h-full overflow-y-auto">
+              <!-- Header with Close Button -->
+              <div class="flex items-center justify-between p-3 border-b border-gray-100 bg-gray-50">
+                <span class="font-medium text-gray-700">ข้อมูลลูกค้า</span>
+                <button onclick="closeCustomerDrawer()" class="p-1.5 text-gray-500 hover:text-gray-700 hover:bg-gray-200 rounded-lg" title="ปิด">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <!-- Customer Profile -->
+              <div class="p-4 border-b border-gray-100">
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-16 h-16 bg-dental-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-3">
+                    ${task.avatar}
+                  </div>
+                  <h3 class="font-bold text-gray-800 text-lg">${task.name}</h3>
+                  <div class="flex items-center gap-1 mt-1 ${channelIconColors[task.channel] || 'text-gray-500'}">
+                    ${channelIcons[task.channel] || ''}
+                    <span class="text-sm">${task.channel}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Customer Details -->
+              <div class="p-4 border-b border-gray-100">
+                <h4 class="text-xs font-semibold text-gray-400 uppercase mb-3">ข้อมูลลูกค้า</h4>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span class="text-sm text-gray-700">${task.phone}</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                    <span class="text-sm text-gray-700">${task.branch}</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                    <span class="text-sm text-gray-700">${task.service}</span>
+                  </div>
+                </div>
+              </div>
+
+              </div><!-- End customer-drawer-content -->
+            </div><!-- End customer-drawer -->
+          </div>
+        `;
+
+        // Scroll to bottom
+        setTimeout(() => {
+          const messageArea = document.getElementById('message-area');
+          if (messageArea) messageArea.scrollTop = messageArea.scrollHeight;
+        }, 100);
+      }
+
+      // Create Message Bubble
+      function createMessageBubble(msg) {
+        if (msg.sender === 'customer') {
+          return `
+            <div class="flex justify-start">
+              <div class="max-w-[70%] bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-gray-100">
+                <p class="text-sm text-gray-800 whitespace-pre-wrap">${msg.text}</p>
+                <p class="text-xs text-gray-400 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        } else if (msg.sender === 'ai') {
+          return `
+            <div class="flex justify-end">
+              <div class="max-w-[70%] bg-green-100 rounded-2xl rounded-br-md px-4 py-3">
+                <div class="flex items-center gap-1 mb-1">
+                  <span class="text-xs text-green-600 font-medium">🤖 AI ตอบ</span>
+                </div>
+                <p class="text-sm text-gray-800 whitespace-pre-wrap">${msg.text}</p>
+                <p class="text-xs text-green-600 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="flex justify-end">
+              <div class="max-w-[70%] bg-dental-500 text-white rounded-2xl rounded-br-md px-4 py-3">
+                <div class="flex items-center gap-1 mb-1">
+                  <span class="text-xs text-dental-100 font-medium">👤 คุณ</span>
+                </div>
+                <p class="text-sm whitespace-pre-wrap">${msg.text}</p>
+                <p class="text-xs text-dental-200 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // Send Reply
+      function handleReplyKeypress(e, taskId) {
+        if (e.key === 'Enter') sendReply(taskId);
+      }
+
+      function sendReply(taskId) {
+        const input = document.getElementById('reply-input');
+        const text = input.value.trim();
+        if (!text) return;
+
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        const now = new Date();
+        const time = now.toTimeString().slice(0, 5);
+
+        task.messages.push({ sender: 'agent', text, time });
+        task.lastMessage = text;
+        task.time = time;
+
+        // Auto move to appoint if it was consult (when agent sends a message)
+        if (task.status === 'consult') {
+          task.status = 'appoint';
+          updateCounts();
+        }
+
+        input.value = '';
+        selectTask(taskId);
+        renderTaskList();
+      }
+
+      // Open Booking
+      let currentBookingTaskId = null;
+      function openBooking(taskId) {
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        currentBookingTaskId = taskId;
+        document.getElementById('booking-patient-name').textContent = `${task.name} • ${task.phone}`;
+
+        // Pre-select branch
+        const branchSelect = document.getElementById('booking-branch');
+        if (task.branch.includes('สยาม')) branchSelect.value = 'siam';
+        else if (task.branch.includes('อารีย์')) branchSelect.value = 'ari';
+        else branchSelect.value = 'thonglor';
+
+        // Pre-select treatment
+        document.getElementById('booking-treatment').value = task.service;
+
+        // Set default date to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('booking-date').value = tomorrow.toISOString().split('T')[0];
+
+        document.getElementById('booking-modal').classList.remove('hidden');
+      }
+
+      // Close Booking Modal
+      function closeBookingModal() {
+        document.getElementById('booking-modal').classList.add('hidden');
+        currentBookingTaskId = null;
+      }
+
+      // Confirm Booking
+      function confirmBooking() {
+        const task = tasks.find(t => t.id === currentBookingTaskId);
+        if (!task) return;
+
+        const branch = document.getElementById('booking-branch').options[document.getElementById('booking-branch').selectedIndex].text;
+        const treatment = document.getElementById('booking-treatment').value;
+        const date = document.getElementById('booking-date').value;
+        const time = document.getElementById('booking-time').value;
+        const doctor = document.getElementById('booking-doctor').value;
+
+        // Add to journal
+        if (!task.tags) task.tags = [];
+        if (!task.tags.includes('นัดแล้ว')) task.tags.push('นัดแล้ว');
+
+        // Update task - after booking, move to treatment step
+        task.status = 'treatment';
+        updateCounts();
+        renderTaskList();
+
+        alert(`✅ นัดหมายสำเร็จ!\n\n👤 ${task.name}\n📅 ${date} เวลา ${time}\n🦷 ${treatment}\n👨‍⚕️ ${doctor}\n📍 ${branch}\n\nระบบจะส่งข้อความยืนยันทาง LINE`);
+
+        closeBookingModal();
+        selectTask(currentBookingTaskId);
+      }
+
+
+      // Get Patient Journey Step HTML (Center Flow - ตามรูป P'Ken)
+      function getPatientJourneyHtml(task) {
+        // Map task status to step number (5 steps ตาม Center Flow)
+        const statusToStep = {
+          'consult': 2,      // กำลัง AI วิเคราะห์
+          'appoint': 3,      // กำลังดำเนินการ
+          'treatment': 4,    // รอตรวจสอบ
+          'payment': 4,      // รอตรวจสอบ
+          'completed': 5     // ส่งสาขาแล้ว
+        };
+        const currentStep = statusToStep[task.status] || 1;
+
+        // Steps ตาม Flow ของ P'Ken (ภาษา Head Admin)
+        const steps = [
+          { num: 1, label: 'รับแชท', icon: '💬', color: 'gray', desc: 'ข้อความเข้ามาใหม่' },
+          { num: 2, label: 'AI วิเคราะห์', icon: '🤖', color: 'blue', desc: 'ระบบกำลังประมวลผล' },
+          { num: 3, label: 'ดำเนินการ', icon: '⚡', color: 'yellow', desc: 'เลือกวิธีจัดการ' },
+          { num: 4, label: 'ตรวจสอบ', icon: '👁️', color: 'purple', desc: 'รอหัวหน้าตรวจสอบ' },
+          { num: 5, label: 'ส่งสาขา', icon: '🏥', color: 'green', desc: 'ส่งข้อมูลไปคลินิก' }
+        ];
+
+        const stepColors = {
+          1: { bg: 'bg-gray-500', ring: 'ring-gray-100', text: 'text-gray-600', light: 'bg-gray-50' },
+          2: { bg: 'bg-blue-500', ring: 'ring-blue-100', text: 'text-blue-600', light: 'bg-blue-50' },
+          3: { bg: 'bg-yellow-500', ring: 'ring-yellow-100', text: 'text-yellow-600', light: 'bg-yellow-50' },
+          4: { bg: 'bg-purple-500', ring: 'ring-purple-100', text: 'text-purple-600', light: 'bg-purple-50' },
+          5: { bg: 'bg-green-500', ring: 'ring-green-100', text: 'text-green-600', light: 'bg-green-50' }
+        };
+
+        // AI Analysis Mock Data
+        const aiAnalysis = {
+          intent: task.service || 'สอบถามข้อมูล',
+          confidence: Math.floor(Math.random() * 20) + 80,
+          suggestion: currentStep <= 2 ? 'รอ AI วิเคราะห์' : (task.status === 'completed' ? 'AI ปิดเคสแล้ว' : 'แจกให้ Admin')
+        };
+
+        return `
+          <!-- Timeline -->
+          <div class="flex items-center justify-between mb-4">
+            ${steps.map((step, index) => {
+              const colors = stepColors[step.num];
+              const isCompleted = step.num < currentStep;
+              const isCurrent = step.num === currentStep;
+              return `
+              <div class="flex flex-col items-center ${index < steps.length - 1 ? 'flex-1' : ''}"
+                   onclick="showStepDetail(${task.id}, ${step.num})"
+                   style="cursor: pointer;"
+                   title="${step.desc}">
+                <div class="relative flex items-center w-full">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm transition-all hover:scale-110 ${
+                    isCompleted
+                      ? 'bg-green-500 text-white shadow-sm'
+                      : isCurrent
+                        ? colors.bg + ' text-white ring-4 ' + colors.ring + ' shadow-md'
+                        : 'bg-gray-200 text-gray-400'
+                  }">
+                    ${isCompleted ? '✓' : step.icon}
+                  </div>
+                  ${index < steps.length - 1 ? `
+                    <div class="flex-1 h-1 mx-1 rounded ${isCompleted ? 'bg-green-500' : 'bg-gray-200'}"></div>
+                  ` : ''}
+                </div>
+                <span class="text-[10px] mt-1.5 text-center leading-tight ${isCurrent ? colors.text + ' font-semibold' : 'text-gray-400'}">${step.label}</span>
+              </div>
+            `}).join('')}
+          </div>
+
+          <!-- Current Step Detail Card -->
+          <div class="${stepColors[currentStep].light} rounded-xl p-3 border border-gray-100">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-semibold ${stepColors[currentStep].text}">
+                ${steps[currentStep-1].icon} ${steps[currentStep-1].label}
+              </span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full ${currentStep === 5 ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'}">
+                ${currentStep === 5 ? 'เสร็จสิ้น' : 'กำลังดำเนินการ'}
+              </span>
+            </div>
+            <p class="text-xs text-gray-600 mb-3">${steps[currentStep-1].desc}</p>
+
+            ${currentStep === 2 ? `
+            <!-- AI Analysis -->
+            <div class="bg-white rounded-lg p-2 mb-2 border border-blue-100">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] text-gray-500">AI วิเคราะห์:</span>
+                <span class="text-[10px] font-medium text-blue-700">${aiAnalysis.intent}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-gray-500">ความมั่นใจ:</span>
+                <div class="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-blue-500 rounded-full" style="width: ${aiAnalysis.confidence}%"></div>
+                </div>
+                <span class="text-[10px] font-medium text-blue-700">${aiAnalysis.confidence}%</span>
+              </div>
+            </div>
+            ` : ''}
+
+            ${currentStep === 3 ? `
+            <!-- Action Buttons -->
+            <div class="flex gap-2">
+              <button onclick="handleAIClose(${task.id})" class="flex-1 px-3 py-2 bg-blue-500 text-white text-xs rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-1">
+                <span>🤖</span> AI ปิดเคส
+              </button>
+              <button onclick="handleAssignAdmin(${task.id})" class="flex-1 px-3 py-2 bg-yellow-500 text-white text-xs rounded-lg hover:bg-yellow-600 transition-colors flex items-center justify-center gap-1">
+                <span>👤</span> แจก Admin
+              </button>
+            </div>
+            <div class="mt-2 flex gap-2">
+              <label class="flex items-center gap-1 text-[10px] text-gray-500 cursor-pointer">
+                <input type="radio" name="assignMode-${task.id}" value="auto" class="w-3 h-3"> แจกอัตโนมัติ
+              </label>
+              <label class="flex items-center gap-1 text-[10px] text-gray-500 cursor-pointer">
+                <input type="radio" name="assignMode-${task.id}" value="manual" checked class="w-3 h-3"> ให้หยิบเอง
+              </label>
+            </div>
+            ` : ''}
+
+            ${currentStep === 4 ? `
+            <!-- Approval Section -->
+            <div class="bg-white rounded-lg p-2 border border-purple-100">
+              <p class="text-[10px] text-gray-500 mb-2">รอ Super Admin ตรวจสอบและยืนยัน</p>
+              <button onclick="handleApprove(${task.id})" class="w-full px-3 py-2 bg-purple-500 text-white text-xs rounded-lg hover:bg-purple-600 transition-colors flex items-center justify-center gap-1">
+                <span>✅</span> อนุมัติส่งสาขา
+              </button>
+            </div>
+            ` : ''}
+
+            ${currentStep === 5 ? `
+            <!-- Completed -->
+            <div class="bg-white rounded-lg p-2 border border-green-100 text-center">
+              <p class="text-xs text-green-700 font-medium">✅ ส่งข้อมูลไปสาขาเรียบร้อยแล้ว</p>
+              <p class="text-[10px] text-gray-500 mt-1">สาขา: ${task.branch || 'สาขาสยาม'}</p>
+            </div>
+            ` : ''}
+          </div>
+
+          <!-- History Toggle -->
+          <button onclick="toggleHistory(${task.id})" class="w-full mt-2 px-3 py-1.5 text-[10px] text-gray-500 hover:text-gray-700 hover:bg-gray-50 rounded-lg transition-colors flex items-center justify-center gap-1">
+            <span>📋</span> ดูประวัติการดำเนินการ
+          </button>
+          <div id="history-${task.id}" class="hidden mt-2 text-[10px] text-gray-500 space-y-1 pl-2 border-l-2 border-gray-200">
+            <p>• ${task.time || '10:30'} - ลูกค้าส่งข้อความ</p>
+            <p>• ${task.time || '10:30'} - AI รับเรื่องและวิเคราะห์</p>
+            ${currentStep >= 3 ? '<p>• AI วิเคราะห์เสร็จสิ้น</p>' : ''}
+            ${currentStep >= 4 ? '<p>• รอ Super Admin ตรวจสอบ</p>' : ''}
+            ${currentStep >= 5 ? '<p>• ส่งข้อมูลไปสาขาแล้ว</p>' : ''}
+          </div>
+        `;
+      }
+
+      // Helper functions for new flow
+      function showStepDetail(taskId, stepNum) {
+        console.log('Show detail for task', taskId, 'step', stepNum);
+        // Could open a modal with more details
+      }
+
+      function handleAIClose(taskId) {
+        if (confirm('ยืนยันให้ AI ปิดเคสนี้?')) {
+          changeTaskStatus('treatment');
+        }
+      }
+
+      function handleAssignAdmin(taskId) {
+        const mode = document.querySelector(`input[name="assignMode-${taskId}"]:checked`)?.value || 'manual';
+        alert(mode === 'auto' ? 'แจกให้ Admin อัตโนมัติแล้ว' : 'เปิดให้ Admin หยิบงานเองแล้ว');
+        changeTaskStatus('treatment');
+      }
+
+      function handleApprove(taskId) {
+        if (confirm('ยืนยันอนุมัติและส่งข้อมูลไปสาขา?')) {
+          changeTaskStatus('completed');
+        }
+      }
+
+      function toggleHistory(taskId) {
+        const el = document.getElementById(`history-${taskId}`);
+        if (el) el.classList.toggle('hidden');
+      }
+
+      // Add Tag (from sidebar)
+      function addTag(taskId) {
+        const input = document.getElementById(`new-tag-input-${taskId}`);
+        const tagText = input.value.trim();
+        if (!tagText) return;
+
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        if (!task.tags) task.tags = [];
+        if (!task.tags.includes(tagText)) {
+          task.tags.push(tagText);
+          selectTask(taskId);
+        }
+        input.value = '';
+      }
+
+      // Add Inline Tag (from above text input)
+      function addInlineTag(taskId) {
+        const input = document.getElementById(`inline-tag-input-${taskId}`);
+        const tagText = input.value.trim();
+        if (!tagText) return;
+
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        if (!task.tags) task.tags = [];
+        if (!task.tags.includes(tagText)) {
+          task.tags.push(tagText);
+          selectTask(taskId);
+        }
+        input.value = '';
+      }
+
+      // Add Quick Tag
+      function addQuickTag(taskId, tagText) {
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        if (!task.tags) task.tags = [];
+        if (!task.tags.includes(tagText)) {
+          task.tags.push(tagText);
+          selectTask(taskId);
+        }
+      }
+
+      // Remove Tag
+      function removeTag(taskId, tagText) {
+        const task = tasks.find(t => t.id === taskId);
+        if (!task || !task.tags) return;
+
+        task.tags = task.tags.filter(t => t !== tagText);
+        selectTask(taskId);
+      }
+
+      // Status Modal
+      function showStatusModal() {
+        document.getElementById('status-modal').classList.remove('hidden');
+      }
+
+      function closeStatusModal() {
+        document.getElementById('status-modal').classList.add('hidden');
+      }
+
+      // Customer Drawer Toggle (Push style - compresses chat)
+      function toggleCustomerDrawer() {
+        const drawer = document.getElementById('customer-drawer');
+        const toggleBtn = document.getElementById('drawer-toggle-btn');
+        if (drawer) {
+          const isOpen = drawer.classList.toggle('open');
+          // Update button styling when open
+          if (toggleBtn) {
+            if (isOpen) {
+              toggleBtn.classList.remove('bg-dental-100', 'text-dental-700');
+              toggleBtn.classList.add('bg-dental-500', 'text-white');
+            } else {
+              toggleBtn.classList.remove('bg-dental-500', 'text-white');
+              toggleBtn.classList.add('bg-dental-100', 'text-dental-700');
+            }
+          }
+        }
+      }
+
+      function closeCustomerDrawer() {
+        const drawer = document.getElementById('customer-drawer');
+        const toggleBtn = document.getElementById('drawer-toggle-btn');
+        if (drawer) {
+          drawer.classList.remove('open');
+          // Reset button styling
+          if (toggleBtn) {
+            toggleBtn.classList.remove('bg-dental-500', 'text-white');
+            toggleBtn.classList.add('bg-dental-100', 'text-dental-700');
+          }
+        }
+      }
+
+      function changeTaskStatus(newStatus) {
+        if (currentTaskId) {
+          const task = tasks.find(t => t.id === currentTaskId);
+          if (task) {
+            task.status = newStatus;
+            renderTaskList();
+            updateCounts();
+            selectTask(currentTaskId);
+          }
+        }
+        closeStatusModal();
+      }
+
+      // Update Counts
+      function updateCounts() {
+        const counts = { consult: 0, appoint: 0, treatment: 0, payment: 0, completed: 0 };
+        const unreadCounts = { all: 0, consult: 0, appoint: 0, treatment: 0, payment: 0, completed: 0 };
+
+        tasks.forEach(t => {
+          if (counts.hasOwnProperty(t.status)) counts[t.status]++;
+          if (t.unread > 0) {
+            unreadCounts.all += t.unread;
+            if (unreadCounts.hasOwnProperty(t.status)) unreadCounts[t.status] += t.unread;
+          }
+        });
+
+        document.getElementById('count-all').textContent = tasks.length;
+        document.getElementById('count-consult').textContent = counts.consult;
+        document.getElementById('count-appoint').textContent = counts.appoint;
+        document.getElementById('count-treatment').textContent = counts.treatment;
+        document.getElementById('count-payment').textContent = counts.payment;
+        document.getElementById('count-completed').textContent = counts.completed;
+
+        // Update Quick Stats
+        const pendingCount = counts.consult + counts.appoint + counts.treatment + counts.payment;
+        document.getElementById('stat-pending').textContent = pendingCount;
+        document.getElementById('stat-today').textContent = tasks.length;
+        document.getElementById('stat-completed').textContent = counts.completed;
+
+        // Update unread notification dots on tabs
+        updateUnreadDot('unread-all', unreadCounts.all);
+        updateUnreadDot('unread-consult', unreadCounts.consult);
+        updateUnreadDot('unread-appoint', unreadCounts.appoint);
+        updateUnreadDot('unread-treatment', unreadCounts.treatment);
+        updateUnreadDot('unread-payment', unreadCounts.payment);
+        updateUnreadDot('unread-completed', unreadCounts.completed);
+
+        document.getElementById('footer-consult').textContent = counts.consult;
+        document.getElementById('footer-appoint').textContent = counts.appoint;
+        document.getElementById('footer-treatment').textContent = counts.treatment;
+        document.getElementById('footer-payment').textContent = counts.payment;
+        document.getElementById('footer-completed').textContent = counts.completed;
+      }
+
+      // Update unread notification dot
+      function updateUnreadDot(elementId, count) {
+        const el = document.getElementById(elementId);
+        if (el) {
+          if (count > 0) {
+            el.textContent = count > 99 ? '99+' : count;
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        }
+      }
+
+      // Search
+      function searchTask(query) {
+        searchQuery = query;
+        renderTaskList();
+      }
+
+      // Filter by Channel
+      function filterByChannel(channel) {
+        currentChannel = channel;
+        document.querySelectorAll('.channel-filter').forEach(btn => {
+          const btnChannel = btn.dataset.channel;
+          btn.classList.remove('active');
+          if (btnChannel === channel) {
+            btn.classList.add('active');
+            if (channel === 'all') btn.className = 'channel-filter active px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gray-700 text-white';
+            else if (channel === 'LINE') btn.className = 'channel-filter active px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-green-500 text-white';
+            else if (channel === 'Facebook') btn.className = 'channel-filter active px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-blue-500 text-white';
+            else if (channel === 'Instagram') btn.className = 'channel-filter active px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-pink-500 text-white';
+            else if (channel === 'TikTok') btn.className = 'channel-filter active px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gray-800 text-white';
+          } else {
+            if (btnChannel === 'all') btn.className = 'channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200';
+            else if (btnChannel === 'LINE') btn.className = 'channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-green-100 text-green-700 hover:bg-green-200';
+            else if (btnChannel === 'Facebook') btn.className = 'channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-blue-100 text-blue-700 hover:bg-blue-200';
+            else if (btnChannel === 'Instagram') btn.className = 'channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-pink-100 text-pink-700 hover:bg-pink-200';
+            else if (btnChannel === 'TikTok') btn.className = 'channel-filter px-3 py-1.5 rounded-lg text-xs font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200';
+          }
+        });
+        renderTaskList();
+      }
+    </script>
+  </body>
+</html>

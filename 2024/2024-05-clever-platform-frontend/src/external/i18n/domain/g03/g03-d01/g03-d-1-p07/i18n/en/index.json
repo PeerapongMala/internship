@@ -1,0 +1,17 @@
+{
+  "share_profile_header": "Share Profile",
+  "uuid_tag": "UUID: {{ uuid }}",
+  "hide_identity_username": "Anonymous Player",
+  "hide_identity_label": "Hide Identity",
+  "show_identity_label": "Show Identity",
+  "award_subject_title": "Achievements / {{ subject }}",
+  "award_consecutive_days_label": "Consecutive Days",
+  "award_consecutive_days_value": "x{{ days }}",
+  "award_trophy_label": "Total Trophies",
+  "award_trophy_value": "x{{ trophy }}",
+  "save_profile_image_button": "Save",
+  "share_profile_button": "Share",
+  "prize": "Prize",
+  "todo": "In progress",
+  "completed": "Received"
+}

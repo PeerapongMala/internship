@@ -1,0 +1,6 @@
+/* Reconsile Unfit variant — nav-blue-light gradient */
+/* Default gradient from Style.css applies (blue-gray), no override needed */
+/* This file exists for explicit variant loading consistency */
+body::before {
+    background: linear-gradient(98.93deg, #BFD7E1 0.74%, #8B9DAF 100%) !important;
+}

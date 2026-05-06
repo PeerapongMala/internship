@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center/Admin - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .kanban-column { min-height: 500px; }
+      .task-card { cursor: grab; }
+      .task-card:active { cursor: grabbing; }
+      .task-card.dragging { opacity: 0.5; transform: rotate(3deg); }
+      .kanban-column.drag-over { background-color: rgba(20, 184, 166, 0.1); }
+    </style>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <div class="bg-white px-8 py-4 border-b border-gray-200">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-gray-800">Center/Admin - Task Manager</h1>
+                <p class="text-sm text-gray-500">จัดการงานจาก Chat Management และส่งต่อไปยังสาขา</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500">งานทั้งหมด:</span>
+              <span class="text-2xl font-bold text-purple-600" id="total-tasks">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="bg-white px-8 py-3 border-b border-gray-200">
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2">
+              <label class="text-sm text-gray-600">วันที่:</label>
+              <input type="date" id="filter-date-start" class="px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" />
+              <span class="text-gray-400">-</span>
+              <input type="date" id="filter-date-end" class="px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" />
+            </div>
+            <div class="flex items-center gap-2">
+              <label class="text-sm text-gray-600">ประเภท:</label>
+              <select id="filter-type" class="px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" onchange="filterTasks()">
+                <option value="all">ทั้งหมด</option>
+                <option value="นัดหมาย">นัดหมาย</option>
+                <option value="ติดตามผล">ติดตามผล</option>
+                <option value="เคลมประกัน">เคลมประกัน</option>
+                <option value="ออกใบเสร็จ">ออกใบเสร็จ</option>
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <label class="text-sm text-gray-600">Admin:</label>
+              <select id="filter-admin" class="px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" onchange="filterTasks()">
+                <option value="all">ทั้งหมด</option>
+                <option value="คุณกมล">คุณกมล</option>
+                <option value="คุณแพร">คุณแพร</option>
+                <option value="คุณบอย">คุณบอย</option>
+              </select>
+            </div>
+            <button onclick="resetFilters()" class="px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800">รีเซ็ต</button>
+          </div>
+        </div>
+
+        <!-- Kanban Board -->
+        <div class="flex-1 overflow-x-auto p-6">
+          <div class="flex gap-6 h-full min-w-max">
+            <!-- To Do Column -->
+            <div class="w-80 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <h3 class="font-bold text-gray-800">To Do</h3>
+                  <span class="px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded-full font-medium" id="todo-count">0</span>
+                </div>
+              </div>
+              <div class="kanban-column flex-1 bg-gray-100 rounded-2xl p-3 space-y-3 overflow-y-auto" id="column-todo" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'todo')">
+              </div>
+            </div>
+
+            <!-- Doing Column -->
+            <div class="w-80 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <h3 class="font-bold text-gray-800">Doing</h3>
+                  <span class="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full font-medium" id="doing-count">0</span>
+                </div>
+              </div>
+              <div class="kanban-column flex-1 bg-gray-100 rounded-2xl p-3 space-y-3 overflow-y-auto" id="column-doing" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'doing')">
+              </div>
+            </div>
+
+            <!-- Done Column -->
+            <div class="w-80 flex flex-col">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <h3 class="font-bold text-gray-800">Done</h3>
+                  <span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded-full font-medium" id="done-count">0</span>
+                </div>
+              </div>
+              <div class="kanban-column flex-1 bg-gray-100 rounded-2xl p-3 space-y-3 overflow-y-auto" id="column-done" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'done')">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gradient-to-r from-purple-600 to-purple-800 px-8 py-3">
+          <div class="flex items-center justify-between text-white">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+              <span class="font-medium">สรุปงานวันนี้</span>
+            </div>
+            <div class="flex items-center gap-8">
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-todo">0</p>
+                <p class="text-xs text-purple-200">รอดำเนินการ</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-doing">0</p>
+                <p class="text-xs text-purple-200">กำลังทำ</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold" id="footer-done">0</p>
+                <p class="text-xs text-purple-200">เสร็จแล้ว</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Detail Modal -->
+    <div id="task-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">รายละเอียดงาน</h3>
+          <button onclick="closeTaskModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-5" id="task-modal-content">
+        </div>
+        <div class="p-5 border-t border-gray-200 flex gap-3">
+          <button onclick="closeTaskModal()" class="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">ปิด</button>
+          <button onclick="markTaskDone()" class="flex-1 px-4 py-2.5 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600">เสร็จสิ้น</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mock Data - Tasks from Chat Management
+      const mockTasks = [
+        { id: 1, type: 'นัดหมาย', patient: 'คุณสมชาย', phone: '081-234-5678', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'ผ่าฟันคุด', date: '2024-01-15', time: '10:00', status: 'todo', admin: 'คุณกมล', priority: 'high', note: 'ต้องการนัดด่วน มีอาการปวด' },
+        { id: 2, type: 'ติดตามผล', patient: 'คุณพิมพ์', phone: '089-876-5432', channel: 'Facebook', branch: 'สาขาสยาม', treatment: 'จัดฟัน', date: '2024-01-15', time: '14:00', status: 'todo', admin: 'คุณแพร', priority: 'medium', note: 'นัดเช็คสายรัดฟัน' },
+        { id: 3, type: 'เคลมประกัน', patient: 'คุณวิชัย', phone: '062-111-2222', channel: 'LINE', branch: 'สาขาอารีย์', treatment: 'รากเทียม', date: '2024-01-14', time: '-', status: 'doing', admin: 'คุณกมล', priority: 'high', note: 'ประกัน AIA - รอเอกสาร' },
+        { id: 4, type: 'ออกใบเสร็จ', patient: 'คุณนารี', phone: '091-333-4444', channel: 'Instagram', branch: 'สาขาสยาม', treatment: 'ขูดหินปูน', date: '2024-01-14', time: '-', status: 'done', admin: 'คุณบอย', priority: 'low', note: 'ชำระเงินสดแล้ว' },
+        { id: 5, type: 'นัดหมาย', patient: 'คุณประเสริฐ', phone: '085-555-6666', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'วีเนียร์', date: '2024-01-16', time: '09:00', status: 'todo', admin: 'คุณแพร', priority: 'medium', note: 'ต้องการทำ 8 ซี่' },
+        { id: 6, type: 'ติดตามผล', patient: 'คุณสุภา', phone: '087-777-8888', channel: 'Facebook', branch: 'สาขาอารีย์', treatment: 'ถอนฟัน', date: '2024-01-13', time: '-', status: 'doing', admin: 'คุณกมล', priority: 'medium', note: 'โทรสอบถามอาการหลังถอนฟัน' },
+        { id: 7, type: 'นัดหมาย', patient: 'คุณมานะ', phone: '083-999-0000', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'ฟอกสีฟัน', date: '2024-01-17', time: '11:00', status: 'todo', admin: 'คุณบอย', priority: 'low', note: 'ลูกค้าใหม่ จาก Ads' },
+        { id: 8, type: 'เคลมประกัน', patient: 'คุณจินตนา', phone: '086-111-3333', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'อุดฟัน', date: '2024-01-14', time: '-', status: 'done', admin: 'คุณกมล', priority: 'medium', note: 'เคลมสำเร็จ - ประกันเมืองไทย' },
+        { id: 9, type: 'ออกใบเสร็จ', patient: 'คุณธนา', phone: '084-222-4444', channel: 'Facebook', branch: 'สาขาอารีย์', treatment: 'จัดฟัน', date: '2024-01-15', time: '-', status: 'doing', admin: 'คุณแพร', priority: 'high', note: 'งวดที่ 3 - ผ่อนชำระ' },
+        { id: 10, type: 'นัดหมาย', patient: 'คุณกัญญา', phone: '088-333-5555', channel: 'Instagram', branch: 'สาขาสยาม', treatment: 'ตรวจสุขภาพฟัน', date: '2024-01-18', time: '15:00', status: 'todo', admin: 'คุณกมล', priority: 'low', note: 'ตรวจประจำปี' },
+        { id: 11, type: 'ติดตามผล', patient: 'คุณอนันต์', phone: '082-444-6666', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'รากเทียม', date: '2024-01-12', time: '-', status: 'done', admin: 'คุณแพร', priority: 'high', note: 'เช็คแผลหลังผ่าตัด - OK' },
+        { id: 12, type: 'นัดหมาย', patient: 'คุณรัตนา', phone: '089-555-7777', channel: 'LINE', branch: 'สาขาอารีย์', treatment: 'ขูดหินปูน', date: '2024-01-16', time: '13:00', status: 'todo', admin: 'คุณบอย', priority: 'low', note: 'ลูกค้าประจำ' },
+        { id: 13, type: 'เคลมประกัน', patient: 'คุณสมศรี', phone: '081-666-8888', channel: 'Facebook', branch: 'สาขาสยาม', treatment: 'ครอบฟัน', date: '2024-01-15', time: '-', status: 'todo', admin: 'คุณกมล', priority: 'high', note: 'ประกัน BLA - รอ Pre-auth' },
+        { id: 14, type: 'ออกใบเสร็จ', patient: 'คุณวีระ', phone: '087-777-9999', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'ผ่าฟันคุด', date: '2024-01-14', time: '-', status: 'done', admin: 'คุณแพร', priority: 'medium', note: 'บัตรเครดิต 0%' },
+        { id: 15, type: 'ติดตามผล', patient: 'คุณพรทิพย์', phone: '085-888-0000', channel: 'Instagram', branch: 'สาขาอารีย์', treatment: 'จัดฟัน', date: '2024-01-15', time: '-', status: 'doing', admin: 'คุณบอย', priority: 'medium', note: 'นัดเปลี่ยนยาง - เลื่อนจากวันก่อน' },
+        { id: 16, type: 'นัดหมาย', patient: 'คุณอัญชลี', phone: '083-999-1111', channel: 'LINE', branch: 'สาขาสยาม', treatment: 'ฟอกสีฟัน', date: '2024-01-19', time: '10:30', status: 'todo', admin: 'คุณกมล', priority: 'medium', note: 'เตรียมตัวก่อนงานแต่ง' },
+        { id: 17, type: 'เคลมประกัน', patient: 'คุณณัฐพล', phone: '086-000-2222', channel: 'LINE', branch: 'สาขาอารีย์', treatment: 'รากเทียม', date: '2024-01-16', time: '-', status: 'doing', admin: 'คุณแพร', priority: 'high', note: 'ประกันกรุงเทพ - กำลังดำเนินการ' },
+      ];
+
+      let tasks = [...mockTasks];
+      let currentTaskId = null;
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('filter-date-start').value = today;
+        document.getElementById('filter-date-end').value = today;
+        renderTasks();
+      });
+
+      // Render Tasks
+      function renderTasks() {
+        const columns = { todo: [], doing: [], done: [] };
+
+        const filterType = document.getElementById('filter-type').value;
+        const filterAdmin = document.getElementById('filter-admin').value;
+
+        tasks.forEach(task => {
+          if (filterType !== 'all' && task.type !== filterType) return;
+          if (filterAdmin !== 'all' && task.admin !== filterAdmin) return;
+          columns[task.status].push(task);
+        });
+
+        // Render each column
+        ['todo', 'doing', 'done'].forEach(status => {
+          const column = document.getElementById(`column-${status}`);
+          column.innerHTML = columns[status].map(task => createTaskCard(task)).join('');
+          document.getElementById(`${status}-count`).textContent = columns[status].length;
+        });
+
+        // Update footer
+        document.getElementById('footer-todo').textContent = columns.todo.length;
+        document.getElementById('footer-doing').textContent = columns.doing.length;
+        document.getElementById('footer-done').textContent = columns.done.length;
+        document.getElementById('total-tasks').textContent = tasks.length;
+
+        // Add drag listeners
+        document.querySelectorAll('.task-card').forEach(card => {
+          card.addEventListener('dragstart', handleDragStart);
+          card.addEventListener('dragend', handleDragEnd);
+        });
+      }
+
+      // Create Task Card HTML
+      function createTaskCard(task) {
+        const typeColors = {
+          'นัดหมาย': 'bg-blue-100 text-blue-700',
+          'ติดตามผล': 'bg-purple-100 text-purple-700',
+          'เคลมประกัน': 'bg-orange-100 text-orange-700',
+          'ออกใบเสร็จ': 'bg-green-100 text-green-700'
+        };
+
+        const priorityColors = {
+          'high': 'border-l-red-500',
+          'medium': 'border-l-yellow-500',
+          'low': 'border-l-gray-300'
+        };
+
+        const channelIcons = {
+          'LINE': '<span class="text-green-500">●</span> LINE',
+          'Facebook': '<span class="text-blue-500">●</span> FB',
+          'Instagram': '<span class="text-pink-500">●</span> IG'
+        };
+
+        return `
+          <div class="task-card bg-white rounded-xl p-4 shadow-sm border-l-4 ${priorityColors[task.priority]} cursor-pointer hover:shadow-md transition-shadow"
+               draggable="true" data-id="${task.id}" onclick="showTaskDetail(${task.id})">
+            <div class="flex items-start justify-between mb-2">
+              <span class="px-2 py-0.5 ${typeColors[task.type]} text-xs rounded-full font-medium">${task.type}</span>
+              <span class="text-xs text-gray-400">${channelIcons[task.channel]}</span>
+            </div>
+            <p class="font-medium text-gray-800 mb-1">${task.patient}</p>
+            <p class="text-sm text-gray-500 mb-2">${task.treatment}</p>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-gray-400">${task.branch}</span>
+              ${task.time !== '-' ? `<span class="text-dental-600 font-medium">${task.date} ${task.time}</span>` : `<span class="text-gray-400">${task.date}</span>`}
+            </div>
+            <div class="mt-2 pt-2 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs text-gray-500">${task.admin}</span>
+              <span class="text-xs text-gray-400 truncate max-w-[120px]">${task.note}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      // Drag and Drop
+      function handleDragStart(e) {
+        e.target.classList.add('dragging');
+        e.dataTransfer.setData('text/plain', e.target.dataset.id);
+      }
+
+      function handleDragEnd(e) {
+        e.target.classList.remove('dragging');
+        document.querySelectorAll('.kanban-column').forEach(col => col.classList.remove('drag-over'));
+      }
+
+      function handleDragOver(e) {
+        e.preventDefault();
+        e.currentTarget.classList.add('drag-over');
+      }
+
+      function handleDrop(e, newStatus) {
+        e.preventDefault();
+        e.currentTarget.classList.remove('drag-over');
+
+        const taskId = parseInt(e.dataTransfer.getData('text/plain'));
+        const task = tasks.find(t => t.id === taskId);
+        if (task) {
+          task.status = newStatus;
+          renderTasks();
+        }
+      }
+
+      // Show Task Detail
+      function showTaskDetail(taskId) {
+        currentTaskId = taskId;
+        const task = tasks.find(t => t.id === taskId);
+        if (!task) return;
+
+        const priorityText = { high: 'สูง', medium: 'ปานกลาง', low: 'ต่ำ' };
+        const priorityColors = { high: 'text-red-600', medium: 'text-yellow-600', low: 'text-gray-600' };
+
+        document.getElementById('task-modal-content').innerHTML = `
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-dental-100 rounded-full flex items-center justify-center">
+                <span class="text-dental-700 font-bold text-lg">${task.patient.charAt(0)}</span>
+              </div>
+              <div>
+                <p class="font-bold text-gray-800">${task.patient}</p>
+                <p class="text-sm text-gray-500">${task.phone}</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-500">ประเภท</p>
+                <p class="font-medium text-gray-800">${task.type}</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-500">ความสำคัญ</p>
+                <p class="font-medium ${priorityColors[task.priority]}">${priorityText[task.priority]}</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-500">การรักษา</p>
+                <p class="font-medium text-gray-800">${task.treatment}</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-500">สาขา</p>
+                <p class="font-medium text-gray-800">${task.branch}</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-500">ช่องทาง</p>
+                <p class="font-medium text-gray-800">${task.channel}</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="text-xs text-gray-500">วันที่/เวลา</p>
+                <p class="font-medium text-gray-800">${task.date} ${task.time !== '-' ? task.time : ''}</p>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p class="text-xs text-gray-500 mb-1">หมายเหตุ</p>
+              <p class="text-sm text-gray-800">${task.note}</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3">
+              <p class="text-xs text-gray-500">ผู้รับผิดชอบ</p>
+              <p class="font-medium text-gray-800">${task.admin}</p>
+            </div>
+          </div>
+        `;
+        document.getElementById('task-modal').classList.remove('hidden');
+      }
+
+      function closeTaskModal() {
+        document.getElementById('task-modal').classList.add('hidden');
+        currentTaskId = null;
+      }
+
+      function markTaskDone() {
+        if (currentTaskId) {
+          const task = tasks.find(t => t.id === currentTaskId);
+          if (task) {
+            task.status = 'done';
+            renderTasks();
+          }
+        }
+        closeTaskModal();
+      }
+
+      // Filters
+      function filterTasks() {
+        renderTasks();
+      }
+
+      function resetFilters() {
+        document.getElementById('filter-type').value = 'all';
+        document.getElementById('filter-admin').value = 'all';
+        renderTasks();
+      }
+    </script>
+    <script src="../components/sidebar.js"></script>
+  </body>
+</html>

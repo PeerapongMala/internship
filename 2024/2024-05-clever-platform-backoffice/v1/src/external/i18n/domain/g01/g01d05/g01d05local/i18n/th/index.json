@@ -1,0 +1,57 @@
+{
+  "word": {
+    "dateFrom": "ตั้งแต่วันที่",
+    "dateTo": "ถึงวันที่"
+  },
+  "button": {
+    "bulkEdit": "Bulk Edit",
+    "upload": "Upload",
+    "download": "Download",
+    "cancel": "ยกเลิก",
+    "back": "ย้อนกลับ",
+    "choose": "เลือก"
+  },
+  "placeholder": {
+    "search": "ค้นหา",
+    "searchDropdown": "ฟิลด์"
+  },
+  "modal": {
+    "upload": "นำเข้าข้อมูล",
+    "download": "ส่งออกข้อมูล"
+  },
+  "pagination": {
+    "display": "แสดง",
+    "from": "จาก",
+    "page": "หน้า"
+  },
+  "navigate": {
+    "create": "เพิ่มห้องเรียน",
+    "update": "แก้ไขห้องเรียน"
+  },
+  "status": {
+    "name": "สถานะ",
+    "all": "ทั้งหมด",
+    "draft": "แบบร่าง",
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน"
+  },
+  "field": {
+    "schoolId": "รหัสโรงเรียน",
+    "id": "รหัสห้องเรียน",
+    "academic_year": "ปีการศึกษา",
+    "year": "ชั้นปี",
+    "name": "ห้อง",
+    "updated_at": "แก้ไขล่าสุด",
+    "updated_by": "แก้ไขล่าสุดโดย",
+    "user": {
+      "id": "รหัสบัญชี",
+      "title": "คำนำหน้า",
+      "first_name": "ชื่อ",
+      "last_name": "สกุล",
+      "email": "อีเมล",
+      "last_login": "ใช้งานล่าสุด"
+    },
+    "moveBtn": "ย้ายห้อง",
+    "removeBtn": "เอาออก"
+  }
+}

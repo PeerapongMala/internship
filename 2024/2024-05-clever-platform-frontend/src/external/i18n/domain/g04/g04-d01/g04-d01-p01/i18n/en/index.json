@@ -1,0 +1,47 @@
+{
+  "subject": {
+    "math4": "Mathematics Grade 4"
+  },
+  "filter": {
+    "all": "All",
+    "downloaded": "Downloaded",
+    "notDownloaded": "Not Downloaded"
+  },
+  "lessons": {
+    "lesson1": {
+      "title": "Lesson 1",
+      "description": "Numbers"
+    },
+    "lesson2": {
+      "title": "Lesson 2",
+      "description": "Writing numbers"
+    },
+    "lesson3": {
+      "title": "Lesson 3",
+      "description": "Counting numbers"
+    },
+    "lesson4": {
+      "title": "Lesson 4",
+      "description": "Writing numbers to show value"
+    },
+    "lesson5": {
+      "title": "Lesson 5",
+      "description": "Lorem ipsum dolor sit amet"
+    },
+    "lesson6": {
+      "title": "Lesson 6",
+      "description": "Lorem ipsum dolor sit amet"
+    },
+    "lesson7": {
+      "title": "Lesson 7",
+      "description": "Writing numbers to show value"
+    },
+    "lesson8": {
+      "title": "Lesson 8",
+      "description": "Writing numbers to show value"
+    }
+  },
+  "buttons": {
+    "back": "Back"
+  }
+}

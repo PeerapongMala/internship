@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inbox - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .chat-item.active {
+        background-color: #f0fdfa;
+        border-left: 3px solid #14b8a6;
+      }
+      .message-bubble {
+        max-width: 75%;
+      }
+      .typing-indicator span {
+        animation: typing 1.4s infinite;
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #14b8a6;
+        border-radius: 50%;
+        margin: 0 2px;
+      }
+      .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+      .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+      @keyframes typing {
+        0%, 60%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-4px); }
+      }
+      .pulse-dot {
+        animation: pulse-dot 2s infinite;
+      }
+      @keyframes pulse-dot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <div class="bg-white px-6 py-4 border-b border-gray-200">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1 class="text-xl font-bold text-gray-800">Inbox</h1>
+              <p class="text-sm text-gray-500">แชทที่ต้องตอบจนกว่าจะ Booking</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2 px-4 py-2 bg-dental-100 rounded-xl">
+                <span class="w-2 h-2 bg-dental-500 rounded-full pulse-dot"></span>
+                <span class="text-sm font-medium text-dental-700">Online</span>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-gray-800" id="myTaskCount">3</p>
+                <p class="text-xs text-gray-500">งานในมือ</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-green-600" id="bookedTodayCount">5</p>
+                <p class="text-xs text-gray-500">Booked วันนี้</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1 flex overflow-hidden">
+          <!-- Left: Chat List -->
+          <div class="w-96 border-r border-gray-200 bg-white flex flex-col">
+            <!-- Tabs -->
+            <div class="p-3 border-b border-gray-100">
+              <div class="flex gap-2">
+                <button onclick="switchInboxTab('assigned')" class="inbox-tab active flex-1 px-3 py-2 text-sm font-medium rounded-lg bg-dental-500 text-white">
+                  งานของฉัน
+                  <span class="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-xs" id="assignedCount">2</span>
+                </button>
+                <button onclick="switchInboxTab('available')" class="inbox-tab flex-1 px-3 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200">
+                  หยิบงาน
+                  <span class="ml-1 px-1.5 py-0.5 bg-gray-200 rounded text-xs" id="availableCount">1</span>
+                </button>
+                <button onclick="switchInboxTab('completed')" class="inbox-tab flex-1 px-3 py-2 text-sm font-medium rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200">
+                  Booked
+                  <span class="ml-1 px-1.5 py-0.5 bg-green-100 text-green-700 rounded text-xs" id="completedCount">5</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Chat List -->
+            <div class="flex-1 overflow-y-auto" id="chatList">
+              <!-- Chats will be rendered here -->
+            </div>
+          </div>
+
+          <!-- Right: Chat Area -->
+          <div class="flex-1 flex flex-col bg-gray-50" id="chatArea">
+            <!-- Empty State -->
+            <div class="flex-1 flex items-center justify-center" id="emptyChatState">
+              <div class="text-center">
+                <svg class="w-20 h-20 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <p class="text-gray-500 mb-2">เลือกแชทจากรายการด้านซ้าย</p>
+                <p class="text-sm text-gray-400">หรือหยิบงานใหม่จากแท็บ "หยิบงาน"</p>
+              </div>
+            </div>
+
+            <!-- Active Chat (hidden by default) -->
+            <div id="activeChatContainer" class="flex-1 flex flex-col hidden">
+              <!-- Chat Header -->
+              <div class="bg-white px-6 py-4 border-b border-gray-200" id="chatHeader">
+                <!-- Header will be rendered here -->
+              </div>
+
+              <!-- Messages -->
+              <div class="flex-1 overflow-y-auto p-6" id="chatMessages">
+                <!-- Messages will be rendered here -->
+              </div>
+
+              <!-- Quick Replies -->
+              <div class="bg-gray-100 px-6 py-3 border-t border-gray-200" id="quickRepliesBar">
+                <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                  <span class="text-xs text-gray-500 whitespace-nowrap">Quick:</span>
+                  <button onclick="sendQuickReply('สวัสดีค่ะ มีอะไรให้ช่วยไหมคะ?')" class="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs text-gray-700 hover:bg-gray-50 whitespace-nowrap">สวัสดีค่ะ</button>
+                  <button onclick="sendQuickReply('รับทราบค่ะ กรุณารอสักครู่นะคะ')" class="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs text-gray-700 hover:bg-gray-50 whitespace-nowrap">รับทราบค่ะ</button>
+                  <button onclick="sendQuickReply('สนใจนัดหมายวันไหนดีคะ?')" class="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs text-gray-700 hover:bg-gray-50 whitespace-nowrap">ถามวันนัด</button>
+                  <button onclick="sendQuickReply('ราคาเริ่มต้นที่...')" class="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs text-gray-700 hover:bg-gray-50 whitespace-nowrap">แจ้งราคา</button>
+                  <button onclick="openBookingModal()" class="px-3 py-1 bg-green-500 text-white rounded-full text-xs hover:bg-green-600 whitespace-nowrap flex items-center gap-1">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Booking
+                  </button>
+                </div>
+              </div>
+
+              <!-- Input -->
+              <div class="bg-white px-6 py-4 border-t border-gray-200">
+                <div class="flex items-center gap-3">
+                  <button class="p-2 text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                    </svg>
+                  </button>
+                  <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="พิมพ์ข้อความ..."
+                    class="flex-1 px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-dental-500"
+                    onkeypress="handleKeyPress(event)"
+                  />
+                  <button onclick="sendMessage()" class="px-4 py-2 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600 transition-colors">
+                    ส่ง
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Panel: Customer Info -->
+          <div class="w-80 border-l border-gray-200 bg-white flex flex-col overflow-y-auto" id="customerInfoPanel" style="display: none;">
+            <!-- Customer info will be rendered here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-green-50">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <h3 class="text-lg font-bold text-gray-800">สร้างการนัดหมาย</h3>
+          </div>
+          <button onclick="closeBookingModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">ประเภทการรักษา</label>
+            <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500">
+              <option>ขูดหินปูน</option>
+              <option>อุดฟัน</option>
+              <option>ถอนฟัน</option>
+              <option>ผ่าฟันคุด</option>
+              <option>จัดฟัน - ปรึกษา</option>
+              <option>ฟอกสีฟัน</option>
+              <option>วีเนียร์</option>
+              <option>รากเทียม</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">วันที่นัดหมาย</label>
+            <input type="date" class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">เวลา</label>
+            <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500">
+              <option>10:00</option>
+              <option>10:30</option>
+              <option>11:00</option>
+              <option>11:30</option>
+              <option>13:00</option>
+              <option>13:30</option>
+              <option>14:00</option>
+              <option>14:30</option>
+              <option>15:00</option>
+              <option>15:30</option>
+              <option>16:00</option>
+              <option>16:30</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">สาขา</label>
+            <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500">
+              <option>สาขาสยาม</option>
+              <option>สาขาอโศก</option>
+              <option>สาขาลาดพร้าว</option>
+              <option>สาขาบางนา</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">หมายเหตุ</label>
+            <textarea class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500" rows="2" placeholder="รายละเอียดเพิ่มเติม..."></textarea>
+          </div>
+        </div>
+        <div class="p-4 border-t border-gray-200 flex gap-2">
+          <button onclick="closeBookingModal()" class="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors">
+            ยกเลิก
+          </button>
+          <button onclick="confirmBooking()" class="flex-1 px-4 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-colors font-medium">
+            ยืนยัน Booking
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pick Up Confirmation Modal -->
+    <div id="pickUpModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden">
+        <div class="p-6 text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">หยิบงานนี้?</h3>
+          <p class="text-sm text-gray-600 mb-4" id="pickUpCustomerName">คุณต้องการรับงานของ "ลูกค้า" หรือไม่?</p>
+          <div class="flex gap-2">
+            <button onclick="closePickUpModal()" class="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors">
+              ยกเลิก
+            </button>
+            <button onclick="confirmPickUp()" class="flex-1 px-4 py-2 bg-dental-500 text-white rounded-xl hover:bg-dental-600 transition-colors font-medium">
+              หยิบงาน
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Success Modal -->
+    <div id="bookingSuccessModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden">
+        <div class="p-6 text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Booking สำเร็จ!</h3>
+          <p class="text-sm text-gray-600 mb-4">ระบบบันทึกการนัดหมายเรียบร้อยแล้ว</p>
+          <button onclick="closeBookingSuccessModal()" class="w-full px-4 py-2 bg-dental-500 text-white rounded-xl hover:bg-dental-600 transition-colors font-medium">
+            ตกลง
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../components/sidebar.js"></script>
+    <script src="../js/inbox.js"></script>
+  </body>
+</html>

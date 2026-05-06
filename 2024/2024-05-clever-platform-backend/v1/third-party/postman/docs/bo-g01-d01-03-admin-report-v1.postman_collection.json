@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "aaa35924-613c-4c5c-8066-c8a8b71d2b82",
+		"name": "bo-g01-d01-03-admin-report-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13929754"
+	},
+	"item": [
+		{
+			"name": "report-province-district",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/report/province-district?start_date=2024-01-01&end_date=2025-12-31&province=กรุงเทพมหานคร&district=บางแค",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"report",
+						"province-district"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-12-31"
+						},
+						{
+							"key": "province",
+							"value": "กรุงเทพมหานคร",
+							"description": "ส่งจังหวัดกรุงเทพมหานคร กรณีเป็น สนศ กทม, อปท เป็นชื่อจังหวัดได้เลย"
+						},
+						{
+							"key": "district",
+							"value": "บางแค"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "report-compare-province-district",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/report/compare-province-district?start_date=2024-01-01&end_date=2025-12-31&province=กรุงเทพมหานคร&sort_type=max_star_count",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"report",
+						"compare-province-district"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-12-31"
+						},
+						{
+							"key": "province",
+							"value": "กรุงเทพมหานคร",
+							"description": "ส่งจังหวัดกรุงเทพมหานคร กรณีเป็น สนศ กทม, อปท เป็นชื่อจังหวัดได้เลย"
+						},
+						{
+							"key": "sort_type",
+							"value": "max_star_count",
+							"description": "avg_star_count, avg_pass_level, max_star_count"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

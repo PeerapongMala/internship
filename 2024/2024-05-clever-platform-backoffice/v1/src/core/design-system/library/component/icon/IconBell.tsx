@@ -1,0 +1,31 @@
+import { FC } from 'react';
+
+const IconBell: FC<{ className?: string }> = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M5 6.66602C5 5.33993 5.52678 4.06816 6.46446 3.13048C7.40215 2.1928 8.67392 1.66602 10 1.66602C11.3261 1.66602 12.5979 2.1928 13.5355 3.13048C14.4732 4.06816 15 5.33993 15 6.66602C15 12.4993 17.5 14.166 17.5 14.166H2.5C2.5 14.166 5 12.4993 5 6.66602Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.55856 17.5C8.70507 17.7526 8.91536 17.9622 9.16837 18.1079C9.42139 18.2537 9.70825 18.3304 10.0002 18.3304C10.2922 18.3304 10.5791 18.2537 10.8321 18.1079C11.0851 17.9622 11.2954 17.7526 11.4419 17.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export default IconBell;

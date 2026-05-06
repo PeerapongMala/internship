@@ -1,0 +1,47 @@
+{
+  "subject": {
+    "math4": "数学 四年级"
+  },
+  "filter": {
+    "all": "全部",
+    "downloaded": "已下载",
+    "notDownloaded": "未下载"
+  },
+  "lessons": {
+    "lesson1": {
+      "title": "课程 1",
+      "description": "数字"
+    },
+    "lesson2": {
+      "title": "课程 2",
+      "description": "写数字"
+    },
+    "lesson3": {
+      "title": "课程 3",
+      "description": "计数"
+    },
+    "lesson4": {
+      "title": "课程 4",
+      "description": "用数字表示价值"
+    },
+    "lesson5": {
+      "title": "课程 5",
+      "description": "Lorem ipsum dolor sit amet"
+    },
+    "lesson6": {
+      "title": "课程 6",
+      "description": "Lorem ipsum dolor sit amet"
+    },
+    "lesson7": {
+      "title": "课程 7",
+      "description": "用数字表示价值"
+    },
+    "lesson8": {
+      "title": "课程 8",
+      "description": "用数字表示价值"
+    }
+  },
+  "buttons": {
+    "back": "返回"
+  }
+}

@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "45956ce0-d1a2-4205-a971-c69509af7f81",
+		"name": "fo-g04-d03-learning-gameplay-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36917349"
+	},
+	"item": [
+		{
+			"name": "g04-d03-api-learning-gameplay-submit-result",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"homework_id\": 1,\n    \"start\": 3,\n    \"time_used\": 69,\n    \"played_at\": \"2025-01-12T12:26:39Z\",\n    \"admin_login_as\": \"\",\n    \"questions\": [\n        {\n            \"question_id\": 1,\n            \"question_type\": \"input\",\n            \"is_correct\": true,\n            \"time_used\": 13,\n            \"data\": [\n                {\n                    \"question_input_answer_id\": 3,\n                    \"answer_index\": 1,\n                    \"answer\": \"from api 1\"\n                }\n            ]\n        },\n        {\n            \"question_id\": 1,\n            \"question_type\": \"multiple_choice\",\n            \"is_correct\": true,\n            \"time_used\": 13,\n            \"data\": [\n                {\n                    \"question_multiple_choice_text_choice_id\": 1,\n                    \"question_multiple_choice_image_choice_id\": 2\n                }\n            ]\n        },\n        {\n            \"question_id\": 1,\n            \"question_type\": \"sort\",\n            \"is_correct\": true,\n            \"time_used\": 13,\n            \"data\": [\n                {\n                    \"question_sort_text_choice_id\": 1,\n                    \"index\": 2\n                }\n            ]\n        },\n        {\n            \"question_id\": 1,\n            \"question_type\": \"group\",\n            \"is_correct\": true,\n            \"time_used\": 13,\n            \"data\": [\n                {\n                    \"question_group_choice_id\": 1,\n                    \"question_group_group_id\": 2\n                }\n            ]\n        },\n        {\n            \"question_id\": 1,\n            \"question_type\": \"placeholder\",\n            \"is_correct\": true,\n            \"time_used\": 13,\n            \"data\": [\n                {\n                    \"question_placeholder_answer_id\": 1,\n                    \"question_placeholder_text_choice_id\": 2\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/learning-gameplay/v1/quiz/:levelId/submit-result",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"learning-gameplay",
+						"v1",
+						"quiz",
+						":levelId",
+						"submit-result"
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

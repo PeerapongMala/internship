@@ -1,0 +1,98 @@
+﻿@font-face {
+    font-family: 'bss-pridi';
+    src: url('../fonts/Pridi-Light.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bss-pridi';
+    src: url('../fonts/Pridi-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bss-pridi';
+    src: url('../fonts/Pridi-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bss-pridi';
+    src: url('../fonts/Pridi-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    padding: 0px 0;
+    font-family: 'bss-pridi' !important;
+    font-weight: normal !important;
+    letter-spacing: 0.025rem !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    background-color: #f8f9fa !important;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), var(--pattern-bg);
+    background-size: cover;
+    background-position: center;
+    color: #003865 !important;
+}
+
+.second-screen-card {
+    padding: 50px;
+    width: 100%!important;
+    height: 90vh !important;
+}
+
+.second-screen-card-inner {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+.second-screen-cashpoint {
+    text-align: center !important;
+    font-size: 120px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+}
+
+.second-screen-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 10px 30px 10px
+}
+
+.second-screen-bank {
+    font-size: 150px !important;
+    font-weight: 800 !important;
+}
+
+.second-screen-zone {
+    font-size: 150px !important;
+    font-weight: 800 !important;
+}
+
+.second-screen-deno {
+    font-size: 150px;
+    font-weight: 800 !important;
+}
+
+.second-screen-container {
+    text-align: center !important;
+    font-size: 150px !important;
+    font-weight: 800 !important;
+    margin-top: 10px;
+}

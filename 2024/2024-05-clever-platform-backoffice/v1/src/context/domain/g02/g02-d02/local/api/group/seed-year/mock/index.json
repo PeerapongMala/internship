@@ -1,0 +1,41 @@
+{
+  "_pagination": {
+    "page": 1,
+    "limit": 10,
+    "total_count": 6
+  },
+  "status_code": 200,
+  "data": [
+    {
+      "id": 1,
+      "name": "ประถมศึกษาปีที่ 1",
+      "short_name": "ป.1"
+    },
+    {
+      "id": 2,
+      "name": "ประถมศึกษาปีที่ 2",
+      "short_name": "ป.2"
+    },
+    {
+      "id": 3,
+      "name": "ประถมศึกษาปีที่ 3",
+      "short_name": "ป.3"
+    },
+    {
+      "id": 4,
+      "name": "ประถมศึกษาปีที่ 4",
+      "short_name": "ป.4"
+    },
+    {
+      "id": 5,
+      "name": "ประถมศึกษาปีที่ 5",
+      "short_name": "ป.5"
+    },
+    {
+      "id": 6,
+      "name": "ประถมศึกษาปีที่ 6",
+      "short_name": "ป.6"
+    }
+  ],
+  "message": "Data retrieved"
+}

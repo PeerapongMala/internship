@@ -1,0 +1,638 @@
+{
+	"info": {
+		"_postman_id": "5939d43a-616c-4625-becd-ca80ab2e825c",
+		"name": "bo-g03-d11-teacher-chat-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40289851"
+	},
+	"item": [
+		{
+			"name": "a01-api-teacher-chat-history-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-chat/v1/chatHistoryList/school/:school_id/room/:room_type/id/:room_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-chat",
+						"v1",
+						"chatHistoryList",
+						"school",
+						":school_id",
+						"room",
+						":room_type",
+						"id",
+						":room_id"
+					],
+					"query": [
+						{
+							"key": "before",
+							"value": "2025-02-15T10:37:31.967011Z",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "school_id",
+							"value": "1"
+						},
+						{
+							"key": "room_type",
+							"value": "private"
+						},
+						{
+							"key": "room_id",
+							"value": "05a35f68-fa65-4b7a-917c-a2d64ef2c2e4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-teacher-chat-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-chat/v1/chats/teacher/school/:school_id?room_type=private&page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-chat",
+						"v1",
+						"chats",
+						"teacher",
+						"school",
+						":school_id"
+					],
+					"query": [
+						{
+							"key": "room_type",
+							"value": "private",
+							"description": "subject, class, group, private and all"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "ห้อง",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "2",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "school_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "a02-api-teacher-chat-list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-chat/v1/chats/teacher/school/:school_id?room_type=private&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-chat",
+								"v1",
+								"chats",
+								"teacher",
+								"school",
+								":school_id"
+							],
+							"query": [
+								{
+									"key": "room_type",
+									"value": "private",
+									"description": "subject, class, group, private and all"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "ห้อง",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "2567",
+									"disabled": true
+								},
+								{
+									"key": "subject_id",
+									"value": "2",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "school_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 May 2025 17:26:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "878"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "b29d40da-8e3b-498c-a2e9-9f010e1e90d0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"content\": \"_init_\",\n            \"school_id\": 1,\n            \"sender_id\": \"05a35f68-fa65-4b7a-917c-a2d64ef2c2e4\",\n            \"sender_name\": \"Sam Smith\",\n            \"room_id\": \"e2698584-16a0-45e9-8c4e-3169738eb5df\",\n            \"room_type\": \"private\",\n            \"created_at\": \"2025-05-22T16:39:07.438724Z\",\n            \"room_name\": \"student student\",\n            \"image_url\": null,\n            \"member_count\": null,\n            \"private_class\": \"ป.5/1\",\n            \"academic_year\": 2568\n        },\n        {\n            \"content\": \"Hi from student (M6)\",\n            \"school_id\": 1,\n            \"sender_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"sender_name\": \"อภิชาติ เชื้อ\",\n            \"room_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"room_type\": \"private\",\n            \"created_at\": \"2025-04-15T19:26:16.475576Z\",\n            \"room_name\": \"อภิชาติ เชื้อ\",\n            \"image_url\": \"https://example.com/dummy.png\",\n            \"member_count\": null,\n            \"private_class\": \"ป.6/1\",\n            \"academic_year\": 2568\n        }\n    ],\n    \"Message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a03-api-student-chat-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-chat/v1/chats/student/school/:school_id?room_type=all&page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-chat",
+						"v1",
+						"chats",
+						"student",
+						"school",
+						":school_id"
+					],
+					"query": [
+						{
+							"key": "room_type",
+							"value": "all",
+							"description": "subject, class, group, private and all"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "ห้อง",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "2",
+							"description": "For student only!!!",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "school_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-member-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-chat/v1/rooms/:roomId/members?room_type=group&academic_year=2568",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-chat",
+						"v1",
+						"rooms",
+						":roomId",
+						"members"
+					],
+					"query": [
+						{
+							"key": "room_type",
+							"value": "group",
+							"description": "required, class / group / subject"
+						},
+						{
+							"key": "school_id",
+							"value": "1",
+							"description": "ส่งมาเฉพาะตอน room_type = subject",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2568",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "roomId",
+							"value": "3",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Subject",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-chat/v1/rooms/:roomId/members?room_type=subject&school_id=1&academic_year=2568",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-chat",
+								"v1",
+								"rooms",
+								":roomId",
+								"members"
+							],
+							"query": [
+								{
+									"key": "room_type",
+									"value": "subject",
+									"description": "required, class / group / subject"
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"description": "ส่งมาเฉพาะตอน room_type = subject"
+								},
+								{
+									"key": "academic_year",
+									"value": "2568",
+									"description": "optional"
+								}
+							],
+							"variable": [
+								{
+									"key": "roomId",
+									"value": "1",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Apr 2025 12:38:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "811"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d66c2238-7989-485a-9486-98fd80b1c7d4"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 4\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"user_id\": \"002a6ea2-0bd7-4c9c-a216-e865c755f06a\",\n            \"title\": \"o\",\n            \"first_name\": \"o\",\n            \"last_name\": \"o\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"4b09316b-0b5c-4f9a-8858-3b0a34fdc48a\",\n            \"title\": \"เด็กหญิง\",\n            \"first_name\": \"น้ำใจ\",\n            \"last_name\": \"ไหมไทย\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"9f4cb4bf-7410-49a6-9340-d38af63993ef\",\n            \"title\": \"นาย\",\n            \"first_name\": \"น้ำใจ\",\n            \"last_name\": \"ไมตรี\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"title\": \"เด็กชาย\",\n            \"first_name\": \"อภิชาติ\",\n            \"last_name\": \"เชื้อ\",\n            \"image_Url\": \"https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=pexels-kmerriman-20787.jpg&fm=jpg\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "Class",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-chat/v1/rooms/:roomId/members?room_type=class&academic_year=2568",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-chat",
+								"v1",
+								"rooms",
+								":roomId",
+								"members"
+							],
+							"query": [
+								{
+									"key": "room_type",
+									"value": "class",
+									"description": "required, class / group / subject"
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"description": "ส่งมาเฉพาะตอน room_type = subject",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "2568",
+									"description": "optional"
+								}
+							],
+							"variable": [
+								{
+									"key": "roomId",
+									"value": "1",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Apr 2025 12:39:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "811"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d86c2238-7989-485a-9486-98fd80b1c7d4"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 4\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"user_id\": \"002a6ea2-0bd7-4c9c-a216-e865c755f06a\",\n            \"title\": \"o\",\n            \"first_name\": \"o\",\n            \"last_name\": \"o\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"4b09316b-0b5c-4f9a-8858-3b0a34fdc48a\",\n            \"title\": \"เด็กหญิง\",\n            \"first_name\": \"น้ำใจ\",\n            \"last_name\": \"ไหมไทย\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"9f4cb4bf-7410-49a6-9340-d38af63993ef\",\n            \"title\": \"นาย\",\n            \"first_name\": \"น้ำใจ\",\n            \"last_name\": \"ไมตรี\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"title\": \"เด็กชาย\",\n            \"first_name\": \"อภิชาติ\",\n            \"last_name\": \"เชื้อ\",\n            \"image_Url\": \"https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=pexels-kmerriman-20787.jpg&fm=jpg\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "Group",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-chat/v1/rooms/:roomId/members?room_type=group&academic_year=2568",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-chat",
+								"v1",
+								"rooms",
+								":roomId",
+								"members"
+							],
+							"query": [
+								{
+									"key": "room_type",
+									"value": "group",
+									"description": "required, class / group / subject"
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"description": "ส่งมาเฉพาะตอน room_type = subject",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "2568",
+									"description": "optional"
+								}
+							],
+							"variable": [
+								{
+									"key": "roomId",
+									"value": "3",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Apr 2025 12:39:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "662"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "da6c2238-7989-485a-9486-98fd80b1c7d4"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"user_id\": \"2e348f5c-6dd7-479b-8e93-014225fb1b57\",\n            \"title\": \"d\",\n            \"first_name\": \"d\",\n            \"last_name\": \"d\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"4b09316b-0b5c-4f9a-8858-3b0a34fdc48a\",\n            \"title\": \"เด็กหญิง\",\n            \"first_name\": \"น้ำใจ\",\n            \"last_name\": \"ไหมไทย\",\n            \"image_Url\": null\n        },\n        {\n            \"user_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"title\": \"เด็กชาย\",\n            \"first_name\": \"อภิชาติ\",\n            \"last_name\": \"เชื้อ\",\n            \"image_Url\": \"https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=pexels-kmerriman-20787.jpg&fm=jpg\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a05-api-init-message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-chat/v1/init-message/:school_id/:reciever_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-chat",
+						"v1",
+						"init-message",
+						":school_id",
+						":reciever_id"
+					],
+					"variable": [
+						{
+							"key": "school_id",
+							"value": "1"
+						},
+						{
+							"key": "reciever_id",
+							"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-chat/v1/init-message/:school_id/:reciever_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-chat",
+								"v1",
+								"init-message",
+								":school_id",
+								":reciever_id"
+							],
+							"variable": [
+								{
+									"key": "school_id",
+									"value": "1"
+								},
+								{
+									"key": "reciever_id",
+									"value": "e2698584-16a0-45e9-8c4e-3169738eb5df"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 May 2025 16:39:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "19736296-1aed-4a1c-b7d6-30f4e4e23fe1"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Chat history initialized successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a06-api-send-message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"users_id\": [\r\n        \"cd1592be-7302-4805-a172-86956b0bf2a2\",\r\n        \"cd1592be-7302-4805-a172-86956b0bf2a3\"\r\n    ],\r\n    \"message\": \"Test send message to multiple users\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-chat/v1/send-message/:school_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-chat",
+						"v1",
+						"send-message",
+						":school_id"
+					],
+					"variable": [
+						{
+							"key": "school_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

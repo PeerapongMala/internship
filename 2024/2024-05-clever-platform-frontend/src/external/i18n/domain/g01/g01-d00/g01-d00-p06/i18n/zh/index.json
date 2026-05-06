@@ -1,0 +1,13 @@
+{
+  "modal-install": {
+    "title": "安装游戏",
+    "description": "您可以将游戏安装到设备上，以便更快地访问。",
+    "continue-browser-btn": "在浏览器中玩",
+    "install-btn": "安装游"
+  },
+  "modal-play-browser": {
+    "title": "无法安装游戏",
+    "description": "您的浏览器不支持将游戏安装到设备上。",
+    "continue-browser-btn": "在浏览器中玩"
+  }
+}

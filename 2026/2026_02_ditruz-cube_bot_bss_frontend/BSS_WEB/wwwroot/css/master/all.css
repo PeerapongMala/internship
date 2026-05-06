@@ -1,0 +1,1749 @@
+﻿html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+:root {
+  --pattern-bg: url("/images/image_pattern.png");
+}
+
+/* Main Wrapper */
+.main-wrapper {
+  width: 1410px;
+  margin: 0 auto;
+  overflow-x: hidden; /* crop เมื่อจอเล็ก */
+}
+
+.main-wrapper .layout {
+  height: 92vh; /* บังคับความสูงเท่าหน้าจอพอดี */
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* ป้องกันไม่ให้ตัว Layout ทั้งหมดเลื่อน */
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.sub-wrapper {
+  margin: 0px 15px 0px 0px;
+}
+
+.main-title {
+  width: 100%; /* เท่ากับ content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* ⭐ กึ่งกลางแนวตั้ง */
+  margin-bottom: -10px;
+}
+
+.main-title .title-admin h1 {
+  color: #fff !important;
+  font-weight: normal !important;
+}
+
+.main-title .title-right {
+  margin-bottom: 20px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  min-height: 0; /* สำคัญ: ป้องกัน flex item ขยายเกินตัวแม่ */
+  overflow: hidden; /* ล็อกพื้นที่ไว้ */
+}
+
+.main-content select {
+}
+
+.full-panel {
+  flex: 1 !important; /* ยืดความสูงให้เต็มพื้นที่ที่เหลือ */
+  width: 100% !important; /* กว้างเต็มพื้นที่ */
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0; /* กันเนื้อหาดันจนหลุดขอบแม่ */
+}
+
+/* ซ้าย */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  min-width: 0; /* ⭐ เพิ่ม: บังคับไม่ให้ความกว้างยืดตามเนื้อหาลูก */
+  overflow: hidden; /* ⭐ เพิ่ม: กันเนื้อหาข้างในทะลุออกด้านข้าง */
+}
+
+.left-panel > .white-card:first-child {
+  flex-shrink: 0;
+}
+
+.left-panel > .white-card:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  min-width: 0; /* ⭐ เพิ่ม: ล็อกความกว้างของกล่องขาว */
+  overflow: hidden;
+}
+
+/* ขวา */
+/* 1. กำหนดให้ Right Panel เป็น Flex Column */
+.right-panel {
+  width: 250px;
+  flex-shrink: 0;
+  display: flex; /* เพิ่มบรรทัดนี้ */
+  flex-direction: column; /* เพิ่มบรรทัดนี้ */
+  height: 100%; /* เพื่อให้สูงเท่ากับพื้นที่หน้าจอที่คำนวณไว้ */
+  gap: 10px; /* ระยะห่างระหว่าง Card */
+}
+
+/* 2. สั่งให้ Card ใบที่ 2 (อันกลาง) ยืดเต็มพื้นที่ */
+/* ใช้ nth-child(2) หรือสร้าง class เฉพาะไปใส่ที่ HTML ก็ได้ครับ */
+.right-panel .sidebar-card:nth-child(2) {
+  flex: 1; /* สั่งให้ยืดเต็มช่องว่างที่เหลือ */
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* กันเนื้อหาดันจนหลุดขอบ */
+}
+
+/* 3. จัดการส่วน List ข้างใน Card กลางให้ Scroll ได้ถ้าข้อมูลเยอะ */
+.right-panel .sidebar-card:nth-child(2) {
+  flex: 1; /* ให้ตารางข้างในยืดตามความสูงของ Card */
+  overflow-y: auto; /* ถ้ามัดเยอะเกินพื้นที่ ให้ Scroll แค่ในนี้ */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-height: 230px;
+}
+
+/* 4. Card อันล่างสุด (ใบที่ 3) */
+.right-panel .sidebar-card:last-child {
+  margin-bottom: 0; /* ไม่ต้องมี margin ล่าง เพราะจะชิดขอบอยู่แล้ว */
+  flex-shrink: 0; /* ห้ามหด ให้คงขนาดตามเนื้อหาไว้ */
+}
+
+.main-content-border {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 15px !important; /* ปรับระดับความมนได้ตามต้องการ */
+  padding: 7px !important; /* เว้นระยะจากขอบกรอบขาวเข้ามาหา Card ข้างใน */
+}
+
+/* Container หลัก: ล็อกความสูงที่นี่ที่เดียว */
+.main-content-pt2 {
+  display: flex !important;
+  width: 100% !important;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 15px !important; /* ปรับระดับความมนได้ตามต้องการ */
+  padding: 7px !important; /* เว้นระยะจากขอบกรอบขาวเข้ามาหา Card ข้างใน */
+  min-height: 300px;
+}
+
+.main-content-pt2-h4 {
+  height: 400px !important;
+}
+
+/* บังคับให้ row ลูกตรงของแม่สูงเต็มพื้นที่ */
+.main-content-pt2 > .row {
+  display: flex !important;
+  flex: 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 10px;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important; /* บังคับลูก (ซ้าย-ขวา) ยืดสูงเท่ากัน */
+}
+
+/* ฝั่งซ้าย: สูงเต็มพื้นที่ */
+.left-panel-pt2 {
+  flex: 1 1 calc(50% - 5px) !important;
+  max-width: calc(50% - 5px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-width: 0;
+  padding: 0 !important;
+}
+
+/* ฝั่งขวา: สูงเต็มพื้นที่ */
+.right-panel-pt2 {
+  flex: 1 1 calc(50% - 5px) !important;
+  max-width: calc(50% - 5px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  align-self: stretch !important;
+  padding: 0 !important;
+}
+
+/* White Card ฝั่งซ้าย: สูงเต็ม 100% */
+.left-panel-pt2 .white-card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box;
+}
+
+/* ⭐ White Card ฝั่งขวา: ปรับให้ยืดเต็ม 100% เพื่อให้กล่องขาวสูงเท่าฝั่งซ้าย */
+.right-panel-pt2 .white-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; /* ⭐ ดันเนื้อหาขึ้นบน พื้นที่ว่างจะอยู่ด้านล่างในการ์ดขาว */
+  width: 100% !important;
+  height: 100% !important; /* ⭐ เปลี่ยนจาก auto เป็น 100% เพื่อให้กล่องขวายืดเต็ม */
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+/* แถวภายในฝั่งขวา: ให้สูงตามเนื้อหา ไม่ต้องยืดกระจายตัว */
+.right-panel-pt2 .row {
+  margin: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+}
+
+/* 1. Container หลัก: ล็อกความสูงและใส่กรอบขาวโปร่งแสง */
+.main-content-pt3 {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden;
+}
+
+/* 2. Row ภายใต้แม่: ต้องยืดสูงเต็ม 100% */
+.main-content-pt3 > .row {
+  display: flex !important;
+  flex: 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: stretch !important; /* บังคับให้ลูกยืดเต็มความสูง */
+}
+
+/* 3. full-panel: กว้างและสูงเต็มพื้นที่ */
+.full-panel {
+  flex: 1 1 100% !important; /* กว้างเต็ม 100% */
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important; /* สูงเต็ม 500px ตามแม่ */
+  padding: 0 !important;
+}
+
+/* 4. White Card ภายใน: ยืดให้เต็มพื้นที่ของ full-panel */
+.full-panel .white-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: 100% !important; /* ⭐ จุดสำคัญ: ยืดกล่องขาวให้เต็มความสูง */
+  box-sizing: border-box !important;
+}
+
+.full-panel .white-card-admin {
+  min-height: 550px !important;
+}
+
+.main-content-wrapper {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-radius: 15px !important; /* ปรับระดับความมนได้ตามต้องการ */
+  padding: 7px !important; /* เว้นระยะจากขอบกรอบขาวเข้ามาหา Card ข้างใน */
+}
+.main-content-pt4 {
+  display: flex !important;
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.main-content-pt4 > .row {
+  display: flex !important;
+  flex: 1 !important;
+  height: 250px;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 10px;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+}
+
+.main-content-pt4 > .row-sub {
+  display: flex !important;
+  flex: 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 10px;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+}
+
+.left-panel-pt4 {
+  flex: 1 1 calc(60% - 5px) !important;
+  max-width: calc(60% - 5px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-width: 0;
+  padding: 0 !important;
+}
+
+.right-panel-pt4 {
+  flex: 1 1 calc(40% - 5px) !important;
+  max-width: calc(40% - 5px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  align-self: stretch !important;
+  padding: 0 !important;
+}
+
+.left-panel-pt4 .white-card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box;
+}
+
+.right-panel-pt4 .white-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+.header-info-compact {
+  font-size: 13px;
+}
+
+/* White Cards */
+.white-card {
+  background: white;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.white-card-normal {
+  margin-bottom: 10px;
+}
+
+.wc-header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+/* Steps Section */
+.steps-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.step-box {
+  flex: 1;
+  border-radius: 6px;
+}
+
+.step-wide-s {
+  flex: 1.2;
+}
+
+.step-wide {
+  flex: 2;
+}
+
+.step-extra-wide {
+  flex: 3;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.step-wrap {
+  padding-left: 34px;
+  font-size: 14px;
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  background: #668099;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.step-label {
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  margin-top: 10px;
+}
+
+.step-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  background: white;
+  /* ⭐ ใช้ 1px เพื่อความบางเบาในสถานะปกติ */
+  border: 1px solid #86b7fe !important;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  height: 45px;
+}
+
+.step-input-small {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  background: white;
+  /* ⭐ ใช้ 1px เพื่อความบางเบาในสถานะปกติ */
+  border: 1px solid #86b7fe !important;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  height: 45px;
+}
+
+/* ⭐ Mouseover: แค่เปลี่ยนสีเส้นให้ชัดขึ้นเล็กน้อย (ไม่เพิ่มความหนา) */
+.step-input:hover:not(:disabled),
+.step-input-small:hover:not(:disabled) {
+  border-color: #5da0ff !important;
+}
+
+/* ⭐ Focus: ใช้ความลับของ box-shadow เพื่อไม่ให้ Layout ขยับ */
+.step-input:focus,
+.step-input-small:focus {
+  outline: none;
+  background-color: #d1e5fa !important;
+  border-color: #86b7fe !important;
+  /* ใช้ box-shadow 2 ชั้น:
+       1. ชั้นแรกเป็นเงาสีฟ้าจางๆ รอบนอก (0 0 0 3px)
+       2. ชั้นสอง (เลือกใส่ได้) เพื่อให้ดูเหมือนเส้นขอบหนาขึ้นโดยไม่เบียดพื้นที่
+    */
+  box-shadow: 0 0 0 2px rgba(134, 183, 254, 0.4);
+}
+
+/* ⭐ Disabled: เป็นกรอบเทาตามโจทย์ */
+.step-input:disabled,
+.step-input-small:disabled {
+  background: #f8f9fa !important;
+  color: #6c757d !important;
+  border: 1px solid #dee2e6 !important; /* เส้นบางสีเทา */
+  cursor: not-allowed;
+}
+
+.bundle-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btn-dummy {
+  background: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500; /* เพิ่มความคมชัดให้ตัวอักษรเล็ก */
+  cursor: pointer;
+  /* เปลี่ยนเป็น cubic-bezier เพื่อจังหวะการลอยที่สมูทกว่า ease ปกติ */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.btn-dummy:enabled:hover {
+  /* ใช้สีเดิมได้ แต่เพิ่มการลอยและเงาให้ดูเด่นขึ้น */
+  background: #1e3a5f !important;
+  transform: translateY(-2px); /* ลอยขึ้นตามคอนเซปต์ */
+  /* เงาสีน้ำเงินโทนเดียวกับปุ่ม */
+  box-shadow: 0 4px 10px rgba(30, 58, 95, 0.35);
+  opacity: 1 !important; /* ยกเลิกการจาง เพื่อให้ดูแข็งแรง */
+}
+
+.btn-dummy:active {
+  transform: translateY(0); /* จังหวะกดให้ยุบตัวลง */
+  box-shadow: 0 2px 4px rgba(30, 58, 95, 0.2);
+  filter: brightness(0.9); /* มืดลงเล็กน้อยตอนกดเพื่อความสมจริง */
+}
+
+.btn-outline-blue {
+  background: white;
+  color: #003366;
+  border: 1px solid #003366;
+  padding: 0px 15px;
+  margin: -7px 0px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.btn-outline-blue:enabled:hover {
+  border: 1px solid #003366 !important;
+  background: #003366 !important;
+  color: white;
+}
+
+.btn-outline-blue i {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.info-item {
+  font-size: 13px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.qty-badge {
+<<<<<<< HEAD
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0;
+    padding-top: 1.5px;
+    border-radius: 4px;
+    font-weight: bold !important;
+    font-size: 13px;
+    width: 47px;
+    height: 24px;
+    background-image: url("/images/image_pattern.png") !important;
+    background-repeat: no-repeat !important;
+    background-size: 800px 800px !important;
+    background-position: -225px -322px !important;
+    
+=======
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0;
+  padding-top: 1.5px;
+  border-radius: 4px;
+  font-weight: bold !important;
+  font-size: 13px;
+  width: 47px;
+  height: 24px;
+  background-image: url("/images/image_pattern.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: 800px 800px !important;
+  background-position: -225px -322px !important;
+  border: 2px solid #dee2e6;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.qty-badge.hidden {
+  display: none;
+}
+
+/* คลาสแม่สำหรับจัดแถวใน col-8 */
+.flex-row-inline {
+  display: flex !important;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  /* ป้องกันส่วนเกินล้นออกนอกพื้นที่ col-8 */
+  overflow: hidden;
+}
+
+/* คลาสสำหรับ Select: บังคับให้หดตัวได้ */
+.select-fill {
+  flex: 1 1 auto !important; /* ให้ยืดและหดได้ */
+  min-width: 0 !important; /* ⭐ หัวใจสำคัญ: อนุญาตให้หดสั้นกว่าเนื้อหาข้างในได้ */
+  width: 0 !important; /* เริ่มต้นที่ 0 เพื่อให้ flex-grow คำนวณพื้นที่จริง */
+  text-overflow: ellipsis; /* ถ้าข้อความยาวเกินให้ขึ้น ... */
+}
+
+/* คลาสสำหรับ Badge: ล็อกความกว้างห้ามลด */
+.badge-fixed {
+  flex: 0 0 auto !important;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.qty-20 {
+  background: #f1f9f1;
+  border: 2px solid #55b254;
+  color: #336c32;
+}
+
+.qty-50 {
+  background: #f0f8ff;
+  border: 2px solid #35a0fd;
+  color: #025cab;
+}
+
+.qty-100 {
+  background: #fff5f5;
+  border: 2px solid #c07575;
+  color: #8f4242;
+}
+
+.qty-500 {
+  background: #f8f5ff;
+  border: 2px solid #6a509d;
+  color: #3d2e5b;
+}
+
+.qty-1000 {
+  background: #fbf8f4;
+  border: 2px solid #9f7d57;
+  color: #4f3e2b;
+}
+
+/* Table Controls */
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.btn-refresh {
+  background: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+}
+
+.btn-refresh:enabled:hover {
+  /* ใช้สีที่เข้มขึ้นกว่าเดิมเล็กน้อยเพื่อให้เห็นความต่าง */
+  background: #162b46 !important;
+  transform: translateY(-2px); /* ลอยขึ้นตามคอนเซปต์ */
+  /* เงาสีน้ำเงินเข้มให้เข้ากับโทนปุ่ม */
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.4);
+}
+
+.btn-refresh:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(30, 58, 95, 0.2);
+  /* จังหวะกดให้ดูยุบลงไปนิดนึงจะดูสมจริงมาก */
+  filter: brightness(0.9);
+}
+
+/* แถม: ถ้ามีไอคอนหมุนๆ ให้มันหมุนตอน Hover จะเท่มากครับ */
+.btn-refresh i,
+.btn-refresh svg {
+  display: inline-block; /* ⭐ สำคัญ: ต้องเป็น inline-block ถึงจะหมุนตรงแกน */
+  transform-origin: center center; /* บังคับจุดหมุนให้อยู่กลางไอคอน */
+  transition: transform 0.5s ease;
+  line-height: 1; /* ลดช่องว่างบรรทัดที่อาจมาดันไอคอน */
+  vertical-align: middle;
+}
+
+.btn-refresh:enabled:hover i,
+.btn-refresh:enabled:hover svg {
+  /* ถ้าอยากให้หมุนครบรอบแบบนิ่งๆ ให้ใช้ 360deg */
+  transform: rotate(360deg);
+}
+
+.btn-delete-all {
+  background: white;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* แอนิเมชันที่ดูพรีเมียมขึ้น */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* เผื่อใส่ Icon ถังขยะ */
+}
+
+.btn-delete-all:enabled:hover {
+  background: #dc3545 !important;
+  border: 1px solid #dc3545 !important;
+  color: white !important; /* ตัวอักษรเป็นสีขาว */
+  transform: translateY(-2px); /* ลอยขึ้นตามคอนเซปต์ */
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3); /* เงาสีแดงจางๆ */
+}
+
+.btn-delete-all:active {
+  transform: translateY(0); /* ตอนกดให้ยุบตัวลง */
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+
+.btn-edit-all {
+  background: white;
+  color: #1e3a5f;
+  border: 1px solid #1e3a5f;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* แอนิเมชันที่ดูพรีเมียมขึ้น */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* เผื่อใส่ Icon ถังขยะ */
+}
+
+.btn-edit-all:enabled:hover {
+  background: #1e3a5f !important;
+  border: 1px solid #1e3a5f !important;
+  color: white !important; /* ตัวอักษรเป็นสีขาว */
+  transform: translateY(-2px); /* ลอยขึ้นตามคอนเซปต์ */
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.35);
+}
+
+.btn-edit-all:active {
+  transform: translateY(0); /* ตอนกดให้ยุบตัวลง */
+  box-shadow: 0 2px 4px rgba(30, 58, 95, 0.2);
+}
+
+.btn-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important; /* ชิดขวา */
+  padding-top: 15px !important; /* ระยะห่างระหว่างตารางกับปุ่ม */
+  padding-bottom: 5px !important;
+  flex-shrink: 0 !important; /* ⭐ ป้องกันปุ่มโดนบีบจนแบน */
+}
+
+.status-text {
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.status-count {
+  font-weight: bold;
+  color: #b45309;
+}
+
+.status-text-blue {
+  font-weight: bold;
+  color: #003366;
+}
+
+/* Modal */
+.modal-warning-title {
+  /*width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;*/
+}
+.modal-warning-title i {
+  font-size: 80px;
+  color: #fd7e14;
+}
+
+.modal-success-title {
+}
+
+.modal-success-title i {
+  font-size: 80px;
+  color: #198754;
+}
+
+/* Table Controls */
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*margin-bottom: 15px;*/
+}
+
+.btn-continue {
+  background: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-sentotp {
+  background: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.status-text {
+  font-size: 13px;
+  margin-left: 15px;
+}
+/* Table */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  word-wrap: break-word; /* ให้ตัวอักษรตัดบรรทัดถ้าที่ว่างไม่พอ */
+}
+
+.data-table td {
+  padding: 10px 8px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.data-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+  background-color: #e2e8f0 !important;
+}
+
+.data-table thead th {
+  position: sticky;
+  top: -1px;
+  z-index: 10;
+  box-shadow: inset 0 -1px 0 #cbd5e1;
+  border: 1px solid #cbd5e1;
+  font-weight: bold;
+}
+
+.data-table td {
+  text-align: left;
+}
+
+/* แถวที่ถูกเลือก */
+.data-table tbody tr.active-row {
+  background-color: #d1e5fa !important; /* พื้นหลังสีฟ้าอ่อน (Tailwind Blue 100) */
+  border: 2px solid #297ed4 !important;
+}
+
+/* แถวที่ไม่ใช้ */
+.data-table tbody tr.disable-row {
+  opacity: 0.5;
+}
+
+.data-table-master {
+  width: 100%;
+  border-collapse: collapse;
+  word-wrap: break-word; /* ให้ตัวอักษรตัดบรรทัดถ้าที่ว่างไม่พอ */
+}
+
+.data-table-master td {
+  padding: 10px 8px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.data-table-master tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.data-table-master tbody tr:hover {
+  background-color: #e2e8f0 !important;
+}
+
+.data-table-master thead th {
+  position: sticky;
+  text-align: center !important;
+}
+
+.data-table-master td {
+  text-align: left;
+}
+
+/* Others */
+
+.action-btns {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.btn-action {
+  /* ⭐ ขนาดกะทัดรัด (Compact Square) */
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+
+  padding: 0 !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  /* ⭐ สีเริ่มต้น: เทาเข้ม */
+  background: white;
+  color: #555;
+  border: 1px solid #555;
+  border-radius: 4px;
+
+  cursor: pointer;
+  /* ⭐ ลด margin ลงเพื่อไม่ให้ผลักกันจนห่างเกินไป */
+  margin: 1px;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* ⭐ ไอคอนขนาดเต็มปุ่มพอดี */
+.btn-action i {
+  font-size: 18px !important;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+/* --- Hover: ปุ่มปกติ (น้ำเงิน) --- */
+.btn-action:not(.btn-danger):not(:disabled):hover {
+  background: #1e3a5f !important;
+  border-color: #1e3a5f !important;
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(30, 58, 95, 0.25);
+}
+
+/* --- Hover: ปุ่มอันตราย (แดง) --- */
+.btn-action.btn-danger:not(:disabled):hover {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.25);
+}
+
+/* สถานะกด (Active) */
+.btn-action:not(:disabled):active {
+  filter: brightness(0.85);
+  box-shadow: none;
+}
+
+/* สถานะ Disabled */
+.btn-action:disabled {
+  background-color: #f5f5f5;
+  color: #bbb;
+  border-color: #eee;
+  cursor: not-allowed;
+}
+
+/* Sidebar */
+.sidebar {
+  padding-left: 0;
+}
+
+.sidebar-card {
+  background: #f8f9fa;
+  border: 1px solid #d0d5db;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.sidebar-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info-list {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-row-label {
+  font-weight: bold;
+}
+
+/* Barcode List */
+.barcode-section-title {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.barcode-list-wrapper {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/*.barcode-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.barcode-table thead {
+    background: #f5f5f5;
+    position: sticky;
+    top: 0;
+}
+
+.barcode-table th {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600;
+}
+
+.barcode-table td {
+    padding: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.barcode-table td:last-child {
+    text-align: right;
+    font-weight: 700;
+}*/
+
+/* Saved Data Section */
+.btn-open-window {
+  min-width: 130px;
+  background: #003366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer; /* เปลี่ยนเป็น cubic-bezier เพื่อความสมูทในการลอยตัวเหมือนปุ่มอื่นๆ */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.btn-open-window:enabled:hover {
+  background: #002244 !important; /* ปรับให้เข้มขึ้นเล็กน้อยเวลา Hover */
+  transform: translateY(-2px); /* ลอยขึ้น 2px ตามคอนเซปต์ระบบ */
+  /* เงาสีน้ำเงินโทนเดียวกับปุ่ม */
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.4);
+  opacity: 1 !important; /* ยกเลิกการจาง */
+}
+
+.btn-open-window:active {
+  transform: translateY(0); /* จังหวะกดให้ยุบตัวลง */
+  box-shadow: 0 2px 4px rgba(0, 51, 102, 0.2);
+  filter: brightness(0.9); /* มืดลงนิดนึงตอนกดจริง */
+}
+
+.btn-print {
+  background: #1e3a5f !important;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer; /* ใช้ cubic-bezier เพื่อความสมูทในการลอยตัว */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* เผื่อใส่ไอคอนเครื่องพิมพ์ */
+  outline: none;
+}
+
+.btn-print:enabled:hover {
+  background: #162b46 !important; /* ปรับให้เข้มขึ้นเล็กน้อยเวลาโดนเมาส์ */
+  transform: translateY(-2px); /* ลอยขึ้นตามคอนเซปต์ */
+  /* เงาสีน้ำเงินเข้มที่ดูนุ่มนวล */
+  box-shadow: 0 6px 15px rgba(30, 58, 95, 0.4);
+  opacity: 1 !important; /* ยกเลิกการจาง */
+}
+
+.btn-print:active {
+  transform: translateY(0); /* จังหวะกดให้ยุบตัวลง */
+  box-shadow: 0 2px 5px rgba(30, 58, 95, 0.3);
+  filter: brightness(0.9); /* มืดลงนิดนึงตอนกดจริง */
+}
+
+.btn-save {
+  min-width: 130px;
+  background: #003366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer; /* เปลี่ยนเป็น cubic-bezier เพื่อความสมูทในการลอยตัวเหมือนปุ่มอื่นๆ */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+}
+
+.btn-save:enabled:hover {
+  background: #002244 !important; /* ปรับให้เข้มขึ้นเล็กน้อยเวลา Hover */
+  transform: translateY(-2px); /* ลอยขึ้น 2px ตามคอนเซปต์ระบบ */
+  /* เงาสีน้ำเงินโทนเดียวกับปุ่ม */
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.4);
+  opacity: 1 !important; /* ยกเลิกการจาง */
+}
+
+.btn-save:active {
+  transform: translateY(0); /* จังหวะกดให้ยุบตัวลง */
+  box-shadow: 0 2px 4px rgba(0, 51, 102, 0.2);
+  filter: brightness(0.9); /* มืดลงนิดนึงตอนกดจริง */
+}
+
+.btn-green {
+  min-width: 130px;
+  background: #198754 !important; /* สีเขียว Bootstrap */
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.btn-green:enabled:hover {
+  background: #157347 !important; /* ปรับเข้มขึ้นเล็กน้อยเวลา Hover */
+  transform: translateY(-2px);
+  /* เงาสีเขียวโทนเดียวกับปุ่ม */
+  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.4);
+  opacity: 1 !important;
+}
+
+.btn-green:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(25, 135, 84, 0.2);
+  filter: brightness(0.9);
+}
+
+.btn-green:disabled,
+.btn-green:disabled:hover {
+  background: #198754 !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.5 !important;
+}
+
+.btn-blue {
+  min-width: 130px;
+  background: #003366 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.btn-blue:enabled:hover {
+  background: #002244 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.4);
+  opacity: 1 !important;
+}
+
+.btn-blue:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 51, 102, 0.2);
+  filter: brightness(0.9);
+}
+
+.btn-blue:disabled,
+.btn-blue:disabled:hover {
+  background: #003366 !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.5 !important;
+}
+
+.btn-gray {
+  min-width: 130px;
+  background: #6c757d !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.btn-gray:enabled:hover {
+  background: #5a6268 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(108, 117, 125, 0.4);
+  opacity: 1 !important;
+}
+
+.btn-gray:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(108, 117, 125, 0.2);
+  filter: brightness(0.9);
+}
+
+.btn-gray:disabled,
+.btn-gray:disabled:hover {
+  background: #6c757d !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.5 !important;
+}
+
+.btn-red {
+  min-width: 130px;
+  background: #dc3545 !important; /* สีแดงหลัก */
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.btn-red:enabled:hover {
+  background: #bb2d3b !important; /* ปรับให้แดงเข้มขึ้นเวลา Hover */
+  transform: translateY(-2px);
+  /* เงาสีแดงที่เข้ากับตัวปุ่ม */
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+  opacity: 1 !important;
+}
+
+.btn-red:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+  filter: brightness(0.9);
+}
+
+.btn-red:disabled,
+.btn-red:disabled:hover {
+  background: #dc3545 !important;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.5 !important;
+}
+
+.dropdown-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Summary Card */
+.summary-card {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #fecaca 0%, #fca5a51c 100%);
+  border: 3px solid #991b1b;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+}
+
+.summary-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #991b1b;
+  margin: 0 0 10px 0;
+}
+
+.summary-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #991b1b;
+  margin: 8px 0;
+}
+
+.edit-icon-box {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
+  transform: rotate(45deg);
+  border-radius: 4px;
+  padding: 2px; /* เพิ่มพื้นที่ภายใน */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.edit-icon-box svg {
+  width: 16px;
+  height: 16px;
+  transform: rotate(-45deg);
+  fill: #fff;
+}
+
+.edit-icon-box:enabled:hover {
+  transform: rotate(45deg) scale(1.2);
+  opacity: 0.95;
+}
+
+.trash-icon-box {
+  width: 26px;
+  height: 26px;
+  background: #dc3545;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.trash-icon-box i {
+  font-size: 12px;
+  color: white;
+  transform: rotate(-45deg); /* หมุนสวนกลับ */
+}
+
+/* Hover Effect เสริมความสวย */
+.trash-icon-box:enabled:hover {
+  filter: brightness(1.15);
+  transform: rotate(45deg) scale(1.08);
+}
+
+.otp-input.error {
+  border: 2px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.row-danger {
+  background-color: #fff5f5;
+}
+
+.row-danger td {
+  color: #dc3545;
+}
+
+/* --- ส่วนที่ 1: Card หลัก (รักษาระยะบรรทัดให้เท่ากัน) --- */
+.display-two-small-card {
+  margin-top: 5px !important;
+  background: #cfd8dc;
+  padding: 5px;
+  border-radius: 16px;
+  width: 100% !important;
+  height: 150px !important;
+}
+
+.display-two-small-card-inner {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #003865;
+  border-radius: 14px;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* เว้นระยะ 3 บรรทัดเท่าๆ กัน */
+  align-items: center;
+  background-color: #f8f9fa !important;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--pattern-bg);
+  background-size: cover;
+  background-position: center;
+  color: #003865 !important;
+}
+
+/* --- ส่วนที่ 2: บรรทัดแรก (ตัดซ้าย-ขวา ตามเดิม) --- */
+.display-two-small-cashpoint {
+  text-align: center !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /* ⭐ กลับมาตัดซ้าย-ขวา เพื่อความสวยงามของชื่อจุดรับเงิน */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* --- ส่วนที่ 3: บรรทัดกลาง (ระยะห่าง 20px + Fade เฉพาะปลายขวา) --- */
+.display-two-small-row {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px; /* ⭐ ระยะห่าง Bank และ Deno กว้างขึ้นตามสั่ง */
+  overflow: hidden;
+}
+
+.display-two-small-zone {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  /* ⭐ ชัดซ้าย-จางขวา: กันตัวอักษรตัวแรกหาย */
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  text-overflow: clip !important;
+}
+
+.display-two-small-bank {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  white-space: nowrap;
+}
+
+.display-two-small-deno {
+  flex: 0 0 auto;
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  white-space: nowrap;
+}
+
+/* --- ส่วนที่ 4: บรรทัดล่าง (ID) --- */
+.display-two-small-container {
+  text-align: center !important;
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.select2-selection__placeholder,
+.select2-selection__rendered > option,
+.select2-selection__rendered {
+  margin-top: auto !important;
+  font-size: 14px;
+}
+
+.select2-container--open,
+.select2-dropdown {
+  z-index: 1060 !important;
+}
+
+.main-table-preparation-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  width: 100%;
+  background-color: white; /* ให้พื้นหลังเป็นสีขาวทอดยาวลงไปจนสุด */
+  /* วาดเส้นกรอบแค่ ซ้าย, ขวา, และ ล่าง */
+  border-left: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+  background-image: none !important;
+}
+
+/* ความกว้าง scrollbar */
+.main-table-preparation-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* track (พื้นหลัง) */
+.main-table-preparation-scroll::-webkit-scrollbar-track {
+  background: #e5e7eb;
+}
+
+/* thumb (ตัวเลื่อน) */
+.main-table-preparation-scroll::-webkit-scrollbar-thumb {
+  background-color: #909090;
+  border: 2px solid #e5e7eb;
+}
+
+/* ตอน hover ก็ยังเทา */
+.main-table-preparation-scroll::-webkit-scrollbar-thumb:enabled:hover {
+  background-color: #909090;
+}
+
+.main-table-preparation-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #909090 #e5e7eb;
+}
+
+.main-table-master {
+  border: none;
+}
+
+.main-table-master .dataTables_wrapper > div:first-child {
+  margin-top: 2px;
+}
+
+.dataTables_wrapper {
+  width: 99%;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid;
+  white-space: nowrap;
+}
+
+.status-badge i {
+  font-size: 14px;
+}
+
+/* รับมอบ – เขียว เส้นเข้ม เนื้ออ่อน */
+.status-received {
+  color: #1a2e05;
+  background: #ecfccb;
+  border-color: #84cc16;
+}
+.status-received i {
+  color: #65a30d;
+}
+
+/* ลงทะเบียน – warning + icon เอกสาร */
+.status-register {
+  color: #713f12;
+  background: #fefce8;
+  border-color: #facc15;
+}
+.status-register i {
+  color: #ca8a04;
+}
+
+/* ส่งมอบ – info + นาฬิกา */
+.status-delivery {
+  color: #172554;
+  background: #dbeafe;
+  border-color: #60a5fa;
+}
+.status-delivery i {
+  color: #3b82f6;
+}
+
+/* ส่งคืน – แดง + กากบาท */
+.status-return {
+  color: #450a0a;
+  background: #fee2e2;
+  border-color: #f87171;
+}
+.status-return i {
+  color: #dc2626;
+}
+
+/* คลาสตัวแม่ (Container) */
+.banknote-item {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+/* คลาสลูก (ตัวเลือกแต่ละอัน) */
+.banknote-item .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin: 0 !important;
+}
+
+/* ⭐ เฉพาะรายการที่ถูกเลือก: เปลี่ยนเป็นสีเทาอ่อน */
+.banknote-item .btn:has(input[type="radio"]:checked) {
+  background-color: #f5f5f5 !important; /* เทาอ่อน */
+}
+
+/* จัดระเบียบ Radio ข้างในให้ Align Middle */
+.banknote-item input[type="radio"] {
+  margin: 0 8px 0 0 !important;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+/* Date Range */
+.date-range-wrapper input {
+  font-size: 12px;
+}
+
+.date-range-wrapper button {
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+  margin-left: 5px;
+  color: #6c757d;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.date-range-wrapper button:enabled:hover {
+  background: transparent !important;
+  color: #0d6efd !important;
+}
+
+#ErrorModal {
+  z-index: 2100 !important;
+}
+
+/* 1. กำหนดสีตัวอักษรพื้นฐานสำหรับทุกปุ่มใน Pagination */
+.pagination .page-item .page-link {
+  color: #003366 !important;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+/* 2. เฉพาะปุ่ม Previous และ Next: กำหนดสีพื้นหลังพิเศษ */
+.pagination .page-item.previous .page-link,
+.pagination .page-item.next .page-link {
+  background-color: #d6e0e0 !important;
+  color: #003366 !important;
+  font-weight: 500;
+}
+
+/* 3. เมื่อเอาเมาส์ไปชี้ (Hover): ทั้งตัวเลขและปุ่มควบคุม */
+.pagination .page-item .page-link:hover {
+  color: #002244 !important;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+/* 4. ปุ่มที่มีสถานะ Active: ตัวอักษรขาว พื้นหลังน้ำเงินเข้ม */
+.pagination .page-item.active .page-link {
+  color: #fff !important;
+  background-color: #003366 !important;
+  border-color: #003366 !important;
+}
+
+/* 5. สำหรับปุ่มที่กดไม่ได้ (Disabled): เช่น Previous ในหน้าแรก */
+.pagination .page-item.disabled .page-link {
+  color: #6c757d !important;
+  background-color: #f8f9fa !important; /* สีเทาอ่อนให้ดูจางลง */
+  border-color: #dee2e6 !important;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-close:hover {
+  color: #002244 !important;
+  background-color: #e9ecef !important;
+  border-color: #dee2e6 !important;
+}

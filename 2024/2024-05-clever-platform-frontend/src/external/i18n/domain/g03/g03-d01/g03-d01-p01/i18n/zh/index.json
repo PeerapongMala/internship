@@ -1,0 +1,8 @@
+{
+  "menu_btn_label_consecutive_days": "x{{ consecutiveDays }} 天",
+  "menu_btn_label_trophy": "x{{ trophy }}",
+  "menu_btn_label_placed_leaderboard": "#{{ leaderboard }}",
+  "label_selected_subjects": "科目: {{ subject }}",
+  "label_all_lessons": "所有课程",
+  "label_all_homeworks": "所有作业"
+}

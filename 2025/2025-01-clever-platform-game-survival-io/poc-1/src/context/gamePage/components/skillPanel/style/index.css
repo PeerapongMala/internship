@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "PixelifySans";
+  src: url("/Asset/static/PixelifySans-Regular.ttf") format("truetype");
+}
+
+.result-text {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 70px;
+  color: #d86060ce;
+  text-shadow: 2px 2px #000000;
+  position: absolute;
+  top: -4%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.score-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.score-text {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 100px;
+  color: rgb(5, 2, 2);
+}
+
+.score-value {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 120px;
+  color: rgb(5, 2, 2);
+  margin-top: 1%;
+  text-shadow: 0 0 10px white;
+}
+
+.App {
+  text-align: center;
+  position: relative;
+}
+
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110vh;
+  flex-direction: column;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.ribbon {
+  position: absolute;
+  top: -240px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main-image {
+  display: block;
+}
+
+.skeleton {
+  position: absolute;
+  top: 62%;
+  left: 29%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: auto;
+}
+
+.zombie-count {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 100px;
+  color: rgb(5, 2, 2);
+  position: absolute;
+  top: 173%;
+  left: 60%;
+  transform: translateX(-50%);
+}
+
+.best-score {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 60px;
+  color: rgb(14, 13, 13);
+  position: absolute;
+  left: -38%;
+  top: 105%;
+  white-space: nowrap;
+}
+
+.next-button {
+  position: absolute;
+  top: 82%;
+  left: 52%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: auto;
+}
+
+.next-button:hover {
+  transform: translateX(-50%) scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.overlay {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.8);
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-image {
+  width: 242px;
+  height: 98%;
+  margin: 0 50px;
+}
+.second-row .grid-image {
+  margin-top: -210px;
+}
+
+.panel-header {
+  margin-top: 10%;
+  width: 500px;
+  height: 100px;
+  margin-bottom: -5%;
+}
+
+.header-choice {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 60px;
+  color: white;
+  position: relative;
+  top: 1%;
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+.text-first {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 30px;
+  color: white;
+  transform: translateY(125%);
+  text-align: center;
+  width: 100%;
+}
+.text-second {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 30px;
+  color: white;
+  transform: translateY(-450%);
+  text-align: center;
+  width: 100%;
+}
+
+.icon-first {
+  width: 70px;
+  height: auto;
+  position: relative;
+  top: -52%;
+}
+.icon-Second {
+  width: 70px;
+  height: auto;
+  position: relative;
+  top: -79%;
+}
+.des-first,
+.des-second {
+  font-family: "PixelifySans", sans-serif;
+  font-size: 30px;
+  color: white;
+  width: 100%;
+  transform: translateY(-830%);
+  position: relative;
+  left: 75px;
+}
+.icon-descriptionf {
+  width: 40px;
+  height: auto;
+  position: relative;
+  top: -78%;
+  transform: translate(250%, 700%);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.icon-descriptionf:hover {
+  transform: translate(250%, 700%) scale(1.1);
+}
+.icon-descriptions {
+  width: 40px;
+  height: auto;
+  position: relative;
+  top: -33%;
+  transform: translate(250%, -160%);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.icon-descriptions:hover {
+  transform: translate(250%, -160%) scale(1.1);
+}
+.lv-upf {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 40px;
+  color: white;
+  transform: translate(-6%, -320%);
+  text-align: center;
+  width: 100%;
+}
+.lv-ups {
+  font-weight: bold;
+  font-family: "PixelifySans", sans-serif;
+  font-size: 40px;
+  color: white;
+  transform: translate(-6%, -320%);
+  text-align: center;
+  width: 100%;
+}

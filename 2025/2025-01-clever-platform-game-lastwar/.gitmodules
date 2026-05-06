@@ -1,0 +1,3 @@
+[submodule "src/utils/core-utils"]
+	path = src/utils/core-utils
+	url = https://github.com/ZettaMerge/2025-08-core-utils.git

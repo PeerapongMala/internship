@@ -1,0 +1,20 @@
+{
+  "bugReport": {
+    "title": "跟蹤錯誤報告",
+    "topic": "問題代碼",
+    "details": "详情",
+    "status": "状态",
+    "reportedBy": "报告人",
+    "type": "类型",
+    "fixedSuccessfully": "修复成功",
+    "loading": "加载数据中...",
+    "notFound": "未找到错误报告",
+    "date_title": "日期",
+    "pending": "等待检查",
+    "inProgress": "修复中",
+    "closed": "已关闭",
+    "modal": {
+      "title": "报告错误"
+    }
+  }
+}

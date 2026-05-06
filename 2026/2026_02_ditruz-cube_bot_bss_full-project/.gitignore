@@ -1,0 +1,16 @@
+*/settings.local.json
+.devcontainer/docker-compose.devcontainer.yml
+.devcontainer/.env
+.mcp.json
+temp
+/.sonarqube
+/tests
+
+.env
+
+/ftp_data
+
+/sonarqube_data
+/sonarqube_extensions
+/sonarqube_logs
+prompt.md

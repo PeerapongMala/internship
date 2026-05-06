@@ -1,0 +1,11 @@
+{
+  "redeem_header": "Enter Code to Redeem Reward",
+  "redeem_placeholder": "Enter reward code...",
+  "redeem_code_incorrect": "Incorrect code, please try again",
+  "redeem_code_already_used": "This code has already been used, Please try another code.",
+  "redeem_confirm": "Redeem",
+
+  "reward_received": "Success! Reward received",
+  "sent_to_inventory": "Your reward has been sent to the inventory",
+  "inventory": "Inventory"
+}

@@ -1,0 +1,87 @@
+{
+  "breadcrumb": {
+    "admin": "สำหรับแอดมิน",
+    "manageSchool": "จัดการโรงเรียน"
+  },
+  "button": {
+    "copy": "คัดลอก",
+    "cancel": "ยกเลิก",
+    "download": "Download",
+    "upload": "Upload",
+    "archive": "จัดเก็บข้อมูล"
+  },
+  "modal": {
+    "header": {
+      "copy": "คัดลอกห้องเรียน",
+      "export": "ส่งออกข้อมูล",
+      "import": "นำเข้าข้อมูล",
+      "archive": "จัดเก็บถาวร",
+      "selectTeacher": "เลือกครู",
+      "changeSubject": "ย้ายวิชา",
+      "deleteComfirm": "ลบบัญชีที่เลือก"
+    },
+    "body": {
+      "archiveDescription": "ข้อมูลจะถูกซ่อนจากหน้านี้ถาวร และจัดเก็บในฐานข้อมูล  คุณไม่สามารถเรียกคืนข้อมูลที่จัดเก็บมาแสดงในหน้านี้ได้อีก",
+      "deleteDescription": "แน่ใจว่าต้องการย้ายครูออกจากวิชาเรียนนี้?ข้อมูลบัญชีครูจะไม่ถูกลบ คุณสามารถเข้าถึงข้อมูลบัญชีได้ที่หน้าจัดการผู้ใช้งาน"
+    }
+  },
+  "schoolCard": {
+    "code": "รหัสโรงเรียน",
+    "shortCode": "ตัวย่อ"
+  },
+  "status": {
+    "all": "ทั้งหมด",
+    "draft": "แบบร่าง",
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน"
+  },
+  "tab": {
+    "schoolDetail": "ข้อมูลโรงเรียน",
+    "manageDocument": "จัดการสัญญา",
+    "manageCourse": "จัดการหลักสูตร",
+    "manageUser": "จัดการผู้ใช้งาน",
+    "manageClassroom": "จัดการห้องเรียน",
+    "manageTeacher": "จัดการครูประจำวิชา",
+    "teacher": "ครูประจำชั้น",
+    "student": "นักเรียน"
+  },
+  "table": {
+    "header": {
+      "button": {
+        "bulkEdit": "Bulk Edit",
+        "addClassroom": "เพิ่มห้องเรียน",
+        "addTeacher": "เพิ่มครู"
+      },
+      "searchBox": {
+        "placeholder": "ค้นหา"
+      }
+    },
+    "body": {
+      "header": {
+        "no": "#",
+        "edittedDate": "แก้ไขล่าสุด",
+        "edittedBy": "แก้ไขล่าสุดโดย",
+        "descriptionBtn": "รายละเอียด",
+        "editBtn": "แก้ไข",
+        "changeSubject": "ย้ายวิชา",
+        "archiveBtn": "จัดเก็บ",
+        "remove": "เอาออก"
+      }
+    }
+  },
+  "word": {
+    "schoolYear": "ปีการศึกษา",
+    "subjectCode": "รหัสวิชา",
+    "class": "ชั้นปี",
+    "affiliation": "สังกัดวิชา",
+    "dateFrom": "ตั้งแต่วันที่",
+    "dateTo": "ถึงวันที่",
+    "subject": "วิชา",
+    "accountCode": "รหัสบัญชี",
+    "prefix": "คำนำหน้า",
+    "firstName": "ชื่อ",
+    "lastName": "นามสกุล",
+    "email": "อีเมล",
+    "lastUsed": "ใช้งานล่าสุด"
+  }
+}

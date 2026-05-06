@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content -->
+      <div class="flex-1 overflow-y-auto bg-gray-50 p-8">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h1 class="text-2xl font-bold text-gray-800">Performance Analytics</h1>
+            <p class="text-gray-500 mt-1">วิเคราะห์ผลงานทีมและ KPI</p>
+          </div>
+          <select id="analytics-period" onchange="changePeriod(this.value)" class="px-4 py-2 bg-white border border-gray-200 rounded-xl text-sm">
+            <option value="this-week">สัปดาห์นี้</option>
+            <option value="last-week">สัปดาห์ที่แล้ว</option>
+            <option value="this-month">เดือนนี้</option>
+            <option value="last-month">เดือนที่แล้ว</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-3 gap-6 mb-8">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-sm text-gray-500 mb-1">ความเร็ว</h3>
+            <p id="analytics-speed-stat" class="text-3xl font-bold text-gray-800">2.5 นาที</p>
+            <p class="text-xs text-gray-400 mt-2">ต่อเคส</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-sm text-gray-500 mb-1">คุณภาพ</h3>
+            <p id="analytics-quality-stat" class="text-3xl font-bold text-gray-800">4.8/5.0</p>
+            <p class="text-xs text-gray-400 mt-2">Rating เฉลี่ย</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-sm text-gray-500 mb-1">ปริมาณ</h3>
+            <p id="analytics-volume-stat" class="text-3xl font-bold text-gray-800">336 เคส</p>
+            <p class="text-xs text-gray-400 mt-2">ในช่วงเวลาที่เลือก</p>
+          </div>
+        </div>
+        <!-- Individual Performance Section -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-bold text-gray-800">Performance รายบุคคล</h2>
+            <div class="flex items-center gap-2">
+              <select id="sort-by" class="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-sm">
+                <option value="cases">เรียงตาม: จำนวนเคส</option>
+                <option value="speed">เรียงตาม: ความเร็ว</option>
+                <option value="rating">เรียงตาม: Rating</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Performance Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="text-left text-xs text-gray-500 uppercase border-b border-gray-100">
+                  <th class="pb-3 font-medium">Admin</th>
+                  <th class="pb-3 font-medium text-center">เคสทั้งหมด</th>
+                  <th class="pb-3 font-medium text-center">เวลาเฉลี่ย</th>
+                  <th class="pb-3 font-medium text-center">Rating</th>
+                  <th class="pb-3 font-medium text-center">Conversion</th>
+                  <th class="pb-3 font-medium text-center">สถานะ</th>
+                  <th class="pb-3 font-medium text-right">รายละเอียด</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-50">
+                <!-- Admin 1 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                        <span class="text-green-700 font-semibold">น</span>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-800">แอดมินน้ำ</p>
+                        <p class="text-xs text-gray-400">Admin Level 2</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">127</span>
+                    <p class="text-xs text-green-500">+12% จากสัปดาห์ก่อน</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-blue-600">1.8 นาที</span>
+                    <p class="text-xs text-gray-400">เร็วที่สุด</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <div class="flex items-center justify-center gap-1">
+                      <span class="text-lg font-bold text-yellow-500">4.9</span>
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-green-600">78%</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Online</span>
+                  </td>
+                  <td class="py-4 text-right">
+                    <button onclick="showAdminDetail('น้ำ')" class="px-3 py-1.5 bg-dental-50 text-dental-700 text-xs rounded-lg hover:bg-dental-100">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+
+                <!-- Admin 2 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <span class="text-blue-700 font-semibold">ฟ</span>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-800">แอดมินฟ้า</p>
+                        <p class="text-xs text-gray-400">Admin Level 2</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">98</span>
+                    <p class="text-xs text-green-500">+5% จากสัปดาห์ก่อน</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">2.3 นาที</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <div class="flex items-center justify-center gap-1">
+                      <span class="text-lg font-bold text-yellow-500">4.7</span>
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-green-600">72%</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Online</span>
+                  </td>
+                  <td class="py-4 text-right">
+                    <button onclick="showAdminDetail('ฟ้า')" class="px-3 py-1.5 bg-dental-50 text-dental-700 text-xs rounded-lg hover:bg-dental-100">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+
+                <!-- Admin 3 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <span class="text-purple-700 font-semibold">พ</span>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-800">แอดมินพลอย</p>
+                        <p class="text-xs text-gray-400">Admin Level 1</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">65</span>
+                    <p class="text-xs text-red-500">-3% จากสัปดาห์ก่อน</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">3.1 นาที</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <div class="flex items-center justify-center gap-1">
+                      <span class="text-lg font-bold text-yellow-500">4.5</span>
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-yellow-600">58%</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-full">Away</span>
+                  </td>
+                  <td class="py-4 text-right">
+                    <button onclick="showAdminDetail('พลอย')" class="px-3 py-1.5 bg-dental-50 text-dental-700 text-xs rounded-lg hover:bg-dental-100">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+
+                <!-- Admin 4 -->
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                        <span class="text-orange-700 font-semibold">ม</span>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-800">แอดมินมิ้นท์</p>
+                        <p class="text-xs text-gray-400">Admin Level 1</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">46</span>
+                    <p class="text-xs text-gray-400">ใหม่ (สัปดาห์แรก)</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-gray-800">4.2 นาที</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <div class="flex items-center justify-center gap-1">
+                      <span class="text-lg font-bold text-yellow-500">4.3</span>
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-yellow-600">52%</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">Offline</span>
+                  </td>
+                  <td class="py-4 text-right">
+                    <button onclick="showAdminDetail('มิ้นท์')" class="px-3 py-1.5 bg-dental-50 text-dental-700 text-xs rounded-lg hover:bg-dental-100">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+
+                <!-- AI Performance -->
+                <tr class="hover:bg-gray-50 transition-colors bg-blue-50/50">
+                  <td class="py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-lg">🤖</span>
+                      </div>
+                      <div>
+                        <p class="font-medium text-gray-800">AI Chatbot</p>
+                        <p class="text-xs text-blue-500">Automated</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-blue-600">892</span>
+                    <p class="text-xs text-green-500">+28% จากสัปดาห์ก่อน</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-blue-600">0.3 นาที</span>
+                    <p class="text-xs text-gray-400">ทันที</p>
+                  </td>
+                  <td class="py-4 text-center">
+                    <div class="flex items-center justify-center gap-1">
+                      <span class="text-lg font-bold text-yellow-500">4.6</span>
+                      <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="text-lg font-bold text-blue-600">65%</span>
+                  </td>
+                  <td class="py-4 text-center">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Active 24/7</span>
+                  </td>
+                  <td class="py-4 text-right">
+                    <button onclick="showAdminDetail('AI')" class="px-3 py-1.5 bg-blue-50 text-blue-700 text-xs rounded-lg hover:bg-blue-100">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-800 mb-4">Charts</h2>
+          <div id="analytics-charts">
+            <p class="text-gray-500">Charts will be rendered here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Detail Modal -->
+    <div id="admin-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200 bg-dental-50">
+          <h3 class="text-lg font-bold text-gray-800" id="admin-detail-title">รายละเอียด Admin</h3>
+          <button onclick="closeAdminDetail()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-5" id="admin-detail-content">
+          <!-- Content will be injected here -->
+        </div>
+        <div class="p-5 border-t border-gray-200 bg-gray-50">
+          <button onclick="closeAdminDetail()" class="w-full px-4 py-2.5 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600">ปิด</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../components/sidebar.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof initAnalytics === 'function') initAnalytics();
+      });
+
+      // Show Admin Detail Modal
+      function showAdminDetail(adminName) {
+        const modal = document.getElementById('admin-detail-modal');
+        const title = document.getElementById('admin-detail-title');
+        const content = document.getElementById('admin-detail-content');
+
+        title.textContent = adminName === 'AI' ? 'รายละเอียด AI Chatbot' : `รายละเอียด แอดมิน${adminName}`;
+
+        if (adminName === 'AI') {
+          content.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex items-center gap-4 p-4 bg-blue-50 rounded-xl">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                  <span class="text-white text-2xl">🤖</span>
+                </div>
+                <div>
+                  <p class="text-xl font-bold text-gray-800">AI Chatbot</p>
+                  <p class="text-sm text-blue-600">Automated Response System</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-blue-600">892</p>
+                  <p class="text-xs text-gray-500">เคสที่จัดการ</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-green-600">65%</p>
+                  <p class="text-xs text-gray-500">อัตรา Conversion</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-purple-600">0.3 นาที</p>
+                  <p class="text-xs text-gray-500">เวลาตอบเฉลี่ย</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-yellow-600">4.6</p>
+                  <p class="text-xs text-gray-500">Rating เฉลี่ย</p>
+                </div>
+              </div>
+              <div class="p-4 bg-green-50 rounded-xl">
+                <p class="text-sm font-medium text-green-800 mb-2">สถิติเด่น</p>
+                <ul class="text-sm text-green-700 space-y-1">
+                  <li>• ตอบกลับทันทีตลอด 24 ชั่วโมง</li>
+                  <li>• จัดการเคสได้มากกว่า Admin รวมกัน 2.6 เท่า</li>
+                  <li>• ลดภาระงาน Admin ได้ 73%</li>
+                </ul>
+              </div>
+            </div>
+          `;
+        } else {
+          content.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex items-center gap-4 p-4 bg-dental-50 rounded-xl">
+                <div class="w-16 h-16 bg-dental-500 rounded-full flex items-center justify-center">
+                  <span class="text-white text-2xl font-bold">${adminName.charAt(0)}</span>
+                </div>
+                <div>
+                  <p class="text-xl font-bold text-gray-800">แอดมิน${adminName}</p>
+                  <p class="text-sm text-dental-600">Admin Level 2</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-gray-800">127</p>
+                  <p class="text-xs text-gray-500">เคสสัปดาห์นี้</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-green-600">78%</p>
+                  <p class="text-xs text-gray-500">อัตรา Conversion</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-blue-600">1.8 นาที</p>
+                  <p class="text-xs text-gray-500">เวลาตอบเฉลี่ย</p>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl text-center">
+                  <p class="text-2xl font-bold text-yellow-600">4.9</p>
+                  <p class="text-xs text-gray-500">Rating เฉลี่ย</p>
+                </div>
+              </div>
+              <div class="p-4 bg-blue-50 rounded-xl">
+                <p class="text-sm font-medium text-blue-800 mb-2">บริการที่ถนัด</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">จัดฟัน</span>
+                  <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">ฟอกสีฟัน</span>
+                  <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">วีเนียร์</span>
+                </div>
+              </div>
+              <div class="p-4 bg-green-50 rounded-xl">
+                <p class="text-sm font-medium text-green-800 mb-2">ความสำเร็จ</p>
+                <ul class="text-sm text-green-700 space-y-1">
+                  <li>• เร็วที่สุดในทีม</li>
+                  <li>• Rating สูงสุด</li>
+                  <li>• ปิดเคสได้มากที่สุด</li>
+                </ul>
+              </div>
+            </div>
+          `;
+        }
+
+        modal.classList.remove('hidden');
+      }
+
+      // Close Admin Detail Modal
+      function closeAdminDetail() {
+        document.getElementById('admin-detail-modal').classList.add('hidden');
+      }
+    </script>
+  </body>
+</html>

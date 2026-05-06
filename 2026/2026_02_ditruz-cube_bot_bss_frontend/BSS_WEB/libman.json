@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.3.3",
+      "destination": "wwwroot/lib/bootstrap/dist/"
+    },
+    {
+      "library": "html2canvas@1.4.1",
+      "destination": "wwwroot/lib/html2canvas"
+    },
+    {
+      "library": "jspdf@2.5.1",
+      "destination": "wwwroot/lib/jspdf",
+      "files": [
+        "jspdf.umd.min.js"
+      ]
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "xlsx@0.18.5",
+      "destination": "wwwroot/lib/xlsx",
+      "files": [
+        "dist/xlsx.full.min.js"
+      ]
+    }
+  ]
+}

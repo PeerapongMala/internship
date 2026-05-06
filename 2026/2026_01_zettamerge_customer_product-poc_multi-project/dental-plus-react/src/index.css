@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+* {
+  font-family: 'Noto Sans Thai', system-ui, sans-serif;
+}
+
+/* Sidebar Navigation */
+.menu-item.active {
+  background-color: #0d9488;
+  color: white;
+}
+
+.sidebar-menu-item.active-menu {
+  background-color: #0d9488;
+  color: white;
+}
+
+/* Sub-tabs in sidebar */
+.sub-tab {
+  padding-left: 2.5rem;
+  font-size: 0.875rem;
+  border-left: 2px solid transparent;
+}
+
+.sub-tab.active-sub {
+  border-left-color: #14b8a6;
+  background-color: #f0fdfa;
+  color: #0d9488;
+}
+
+/* Dispatch Sub-tabs */
+.dispatch-sub-tab {
+  transition: all 0.2s;
+}
+
+.dispatch-sub-tab.active-sub {
+  background-color: #ccfbf1;
+  color: #0f766e;
+  font-weight: 500;
+  border-left: 3px solid #14b8a6;
+}
+
+/* AI Badge Animation */
+.ai-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Tab Buttons */
+.tab-btn.active {
+  border-color: #14b8a6;
+  color: #0d9488;
+  background-color: #f0fdfa;
+}
+
+/* Channel Icons */
+.channel-line { background-color: #06c755; }
+.channel-fb { background-color: #1877f2; }
+.channel-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.channel-tiktok { background-color: #000000; }
+.channel-whatsapp { background-color: #25d366; }
+
+/* Department Badges */
+.dept-general { background-color: #dbeafe; color: #1e40af; }
+.dept-surgery { background-color: #fee2e2; color: #991b1b; }
+.dept-ortho { background-color: #f3e8ff; color: #6b21a8; }
+.dept-cosmetic { background-color: #fce7f3; color: #9d174d; }
+.dept-inquiry { background-color: #f3f4f6; color: #374151; }
+
+/* Progress Bar */
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Timeline Steps */
+.timeline-step.completed .step-circle {
+  background-color: #14b8a6;
+  border-color: #14b8a6;
+}
+
+.timeline-step.completed .step-line {
+  background-color: #14b8a6;
+}
+
+.timeline-step.completed .step-text {
+  color: #0f766e;
+  font-weight: 600;
+}
+
+/* Chat Item Active */
+.chat-item.active {
+  background-color: #f0fdfa;
+  border-left: 3px solid #14b8a6;
+}
+
+/* Modal */
+.modal {
+  display: none;
+}
+
+.modal.show {
+  display: flex;
+}
+
+/* Patient Cards */
+.patient-card {
+  cursor: grab;
+  transition: all 0.2s;
+}
+
+.patient-card:active {
+  cursor: grabbing;
+}
+
+.patient-card.dragging {
+  opacity: 0.5;
+  transform: scale(1.05);
+}
+
+/* Drop Zones */
+.drop-zone {
+  transition: all 0.2s;
+}
+
+.drop-zone.drag-over {
+  background-color: #ccfbf1;
+  border-color: #14b8a6;
+  border-style: dashed;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Team Tab */
+.team-tab {
+  transition: all 0.2s;
+}
+
+.team-tab.active-team {
+  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.3);
+}
+
+/* Staff Column */
+.staff-column {
+  min-height: 400px;
+  transition: all 0.2s;
+}
+
+.staff-column:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Staff Drop Zone */
+.staff-drop-zone {
+  min-height: 200px;
+  transition: all 0.2s;
+}
+
+.staff-drop-zone.drag-over {
+  background-color: #f0fdfa;
+  border: 2px dashed #14b8a6;
+  border-radius: 8px;
+}
+
+/* Clinic Navigation */
+.clinic-nav {
+  transition: all 0.2s;
+}
+
+.clinic-nav.active-menu {
+  background-color: #0d9488;
+  color: white;
+}
+
+/* Clinic Tab Content */
+.clinic-tab-content {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Appointment Row */
+.appointment-row {
+  transition: all 0.15s;
+}
+
+.appointment-row:hover {
+  background-color: #f0fdfa !important;
+}
+
+/* Log Tab */
+.log-tab.active-log {
+  border-color: #14b8a6;
+  color: #0d9488;
+  background-color: #f0fdfa;
+}
+
+/* Analytics Card */
+.analytics-card {
+  transition: all 0.2s;
+}
+
+.analytics-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

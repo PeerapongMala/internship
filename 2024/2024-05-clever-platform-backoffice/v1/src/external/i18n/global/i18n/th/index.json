@@ -1,0 +1,35 @@
+{
+  "header": {
+    "menu": {
+      "privileges": "Privileges",
+      "memberGetMember": "Member get member",
+      "britaniaActivity": "Britania activity",
+      "about": "About",
+      "contact": "Contact",
+      "contentCreatorMenu": "ข้อมูลด่าน"
+    }
+  },
+  "validate": {
+    "required": "กรุณากรอกข้อมูลให้ครบถ้วน"
+  },
+  "button": {
+    "bulkEdit": "Bulk Edit",
+    "upload": "Upload",
+    "download": "Download",
+    "cancel": "ยกเลิก",
+    "back": "ย้อนกลับ",
+    "choose": "เลือก"
+  },
+  "search": {
+    "search": "ค้นหา",
+    "searchDropdown": "ฟิลด์"
+  },
+  "modal": {
+    "upload": "นำเข้าข้อมูล",
+    "download": "ส่งออกข้อมูล"
+  },
+  "word": {
+    "dateFrom": "ตั้งแต่วันที่",
+    "dateTo": "ถึงวันที่"
+  }
+}

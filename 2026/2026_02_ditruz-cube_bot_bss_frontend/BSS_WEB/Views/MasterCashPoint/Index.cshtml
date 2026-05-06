@@ -1,0 +1,283 @@
+﻿@model IEnumerable<BSS_WEB.Models.DisplayModel.MasterCashPointDisplay>
+
+@{
+    ViewData["Title"] = "Master Cash Point";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/admin.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+
+
+<!-- =======  Data-Table  = Start  ========================== -->
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+            <div class="main-title">
+                <div class="title-left">
+                    <div class="title-section title-admin">
+                        <h1>Master Cash Point</h1>
+                    </div>
+                </div>
+                <div class="title-right d-flex gap-2 mt-1">
+                    <button type="button" class="btn btn-blue" id="btnItemCreate"
+                            onclick="showCreatePopup();">
+                        <i class="bi bi-plus-circle" fill="currentColor"></i> เพิ่มข้อมูล
+                    </button>
+                    <button type="button" class="btn btn-blue" id="btnToggleFilter">
+                        <i class="bi bi-filter-circle" fill="currentColor"></i> Filter
+                    </button>
+
+                    @Html.AntiForgeryToken()
+                </div>
+            </div>
+
+            <!-- =======  Filter - Display  = Start  ========================== -->
+            <div class="container" id="filterDisplay">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <div for="ddlFilterInstitution">ชื่อธนาคาร:</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-control form-select"
+                                        id="ddlFilterInstitution"
+                                        onchange="LoadInstitutionFilterChange();">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <div for="ddlFilterDepartment">ชื่อหน่วยงาน:</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-control form-select"
+                                        id="ddlFilterDepartment"
+                                        onchange="LoadDepartmentFilterChange();">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <div for="ddlFilterStatus">สถานะใช้งาน:</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-control form-select"
+                                        id="ddlFilterStatus"
+                                        onchange="LoadStatusFilterChange();">
+                                    <option value="">ทั้งหมด</option>
+                                    <option value="1" selected="selected">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-pt3 mt-2">
+                <div class="row">
+                    <div class="full-panel">
+                        <div class="white-card">
+                            <!-- =======  Filter - Display  = End  ========================== -->
+                            <div class="main-table-preparation-scroll main-table-master">
+                                <table id="dtCashPoint" class="masterDataTable data-table-master"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======  Data-Table  = End    ========================== -->
+<div style="display:none;">
+    <input type="text" id="rowItemSelected" value="" style="display:none;" />
+    <input type="text" id="modeSave" value="" style="display:none;" />
+    <input type="text" id="rowDepartmentIdSelected" value="" style="display:none;" />
+    <input type="text" id="rowInstitutionIdSelected" value="" style="display:none;" />
+</div>
+
+<!-- =======  Modal View Detail  = Start    ========================== -->
+<div class="modal fade" id="ViewItemDetailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleViewModalLabel">รายละเอียด</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formViewCashPointDetail">
+                     
+                    
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewCashPointName" class="col-form-label">ชื่อศูนย์เงินสด:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewCashPointName" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewBankName" class="col-form-label">ชื่อธนาคาร:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewBankName" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewDepartmentName" class="col-form-label">ชื่อหน่วยงาน:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewDepartmentName" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="form-label" for="txtViewCbBcdCode">รหัสสัญญา</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input readonly class="form-control-plaintext" id="txtViewCbBcdCode" autocomplete="off" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewBranchCode" class="col-form-label">รหัสสาขาธนาคาร:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewBranchCode" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="spanViewStatus" class="col-form-label">สถานะใช้งาน:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <span id="spanViewStatus" style="margin-top: 8px !important;" class="badge badge-active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-blue" id="btnEditDetail"><i class="bi bi-pencil-fill" fill="currentColor"></i> แก้ไข </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal View Detail  = End    ========================== -->
+
+<!-- =======  Modal Create & Edit  = Start    ========================== -->
+
+<div class="modal fade" id="addOrEditItemModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleModalLabel">เพิ่มข้อมูล</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formCreateCashPoint">
+                     
+                    <div class="mb-3">
+                        <span class="text-muted small char-counter float-end">0/10</span>
+                        <label class="form-label" for="txtCashPointName">ชื่อศูนย์เงินสด</label><span class="text-danger"> * </span>
+                        <input class="form-control" id="txtCashPointName" autocomplete="off" required maxlength="150" />
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="ddlInstitution">ชื่อธนาคาร</label><span class="text-danger"> * </span>
+                        <select class="form-control form-select" id="ddlInstitution" required onchange="InstitutionChange();">
+                        </select>
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="ddlDepartment">ชื่อหน่วยงาน</label><span class="text-danger"> * </span>
+                        <select class="form-control form-select" id="ddlDepartment" required onchange="DepartmentChange();">
+                        </select>
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-muted small char-counter float-end">0/10</span>
+                        <label class="form-label" for="txtCbBcdCode">รหัสสัญญา</label><span class="text-danger"> * </span>
+                        <input class="form-control" id="txtCbBcdCode" autocomplete="off" required maxlength="10" disabled />
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="text-muted small char-counter float-end">0/10</span>
+                        <label class="form-label" for="txtBranchCode">รหัสสาขาธนาคาร</label><span class="text-danger"> * </span>
+                        <input class="form-control" id="txtBranchCode" autocomplete="off" required maxlength="10" />
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-6">
+                            <label class="form-check-label" for="checkIsActive">ตั้งค่าสถานะการใช้งาน</label>
+                        </div>
+                        <div class="col-sm-6 row">
+                            <div class="col-sm-10" style="text-align:end !important;">
+                                <span id="spanStatus" class="badge">Inactive</span>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input large-switch" type="checkbox" value="" id="checkIsActive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-gray" data-bs-dismiss="modal" id="btnCancel"><i class="bi bi-x-circle" fill="currentColor"></i> ยกเลิก </button>
+                <button type="button" class="btn btn-blue" id="btnSave"><i class="bi bi-plus-circle" fill="currentColor"></i> บันทึก </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal Create & Edit  = End    ========================== -->
+<!-- =======  Modal Deleted  = Start    ========================== -->
+<div class="modal fade" id="confirmSaveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleSaveModalLabel">ยืนยันการบันทึกข้อมูล</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ต้องการยืนยันเพื่อทำการบันทึกข้อมูลหรือไม่ ?
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-gray" data-bs-dismiss="modal" id="btnConfirmClose"><i class="bi bi-x-circle" fill="currentColor"></i> ยกเลิก </button>
+                <button type="button" class="btn btn-green" id="btnConfirmSave"><i class="bi bi-plus-circle" fill="currentColor"></i> ยืนยัน </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal Deleted  = End    ========================== -->
+@section CustomStyle {
+    <link rel="stylesheet" href="@Url.Content("~/css/helpers/bss-datatable-style.css")" />
+}
+@section Scripts {
+    <script src="@Url.Content("~/js/helpers/serverside.datatable.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/masterdata/MasterCashPoint.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/master/admin.js")" asp-append-version="true"></script>
+}

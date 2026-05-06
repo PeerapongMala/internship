@@ -1,0 +1,188 @@
+{
+  "save": "Save",
+  "buy": "Buy",
+  "bought": "Bought",
+  "title": "Inventory",
+  "shop": "Shop",
+  "amount": "Amount",
+  "make_mission": "Complete missions to earn rewards",
+  "gift_history": "Reward History",
+  "no_pet": "You don't have a pet yet",
+  "do_mission_to_get_pet": "Complete missions to get a pet",
+  "go_to_shop": "Go to Shop",
+  "no_honer": "You don't have a title yet",
+  "do_mission_to_get_honer": "Complete missions to get a title",
+  "do_mission": "Complete Mission",
+  "no_frame": "You don't have a frame yet",
+  "do_mission_to_get_frame": "Complete missions to get a frame",
+  "no_gift": "You don't have any rewards yet",
+  "do_mission_to_get_gift": "Complete missions to get rewards",
+  "use_item": "Use Item",
+  "used": "Used",
+  "history": "Reward History",
+  "insufficient_funds": "Shop Notification",
+  "insufficient_funds_message": "You don't have enough coins\nPlease play games to earn more gold coins",
+  "ok": "OK",
+  "characters": {
+    "set1": {
+      "character1": {
+        "name": "Mighty the Brave Warrior",
+        "description": "A strong young warrior who embarks on a quest to find a sacred sword to protect his kingdom"
+      },
+      "character2": {
+        "name": "Finn the Forest Shadow Archer",
+        "description": "A silent archer with legendary accuracy who protects the forest from danger"
+      },
+      "character3": {
+        "name": "Damien the Dark Knight",
+        "description": "A mysterious knight cursed by an evil witch, forced to journey to discover the truth about his past"
+      },
+      "character4": {
+        "name": "Laia the Light Mage",
+        "description": "A young light sorceress who uses magic to heal people and dispel darkness"
+      }
+    },
+    "set2": {
+      "character1": {
+        "name": "DJ Don the Aspiring DJ",
+        "description": "Loves listening to music and can groove to any beat! Dreams of one day playing music for the whole world to dance to!"
+      },
+      "character2": {
+        "name": "Captain Bo the Future Sailor",
+        "description": "Obsessed with the sea! Loves reading maps, learning about ships, and dreams of becoming a great captain someday"
+      },
+      "character3": {
+        "name": "Bear Yu the Kid Who Wants to Be a Bear",
+        "description": "Loves bears more than anything! Has every bear costume, collects bear-themed items, and believes that with enough faith, one day he'll become a real bear!"
+      },
+      "character4": {
+        "name": "Good Girl the Promising Child",
+        "description": "Used to be lazy about studying, but now tries her best! Dreams of graduating and making her parents proud"
+      }
+    },
+    "set3": {
+      "character1": {
+        "name": "Ash the Mysterious Hacker",
+        "description": "A technology genius who can hack any system in an instant, but still has a gentle heart"
+      },
+      "character2": {
+        "name": "Neon the Racer Under the Lights",
+        "description": "Faster than light, uncatchable, ready to challenge every path in the city of the future"
+      },
+      "character3": {
+        "name": "Six the Mechanical Fighter",
+        "description": "Strong as a machine, there's no mission Six can fail!"
+      },
+      "character4": {
+        "name": "Luna the Cyber Soldier",
+        "description": "Silent as the night, sharp as a futuristic blade, no target escapes her sight"
+      }
+    },
+    "set4": {
+      "character1": {
+        "name": "Tori the Young Adventurer",
+        "description": "A heart full of dreams, eager to explore the wide world"
+      },
+      "character2": {
+        "name": "Ray the Genius Thinker",
+        "description": "Loves reading books and always coming up with new ideas"
+      },
+      "character3": {
+        "name": "Min the Cheerful Child",
+        "description": "The smallest in the group, but runs fast and is curious about everything!"
+      },
+      "character4": {
+        "name": "Big the Gentle Giant",
+        "description": "Though he looks strong and tough, he's actually the gentlest one"
+      }
+    },
+    "set5": {
+      "character1": {
+        "name": "Teddy the Playful Bear",
+        "description": "Loves hugs more than anything! Always asks for a hug when meeting someone"
+      },
+      "character2": {
+        "name": "Bunny the Mischievous Rabbit",
+        "description": "Hops around everywhere, never stays still, and is great at stealing carrots"
+      },
+      "character3": {
+        "name": "Mew Mew the Clever Cat",
+        "description": "Leader of the cute team, just one look and treats are easily earned"
+      },
+      "character4": {
+        "name": "Snow the Soft White Cat",
+        "description": "Fluffy like a snowball, anyone who hugs him falls in love"
+      }
+    }
+  },
+  "pets": {
+    "Peacock": {
+      "name": "Pui-Pui",
+      "description": "Soft, fluffy feathers that sparkle. Loves to dance and show off his tail to friends. Gets so shy when complimented that he dances with joy!"
+    },
+    "Malayan_A": {
+      "name": "Tup-Tap",
+      "description": "Walks with a gentle patter, curious by nature but kind-hearted. When he sees water, he quickly jumps in for a refreshing soak"
+    },
+    "Elk_A": {
+      "name": "Jee-Jee",
+      "description": "Runs as fast as the wind but is extremely shy. If you want Jee-Jee to come close, you need to use his favorite fresh leaves"
+    },
+    "Bison": {
+      "name": "Khon-Fu",
+      "description": "The softest, fluffiest fur perfect for hugging! Khon-Fu is big-hearted and gentle, wanting his fur petted every single day"
+    },
+    "Mole": {
+      "name": "Peb-Ble",
+      "description": "A professional digger who always hides toys in burrows. If you want to see Peb-Ble pop up, you need to bring some treats as bait"
+    },
+    "Pangolin_A": {
+      "name": "Num-Nim",
+      "description": "Round and incredibly soft to touch! When startled, he rolls into a ball that's perfect for cuddling"
+    },
+    "Iguana_A": {
+      "name": "Mee-Mee",
+      "description": "Loves plants with all his heart. You'll always find Mee-Mee hiding among the bushes"
+    },
+    "Iguana_B": {
+      "name": "Moo-Moo",
+      "description": "Extremely affectionate and loves warm sunbaths. If you gently pet his head, he'll close his eyes in bliss"
+    },
+    "Anteater_B": {
+      "name": "Tid-Tee",
+      "description": "Long, long tongue! Eats ants lightning-fast. Shy at first, but once he trusts you, he loves to gently nuzzle with his head"
+    },
+    "Anteater_A": {
+      "name": "Tom-Tam",
+      "description": "A true explorer! Loves to sniff around and search for food. When he finds lots of ants, he gets so happy he dances with joy"
+    },
+    "Chipmunk_A": {
+      "name": "Suk-Son",
+      "description": "Playful and runs around all day, no one can catch up! If he disappears, try looking up in the trees - he might be hiding there"
+    },
+    "Possum_A": {
+      "name": "Puk-Luk",
+      "description": "When scared, he pretends to faint, but he's just acting! He also loves to hang upside down and sleep for fun"
+    },
+    "Otter_A": {
+      "name": "Ot-to",
+      "description": "The best swimmer ever! When sleeping, he likes to hold hands with friends so they don't float away. The ultimate cuddle buddy of the water"
+    },
+    "Redpanda_A": {
+      "name": "Pan-Pan",
+      "description": "Playful, affectionate, and loves treats so much! If you have apples for him, he'll follow you around adorably"
+    },
+    "Sloth_A": {
+      "name": "Tuam-Tiam",
+      "description": "Moves slowly but has the biggest heart! Tuam-Tiam loves hugs and always needs to find someone to cuddle with when he wakes up"
+    },
+    "Armadillo_A": {
+      "name": "Shel-Ly",
+      "description": "The softest, fluffiest fur perfect for hugging! Big-hearted and gentle, wanting his fur petted every single day"
+    },
+    "Armadillo_B": {
+      "name": "Lhun-Lhun",
+      "description": "The softest, fluffiest fur perfect for hugging! Big-hearted and gentle, wanting his fur petted every single day"
+    }
+  }
+}

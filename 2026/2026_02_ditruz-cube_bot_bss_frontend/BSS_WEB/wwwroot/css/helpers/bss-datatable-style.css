@@ -1,0 +1,90 @@
+﻿.dataTables_scrollHead table {
+    margin-bottom: 0 !important;
+}
+
+.dataTables_scrollBody thead,
+.dataTables_scrollBody thead tr,
+.dataTables_scrollBody thead th {
+    height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* The css involve with view/edit form  */ 
+/* Firefox */
+.dataTables_scrollBody,
+#ViewItemDetailModal .modal-body,
+#addOrEditItemModal .modal-body,
+.select2-results {
+    scrollbar-width: thin;
+    scrollbar-color: #6c757d #f1f1f1;
+}
+
+    /* Chrome / Edge / Safari */
+    .dataTables_scrollBody::-webkit-scrollbar,
+    #ViewItemDetailModal .modal-body::-webkit-scrollbar,
+    #addOrEditItemModal .modal-body::-webkit-scrollbar,
+    .select2-results::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    .dataTables_scrollBody::-webkit-scrollbar-track,
+    #ViewItemDetailModal .modal-body::-webkit-scrollbar-track,
+    #addOrEditItemModal .modal-body::-webkit-scrollbar-track,
+    .select2-results::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+        .dataTables_scrollBody::-webkit-scrollbar-thumb,
+        #ViewItemDetailModal .modal-body::-webkit-scrollbar-thumb,
+        #addOrEditItemModal .modal-body::-webkit-scrollbar-thumb,
+        .select2-results::-webkit-scrollbar-thumb {
+            background-color: #6c757d;
+            border-radius: 10px;
+        }
+
+            .dataTables_scrollBody::-webkit-scrollbar-thumb:hover,
+            #ViewItemDetailModal .modal-body::-webkit-scrollbar-thumb:hover,
+            #addOrEditItemModal .modal-body::-webkit-scrollbar-thumb:hover,
+            .select2-results::-webkit-scrollbar-thumb:hover {
+                background-color: #495057;
+            }
+
+/*enable this if use page loader*/
+/*
+.dataTables_processing {
+    display: none !important;
+}
+*/
+
+
+.dt-row {
+    margin-bottom: 10px;
+}
+ 
+ tr{
+     height:none!important;
+ }
+ th{
+     height:40px!important;
+ }
+
+#filterDisplay {
+    margin-bottom:20px;
+    display:none;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    margin-top: 0;
+}
+
+
+.form-control-plaintext {
+    margin-left:10px;
+}
+
+#addOrEditItemModal .modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+}

@@ -1,0 +1,2831 @@
+[
+  {
+    "province": "กรุงเทพมหานคร",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เขตพระนคร",
+        "data": {
+          "total_school_count": 5804,
+          "total_class_room_count": 41028,
+          "total_student_count": 9492,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.53,
+          "percentage_star": 18.960038426716388,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตดุสิต",
+        "data": {
+          "total_school_count": 90,
+          "total_class_room_count": 38055,
+          "total_student_count": 809,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.7,
+          "percentage_star": 3.868282911350507,
+          "maximum_star_count": 250,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตหนองจอก",
+        "data": {
+          "total_school_count": 72,
+          "total_class_room_count": 19023,
+          "total_student_count": 9120,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.65,
+          "percentage_star": 82.0518460980396,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตบางรัก",
+        "data": {
+          "total_school_count": 4102,
+          "total_class_room_count": 19023,
+          "total_student_count": 7095,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.1,
+          "percentage_star": 97.943157198644,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขตบางเขน",
+        "data": {
+          "total_school_count": 1903,
+          "total_class_room_count": 38054,
+          "total_student_count": 9715,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.04,
+          "percentage_star": 99.9817118384556,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตบางกะปิ",
+        "data": {
+          "total_school_count": 2505,
+          "total_class_room_count": 25007,
+          "total_student_count": 6580,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.63,
+          "percentage_star": 98.106079093063,
+          "maximum_star_count": 410,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขตปทุมวัน",
+        "data": {
+          "total_school_count": 1905,
+          "total_class_room_count": 25091,
+          "total_student_count": 8420,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.25,
+          "percentage_star": 54.074368578798506,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตป้อมปราบศัตรูพ่าย",
+        "data": {
+          "total_school_count": 93,
+          "total_class_room_count": 19037,
+          "total_student_count": 410818,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.35,
+          "percentage_star": 12.449860599358352,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตพระโขนง",
+        "data": {
+          "total_school_count": 70,
+          "total_class_room_count": 41066,
+          "total_student_count": 190071,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.3,
+          "percentage_star": 32.24546020907575,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตมีนบุรี",
+        "data": {
+          "total_school_count": 3806,
+          "total_class_room_count": 38037,
+          "total_student_count": 8579,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.4,
+          "percentage_star": 67.72575719742264,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตลาดกระบัง",
+        "data": {
+          "total_school_count": 1909,
+          "total_class_room_count": 38057,
+          "total_student_count": 410598,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.03,
+          "percentage_star": 94.1471735788285,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตยานนาวา",
+        "data": {
+          "total_school_count": 5808,
+          "total_class_room_count": 41093,
+          "total_student_count": 190749,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.1,
+          "percentage_star": 24.228584076621694,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตสัมพันธวงศ์",
+        "data": {
+          "total_school_count": 1908,
+          "total_class_room_count": 70,
+          "total_student_count": 580640,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.96,
+          "percentage_star": 89.4957771502716,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตพญาไท",
+        "data": {
+          "total_school_count": 5809,
+          "total_class_room_count": 41062,
+          "total_student_count": 410243,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.1,
+          "percentage_star": 20.682197076604503,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตธนบุรี",
+        "data": {
+          "total_school_count": 4100,
+          "total_class_room_count": 19037,
+          "total_student_count": 410438,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.5,
+          "percentage_star": 76.2902272355444,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขตบางกอกใหญ่",
+        "data": {
+          "total_school_count": 74,
+          "total_class_room_count": 38088,
+          "total_student_count": 8760,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.54,
+          "percentage_star": 52.17385252818427,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตห้วยขวาง",
+        "data": {
+          "total_school_count": 71,
+          "total_class_room_count": 2503,
+          "total_student_count": 58068,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.2,
+          "percentage_star": 36.026488512391516,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตคลองสาน",
+        "data": {
+          "total_school_count": 580,
+          "total_class_room_count": 84,
+          "total_student_count": 9872,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 890.85,
+          "percentage_star": 57.877332038543486,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตตลิ่งชัน",
+        "data": {
+          "total_school_count": 1907,
+          "total_class_room_count": 38073,
+          "total_student_count": 250280,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.47,
+          "percentage_star": 55.38705686409537,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตบางกอกน้อย",
+        "data": {
+          "total_school_count": 98,
+          "total_class_room_count": 38086,
+          "total_student_count": 58095,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.24,
+          "percentage_star": 40.868616267427484,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตบางขุนเทียน",
+        "data": {
+          "total_school_count": 4109,
+          "total_class_room_count": 41097,
+          "total_student_count": 8585,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.75,
+          "percentage_star": 28.550772483890974,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตภาษีเจริญ",
+        "data": {
+          "total_school_count": 2504,
+          "total_class_room_count": 25094,
+          "total_student_count": 580397,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.96,
+          "percentage_star": 25.486128474457193,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตหนองแขม",
+        "data": {
+          "total_school_count": 79,
+          "total_class_room_count": 19007,
+          "total_student_count": 6791,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.4,
+          "percentage_star": 95.9924408734412,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตราษฎร์บูรณะ",
+        "data": {
+          "total_school_count": 68,
+          "total_class_room_count": 41078,
+          "total_student_count": 410215,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 0.9,
+          "percentage_star": 9.08207900562019,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตบางพลัด",
+        "data": {
+          "total_school_count": 61,
+          "total_class_room_count": 2507,
+          "total_student_count": 380532,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.1,
+          "percentage_star": 70.5770118576136,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตดินแดง",
+        "data": {
+          "total_school_count": 98,
+          "total_class_room_count": 580,
+          "total_student_count": 580394,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.6,
+          "percentage_star": 83.1126524427935,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตบึงกุ่ม",
+        "data": {
+          "total_school_count": 3800,
+          "total_class_room_count": 41054,
+          "total_student_count": 190503,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.2,
+          "percentage_star": 94.9229747873467,
+          "maximum_star_count": 380,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตสาทร",
+        "data": {
+          "total_school_count": 1909,
+          "total_class_room_count": 1902,
+          "total_student_count": 380915,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 0.97,
+          "percentage_star": 28.865594129333804,
+          "maximum_star_count": 250,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตบางซื่อ",
+        "data": {
+          "total_school_count": 4109,
+          "total_class_room_count": 25011,
+          "total_student_count": 250077,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.75,
+          "percentage_star": 27.12157194056479,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตจตุจักร",
+        "data": {
+          "total_school_count": 1906,
+          "total_class_room_count": 19046,
+          "total_student_count": 580484,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 410.64,
+          "percentage_star": 27.865297982004698,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตบางคอแหลม",
+        "data": {
+          "total_school_count": 71,
+          "total_class_room_count": 38053,
+          "total_student_count": 19094,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.75,
+          "percentage_star": 82.1408043603364,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตประเวศ",
+        "data": {
+          "total_school_count": 5802,
+          "total_class_room_count": 25006,
+          "total_student_count": 250759,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.61,
+          "percentage_star": 55.7273983537202,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตคลองเตย",
+        "data": {
+          "total_school_count": 82,
+          "total_class_room_count": 25000,
+          "total_student_count": 580537,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.19,
+          "percentage_star": 98.638481812086,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตสวนหลวง",
+        "data": {
+          "total_school_count": 5807,
+          "total_class_room_count": 3808,
+          "total_student_count": 8529,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.84,
+          "percentage_star": 18.43646978120099,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตจอมทอง",
+        "data": {
+          "total_school_count": 4105,
+          "total_class_room_count": 38026,
+          "total_student_count": 7848,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.5,
+          "percentage_star": 30.572092012575936,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตดอนเมือง",
+        "data": {
+          "total_school_count": 62,
+          "total_class_room_count": 41089,
+          "total_student_count": 190732,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.9,
+          "percentage_star": 88.4828619466593,
+          "maximum_star_count": 580,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตราชเทวี",
+        "data": {
+          "total_school_count": 5805,
+          "total_class_room_count": 19068,
+          "total_student_count": 380845,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.5,
+          "percentage_star": 10.747840332485303,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขตลาดพร้าว",
+        "data": {
+          "total_school_count": 4105,
+          "total_class_room_count": 19018,
+          "total_student_count": 580581,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.3,
+          "percentage_star": 52.14043650626916,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตวัฒนา",
+        "data": {
+          "total_school_count": 8,
+          "total_class_room_count": 25085,
+          "total_student_count": 190970,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.7,
+          "percentage_star": 65.7217745973317,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตบางแค",
+        "data": {
+          "total_school_count": 92,
+          "total_class_room_count": 38004,
+          "total_student_count": 38026,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.02,
+          "percentage_star": 3.9072997500930295,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขตหลักสี่",
+        "data": {
+          "total_school_count": 69,
+          "total_class_room_count": 19097,
+          "total_student_count": 580963,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.9,
+          "percentage_star": 98.3844716420776,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตสายไหม",
+        "data": {
+          "total_school_count": 2503,
+          "total_class_room_count": 25097,
+          "total_student_count": 7213,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.98,
+          "percentage_star": 62.6053964720661,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตคันนายาว",
+        "data": {
+          "total_school_count": 4104,
+          "total_class_room_count": 38007,
+          "total_student_count": 9488,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.13,
+          "percentage_star": 39.04560945557098,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เขตสะพานสูง",
+        "data": {
+          "total_school_count": 85,
+          "total_class_room_count": 41002,
+          "total_student_count": 580442,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.3,
+          "percentage_star": 94.5796025688604,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตวังทองหลาง",
+        "data": {
+          "total_school_count": 97,
+          "total_class_room_count": 25009,
+          "total_student_count": 250078,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.96,
+          "percentage_star": 99.6916521618436,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขตคลองสามวา",
+        "data": {
+          "total_school_count": 95,
+          "total_class_room_count": 38076,
+          "total_student_count": 6957,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.238,
+          "percentage_star": 98.6147788486383,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เขตบางนา",
+        "data": {
+          "total_school_count": 96,
+          "total_class_room_count": 38033,
+          "total_student_count": 7450,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.66,
+          "percentage_star": 40.16953005240398,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตทวีวัฒนา",
+        "data": {
+          "total_school_count": 74,
+          "total_class_room_count": 1903,
+          "total_student_count": 580540,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.9,
+          "percentage_star": 81.3999084222346,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขตทุ่งครุ",
+        "data": {
+          "total_school_count": 4109,
+          "total_class_room_count": 19005,
+          "total_student_count": 410058,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.18,
+          "percentage_star": 40.67403034450916,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขตบางบอน",
+        "data": {
+          "total_school_count": 580,
+          "total_class_room_count": 19078,
+          "total_student_count": 7696,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.82,
+          "percentage_star": 26.629496018654564,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      }
+    ]
+  },
+  {
+    "province": "สมุทรปราการ",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองสมุทรปราการ",
+        "data": {
+          "total_school_count": 190,
+          "total_class_room_count": 41083,
+          "total_student_count": 410068,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.89,
+          "percentage_star": 27.898678538428847,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บางบ่อ",
+        "data": {
+          "total_school_count": 4103,
+          "total_class_room_count": 19094,
+          "total_student_count": 6005,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.1,
+          "percentage_star": 78.4542378220571,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บางพลี",
+        "data": {
+          "total_school_count": 83,
+          "total_class_room_count": 25031,
+          "total_student_count": 7445,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.9,
+          "percentage_star": 22.04852046969956,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "พระประแดง",
+        "data": {
+          "total_school_count": 5804,
+          "total_class_room_count": 38073,
+          "total_student_count": 7070,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.24,
+          "percentage_star": 23.12598170328497,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "พระสมุทรเจดีย์",
+        "data": {
+          "total_school_count": 580,
+          "total_class_room_count": 19048,
+          "total_student_count": 250942,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.9,
+          "percentage_star": 75.6143110489346,
+          "maximum_star_count": 250,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "บางเสาธง",
+        "data": {
+          "total_school_count": 2504,
+          "total_class_room_count": 25014,
+          "total_student_count": 6610,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.04,
+          "percentage_star": 17.937583627472865,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      }
+    ]
+  },
+  {
+    "province": "นนทบุรี",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองนนทบุรี",
+        "data": {
+          "total_school_count": 61,
+          "total_class_room_count": 19012,
+          "total_student_count": 7039,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.038,
+          "percentage_star": 82.8382195092436,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "บางกรวย",
+        "data": {
+          "total_school_count": 3808,
+          "total_class_room_count": 5807,
+          "total_student_count": 250057,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.44,
+          "percentage_star": 37.590359755556754,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "บางใหญ่",
+        "data": {
+          "total_school_count": 82,
+          "total_class_room_count": 38028,
+          "total_student_count": 9621,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.37,
+          "percentage_star": 3.146069275600083,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "บางบัวทอง",
+        "data": {
+          "total_school_count": 3802,
+          "total_class_room_count": 19068,
+          "total_student_count": 410593,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.5,
+          "percentage_star": 36.49778634327401,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ไทรน้อย",
+        "data": {
+          "total_school_count": 7,
+          "total_class_room_count": 19083,
+          "total_student_count": 250976,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.63,
+          "percentage_star": 41.560076693556255,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ปากเกร็ด",
+        "data": {
+          "total_school_count": 1901,
+          "total_class_room_count": 19041,
+          "total_student_count": 7381,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.4,
+          "percentage_star": 41.66902291861263,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      }
+    ]
+  },
+  {
+    "province": "ปทุมธานี",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองปทุมธานี",
+        "data": {
+          "total_school_count": 96,
+          "total_class_room_count": 19062,
+          "total_student_count": 7190,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.52,
+          "percentage_star": 47.444594534546724,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "คลองหลวง",
+        "data": {
+          "total_school_count": 66,
+          "total_class_room_count": 38031,
+          "total_student_count": 9153,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.4,
+          "percentage_star": 41.656539473521256,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ธัญบุรี",
+        "data": {
+          "total_school_count": 2507,
+          "total_class_room_count": 25023,
+          "total_student_count": 190825,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.6,
+          "percentage_star": 30.217680997064345,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "หนองเสือ",
+        "data": {
+          "total_school_count": 79,
+          "total_class_room_count": 25092,
+          "total_student_count": 410132,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.14,
+          "percentage_star": 67.9,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ลาดหลุมแก้ว",
+        "data": {
+          "total_school_count": 97,
+          "total_class_room_count": 0,
+          "total_student_count": 9023,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.32,
+          "percentage_star": 65.4007534201227,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "ลำลูกกา",
+        "data": {
+          "total_school_count": 98,
+          "total_class_room_count": 8,
+          "total_student_count": 580828,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.43,
+          "percentage_star": 94.7424037697272,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "สามโคก",
+        "data": {
+          "total_school_count": 2507,
+          "total_class_room_count": 19098,
+          "total_student_count": 6385,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 190.66,
+          "percentage_star": 61.9187787632973,
+          "maximum_star_count": 250,
+          "minimum_star_count": 380
+        }
+      }
+    ]
+  },
+  {
+    "province": "อ่างทอง",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองอ่างทอง",
+        "data": {
+          "total_school_count": 5803,
+          "total_class_room_count": 25089,
+          "total_student_count": 6171,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.3,
+          "percentage_star": 45.46880891011418,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ไชโย",
+        "data": {
+          "total_school_count": 79,
+          "total_class_room_count": 5809,
+          "total_student_count": 19022,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 190.39,
+          "percentage_star": 48.136626397471005,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ป่าโมก",
+        "data": {
+          "total_school_count": 83,
+          "total_class_room_count": 76,
+          "total_student_count": 8793,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.53,
+          "percentage_star": 37.13476118691374,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "โพธิ์ทอง",
+        "data": {
+          "total_school_count": 4102,
+          "total_class_room_count": 19073,
+          "total_student_count": 7258,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.34,
+          "percentage_star": 21.12146690949517,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "แสวงหา",
+        "data": {
+          "total_school_count": 76,
+          "total_class_room_count": 38027,
+          "total_student_count": 580593,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 190.05,
+          "percentage_star": 78.8073094944026,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "วิเศษชัยชาญ",
+        "data": {
+          "total_school_count": 4104,
+          "total_class_room_count": 580,
+          "total_student_count": 380867,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.04,
+          "percentage_star": 12.931048797849009,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "สามโก้",
+        "data": {
+          "total_school_count": 2509,
+          "total_class_room_count": 25056,
+          "total_student_count": 380244,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.23,
+          "percentage_star": 11.686327715282708,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      }
+    ]
+  },
+  {
+    "province": "ชลบุรี",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองชลบุรี",
+        "data": {
+          "total_school_count": 3809,
+          "total_class_room_count": 25098,
+          "total_student_count": 9637,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.89,
+          "percentage_star": 42.26886576586484,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "บ้านบึง",
+        "data": {
+          "total_school_count": 5809,
+          "total_class_room_count": 19030,
+          "total_student_count": 8094,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.34,
+          "percentage_star": 15.076792597778454,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "หนองใหญ่",
+        "data": {
+          "total_school_count": 99,
+          "total_class_room_count": 41073,
+          "total_student_count": 580125,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.93,
+          "percentage_star": 72.742591365574,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "บางละมุง",
+        "data": {
+          "total_school_count": 94,
+          "total_class_room_count": 25076,
+          "total_student_count": 410136,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.79,
+          "percentage_star": 32.59430328126651,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "พานทอง",
+        "data": {
+          "total_school_count": 2505,
+          "total_class_room_count": 92,
+          "total_student_count": 8891,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.7,
+          "percentage_star": 25.94224834007437,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "พนัสนิคม",
+        "data": {
+          "total_school_count": 97,
+          "total_class_room_count": 25036,
+          "total_student_count": 410299,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.89,
+          "percentage_star": 23.377324742232442,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ศรีราชา",
+        "data": {
+          "total_school_count": 94,
+          "total_class_room_count": 1908,
+          "total_student_count": 190973,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.5,
+          "percentage_star": 49.82323697148938,
+          "maximum_star_count": 580,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เกาะสีชัง",
+        "data": {
+          "total_school_count": 95,
+          "total_class_room_count": 19059,
+          "total_student_count": 9949,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 190.15,
+          "percentage_star": 5.825251501278084,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "สัตหีบ",
+        "data": {
+          "total_school_count": 77,
+          "total_class_room_count": 41019,
+          "total_student_count": 580908,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.54,
+          "percentage_star": 73.1542667858608,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บ่อทอง",
+        "data": {
+          "total_school_count": 4108,
+          "total_class_room_count": 79,
+          "total_student_count": 190691,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.37,
+          "percentage_star": 89.3734746225996,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เกาะจันทร์",
+        "data": {
+          "total_school_count": 98,
+          "total_class_room_count": 41018,
+          "total_student_count": 7110,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.6,
+          "percentage_star": 76.5709870818465,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      }
+    ]
+  },
+  {
+    "province": "ระยอง",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองระยอง",
+        "data": {
+          "total_school_count": 2508,
+          "total_class_room_count": 41004,
+          "total_student_count": 9770,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.6,
+          "percentage_star": 10.836516919902195,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "บ้านฉาง",
+        "data": {
+          "total_school_count": 1901,
+          "total_class_room_count": 19088,
+          "total_student_count": 410714,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.44,
+          "percentage_star": 66.7122038440085,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "แกลง",
+        "data": {
+          "total_school_count": 63,
+          "total_class_room_count": 38063,
+          "total_student_count": 6394,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.038,
+          "percentage_star": 37.14695445091001,
+          "maximum_star_count": 380,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "วังจันทร์",
+        "data": {
+          "total_school_count": 4100,
+          "total_class_room_count": 38066,
+          "total_student_count": 190500,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.6,
+          "percentage_star": 88.407745254163,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "บ้านค่าย",
+        "data": {
+          "total_school_count": 3800,
+          "total_class_room_count": 25036,
+          "total_student_count": 250805,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 0.74,
+          "percentage_star": 42.08665495488544,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ปลวกแดง",
+        "data": {
+          "total_school_count": 80,
+          "total_class_room_count": 2503,
+          "total_student_count": 9529,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.43,
+          "percentage_star": 28.94294803039317,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เขาชะเมา",
+        "data": {
+          "total_school_count": 4105,
+          "total_class_room_count": 90,
+          "total_student_count": 9355,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.8,
+          "percentage_star": 76.545796479595,
+          "maximum_star_count": 580,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "นิคมพัฒนา",
+        "data": {
+          "total_school_count": 3805,
+          "total_class_room_count": 38042,
+          "total_student_count": 190428,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.5,
+          "percentage_star": 35.386065468470626,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      }
+    ]
+  },
+  {
+    "province": "จันทบุรี",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองจันทบุรี",
+        "data": {
+          "total_school_count": 2504,
+          "total_class_room_count": 38017,
+          "total_student_count": 9760,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.2,
+          "percentage_star": 55.76537995019959,
+          "maximum_star_count": 250,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "ขลุง",
+        "data": {
+          "total_school_count": 69,
+          "total_class_room_count": 1901,
+          "total_student_count": 190425,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.42,
+          "percentage_star": 68.7954766976485,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ท่าใหม่",
+        "data": {
+          "total_school_count": 3803,
+          "total_class_room_count": 19015,
+          "total_student_count": 250487,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.73,
+          "percentage_star": 63.57809958617814,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "โป่งน้ำร้อน",
+        "data": {
+          "total_school_count": 70,
+          "total_class_room_count": 86,
+          "total_student_count": 250324,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.89,
+          "percentage_star": 20.43458725065812,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "มะขาม",
+        "data": {
+          "total_school_count": 92,
+          "total_class_room_count": 38012,
+          "total_student_count": 410796,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.1,
+          "percentage_star": 96.8547315237656,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "แหลมสิงห์",
+        "data": {
+          "total_school_count": 89,
+          "total_class_room_count": 41073,
+          "total_student_count": 410554,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 190.34,
+          "percentage_star": 89.393763975278,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "สอยดาว",
+        "data": {
+          "total_school_count": 2503,
+          "total_class_room_count": 25088,
+          "total_student_count": 58056,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.95,
+          "percentage_star": 93.423623991143,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "แก่งหางแมว",
+        "data": {
+          "total_school_count": 89,
+          "total_class_room_count": 1902,
+          "total_student_count": 7108,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.7,
+          "percentage_star": 78.740548065324,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "นายายอาม",
+        "data": {
+          "total_school_count": 380,
+          "total_class_room_count": 1902,
+          "total_student_count": 380480,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 190.89,
+          "percentage_star": 92.8745880622272,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขาคิชฌกูฏ",
+        "data": {
+          "total_school_count": 1900,
+          "total_class_room_count": 3807,
+          "total_student_count": 9329,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 360,
+          "percentage_star": 12.680346830465972,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      }
+    ]
+  },
+  {
+    "province": "ตราด",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองตราด",
+        "data": {
+          "total_school_count": 61,
+          "total_class_room_count": 25076,
+          "total_student_count": 190692,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.453,
+          "percentage_star": 94.1436549368805,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "คลองใหญ่",
+        "data": {
+          "total_school_count": 190,
+          "total_class_room_count": 2504,
+          "total_student_count": 410792,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.6,
+          "percentage_star": 54.05069498917348,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "เขาสมิง",
+        "data": {
+          "total_school_count": 3804,
+          "total_class_room_count": 77,
+          "total_student_count": 410543,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.2,
+          "percentage_star": 84.5314459246011,
+          "maximum_star_count": 190,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "บ่อไร่",
+        "data": {
+          "total_school_count": 90,
+          "total_class_room_count": 61,
+          "total_student_count": 9329,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.7,
+          "percentage_star": 35.98810597626323,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "แหลมงอบ",
+        "data": {
+          "total_school_count": 2507,
+          "total_class_room_count": 38049,
+          "total_student_count": 580750,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.67,
+          "percentage_star": 98.479776936082,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เกาะกูด",
+        "data": {
+          "total_school_count": 4102,
+          "total_class_room_count": 41080,
+          "total_student_count": 7909,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.7,
+          "percentage_star": 21.9466382407006,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เกาะช้าง",
+        "data": {
+          "total_school_count": 4104,
+          "total_class_room_count": 19063,
+          "total_student_count": 6688,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.26,
+          "percentage_star": 24.695893288699764,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      }
+    ]
+  },
+  {
+    "province": "ปราจีนบุรี",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองปราจีนบุรี",
+        "data": {
+          "total_school_count": 7,
+          "total_class_room_count": 19080,
+          "total_student_count": 250315,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.1,
+          "percentage_star": 57.757538615694614,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "กบินทร์บุรี",
+        "data": {
+          "total_school_count": 1905,
+          "total_class_room_count": 19048,
+          "total_student_count": 380325,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.26,
+          "percentage_star": 44.625877269138805,
+          "maximum_star_count": 580,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "นาดี",
+        "data": {
+          "total_school_count": 1901,
+          "total_class_room_count": 25051,
+          "total_student_count": 7387,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 410.6,
+          "percentage_star": 77.2558739440285,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "บ้านสร้าง",
+        "data": {
+          "total_school_count": 4107,
+          "total_class_room_count": 19059,
+          "total_student_count": 6813,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.69,
+          "percentage_star": 47.78798142454161,
+          "maximum_star_count": 190,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "ประจันตคาม",
+        "data": {
+          "total_school_count": 1904,
+          "total_class_room_count": 41001,
+          "total_student_count": 380151,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.62,
+          "percentage_star": 50.750876371936336,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ศรีมหาโพธิ",
+        "data": {
+          "total_school_count": 3801,
+          "total_class_room_count": 72,
+          "total_student_count": 6531,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.164,
+          "percentage_star": 43.19478692501848,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ศรีมโหสถ",
+        "data": {
+          "total_school_count": 4105,
+          "total_class_room_count": 19088,
+          "total_student_count": 380158,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.05,
+          "percentage_star": 45.22606167746228,
+          "maximum_star_count": 410,
+          "minimum_star_count": 580
+        }
+      }
+    ]
+  },
+  {
+    "province": "นครนายก",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองนครนายก",
+        "data": {
+          "total_school_count": 99,
+          "total_class_room_count": 41082,
+          "total_student_count": 250214,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.57,
+          "percentage_star": 68.3461580674455,
+          "maximum_star_count": 580,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ปากพลี",
+        "data": {
+          "total_school_count": 7,
+          "total_class_room_count": 38056,
+          "total_student_count": 380526,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.1,
+          "percentage_star": 66.403929965546,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บ้านนา",
+        "data": {
+          "total_school_count": 5806,
+          "total_class_room_count": 41019,
+          "total_student_count": 8472,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.6,
+          "percentage_star": 84.4429800202917,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "องครักษ์",
+        "data": {
+          "total_school_count": 2505,
+          "total_class_room_count": 38028,
+          "total_student_count": 7764,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250,
+          "percentage_star": 32.42589208660662,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      }
+    ]
+  },
+  {
+    "province": "ยโสธร",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองยโสธร",
+        "data": {
+          "total_school_count": 2501,
+          "total_class_room_count": 380,
+          "total_student_count": 250275,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.8,
+          "percentage_star": 24.37059303622082,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ทรายมูล",
+        "data": {
+          "total_school_count": 60,
+          "total_class_room_count": 38049,
+          "total_student_count": 9888,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.82,
+          "percentage_star": 36.267438309871025,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "กุดชุม",
+        "data": {
+          "total_school_count": 1904,
+          "total_class_room_count": 38098,
+          "total_student_count": 380384,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.88,
+          "percentage_star": 79.2938490565406,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "คำเขื่อนแก้ว",
+        "data": {
+          "total_school_count": 380,
+          "total_class_room_count": 19032,
+          "total_student_count": 250842,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 190.44,
+          "percentage_star": 2.216883645801637,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ป่าติ้ว",
+        "data": {
+          "total_school_count": 99,
+          "total_class_room_count": 38026,
+          "total_student_count": 9456,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.2,
+          "percentage_star": 47.67774057764449,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "มหาชนะชัย",
+        "data": {
+          "total_school_count": 65,
+          "total_class_room_count": 19015,
+          "total_student_count": 6012,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.7,
+          "percentage_star": 56.16194682135176,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ค้อวัง",
+        "data": {
+          "total_school_count": 3805,
+          "total_class_room_count": 25079,
+          "total_student_count": 410737,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.22,
+          "percentage_star": 22.496008433428294,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เลิงนกทา",
+        "data": {
+          "total_school_count": 5808,
+          "total_class_room_count": 38027,
+          "total_student_count": 410335,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.8,
+          "percentage_star": 74.9661265095943,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ไทยเจริญ",
+        "data": {
+          "total_school_count": 86,
+          "total_class_room_count": 25040,
+          "total_student_count": 410759,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.06,
+          "percentage_star": 69.65840049794465,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      }
+    ]
+  },
+  {
+    "province": "อำนาจเจริญ",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองอำนาจเจริญ",
+        "data": {
+          "total_school_count": 3805,
+          "total_class_room_count": 38087,
+          "total_student_count": 580760,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.89,
+          "percentage_star": 88.2214830292587,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ชานุมาน",
+        "data": {
+          "total_school_count": 5805,
+          "total_class_room_count": 25020,
+          "total_student_count": 410476,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.24,
+          "percentage_star": 85.9558208419939,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ปทุมราชวงศา",
+        "data": {
+          "total_school_count": 4103,
+          "total_class_room_count": 25072,
+          "total_student_count": 8667,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.9,
+          "percentage_star": 90.335107019891,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "พนา",
+        "data": {
+          "total_school_count": 84,
+          "total_class_room_count": 41069,
+          "total_student_count": 6626,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.85,
+          "percentage_star": 88.2448475528214,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "เสนางคนิคม",
+        "data": {
+          "total_school_count": 76,
+          "total_class_room_count": 41050,
+          "total_student_count": 7408,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.5,
+          "percentage_star": 1.7735854537144657,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "หัวตะพาน",
+        "data": {
+          "total_school_count": 5804,
+          "total_class_room_count": 41074,
+          "total_student_count": 8675,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.05,
+          "percentage_star": 37.65103953768942,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ลืออำนาจ",
+        "data": {
+          "total_school_count": 2506,
+          "total_class_room_count": 41060,
+          "total_student_count": 190008,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.4,
+          "percentage_star": 37.979897437186885,
+          "maximum_star_count": 410,
+          "minimum_star_count": 250
+        }
+      }
+    ]
+  },
+  {
+    "province": "ลำพูน",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองลำพูน",
+        "data": {
+          "total_school_count": 580,
+          "total_class_room_count": 41089,
+          "total_student_count": 7212,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.5,
+          "percentage_star": 63.0607273565789,
+          "maximum_star_count": 380,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "แม่ทา",
+        "data": {
+          "total_school_count": 2501,
+          "total_class_room_count": 38010,
+          "total_student_count": 580208,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.3,
+          "percentage_star": 1.4209670580205058,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "บ้านโฮ่ง",
+        "data": {
+          "total_school_count": 74,
+          "total_class_room_count": 25036,
+          "total_student_count": 19095,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 190.93,
+          "percentage_star": 34.07776149210056,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "ลี้",
+        "data": {
+          "total_school_count": 3801,
+          "total_class_room_count": 25096,
+          "total_student_count": 380362,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.15,
+          "percentage_star": 29.71841097959784,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ทุ่งหัวช้าง",
+        "data": {
+          "total_school_count": 6,
+          "total_class_room_count": 25018,
+          "total_student_count": 8223,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.84,
+          "percentage_star": 11.670675914146834,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ป่าซาง",
+        "data": {
+          "total_school_count": 4103,
+          "total_class_room_count": 19086,
+          "total_student_count": 250136,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.3,
+          "percentage_star": 92.8098527942939,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "บ้านธิ",
+        "data": {
+          "total_school_count": 65,
+          "total_class_room_count": 38001,
+          "total_student_count": 410784,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 190.8,
+          "percentage_star": 53.32633542180321,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "เวียงหนองล่อง",
+        "data": {
+          "total_school_count": 74,
+          "total_class_room_count": 38059,
+          "total_student_count": 190838,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.64,
+          "percentage_star": 50.38629459821959,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      }
+    ]
+  },
+  {
+    "province": "แพร่",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองแพร่",
+        "data": {
+          "total_school_count": 78,
+          "total_class_room_count": 25027,
+          "total_student_count": 410344,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.37,
+          "percentage_star": 17.164387062626464,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ร้องกวาง",
+        "data": {
+          "total_school_count": 3809,
+          "total_class_room_count": 2501,
+          "total_student_count": 410549,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 190.78,
+          "percentage_star": 69.4117003406808,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ลอง",
+        "data": {
+          "total_school_count": 4101,
+          "total_class_room_count": 19035,
+          "total_student_count": 7838,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.89,
+          "percentage_star": 94.5257354874694,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "สูงเม่น",
+        "data": {
+          "total_school_count": 2502,
+          "total_class_room_count": 65,
+          "total_student_count": 410874,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.36,
+          "percentage_star": 29.111808115790016,
+          "maximum_star_count": 190,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เด่นชัย",
+        "data": {
+          "total_school_count": 2506,
+          "total_class_room_count": 38075,
+          "total_student_count": 580740,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.13,
+          "percentage_star": 88.6573086144413,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "สอง",
+        "data": {
+          "total_school_count": 4108,
+          "total_class_room_count": 25093,
+          "total_student_count": 6355,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 380.76,
+          "percentage_star": 52.231001561973535,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "วังชิ้น",
+        "data": {
+          "total_school_count": 4103,
+          "total_class_room_count": 19037,
+          "total_student_count": 9217,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.1,
+          "percentage_star": 79.0947613422738,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "หนองม่วงไข่",
+        "data": {
+          "total_school_count": 2503,
+          "total_class_room_count": 25074,
+          "total_student_count": 25094,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.1,
+          "percentage_star": 90.2498459615035,
+          "maximum_star_count": 410,
+          "minimum_star_count": 380
+        }
+      }
+    ]
+  },
+  {
+    "province": "กำแพงเพชร",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองกำแพงเพชร",
+        "data": {
+          "total_school_count": 3807,
+          "total_class_room_count": 38080,
+          "total_student_count": 8276,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.54,
+          "percentage_star": 2.8351896679603694,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ไทรงาม",
+        "data": {
+          "total_school_count": 79,
+          "total_class_room_count": 38025,
+          "total_student_count": 6808,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.55,
+          "percentage_star": 95.4752714307514,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "คลองลาน",
+        "data": {
+          "total_school_count": 64,
+          "total_class_room_count": 41084,
+          "total_student_count": 828,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 0.99,
+          "percentage_star": 56.36516785466854,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ขาณุวรลักษบุรี",
+        "data": {
+          "total_school_count": 1902,
+          "total_class_room_count": 25052,
+          "total_student_count": 190541,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.89,
+          "percentage_star": 80.9820161261001,
+          "maximum_star_count": 190,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "คลองขลุง",
+        "data": {
+          "total_school_count": 4102,
+          "total_class_room_count": 38018,
+          "total_student_count": 580154,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.5,
+          "percentage_star": 43.55173504590606,
+          "maximum_star_count": 380,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "พรานกระต่าย",
+        "data": {
+          "total_school_count": 9,
+          "total_class_room_count": 38004,
+          "total_student_count": 410732,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.65,
+          "percentage_star": 22.296631457932303,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ลานกระบือ",
+        "data": {
+          "total_school_count": 250,
+          "total_class_room_count": 41056,
+          "total_student_count": 190267,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.7,
+          "percentage_star": 35.348206642697576,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ทรายทองวัฒนา",
+        "data": {
+          "total_school_count": 68,
+          "total_class_room_count": 5805,
+          "total_student_count": 8353,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.27,
+          "percentage_star": 80.7660367902571,
+          "maximum_star_count": 250,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ปางศิลาทอง",
+        "data": {
+          "total_school_count": 3805,
+          "total_class_room_count": 97,
+          "total_student_count": 7012,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 190.76,
+          "percentage_star": 35.133483237203045,
+          "maximum_star_count": 250,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "บึงสามัคคี",
+        "data": {
+          "total_school_count": 8,
+          "total_class_room_count": 19018,
+          "total_student_count": 410197,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.0496,
+          "percentage_star": 28.207077717123475,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "โกสัมพีนคร",
+        "data": {
+          "total_school_count": 2500,
+          "total_class_room_count": 25001,
+          "total_student_count": 8729,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 0.27,
+          "percentage_star": 86.9937232089946,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      }
+    ]
+  },
+  {
+    "province": "สุโขทัย",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองสุโขทัย",
+        "data": {
+          "total_school_count": 94,
+          "total_class_room_count": 5806,
+          "total_student_count": 250990,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 410.3,
+          "percentage_star": 86.3641475410428,
+          "maximum_star_count": 410,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บ้านด่านลานหอย",
+        "data": {
+          "total_school_count": 3807,
+          "total_class_room_count": 19075,
+          "total_student_count": 9443,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.29,
+          "percentage_star": 35.416047606758184,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "คีรีมาศ",
+        "data": {
+          "total_school_count": 72,
+          "total_class_room_count": 41038,
+          "total_student_count": 580699,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.25,
+          "percentage_star": 20.569743701760324,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "กงไกรลาศ",
+        "data": {
+          "total_school_count": 3803,
+          "total_class_room_count": 38030,
+          "total_student_count": 380144,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 380.64,
+          "percentage_star": 89.3080207321218,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ศรีสัชนาลัย",
+        "data": {
+          "total_school_count": 1905,
+          "total_class_room_count": 41065,
+          "total_student_count": 6111,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 250.5,
+          "percentage_star": 74.51520245715106,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ศรีสำโรง",
+        "data": {
+          "total_school_count": 3805,
+          "total_class_room_count": 5807,
+          "total_student_count": 580156,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.23,
+          "percentage_star": 38.376552769121375,
+          "maximum_star_count": 380,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "สวรรคโลก",
+        "data": {
+          "total_school_count": 80,
+          "total_class_room_count": 41067,
+          "total_student_count": 380623,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.17,
+          "percentage_star": 42.16781509445231,
+          "maximum_star_count": 250,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ศรีนคร",
+        "data": {
+          "total_school_count": 380,
+          "total_class_room_count": 25043,
+          "total_student_count": 9076,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.1,
+          "percentage_star": 75.0715778210977,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ทุ่งเสลี่ยม",
+        "data": {
+          "total_school_count": 67,
+          "total_class_room_count": 2507,
+          "total_student_count": 7736,
+          "country_maximum_star_count": 580,
+          "avg_star_count": 250.45,
+          "percentage_star": 95.3676278911026,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      }
+    ]
+  },
+  {
+    "province": "นครปฐม",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองนครปฐม",
+        "data": {
+          "total_school_count": 65,
+          "total_class_room_count": 41018,
+          "total_student_count": 380444,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.4,
+          "percentage_star": 81.6288081665068,
+          "maximum_star_count": 580,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "กำแพงแสน",
+        "data": {
+          "total_school_count": 69,
+          "total_class_room_count": 38056,
+          "total_student_count": 410360,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.97,
+          "percentage_star": 15.000969665007634,
+          "maximum_star_count": 410,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "นครชัยศรี",
+        "data": {
+          "total_school_count": 3803,
+          "total_class_room_count": 1902,
+          "total_student_count": 7506,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.07,
+          "percentage_star": 91.5311564097561,
+          "maximum_star_count": 410,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ดอนตูม",
+        "data": {
+          "total_school_count": 65,
+          "total_class_room_count": 4101,
+          "total_student_count": 7997,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.02,
+          "percentage_star": 51.219924576186024,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "บางเลน",
+        "data": {
+          "total_school_count": 4104,
+          "total_class_room_count": 38012,
+          "total_student_count": 8945,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.6,
+          "percentage_star": 64.6082708165077,
+          "maximum_star_count": 380,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "สามพราน",
+        "data": {
+          "total_school_count": 99,
+          "total_class_room_count": 25094,
+          "total_student_count": 38020,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.16,
+          "percentage_star": 63.7087907788313,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "พุทธมณฑล",
+        "data": {
+          "total_school_count": 580,
+          "total_class_room_count": 70,
+          "total_student_count": 380897,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.58,
+          "percentage_star": 56.3688469937945,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      }
+    ]
+  },
+  {
+    "province": "สมุทรสาคร",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองสมุทรสาคร",
+        "data": {
+          "total_school_count": 3802,
+          "total_class_room_count": 1900,
+          "total_student_count": 410495,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.86,
+          "percentage_star": 94.9976178618887,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "กระทุ่มแบน",
+        "data": {
+          "total_school_count": 2501,
+          "total_class_room_count": 25048,
+          "total_student_count": 380495,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.97,
+          "percentage_star": 71.4165667046568,
+          "maximum_star_count": 410,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บ้านแพ้ว",
+        "data": {
+          "total_school_count": 2504,
+          "total_class_room_count": 4104,
+          "total_student_count": 580038,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.4,
+          "percentage_star": 92.6912932764672,
+          "maximum_star_count": 580,
+          "minimum_star_count": 580
+        }
+      }
+    ]
+  },
+  {
+    "province": "สมุทรสงคราม",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองสมุทรสงคราม",
+        "data": {
+          "total_school_count": 3807,
+          "total_class_room_count": 19018,
+          "total_student_count": 250505,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.33,
+          "percentage_star": 31.907928473784054,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "บางคนที",
+        "data": {
+          "total_school_count": 250,
+          "total_class_room_count": 98,
+          "total_student_count": 380140,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.05,
+          "percentage_star": 91.9073622266416,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "อัมพวา",
+        "data": {
+          "total_school_count": 86,
+          "total_class_room_count": 19033,
+          "total_student_count": 7563,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.1,
+          "percentage_star": 10.476370899445996,
+          "maximum_star_count": 190,
+          "minimum_star_count": 410
+        }
+      }
+    ]
+  },
+  {
+    "province": "กระบี่",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองกระบี่",
+        "data": {
+          "total_school_count": 69,
+          "total_class_room_count": 380,
+          "total_student_count": 9259,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.52,
+          "percentage_star": 59.05613963848373,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เขาพนม",
+        "data": {
+          "total_school_count": 1906,
+          "total_class_room_count": 25085,
+          "total_student_count": 884,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.82,
+          "percentage_star": 31.48425750357793,
+          "maximum_star_count": 380,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "เกาะลันตา",
+        "data": {
+          "total_school_count": 5802,
+          "total_class_room_count": 38067,
+          "total_student_count": 8427,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 380.2,
+          "percentage_star": 49.266214633840065,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "คลองท่อม",
+        "data": {
+          "total_school_count": 5801,
+          "total_class_room_count": 96,
+          "total_student_count": 9057,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.5,
+          "percentage_star": 55.40041722710141,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "อ่าวลึก",
+        "data": {
+          "total_school_count": 6,
+          "total_class_room_count": 19088,
+          "total_student_count": 190799,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 190.93,
+          "percentage_star": 64.6509876383988,
+          "maximum_star_count": 410,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "ปลายพระยา",
+        "data": {
+          "total_school_count": 4101,
+          "total_class_room_count": 25064,
+          "total_student_count": 6663,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 410.9,
+          "percentage_star": 64.086786937651,
+          "maximum_star_count": 410,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ลำทับ",
+        "data": {
+          "total_school_count": 91,
+          "total_class_room_count": 77,
+          "total_student_count": 6706,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.01,
+          "percentage_star": 53.728315233491216,
+          "maximum_star_count": 580,
+          "minimum_star_count": 380
+        }
+      },
+      {
+        "district": "เหนือคลอง",
+        "data": {
+          "total_school_count": 580,
+          "total_class_room_count": 19019,
+          "total_student_count": 9007,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 0.82,
+          "percentage_star": 73.1249485679461,
+          "maximum_star_count": 250,
+          "minimum_star_count": 580
+        }
+      }
+    ]
+  },
+  {
+    "province": "ภูเก็ต",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองภูเก็ต",
+        "data": {
+          "total_school_count": 5802,
+          "total_class_room_count": 19000,
+          "total_student_count": 8065,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.91,
+          "percentage_star": 63.3910669475413,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      },
+      {
+        "district": "กะทู้",
+        "data": {
+          "total_school_count": 2504,
+          "total_class_room_count": 25059,
+          "total_student_count": 38033,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 0.69,
+          "percentage_star": 56.49808024874012,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ถลาง",
+        "data": {
+          "total_school_count": 88,
+          "total_class_room_count": 19054,
+          "total_student_count": 8679,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 190.5,
+          "percentage_star": 99.5605775434169,
+          "maximum_star_count": 580,
+          "minimum_star_count": 190
+        }
+      }
+    ]
+  },
+  {
+    "province": "ชุมพร",
+    "date": "2024-03-01",
+    "districts": [
+      {
+        "district": "เมืองชุมพร",
+        "data": {
+          "total_school_count": 5800,
+          "total_class_room_count": 25081,
+          "total_student_count": 190640,
+          "country_maximum_star_count": 410,
+          "avg_star_count": 250.27,
+          "percentage_star": 54.7,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ท่าแซะ",
+        "data": {
+          "total_school_count": 94,
+          "total_class_room_count": 38038,
+          "total_student_count": 58046,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 250.6,
+          "percentage_star": 34.25498927033641,
+          "maximum_star_count": 190,
+          "minimum_star_count": 250
+        }
+      },
+      {
+        "district": "ปะทิว",
+        "data": {
+          "total_school_count": 81,
+          "total_class_room_count": 41046,
+          "total_student_count": 7216,
+          "country_maximum_star_count": 250,
+          "avg_star_count": 410.3,
+          "percentage_star": 4.591485478763535,
+          "maximum_star_count": 250,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "หลังสวน",
+        "data": {
+          "total_school_count": 90,
+          "total_class_room_count": 38069,
+          "total_student_count": 9730,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 250.4,
+          "percentage_star": 16.03293240419226,
+          "maximum_star_count": 580,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "ละแม",
+        "data": {
+          "total_school_count": 1906,
+          "total_class_room_count": 7,
+          "total_student_count": 9635,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 0.415,
+          "percentage_star": 4.818802263131894,
+          "maximum_star_count": 380,
+          "minimum_star_count": 410
+        }
+      },
+      {
+        "district": "พะโต๊ะ",
+        "data": {
+          "total_school_count": 92,
+          "total_class_room_count": 19080,
+          "total_student_count": 580671,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 410.65,
+          "percentage_star": 74.1702106399302,
+          "maximum_star_count": 190,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "สวี",
+        "data": {
+          "total_school_count": 5807,
+          "total_class_room_count": 38087,
+          "total_student_count": 190201,
+          "country_maximum_star_count": 190,
+          "avg_star_count": 380.52,
+          "percentage_star": 78.430460044989,
+          "maximum_star_count": 380,
+          "minimum_star_count": 580
+        }
+      },
+      {
+        "district": "ทุ่งตะโก",
+        "data": {
+          "total_school_count": 66,
+          "total_class_room_count": 92,
+          "total_student_count": 580045,
+          "country_maximum_star_count": 380,
+          "avg_star_count": 380.16,
+          "percentage_star": 74.4182450143484,
+          "maximum_star_count": 190,
+          "minimum_star_count": 190
+        }
+      }
+    ]
+  }
+]

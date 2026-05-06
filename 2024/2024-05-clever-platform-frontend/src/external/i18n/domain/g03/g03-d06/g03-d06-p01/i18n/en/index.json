@@ -1,0 +1,23 @@
+{
+  "header_announce_activity_date": "Activity period: {{ date }}",
+  "header_announce_date": "Date: {{ date }}",
+  "btn_footer_join_activity": "Join activity",
+  "btn_footer_delete_message": "Delete message",
+  "btn_footer_receive_item": "Receive item",
+  "btn_footer_open_inventory": "Inventory",
+  "teacher_gift_title": "{{reward_name}} from Teacher {{teacher_name}}",
+  "teacher_gift_description": "You received {{reward_name}} x{{reward_amount}} from Teacher {{teacher_name}}",
+
+  "announcement": {
+    "activity": "Activity",
+    "mailbox": "Mailbox",
+    "teacher_rewards": "Teacher Rewards",
+    "notifications": "Notifications"
+  },
+  "no_announcement_text": {
+    "activity": "No Activity",
+    "mailbox": "No Messages",
+    "teacher_rewards": "No Teacher Rewards",
+    "notifications": "No Notifications"
+  }
+}

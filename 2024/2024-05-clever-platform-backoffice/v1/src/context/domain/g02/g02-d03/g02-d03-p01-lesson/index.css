@@ -1,0 +1,7 @@
+.hide-thead table > thead {
+  display: none;
+}
+
+.selected-row {
+  border: 1px solid rgb(39, 124, 222) !important;
+}

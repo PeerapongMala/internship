@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>สาขาสยาม - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- ==================== SIDEBAR ==================== -->
+      <div class="relative" id="sidebar-wrapper">
+        <aside id="clinic-sidebar" class="w-64 bg-white border-r border-gray-200 flex flex-col shadow-sm transition-all duration-300 h-full">
+          <!-- Header -->
+          <div class="h-20 border-b border-gray-100 flex items-center px-5" id="sidebar-header">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-dental-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <div class="sidebar-text">
+                <h1 class="text-xl font-bold text-dental-700">Dental Plus</h1>
+                <p class="text-xs text-gray-400">สาขาสยาม</p>
+              </div>
+            </div>
+          </div>
+
+          <nav class="flex-1 p-3 overflow-y-auto">
+            <!-- Section Label -->
+            <div class="h-6 flex items-center px-4 mb-1" id="section-label">
+              <span class="px-3 py-1 bg-teal-100 text-teal-700 text-xs rounded-full font-medium sidebar-text">Clinic View</span>
+            </div>
+
+            <div class="space-y-1">
+              <!-- Tab 1: ตารางนัด -->
+              <button onclick="switchClinicTab(1)" class="clinic-nav active-menu sidebar-menu-item w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left transition-all cursor-pointer" data-tab="1" title="ตารางนัดวันนี้">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="font-medium sidebar-text">ตารางนัดวันนี้</span>
+              </button>
+
+              <!-- Tab 2: จัดการการจอง -->
+              <button onclick="switchClinicTab(2)" class="clinic-nav sidebar-menu-item w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer" data-tab="2" title="จัดการการจอง">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                <span class="font-medium sidebar-text">จัดการการจอง</span>
+              </button>
+
+              <!-- Tab 3: ประวัติคนไข้ -->
+              <button onclick="switchClinicTab(3)" class="clinic-nav sidebar-menu-item w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer" data-tab="3" title="ประวัติคนไข้">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span class="font-medium sidebar-text">ประวัติคนไข้</span>
+              </button>
+
+              <!-- Tab 4: การเงิน -->
+              <button onclick="switchClinicTab(4)" class="clinic-nav sidebar-menu-item w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer" data-tab="4" title="การเงิน & ใบเสร็จ">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="font-medium sidebar-text">การเงิน & ใบเสร็จ</span>
+              </button>
+
+              <!-- Tab 5: แจ้งเตือน -->
+              <button onclick="switchClinicTab(5)" class="clinic-nav sidebar-menu-item w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer" data-tab="5" title="แจ้งเตือน & Follow-up">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="font-medium sidebar-text">แจ้งเตือน & Follow-up</span>
+              </button>
+
+              <!-- Tab 6: รายงาน -->
+              <button onclick="switchClinicTab(6)" class="clinic-nav sidebar-menu-item w-full h-10 flex items-center gap-3 px-4 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer" data-tab="6" title="รายงาน">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                <span class="font-medium sidebar-text">รายงาน</span>
+              </button>
+            </div>
+          </nav>
+
+          <!-- User Section -->
+          <div class="h-16 border-t border-gray-100 flex items-center px-4" id="user-section">
+            <div class="flex items-center gap-3 w-full">
+              <div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-teal-700 font-semibold">S</span>
+              </div>
+              <div class="flex-1 sidebar-text">
+                <p class="text-sm font-medium text-gray-800">Staff</p>
+                <p class="text-xs text-teal-500">Front Desk - สาขาสยาม</p>
+              </div>
+              <div class="w-2 h-2 bg-green-500 rounded-full sidebar-text"></div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Toggle Button -->
+        <button id="sidebar-toggle" onclick="toggleClinicSidebar()" class="absolute top-1/2 -right-3 transform -translate-y-1/2 w-6 h-12 bg-white border border-gray-200 rounded-r-lg shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors z-10" title="พับเก็บ">
+          <svg id="toggle-icon" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+
+        <!-- ======= TAB 1: ตารางนัดวันนี้ ======= -->
+        <div id="clinic-tab-1" class="clinic-tab-content flex-1 flex flex-col overflow-hidden">
+          <!-- Header -->
+          <div class="bg-white px-8 py-4 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-800">สาขาสยาม - ตารางนัดวันนี้</h1>
+                  <p class="text-sm text-gray-500">รับคนไข้ > รักษา > ชำระเงิน > ปิดเคส</p>
+                </div>
+                <button onclick="toggleGroupByDoctor()" class="ml-4 px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-lg font-medium hover:bg-gray-200 transition-all flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  <span id="group-doctor-label">กรุ๊ปตามหมอ</span>
+                </button>
+              </div>
+              <div class="flex items-center gap-4">
+                <!-- Notification Bell -->
+                <div class="relative">
+                  <button onclick="toggleNotifications()" id="noti-bell" class="relative p-2 rounded-xl hover:bg-gray-100 transition-all">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <span id="noti-badge" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-bold">3</span>
+                  </button>
+                  <div id="noti-dropdown" class="hidden absolute right-0 top-12 w-96 bg-white rounded-2xl shadow-xl border border-gray-200 z-50 overflow-hidden">
+                    <div class="p-4 border-b border-gray-100 flex items-center justify-between">
+                      <h3 class="font-bold text-gray-800">การแจ้งเตือน</h3>
+                      <button onclick="markAllRead()" class="text-xs text-dental-600 hover:text-dental-800 font-medium">อ่านทั้งหมด</button>
+                    </div>
+                    <div class="max-h-80 overflow-y-auto" id="noti-list"></div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 bg-teal-50 rounded-xl">
+                  <span class="text-2xl font-bold text-teal-700" id="today-total">0</span>
+                  <span class="text-sm text-teal-600">นัดวันนี้</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Date + Status Bar -->
+          <div class="bg-white px-8 py-3 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <button onclick="changeDate(-1)" class="p-2 hover:bg-gray-100 rounded-lg transition-all">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <span id="current-date" class="text-lg font-bold text-gray-800"></span>
+                <button onclick="changeDate(1)" class="p-2 hover:bg-gray-100 rounded-lg transition-all">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                <button onclick="goToday()" class="px-3 py-1 bg-dental-100 text-dental-700 rounded-lg text-sm font-medium hover:bg-dental-200">วันนี้</button>
+              </div>
+              <div class="flex gap-2" id="status-badges">
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-lg"><div class="w-2 h-2 bg-yellow-500 rounded-full"></div><span class="text-xs text-yellow-700 font-medium" id="stat-pending">0 Pending</span></div>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-lg"><div class="w-2 h-2 bg-blue-500 rounded-full"></div><span class="text-xs text-blue-700 font-medium" id="stat-confirmed">0 Confirmed</span></div>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-lg"><div class="w-2 h-2 bg-purple-500 rounded-full"></div><span class="text-xs text-purple-700 font-medium" id="stat-treating">0 กำลังรักษา</span></div>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-lg"><div class="w-2 h-2 bg-orange-500 rounded-full"></div><span class="text-xs text-orange-700 font-medium" id="stat-payment">0 รอชำระ</span></div>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-lg"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-xs text-green-700 font-medium" id="stat-completed">0 เสร็จสิ้น</span></div>
+                <div class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-lg"><div class="w-2 h-2 bg-red-500 rounded-full"></div><span class="text-xs text-red-700 font-medium" id="stat-noshow">0 No-show</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- Table -->
+          <div class="flex-1 overflow-y-auto p-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-gray-50 border-b border-gray-200">
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">เวลา</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">คนไข้</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">การรักษา</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">หมอ</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">สถานะการจอง</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">การชำระ</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody id="appointment-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Footer -->
+          <div class="bg-gradient-to-r from-teal-600 to-teal-800 px-8 py-3">
+            <div class="flex items-center justify-between text-white">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                <span class="font-medium">สรุปสาขาสยาม</span>
+              </div>
+              <div class="flex items-center gap-8">
+                <div class="text-center"><p class="text-2xl font-bold" id="footer-total">0</p><p class="text-xs text-teal-200">นัดทั้งหมด</p></div>
+                <div class="text-center"><p class="text-2xl font-bold" id="footer-closed">0</p><p class="text-xs text-teal-200">ปิดเคส</p></div>
+                <div class="text-center"><p class="text-2xl font-bold" id="footer-noshow">0</p><p class="text-xs text-teal-200">No-show</p></div>
+                <div class="text-center"><p class="text-2xl font-bold" id="footer-revenue">฿0</p><p class="text-xs text-teal-200">รายได้</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= TAB 2: จัดการการจอง ======= -->
+        <div id="clinic-tab-2" class="clinic-tab-content flex-1 flex flex-col overflow-hidden hidden">
+          <div class="bg-white px-8 py-4 border-b border-gray-200">
+            <h1 class="text-xl font-bold text-gray-800">จัดการการจอง</h1>
+            <p class="text-sm text-gray-500">แก้ไข เลื่อนนัด ปิดรับจอง กำหนด Capacity</p>
+          </div>
+          <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Capacity Settings -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <h2 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-dental-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                Capacity ต่อ Slot
+              </h2>
+              <div class="grid grid-cols-4 gap-4" id="capacity-grid"></div>
+            </div>
+
+            <!-- Booking List with Edit -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-gray-800">รายการจองทั้งหมด</h2>
+                <div class="flex gap-2">
+                  <select class="px-3 py-1.5 border border-gray-200 rounded-lg text-sm">
+                    <option>ทุกสถานะ</option><option>Pending</option><option>Confirmed</option><option>Cancelled</option>
+                  </select>
+                </div>
+              </div>
+              <div class="space-y-3" id="booking-list"></div>
+            </div>
+
+            <!-- Audit Log -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <h2 class="font-bold text-gray-800 mb-4">ประวัติการแก้ไข (Audit Log)</h2>
+              <div class="space-y-2" id="audit-log">
+                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                  <div><p class="text-sm text-gray-800"><strong>Staff</strong> เลื่อนนัด คุณพิมพ์ จาก 10:00 เป็น 10:30</p><p class="text-xs text-gray-400">วันนี้ 08:45</p></div>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div class="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                  <div><p class="text-sm text-gray-800"><strong>ระบบ</strong> ยืนยันนัด คุณสมชาย อัตโนมัติ (LINE)</p><p class="text-xs text-gray-400">วันนี้ 07:00</p></div>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
+                  <div><p class="text-sm text-gray-800"><strong>คุณแพร</strong> ยกเลิกนัด 16:00 ขูดหินปูน (ผ่าน LINE)</p><p class="text-xs text-gray-400">เมื่อวาน 20:30</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= TAB 3: ประวัติคนไข้ ======= -->
+        <div id="clinic-tab-3" class="clinic-tab-content flex-1 flex flex-col overflow-hidden hidden">
+          <div class="bg-white px-8 py-4 border-b border-gray-200" id="tab3-header">
+            <h1 class="text-xl font-bold text-gray-800">ประวัติคนไข้</h1>
+            <p class="text-sm text-gray-500">ประวัติการรักษา, แพ็กเกจ, หมายเหตุทางการแพทย์</p>
+          </div>
+          <div class="flex-1 overflow-y-auto p-6" id="patient-detail"></div>
+        </div>
+
+        <!-- Order Detail Modal -->
+        <div id="order-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+          <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
+            <div class="flex items-center justify-between p-5 border-b border-gray-200" id="order-detail-header"></div>
+            <div class="flex-1 overflow-y-auto p-5" id="order-detail-body"></div>
+            <div class="p-4 border-t border-gray-200 bg-gray-50" id="order-detail-footer"></div>
+          </div>
+        </div>
+
+        <!-- ======= TAB 4: การเงิน & ใบเสร็จ ======= -->
+        <div id="clinic-tab-4" class="clinic-tab-content flex-1 flex flex-col overflow-hidden hidden">
+          <div class="bg-white px-8 py-4 border-b border-gray-200">
+            <h1 class="text-xl font-bold text-gray-800">การเงิน & ใบเสร็จ</h1>
+            <p class="text-sm text-gray-500">สถานะการชำระ, ผ่อนชำระ, ออกใบเสร็จ</p>
+          </div>
+          <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Payment Summary Cards -->
+            <div class="grid grid-cols-4 gap-4">
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">รายได้วันนี้</p>
+                <p class="text-2xl font-bold text-green-600 mt-1" id="pay-total-revenue">฿16,000</p>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">ชำระแล้ว</p>
+                <p class="text-2xl font-bold text-dental-600 mt-1" id="pay-paid-count">2 รายการ</p>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">ค้างชำระ</p>
+                <p class="text-2xl font-bold text-orange-600 mt-1" id="pay-outstanding">฿55,000</p>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">ผ่อนชำระ</p>
+                <p class="text-2xl font-bold text-purple-600 mt-1" id="pay-installment">1 ราย</p>
+              </div>
+            </div>
+
+            <!-- Payment Table -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="p-5 border-b border-gray-100 flex items-center justify-between">
+                <h2 class="font-bold text-gray-800">รายการชำระเงินวันนี้</h2>
+                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200">Export CSV</button>
+              </div>
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-gray-50 border-b border-gray-200">
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">คนไข้</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">การรักษา</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">ยอดเงิน</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">สถานะ</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">วิธีชำระ</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody id="payment-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Installment Section -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <h2 class="font-bold text-gray-800 mb-4">รายการผ่อนชำระ</h2>
+              <div id="installment-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= TAB 5: แจ้งเตือน & Follow-up ======= -->
+        <div id="clinic-tab-5" class="clinic-tab-content flex-1 flex flex-col overflow-hidden hidden">
+          <div class="bg-white px-8 py-4 border-b border-gray-200">
+            <h1 class="text-xl font-bold text-gray-800">แจ้งเตือน & Follow-up</h1>
+            <p class="text-sm text-gray-500">แจ้งเตือนอัตโนมัติ, นัดติดตามผล, แชทหลังรักษา</p>
+          </div>
+          <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Auto Notification Settings -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <h2 class="font-bold text-gray-800 mb-4">ตั้งค่าแจ้งเตือนอัตโนมัติ</h2>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div>
+                    <p class="font-medium text-gray-800">แจ้งเตือนก่อนนัด 1 วัน</p>
+                    <p class="text-xs text-gray-500">ส่งข้อความเตือนผ่าน LINE / SMS</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" checked class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:ring-2 peer-focus:ring-dental-300 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div></label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div>
+                    <p class="font-medium text-gray-800">แจ้งเตือนก่อนนัด 2 ชั่วโมง</p>
+                    <p class="text-xs text-gray-500">ส่งข้อความเตือนผ่าน LINE</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" checked class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:ring-2 peer-focus:ring-dental-300 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div></label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div>
+                    <p class="font-medium text-gray-800">ขอบคุณหลังรับบริการ</p>
+                    <p class="text-xs text-gray-500">ส่งข้อความขอบคุณ + คำแนะนำดูแลหลังทำ</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" checked class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:ring-2 peer-focus:ring-dental-300 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div></label>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div>
+                    <p class="font-medium text-gray-800">แจ้งเตือนกินยา</p>
+                    <p class="text-xs text-gray-500">เตือนคนไข้กินยาตามที่แพทย์สั่ง</p>
+                  </div>
+                  <label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:ring-2 peer-focus:ring-dental-300 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Follow-up Queue -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <h2 class="font-bold text-gray-800 mb-4">รายการ Follow-up ที่ต้องทำ</h2>
+              <div class="space-y-3" id="followup-list"></div>
+            </div>
+
+            <!-- Post-Treatment Chat -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <h2 class="font-bold text-gray-800 mb-4">แชทหลังรักษา (เปิดได้ 7 วัน)</h2>
+              <div class="space-y-3" id="post-chat-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= TAB 6: รายงาน ======= -->
+        <div id="clinic-tab-6" class="clinic-tab-content flex-1 flex flex-col overflow-hidden hidden">
+          <div class="bg-white px-8 py-4 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <div>
+                <h1 class="text-xl font-bold text-gray-800">รายงาน - สาขาสยาม</h1>
+                <p class="text-sm text-gray-500">สรุปภาพรวมการจอง, No-show, รายได้</p>
+              </div>
+              <button class="px-4 py-2 bg-dental-500 text-white rounded-xl text-sm font-medium hover:bg-dental-600">Export Excel</button>
+            </div>
+          </div>
+          <div class="flex-1 overflow-y-auto p-6 space-y-6">
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-4 gap-4">
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">การจองเดือนนี้</p>
+                <p class="text-3xl font-bold text-gray-800 mt-1">156</p>
+                <p class="text-xs text-green-600 mt-1">+12% จากเดือนก่อน</p>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">No-show Rate</p>
+                <p class="text-3xl font-bold text-red-600 mt-1">8.3%</p>
+                <p class="text-xs text-red-600 mt-1">+2% จากเดือนก่อน</p>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">รายได้เดือนนี้</p>
+                <p class="text-3xl font-bold text-green-600 mt-1">฿1.2M</p>
+                <p class="text-xs text-green-600 mt-1">+8% จากเดือนก่อน</p>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <p class="text-sm text-gray-500">Avg. ต่อคนไข้</p>
+                <p class="text-3xl font-bold text-purple-600 mt-1">฿7,692</p>
+                <p class="text-xs text-gray-500 mt-1">จาก 156 คน</p>
+              </div>
+            </div>
+            <!-- Charts -->
+            <div class="grid grid-cols-2 gap-6">
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <h3 class="font-bold text-gray-800 mb-3">การจองรายวัน (7 วันล่าสุด)</h3>
+                <div style="height: 220px;"><canvas id="bookingChart"></canvas></div>
+              </div>
+              <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                <h3 class="font-bold text-gray-800 mb-3">รายได้ตามประเภทบริการ</h3>
+                <div style="height: 220px;"><canvas id="revenueChart"></canvas></div>
+              </div>
+            </div>
+            <!-- Revenue by Service -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="p-5 border-b border-gray-100">
+                <h2 class="font-bold text-gray-800">รายได้แยกตามบริการ</h2>
+              </div>
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-gray-50 border-b border-gray-200">
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500">บริการ</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500">จำนวน</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500">รายได้</th>
+                    <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500">สัดส่วน</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-100"><td class="px-5 py-3 text-sm">รากเทียม</td><td class="px-5 py-3 text-sm">12</td><td class="px-5 py-3 text-sm font-medium">฿660,000</td><td class="px-5 py-3"><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-dental-500 h-2 rounded-full" style="width:55%"></div></div></td></tr>
+                  <tr class="border-b border-gray-100"><td class="px-5 py-3 text-sm">วีเนียร์</td><td class="px-5 py-3 text-sm">8</td><td class="px-5 py-3 text-sm font-medium">฿240,000</td><td class="px-5 py-3"><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-pink-500 h-2 rounded-full" style="width:20%"></div></div></td></tr>
+                  <tr class="border-b border-gray-100"><td class="px-5 py-3 text-sm">จัดฟัน</td><td class="px-5 py-3 text-sm">15</td><td class="px-5 py-3 text-sm font-medium">฿150,000</td><td class="px-5 py-3"><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-purple-500 h-2 rounded-full" style="width:12.5%"></div></div></td></tr>
+                  <tr class="border-b border-gray-100"><td class="px-5 py-3 text-sm">ผ่าฟันคุด</td><td class="px-5 py-3 text-sm">25</td><td class="px-5 py-3 text-sm font-medium">฿87,500</td><td class="px-5 py-3"><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full" style="width:7.3%"></div></div></td></tr>
+                  <tr class="border-b border-gray-100"><td class="px-5 py-3 text-sm">ขูดหินปูน</td><td class="px-5 py-3 text-sm">45</td><td class="px-5 py-3 text-sm font-medium">฿54,000</td><td class="px-5 py-3"><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:4.5%"></div></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Patient Detail Tooltip -->
+    <div id="patient-tooltip" class="hidden fixed z-50 bg-white rounded-2xl shadow-xl border border-gray-200 p-5 w-80 pointer-events-none">
+      <div class="flex items-center gap-3 mb-3">
+        <div id="tooltip-avatar" class="w-12 h-12 rounded-full flex items-center justify-center"><span class="font-bold text-lg" id="tooltip-initial"></span></div>
+        <div><p class="font-bold text-gray-800" id="tooltip-name"></p><p class="text-xs text-gray-500" id="tooltip-hn"></p></div>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between"><span class="text-gray-500">โทรศัพท์</span><span class="text-gray-800 font-medium" id="tooltip-phone"></span></div>
+        <div class="flex justify-between"><span class="text-gray-500">ช่องทาง</span><span class="text-gray-800 font-medium" id="tooltip-channel"></span></div>
+        <div class="flex justify-between"><span class="text-gray-500">การรักษา</span><span class="text-gray-800 font-medium" id="tooltip-treatment"></span></div>
+        <div class="flex justify-between"><span class="text-gray-500">ค่ารักษา</span><span class="text-gray-800 font-medium" id="tooltip-cost"></span></div>
+        <div class="border-t border-gray-100 pt-2"><span class="text-gray-500">หมายเหตุ</span><p class="text-gray-800 text-xs mt-1" id="tooltip-note"></p></div>
+      </div>
+    </div>
+
+    <!-- Close Case Modal -->
+    <div id="close-case-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">ปิดเคส - ชำระเงิน</h3>
+          <button onclick="closeModal('close-case-modal')" class="text-gray-400 hover:text-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-4">
+            <div id="modal-avatar" class="w-12 h-12 rounded-full flex items-center justify-center"><span class="font-bold text-lg" id="modal-initial"></span></div>
+            <div><p class="font-bold text-gray-800" id="modal-patient-name"></p><p class="text-sm text-gray-500" id="modal-treatment"></p></div>
+          </div>
+          <div class="space-y-3">
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">ค่ารักษา (บาท)</label><input type="text" id="modal-cost" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" readonly /></div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">ประเภทการชำระ</label>
+              <div class="flex gap-2">
+                <label class="flex-1 cursor-pointer"><input type="radio" name="payType" value="full" checked class="sr-only peer"><div class="p-2.5 border-2 border-gray-200 rounded-xl text-center text-sm peer-checked:border-dental-500 peer-checked:bg-dental-50 peer-checked:text-dental-700 font-medium">ชำระเต็ม</div></label>
+                <label class="flex-1 cursor-pointer"><input type="radio" name="payType" value="partial" class="sr-only peer"><div class="p-2.5 border-2 border-gray-200 rounded-xl text-center text-sm peer-checked:border-dental-500 peer-checked:bg-dental-50 peer-checked:text-dental-700 font-medium">ผ่อนชำระ</div></label>
+              </div>
+            </div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">วิธีชำระเงิน</label>
+              <select id="modal-payment-method" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500"><option value="cash">เงินสด</option><option value="transfer">โอนเงิน</option><option value="credit">บัตรเครดิต</option><option value="insurance">ประกัน</option></select>
+            </div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">หมายเหตุ</label><textarea id="modal-note" rows="2" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" placeholder="บันทึกเพิ่มเติม..."></textarea></div>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded text-dental-500 focus:ring-dental-500"><span class="text-sm text-gray-700">ออกใบเสร็จ / ใบกำกับภาษี</span></label>
+          </div>
+        </div>
+        <div class="p-5 border-t border-gray-200 flex gap-3">
+          <button onclick="closeModal('close-case-modal')" class="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">ยกเลิก</button>
+          <button onclick="confirmCloseCase()" class="flex-1 px-4 py-2.5 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600">ยืนยันปิดเคส</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Booking Modal -->
+    <div id="edit-booking-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">แก้ไข / เลื่อนนัด</h3>
+          <button onclick="closeModal('edit-booking-modal')" class="text-gray-400 hover:text-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+        </div>
+        <div class="p-5 space-y-3">
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">คนไข้</label><input type="text" id="edit-patient-name" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-gray-50" readonly /></div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">การรักษา</label>
+            <select id="edit-treatment" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500"><option>ผ่าฟันคุด</option><option>ขูดหินปูน</option><option>อุดฟัน</option><option>ถอนฟัน</option><option>จัดฟัน</option><option>ฟอกสีฟัน</option><option>วีเนียร์</option><option>รากเทียม</option><option>ตรวจสุขภาพฟัน</option></select>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">วันที่</label><input type="date" id="edit-date" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" /></div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">เวลา</label>
+              <select id="edit-time" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500"><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option></select>
+            </div>
+          </div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">แพทย์</label>
+            <select id="edit-doctor" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500"><option>หมอแอน</option><option>หมอเบน</option><option>หมอแคท</option><option>หมอเดวิด</option><option>หมอเอมมี่</option></select>
+          </div>
+          <div><label class="block text-sm font-medium text-gray-700 mb-1">เหตุผลในการแก้ไข</label><textarea id="edit-reason" rows="2" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" placeholder="ระบุเหตุผล..."></textarea></div>
+        </div>
+        <div class="p-5 border-t border-gray-200 flex gap-3">
+          <button onclick="closeModal('edit-booking-modal')" class="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">ยกเลิก</button>
+          <button onclick="confirmEditBooking()" class="flex-1 px-4 py-2.5 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600">บันทึกการแก้ไข</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div id="receipt-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden">
+        <div class="p-6 text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2" id="receipt-title">ใบเสร็จ #INV-2569-0042</h3>
+          <p class="text-sm text-gray-600 mb-1" id="receipt-patient"></p>
+          <p class="text-2xl font-bold text-green-600 mb-4" id="receipt-amount"></p>
+          <div class="flex gap-2">
+            <button onclick="closeModal('receipt-modal')" class="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200">ปิด</button>
+            <button class="flex-1 px-4 py-2 bg-dental-500 text-white rounded-xl hover:bg-dental-600">พิมพ์ใบเสร็จ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/clinic-branch.js"></script>
+    <script>
+      // Sidebar Toggle
+      let isClinicSidebarCollapsed = localStorage.getItem('clinicSidebarCollapsed') === 'true';
+
+      function toggleClinicSidebar() {
+        isClinicSidebarCollapsed = !isClinicSidebarCollapsed;
+        localStorage.setItem('clinicSidebarCollapsed', isClinicSidebarCollapsed);
+        applyClinicSidebarState();
+      }
+
+      function applyClinicSidebarState() {
+        const sidebar = document.getElementById('clinic-sidebar');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const header = document.getElementById('sidebar-header');
+        const sectionLabel = document.getElementById('section-label');
+        const userSection = document.getElementById('user-section');
+        const textElements = document.querySelectorAll('.sidebar-text');
+        const menuItems = document.querySelectorAll('.clinic-nav');
+
+        if (isClinicSidebarCollapsed) {
+          sidebar.classList.remove('w-64');
+          sidebar.classList.add('w-20');
+          header.classList.remove('px-5');
+          header.classList.add('justify-center');
+          sectionLabel.innerHTML = '<div class="w-8 border-t border-gray-200"></div>';
+          userSection.classList.remove('px-4');
+          userSection.classList.add('justify-center');
+          toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />';
+          toggleBtn.title = 'ขยาย';
+
+          textElements.forEach(el => el.classList.add('hidden'));
+          menuItems.forEach(item => {
+            item.classList.remove('px-4', 'gap-3');
+            item.classList.add('justify-center');
+          });
+        } else {
+          sidebar.classList.remove('w-20');
+          sidebar.classList.add('w-64');
+          header.classList.remove('justify-center');
+          header.classList.add('px-5');
+          sectionLabel.innerHTML = '<span class="px-3 py-1 bg-teal-100 text-teal-700 text-xs rounded-full font-medium sidebar-text">Clinic View</span>';
+          userSection.classList.remove('justify-center');
+          userSection.classList.add('px-4');
+          toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />';
+          toggleBtn.title = 'พับเก็บ';
+
+          textElements.forEach(el => el.classList.remove('hidden'));
+          menuItems.forEach(item => {
+            item.classList.remove('justify-center');
+            item.classList.add('px-4', 'gap-3');
+          });
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        applyClinicSidebarState();
+        if (typeof initClinicBranch === 'function') initClinicBranch();
+      });
+    </script>
+  </body>
+</html>

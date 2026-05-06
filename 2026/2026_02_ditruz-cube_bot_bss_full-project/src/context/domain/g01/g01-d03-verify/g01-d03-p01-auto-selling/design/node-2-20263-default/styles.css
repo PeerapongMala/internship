@@ -1,0 +1,751 @@
+/* ============================================
+ * Auto Selling - Unsort CC - Default State
+ * Figma Node: 2:20263
+ * Date: 2026-02-19
+ *
+ * IMPORTANT: font-family must be 'bss-pridi' (not 'Pridi')
+ * due to @font-face registration in the project.
+ * Style.css forces font-weight: normal on *, so use
+ * class selector + !important to override.
+ * ============================================ */
+
+/* ============================================
+ * PAGE LAYOUT
+ * Root: 2:20263 (1440 x 900)
+ * ============================================ */
+
+.page-container {
+  /* Figma node: 2:20263 */
+  width: 1440px;
+  height: 900px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'bss-pridi', sans-serif;
+  color: #212121; /* Texts/text-neutral-primary */
+}
+
+/* ============================================
+ * BACKGROUND
+ * Node: 2:20264
+ * ============================================ */
+
+.page-background {
+  /* Figma node: 2:20264 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 900px;
+  z-index: 0;
+}
+
+.page-background-gradient {
+  /* Figma node: 2:20266 — Foreground Color overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 450px;
+  /* Actual gradient values need to be extracted from CSS variant file */
+}
+
+/* ============================================
+ * NAVIGATION HEADER
+ * Node: 2:20271 (1440 x 40)
+ * ============================================ */
+
+.nav-header {
+  /* Figma node: 2:20271 */
+  position: relative;
+  width: 1440px;
+  height: 40px;
+  z-index: 10;
+}
+
+.nav-header-inner {
+  /* Figma node: 2:20273 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 12px;
+  height: 34px;
+}
+
+.nav-logo {
+  /* Figma node: 2:20276 */
+  width: 30px;
+  height: 30px;
+}
+
+.nav-system-name {
+  /* Figma node: 2:20481 */
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  color: #FFFFFF;
+}
+
+.nav-version {
+  /* Figma node: 2:20482 */
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 11px; /* Font Size/text-xs */
+  font-weight: 400 !important;
+  color: #FFFFFF;
+}
+
+.nav-menu {
+  /* Figma node: 2:20483 — List Menu Nav instance */
+  display: flex;
+  align-items: center;
+  height: 25px;
+  gap: 0;
+}
+
+.nav-profile {
+  /* Figma node: 2:20485 */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 108px;
+  height: 34px;
+}
+
+.nav-profile-name {
+  /* Figma node: 2:20487 */
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  color: #FFFFFF;
+  width: 66px;
+  height: 18px;
+}
+
+.nav-profile-role {
+  /* Figma node: 2:20488 */
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 11px;
+  font-weight: 400 !important;
+  color: #FFFFFF;
+}
+
+.nav-avatar {
+  /* Figma node: 2:20491 */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* ============================================
+ * TITLE BAR
+ * Node: 2:20495 (1403 x 62)
+ * ============================================ */
+
+.title-bar {
+  /* Figma node: 2:20495 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1403px;
+  height: 62px;
+  margin: 0 18.5px;
+  padding-top: 13px;
+}
+
+.page-title {
+  /* Figma node: 2:20498 */
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 24px;
+  font-weight: 500 !important; /* Heading style */
+  color: #212121;
+  letter-spacing: 2.5px;
+  line-height: 1.2;
+  width: 547px;
+  height: 36px;
+}
+
+/* ============================================
+ * INFO PANEL
+ * Node: 2:20500 (414 x 52)
+ * ============================================ */
+
+.info-panel {
+  /* Figma node: 2:20500 */
+  width: 414px;
+  height: 52px;
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  border-radius: 8px;
+  /* Background: golden/amber tone from screenshot */
+}
+
+.info-panel-left {
+  /* Figma node: 2:20501 */
+  width: 245px;
+  height: 36px;
+}
+
+.info-panel-right {
+  /* Figma node: 2:20511 */
+  width: 145px;
+  height: 36px;
+}
+
+.info-label {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px; /* Form Label */
+  font-weight: 400 !important;
+  color: #212529; /* Body Color */
+  letter-spacing: 2.5px;
+  line-height: 18px;
+}
+
+.info-value {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  color: #212121;
+  letter-spacing: 2.2px;
+}
+
+.info-icon {
+  /* Figma node: 2:20507 */
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+ * ACTION BUTTONS (Title Bar)
+ * Node: 2:20519 (382 x 36)
+ * ============================================ */
+
+.action-buttons {
+  /* Figma node: 2:20519 */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 36px;
+}
+
+.btn-filter {
+  /* Figma node: 2:20520 */
+  width: 98px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 8px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-open-screen {
+  /* Figma node: 2:20525 */
+  width: 125px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 8px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-print {
+  /* Figma node: 2:20530 */
+  width: 127px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-filter .btn-icon,
+.btn-open-screen .btn-icon,
+.btn-print .btn-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.btn-filter .btn-text,
+.btn-open-screen .btn-text,
+.btn-print .btn-text {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 14px;
+  font-weight: 400 !important;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+/* ============================================
+ * FILTER BAR
+ * Node: 2:20536 (1408 x 63)
+ * ============================================ */
+
+.filter-bar {
+  /* Figma node: 2:20536 */
+  width: 1408px;
+  height: 63px;
+  background: #FFFFFF; /* Theme/Body Background */
+  border-radius: 12px 12px 0 0; /* Rounded/r-sm top only */
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+}
+
+.filter-bar-inner {
+  /* Figma node: 2:20537 */
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 1360px;
+  height: 31px;
+}
+
+.filter-group {
+  /* Each filter: 2:20538, 2:20542, 2:20545, 2:20548, 2:20551 */
+  display: flex;
+  align-items: center;
+  width: 248px;
+  height: 31px;
+  gap: 8px;
+}
+
+.filter-label {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px; /* Form Label */
+  font-weight: 400 !important;
+  color: #212121;
+  letter-spacing: 2.5px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.filter-select {
+  height: 31px;
+  border: 1px solid #CED4DA; /* Gray/400 */
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  color: #212121;
+  background: #FFFFFF;
+}
+
+/* Specific select widths from Figma */
+.filter-select--header-card { width: 155px; } /* node 2:20541 */
+.filter-select--bank { width: 193px; }        /* node 2:20544 */
+.filter-select--zone { width: 207px; }        /* node 2:20547 */
+.filter-select--cashpoint { width: 170px; }   /* node 2:20550 */
+.filter-select--denomination { width: 183px; } /* node 2:20553 */
+
+/* ============================================
+ * CONTENT PANELS (Two-panel layout)
+ * Node: 2:20557 (1408 x 663)
+ * ============================================ */
+
+.content-panels {
+  /* Figma node: 2:20557 */
+  display: flex;
+  width: 1408px;
+  height: 663px;
+  gap: 5px;
+  margin: 0 16px;
+}
+
+.panel-left {
+  /* Figma node: 2:20558 */
+  width: 844.8px;
+  height: 663px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.panel-right {
+  /* Figma node: 2:20971 */
+  width: 555.2px;
+  height: 663px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ============================================
+ * TABLE COMPONENT (shared styles)
+ * ============================================ */
+
+.data-table {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* --- Section Header --- */
+.table-section-header {
+  /* Figma node: 2:20560 / 2:20643 */
+  height: 38px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Background: golden/amber gradient from BnType variant */
+}
+
+.table-section-title {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 14px;
+  font-weight: 500 !important;
+  color: #212121;
+  letter-spacing: 2.2px;
+}
+
+.table-section-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.table-section-count-label {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  color: #212121;
+  letter-spacing: 2.3px;
+}
+
+.table-section-count-value {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 14px;
+  font-weight: 500 !important;
+  color: #212121;
+  letter-spacing: 2.3px;
+}
+
+/* --- Column Header Row --- */
+.table-col-header {
+  /* Figma node: 2:20576 / 2:20659 */
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background: #f8fafc; /* Slate/50 */
+  border-bottom: 1px solid #cbd5e1; /* Separators/seprator-opaque */
+}
+
+.table-col-header-cell {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px; /* Table header token */
+  font-weight: 500 !important; /* Medium */
+  color: #212121;
+  letter-spacing: 2.3px;
+  line-height: 20px;
+}
+
+.table-col-header-cell .sort-icon {
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+
+/* --- Data Rows --- */
+.table-row {
+  /* Figma node: 2:20606 etc. */
+  height: 36px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #DEE2E6; /* Theme/Border */
+  padding: 0 8px;
+}
+
+.table-row:hover {
+  background: #f8fafc; /* Slate/50 */
+}
+
+.table-cell {
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px; /* Table body token */
+  font-weight: 400 !important;
+  color: #212121;
+  letter-spacing: 2.2px;
+  line-height: 13px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+.table-cell--right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.table-cell--center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* --- Checkbox --- */
+.table-checkbox {
+  /* Figma node: 2:20579 */
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.table-checkbox-wrapper {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 2px;
+}
+
+/* --- Denomination Badge --- */
+.denomination-badge {
+  /* Figma node: 2:20614 */
+  width: 47px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  color: #212121;
+  /* Background: uses qty-badge pattern from all.css */
+}
+
+/* --- Status Badge --- */
+.badge-status {
+  /* Figma node: 2:20624 */
+  height: 19px;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 11px; /* text-xs */
+  font-weight: 400 !important;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.badge-status--auto-selling {
+  background: #e4ca39; /* light green/teal */
+  color: #e7da25; /* Green/500 */
+}
+
+.badge-status--edited {
+  background: #fee2e2; /* Red/100 */
+  color: #DC3545; /* Theme/Danger */
+}
+
+/* --- Action Buttons in Table --- */
+.table-action-buttons {
+  /* Figma node: 2:20625 */
+  display: flex;
+  align-items: center;
+    width: 26px;
+  height: 26px;
+  gap: 10px;
+  padding: 5px 8px;
+}
+
+.table-action-btn {
+  /* Figma node: 2:20626, 2:20627 */
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #CED4DA; /* Gray/400 */
+  background: #FFFFFF;
+}
+
+.table-action-btn:hover {
+  background: #f8fafc; /* Slate/50 */
+}
+
+.table-action-btn i {
+  font-size: 24px;
+  color: #212121;
+}
+
+/* ============================================
+ * TABLE 1 - Left Panel Top
+ * มัดครบจำนวน ครบมูลค่า (2:20559)
+ * Height: 327.5px
+ * ============================================ */
+
+.table-left-top {
+  /* Figma node: 2:20559 */
+  height: 327.5px;
+  overflow-y: auto;
+}
+
+/* Column widths for Table 1 */
+.table-left-top .col-checkbox { width: 20px; }
+.table-left-top .col-header-card { width: 133.7px; }
+.table-left-top .col-denomination { width: 80px; }
+.table-left-top .col-datetime { width: 116px; }
+.table-left-top .col-count { width: 133.7px; }
+.table-left-top .col-value { width: 133.7px; }
+.table-left-top .col-status { width: 133.7px; }
+.table-left-top .col-action { width: 78px; }
+
+/* ============================================
+ * TABLE 2 - Left Panel Bottom
+ * มัดรวมครบจำนวน ครบมูลค่า (2:20642)
+ * Height: 327.5px
+ * ============================================ */
+
+.table-left-bottom {
+  /* Figma node: 2:20642 */
+  height: 327.5px;
+  overflow-y: auto;
+}
+
+/* Column widths for Table 2 */
+.table-left-bottom .col-checkbox { width: 20px; }
+.table-left-bottom .col-header-card { width: 119.76px; }
+.table-left-bottom .col-denomination { width: 80px; }
+.table-left-bottom .col-datetime { width: 130px; }
+.table-left-bottom .col-count { width: 119.76px; }
+.table-left-bottom .col-value { width: 119.76px; }
+.table-left-bottom .col-status { width: 119.76px; }
+.table-left-bottom .col-action { width: 119.76px; }
+
+/* ============================================
+ * RIGHT PANEL TABLES (A, B, C)
+ * Each: 555.2 x ~215.67
+ * ============================================ */
+
+.table-right {
+  height: 215.67px;
+  overflow-y: auto;
+}
+
+/* Table A: มัดขาด-เกิน (2:20972) */
+.table-right-a {
+  /* instance: Table - Auto Selling - A */
+}
+
+/* Table B: มัดรวมขาด-เกิน (2:20973) */
+.table-right-b {
+  /* instance: Table - Auto Selling - B */
+}
+
+/* Table C: มัดเก็บโดยยอดจากเครื่องจักร (2:20974) */
+.table-right-c {
+  /* instance: Table - Auto Selling - C */
+}
+
+/* ============================================
+ * FOOTER BUTTONS
+ * Node: 2:21014 (1408 x 64)
+ * ============================================ */
+
+.footer-bar {
+  /* Figma node: 2:21014 */
+  width: 1408px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 16px;
+}
+
+.btn-refresh {
+  /* Figma node: 2:21015 */
+  width: 229px;
+  height: 48px;
+  border-radius: 8px;
+  border: 2px solid #198754; /* Green/500 */
+  background: transparent;
+  color: #198754;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 16px; /* Heading/H6 */
+  font-weight: 500 !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-refresh:hover {
+  background: #198754;
+  color: #FFFFFF;
+}
+
+.footer-spacer {
+  /* Figma node: 2:21016 */
+  flex: 1;
+}
+
+.btn-manual-keyin {
+  /* Figma node: 2:21017 */
+  width: 173px;
+  height: 48px;
+  border-radius: 8px;
+  background: #003366; /* Primary */
+  color: #FFFFFF;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 16px;
+  font-weight: 500 !important;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-summary {
+  /* Figma node: 2:21018 */
+  width: 229px;
+  height: 48px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #d4a24e, #b8860b); /* Gold/amber from screenshot */
+  color: #FFFFFF;
+  font-family: 'bss-pridi', sans-serif !important;
+  font-size: 16px;
+  font-weight: 500 !important;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+ * HIDDEN ELEMENTS (available for interaction)
+ * ============================================ */
+
+/* Detail Table (2:20803) — shown when HeaderCard selected */
+.detail-table {
+  display: none;
+}
+
+.detail-table.visible {
+  display: block;
+}
+
+/* Unsort CC Adjustment Form (2:20975) — hidden by default */
+.unsort-cc-form {
+  display: none;
+}
+
+.unsort-cc-form.visible {
+  display: block;
+}

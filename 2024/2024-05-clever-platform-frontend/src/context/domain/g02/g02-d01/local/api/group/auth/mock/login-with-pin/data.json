@@ -1,0 +1,15 @@
+[
+  {
+    "id": "cd1592be-7302-4805-a172-86956b0bf2a1",
+    "student_id": "17340",
+    "school_id": "1",
+    "school_code": "C-123",
+    "family_id": 1,
+    "family_owner": null,
+    "title": "เด็กชาย",
+    "first_name": "อภิชาติ",
+    "last_name": "เชื้อ",
+    "image_url": null,
+    "access_token": "mock-access-token"
+  }
+]

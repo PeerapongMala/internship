@@ -1,0 +1,21 @@
+/* Chrome, Edge, Firefox */
+.scrollable-container {
+  scrollbar-width: auto;
+  scrollbar-color: #ff6b00 white;
+}
+
+/* Safari */
+.scrollable-container::-webkit-scrollbar {
+  width: 16px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: white; /* fallback */
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #ff6b00;
+  border-radius: 10px;
+  border: 3px solid white;
+}

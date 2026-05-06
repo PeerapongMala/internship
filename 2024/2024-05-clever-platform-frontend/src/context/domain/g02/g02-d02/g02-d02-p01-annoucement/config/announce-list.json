@@ -1,0 +1,50 @@
+{
+  "activity": {
+    "announce1": {
+      "shortTitle": "Welcome!",
+      "title": "math tournament!",
+      "announceData": "10-12-2015",
+      "showDate": false,
+      "announceDisplay": {}
+    },
+    "announce2": {
+      "shortTitle": "Welcome!",
+      "title": "กิจกรรมแข่งขันคณิตศาสตร์ประจำเดือน พฤษภาคม 2567",
+      "announceData": "03/04/24 - 05/04/24",
+      "showDate": true,
+      "announceDisplay": {}
+    }
+  },
+  "mailbox": {
+    "announce1": {
+      "shortTitle": "Welcome!",
+      "title": "แจกไอเทมฟรีจากระบบ CLEVER สำหรับสมาชิกใหม่",
+      "announceData": "03/04/24 - 05/04/24",
+      "showDate": true,
+      "announceDisplay": {}
+    }
+  },
+  "notification": {
+    "announce1": {
+      "shortTitle": "Welcome!",
+      "title": "Your math grade have been updated",
+      "announceData": "03/04/24 - 05/04/24",
+      "showDate": true,
+      "announceDisplay": {}
+    },
+    "announce2": {
+      "shortTitle": "Welcome!",
+      "title": "Someone has mentioned you!",
+      "announceData": "03/04/24 - 05/04/24",
+      "showDate": true,
+      "announceDisplay": {}
+    },
+    "announce3": {
+      "shortTitle": "Welcome!",
+      "title": "There are Rick roll in your mailbox!",
+      "announceData": "03/04/24 - 05/04/24",
+      "showDate": true,
+      "announceDisplay": {}
+    }
+  }
+}

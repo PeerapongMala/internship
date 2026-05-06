@@ -1,0 +1,477 @@
+﻿/* 1. พื้นหลังและ Layout หลัก */
+body::before {
+    background: linear-gradient(98.93deg, #f5a986 0.74%, #f8d4ba 100%) !important;
+}
+
+/*.title-section {*/
+    /* margin-bottom: 1.5rem;*/
+    /*padding-bottom: 0.5rem;
+    
+}*/
+
+/* Container หลักฝั่งขวา */
+.header-info-compact {
+    min-width: 250px; /* ปรับขนาดความกว้างตามความเหมาะสม */
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* ลดช่องว่างระหว่างบรรทัด */
+}
+
+/* จัดการแถวข้อมูล: หัวข้อชิดซ้าย - เนื้อหาชิดขวา */
+.info-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    line-height: 1.2; /* ทำให้บรรทัดชิดกันมากขึ้นตามรูป */
+    margin-bottom: 2px;
+}
+
+    .info-line .label {
+        font-size: 13px;
+        color: #333;
+        padding-right: 15px; /* เว้นระยะห่างจากข้อมูลด้านขวา */
+        white-space: nowrap;
+    }
+
+    .info-line .value {
+        font-size: 13px;
+        font-weight: 500;
+        color: #333;
+        text-align: right;
+    }
+
+
+
+.title-section h1 {
+    color: black;
+  /*  margin-left: 0px;
+    font-size: 24px;
+    font-weight: 700;*/
+}
+
+/* Card ใบใหญ่ที่ซ่อนอยู่ข้างหลัง (โปร่งแสง) */
+.card-outer-transparent {
+    background-color: rgba(255, 255, 255, 0.35) !important; /* ความใส 35% */
+    backdrop-filter: blur(10px); /* ทำให้พื้นหลังเบลอแบบกระจกฝ้า */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom:5px;
+}
+
+/* Card สีขาวที่ลอยอยู่ข้างใน */
+.white-card {
+    background: #ffffff !important;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* เงาจางๆ ให้ดูมีมิติ */
+    margin-bottom: 0px;
+}
+
+/* ปรับแต่ง Input ให้เข้ากับดีไซน์ */
+.form-control-custom {
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    font-weight: bold;
+}
+
+/* ปรับแต่งปุ่มให้ดูหนาและมีสีตามตัวอย่าง */
+.btn-receive-confirm {
+    background-color: #198754 !important;
+    color: white !important;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: none;
+}
+
+.btn-receive-reject {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: none;
+}
+
+/* 2. การจัดการข้อมูล Header */
+.info-row-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #666;
+}
+
+.info-value-text {
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+/* 3. ตาราง (เน้นจัดกึ่งกลางและเส้นขอบที่สะอาด) */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    /* margin-top: 10px;*/
+}
+
+    .data-table thead tr th {
+        background-color: #d6e0e0 !important;
+        color: #333 !important;
+        padding: 12px;
+        border: 1px solid #bbb;
+        font-weight: 700;
+        text-align: center !important;
+    }
+
+    .data-table td {
+        padding: 12px;
+        border: 1px solid #eee;
+        text-align: center !important;
+        vertical-align: middle;
+    }
+
+/* 4. สถานะ (Badge) */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 15px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+.status-register {
+    color: #856404;
+    background: #fff3cd;
+    border-color: #ffc107;
+}
+
+/* 5. ปุ่มกด (แก้ปัญหาเมาส์ชี้แล้วฟ้า/ล้น) */
+.btn-continue {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+    .btn-continue:hover {
+        background: #152a45;
+        filter: brightness(1.1);
+    }
+
+/* ปุ่มจัดการหลัก (รับมอบ / ไม่รับมอบ) */
+.btn-action-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+    /* ลบกรอบสีฟ้าเวลา Click */
+    .btn-action-horizontal:focus, .btn-continue:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+.btn-receive-confirm {
+    background: #2e7d32;
+}
+
+    .btn-receive-confirm:hover {
+        background: #266b2a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+    }
+
+.btn-receive-reject {
+    background: #dc3545;
+}
+
+    .btn-receive-reject:hover {
+        background: #bb2d3b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+    }
+
+.btn-action-horizontal i {
+    font-size: 22px;
+}
+
+/* สถานะ: รับมอบ (สีเขียว) */
+.status-received {
+    color: #2e7d32;
+    background: #e8f5e9;
+    border-color: #2e7d32;
+}
+
+/* สถานะ: ลงทะเบียน (สีเหลือง - มีอยู่แล้ว) */
+.status-register {
+    color: #856404;
+    background: #fff3cd;
+    border-color: #ffc107;
+}
+
+/* สถานะ: ส่งมอบ (สีฟ้า) */
+.status-delivery {
+    color: #0c5460;
+    background: #e1f5fe;
+    border-color: #17a2b8;
+}
+
+/* สถานะ: ส่งคืน (สีแดง) */
+.status-return {
+    color: #842029;
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+
+.action-square-btn {
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border: 2px solid #1e3a5f;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+    .action-square-btn:hover {
+        background-color: #1e3a5f;
+        transform: scale(1.1);
+    }
+
+        .action-square-btn:hover i {
+            color: white !important;
+        }
+
+.action-square-btn {
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border: 2px solid #1e3a5f;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+    .action-square-btn:hover {
+        background-color: #1e3a5f;
+        transform: scale(1.1);
+    }
+
+    .action-square-btn i {
+        color: #1e3a5f;
+        transition: all 0.2s ease;
+    }
+
+    .action-square-btn:hover i {
+        color: white !important;
+    }
+
+.text-navy {
+    color: #1e3a5f;
+}
+
+.qty-badge {
+    display: inline-block;
+    background: #fbe8e8;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    width: 50px;
+    text-align: center;
+}
+
+.qty-1000 {
+    display: inline-block;
+    background: #fbf8f4;
+    border: 2px solid #9f7d57;
+    color: #4f3e2b;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    width: 50px;
+    text-align: center;
+}
+
+.qty-500 {
+    display: inline-block;
+    background: #f8f5ff;
+    border: 2px solid #6a509d;
+    color: #3d2e5b;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    width: 50px;
+    text-align: center;
+}
+
+.qty-100 {
+    display: inline-block;
+    background: #fbe8e8;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    width: 50px;
+    text-align: center;
+}
+
+.qty-50 {
+    display: inline-block;
+    background: #f0f8ff;
+    border: 2px solid #35a0fd;
+    color: #015cab;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    width: 50px;
+    text-align: center;
+}
+
+.qty-20 {
+    display: inline-block;
+    background: #f1f9f1;
+    border: 2px solid #55b254;
+    color: #55b254;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    width: 50px;
+    text-align: center;
+}
+
+.btn-outline-navy {
+    background: white;
+    color: #1e3a5f;
+    border: 2px solid #1e3a5f;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-outline-navy:hover {
+    background: #1e3a5f;
+    color: white;
+}
+
+.btn-outline-navy i {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* คลาสสำหรับวงกลมล้อมรอบไอคอน Warning */
+.icon-circle-warning {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 4px solid #ff9800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    /* แถม: ปรับขนาดไอคอนด้านในให้เล็กลงนิดนึงหรือคุมสีจากตรงนี้ก็ได้ */
+    .icon-circle-warning i {
+        font-size: 60px;
+        color: #ff9800;
+    }
+
+.error-container {
+    height: 18px;
+    margin-top: 4px;
+}
+
+#unPrepareError {
+    font-size: 11px;
+    font-weight: 600;
+    color: #dc3545;
+    display: none;
+}
+
+.input-error-border {
+    border: 2px solid #dc3545 !important;
+    background-color: #fff8f8 !important;
+}
+
+
+
+
+.main-table-preparation-scroll {
+    overflow-y: auto;
+    /* max-height: 44vh;*/
+    /* max-height: calc(100vh - 120px);*/
+    border-bottom: 1px solid #eee;
+}
+
+    .main-table-preparation-scroll thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+
+.form-control-custom {
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* ปรับความโค้งมน */
+    padding: 5px 15px;
+    background-color: #f8f9fa; /* สีพื้นหลังอ่อนๆ ตามรูป */
+    transition: all 0.2s ease-in-out;
+    width: 50%;
+    max-width: 250px; /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+}
+
+    .form-control-custom:focus {
+        background-color: #ffffff;
+        border-color: #1e3a5f; /* สีน้ำเงินเข้มตามธีม */
+        box-shadow: 0 0 0 0.2rem rgba(30, 58, 95, 0.1);
+        outline: none;
+    }
+
+/* ปรับ Label ให้ดูเด่นขึ้น */
+.info-row-label {
+    color: #495057;
+    font-weight: 500;
+}

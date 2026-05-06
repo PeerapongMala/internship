@@ -1,0 +1,564 @@
+/*
+  Figma CSS Specifications — Approve Manual Key-in
+
+  ⚠️ REFERENCE FILE ONLY — DO NOT LINK AS STYLESHEET
+
+  This file contains CSS specifications extracted from Figma design tokens.
+  Use these values when implementing component styles in the actual CSS files.
+
+  Font mapping: 'Pridi' → implement as 'bss-pridi' (project font face)
+
+  Source: Node 2:49536
+  Date: 2026-02-19
+*/
+
+/* ===================================
+   CSS Variables (Design Tokens)
+   =================================== */
+
+:root {
+  /* --- Colors --- */
+  --primary: #003366;
+  --primary-bootstrap: #0d6efd;
+  --secondary: #6c757d;
+  --success: #198754;
+  --danger: #DC3545;
+  --blue-400: #3D8BFD;
+
+  --white: #FFFFFF;
+  --gray-300: #cbd5e1;
+  --gray-400: #CED4DA;
+  --gray-600: #6C757D;
+  --gray-800: #343A40;
+  --slate-50: #f8fafc;
+
+  --text-primary: #212121;
+  --text-body: #212529;
+  --text-tertiary: #909090;
+
+  --separator: #cbd5e1;
+  --stroke: #cbd5e1;
+
+  --yellow-50: #fefce8;
+  --yellow-400: #facc15;
+  --yellow-900: #713f12;
+
+  /* --- Typography --- */
+  --font-family-base: 'bss-pridi', 'Pridi', sans-serif; /* → implement as 'bss-pridi' */
+
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 16px;
+  --font-size-body: 16px;
+  --font-size-body-sm: 14px;
+  --font-size-form: 13px;
+  --font-size-table: 13px;
+  --font-size-xs: 11px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --line-height-heading: 1.2;
+  --line-height-body: 1.5;
+  --line-height-tight: 1;
+  --line-height-form: 100%;
+
+  --letter-spacing-base: 2.5px;
+  --letter-spacing-table-header: 2.3px;
+  --letter-spacing-table-body: 2.2px;
+
+  /* --- Spacing --- */
+  --space-0: 0;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+
+  /* --- Border Radius --- */
+  --radius-sm: 12px;
+}
+
+/* ===================================
+   Typography Styles
+   =================================== */
+
+/* --- Section: Headings (Node 2:49537) --- */
+
+.approve-h4,
+.approve-page-title {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+.approve-h5,
+.approve-section-title {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+.approve-h6,
+.approve-subsection-title {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+/* --- Section: Body Text --- */
+
+.approve-body-regular {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 2.5px;
+  color: var(--text-body);
+}
+
+.approve-body-small {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 2.5px;
+  color: var(--text-body);
+}
+
+/* --- Section: Form Elements --- */
+
+.approve-form-label {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+.approve-form-label-lg {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+.approve-form-value {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+/* --- Section: Table Typography (Node 2:49833) --- */
+
+.approve-table-header {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 2.3px;
+  color: var(--text-primary);
+}
+
+.approve-table-body {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 2.2px;
+  color: var(--text-primary);
+}
+
+/* ===================================
+   Layout Containers
+   =================================== */
+
+/* --- Section: Page Container (Node 2:49537) --- */
+
+.approve-page-container {
+  width: 1440px;
+  height: 900px;
+  background-color: var(--white);
+}
+
+.approve-content-area {
+  width: 1408px;
+  margin: 0 16px;
+}
+
+/* --- Section: Navigation Header (Node 2:49545) --- */
+
+.approve-nav-header {
+  width: 1440px;
+  height: 40px;
+  background-color: var(--gray-800);
+}
+
+/* --- Section: Page Header (Node 2:49769) --- */
+
+.approve-page-header {
+  width: 1440px;
+  height: 62px;
+  padding: 13px 16px;
+  background-color: var(--white);
+}
+
+/* --- Section: Filter Section (Node 2:49792) --- */
+
+.approve-filter-section {
+  width: 1408px;
+  height: 102px;
+  padding: 16px;
+  background-color: var(--white);
+}
+
+.approve-filter-row-1 {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+
+.approve-filter-row-2 {
+  display: flex;
+  gap: 24px;
+}
+
+.approve-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.approve-filter-select {
+  height: 31px;
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  padding: 4px 12px;
+  background-color: var(--white);
+}
+
+/* --- Section: Main Table (Node 2:49978) --- */
+
+.approve-main-table {
+  width: 1408px;
+  height: 407px;
+  margin: 16px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+}
+
+/* --- Section: Detail Breakdown Table (Node 2:49833) --- */
+
+.approve-detail-breakdown {
+  width: 900px;
+  height: 249px;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+}
+
+.approve-detail-header {
+  height: 45px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--separator);
+  background-color: var(--slate-50);
+}
+
+.approve-detail-table-header {
+  height: 30px;
+  background-color: var(--slate-50);
+  border-bottom: 1px solid var(--separator);
+}
+
+.approve-detail-table-header th {
+  padding: 5px 8px;
+  text-align: left;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 2.3px;
+  color: var(--text-primary);
+}
+
+.approve-detail-table-row {
+  height: 40px;
+  border-bottom: 1px solid var(--separator);
+}
+
+.approve-detail-table-row:last-child {
+  border-bottom: none;
+}
+
+.approve-detail-table-cell {
+  padding: 8px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 2.2px;
+  color: var(--text-primary);
+}
+
+/* --- Section: Action Panel (Node 2:49964) --- */
+
+.approve-action-panel {
+  width: 500px;
+  height: 249px;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
+.approve-notes-label {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.approve-notes-textarea {
+  width: 468px;
+  height: 36px;
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  resize: vertical;
+}
+
+.approve-button-approve {
+  width: 468px;
+  height: 46px;
+  background-color: var(--success);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.approve-button-separator {
+  width: 468px;
+  height: 1px;
+  background-color: var(--separator);
+  margin: 16px 0;
+}
+
+.approve-button-denied {
+  width: 468px;
+  height: 48px;
+  background-color: var(--danger);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+/* ===================================
+   Modals
+   =================================== */
+
+/* --- Section: Approve Confirmation Modal (Node 2:50280) --- */
+
+.approve-modal {
+  width: 560px;
+  height: 360px;
+  background-color: var(--white);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+}
+
+.approve-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.approve-modal-top-bar {
+  width: 560px;
+  height: 141px;
+  text-align: center;
+  padding-top: 32px;
+}
+
+.approve-modal-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+}
+
+.approve-modal-title {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+.approve-modal-message-area {
+  width: 560px;
+  height: 143px;
+  padding: 24px;
+  text-align: center;
+}
+
+.approve-modal-message {
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 2.5px;
+  color: var(--text-primary);
+}
+
+.approve-modal-action-area {
+  width: 560px;
+  height: 70px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.approve-modal-button-cancel {
+  width: 160px;
+  height: 38px;
+  background-color: var(--white);
+  color: var(--text-primary);
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.approve-modal-button-confirm {
+  width: 158px;
+  height: 38px;
+  background-color: var(--primary-bootstrap);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+/* --- Section: Success Modal (Node 2:50270) --- */
+
+.approve-modal-success {
+  width: 560px;
+  height: 360px;
+  background-color: var(--white);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+}
+
+.approve-modal-button-ok {
+  width: 160px;
+  height: 38px;
+  background-color: var(--success);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ===================================
+   Component: Denomination Badge
+   =================================== */
+
+.approve-denomination-badge {
+  width: 47px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: 'bss-pridi', sans-serif; /* → implement as 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+}
+
+/* ===================================
+   Utilities
+   =================================== */
+
+.approve-separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--separator);
+}
+
+.approve-text-primary {
+  color: var(--text-primary);
+}
+
+.approve-text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.approve-bg-white {
+  background-color: var(--white);
+}
+
+.approve-bg-slate-50 {
+  background-color: var(--slate-50);
+}

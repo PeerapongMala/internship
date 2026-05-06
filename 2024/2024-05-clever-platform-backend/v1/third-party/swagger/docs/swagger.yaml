@@ -1,0 +1,4582 @@
+definitions:
+  FailureResponse:
+    properties:
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  constant.AuthOAuthEntity:
+    properties:
+      provider:
+        type: string
+      subject_id:
+        type: string
+    type: object
+  constant.ContractEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      school_affiliation_id:
+        type: integer
+      start_date:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.ContractSchoolDataEntity:
+    properties:
+      code:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      province:
+        type: string
+    type: object
+  constant.ContractSubjectDataEntity:
+    properties:
+      curriculum_group:
+        type: string
+      id:
+        type: integer
+      is_enabled:
+        type: boolean
+      platform:
+        type: string
+      subject:
+        type: string
+      subject_group:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+      year:
+        type: string
+    type: object
+  constant.ContractSubjectEntity:
+    properties:
+      is_enabled:
+        type: boolean
+      subject_id:
+        type: integer
+    required:
+    - is_enabled
+    - subject_id
+    type: object
+  constant.ContractWithSchoolCountEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      school_affiliation_id:
+        type: integer
+      school_count:
+        type: integer
+      start_date:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.ObserverAccessWithSchoolsEntity:
+    properties:
+      access_name:
+        type: string
+      area_office:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      district_group:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      school_affiliation_id:
+        type: integer
+      schools:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.ObserverWithAccesses:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      observer_accesses:
+        items:
+          $ref: '#/definitions/github_com_ZettaMerge_2024-05-clever-platform-backend_src_context_domain_g01_g01-d02-user-v1_constant.ObserverAccessEntity'
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.SchoolAffiliationDoeDataEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      district_zone:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.SchoolAffiliationEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.SchoolAffiliationLaoDataEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      id:
+        type: integer
+      lao_type:
+        type: string
+      name:
+        type: string
+      province:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      sub_district:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.SchoolAffiliationObecDataEntity:
+    properties:
+      area_office:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      inspection_area:
+        type: string
+      name:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.StudentDataEntity:
+    properties:
+      birth_date:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      email:
+        type: string
+      ethnicity:
+        type: string
+      father_first_name:
+        type: string
+      father_last_name:
+        type: string
+      father_title:
+        type: string
+      first_name:
+        type: string
+      house_number:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      moo:
+        type: string
+      mother_first_name:
+        type: string
+      mother_last_name:
+        type: string
+      mother_title:
+        type: string
+      nationality:
+        type: string
+      parent_first_name:
+        type: string
+      parent_last_name:
+        type: string
+      parent_marital_status:
+        type: string
+      parent_relationship:
+        type: string
+      parent_title:
+        type: string
+      post_code:
+        type: string
+      province:
+        type: string
+      religion:
+        type: string
+      school_id:
+        type: integer
+      status:
+        type: string
+      student_id:
+        type: string
+      sub_district:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+      year:
+        type: string
+    type: object
+  constant.StudentDataWithOAuth:
+    properties:
+      birth_date:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      email:
+        type: string
+      ethnicity:
+        type: string
+      father_first_name:
+        type: string
+      father_last_name:
+        type: string
+      father_title:
+        type: string
+      first_name:
+        type: string
+      house_number:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      moo:
+        type: string
+      mother_first_name:
+        type: string
+      mother_last_name:
+        type: string
+      mother_title:
+        type: string
+      nationality:
+        type: string
+      oauth:
+        items:
+          $ref: '#/definitions/constant.AuthOAuthEntity'
+        type: array
+      parent_first_name:
+        type: string
+      parent_last_name:
+        type: string
+      parent_marital_status:
+        type: string
+      parent_relationship:
+        type: string
+      parent_title:
+        type: string
+      post_code:
+        type: string
+      province:
+        type: string
+      religion:
+        type: string
+      school_id:
+        type: integer
+      status:
+        type: string
+      student_id:
+        type: string
+      sub_district:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+      year:
+        type: string
+    type: object
+  constant.UserEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.UserWithRolesEntity:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      roles:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  constant.YearEntity:
+    properties:
+      admin_login_as:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      curriculum_group_id:
+        type: integer
+      id:
+        type: integer
+      seed_year_id:
+        type: integer
+      status:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  github_com_ZettaMerge_2024-05-clever-platform-backend_src_context_domain_g01_g01-d02-user-v1_constant.ObserverAccessEntity:
+    properties:
+      access_name:
+        type: string
+      observer_access_id:
+        type: integer
+    type: object
+  helper.Pagination:
+    properties:
+      limit:
+        type: integer
+      page:
+        type: integer
+      total_count:
+        type: integer
+    type: object
+  service.AnnouncerCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.AnnouncerData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AnnouncerData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      school_id:
+        type: integer
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.AnnouncerListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.UserEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseBindWithOAuthRequest:
+    properties:
+      provider:
+        type: string
+      provider_access_token:
+        type: string
+      school_code:
+        type: string
+      student_id:
+        type: string
+    required:
+    - provider
+    - provider_access_token
+    - school_code
+    - student_id
+    type: object
+  service.AuthCaseBindWithOAuthResponse:
+    properties:
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseGetOAuthProfileResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.OAuthProfileData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseLoginWithEmailPasswordRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  service.AuthCaseLoginWithEmailPasswordResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.LoginData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseLoginWithOAuthRequest:
+    properties:
+      provider:
+        type: string
+      provider_access_token:
+        type: string
+    required:
+    - provider
+    - provider_access_token
+    type: object
+  service.AuthCaseLoginWithOAuthResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.LoginWithOAuthData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseLoginWithPinRequest:
+    properties:
+      pin:
+        type: string
+      school_code:
+        type: string
+      student_id:
+        type: string
+    required:
+    - pin
+    - school_code
+    - student_id
+    type: object
+  service.AuthCaseLoginWithPinResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.LoginWithPinData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseOAuthRedirectResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  service.AuthCaseUnbindOAuthRequest:
+    properties:
+      provider:
+        type: string
+      user_id:
+        type: string
+    required:
+    - provider
+    - user_id
+    type: object
+  service.AuthCaseUnbindOAuthResponse:
+    properties:
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseUpdatePasswordRequest:
+    properties:
+      password:
+        type: string
+      user_id:
+        type: string
+    required:
+    - password
+    - user_id
+    type: object
+  service.AuthCaseUpdatePasswordResponse:
+    properties:
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.AuthCaseUpdatePinRequest:
+    properties:
+      pin:
+        type: string
+      user_id:
+        type: string
+    required:
+    - pin
+    - user_id
+    type: object
+  service.AuthCaseUpdatePinResponse:
+    properties:
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ContractCaseListSchoolResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.ContractSchoolDataEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ContractCaseListSubjectResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.ContractSubjectDataEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ContractCaseUpdateSchoolRequest:
+    properties:
+      school_ids:
+        items:
+          type: integer
+        type: array
+    required:
+    - school_ids
+    type: object
+  service.ContractCaseUpdateSchoolResponse:
+    properties:
+      data:
+        items:
+          type: integer
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ContractCaseUpdateSubjectRequest:
+    properties:
+      subjects:
+        items:
+          $ref: '#/definitions/constant.ContractSubjectEntity'
+        type: array
+    required:
+    - subjects
+    type: object
+  service.ContractCaseUpdateSubjectResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.ContractSubjectEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ContractCreateRequest:
+    properties:
+      end_date:
+        type: string
+      name:
+        type: string
+      school_affiliation_id:
+        type: integer
+      start_date:
+        type: string
+    required:
+    - end_date
+    - name
+    - school_affiliation_id
+    - start_date
+    type: object
+  service.ContractCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.ContractEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ContractUpdateRequest:
+    properties:
+      end_date:
+        type: string
+      name:
+        type: string
+      start_date:
+        type: string
+      status:
+        type: string
+    type: object
+  service.ContractUpdateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.ContractEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.LoginData:
+    properties:
+      access_token:
+        type: string
+      roles:
+        items:
+          type: integer
+        type: array
+    type: object
+  service.LoginWithOAuthData:
+    properties:
+      access_token:
+        type: string
+    type: object
+  service.LoginWithPinData:
+    properties:
+      access_token:
+        type: string
+    type: object
+  service.OAuthProfileData:
+    properties:
+      provider_access_token:
+        type: string
+    type: object
+  service.ObserverAccessCreateRequest:
+    properties:
+      access_name:
+        type: string
+      area_office:
+        type: string
+      district:
+        type: string
+      district_group:
+        type: string
+      name:
+        type: string
+      school_affiliation_id:
+        type: integer
+      schools:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+    required:
+    - status
+    type: object
+  service.ObserverAccessCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.ObserverAccessWithSchoolsEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ObserverAccessListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.ObserverAccessWithSchoolsEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ObserverCaseUpdateAccessRequest:
+    properties:
+      observer_accesses:
+        items:
+          type: integer
+        type: array
+    required:
+    - observer_accesses
+    type: object
+  service.ObserverCaseUpdateAccessResponse:
+    properties:
+      data:
+        items:
+          type: integer
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ObserverCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.ObserverData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ObserverData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      observer_accesses:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.ObserverGetData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      observer_accesses:
+        items:
+          $ref: '#/definitions/github_com_ZettaMerge_2024-05-clever-platform-backend_src_context_domain_g01_g01-d02-user-v1_constant.ObserverAccessEntity'
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.ObserverGetResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.ObserverGetData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ObserverListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.ObserverWithAccesses'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ParentCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.ParentData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.ParentData:
+    properties:
+      birth_date:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      relationship:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.ParentGetData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      line_user_id:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.ParentGetResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.ParentGetData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationCaseListContractResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.ContractWithSchoolCountEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationCreateRequest:
+    properties:
+      name:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    required:
+    - name
+    - school_affiliation_group
+    - short_name
+    - status
+    type: object
+  service.SchoolAffiliationCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.SchoolAffiliationEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationDoeCreateRequest:
+    properties:
+      district:
+        type: string
+      district_zone:
+        type: string
+      name:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    required:
+    - district
+    - district_zone
+    - name
+    - short_name
+    - status
+    - type
+    type: object
+  service.SchoolAffiliationDoeCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.SchoolAffiliationDoeData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationDoeData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      district_zone:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.SchoolAffiliationDoeListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.SchoolAffiliationDoeDataEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationDoeUpdateRequest:
+    properties:
+      district:
+        type: string
+      district_zone:
+        type: string
+      name:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    type: object
+  service.SchoolAffiliationLaoCreateRequest:
+    properties:
+      district:
+        type: string
+      lao_type:
+        type: string
+      name:
+        type: string
+      province:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      sub_district:
+        type: string
+      type:
+        type: string
+    required:
+    - lao_type
+    - name
+    - short_name
+    - status
+    - type
+    type: object
+  service.SchoolAffiliationLaoCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.SchoolAffiliationLaoData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationLaoData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      district:
+        type: string
+      id:
+        type: integer
+      lao_type:
+        type: string
+      name:
+        type: string
+      province:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      sub_district:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.SchoolAffiliationLaoResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.SchoolAffiliationLaoDataEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationLaoUpdateRequest:
+    properties:
+      district:
+        type: string
+      lao_type:
+        type: string
+      name:
+        type: string
+      province:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      sub_district:
+        type: string
+      type:
+        type: string
+    type: object
+  service.SchoolAffiliationLaoUpdateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.SchoolAffiliationLaoData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.SchoolAffiliationEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationObecCreateRequest:
+    properties:
+      area_office:
+        type: string
+      inspection_area:
+        type: string
+      name:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    required:
+    - area_office
+    - inspection_area
+    - name
+    - status
+    - type
+    type: object
+  service.SchoolAffiliationObecCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.SchoolAffiliationObecData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationObecData:
+    properties:
+      area_office:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      inspection_area:
+        type: string
+      name:
+        type: string
+      school_affiliation_group:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.SchoolAffiliationObecListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.SchoolAffiliationObecDataEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationObecUpdateRequest:
+    properties:
+      area_office:
+        type: string
+      inspection_area:
+        type: string
+      name:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    type: object
+  service.SchoolAffiliationObecUpdateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.SchoolAffiliationObecData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.SchoolAffiliationUpdateRequest:
+    properties:
+      name:
+        type: string
+      short_name:
+        type: string
+      status:
+        type: string
+      type:
+        type: string
+    type: object
+  service.SchoolAffiliationUpdateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.SchoolAffiliationEntity'
+        type: array
+      message:
+        type: string
+    type: object
+  service.StudentGetResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.StudentDataEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.StudentListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.StudentDataWithOAuth'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.UserCaseUpdateRolesRequest:
+    properties:
+      roles:
+        items:
+          type: integer
+        type: array
+    required:
+    - roles
+    type: object
+  service.UserCaseUpdateRolesResponse:
+    properties:
+      data:
+        items:
+          type: integer
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.UserCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.UserData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.UserData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      roles:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.UserGetData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      roles:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.UserGetResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.UserGetData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.UserListResponse:
+    properties:
+      _pagination:
+        $ref: '#/definitions/helper.Pagination'
+      data:
+        items:
+          $ref: '#/definitions/constant.UserWithRolesEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.UserUpdateData:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      id_number:
+        type: string
+      image_url:
+        type: string
+      last_login:
+        type: string
+      last_name:
+        type: string
+      roles:
+        items:
+          type: integer
+        type: array
+      status:
+        type: string
+      title:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  service.UserUpdateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/service.UserUpdateData'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.YearCreateRequest:
+    properties:
+      admin_login_as:
+        type: string
+      seed_year_id:
+        type: integer
+      status:
+        type: string
+    required:
+    - seed_year_id
+    - status
+    type: object
+  service.YearCreateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.YearEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+  service.YearUpdateRequest:
+    properties:
+      admin_login_as:
+        type: string
+      seed_year_id:
+        type: integer
+      status:
+        type: string
+    type: object
+  service.YearUpdateResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/constant.YearEntity'
+        type: array
+      message:
+        type: string
+      status_code:
+        type: integer
+    type: object
+info:
+  contact: {}
+  title: Clever Platform API
+  version: "1.0"
+paths:
+  /auth/v1/login:
+    post:
+      consumes:
+      - application/json
+      description: Login with email and password
+      operationId: AuthCaseLoginWithEmailPassword
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseLoginWithEmailPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseLoginWithEmailPasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      summary: Login with email and password
+      tags:
+      - Auth
+  /auth/v1/login/pin:
+    post:
+      consumes:
+      - application/json
+      description: Login with pin (student)
+      operationId: AuthCaseLoginWithPin
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseLoginWithPinRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseLoginWithPinResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      summary: Login with pin
+      tags:
+      - Auth
+  /auth/v1/oauth/{provider}/profile:
+    get:
+      consumes:
+      - application/json
+      description: Get OAuth profile
+      operationId: AuthCaseGetOAuthProfile
+      parameters:
+      - description: provider e.g. line, google, thaid
+        in: path
+        name: provider
+        required: true
+        type: string
+      - description: code
+        in: query
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseGetOAuthProfileResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      summary: Get OAuth profile
+      tags:
+      - Auth
+  /auth/v1/oauth/{provider}/redirect:
+    get:
+      description: Redirect to OAuth login page
+      operationId: AuthCaseOAuthRedirect
+      parameters:
+      - description: provider
+        in: path
+        name: provider
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseOAuthRedirectResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      summary: Redirect to OAuth login page
+      tags:
+      - Auth
+  /auth/v1/oauth/bind:
+    post:
+      consumes:
+      - application/json
+      description: Bind student with OAuth (Line, Google)
+      operationId: AuthCaseBindStudentWithOAuth
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseBindWithOAuthRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseBindWithOAuthResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      summary: Bind student with OAuth
+      tags:
+      - Auth
+  /auth/v1/oauth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login with OAuth
+      operationId: AuthCaseLoginWithOAuth
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseLoginWithOAuthRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseLoginWithOAuthResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      summary: Login with OAuth
+      tags:
+      - Auth
+  /auth/v1/oauth/unbind:
+    post:
+      consumes:
+      - application/json
+      description: Unbind OAuth
+      operationId: AuthCaseUnbindOAuth
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseUnbindOAuthRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseUnbindOAuthResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Unbind OAuth
+      tags:
+      - Auth
+  /auth/v1/observer-access:
+    get:
+      description: List observer access
+      operationId: ObserverAccessList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: access name
+        in: query
+        name: access_name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ObserverAccessListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List observer access
+      tags:
+      - Auth
+    post:
+      consumes:
+      - application/json
+      description: Create observer access
+      operationId: ObserverAccessCreate
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.ObserverAccessCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.ObserverAccessCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create observer access
+      tags:
+      - Auth
+  /auth/v1/password:
+    patch:
+      consumes:
+      - application/json
+      description: Update password
+      operationId: AuthCaseUpdatePassword
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseUpdatePasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseUpdatePasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update password
+      tags:
+      - Auth
+  /auth/v1/pin:
+    patch:
+      consumes:
+      - application/json
+      description: Update pin
+      operationId: AuthCaseUpdatePin
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.AuthCaseUpdatePinRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseUpdatePinResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update pin
+      tags:
+      - Auth
+  /curriculum-groups/v1/{curriculumGroupId}/years:
+    post:
+      consumes:
+      - application/json
+      description: เพิ่มชั้นปีของสังกัดวิชา
+      operationId: YearCreate
+      parameters:
+      - description: curriculumGroupId
+        in: path
+        name: curriculumGroupId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.YearCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.YearCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create year
+      tags:
+      - Curriculum Groups
+  /curriculum-groups/v1/years/{yearId}:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทชั้นปีของสังกัดวิชา
+      operationId: YearUpdate
+      parameters:
+      - description: yearId
+        in: path
+        name: yearId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.YearUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.YearUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update year
+      tags:
+      - Curriculum Groups
+  /school-affiliations/v1/:
+    get:
+      description: list สังกัดโรงเรียน
+      operationId: SchoolAffiliationList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: ชื่อสังกัด
+        in: query
+        name: search_text
+        type: string
+      - description: ประเภทของกลุ่มสังกัด (สช / สนศ. กทม. / สพฐ / อปท / อื่นๆ)
+        in: query
+        name: school_affiliation_group
+        type: string
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List school affiliation
+      tags:
+      - School Affiliations
+    post:
+      consumes:
+      - application/json
+      description: เพิ่มสังกัดโรงเรียนประเภท สช / "อื่นๆ"
+      operationId: SchoolAffiliationCreate
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create school affiliation
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/{schoolAffiliationId}:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทสังกัดโรงเรียนประเภท สช / "อื่นๆ"
+      operationId: SchoolAffiliationUpdate
+      parameters:
+      - description: schoolAffiliationId
+        in: path
+        name: schoolAffiliationId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update school affiliation
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/{schoolAffiliationId}/contracts:
+    get:
+      description: list สัญญาของสังกัดโรงเรียน
+      operationId: SchoolAffiliationCaseListContract
+      parameters:
+      - description: schoolAffiliationId
+        in: path
+        name: schoolAffiliationId
+        required: true
+        type: integer
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: ชื่อสัญญา
+        in: query
+        name: search_text
+        type: string
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationCaseListContractResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List school affiliation's contracts
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/contract:
+    post:
+      consumes:
+      - application/json
+      description: เพิ่มสัญญา
+      operationId: ContractCreate
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.ContractCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.ContractCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create Contract
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/contract/{contractId}:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทสัญญา
+      operationId: ContractUpdate
+      parameters:
+      - description: contractId
+        in: path
+        name: contractId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.ContractUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ContractUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update Contract
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/contract/{contractId}/schools:
+    get:
+      description: list รายชื่อโรงเรียนของสัญญา
+      operationId: ContractCaseListSchool
+      parameters:
+      - description: contractId
+        in: path
+        name: contractId
+        type: integer
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: รหัสย่อโรงเรียน / ชื่อโรงเรียน
+        in: query
+        name: search_text
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ContractCaseListSchoolResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List contract's schools
+      tags:
+      - School Affiliations
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทโรงเรียนในสัญญา
+      operationId: ContractCaseUpdateSchool
+      parameters:
+      - description: contractId
+        in: path
+        name: contractId
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.ContractCaseUpdateSchoolRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ContractCaseUpdateSchoolResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update contract's schools
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/contract/{contractId}/subjects:
+    get:
+      description: list รายชื่อหลักสูตรของสัญญา
+      operationId: ContractCaseListSubject
+      parameters:
+      - description: contractId
+        in: path
+        name: contractId
+        type: integer
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: ชื่อหลักสูตร
+        in: query
+        name: search_text
+        type: string
+      - description: Id ของสังกัดวิชา
+        in: query
+        name: curriculum_group_id
+        type: integer
+      - description: Id ของชั้นปี
+        in: query
+        name: year_id
+        type: integer
+      - description: Id ของกลุ่มวิชา
+        in: query
+        name: subject_group_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ContractCaseListSubjectResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List contract's subjects
+      tags:
+      - School Affiliations
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทหลักสูตรในสัญญา
+      operationId: ContractCaseUpdateSubject
+      parameters:
+      - description: contractId
+        in: path
+        name: contractId
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.ContractCaseUpdateSubjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ContractCaseUpdateSubjectResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update contract's subjects
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/doe:
+    get:
+      description: list สังกัดประเภท สนศ. กทม.
+      operationId: SchoolAffiliationDoeList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: ชื่อสังกัด
+        in: query
+        name: search_text
+        type: string
+      - description: รัฐ / เอกชน
+        in: query
+        name: type
+        type: string
+      - description: กลุ่มเขต
+        in: query
+        name: district_zone
+        type: string
+      - description: เขต
+        in: query
+        name: district
+        type: string
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationDoeListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List school affiliation doe
+      tags:
+      - School Affiliations
+    post:
+      consumes:
+      - application/json
+      description: เพิ่มสังกัดโรงเรียนประเภท สนศ กทม
+      operationId: SchoolAffiliationDoeCreate
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationDoeCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationDoeCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create school affiliation doe
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/doe/{schoolAffiliationId}:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทสังกัดโรงเรียนประเภท สนศ. กทม.
+      operationId: SchoolAffiliationDoeUpdate
+      parameters:
+      - description: schoolAffiliationId
+        in: path
+        name: schoolAffiliationId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationDoeUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ContractUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update school affiliation doe
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/lao:
+    get:
+      description: list สังกัดประเภท อปท
+      operationId: SchoolAffiliationLaoList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: ชื่อสังกัด
+        in: query
+        name: search_text
+        type: string
+      - description: รัฐ / เอกชน
+        in: query
+        name: type
+        type: string
+      - description: ประเภท อปท (อบจ / อบต / เทศบาลนคร / เทศบาลตำบล / เทศบาลอำเภอ)
+        in: query
+        name: lao_type
+        type: string
+      - description: จังหวัด
+        in: query
+        name: province
+        type: string
+      - description: อำเภอ
+        in: query
+        name: district
+        type: string
+      - description: ตำบล
+        in: query
+        name: sub_district
+        type: string
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationLaoResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List school affiliation lao
+      tags:
+      - School Affiliations
+    post:
+      consumes:
+      - application/json
+      description: เพิ่มสังกัดโรงเรียนประเภท อปท
+      operationId: SchoolAffiliationLaoCreate
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationLaoCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationLaoCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create school affiliation lao
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/lao/{schoolAffiliationId}:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทสังกัดโรงเรียนประเภท อปท
+      operationId: SchoolAffiliationLaoUpdate
+      parameters:
+      - description: schoolAffiliationId
+        in: path
+        name: schoolAffiliationId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationLaoUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationLaoUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update school affiliation lao
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/obec:
+    get:
+      description: list สังกัดโรงเรียนประเภท สพฐ
+      operationId: SchoolAffiliationObecList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: ชื่อสังกัด
+        in: query
+        name: search_text
+        type: string
+      - description: เขตตรวจราชการ
+        in: query
+        name: inspection_area
+        type: string
+      - description: สำนักงานเขตพื้นที่
+        in: query
+        name: area_office
+        type: string
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationObecListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List school affiliation obec
+      tags:
+      - School Affiliations
+    post:
+      consumes:
+      - application/json
+      description: เพิ่มสังกัดโรงเรียนประเภท สพฐ
+      operationId: SchoolAffiliationObecCreate
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationObecCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationObecCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create school affiliation obec
+      tags:
+      - School Affiliations
+  /school-affiliations/v1/obec/{schoolAffiliationId}:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทสังกัดโรงเรียนประเภท สพฐ
+      operationId: SchoolAffiliationObecUpdate
+      parameters:
+      - description: schoolAffiliationId
+        in: path
+        name: schoolAffiliationId
+        required: true
+        type: integer
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.SchoolAffiliationObecUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.SchoolAffiliationObecUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update school affiliation obec
+      tags:
+      - School Affiliations
+  /users/v1/:
+    get:
+      description: List users
+      operationId: List Users
+      parameters:
+      - description: title
+        in: query
+        name: title
+        type: string
+      - description: first_name
+        in: query
+        name: first_name
+        type: string
+      - description: last_name
+        in: query
+        name: last_name
+        type: string
+      - description: |-
+          **status**
+           - 1 = draft
+           - 2 = enabled
+           - 3 = disabled
+        in: query
+        name: status
+        type: integer
+      - collectionFormat: csv
+        description: |-
+          **roles**
+           - 1 = admin
+           - 2 = content creator
+           - 3 = game master
+           - 4 = teacher
+           - 5 = observer
+           - 6 = announcer
+        in: query
+        items:
+          type: integer
+        name: roles
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.UserListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List users
+      tags:
+      - Users
+  /users/v1/announcer:
+    get:
+      description: list รายชื่อของฝ่ายประชาสัมพันธ์
+      operationId: AnnouncerList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AnnouncerListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List Announcer
+      tags:
+      - Users
+    post:
+      consumes:
+      - multipart/form-data
+      description: เพิ่มฝ่ายประชาสัมพันธ์
+      operationId: AnnouncerCreate
+      parameters:
+      - description: school_id
+        in: formData
+        name: school_id
+        required: true
+        type: string
+      - description: email
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: title
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: first_name
+        in: formData
+        name: first_name
+        required: true
+        type: string
+      - description: last_name
+        in: formData
+        name: last_name
+        required: true
+        type: string
+      - description: id_number
+        in: formData
+        name: id_number
+        required: true
+        type: string
+      - description: profile_image
+        in: formData
+        name: profile_image
+        type: file
+      - description: status (enabled / disabled / draft)
+        in: formData
+        name: status
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.AnnouncerCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create Announcer
+      tags:
+      - Users
+  /users/v1/observer:
+    get:
+      description: list รายชื่อของผู้สังเกตการณ์
+      operationId: ObserverList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: observer_access_id
+        in: query
+        name: observer_access_id
+        type: integer
+      - description: status (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ObserverListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List Observer
+      tags:
+      - Users
+    post:
+      consumes:
+      - multipart/form-data
+      description: เพิ่มผู้สังเกตการณ์
+      operationId: ObserverCreate
+      parameters:
+      - description: email
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: title
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: first_name
+        in: formData
+        name: first_name
+        required: true
+        type: string
+      - description: last_name
+        in: formData
+        name: last_name
+        required: true
+        type: string
+      - description: id_number
+        in: formData
+        name: id_number
+        type: string
+      - description: profile_image
+        in: formData
+        name: profile_image
+        type: file
+      - description: status (enabled / disabled / draft)
+        in: formData
+        name: status
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      - collectionFormat: csv
+        description: observer accesses
+        in: formData
+        items:
+          type: integer
+        name: observer_accesses
+        type: array
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.ObserverCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create observer
+      tags:
+      - Users
+  /users/v1/observer/{userId}:
+    get:
+      description: Get Observer
+      operationId: ObserverGet
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ObserverGetResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Observer
+      tags:
+      - Users
+  /users/v1/observer/{userId}/observer-accesses:
+    patch:
+      consumes:
+      - application/json
+      description: อัพเดทสิทธิ์การเข้าถึงของผู้สังเกตการณ์
+      operationId: ObserverCaseUpdateObserverAccesses
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.ObserverCaseUpdateAccessRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ObserverCaseUpdateAccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update observer access
+      tags:
+      - Users
+  /users/v1/parent:
+    post:
+      consumes:
+      - multipart/form-data
+      description: สร้างบัญชีผู้ปกครอง
+      operationId: ParentCreate
+      parameters:
+      - description: provider (line / google / thaid)
+        in: formData
+        name: provider
+        required: true
+        type: string
+      - description: provider_access_token
+        in: formData
+        name: provider_access_token
+        required: true
+        type: string
+      - description: email
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: title
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: first_name
+        in: formData
+        name: first_name
+        required: true
+        type: string
+      - description: last_name
+        in: formData
+        name: last_name
+        required: true
+        type: string
+      - description: id_number
+        in: formData
+        name: id_number
+        type: string
+      - description: profile_image
+        in: formData
+        name: profile_image
+        type: file
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: phone_number
+        in: formData
+        name: phone_number
+        required: true
+        type: string
+      - description: birth_date
+        in: formData
+        name: birth_date
+        required: true
+        type: string
+      - description: relationship
+        in: formData
+        name: relationship
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.ParentCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Register Parent
+      tags:
+      - Users
+  /users/v1/parent/{userId}:
+    get:
+      description: Get Parent
+      operationId: ParentGet
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ParentGetResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Parent
+      tags:
+      - Users
+  /users/v1/student:
+    get:
+      description: list รายชื่อของนักเรียน
+      operationId: StudentList
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: limit of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: Id ของโรงเรียน
+        in: query
+        name: school_id
+        type: integer
+      - description: รหัสนักเรียน
+        in: query
+        name: student_id
+        type: string
+      - description: สถานะ (enabled / disabled / draft)
+        in: query
+        name: status
+        type: string
+      - description: รหัสย่อโรงเรียน
+        in: query
+        name: school_code
+        type: string
+      - description: ชื่อนักเรียน
+        in: query
+        name: first_name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.StudentListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: List Student
+      tags:
+      - Users
+    post:
+      consumes:
+      - multipart/form-data
+      description: เพิ่มนักเรียน
+      operationId: Create Student
+      parameters:
+      - description: อีเมล
+        in: formData
+        name: email
+        type: string
+      - description: คำนำหน้า
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: ชื่อ
+        in: formData
+        name: first_name
+        required: true
+        type: string
+      - description: นามสกุล
+        in: formData
+        name: last_name
+        required: true
+        type: string
+      - description: รูปโปรไฟล์
+        in: formData
+        name: profile_image
+        type: file
+      - description: สถานะ (enabled / disabled / draft)
+        in: formData
+        name: status
+        required: true
+        type: string
+      - description: Id ของโรงเรียน
+        in: formData
+        name: school_id
+        required: true
+        type: integer
+      - description: รหัสนักเรียน
+        in: formData
+        name: student_id
+        required: true
+        type: string
+      - description: ชั้นปีเช่น ป.1
+        in: formData
+        name: year
+        required: true
+        type: string
+      - description: เลขบัตรประจำตัวประชาชน
+        in: formData
+        name: id_number
+        required: true
+        type: string
+      - description: วันเกิด (format ISO string)
+        in: formData
+        name: birth_date
+        type: string
+      - description: สัญชาติ
+        in: formData
+        name: nationality
+        type: string
+      - description: เชื้อชาติ
+        in: formData
+        name: ethnicity
+        type: string
+      - description: ศาสนา
+        in: formData
+        name: Religion
+        type: string
+      - description: คำนำหน้าบิดา
+        in: formData
+        name: father_title
+        type: string
+      - description: ชื่อบิดา
+        in: formData
+        name: father_first_name
+        type: string
+      - description: ชื่อมารดา
+        in: formData
+        name: father_last_name
+        type: string
+      - description: คำนำหน้ามารดา
+        in: formData
+        name: mother_title
+        type: string
+      - description: ชื่อมารดา
+        in: formData
+        name: mother_first_name
+        type: string
+      - description: นามสกุลมารดา
+        in: formData
+        name: mother_last_name
+        type: string
+      - description: ความเกี่ยวข้องกับนักเรียน
+        in: formData
+        name: parent_relationship
+        type: string
+      - description: คำนำหน้าผู้ปกครอง
+        in: formData
+        name: parent_title
+        type: string
+      - description: ชื่อผู้ปกครอง
+        in: formData
+        name: parent_first_name
+        type: string
+      - description: นามสกุลผู้ปกครอง
+        in: formData
+        name: parent_last_name
+        type: string
+      - description: บ้านเลขที่
+        in: formData
+        name: house_number
+        type: string
+      - description: หมู่
+        in: formData
+        name: moo
+        type: string
+      - description: อำเภอ
+        in: formData
+        name: district
+        type: string
+      - description: ตำบล
+        in: formData
+        name: sub_district
+        type: string
+      - description: จังหวัด
+        in: formData
+        name: province
+        type: string
+      - description: รหัสไปรษณียฺ์
+        in: formData
+        name: post_code
+        type: string
+      - description: สถานภาพสมรสของบิดามารดา
+        in: formData
+        name: parent_marital_status
+        type: string
+      - description: พิน
+        in: formData
+        name: pin
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.UserCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create student
+      tags:
+      - Users
+  /users/v1/student/{userId}:
+    get:
+      description: Get Student
+      operationId: StudentGet
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.StudentGetResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Student
+      tags:
+      - Users
+    patch:
+      consumes:
+      - multipart/form-data
+      description: Update Student
+      operationId: StudentUpdate
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: คำนำหน้า
+        in: formData
+        name: title
+        type: string
+      - description: ชื่อ
+        in: formData
+        name: first_name
+        type: string
+      - description: นามสกุล
+        in: formData
+        name: last_name
+        type: string
+      - description: รูปโปรไฟล์
+        in: formData
+        name: profile_image
+        type: file
+      - description: สถานะ (enabled / disabled / draft)
+        in: formData
+        name: status
+        type: string
+      - description: Id ของโรงเรียน
+        in: formData
+        name: school_id
+        type: integer
+      - description: รหัสนักเรียน
+        in: formData
+        name: student_id
+        type: string
+      - description: ชั้นปีเช่น ป.1
+        in: formData
+        name: year
+        type: string
+      - description: เลขบัตรประจำตัวประชาชน
+        in: formData
+        name: id_number
+        type: string
+      - description: วันเกิด (format ISO string)
+        in: formData
+        name: birth_date
+        type: string
+      - description: สัญชาติ
+        in: formData
+        name: nationality
+        type: string
+      - description: เชื้อชาติ
+        in: formData
+        name: ethnicity
+        type: string
+      - description: ศาสนา
+        in: formData
+        name: Religion
+        type: string
+      - description: คำนำหน้าบิดา
+        in: formData
+        name: father_title
+        type: string
+      - description: ชื่อบิดา
+        in: formData
+        name: father_first_name
+        type: string
+      - description: ชื่อมารดา
+        in: formData
+        name: father_last_name
+        type: string
+      - description: คำนำหน้ามารดา
+        in: formData
+        name: mother_title
+        type: string
+      - description: ชื่อมารดา
+        in: formData
+        name: mother_first_name
+        type: string
+      - description: นามสกุลมารดา
+        in: formData
+        name: mother_last_name
+        type: string
+      - description: ความเกี่ยวข้องกับนักเรียน
+        in: formData
+        name: parent_relationship
+        type: string
+      - description: คำนำหน้าผู้ปกครอง
+        in: formData
+        name: parent_title
+        type: string
+      - description: ชื่อผู้ปกครอง
+        in: formData
+        name: parent_first_name
+        type: string
+      - description: นามสกุลผู้ปกครอง
+        in: formData
+        name: parent_last_name
+        type: string
+      - description: บ้านเลขที่
+        in: formData
+        name: house_number
+        type: string
+      - description: หมู่
+        in: formData
+        name: moo
+        type: string
+      - description: อำเภอ
+        in: formData
+        name: district
+        type: string
+      - description: ตำบล
+        in: formData
+        name: sub_district
+        type: string
+      - description: จังหวัด
+        in: formData
+        name: province
+        type: string
+      - description: รหัสไปรษณียฺ์
+        in: formData
+        name: post_code
+        type: string
+      - description: สถานภาพสมรสของบิดามารดา
+        in: formData
+        name: parent_marital_status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.AuthCaseUpdatePasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update Student
+      tags:
+      - Users
+  /users/v1/user:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Create admin
+      operationId: Create User
+      parameters:
+      - description: email
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: title
+        in: formData
+        name: title
+        required: true
+        type: string
+      - description: first_name
+        in: formData
+        name: first_name
+        required: true
+        type: string
+      - description: last_name
+        in: formData
+        name: last_name
+        required: true
+        type: string
+      - description: profile_image
+        in: formData
+        name: profile_image
+        type: file
+      - description: status (enabled / disabled / draft)
+        in: formData
+        name: status
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      - collectionFormat: csv
+        description: 1 = admin, 2 = content creator, 3 = game master, 4 = observer
+        in: formData
+        items:
+          type: integer
+        name: roles
+        required: true
+        type: array
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.UserCreateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Create User
+      tags:
+      - Users
+  /users/v1/user/{userId}:
+    get:
+      description: Get Admin
+      operationId: UserGet
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.UserGetResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Get User
+      tags:
+      - Users
+    patch:
+      consumes:
+      - multipart/form-data
+      description: Update user
+      operationId: UserUpdate
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: title
+        in: formData
+        name: title
+        type: string
+      - description: first_name
+        in: formData
+        name: first_name
+        type: string
+      - description: last_name
+        in: formData
+        name: last_name
+        type: string
+      - description: profile_image
+        in: formData
+        name: profile_image
+        type: file
+      - description: status (enabled / disabled / draft)
+        in: formData
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/service.UserUpdateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update user
+      tags:
+      - Users
+  /users/v1/user/{userId}/roles:
+    patch:
+      consumes:
+      - application/json
+      description: Update admin roles
+      operationId: UserCaseUpdateRoles
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/service.UserCaseUpdateRolesRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.UserCaseUpdateRolesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/FailureResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/FailureResponse'
+      security:
+      - BearerAuth: []
+      summary: Update admin roles
+      tags:
+      - Users
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

@@ -1,0 +1,43 @@
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox-wrapper input + label {
+  display: block;
+  border: 2px solid #333;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkbox-wrapper[data-disabled='true'] input + label {
+  border-color: rgb(156, 163, 175); /* text-gray-400 */
+}
+
+.checkbox-wrappep[data-checked='true'] input + label {
+  border-width: 0px;
+}
+
+.checkbox-wrapper[data-checked='true'] input + label svg {
+  background: #87d454;
+}
+
+.checkbox-wrapper[data-checked='true'] input + label svg path {
+  fill: #1e4106;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 101;
+}
+
+.checkbox-wrapper input + label svg {
+  pointer-events: none;
+  padding: 15%;
+  border-radius: 4px;
+}
+
+.checkbox-wrapper input + label svg path {
+  fill: none;
+  stroke: none;
+}

@@ -1,0 +1,122 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/select2-plugins/css/select2.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/select2-plugins/css/select2-bootstrap-5-theme.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap-icons/font/bootstrap-icons.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/toastr-notifications/css/toastr.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/sweetalert2/css/sweetalert2.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/bss-login.css")" />
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <title>BSS Login and Landing Page</title>
+</head>
+<body data-root-path="@Url.Content("~/")" path-base-bss="@BSS_WEB.Helpers.AppConfig.PathBase">
+    @Html.AntiForgeryToken()
+    <div class="container" id="container">
+        <div class="form-container">
+            <form>
+                <dev class="landing-logo">
+                    <img src="@Url.Content("~/images/landing_page_logo.svg")" />
+                </dev>
+                <div class="landing-name">
+                    <p>ระบบงานนับคัดธนบัตร</p>
+                </div>
+                <div class="landing-version">
+                    <p>Version 1.0.0</p>
+                </div>
+                <div class="row" id="user-login-dropdown">
+                    <div class="user-login-dropdown">
+                        <label class="form-label" id="label-user-login-dropdown" for="ddlUserLoginDropdown">ผู้ใช้งาน</label>
+                        <div class="col-12 ddl-user-login-dropdown">
+                            <select class="form-control form-select" id="ddlUserLoginDropdown">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="landing-spinner" class="landing-spinner">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <span>Loading...</span>
+                </div>
+                <div id="landing-success" class="landing-success">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Login Successful</span>
+                </div>
+
+                <div id="landing-failed" class="landing-failed">
+                    <i class="bi bi-x-circle-fill"></i>
+                    <span>Login Failed</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =======  Modal Confirm  = Start    ========================== -->
+    <!-- Modal Confirm : ยืนยัน -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="mb-4">
+                        <div class="modal-warning-title">
+                            <i class="bi bi-exclamation-diamond-fill"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mb-3">แจ้งเตือน</h3>
+                    <h6 class="mb-4">คุณแน่ใจหรือไม่</h6>
+                </div>
+                <div class="modal-footer d-flex justify-content-center gap-2">
+                    <button class="btn btn-gray px-4" data-bs-dismiss="modal" id="btnConfirmClose">ยกเลิก</button>
+                    <button class="btn btn-red px-4" id="btnConfirm">ยืนยัน</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =======  Modal Confirm  = End    ========================== -->
+    <!-- Modal error จากการ validate -->
+    <div class="modal fade" id="loginErrorModal" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1" aria-labelledby="loginErrorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="mb-4">
+                        <div class="modal-warning-title">
+                            <i class="bi bi-exclamation-diamond-fill"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mb-3" id="loginErrorModalLabel">การแจ้งเตือน</h3>
+                    <h6 class="mb-4" id="loginErrorMessageText">ข้อความผิดพลาด</h6>
+                </div>
+                <div class="modal-footer justify-content-center gap-2">
+                    <button type="button" class="btn btn-blue px-4" data-bs-dismiss="modal">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Page Scripts -->
+    <!-- ================== BEGIN HELPERS JS ================== -->
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/lib/select2-plugins/js/select2.full.min.js")"></script>
+    <script src="@Url.Content("~/lib/toastr-notifications/js/toastr.min.js")"></script>
+    <script src="@Url.Content("~/lib/sweetalert2/js/sweetalert2.all.min.js")"></script>
+    <script src="@Url.Content("~/js/helpers/bss-ajax.js")"></script>
+    <script src="@Url.Content("~/js/login/bss-login.js")"></script>
+    <!-- ================== END HELPERS JS ================== -->
+</body>
+</html>
+
+

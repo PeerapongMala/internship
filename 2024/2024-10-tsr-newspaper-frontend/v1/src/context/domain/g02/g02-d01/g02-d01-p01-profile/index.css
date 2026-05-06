@@ -1,0 +1,9 @@
+.no-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* สำหรับ Chrome/Safari */
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none; /* สำหรับ Internet Explorer และ Edge */
+    scrollbar-width: none; /* สำหรับ Firefox */
+  }

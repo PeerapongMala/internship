@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "0573766f-20e0-48cd-ae70-1fc69e69c2d5",
+		"name": "bo-g03-d03-00 teacher-student-group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a00-get-study-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/school/:school_id?page=1&limit=10&class_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						"school",
+						":school_id"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "",
+							"description": "optional: \"enabled\", \"disabled\"",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"description": "optional:  string",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional: int",
+							"disabled": true
+						},
+						{
+							"key": "study_group_name",
+							"value": "",
+							"description": "optional: string",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional"
+						},
+						{
+							"key": "class_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "school_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/school/:school_id?year=ป.4&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								"school",
+								":school_id"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "",
+									"description": "optional: \"enabled\", \"disabled\"",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional:  string"
+								},
+								{
+									"key": "subject_id",
+									"value": "",
+									"description": "optional: int",
+									"disabled": true
+								},
+								{
+									"key": "study_group_name",
+									"value": "",
+									"description": "optional: string",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional"
+								}
+							],
+							"variable": [
+								{
+									"key": "school_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 10 Mar 2025 08:59:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3759"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "2d62c78a-7e2d-4038-8e4c-9cba4b5ba51b"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 27\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"class_id\": 1,\n            \"study_group_name\": \"Clever Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 1,\n            \"student_count\": 2,\n            \"avg_stars_earned\": 4.296428571428572,\n            \"avg_max_possible_stars\": 6,\n            \"avg_passed_levels\": 2.5,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 11,\n            \"avg_time_per_question\": 4.785714285714286,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 3,\n            \"class_id\": 2,\n            \"study_group_name\": \"Clever Group 2\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 2,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 5,\n            \"class_id\": 1,\n            \"study_group_name\": \"updated group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 1,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 6,\n            \"class_id\": 2,\n            \"study_group_name\": \"My Study Group XD\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 2,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 7,\n            \"class_id\": 2,\n            \"study_group_name\": \"Created Study Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 2,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 8,\n            \"class_id\": 2,\n            \"study_group_name\": \"Created Study Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 2,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 9,\n            \"class_id\": 2,\n            \"study_group_name\": \"Created Study Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 2,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 11,\n            \"class_id\": 1,\n            \"study_group_name\": \"Created Study Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 1,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 12,\n            \"class_id\": 1,\n            \"study_group_name\": \"Created Study Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 1,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 13,\n            \"class_id\": 1,\n            \"study_group_name\": \"Created Study Group\",\n            \"curriculum_group_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"year\": \"ป.4\",\n            \"school_id\": 1,\n            \"academic_year\": \"2567\",\n            \"room\": 1,\n            \"student_count\": 0,\n            \"avg_stars_earned\": 0,\n            \"avg_max_possible_stars\": 0,\n            \"avg_passed_levels\": 0,\n            \"avg_all_levels\": 3,\n            \"avg_play_time\": 0,\n            \"avg_time_per_question\": 0,\n            \"status\": \"enabled\"\n        }\n    ],\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "No Access",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/school/:school_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								"school",
+								":school_id"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "",
+									"description": "optional: \"enabled\", \"disabled\"",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional:  string",
+									"disabled": true
+								},
+								{
+									"key": "subject_id",
+									"value": "",
+									"description": "optional: int",
+									"disabled": true
+								},
+								{
+									"key": "study_group_name",
+									"value": "",
+									"description": "optional: string",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "school_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Feb 2025 09:56:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "3f4547f7-739d-4fb4-b5bc-d4f3a907933f"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 403,\n    \"message\": \"Forbidden\",\n    \"error_message\": \"Forbidden\"\n}"
+				},
+				{
+					"name": "SUCCESS EMPTY",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/school/:school_id?year=ป.6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								"school",
+								":school_id"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "",
+									"description": "optional: \"enabled\", \"disabled\"",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.6",
+									"description": "optional:  string"
+								},
+								{
+									"key": "subject_id",
+									"value": "",
+									"description": "optional: int",
+									"disabled": true
+								},
+								{
+									"key": "study_group_name",
+									"value": "",
+									"description": "optional: string",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "school_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:29:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "33dcd3ee-cd1e-4af4-8bd6-2f082476bab1"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 0\n    },\n    \"data\": [],\n    \"status_code\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "a01-patch-study-group-status-bulk-edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\" : [\n        { \n            \"id\": 1, // int\n            \"status\": \"disabled\" // enabled, disabled\n        },\n        { \n            \"id\": 3, // int\n            \"status\": \"disabled\" // enable, disabled\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/status/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						"status",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\" : [\n        { \n            \"id\": 1, // int\n            \"status\": \"enabled\" // enabled, disabled\n        },\n        { \n            \"id\": 3, // int\n            \"status\": \"disabled\" // enable, disabled\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/status/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								"status",
+								"bulk-edit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:40:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "b676833d-9579-48c9-bc64-1962ff98afe8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"update success\",\n    \"status_code\": 200\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

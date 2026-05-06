@@ -1,0 +1,1153 @@
+{
+	"info": {
+		"_postman_id": "82579afe-7250-43bb-8993-d88415ee1645",
+		"name": "bo-g01-d05-admin-classroom-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-classroom-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_id\":4,\r\n    \"academic_year\":2570,\r\n    \"year\":\"ป. 2\", //\r\n    \"name\": \"ห้อง 2\", // ชื่อห้อง \r\n    \"status\":\"enabled\" //optional(default draft) : draft, enabled, disabled\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms"
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-classroom-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"academic_year\":2,\r\n    \"year\":\"2568\", //\r\n    \"name\": \"ห้อง 2\", // ชื่อห้อง \r\n    \"status\":\"enabled\" //draft, enabled, disabled\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-classroom-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/classrooms?year=2568&start_updated_at=2025-01-03&end_updated_at=2025-01-03",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"classrooms"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "enabled",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2568"
+						},
+						{
+							"key": "academic_year",
+							"value": "2",
+							"description": "id ปีการศึกษา",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "updated_at",
+							"disabled": true
+						},
+						{
+							"key": "sort_order",
+							"value": "DESC",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "15",
+							"disabled": true
+						},
+						{
+							"key": "start_updated_at",
+							"value": "2025-01-03"
+						},
+						{
+							"key": "end_updated_at",
+							"value": "2025-01-03"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-classroom-buik-edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"class_room_id\": 3,\r\n            \"academic_year\": 2,\r\n            \"year\": \"2568\", //\r\n            \"name\": \"ห้อง 3\", // ชื่อห้อง \r\n            \"status\": \"enabled\" //draft, enabled, disabled\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/classrooms/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"classrooms",
+						"bulk-edit"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-classroom-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/classrooms/download/csv?limit=99999&start_updated_at=2025-01-03&end_updated_at=2025-01-03",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"classrooms",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "enabled",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป. 1",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2570",
+							"description": "ปีการศึกษา",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "99999"
+						},
+						{
+							"key": "start_updated_at",
+							"value": "2025-01-03"
+						},
+						{
+							"key": "end_updated_at",
+							"value": "2025-01-03"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-classroom-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Frank/Downloads/classrooms_4.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/classrooms/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"classrooms",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-classroom-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-classroom-clone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"academic_year\":2570,\r\n    \"year\":\"ป. 2 clone\", //\r\n    \"name\": \"ห้อง 2 clone\", // ชื่อห้อง \r\n    \"status\":\"enabled\" //optional(default draft) : draft, enabled, disabled\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/clone",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"clone"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-teacher-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/teachers?sort_by=created_at&sort_order=DESC&excludeClassroom=3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"teachers"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "te",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "created_at"
+						},
+						{
+							"key": "sort_order",
+							"value": "DESC"
+						},
+						{
+							"key": "excludeClassroom",
+							"value": "3",
+							"description": "ไม่ให้ครูในห้องนี้มีแสดงผลด้วย"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-teacher-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teacher_ids\": [\r\n        // \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\r\n        \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf11\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/teachers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"teachers"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-teacher-builk-edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"items\": [\r\n        {\r\n            \"teacher_id\":\"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\r\n            \"action\":\"delete\" //add, delete\r\n        },\r\n        {\r\n            \"teacher_id\":\"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf11\",\r\n            \"action\":\"add\" //add, delete\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/teachers/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"teachers",
+						"bulk-edit"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-teacher-classroom-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/teachers?sort_by=created_at&sort_order=DESC",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"teachers"
+					],
+					"query": [
+						{
+							"key": "sort_by",
+							"value": "created_at"
+						},
+						{
+							"key": "sort_order",
+							"value": "DESC"
+						},
+						{
+							"key": "search",
+							"value": "T",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-teacher-classroom-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/teachers/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"teachers",
+						"download",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-teacher-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teacher_ids\": [\r\n        \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\", //skip if duplicate add\r\n        \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf11\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/teachers/:teacherId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"teachers",
+						":teacherId"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						},
+						{
+							"key": "teacherId",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf11"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-student-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/students?sort_by=created_at&sort_order=DESC&excludeClassroom=3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"students"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "te",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "sort_by",
+							"value": "created_at"
+						},
+						{
+							"key": "sort_order",
+							"value": "DESC"
+						},
+						{
+							"key": "excludeClassroom",
+							"value": "3",
+							"description": "ไม่ให้นักเรียนในห้องนี้มีแสดงผลด้วย"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-student-builk-edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"items\": [\r\n        {\r\n            \"student_id\":\"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf22\",\r\n            \"action\":\"add\" //add, delete\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/students/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"students",
+						"bulk-edit"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-student-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"student_ids\": [\r\n        \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf22\"\r\n        // \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf11\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"students"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-student-classroom-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/students?sort_by=created_at&sort_order=DESC",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"students"
+					],
+					"query": [
+						{
+							"key": "sort_by",
+							"value": "created_at"
+						},
+						{
+							"key": "sort_order",
+							"value": "DESC"
+						},
+						{
+							"key": "search",
+							"value": "T",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-student-classroom-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/students/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"students",
+						"download",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a22-api-student-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teacher_ids\": [\r\n        \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\", //skip if duplicate add\r\n        \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf11\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/students/:studentId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"students",
+						":studentId"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						},
+						{
+							"key": "studentId",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf22"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a23-api-student-classroom-move",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/classrooms/:classRoomId/students/:studentId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"classrooms",
+						":classRoomId",
+						"students",
+						":studentId"
+					],
+					"variable": [
+						{
+							"key": "classRoomId",
+							"value": "3"
+						},
+						{
+							"key": "studentId",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf22"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a24-api-classroom-academic-year-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/classrooms/academic-year",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"classrooms",
+						"academic-year"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a25-api-classroom-year-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/classrooms/year",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"classrooms",
+						"year"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "4"
+						}
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a26-api-classroom-case-move-student-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/Users/patwanich/Downloads/clever-platform-csv/move-students-200.csv"
+						},
+						{
+							"key": "force_move",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/move-student",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-classroom",
+						"v1",
+						"schools",
+						":schoolId",
+						"move-student"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "409",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file",
+									"type": "file",
+									"src": "/Users/patwanich/Downloads/clever-platform-csv/move-students - Sheet1.csv"
+								},
+								{
+									"key": "force_move",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/move-student",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-classroom",
+								"v1",
+								"schools",
+								":schoolId",
+								"move-student"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 04 Aug 2025 03:43:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "871"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d4586cae-44b3-466f-b1f0-7adf7045696d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 409,\n    \"data\": [\n        {\n            \"record_id\": 2,\n            \"name\": \"11 mr pat1 doe\",\n            \"message_list\": [\n                \"มีห้องเรียนภายในปีการศึกษานี้แล้ว\"\n            ]\n        },\n        {\n            \"record_id\": 3,\n            \"name\": \"22 mr pat2 doe\",\n            \"message_list\": [\n                \"ปีการศึกษาไม่ถูกต้อง\",\n                \"ชั้นปีไม่ถูกต้อง\"\n            ]\n        },\n        {\n            \"record_id\": 4,\n            \"name\": \"111111 mr pat3 doe\",\n            \"message_list\": [\n                \"ไม่มีรหัสนักเรียนในโรงเรียน\"\n            ]\n        },\n        {\n            \"record_id\": 5,\n            \"name\": \" mr pat4 doe\",\n            \"message_list\": [\n                \"ไม่มีรหัสนักเรียนในโรงเรียน\"\n            ]\n        },\n        {\n            \"record_id\": 6,\n            \"name\": \"11 mr pat1 doe\",\n            \"message_list\": [\n                \"รหัสนักเรียนซ้ำ\",\n                \"มีห้องเรียนภายในปีการศึกษานี้แล้ว\"\n            ]\n        }\n    ],\n    \"message\": \"Conflicts\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file",
+									"type": "file",
+									"src": "/Users/patwanich/Downloads/clever-platform-csv/move-students-200.csv"
+								},
+								{
+									"key": "force_move",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/admin-classroom/v1/schools/:schoolId/move-student",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-classroom",
+								"v1",
+								"schools",
+								":schoolId",
+								"move-student"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 04 Aug 2025 04:04:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f17563f3-4212-4009-ac77-8c9dfe639a8f"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [],\n    \"message\": \"Uploaded\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

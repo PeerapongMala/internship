@@ -1,0 +1,11 @@
+{
+  "redeem_header": "输入兑换码领取奖励",
+  "redeem_placeholder": "输入兑换码...",
+  "redeem_code_incorrect": "兑换码不正确，请重试",
+  "redeem_code_already_used": "兑换码已被使用，请尝试其他代码",
+  "redeem_confirm": "领取奖励",
+
+  "reward_received": "成功！奖励已领取",
+  "sent_to_inventory": "您的奖励已发送至仓库",
+  "inventory": "仓库"
+}

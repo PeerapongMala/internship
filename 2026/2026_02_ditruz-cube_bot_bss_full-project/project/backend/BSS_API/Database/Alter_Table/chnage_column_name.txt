@@ -1,0 +1,1 @@
+ตาราง bss_txn_reconcile_tran เปลี่ยนชื่อ column refference_code เป็น reference_code

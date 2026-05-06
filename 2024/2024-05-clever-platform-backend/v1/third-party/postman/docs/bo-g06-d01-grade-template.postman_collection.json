@@ -1,0 +1,976 @@
+{
+	"info": {
+		"_postman_id": "cbddb90e-197f-4063-87e6-0c30b13a61a0",
+		"name": "g06-d01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "G06D01",
+			"item": [
+				{
+					"name": "Step1 (ข้อมูล template)",
+					"item": [
+						{
+							"name": "api-grade-template-list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/:schoolId/grade-template?status=enabled&status=b",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										":schoolId",
+										"grade-template"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "enabled",
+											"description": "หาเป็น list ของ status ได้"
+										},
+										{
+											"key": "status",
+											"value": "b",
+											"description": "หาเป็น list ของ status ได้"
+										}
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-grade-template-get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"year_id\": 1,\n  \"template_name\": \"Template X\",\n  \"active_flag\": true,\n  \"version\": \"1.0\",\n  \"status\": \"active\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/grade-template/:templateId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"grade-template",
+										":templateId"
+									],
+									"variable": [
+										{
+											"key": "templateId",
+											"value": "88",
+											"description": "required, ID ของ template"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"year_id\": 1,\n  \"template_name\": \"Template X\",\n  \"active_flag\": true,\n  \"version\": \"1.0\",\n  \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/grade-system-template/v1/grade-template/:templateId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"grade-system-template",
+												"v1",
+												"grade-template",
+												":templateId"
+											],
+											"variable": [
+												{
+													"key": "templateId",
+													"value": "71",
+													"description": "required, ID ของ template"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 24 Jun 2025 09:52:23 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "895"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "61f06fa2-cbf3-45de-b035-98413d5e6a66"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"template\": {\n                \"id\": 71,\n                \"school_id\": 1,\n                \"year\": \"ชั้น ป.2\",\n                \"template_name\": \"ใบประเมินรายวิชา ป.2\",\n                \"active_flag\": true,\n                \"version\": \"0.1\",\n                \"status\": \"enabled\",\n                \"created_at\": \"2025-06-24T09:50:55.29345Z\",\n                \"created_by\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n                \"updated_at\": \"2025-06-24T09:50:55.29345Z\",\n                \"updated_by\": \"gmmm\"\n            },\n            \"subjects\": [\n                {\n                    \"id\": 108,\n                    \"template_id\": 71,\n                    \"clever_subject_template_id\": null,\n                    \"subject_name\": \"คณิตศาสตร์\",\n                    \"subject_no\": \"คณ 1\",\n                    \"learning_area\": \"คณิตศาสตร์\",\n                    \"is_clever\": false,\n                    \"clever_subject_id\": 1,\n                    \"clever_subject_name\": \"clever_subject_name_1\",\n                    \"hours\": 200\n                },\n                {\n                    \"id\": 109,\n                    \"template_id\": 71,\n                    \"clever_subject_template_id\": null,\n                    \"subject_name\": \"วิทยาศาสตร์\",\n                    \"subject_no\": null,\n                    \"learning_area\": null,\n                    \"is_clever\": false,\n                    \"hours\": 100\n                }\n            ],\n            \"general_templates\": []\n        }\n    ],\n    \"message\": \"Success\",\n    \"status_code\": 200\n}"
+								}
+							]
+						},
+						{
+							"name": "api-grade-template-create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"template\": {\n        \"id\": 1,\n        \"school_id\": 1,\n        \"year\": \"ชั้น ป.2\",\n        \"template_name\": \"ใบประเมินรายวิชา ป.2\",\n        \"active_flag\": true,\n        \"version\": \"0.1\",\n        \"status\": \"enabled\"\n    },\n    \"subjects\": [\n        {\n            \"template_id\": 1,\n            \"subject_name\": \"คณิตศาสตร์\",\n            \"subject_no\": \"คณ 1\", // new 24-6-2025\n            \"learning_area\": \"คณิตศาสตร์\", // new 24-6-2025\n            \"is_clever\": false,\n            \"clever_subject_id\": 1, //new\n            \"clever_subject_name\": \"clever_subject_name_1\", //new\n            \"hours\": 200, // new\n            \"credits\": 3.5, // new 21-08-2025\n            \"is_extra\": true // new 21-08-2025\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/grade-template",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"grade-template"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-grade-template-update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"template\": {\n        \"school_id\": 1,\n        \"year\": \"ชั้น ป.2+1\",\n        \"template_name\": \"ใบประเมินรายวิชา ป.2\",\n        \"active_flag\": true,\n        \"version\": \"0.1\",\n        \"status\": \"disabled\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/grade-template/:templateId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"grade-template",
+										":templateId"
+									],
+									"variable": [
+										{
+											"key": "templateId",
+											"value": "1",
+											"description": "required, ID ของ template"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-grade-template-detail-update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"template\": {\n        \"id\": 117,\n        \"school_id\": 1,\n        \"year\": \"ป.4\",\n        \"template_name\": \"ss\",\n        \"active_flag\": false,\n        \"status\": \"draft\",\n        \"created_at\": \"2025-12-10T06:04:41.619683Z\",\n        \"created_by\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n        \"updated_at\": \"2025-12-10T06:04:41.619683Z\",\n        \"updated_by\": \"gmmm\",\n        \"general_templates\": [\n            {\n                \"id\": 311,\n                \"template_id\": 117,\n                \"template_type\": \"เวลาเรียน\",\n                \"template_name\": \"เวลาเรียน 1\",\n                \"additional_data\": null,\n                \"general_template_id\": 13\n            },\n            {\n                \"id\": 312,\n                \"template_id\": 117,\n                \"template_type\": \"คุณลักษณะอันพึงประสงค์\",\n                \"template_name\": \"คุณลักษณะอันพึงประสงค์ 1\",\n                \"additional_data\": null,\n                \"general_template_id\": 14\n            },\n            {\n                \"id\": 313,\n                \"template_id\": 117,\n                \"template_type\": \"สมรรถนะ\",\n                \"template_name\": \"สมรรถนะ 1\",\n                \"additional_data\": null,\n                \"general_template_id\": 15\n            },\n            {\n                \"id\": 314,\n                \"template_id\": 117,\n                \"template_type\": \"กิจกรรมพัฒนาผู้เรียน\",\n                \"template_name\": \"กิจกรรมพัฒนาผู้เรียน 1\",\n                \"additional_data\": null,\n                \"general_template_id\": 16\n            },\n            {\n                \"id\": 315,\n                \"template_id\": 117,\n                \"template_type\": \"ภาวะโภชนาการ\",\n                \"template_name\": \"ภาวะโภชนาการ 1\",\n                \"additional_data\": null,\n                \"general_template_id\": 17\n            }\n        ],\n        \"subjects\": [\n            {\n                \"id\": 214,\n                \"template_id\": 117,\n                \"clever_subject_template_id\": null,\n                \"subject_name\": \"ss\",\n                \"subject_no\": \"11\",\n                \"learning_area\": \"11\",\n                \"is_clever\": true,\n                \"clever_subject_id\": 7,\n                \"hours\": 4,\n                \"credits\": 2,\n                \"is_extra\": false,\n                \"indicator\": [\n                    {\n                        \"max_value\": 3,\n                        \"evaluation_form_subject_id\": 214,\n                        \"name\": \"-\",\n                        \"sort\": 1,\n                        \"score_evaluation_type\": \"TEACHER_CRITERIA\",\n                        \"clever_sub_lesson_id\": 34,\n                        \"clever_lesson_id\": 11,\n                        \"setting\": [\n                            {\n                                \"weight\": 1,\n                                \"value\": \"[]\",\n                                \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                                \"evaluation_form_indicator_id\": 0,\n                                \"evaluation_key\": \"STAGE_LIST\",\n                                \"level_count\": 0\n                            },\n                            {\n                                \"weight\": 1,\n                                \"value\": \"[]\",\n                                \"evaluation_topic\": \"ด่านง่าย\",\n                                \"evaluation_form_indicator_id\": 0,\n                                \"evaluation_key\": \"STAGE_LIST\",\n                                \"level_count\": 0\n                            },\n                            {\n                                \"weight\": 1,\n                                \"value\": \"[]\",\n                                \"evaluation_topic\": \"ด่านปานกลาง\",\n                                \"evaluation_form_indicator_id\": 0,\n                                \"evaluation_key\": \"STAGE_LIST\",\n                                \"level_count\": 0\n                            },\n                            {\n                                \"weight\": 1,\n                                \"value\": \"[]\",\n                                \"evaluation_topic\": \"ด่านยาก\",\n                                \"evaluation_form_indicator_id\": 0,\n                                \"evaluation_key\": \"STAGE_LIST\",\n                                \"level_count\": 0\n                            },\n                            {\n                                \"weight\": 1,\n                                \"value\": \"[]\",\n                                \"evaluation_topic\": \"ด่านรวม ง่าย ปานกลาง และยาก\",\n                                \"evaluation_form_indicator_id\": 0,\n                                \"evaluation_key\": \"STAGE_LIST\",\n                                \"level_count\": 0\n                            },\n                            {\n                                \"weight\": 1,\n                                \"value\": \"[]\",\n                                \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                                \"evaluation_form_indicator_id\": 0,\n                                \"evaluation_key\": \"STAGE_LIST\",\n                                \"level_count\": 0\n                            }\n                        ],\n                        \"id\": -1\n                    }\n                ],\n                \"subject_id\": 214\n            }\n        ]\n    },\n    \"subjects\": [\n        {\n            \"id\": 214,\n            \"template_id\": 117,\n            \"clever_subject_template_id\": null,\n            \"subject_name\": \"ss\",\n            \"subject_no\": \"11\",\n            \"learning_area\": \"11\",\n            \"is_clever\": true,\n            \"clever_subject_id\": 7,\n            \"hours\": 4,\n            \"credits\": 2,\n            \"is_extra\": false,\n            \"indicator\": [\n                {\n                    \"max_value\": 3,\n                    \"evaluation_form_subject_id\": 214,\n                    \"name\": \"-\",\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"TEACHER_CRITERIA\",\n                    \"clever_sub_lesson_id\": 34,\n                    \"clever_lesson_id\": 11,\n                    \"setting\": [\n                        {\n                            \"weight\": 1,\n                            \"value\": \"[]\",\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                            \"evaluation_form_indicator_id\": 0,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"level_count\": 0\n                        },\n                        {\n                            \"weight\": 1,\n                            \"value\": \"[]\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"evaluation_form_indicator_id\": 0,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"level_count\": 0\n                        },\n                        {\n                            \"weight\": 1,\n                            \"value\": \"[]\",\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\n                            \"evaluation_form_indicator_id\": 0,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"level_count\": 0\n                        },\n                        {\n                            \"weight\": 1,\n                            \"value\": \"[]\",\n                            \"evaluation_topic\": \"ด่านยาก\",\n                            \"evaluation_form_indicator_id\": 0,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"level_count\": 0\n                        },\n                        {\n                            \"weight\": 1,\n                            \"value\": \"[]\",\n                            \"evaluation_topic\": \"ด่านรวม ง่าย ปานกลาง และยาก\",\n                            \"evaluation_form_indicator_id\": 0,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"level_count\": 0\n                        },\n                        {\n                            \"weight\": 1,\n                            \"value\": \"[]\",\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                            \"evaluation_form_indicator_id\": 0,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"level_count\": 0\n                        }\n                    ],\n                    \"id\": -1\n                }\n            ],\n            \"subject_id\": 214\n        }\n    ],\n    \"general_templates\": [\n        {\n            \"id\": 311,\n            \"template_id\": 117,\n            \"template_type\": \"เวลาเรียน\",\n            \"template_name\": \"เวลาเรียน 1\",\n            \"additional_data\": null,\n            \"general_template_id\": 13\n        },\n        {\n            \"id\": 312,\n            \"template_id\": 117,\n            \"template_type\": \"คุณลักษณะอันพึงประสงค์\",\n            \"template_name\": \"คุณลักษณะอันพึงประสงค์ 1\",\n            \"additional_data\": null,\n            \"general_template_id\": 14\n        },\n        {\n            \"id\": 313,\n            \"template_id\": 117,\n            \"template_type\": \"สมรรถนะ\",\n            \"template_name\": \"สมรรถนะ 1\",\n            \"additional_data\": null,\n            \"general_template_id\": 15\n        },\n        {\n            \"id\": 314,\n            \"template_id\": 117,\n            \"template_type\": \"กิจกรรมพัฒนาผู้เรียน\",\n            \"template_name\": \"กิจกรรมพัฒนาผู้เรียน 1\",\n            \"additional_data\": null,\n            \"general_template_id\": 16\n        },\n        {\n            \"id\": 315,\n            \"template_id\": 117,\n            \"template_type\": \"ภาวะโภชนาการ\",\n            \"template_name\": \"ภาวะโภชนาการ 1\",\n            \"additional_data\": null,\n            \"general_template_id\": 17\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/grade-template-detail/:templateId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"grade-template-detail",
+										":templateId"
+									],
+									"variable": [
+										{
+											"key": "templateId",
+											"value": "117",
+											"description": "required, ID ของ template"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Step2 (ตั้งค่าสาระการเรียนรู้)",
+					"item": [
+						{
+							"name": "api-subject-get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"year_id\": 1,\n  \"template_name\": \"Template X\",\n  \"active_flag\": true,\n  \"version\": \"1.0\",\n  \"status\": \"active\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/subject/:templateId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"subject",
+										":templateId"
+									],
+									"variable": [
+										{
+											"key": "templateId",
+											"value": "1",
+											"description": "ID ของ TEMPLATE, REQUIRED"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"year_id\": 1,\n  \"template_name\": \"Template X\",\n  \"active_flag\": true,\n  \"version\": \"1.0\",\n  \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/grade-system-template/v1/subject/:templateId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"grade-system-template",
+												"v1",
+												"subject",
+												":templateId"
+											],
+											"variable": [
+												{
+													"key": "templateId",
+													"value": "23",
+													"description": "ID ของ TEMPLATE, REQUIRED"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 11 Sep 2025 07:19:34 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1355"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "cec9d02e-1122-4bfb-bf6a-cdf6ef766c51"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"subject_id\": 48,\n            \"subject_name\": \"Eng\",\n            \"clever_subject_template_id\": 1,\n            \"indicator\": [\n                {\n                    \"id\": 18,\n                    \"clever_subject_template_indicator_id\": 1,\n                    \"template_subject_id\": 48,\n                    \"indicator_name\": \"อ่านและเขียนตัวเลข\",\n                    \"max_value\": 10,\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n                    \"clever_lesson_id\": 1,\n                    \"clever_sub_lesson_id\": 1,\n                    \"setting\": [\n                        {\n                            \"id\": 24,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                            \"value\": \"[3,230,5391,5406]\",\n                            \"weight\": 10,\n                            \"level_count\": 5\n                        },\n                        {\n                            \"id\": 25,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                            \"value\": \"[1,2,5384,5405]\",\n                            \"weight\": 10,\n                            \"level_count\": 6\n                        },\n                        {\n                            \"id\": 26,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"value\": \"[204,205,206,208,219,220,231,5400,5403,5404,5410,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422]\",\n                            \"weight\": 10,\n                            \"level_count\": 5\n                        },\n                        {\n                            \"id\": 27,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านยาก\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5\n                        },\n                        {\n                            \"id\": 28,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "api-subject-update",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": [\n        {\n            \"subject_id\": 48,\n            \"subject_name\": \"Eng2\",\n            \"clever_subject_template_id\": 1, // new\n            \"indicator\": [\n                {\n                    \"id\": 18,\n                    \"clever_subject_template_indicator_id\": 1, // new\n                    \"template_subject_id\": 48,\n                    \"indicator_name\": \"อ่านและเขียนตัวเลข\",\n                    \"max_value\": 10,\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n                    \"clever_lesson_id\": 1,\n                    \"clever_sub_lesson_id\": 1,\n                    \"setting\": [\n                        {\n                            \"id\": 24,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                            \"value\": \"[3,230,5391,5406]\",\n                            \"weight\": 10,\n                            \"level_count\": 5 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 25,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                            \"value\": \"[1,2,5384,5405]\",\n                            \"weight\": 10,\n                            \"level_count\": 6 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 26,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"value\": \"[204,205,206,208,219,220,231,5400,5403,5404,5410,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422]\",\n                            \"weight\": 10,\n                            \"level_count\": 5 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 27,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านยาก\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 28,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5 // new 2025-09-11\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/subject/:templateId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"subject",
+										":templateId"
+									],
+									"variable": [
+										{
+											"key": "templateId",
+											"value": "23",
+											"description": "ID ของ TEMPLATE, REQUIRED"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"data\": [\n        {\n            \"subject_id\": 48,\n            \"subject_name\": \"Eng2\",\n            \"clever_subject_template_id\": 1, // new\n            \"indicator\": [\n                {\n                    \"id\": 18,\n                    \"clever_subject_template_indicator_id\": 1, // new\n                    \"template_subject_id\": 48,\n                    \"indicator_name\": \"อ่านและเขียนตัวเลข\",\n                    \"max_value\": 10,\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n                    \"clever_lesson_id\": 1,\n                    \"clever_sub_lesson_id\": 1,\n                    \"setting\": [\n                        {\n                            \"id\": 24,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                            \"value\": \"[3,230,5391,5406]\",\n                            \"weight\": 10,\n                            \"level_count\": 5 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 25,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                            \"value\": \"[1,2,5384,5405]\",\n                            \"weight\": 10,\n                            \"level_count\": 6 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 26,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"value\": \"[204,205,206,208,219,220,231,5400,5403,5404,5410,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422]\",\n                            \"weight\": 10,\n                            \"level_count\": 5 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 27,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านยาก\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5 // new 2025-09-11\n                        },\n                        {\n                            \"id\": 28,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5 // new 2025-09-11\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/grade-system-template/v1/subject/:templateId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"grade-system-template",
+												"v1",
+												"subject",
+												":templateId"
+											],
+											"variable": [
+												{
+													"key": "templateId",
+													"value": "23",
+													"description": "ID ของ TEMPLATE, REQUIRED"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 11 Sep 2025 07:18:43 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1355"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "ccc9d02e-1122-4bfb-bf6a-cdf6ef766c51"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"subject_id\": 48,\n            \"subject_name\": \"Eng\",\n            \"clever_subject_template_id\": 1,\n            \"indicator\": [\n                {\n                    \"id\": 18,\n                    \"clever_subject_template_indicator_id\": 1,\n                    \"template_subject_id\": 48,\n                    \"indicator_name\": \"อ่านและเขียนตัวเลข\",\n                    \"max_value\": 10,\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n                    \"clever_lesson_id\": 1,\n                    \"clever_sub_lesson_id\": 1,\n                    \"setting\": [\n                        {\n                            \"id\": 24,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                            \"value\": \"[3,230,5391,5406]\",\n                            \"weight\": 10,\n                            \"level_count\": 5\n                        },\n                        {\n                            \"id\": 25,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                            \"value\": \"[1,2,5384,5405]\",\n                            \"weight\": 10,\n                            \"level_count\": 6\n                        },\n                        {\n                            \"id\": 26,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"value\": \"[204,205,206,208,219,220,231,5400,5403,5404,5410,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422]\",\n                            \"weight\": 10,\n                            \"level_count\": 5\n                        },\n                        {\n                            \"id\": 27,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านยาก\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5\n                        },\n                        {\n                            \"id\": 28,\n                            \"indicator_id\": 18,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\n                            \"value\": \"[]\",\n                            \"weight\": 0,\n                            \"level_count\": 5\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "api-subject-delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": [\n        {\n            \"learning_area_id\": 1,\n            \"learning_area\": \"คณิตศาสตร์\",\n            \"learning_contents\": [\n                {\n                    \"id\": 1,\n                    \"template_subject_id\": 1,\n                    \"learning_content_name\": \"จำนวนนับที่มากกว่า 100,000\",\n                    \"weight\": 30,\n                    \"sort\": 1\n                },\n                {\n                    \"id\": 2,\n                    \"template_subject_id\": 1,\n                    \"learning_content_name\": \"เศษส่วน\",\n                    \"weight\": 20,\n                    \"sort\": 2\n                },\n                {\n                    \"id\": 3,\n                    \"template_subject_id\": 1,\n                    \"learning_content_name\": \"ทศนิยม\",\n                    \"weight\": 20,\n                    \"sort\": 3\n                },\n                {\n                    \"id\": 4,\n                    \"template_subject_id\": 1,\n                    \"learning_content_name\": \"การบวกลบคูณหาร\",\n                    \"weight\": 30,\n                    \"sort\": 4\n                }\n            ]\n        },\n        {\n            \"learning_area_id\": 2,\n            \"learning_area\": \"วิทยาศาสตร์\",\n            \"learning_contents\": [\n                {\n                    \"id\": 5,\n                    \"template_subject_id\": 2,\n                    \"learning_content_name\": \"ฟิสิกส์ควอนตัม 2\",\n                    \"weight\": 30,\n                    \"sort\": 1\n                }\n            ]\n        },\n        {\n            \"learning_area_id\": 15,\n            \"learning_area\": \"สังคมศึกษา\",\n            \"learning_contents\": [\n                {\n                    \"learning_content_name\": \"ฟิสิกส์ควอนตัม 4\",\n                    \"weight\": 30,\n                    \"sort\": 1\n                }\n            ]\n        }\n    ]\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/subject/:indicatorId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"subject",
+										":indicatorId"
+									],
+									"variable": [
+										{
+											"key": "indicatorId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-indicator-get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"year_id\": 1,\n  \"template_name\": \"Template X\",\n  \"active_flag\": true,\n  \"version\": \"1.0\",\n  \"status\": \"active\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/indicator/:indicatorId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"indicator",
+										":indicatorId"
+									],
+									"variable": [
+										{
+											"key": "indicatorId",
+											"value": "18"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"year_id\": 1,\n  \"template_name\": \"Template X\",\n  \"active_flag\": true,\n  \"version\": \"1.0\",\n  \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/grade-system-template/v1/indicator/:indicatorId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"grade-system-template",
+												"v1",
+												"indicator",
+												":indicatorId"
+											],
+											"variable": [
+												{
+													"key": "indicatorId",
+													"value": "18"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 11 Sep 2025 07:21:25 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1156"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "f8ee12fc-ae2a-4633-bc2b-def53938c7d0"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"indicator_id\": 18,\n    \"indicator_name\": \"อ่านและเขียนตัวเลข\",\n    \"total_value\": 10,\n    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n    \"clever_lesson_id\": 1,\n    \"clever_sub_lesson_id\": 1,\n    \"data\": [\n        {\n            \"id\": 24,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n            \"value\": \"[3,230,5391,5406]\",\n            \"weight\": 10,\n            \"level_count\": 5\n        },\n        {\n            \"id\": 25,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n            \"value\": \"[1,2,5384,5405]\",\n            \"weight\": 10,\n            \"level_count\": 6\n        },\n        {\n            \"id\": 26,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านง่าย\",\n            \"value\": \"[204,205,206,208,219,220,231,5400,5403,5404,5410,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422]\",\n            \"weight\": 10,\n            \"level_count\": 5\n        },\n        {\n            \"id\": 27,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านยาก\",\n            \"value\": \"[]\",\n            \"weight\": 0,\n            \"level_count\": 5\n        },\n        {\n            \"id\": 28,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านปานกลาง\",\n            \"value\": \"[]\",\n            \"weight\": 0,\n            \"level_count\": 5\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "api-indicator-update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"indicator_id\": 18,\n    \"indicator_name\": \"อ่านและเขียนตัวเลข\",\n    \"total_value\": 10,\n    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n    \"clever_lesson_id\": 1,\n    \"clever_sub_lesson_id\": 1,\n    \"data\": [\n        {\n            \"id\": 24,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n            \"value\": \"[3,230,5391,5406]\",\n            \"weight\": 10,\n            \"level_count\": 5\n        },\n        {\n            \"id\": 25,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n            \"value\": \"[1,2,5384,5405]\",\n            \"weight\": 10,\n            \"level_count\": 7\n        },\n        {\n            \"id\": 26,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านง่าย\",\n            \"value\": \"[204,205,206,208,219,220,231,5400,5403,5404,5410,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422]\",\n            \"weight\": 10,\n            \"level_count\": 5\n        },\n        {\n            \"id\": 27,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านยาก\",\n            \"value\": \"[]\",\n            \"weight\": 0,\n            \"level_count\": 5\n        },\n        {\n            \"id\": 28,\n            \"indicator_id\": 18,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านปานกลาง\",\n            \"value\": \"[]\",\n            \"weight\": 0,\n            \"level_count\": 5\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/indicator/:indicatorId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"indicator",
+										":indicatorId"
+									],
+									"variable": [
+										{
+											"key": "indicatorId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "General-Template",
+					"item": [
+						{
+							"name": "api-general-template-list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/:schoolId/general-template?page=1&limit=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										":schoolId",
+										"general-template"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "1",
+											"description": "required, รหัสโรงเรียน"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-general-template-get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/general-template/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"general-template",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12",
+											"description": "id ของ general template"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-general-template-create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"school_id\": 1,\n    \"template_type\": \"เวลาเรียน\",\n    \"template_name\": \"เวลาเรียนประถม 888867666\",\n    \"status\": \"enabled\",\n    \"active_flag\": true,\n    \"additional_field\": {\n        \"hours\": 200, //require สำหรับเวลาเรียน\n        \"start_date\": \"2024-12-23\", //require สำหรับเวลาเรียน\n        \"end_date\": \"2024-12-23\" //require สำหรับเวลาเรียน\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/general-template",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"general-template"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-general-template-update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n        \"id\": 12,\n        \"school_id\": 1,\n        \"template_type\": \"เวลาเรียน\",\n        \"template_name\": \"เวลาเรียนประถม 1122\",\n        \"status\": \"enabled\",\n        \"active_flag\": true,\n        \"created_at\": \"2025-03-04T14:03:28.626972Z\",\n        \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"additional_data\": {\n            \"hours\": 200,\n            \"start_date\": \"2024-12-24\",\n            \"end_date\": \"2025-12-23\"\n        }\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/general-template/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"general-template",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12",
+											"description": "id ของ general template"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "drop-down",
+					"item": [
+						{
+							"name": "api-drop-down-year-list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/drop-down/:schoolId/year-list?page=1&limit=100",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"drop-down",
+										":schoolId",
+										"year-list"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "100"
+										}
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "1",
+											"description": "รหัสโรงเรียน, required"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-drop-down-general-template",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/drop-down/:schoolId/general-template",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"drop-down",
+										":schoolId",
+										"general-template"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "1",
+											"description": "รหัสโรงเรียน, required"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api-drop-down-indicator-list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/grade-system-template/v1/drop-down/:subjectId/indicators",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-template",
+										"v1",
+										"drop-down",
+										":subjectId",
+										"indicators"
+									],
+									"variable": [
+										{
+											"key": "subjectId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/grade-system-template/v1/drop-down/:subjectId/indicators",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"grade-system-template",
+												"v1",
+												"drop-down",
+												":subjectId",
+												"indicators"
+											],
+											"variable": [
+												{
+													"key": "subjectId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Date",
+											"value": "Wed, 10 Dec 2025 06:47:54 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "274"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "5d5a8ba9-a9cf-47bb-b8d8-2957b8bcd82d"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 0\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 0,\n            \"name\": \"-\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"อ่านและเขียนตัวเลข\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"ตัวชี้วัด Test\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"test\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

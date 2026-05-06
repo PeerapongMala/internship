@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "3e4c7c3f-324e-4764-9e45-02ba4d0b77a9",
+		"name": "g00-d00-helper-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "g00-d00-a01-api-helper-case-re-initialize-database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/helper/v1/re-init",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"helper",
+						"v1",
+						"re-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g00-d00-a02-api-heper-case-increment-version-id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/helper/v1/inc-version-id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"helper",
+						"v1",
+						"inc-version-id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g00-d00-a03-api-helper-case-health-check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/helper/v1/health-check",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"helper",
+						"v1",
+						"health-check"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/helper/v1/health-check",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"helper",
+								"v1",
+								"health-check"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 11 Aug 2025 05:30:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "84"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "76aabb82-0435-451b-896a-99f8506dd10a"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"database\": {\n                \"health\": true\n            }\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	]
+}

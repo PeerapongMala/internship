@@ -1,0 +1,20 @@
+﻿body::before {
+    background: linear-gradient(90deg, #afc5aa, #d3e3cd) !important;
+}
+
+
+/* Preparation CA Member */
+.preparationUNSORT_CA td:nth-child(1),
+.preparationUNSORT_CA td:nth-child(2),
+.preparationUNSORT_CA td:nth-child(3),
+.preparationUNSORT_CA td:nth-child(6),
+.preparationUNSORT_CA td:nth-child(8),
+.preparationUNSORT_CA td:nth-child(9) {
+    text-align: center !important;
+}
+
+.preparationUNSORT_CA_SUB td:nth-child(1),
+.preparationUNSORT_CA_SUB td:nth-child(2),
+.preparationUNSORT_CA_SUB td:nth-child(3) {
+    text-align: center !important;
+}

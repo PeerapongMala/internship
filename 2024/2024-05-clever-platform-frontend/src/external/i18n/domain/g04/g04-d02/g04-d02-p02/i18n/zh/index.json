@@ -1,0 +1,18 @@
+{
+  "tabs": {
+    "title": "作业任务",
+    "todo": "待办",
+    "late": "已逾期",
+    "completed": "已完成"
+  },
+  "lesson": {
+    "stages": "关卡",
+    "dueDate": "截止日期",
+    "submitted": "已提交",
+    "pastDue": "已过期"
+  },
+  "button": {
+    "restart": "重新开始",
+    "start": "开始"
+  }
+}

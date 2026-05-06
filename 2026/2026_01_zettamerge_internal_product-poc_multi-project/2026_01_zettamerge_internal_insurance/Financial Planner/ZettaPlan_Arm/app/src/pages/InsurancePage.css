@@ -1,0 +1,190 @@
+/* ===== Insurance Page Layout ===== */
+.insurance-content {
+  max-width: 1100px;
+}
+
+/* ===== Top Grid: 2 cards ===== */
+.insurance-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* ===== Shared Card ===== */
+.ins-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.ins-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+}
+
+/* ===== Summary Card (left) ===== */
+.ins-total-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.ins-currency {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.ins-premium-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.ins-premium-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 20px;
+}
+
+.ins-breakdown-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+}
+
+.ins-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ins-breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.ins-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ins-breakdown-label {
+  flex: 1;
+}
+
+.ins-breakdown-pct {
+  font-weight: 600;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* ===== Chart Card (right) ===== */
+.ins-chart-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.ins-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ins-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.ins-legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ===== Table Card ===== */
+.ins-table-card {
+  margin-bottom: 32px;
+}
+
+.ins-table-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ins-table-wrapper {
+  overflow-x: auto;
+}
+
+.ins-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.ins-table thead {
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.ins-table th {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ins-table td {
+  padding: 8px 16px;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.ins-table .text-right {
+  text-align: right;
+}
+
+.ins-table .value-cell {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .insurance-top-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ins-chart-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ins-total-value {
+    font-size: 28px;
+  }
+}

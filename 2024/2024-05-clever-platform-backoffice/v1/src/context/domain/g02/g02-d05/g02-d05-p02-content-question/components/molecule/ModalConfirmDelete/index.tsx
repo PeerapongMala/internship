@@ -1,0 +1,54 @@
+import { Input } from '@core/design-system/library/vristo/source/components/Input';
+import { Modal } from '@core/design-system/library/vristo/source/components/Modal';
+
+interface ModalConfirmDeleteProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onOk: () => void;
+  passwordDelete: string;
+  setPasswordDelete: (password: string) => void;
+}
+
+const ModalConfirmDelete = ({
+  isOpen,
+  onClose,
+  onOk,
+  setPasswordDelete,
+  passwordDelete,
+}: ModalConfirmDeleteProps) => {
+  return (
+    <Modal
+      open={isOpen}
+      onClose={onClose}
+      title="คุณต้องการลบใช่ไหม ?"
+      // onOk={onOk}
+      disableCancel
+      disableOk
+      className="h-[18rem] w-[26rem]"
+    >
+      <div className="flex h-full flex-col justify-around">
+        <Input
+          type="password"
+          className="w-full"
+          placeholder="กรอกรหัสผ่าน"
+          onInput={(e) => setPasswordDelete(e.target.value)}
+          value={passwordDelete}
+        />
+        <div className="flex justify-end gap-4">
+          <button className="btn btn-outline-primary w-full text-lg" onClick={onClose}>
+            ยกเลิก
+          </button>
+          <button
+            className="btn btn-danger w-full text-lg"
+            onClick={onOk}
+            disabled={passwordDelete === ''}
+          >
+            ลบ
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+export default ModalConfirmDelete;

@@ -1,0 +1,95 @@
+/* ============================================
+   BSS Shared — Edit Form & Alert Modals
+   ใช้ร่วมกัน: Verify, Reconcile
+   Figma: Node 2:41649 (Edit Form), Node 2:41257 (Edit Alert)
+   ============================================ */
+
+/* ── Edit Form Modal (600px) ── */
+.modal-edit-form .modal-dialog {
+    max-width: 600px;
+}
+
+.modal-edit-form .form-area {
+    padding: 24px 31px;
+}
+
+.modal-edit-form .form-row-fields {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.modal-edit-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-edit-form .form-field-half {
+    width: 253px;
+}
+
+.modal-edit-form .form-field-third {
+    width: 163px;
+}
+
+.modal-edit-form .form-field label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    letter-spacing: 0.325px;
+    margin-bottom: 0;
+}
+
+.modal-edit-form .form-field .form-control,
+.modal-edit-form .form-field .form-select {
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.modal-edit-form .form-field .form-control[readonly] {
+    background: #e9ecef;
+    color: #495057;
+}
+
+/* ── Edit Alert Modal (600px, 3x2 grid) ── */
+.modal-edit-alert .modal-dialog {
+    max-width: 600px;
+}
+
+.modal-edit-alert .form-area {
+    padding: 24px 31px;
+}
+
+.modal-edit-alert .form-grid {
+    display: grid;
+    grid-template-columns: 163px 163px 163px;
+    gap: 16px 24px;
+}
+
+.modal-edit-alert .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-edit-alert .form-field label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 0;
+}
+
+.modal-edit-alert .form-field .form-control,
+.modal-edit-alert .form-field .form-select {
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+}

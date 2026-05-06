@@ -1,0 +1,850 @@
+@model BSS_WEB.Views.Reconcilation.Reconsile.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Reconciliation";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/reconsile/reconsileTransaction.css")" asp-append-version="true" />
+@if (Model.CssVariantClass == "reconsile-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/reconsile/reconsile-unsort-cc.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "reconsile-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/reconsile/reconsile-ca-member.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "reconsile-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/reconsile/reconsile-ca-non-member.css")" asp-append-version="true" />
+}
+
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentUserFullName" value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+<input type="hidden" id="currentDepartmentId" value="@(User.FindFirst("DepartmentID")?.Value ?? User.FindFirst("DepartmentId")?.Value)" />
+<input type="hidden" id="cssVariantClass" value="@Model.CssVariantClass" />
+<input type="hidden" id="bnTypeCode" value="@Model.BnTypeCode" />
+<input type="hidden" id="reconsileTranId" value="@Model.ReconsileTranId" />
+
+<!-- ============================================================
+     PAGE LAYOUT (from Figma 1:18004)
+     ============================================================ -->
+<div class="reconsile-layout">
+
+	<!-- Title -->
+	<div class="reconsile-title">
+		<h1>@Model.BnTypeNameDisplay</h1>
+	</div>
+
+	<!-- Main Content -->
+	<div class="reconsile-main">
+
+		<!-- ====================================================
+		     TOP PANEL: Info Card + 2-Column Split
+		     ==================================================== -->
+		<div class="reconsile-top-panel">
+
+			<!-- Info Card Bar -->
+			<div class="reconsile-info-card">
+				<div class="reconsile-info-row">
+					<div class="reconsile-info-item">
+						<span class="reconsile-info-label">Header Card:</span>
+						<span class="reconsile-info-value reconsile-info-badge" id="infoHeaderCard"></span>
+						<input type="text" id="childHcInput" class="reconsile-info-value reconsile-info-badge"
+							   style="display:none; outline:none; width:152px;" />
+					</div>
+					<div class="reconsile-info-item">
+						<span class="reconsile-info-label">จำนวนมัด/Header Card:</span>
+						<span class="reconsile-info-value warning" id="infoBundleCount">0</span>
+					</div>
+					<div class="reconsile-info-item">
+						<span class="reconsile-info-label">Date/Time:</span>
+						<span class="reconsile-info-value bold" id="infoDateTime">-</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- 2-Column Split -->
+			<div class="reconsile-split">
+
+				<!-- LEFT: Small Denomination Table -->
+				<div class="reconsile-split-left">
+					<div class="reconsile-denom-table-wrapper">
+						<div class="reconsile-denom-table-scroll">
+							<table class="reconsile-denom-table">
+								<thead>
+									<tr>
+										<th class="col-hc th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="col-denom th-sort" data-sort="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="col-bank th-sort" data-sort="bank">ธนาคาร <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="col-cashpoint th-sort" data-sort="cashpoint">Cashpoint <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="col-bundle th-sort" data-sort="bundle">จำนวนมัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									</tr>
+								</thead>
+								<tbody id="denomTableBody">
+									<!-- Populated by JS -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- RIGHT: Input Form -->
+				<div class="reconsile-split-right">
+					<div class="reconsile-input-form">
+
+						<!-- ประเภทธนบัตร (Banknote Type) + หมายเหตุ — two-column row per Figma 51:78706 -->
+						<div class="reconsile-banknote-row">
+							<div class="reconsile-form-group">
+								<span class="reconsile-form-label">ประเภทธนบัตร</span>
+								<div class="reconsile-radio-group" id="banknoteTypeGroup">
+									<label class="reconsile-radio-item selected">
+										<input type="radio" name="banknoteType" value="reject" checked />
+										<span>Reject</span>
+									</label>
+									<label class="reconsile-radio-item">
+										<input type="radio" name="banknoteType" value="counterfeit" />
+										<span>ปลอม</span>
+									</label>
+									<label class="reconsile-radio-item">
+										<input type="radio" name="banknoteType" value="damaged" />
+										<span>ชำรุด</span>
+									</label>
+								</div>
+							</div>
+							<!-- หมายเหตุ — แสดงเมื่อเลือก ปลอม หรือ ชำรุด -->
+							<div class="reconsile-remark-col" id="remarkGroup" style="display: none;">
+								<label class="reconsile-remark-label">หมายเหตุ</label>
+								<input type="text" id="inputRemark" class="reconsile-remark-input" placeholder="" />
+							</div>
+						</div>
+
+						<!-- ชนิดราคา (Denomination) -->
+						<div class="reconsile-form-group">
+							<span class="reconsile-form-label">ชนิดราคา</span>
+							<div class="reconsile-denom-chips" id="denomChipsGroup">
+								<label class="reconsile-denom-chip denom-1000 selected">
+									<input type="radio" name="denomValue" value="1000" checked />
+									<span class="denom-badge">1000</span>
+								</label>
+								<label class="reconsile-denom-chip denom-500">
+									<input type="radio" name="denomValue" value="500" />
+									<span class="denom-badge">500</span>
+								</label>
+								<label class="reconsile-denom-chip denom-100">
+									<input type="radio" name="denomValue" value="100" />
+									<span class="denom-badge">100</span>
+								</label>
+								<label class="reconsile-denom-chip denom-50">
+									<input type="radio" name="denomValue" value="50" />
+									<span class="denom-badge">50</span>
+								</label>
+								<label class="reconsile-denom-chip denom-20">
+									<input type="radio" name="denomValue" value="20" />
+									<span class="denom-badge">20</span>
+								</label>
+							</div>
+						</div>
+
+						<!-- แบบ + จำนวน -->
+						<div class="reconsile-fields-row">
+							<div class="reconsile-field">
+								<label>แบบ</label>
+								<select id="selectType">
+									<option value="17">17</option>
+									<option value="16">16</option>
+									<option value="15">15</option>
+									<option value="99">99</option>
+								</select>
+							</div>
+							<div class="reconsile-field">
+								<label>จำนวน</label>
+								<input type="number" id="inputQuantity" value="" min="1" max="1000" step="1" placeholder="" />
+							</div>
+						</div>
+
+						<!-- บันทึกตารางสรุปยอด -->
+						<button type="button" class="reconsile-btn-save-summary" id="btnSaveToSummary">
+							<i class="bi bi-chevron-double-down"></i>
+							บันทึกตารางสรุปยอด
+							<i class="bi bi-chevron-double-down"></i>
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ====================================================
+		     SUMMARY TABLE (ตารางสรุปยอด)
+		     ==================================================== -->
+		<div class="reconsile-summary-wrapper">
+			<div class="reconsile-summary-title">ตารางสรุปยอด</div>
+			<div class="reconsile-summary-scroll">
+				<table class="reconsile-summary-table">
+					<thead>
+						<tr>
+							<th class="col-hc th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-time th-sort" data-sort="time">เวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-denom th-sort" data-sort="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-type th-sort" data-sort="type">แบบ <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-category th-sort" data-sort="category">ประเภท <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-qty th-sort" data-sort="qty">จำนวน (ฉบับ) <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-value th-sort" data-sort="value">มูลค่า (บาท) <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-remark th-sort" data-sort="remark">หมายเหตุ <i class="bi bi-chevron-expand sort-icon"></i></th>
+							<th class="col-action">Action</th>
+						</tr>
+					</thead>
+					<tbody id="summaryTableBody">
+						<!-- Populated by JS -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- ====================================================
+		     BOTTOM ACTION BUTTONS
+		     ==================================================== -->
+		<div class="reconsile-bottom-actions">
+			<button type="button" class="reconsile-btn-cancel" id="btnCancelReconciliation">
+				ยกเลิกกระทบยอด
+			</button>
+			<button type="button" class="reconsile-btn-reconcile" id="btnReconciliation">
+				กระทบยอด
+			</button>
+		</div>
+
+	</div>
+</div>
+
+<!-- ============================================================
+     MODALS
+     ============================================================ -->
+
+<!-- Edit Modal -->
+<div class="modal fade reconsile-modal" id="editReconciliationModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered reconsile-modal-edit">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">แก้ไขข้อมูล</h5>
+			</div>
+			<div class="modal-body reconsile-edit-body">
+				<input type="hidden" id="editReconciliationTranId" />
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">Header Card</span>
+					<span class="reconsile-kv-value" id="editDisplayHeaderCard">-</span>
+				</div>
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">เวลานับคัด</span>
+					<span class="reconsile-kv-value" id="editDisplayTime">-</span>
+				</div>
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">ชนิดราคา</span>
+					<span class="reconsile-kv-value" id="editDisplayDenom">-</span>
+				</div>
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">แบบ</span>
+					<span class="reconsile-kv-value" id="editDisplayType">-</span>
+				</div>
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">ประเภท</span>
+					<span class="reconsile-kv-value" id="editDisplayCategory">-</span>
+				</div>
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">จำนวน (ฉบับ)</span>
+					<span class="reconsile-kv-value"><input type="number" class="form-control reconsile-edit-qty" id="editQuantity" min="1" max="1000" step="1" value="" /></span>
+				</div>
+				<div class="reconsile-kv-row">
+					<span class="reconsile-kv-label">มูลค่า (บาท)</span>
+					<span class="reconsile-kv-value" id="editDisplayValue">-</span>
+				</div>
+				<div class="reconsile-inline-error" id="editFormError"></div>
+			</div>
+			<div class="modal-footer justify-content-between">
+				<button type="button" class="reconsile-btn-popup btn-cancel-popup" data-bs-dismiss="modal">ยกเลิก</button>
+				<button type="button" class="reconsile-btn-popup btn-confirm-popup" id="btnConfirmEdit">บันทึก</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Edit Confirm Modal -->
+<div class="modal fade reconsile-modal reconsile-modal-confirm" id="editConfirmReconciliationModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				<i class="bi bi-exclamation-diamond-fill confirm-icon"></i>
+				<h4 class="confirm-title">แก้ไขข้อมูล</h4>
+				<p class="confirm-message">คุณแน่ใจหรือไม่ที่ต้องการแก้ไขข้อมูลนี้</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="reconsile-btn-popup btn-cancel-popup" data-bs-dismiss="modal">ยกเลิก</button>
+				<button type="button" class="reconsile-btn-popup btn-danger-popup" id="btnConfirmEditAction">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Delete Confirm Modal -->
+<div class="modal fade reconsile-modal reconsile-modal-confirm" id="deleteReconciliationModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				<input type="hidden" id="deleteReconciliationTranId" />
+				<i class="bi bi-exclamation-diamond-fill confirm-icon"></i>
+				<h4 class="confirm-title">ลบข้อมูล 1 รายการ</h4>
+				<p class="confirm-message">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="reconsile-btn-popup btn-cancel-popup" data-bs-dismiss="modal">ยกเลิก</button>
+				<button type="button" class="reconsile-btn-popup btn-danger-popup" id="btnConfirmDelete">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Success Modal -->
+<div class="modal fade reconsile-modal reconsile-modal-success" id="reconsileSuccessModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				<i class="bi bi-check-circle-fill success-icon"></i>
+				<h4 class="success-title">สำเร็จ</h4>
+				<p class="success-message" id="successMessage">ดำเนินการเรียบร้อย</p>
+			</div>
+			<div class="modal-footer justify-content-center" style="gap: 24px;">
+				<button type="button" class="reconsile-btn-popup btn-cancel-popup" id="btnSuccessCancel" data-bs-dismiss="modal" onclick="onSuccessCancelClick()" style="display:none;">ยกเลิก</button>
+				<button type="button" class="reconsile-btn-popup btn-confirm-popup" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade reconsile-modal" id="reconsileErrorModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content text-center">
+			<div class="modal-body py-5">
+				<i class="bi bi-x-circle-fill confirm-icon" style="color: #DC3545;"></i>
+				<h4 class="confirm-title">เกิดข้อผิดพลาด</h4>
+				<p id="reconsileErrorMessage">กรุณาลองใหม่อีกครั้ง</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="reconsile-btn-popup btn-cancel-popup" data-bs-dismiss="modal">ปิด</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Cancel Reconcile Confirm Modal -->
+<div class="modal fade modal-popup" id="cancelReconciliationModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content text-center" style="min-height: 300px; display: flex; flex-direction: column;">
+			<div style="padding: 32px 16px 16px; flex-shrink: 0;">
+				<i class="bi bi-exclamation-diamond-fill" style="font-size: 48px; color: #FD7E14;"></i>
+				<h4 style="font-family: 'bss-pridi', sans-serif !important; font-size: 24px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.6px; line-height: 1.2; margin-top: 16px;">ยกเลิกกระทบยอด</h4>
+			</div>
+			<div style="padding: 24px 32px; flex: 1; display: flex; align-items: center; justify-content: center;">
+				<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 20px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.5px; line-height: 1.2; margin: 0;">ต้องการยกเลิกกระทบยอดใช่หรือไม่?</p>
+			</div>
+			<div class="modal-action-bar" style="justify-content: center; gap: 16px;">
+				<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ไม่</button>
+				<button type="button" class="btn-popup btn-popup-primary" id="btnConfirmCancelReconciliation">ใช่</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ═══ Reconcile Warning Modal (Step 07) ═══ -->
+<!-- ═══ Swapped Bundle Warning Modal (UC05) ═══ -->
+<div class="modal fade modal-popup" id="swappedWarningModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content text-center" style="min-height: 360px; display: flex; flex-direction: column;">
+			<div style="padding: 32px 16px 16px; flex-shrink: 0;">
+				<i class="bi bi-exclamation-diamond-fill" style="font-size: 48px; color: #FD7E14;"></i>
+				<h4 style="font-family: 'bss-pridi', sans-serif !important; font-size: 24px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.6px; line-height: 1.2; margin-top: 16px;">การแจ้งเตือน</h4>
+			</div>
+			<div style="padding: 24px 32px; flex: 1; display: flex; align-items: center; justify-content: center;">
+				<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 20px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.5px; line-height: 1.2; margin: 0;" id="swappedWarningMessage"></p>
+			</div>
+			<div class="modal-action-bar" style="justify-content: center;">
+				<button type="button" class="btn-popup btn-popup-primary" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ═══ Multi-Bundle Alert Modal (UC01) ═══ -->
+<div class="modal fade modal-popup" id="multiBundleAlertModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content text-center" style="min-height: 360px; display: flex; flex-direction: column;">
+			<div style="padding: 32px 16px 16px; flex-shrink: 0;">
+				<i class="bi bi-exclamation-diamond-fill" style="font-size: 48px; color: #FD7E14;"></i>
+				<h4 style="font-family: 'bss-pridi', sans-serif !important; font-size: 24px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.6px; line-height: 1.2; margin-top: 16px;">การแจ้งเตือน</h4>
+			</div>
+			<div style="padding: 24px 32px; flex: 1; display: flex; align-items: center; justify-content: center;">
+				<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 20px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.5px; line-height: 1.2; margin: 0;" id="multiBundleAlertMessage"></p>
+			</div>
+			<div class="modal-action-bar" style="justify-content: center;">
+				<button type="button" class="btn-popup btn-popup-primary" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ═══ HC Locked Modal (UC02) ═══ -->
+<div class="modal fade modal-popup" id="hcLockedModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content text-center" style="min-height: 360px; display: flex; flex-direction: column; border: 1px solid #EEEEEE; border-radius: 12px;">
+			<div style="padding: 32px 16px 16px; flex-shrink: 0;">
+				<i class="bi bi-lock-fill" style="font-size: 48px; color: #DC3545;"></i>
+				<h4 style="font-family: 'bss-pridi', sans-serif !important; font-size: 24px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.6px; line-height: 1.2; margin-top: 16px;" id="hcLockedTitle">Header Card ล็อก</h4>
+			</div>
+			<div style="padding: 24px 32px; flex: 1; display: flex; align-items: center; justify-content: center;">
+				<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 16px !important; font-weight: 400 !important; color: #000 !important; letter-spacing: 0.4px; line-height: 1.5; margin: 0;" id="hcLockedMessage"></p>
+			</div>
+			<div class="modal-action-bar" style="justify-content: center; border-top: 1px solid #CBD5E1;">
+				<button type="button" class="btn-popup btn-popup-primary" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade modal-popup" id="reconsileWarningModal" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content text-center" style="min-height: 360px; display: flex; flex-direction: column;">
+			<div style="padding: 32px 16px 16px; flex-shrink: 0;">
+				<i class="bi bi-exclamation-diamond-fill" style="font-size: 48px; color: #FD7E14;"></i>
+				<h4 style="font-family: 'bss-pridi', sans-serif !important; font-size: 24px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.6px; line-height: 1.2; margin-top: 16px;">การแจ้งเตือน</h4>
+			</div>
+			<div style="padding: 24px 32px; flex: 1; display: flex; align-items: center; justify-content: center;">
+				<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 20px !important; font-weight: 500 !important; color: #000 !important; letter-spacing: 0.5px; line-height: 1.2; margin: 0;" id="reconsileWarningMessage">มียอดขาด - เกิน</p>
+			</div>
+			<div class="modal-action-bar" style="justify-content: center;">
+				<button type="button" class="btn-popup btn-popup-primary" id="btnWarningOk">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ═══ Unlock HC Modal (UC03) ═══ -->
+<div class="modal fade modal-popup" id="unlockHcModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content">
+
+			<!-- Step A: Supervisor Select -->
+			<div class="modal-step active" id="unlockStepA">
+				<div class="modal-top-bar" style="border-bottom: 1px solid #cbd5e1;">
+					<h5 class="modal-title">ปลดล็อก Header Card</h5>
+				</div>
+				<div style="padding: 24px;">
+					<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 18px !important; font-weight: 500 !important; color: #991B1B !important; letter-spacing: 0.45px; line-height: 1.4; margin: 0 0 20px 0;" id="unlockHcTitle"></p>
+					<div style="display: flex; flex-direction: column; gap: 4px;">
+						<label class="reconfirm-form-label">เลือก Supervisor</label>
+						<select class="form-select" id="unlockSupervisorSelect" style="width: 291px; height: 38px; font-size: 14px; border: 1px solid #ced4da; border-radius: 6px;">
+							<option value="">Please select</option>
+						</select>
+						<div class="popup-inline-error" id="unlockSupervisorError">กรุณาเลือก Supervisor</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn-popup btn-popup-primary" id="btnSubmitUnlock" style="width: auto; padding: 6px 12px;">ส่งคำขอปลดล็อก</button>
+				</div>
+			</div>
+
+			<!-- Step B: OTP -->
+			<div class="modal-step" id="unlockStepB">
+				<div class="modal-top-bar" style="border-bottom: 1px solid #cbd5e1;">
+					<h5 class="modal-title">ปลดล็อก Header Card</h5>
+				</div>
+				<div style="padding: 24px;">
+					<p style="font-family: 'bss-pridi', sans-serif !important; font-size: 18px !important; font-weight: 500 !important; color: #991B1B !important; letter-spacing: 0.45px; line-height: 1.4; margin: 0 0 20px 0;" id="unlockHcTitle2"></p>
+					<div style="display: flex; flex-direction: column; gap: 8px;">
+						<label class="reconfirm-form-label">Supervisor กรอกรหัส OTP</label>
+						<input type="text" class="form-control" id="unlockOtpInput" maxlength="6" placeholder="กรอกรหัส OTP 6 หลัก" style="width: 200px; height: 38px; font-size: 14px; border: 1px solid #ced4da; border-radius: 6px;">
+						<div style="display: flex; align-items: center; gap: 8px;">
+							<button type="button" class="btn-popup btn-popup-primary" id="btnUnlockResendOtp" style="width: auto; padding: 6px 12px; opacity: 0.3;" disabled>ส่งรหัส OTP อีกครั้ง</button>
+							<span style="font-family: 'bss-pridi', sans-serif; font-size: 13px; color: #6c757d; letter-spacing: 0.325px;" id="unlockOtpTimerText">ส่งอีกครั้งได้ภายใน <span id="unlockOtpCountdown">04:59</span> นาที</span>
+						</div>
+						<div class="popup-inline-error" id="unlockOtpError">กรุณากรอกรหัส OTP 6 หลัก</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn-popup btn-popup-confirm" id="btnConfirmUnlockOtp" style="width: auto; padding: 6px 12px;">ยืนยัน OTP</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- ═══ Reconfirm Reconcile Modal (Steps 09-12) ═══ -->
+<div class="modal fade modal-popup" id="reconsileReconfirmModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 760px;">
+		<div class="modal-content">
+
+			<!-- Step A: Summary + Supervisor (Steps 09-10) -->
+			<div class="modal-step active" id="reconfirmStepA">
+				<div class="modal-top-bar" style="border-bottom: 1px solid #cbd5e1;">
+					<h5 class="modal-title">Reconfirm Reconcile</h5>
+				</div>
+				<div style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; max-height: calc(100vh - 200px); overflow-y: auto;">
+					<!-- Frame 6152: ข้อมูลจากการกระทบยอด -->
+					<div style="width: 540px; padding: 8px;">
+					<h4 class="reconfirm-section-title">ข้อมูลจากการกระทบยอด</h4>
+					<div class="reconfirm-data-section">
+						<h5 class="reconfirm-data-label">ธนบัตร Reject</h5>
+						<div class="reconfirm-data-row">
+							<span id="reconfirmRejectLabel">จำนวน (ฉบับ)</span>
+							<span id="reconfirmRejectQty">4</span>
+						</div>
+						<div class="reconfirm-data-row">
+							<span>มูลค่า (บาท)</span>
+							<span id="reconfirmRejectValue">4,000</span>
+						</div>
+					</div>
+					<div id="reconfirmFakeSections" style="display:none;">
+						<div class="reconfirm-data-section">
+							<h5 class="reconfirm-data-label">ธนบัตรปลอม</h5>
+							<div class="reconfirm-data-row">
+								<span>จำนวนปลอม (ฉบับ)</span>
+								<span id="reconfirmFakeQty">0</span>
+							</div>
+							<div class="reconfirm-data-row">
+								<span>มูลค่า (บาท)</span>
+								<span id="reconfirmFakeValue">0</span>
+							</div>
+						</div>
+					</div>
+					<div id="reconfirmDamagedSections" style="display:none;">
+						<div class="reconfirm-data-section">
+							<h5 class="reconfirm-data-label">ธนบัตรชำรุด</h5>
+							<div class="reconfirm-data-row">
+								<span>จำนวนชำรุด (ฉบับ)</span>
+								<span id="reconfirmDamagedQty">0</span>
+							</div>
+							<div class="reconfirm-data-row">
+								<span>มูลค่า (บาท)</span>
+								<span id="reconfirmDamagedValue">0</span>
+							</div>
+						</div>
+					</div>
+					<div id="reconfirmReplaceSections" style="display:none;">
+						<p id="reconfirmReplaceMessage" class="reconsile-reconfirm-message">กรุณาเบิกธนบัตรทดแทน <span id="reconfirmReplaceMessageQty">0</span> ฉบับ</p>
+						<div class="reconfirm-data-section">
+							<h5 class="reconfirm-data-label">ธนบัตรทดแทน (รวม)</h5>
+							<div class="reconfirm-data-row">
+								<span>จำนวนธนบัตรทดแทน</span>
+								<span id="reconfirmReplaceQty">0</span>
+							</div>
+							<div class="reconfirm-data-row">
+								<span>มูลค่า (บาท)</span>
+								<span id="reconfirmReplaceValue">0</span>
+							</div>
+						</div>
+					</div>
+
+					</div>
+					<!-- Frame 6153: ยืนยันการกระทบยอด -->
+					<div style="width: 540px; padding: 8px;">
+					<h4 class="reconfirm-section-title">ยืนยันการกระทบยอด</h4>
+					<div style="display: flex; flex-direction: column; gap: 4px;">
+						<label class="reconfirm-form-label">เลือก Supervisor</label>
+						<select class="form-select" id="reconsileSupervisorSelect" style="width: 291px; height: 38px; font-size: 14px; border: 1px solid #ced4da; border-radius: 6px;">
+							<option value="">Please select</option>
+						</select>
+						<div class="popup-inline-error" id="supervisorError">กรุณาเลือก Supervisor</div>
+					</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn-popup btn-popup-primary" id="btnSubmitReconfirm" style="width: 160px; padding: 6px 12px;">ส่งคำขออนุมัติแก้ไข</button>
+				</div>
+			</div>
+
+			<!-- Step B: OTP (Steps 11-12) -->
+			<div class="modal-step" id="reconfirmStepB">
+				<div class="modal-top-bar" style="border-bottom: 1px solid #cbd5e1;">
+					<h5 class="modal-title">Reconfirm Reconcile</h5>
+				</div>
+				<div style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; max-height: calc(100vh - 200px); overflow-y: auto;">
+					<!-- Frame 6152: ข้อมูลจากการกระทบยอด -->
+					<div style="width: 540px; padding: 8px;">
+						<h4 class="reconfirm-section-title">ข้อมูลจากการกระทบยอด</h4>
+						<div class="reconfirm-data-section">
+							<h5 class="reconfirm-data-label">ธนบัตร Reject</h5>
+							<div class="reconfirm-data-row">
+								<span id="reconfirmRejectLabel2">จำนวน (ฉบับ)</span>
+								<span id="reconfirmRejectQty2">4</span>
+							</div>
+							<div class="reconfirm-data-row">
+								<span>มูลค่า (บาท)</span>
+								<span id="reconfirmRejectValue2">4,000</span>
+							</div>
+						</div>
+						<div id="reconfirmFakeSections2" style="display:none;">
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรปลอม</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนปลอม (ฉบับ)</span>
+									<span id="reconfirmFakeQty2">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="reconfirmFakeValue2">0</span>
+								</div>
+							</div>
+						</div>
+						<div id="reconfirmDamagedSections2" style="display:none;">
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรชำรุด</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนชำรุด (ฉบับ)</span>
+									<span id="reconfirmDamagedQty2">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="reconfirmDamagedValue2">0</span>
+								</div>
+							</div>
+						</div>
+						<div id="reconfirmReplaceSections2" style="display:none;">
+							<p id="reconfirmReplaceMessage2" class="reconsile-reconfirm-message">กรุณาเบิกธนบัตรทดแทน <span id="reconfirmReplaceMessageQty2">0</span> ฉบับ</p>
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรทดแทน (รวม)</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนธนบัตรทดแทน</span>
+									<span id="reconfirmReplaceQty2">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="reconfirmReplaceValue2">0</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Frame 6154: ยืนยันการกระทบยอด — OTP -->
+					<div style="width: 540px; padding: 8px;">
+						<h4 class="reconfirm-section-title">ยืนยันการกระทบยอด</h4>
+						<div style="display: flex; flex-direction: column; gap: 16px;">
+							<label class="reconfirm-form-label">Supervisor กรอกรหัส OTP <span id="otpRefCodeLabel"></span></label>
+							<div class="otp-input-wrapper">
+								<input type="text" class="otp-input" id="reconsileOtpInput" maxlength="6" placeholder="">
+								<button type="button" class="otp-btn-clear" id="btnClearOtp" tabindex="-1"><i class="bi bi-x-circle-fill"></i></button>
+							</div>
+							<div style="display: flex; align-items: center; gap: 8px;">
+								<button type="button" class="btn-popup btn-popup-primary" id="btnResendOtp" style="width: 183px; padding: 6px 12px; opacity: 0.3;" disabled><i class="bi bi-arrow-counterclockwise" style="margin-right: 4px;"></i>ส่งรหัส OTP อีกครั้ง</button>
+								<span style="font-family: 'bss-pridi', sans-serif; font-size: 13px; color: #6c757d; letter-spacing: 0.325px;" id="otpTimerText">ส่งอีกครั้งได้ภายใน <span id="otpCountdown">04:59</span> นาที</span>
+							</div>
+							<div class="popup-inline-error" id="otpError">กรุณากรอกรหัส OTP 6 หลัก</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn-popup btn-popup-confirm" id="btnConfirmOtp" style="width: 160px; padding: 6px 12px;">ยืนยัน OTP</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- ═══ UC01 Confirm Reconcile Modal (Multi-Bundle Reject-Only: ครบจำนวน ครบมูลค่า) ═══ -->
+<div class="modal fade modal-popup" id="uc01ConfirmModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 560px;">
+		<div class="modal-content text-center" style="min-height: 360px; display: flex; flex-direction: column;">
+			<div style="padding: 32px 16px 16px; flex-shrink: 0;">
+				<i class="bi bi-check-circle-fill" style="font-size: 48px; color: #198754;"></i>
+				<h4 style="font-family: 'bss-pridi', sans-serif; font-weight: 500 !important; font-size: 24px; margin-top: 16px;">ยืนยันกระทบยอด</h4>
+			</div>
+			<div style="padding: 24px 32px; flex: 1; display: flex; align-items: center; justify-content: center;">
+				<p style="font-family: 'bss-pridi', sans-serif !important; font-weight: 500 !important; font-size: 20px !important; color: #000 !important; letter-spacing: 0.5px; line-height: 1.2; margin: 0;">ครบจำนวน ครบมูลค่า</p>
+			</div>
+			<div class="modal-action-bar" style="justify-content: center; gap: 24px;">
+				<button type="button" class="btn-popup btn-popup-cancel" id="btnUc01ConfirmCancel" style="width: 160px;">ยกเลิก</button>
+				<button type="button" class="btn-popup" id="btnUc01ConfirmOk" style="width: 160px; background: #198754; border-color: #198754; color: #fff;">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ═══ UC06 Reconfirm Reconcile Modal (Multi-Bundle: Steps 18-22) ═══ -->
+<div class="modal fade modal-popup" id="uc06ReconfirmModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 760px;">
+		<div class="modal-content">
+
+			<!-- Step A: Summary + Supervisor Select -->
+			<div class="modal-step active" id="uc06StepA">
+				<div class="modal-top-bar" style="border-bottom: 1px solid #cbd5e1;">
+					<h5 class="modal-title">Reconfirm Reconcile</h5>
+				</div>
+				<div style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; max-height: calc(100vh - 200px); overflow-y: auto;">
+					<div style="width: 540px; padding: 8px;">
+						<h4 class="reconfirm-section-title">ข้อมูลจากการกระทบยอด</h4>
+						<div class="reconfirm-data-section">
+							<h5 class="reconfirm-data-label">ธนบัตร Reject</h5>
+							<div class="reconfirm-data-row">
+								<span id="uc06RejectLabel">จำนวน (ฉบับ)</span>
+								<span id="uc06RejectQty">0</span>
+							</div>
+							<div class="reconfirm-data-row">
+								<span>มูลค่า (บาท)</span>
+								<span id="uc06RejectValue">0</span>
+							</div>
+						</div>
+						<div id="uc06FakeSections" style="display:none;">
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรปลอม</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนปลอม (ฉบับ)</span>
+									<span id="uc06FakeQty">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="uc06FakeValue">0</span>
+								</div>
+							</div>
+						</div>
+						<div id="uc06DamagedSections" style="display:none;">
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรชำรุด</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนชำรุด (ฉบับ)</span>
+									<span id="uc06DamagedQty">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="uc06DamagedValue">0</span>
+								</div>
+							</div>
+						</div>
+						<div id="uc06ReplaceSections" style="display:none;">
+							<p class="reconsile-reconfirm-message">กรุณาเบิกธนบัตรทดแทน <span id="uc06ReplaceMessageQty">0</span> ฉบับ</p>
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรทดแทน (รวม)</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนธนบัตรทดแทน</span>
+									<span id="uc06ReplaceQty">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="uc06ReplaceValue">0</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="width: 540px; padding: 8px;">
+						<h4 class="reconfirm-section-title">ยืนยันการกระทบยอด</h4>
+						<div style="display: flex; flex-direction: column; gap: 4px;">
+							<label class="reconfirm-form-label">เลือก Supervisor</label>
+							<select class="form-select" id="uc06SupervisorSelect" style="width: 291px; height: 38px; font-size: 14px; border: 1px solid #ced4da; border-radius: 6px;">
+								<option value="">Please select</option>
+							</select>
+							<div class="popup-inline-error" id="uc06SupervisorError">กรุณาเลือก Supervisor</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn-popup btn-popup-primary" id="btnUc06SubmitReconfirm" style="width: 160px; padding: 6px 12px;">ส่งคำขออนุมัติแก้ไข</button>
+				</div>
+			</div>
+
+			<!-- Step B: OTP -->
+			<div class="modal-step" id="uc06StepB">
+				<div class="modal-top-bar" style="border-bottom: 1px solid #cbd5e1;">
+					<h5 class="modal-title">Reconfirm Reconcile</h5>
+				</div>
+				<div style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; max-height: calc(100vh - 200px); overflow-y: auto;">
+					<div style="width: 540px; padding: 8px;">
+						<h4 class="reconfirm-section-title">ข้อมูลจากการกระทบยอด</h4>
+						<div class="reconfirm-data-section">
+							<h5 class="reconfirm-data-label">ธนบัตร Reject</h5>
+							<div class="reconfirm-data-row">
+								<span id="uc06RejectLabel2">จำนวน (ฉบับ)</span>
+								<span id="uc06RejectQty2">0</span>
+							</div>
+							<div class="reconfirm-data-row">
+								<span>มูลค่า (บาท)</span>
+								<span id="uc06RejectValue2">0</span>
+							</div>
+						</div>
+						<div id="uc06FakeSections2" style="display:none;">
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรปลอม</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนปลอม (ฉบับ)</span>
+									<span id="uc06FakeQty2">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="uc06FakeValue2">0</span>
+								</div>
+							</div>
+						</div>
+						<div id="uc06DamagedSections2" style="display:none;">
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรชำรุด</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนชำรุด (ฉบับ)</span>
+									<span id="uc06DamagedQty2">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="uc06DamagedValue2">0</span>
+								</div>
+							</div>
+						</div>
+						<div id="uc06ReplaceSections2" style="display:none;">
+							<p class="reconsile-reconfirm-message">กรุณาเบิกธนบัตรทดแทน <span id="uc06ReplaceMessageQty2">0</span> ฉบับ</p>
+							<div class="reconfirm-data-section">
+								<h5 class="reconfirm-data-label">ธนบัตรทดแทน (รวม)</h5>
+								<div class="reconfirm-data-row">
+									<span>จำนวนธนบัตรทดแทน</span>
+									<span id="uc06ReplaceQty2">0</span>
+								</div>
+								<div class="reconfirm-data-row">
+									<span>มูลค่า (บาท)</span>
+									<span id="uc06ReplaceValue2">0</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="width: 540px; padding: 8px;">
+						<h4 class="reconfirm-section-title">ยืนยันการกระทบยอด</h4>
+						<div style="display: flex; flex-direction: column; gap: 16px;">
+							<label class="reconfirm-form-label">Supervisor กรอกรหัส OTP <span id="uc06OtpRefCodeLabel"></span></label>
+							<div class="otp-input-wrapper">
+								<input type="text" class="otp-input" id="uc06OtpInput" maxlength="6" placeholder="">
+								<button type="button" class="otp-btn-clear" id="btnUc06ClearOtp" tabindex="-1"><i class="bi bi-x-circle-fill"></i></button>
+							</div>
+							<div style="display: flex; align-items: center; gap: 8px;">
+								<button type="button" class="btn-popup btn-popup-primary" id="btnUc06ResendOtp" style="width: 183px; padding: 6px 12px; opacity: 0.3;" disabled><i class="bi bi-arrow-counterclockwise" style="margin-right: 4px;"></i>ส่งรหัส OTP อีกครั้ง</button>
+								<span style="font-family: 'bss-pridi', sans-serif; font-size: 13px; color: #6c757d; letter-spacing: 0.325px;" id="uc06OtpTimerText">ส่งอีกครั้งได้ภายใน <span id="uc06OtpCountdown">04:59</span> นาที</span>
+							</div>
+							<div class="popup-inline-error" id="uc06OtpError">กรุณากรอกรหัส OTP 6 หลัก</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button type="button" class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn-popup btn-popup-confirm" id="btnUc06ConfirmOtp" style="width: 160px; padding: 6px 12px;">ยืนยัน OTP</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Test Tools (toggle) -->
+<button type="button" id="btnToggleDevTools" style="position:fixed;bottom:8px;left:8px;z-index:10000;background:#555;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:10px;padding:2px 6px;opacity:0.5;" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='0.5'">Dev Mode</button>
+<div id="mockDevTools" style="position:fixed;bottom:8px;left:42px;z-index:9999;background:rgba(255,224,178,0.95);padding:4px 8px;border-radius:4px;display:none;gap:4px;align-items:center;font-size:11px;">
+	<input type="text" id="scanHeaderCardInput" placeholder="HC Code" style="width:110px;padding:2px 4px;border:1px solid #ccc;border-radius:3px;font-size:11px;" />
+	<button type="button" id="btnScanHeaderCard" style="padding:2px 6px;background:#ff9800;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:11px;">Scan</button>
+	<button type="button" id="btnClearHc" style="padding:2px 6px;background:#f44336;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:11px;">Clear</button>
+	<button type="button" id="btnOpenDisplay2" style="padding:2px 6px;background:#2196f3;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:11px;">D2</button>
+</div>
+
+@section Scripts {
+	<script src="@Url.Content("~/js/reconsile/reconsileTransaction.js")" asp-append-version="true"></script>
+}

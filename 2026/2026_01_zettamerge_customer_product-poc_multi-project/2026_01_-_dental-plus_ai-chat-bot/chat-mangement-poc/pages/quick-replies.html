@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Replies - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content -->
+      <div class="flex-1 overflow-y-auto bg-gray-50 p-8">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h1 class="text-2xl font-bold text-gray-800">Quick Replies</h1>
+            <p class="text-gray-500 mt-1">จัดการข้อความสำเร็จรูป (พิมพ์ "/" เพื่อเรียกใช้)</p>
+          </div>
+          <button onclick="openAddModal()" class="px-4 py-2 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            เพิ่มข้อความ
+          </button>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex gap-2 mb-6">
+          <button onclick="switchCategory('all')" class="quick-tab active px-4 py-2 rounded-xl font-medium bg-dental-500 text-white" data-category="all">
+            ทั้งหมด
+          </button>
+          <button onclick="switchCategory('greeting')" class="quick-tab px-4 py-2 rounded-xl font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="greeting">
+            ทักทาย
+          </button>
+          <button onclick="switchCategory('price')" class="quick-tab px-4 py-2 rounded-xl font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="price">
+            ราคา
+          </button>
+          <button onclick="switchCategory('booking')" class="quick-tab px-4 py-2 rounded-xl font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="booking">
+            นัดหมาย
+          </button>
+          <button onclick="switchCategory('promo')" class="quick-tab px-4 py-2 rounded-xl font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="promo">
+            โปรโมชั่น
+          </button>
+          <button onclick="switchCategory('closing')" class="quick-tab px-4 py-2 rounded-xl font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-category="closing">
+            ปิดการขาย
+          </button>
+        </div>
+
+        <!-- Quick Replies Grid -->
+        <div class="grid grid-cols-2 gap-4">
+          <!-- Greeting Messages -->
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="greeting">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-mono">/hello</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">ทักทาย</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">สวัสดีค่ะ ยินดีต้อนรับสู่ Dental Plus Clinic ยินดีให้บริการค่ะ 😊</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 156 ครั้ง</span>
+              <span>อัพเดท 2 วันที่แล้ว</span>
+            </div>
+          </div>
+
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="greeting">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-mono">/thanks</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">ทักทาย</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">ขอบคุณมากค่ะที่ไว้วางใจ Dental Plus ยินดีให้บริการเสมอค่ะ 🙏</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 98 ครั้ง</span>
+              <span>อัพเดท 5 วันที่แล้ว</span>
+            </div>
+          </div>
+
+          <!-- Price Messages -->
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="price">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-mono">/scaling</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">ราคา</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">ค่าขูดหินปูนเริ่มต้นที่ 800-1,500 บาท ขึ้นอยู่กับปริมาณหินปูนค่ะ รวมตรวจฟันฟรีด้วยนะคะ</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 234 ครั้ง</span>
+              <span>อัพเดท 1 วันที่แล้ว</span>
+            </div>
+          </div>
+
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="price">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-mono">/ortho</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">ราคา</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">จัดฟันแบบโลหะ 35,000-45,000 บาท / Invisalign เริ่มต้น 80,000 บาท ผ่อน 0% ได้ค่ะ</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 189 ครั้ง</span>
+              <span>อัพเดท 3 วันที่แล้ว</span>
+            </div>
+          </div>
+
+          <!-- Booking Messages -->
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="booking">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-mono">/book</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">นัดหมาย</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">สะดวกวันไหนคะ? คลินิกเปิดทุกวัน 10:00-20:00 น. หมอว่างช่วงบ่ายค่ะ</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 312 ครั้ง</span>
+              <span>อัพเดท วันนี้</span>
+            </div>
+          </div>
+
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="booking">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-mono">/confirm</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">นัดหมาย</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">ยืนยันนัดหมายค่ะ ✅ วัน [DATE] เวลา [TIME] น. พบหมอ [DOCTOR] ที่ Dental Plus สาขา [BRANCH] ค่ะ</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 278 ครั้ง</span>
+              <span>อัพเดท วันนี้</span>
+            </div>
+          </div>
+
+          <!-- Promo Messages -->
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="promo">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full font-mono">/promo</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">โปรโมชั่น</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">🎉 โปรเดือนนี้! ฟอกสีฟันลด 30% จาก 5,000 เหลือ 3,500 บาท ถึงสิ้นเดือนนี้เท่านั้นค่ะ</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 145 ครั้ง</span>
+              <span>อัพเดท 1 สัปดาห์ที่แล้ว</span>
+            </div>
+          </div>
+
+          <!-- Closing Messages -->
+          <div class="quick-reply-card bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-all" data-category="closing">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs rounded-full font-mono">/close</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">ปิดการขาย</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button class="p-1.5 hover:bg-gray-100 rounded-lg">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                </button>
+                <button class="p-1.5 hover:bg-red-50 rounded-lg">
+                  <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <p class="text-gray-800 text-sm mb-3">ถ้าพร้อมนัดได้เลยนะคะ มีช่วงเย็นวันพรุ่งนี้ว่างอยู่ค่ะ จองเลยไหมคะ? 😊</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>ใช้ไป 167 ครั้ง</span>
+              <span>อัพเดท 2 วันที่แล้ว</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="quick-reply-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">เพิ่มข้อความสำเร็จรูป</h3>
+          <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-6">
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Shortcut</label>
+            <div class="flex items-center">
+              <span class="px-3 py-2 bg-gray-100 border border-r-0 border-gray-200 rounded-l-lg text-gray-500">/</span>
+              <input type="text" placeholder="shortcut" class="flex-1 px-3 py-2 border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-dental-500" />
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">หมวดหมู่</label>
+            <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500">
+              <option value="greeting">ทักทาย</option>
+              <option value="price">ราคา</option>
+              <option value="booking">นัดหมาย</option>
+              <option value="promo">โปรโมชั่น</option>
+              <option value="closing">ปิดการขาย</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">ข้อความ</label>
+            <textarea rows="4" placeholder="พิมพ์ข้อความที่ต้องการ..." class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-dental-500"></textarea>
+            <p class="text-xs text-gray-500 mt-1">ใช้ [NAME], [DATE], [TIME], [DOCTOR] สำหรับ placeholder</p>
+          </div>
+        </div>
+        <div class="p-6 border-t border-gray-200 flex justify-end gap-3">
+          <button onclick="closeModal()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">
+            ยกเลิก
+          </button>
+          <button class="px-4 py-2 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600">
+            บันทึก
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../components/sidebar.js"></script>
+    <script src="../js/quick-replies.js"></script>
+  </body>
+</html>

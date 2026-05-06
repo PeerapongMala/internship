@@ -1,0 +1,84 @@
+import React, { useRef, useState } from 'react';
+import IconLogout from '@core/design-system/library/vristo/source/components/Icon/IconLogout';
+import { cn } from '@core/design-system/library/vristo/source/utils/cn';
+
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  disabled?: boolean;
+  label?: React.ReactNode;
+  placeholder?: string;
+  value?: string | number;
+  className?: string;
+}
+
+const InputFile = ({
+  onChange,
+  required,
+  label,
+  placeholder = 'Choose file...',
+  value,
+  className = '',
+  disabled,
+  ...rest
+}: InputProps) => {
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  const [file, setFile] = useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      setFile(files[0]);
+      onChange && onChange(e);
+    }
+  };
+
+  return (
+    <div className={className}>
+      {/* if label is string */}
+      {typeof label === 'string' && (
+        <div className="my-2 text-base">
+          {required && <span className="text-red-500">*</span>}
+          {label}:
+        </div>
+      )}
+
+      {/* if label is react node */}
+      {label && typeof label !== 'string' && (
+        <div className="my-2 flex">
+          {required && <span className="text-red-500">*</span>}
+          {label}
+        </div>
+      )}
+      <div className="flex">
+        <input
+          id="ctnFile"
+          type="file"
+          className="hidden"
+          required={required}
+          accept="image/*"
+          onChange={handleFileChange}
+          ref={fileInput}
+          value={value}
+          disabled={disabled}
+          {...rest}
+        />
+        <div
+          className="form-input cursor-pointer !rounded-r-none !font-normal"
+          onClick={() => fileInput.current?.click()}
+        >
+          {file ? file.name : <div className="text-gray-500">{placeholder}</div>}
+        </div>
+        <div
+          className="flex cursor-pointer items-center justify-center border border-white-light bg-[#eee] px-3 font-semibold ltr:!rounded-r-md ltr:border-l-0 rtl:!rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+          onClick={() => fileInput.current?.click()}
+        >
+          <IconLogout className="h-6 w-6" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default InputFile;

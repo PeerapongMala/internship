@@ -1,0 +1,626 @@
+{
+	"info": {
+		"_postman_id": "286fb32c-0e0f-41ee-b3a2-a4b4416df937",
+		"name": "fo-g02-d01-game-arriving-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-auth-case-login-with-pin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const access_token = pm.response.json().data[0].access_token\r",
+							"pm.environment.set('access_token', access_token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_code\": \"C-123\", // required\r\n    \"student_id\": \"17340\", // required\r\n    \"pin\": \"1234\" // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/login/pin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"login",
+						"pin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-auth-case-oauth-redirect",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/oauth/:provider/redirect",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"redirect"
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "line",
+							"description": "required, OAuth provider (line / google)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-auth-case-login-with-oauth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider_access_token\": \"ya29.a0ARW5m75VIHgsBfxzRtv0CFoTnw-bEwiO6Se757BWHfpuD9uSSMQxbpkzYd-EK0BPi94HHE83TluS30LpmTkP8EZUaivc_rD-SE_vOhIU9CHh39BKanYAUO2v2Bmec3BRxMSRZG6PbKTwU9gVhxkgf6DwZivg6Q2N95zTMZ77aCgYKAYASARMSFQHGX2MifcXAsw85Tp68_Lfp_5_lwg0175\"  // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/oauth/:provider/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"login"
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "google",
+							"description": "required, OAuth provider (line / google)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-auth-case-get-oauth-profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/oauth/:provider/profile?auth_code=M0VZEIOL6Mz3QZfZldtS",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "auth_code",
+							"value": "M0VZEIOL6Mz3QZfZldtS",
+							"description": "required"
+						}
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "line"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-auth-case-bind-with-oauth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_code\": \"C-123\", // required\r\n    \"student_id\": \"17340\", // required\r\n    \"pin\": \"1234\", // required\r\n    \"provider_access_token\": \"ya29.a0ARW5m75VIHgsBfxzRtv0CFoTnw-bEwiO6Se757BWHfpuD9uSSMQxbpkzYd-EK0BPi94HHE83TluS30LpmTkP8EZUaivc_rD-SE_vOhIU9CHh39BKanYAUO2v2Bmec3BRxMSRZG6PbKTwU9gVhxkgf6DwZivg6Q2N95zTMZ77aCgYKAYASARMSFQHGX2MifcXAsw85Tp68_Lfp_5_lwg0175\" // required\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/oauth/:provider/bind",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"bind"
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "google",
+							"description": "required, OAuth provider (line / google)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-school-case-check-existence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/schools/existence?school_code=C-123",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"schools",
+						"existence"
+					],
+					"query": [
+						{
+							"key": "school_code",
+							"value": "C-123",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-auth-case-admin-login-as",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"patdoepass\",\r\n    \"school_code\": \"C-123\",\r\n    \"student_id\": \"17340\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/login/admin-login-as",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"login",
+						"admin-login-as"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-student-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/students?school_code=C-120&student_id=17340",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"students"
+					],
+					"query": [
+						{
+							"key": "school_code",
+							"value": "C-120",
+							"description": "required"
+						},
+						{
+							"key": "student_id",
+							"value": "17340",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-auth-case-check-admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"patdoepass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/admins/existence",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"admins",
+						"existence"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"patdoepass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/game-arriving/v1/admins/existence",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"game-arriving",
+								"v1",
+								"admins",
+								"existence"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 14:37:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0bbf5d78-4438-4ad2-812d-f1b07167897d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"is_admin\": true\n        }\n    ],\n    \"message\": \"Exists\"\n}"
+				},
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin222@admin.com\",\n    \"password\": \"patdoepass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/game-arriving/v1/admins/existence",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"game-arriving",
+								"v1",
+								"admins",
+								"existence"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 14:38:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "09c143cb-21f7-44ca-80b1-683b712b00c9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 404,\n    \"message\": \"Not found\",\n    \"error_message\": \"sql: no rows in result set\"\n}"
+				},
+				{
+					"name": "401",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"patdoepass2222222222222\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/game-arriving/v1/admins/existence",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"game-arriving",
+								"v1",
+								"admins",
+								"existence"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 14:38:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0bc143cb-21f7-44ca-80b1-683b712b00c9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 401,\n    \"message\": \"Unauthorized\",\n    \"error_message\": \"Unauthorized\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-asset-pre-signed-url-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/game-assets",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"game-assets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/game-arriving/v1/game-assets",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"game-arriving",
+								"v1",
+								"game-assets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 08 Apr 2025 08:21:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1294"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f98723bf-9a17-4a4b-8496-e22bbb8f5188"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"model_id\": \"set1_character1_level1\",\n            \"url\": \"https://cp-dev.obs.ap-southeast-2.myhuaweicloud.com:443/character/set1/character1/level1.fbx?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1744101920&Signature=AqQIIJJdX3XSAP%2BfAOpiZrBJDOw%3D\"\n        },\n        {\n            \"model_id\": \"set1_character1_level2\",\n            \"url\": \"https://cp-dev.obs.ap-southeast-2.myhuaweicloud.com:443/character/set1/character1/level2.fbx?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1744101920&Signature=7DfVE90WAhSloahiroxIqM%2FLL%2Bs%3D\"\n        },\n        {\n            \"model_id\": \"set1_character1_level3\",\n            \"url\": \"https://cp-dev.obs.ap-southeast-2.myhuaweicloud.com:443/character/set1/character1/level3.fbx?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1744101920&Signature=lboWBj84d2Xju3K6vn3s5Ev%2BQLY%3D\"\n        },\n        {\n            \"model_id\": \"set1_character1_level4\",\n            \"url\": \"https://cp-dev.obs.ap-southeast-2.myhuaweicloud.com:443/character/set1/character1/level4.fbx?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1744101920&Signature=3L0z3kt87%2BrdDcJRNcG55VlvK%2Bg%3D\"\n        },\n        {\n            \"model_id\": \"set1_character1_level5\",\n            \"url\": \"https://cp-dev.obs.ap-southeast-2.myhuaweicloud.com:443/character/set1/character1/level5.fbx?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1744101920&Signature=z%2BVYyH7HdKHr3kxCry3A3T9HTP0%3D\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-asset-zip-presigned-url-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/game-arriving/v1/game-assets/zip",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"game-arriving",
+						"v1",
+						"game-assets",
+						"zip"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/game-arriving/v1/game-assets/zip",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"game-arriving",
+								"v1",
+								"game-assets",
+								"zip"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Jul 2025 08:37:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "96732"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "35674669-a6e5-4c1f-873f-4de34feef3e8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character1_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character1/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c0d052d704b13fae4b1aa1c24599c9e6c3e1f8a3c5c70f4b758fadb52b8d18d4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character1_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character1/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2ef5fd183bc8f721c1448a4c362587a102383759f5604c8b690d784fe0959ca3\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character1_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character1/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=4599658df7c59ed9b532149463f9c80c22cab77cd037f8ffad9bc921a58bf33d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character1_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character1/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f9a47f8777363ec697a38214e9a1e8fad940e4b23905acb86bd7514caa6bfeb1\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character1_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character1/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=821d5678240635e8327023103601813c5e98d3249b1b0d609f7fe93931e68df3\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Anteater_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Anteater_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=19f9daa09c5c04479656a135ae6bf974ba43a4bf88f22c675c68fac777e49fe7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Anteater_B\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Anteater_B.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1cf521eaf5f213af8ae6706c14a392c1eedd486b2e92a8ad8e826ad36488c1b4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Armadillo_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Armadillo_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=bcc4640a65df2db814923c47995023b1d80b41972c7fa0c14e5b8a8226469e8e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Armadillo_B\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Armadillo_B.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5da03e0d0c22cb05b1068b83cb909a7b59990e671c4ba3e0a09d73999359096e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bison\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Bison.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b152a3d9adea364a43492bb0e4f93f069b7b6993973e856c2528d56296601ecc\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Chipmunk_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Chipmunk_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=49d3d941259a9651834d7df9595c1f7c1f281608f02080fc6b6c70ebf8f10e8c\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Elk_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Elk_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=07001738dcae7e9c742b4dd2fe685acc686a742e864ea8f4644ec011e9f49b0a\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Iguana_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Iguana_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=6b2d295bbf2a76f3313cf2dbc46f962e3267b8bb7ad3d3ab7c2a9877f62d3d71\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Iguana_B\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Iguana_B.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=9a514fadce0578fb60f2dbe87277ccdaeb27aa1d03d23a2befd7acd63fde485c\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Malayan_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Malayan_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=6086689436dd7c8c26c30a6a289c23efe135c0225112bc6826c9382df3248719\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Peacock\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Peacock.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=cb8644f73e1e6e3c6e06e969a6f0d941feb2a2b7607351aae26a08992a345e94\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Mole\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Mole.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=455023d6d8dd788c858ccf5ba14c9be8cb2a183039b17d3a02f8991b676b2980\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Otter_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Otter_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=280cd73958f09c8259dfae4af7f8ac1b66164b0449199e00334f6adbfa49e052\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Pangolin_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Pangolin_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f29bcbcfd99236ce4b9cf0db7490f6162d34a8c60bb483ad6f282786854e1c3f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Possum_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Possum_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=386bc675a4656f5202e5582346e95035c621e3a5cb3c03bfe896ad4150866444\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Redpanda_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Redpanda_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2797b934caef744c10368712c3a24661a3be70a6d76261fa3a6eaa57fd5dd4ba\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sloth_A\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Model/Sloth_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=7cc6ba441269cfea0e9bb6ce77e5ec343d8e1999d09b749517d41a5cd3278e5e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Anteater_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Anteater_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f21261a81a9e2a865721f60bf7a7818f89def2031b467442fc9d323d449ed216\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Anteater_B_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Anteater_B.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=e11e3bced23b1e5299d83cc36aa0bc4ca68f4c4b57731830afe927c5c4592070\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Armadillo_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Armadillo_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=8765bdfab039a89c02af7d8d872c3349c8ee6fb94fbcb12babed344689a3a14f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Armadillo_B_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Armadillo_B.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=980bc6f106469d852e30259da1ebf26487fa36101a3f70be065d4dcbd2383064\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bison_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Bison_Anim.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=7e77401510f8b6216578a34d23520966eae75f0dabd51d174556943c10a2d4b9\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Chipmunk_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Chipmunk_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c5caf7a556548451eef90f9e421d7532f73b062ef4bcf64edcedd6817f7231d9\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Elk_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Elk_Anim.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=56a93dac7e8cedce3822c1c4b16eaec4c49b9807f333a18d9dcdf42f89f400b7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Iguana_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Iguana_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5a83ecaf1181c3f233da55e945d52c0ab276560fb6b7d60892326a0ef0dce14b\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Iguana_B_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Iguana_B.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=9c7f6c45a9059fbdb51250738de1b81cc0beab9ad2844cd2ce4e5d65d61055ba\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Malayan_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Malayan_AAnim.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1353ab36252b3cc168fc26818e54ec1fb41a4e9cf3074f71443c542769075b4e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Mole_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Mole.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=21c005d01af71a83bbb5dc2120bef0b0fab0d46ba61e5caf107fdee9f0e85038\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Otter_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Otter_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1aec4e3f4d18951985422935e8b6d15bb38aeab1bb65bf9331cd0ca4c869d684\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Pangolin_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Pangolin_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=da0f465f5805558ac7aba8bbd1eae4fbce124bf64175a091719c43562c28f780\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Peacock_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/PeacockAnim.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=fdc89d54de80cd6f3d98d9eeb31d9d909ceb946d4fb882ea4b343dc519242382\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Possum_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Possum_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=46a84d52e0860d8e038dff4418efba4b24213986d7211b759300965d49cdd014\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Redpanda_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Redpanda_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=849ee40ebda8d9b6e408173b7dc17ba8f3ee232d0bd37cb68cd8bb635180a996\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sloth_A_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Pets/Animation/Sloth_A.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=d408400eadbcd3613d501574685e4825a0c72b9e1fe0a9ec9d28abe918922241\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character2_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character2/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a9bb016620a54cef5178ff2e0b3b03a203dbf3023064943e7bcfdeaae302a529\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character2_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character2/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5d74c145517e128e567008f64cf9b26e680677c339fe86b8131f656d339fb8dc\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character2_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character2/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5cb23b25676702fdb5dd6af9b4560c624a682167833ec116e6a77abf81ca6be9\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character2_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character2/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b6e87ba65b31c648d7f9bbe851fdbf97ccf011d32478184c938bef027d13a4c7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character2_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character2/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2ee804310f035e7970e6b1a8af84d99ac585ee5a8603676abde47a47eafc2a47\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character3_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character3/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=58416d16f414b536ac83dec22ce5518f39ec0b608e6a7de240af18464e4bdd77\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character3_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character3/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0f9848b2aa25904c579bb700751c6a1138485b4cb5e242d4b6288161682e3a09\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character3_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character3/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=36303e962cf40f8657f0a5307ff7b88463b6d95926ea6368797bc809cf08b827\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character3_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character3/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f13f2869b97bb7582a23ce2c85cddd212f97e995f69ffa59f80720e0f7b3c533\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character3_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character3/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=589c75c32ebb4b62c0080aab8b7f7c1538f6f6199ff42da821a8467236c792b9\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character4_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character4/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f7a8d2f00c098d6ff6fca5cdeb34a7ebccb6e44079e49045c0728bd6e85315d0\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character4_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character4/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=18e6414deba3fb7a5dd68cf3d72c7937b6c740402ff9ccdc487a91492b7083d3\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character4_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character4/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=928f876dfae927f43d84a18313b79a22bf05376368d02fd824f7781c882a96ae\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character4_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character4/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c2ebf1e5bc4e0d0ef6f4fc0276545ba00f98b05bc33d6da680a38e7046126ffb\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set1_character4_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set1/character4/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=13ce5a96b6fb05532d553ca4d6e72a35af160c97cf09db5245e0fdcaae7e21c0\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character1_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character1/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=db970001fe377adc01b058269a4efaf837bcb38a7b165115d72b3e0ce38d1413\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character1_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character1/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=81fb5f66abebf270bc14d4bef131e58d1faef7edf28c669f882a1eaae613d6e5\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character1_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character1/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1285aacb015f389929c993d16a36f21d334d8fa5120f6d283e95e0f2919a3b64\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character1_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character1/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2d22ee051f7867d5aa126be71186c3e9d62a102fd2cd137d3fc76901b4030d2e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character1_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character1/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=11d6775a5f13444c78564c27f32d99b8c5ed81f74788f39894d550251b7c5c45\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character2_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character2/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=032eea7e7a0a7da0f7da394d850697a92054172c6e15ee97e4a76ac9a730a0dc\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character2_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character2/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=75ccde4eca253f69ec323c9e0d576931adefce5188b12e1cebbb96475dcbf223\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character2_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character2/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c622b7d9a23e8ba6b052a0c823dfc1bd851937c23428a032dfd079a00919f4b4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character2_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character2/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=8d42f17ede82c274ec8c599e725a94b2cee0109b368e68d87be7b9ece3411752\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character2_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character2/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c2bf4d3f108ce4c6a18d5b20096b17b5476561dce70d2367e56f2ac3e15aa08d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character3_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character3/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=66273f8109b0cb92609397114b2265b3346ce7ee81bb94dd168b0a2486ec8be2\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character3_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character3/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0bb9d08f3ec9eea74a865f70ad87b21fb86b89bc2f1a01af3dd5824cfccdaea4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character3_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character3/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2a7562df7a24ae98bc5f08fa13cbc9f7d0428e8ce4351a0a2df2c8ef64792c53\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character3_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character3/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=ceddae9c1b628dfd051512af7369420bd3ba6a4820896b0e9f115fc26778a53f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character3_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character3/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=114fa0acbc4f8da60d39a2c7c1a007eebfb09acf9f9032f9b930638626439d6b\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character4_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character4/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0d06fa03de9b01a5fc2973f2162aabc58aacc05d4c4b9151900b435115c9ab7f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character4_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character4/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=add265d409a9f621bab90d9df44776062ff4650ed590b3d15507ef0863029d76\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character4_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character4/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=dd09111ae57b8c569093cdbf7c87573212c53b14d22c590563bf17b74a012be4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character4_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character4/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=6c6681e6b459cceac03b67033548b4cfb15d84631c9333b1f7c47df3d9165f06\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set2_character4_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set2/character4/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=8f0b4ce4ac1b5c68082c0909aece59b9e6946d3a7eff67edb63eb4c1ac0adad7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character1_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character1/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2796f3a4f65d24d10d09f987b8cb27283cded91542a500f168b47c135fbcde8a\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character1_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character1/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=e600e3e66659cfea87f92b48808c00e162c1c606266c4e13d32e4e401f50026d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character1_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character1/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5c4032f5de4d327f2cd9c41336bde2f67d6c3335a6f1014ed34ba25306b1e04f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character1_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character1/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=92e034b5805244df350610c577aaa9da88413df502495c618b4842275b30ece4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character2_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character2/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=614fb9769dcde736260cd32686b45c4237500d122ed72eecd0799ab2cefc9053\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character2_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character2/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=560197fc633994958d12bd2ef5058caee450ee5e104e08b3a80498f8e53f7365\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character2_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character2/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=781c34f8c3da483496b449a847f241a649a147ac5eff0e9ddae40968204c1bea\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character2_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character2/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=fedd146b63dc96f355752ddc96975d2b3392bc803e5478203c62f3e8098b887f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character3_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character3/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=aabf72b9c5371841d9b22341315f33d32936900d4cd8e9f2ab3d5b97985c06d1\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character3_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character3/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=7211e870b3ac8c435e401c80e815a777c70154f781a64e78939bfcb118a0ce2c\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character3_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character3/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=00346a8b88b6ae5ba988398530469c0aefe1eb12e1571265df5ad573d80b02ad\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character3_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character3/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a2503c2382a5553575a6bed0dfa58ca12f34414da057dd37c1ab46af66c23cfb\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character3_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character3/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=4069c4f75cc5fb08243bb8e3c7588271b18fc356f0048edfe02ed94cecd54cce\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character4_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character4/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=7cef2fe349814f68cd136f34a152cb1b5e8fdf03c319d81d1588fead06012967\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character4_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character4/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b969b7ce9563fc7e6b9a1edba6fd974221fafe41539fff4bdae8931bb173b1a9\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character4_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character4/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=67044aba9b8cbb697aaaa24c4c6a9144b9fed57786c0b4f968ec3ec94189c694\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character4_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character4/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=303509a65d4ee0fd5cd74d6c77ea0c6f62951f5d6197759a9ada96dfe02f19b3\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character1_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character1/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=d10ed68945ba5c793d36642e0bb6d274bbd4d69f1de3a3d0e18d1685e91c8456\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character1_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character1/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=927d59cb03d1bc051f1d266b436d60abe1c9f113da4776091ee753aa5f3048a7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character1_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character1/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5b1114dcc015d9f56060b0f31e3a9fb7a2f2cf72df0bacc459b3d863d74cb205\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character1_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character1/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b88e3e03dfe0491f1a17a5aa0b153b747cfac09fa24a3dbc360635e04e6a4454\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character2_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character2/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=75c6487f4d143f8201e2ac6dfd41c510b8cc483b6f470bb94f1808786a7aa5a5\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character2_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character2/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=08869d1cbe292ccf28c0d41a0c4cfec1770b71cf1f24c86b199692dbfd1bdbab\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character2_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character2/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=244bc9b266a848cdbedd3d9174fce51c49a20b51d047e7b4605943dfba60276b\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character2_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character2/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a100c0bcc0a9052a397e83b80ad4c2ecba95a83ab5cc9fabcf91ddd4312f7b94\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character2_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character2/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a50e977fe7bbeb0167cf78dee63954a25b83d643ccd9e83b31dccaad09dbb007\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character3_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character3/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=ab17ce37f593d1cc5cc3cc1c4f2d60c64fe4dc5dc0e9f305e6be579d48da7553\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character3_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character3/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=9e6642fc7373e39f8d20cc1b034e8117e0dab76fbd9ae5d5eb9d214eef46ce41\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character3_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character3/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f9e0c00e9dc9d29605478afe6cad19eeba2731865d9d887701de752df9a7a3dd\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character3_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character3/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b757a99f40bc538b40a281380543ab5838a29e4a8b29f8080825e300014375b7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character4_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character4/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=263509ec3620920ce9e46f218e4cd74296027ce74048aca6efd750784f860ab9\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character4_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character4/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=89824fe0bdf086a8bfb24963ab385e2f1359a08672aff80b0db8894cfdbb8ecc\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character4_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character4/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1e9e6d5456cbe761a7e4555e6d802a071f4e49183af086a226f629ef980f223d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character4_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character4/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=39aeb7dba40428a71569f15b4dcad4a14cb70a12fdc00b0f175c648479a77ee2\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character1_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character1/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=177005c7c665e4caacdfa0e4d9f9bb5af751f4df9c729af63f5b5ad058cdfb8f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character1_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character1/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=8590d2318cb592f9d4b909d72b7b5ed9307544870d581043e6ad0382226c3623\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character1_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character1/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=955fb1abcf5fb09f900455481c6cc1c658aaed8a0edd5a249995a95a2a8a07b8\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character1_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character1/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c763528cea4636a839ee7b6765e163b4fbc6e46257d75b8261bf87d65bf97b83\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character1_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character1/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1398532cb23b26dbf24e597f13385a35af438dc6c8a2f84e74f19cca79ca5d3a\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character2_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character2/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5c2fe5eed901d081df3746326dab6405f1e317bd2c01aa9b22374bf6906dc949\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character2_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character2/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=89ddaebea14732b947114a2d437372c8d348ae6cb1631a87d0aa2074e9bb6e24\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character2_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character2/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=3ff9f75b0c23aadcacf3edb01238f67ec2561cd6d80793262bead62b90b4c2e4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character2_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character2/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0effd33f72821a1ee2c57e902ff7916b19d54abfeb8fd59a8035e479b8cf16bf\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character3_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character3/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0a9f9e4e8131bf2ebf36037dfefb1719bb354d6b655484db32e0f56e8fdca8c4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character3_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character3/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=ea6b61d22c57ecf969666d8709e1b97dd68ededae1a3a467b9330ce1c171b9de\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character3_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character3/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=fdedf72586720b218753dacf941cb7f656843430c1c6c06522a7fe7b702d3247\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character3_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character3/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a2fbd37d3d2995adab29f0282d22416743665325d0cf9f13f5218325d42f3300\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character3_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character3/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2f147c5253f7445212f57ea59503342831e4160eff540aeff9d635d06e2175da\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character4_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character4/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=114cbc0d1353b07d076fe15e6d29dbe41647e7a3e9164483fbc5be911b262a00\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character4_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character4/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=3f1cdba4e1c86a9c31060af22bd14385b4ebe57f981db841bb7f7908b9970f7c\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character4_level4\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character4/level4.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f8caee8e8493f241f2abc305bdbbb6644fe2782cbebeec0e5b51b351415b3eb4\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character4_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character4/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=166ff41e5cb6c485808162f4ebb729e01d443f6c1df3e988e7579dc85b5eb944\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bloom\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Bloom.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=6c9bcc14cd28d63736a7d758ee15161b353ad378a11d2e04f62c6cd4a0e98788\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Blossom\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Blossom.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=1147551e0a1e95bd2b159b0d8a236851bd340542b963720f2002e0a28d4955a1\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bomb\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Bomb.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=bd8760336baa6cd748cbaf83552be4abd23caaf80fa9c06562e97375bc5e112a\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Dragon_Fire\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Dragon_Fire.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2d58253f874c33f31fb2e628032d9f99cedb5d4221616f79d873c9b66fdd45f3\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bud\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Bud.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5353709dcb34ccecef123f002c101ccbc593772358e0b2b2e52e3d4408280c84\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Dragon_Spark\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Dragon_Spark.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=6b12722366421c6aee16aad6690f0d495ab44cb5195f23110f5772c7e7404ac1\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Hermit_King\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Hermit_King.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=dace2556d51337bf8270245b2f160d07adf12cc65219338cb96333a70d993179\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Poison_Bomb\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Poison_Bomb.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=ca53c24e90863a6cfd51a7a0715ef8eb4b23438ec3d31cf40d205395e50d259b\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Practice_Dummy\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Practice_Dummy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=481025972515817d14af263c0f8ef6c36cb57189b43ce2b0c148cfb8db2e9846\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Shell\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Shell.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5e7ba655c1381e3d50c40973bc11d404602341fa719c316d44b1ea1db80d9f3e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snake\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Snake.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=917501a01759d00ac0b65d08be60757ce37b195516b4ed52e94bb2e95a506f84\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snakelet\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Snakelet.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=be78ce0851eba8d89961f31f259ef62197f5c6b83d9deab475a15cd41aafa848\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snow_Bomb\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Snow_Bomb.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=71d1245bdc1cfac8db451fe435c4caa87403b64531d604e8b88b3f62456e10b3\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Spike\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Spike.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=ae8a66bf38543f764c64e570ed88debada647c2affbbbb4eac701485f0d2bf3d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sun_Blossom\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Sun_Blossom.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=208214f526fef12b51ab82630595e17e947c443a2ce9bfa8b1b66d386d1ce269\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sunflora_Pixie\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Sunflora_Pixie.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=3c161a2d09d72ddfefbe101542769635435b6379de358890aa5041dffc283bee\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sunflower_Fairy\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Sunflower_Fairy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=238687ce4d5c35e05451798eea73cd260e61a22da74b20f4ea48e166c1eb6c88\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Target_Dummy\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Target_Dummy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=3a414b4e32063aa6c78bb8dd7dd07b818b687ce9cddc0fd8580a35f4c624e533\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Blossom_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Blossom.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b0424f9f5bec6c62cf2bebe8cb99f99df08e50c64912edec29a5f73977144a23\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bomb_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Bomb.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=88f32b0184447e73e107dd0372150062fa80dd0bfc060fd8512d276ecd2d2024\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Dragon_Fire_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Dragon_Fire.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=9bdb7c8b14b89bec514a0ac2a6003472e85c32e527add2c7ccc68eb6c4049f6d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bud_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Bud.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=da0a260db5c7d0a9cf3ced83b6ec572de8d83307ee6bd22de7a6d7588f8825fa\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Dragon_Inferno_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Dragon_Inferno.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=39c4fc17cf8d52093543262ab033dacf4175627e7da80b498c30ca735756cbdf\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Dragon_Spark_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Dragon_Spark.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b783bbde2fad52a28a042f1413f8c986ec73fc5b9f6501147d3bd28fea60dc1c\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Hermit_King_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Hermit_King.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=48aabaf590d00555b86e762ea7cdbd46dba834535372ab7607aa35885d531817\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Poison_Bomb_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Poison_Bomb.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=6b2f057062110c5d3452cb8946863a436f991a4e62a02a809e526e5ffb0e9863\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Shell_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Shell.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=667f62e887a238ce713b8143630c5f8bb2edbcf80dce7f3032ec639b612d13fa\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snake_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Snake.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=34b73e66397a2ec0d7b4411d2a0cbfee2bae9d72c82ff5dbb08e10c75580e16d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snake_Naga_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Snake_Naga.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5d69383145c42b3fa9c2bf6afe7f97a8c8116f996d8a28bad0a68e518474cb89\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snakelet_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Snakelet.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=26d9fc67aa5a5c8fb899bf847c8dccb75480ec752cb3fcb3fb143d4cf6cdd1f5\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snow_Bomb_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Snow_Bomb.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=d4aae097b1aee5924677618b85dbb1dfdb277d79e25f332c549a4503abc45886\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Spike_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Spike.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=c1ce29a1a990477be8723847c6d5a58aafe5190cd78eaf27d83e4c5faeed3524\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sun_Blossom_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Sun_Blossom.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0e42119c78bd4418f1d5b9cc157acd74419fcd01bf8a81ef3c8ab632464c405a\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sunflora_Pixie_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Sunflora_Pixie.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=9c10b9764bea1f383c4850be9a7dd726f05a78809f4597a29c3a3a9a87399251\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character1_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character1/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=4eebdf0e284be96d02fe812dd8c9397e65ffd3572c0105af68b30db9ecd9a133\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character2_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character2/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=aa09f038ce0c46c93ca120209179b45412ddc006fe7c8ec2e980edd2ab2461b7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set3_character4_level2\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set3/character4/level2.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=21dc25179b9b9aa96cdaf2d3908523004c65fdc1ca4fb7ddfcfee3d7066aa73e\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character1_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character1/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f63e9d121300135c0dbf0c58a09f610800fdae58947d9a848ac720630de83a1f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character3_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character3/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=cbb7fea0f46d0bed28b5bcab81e4010ee38827ad7842ac35c38b717db9fccefd\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set4_character4_level5\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set4/character4/level5.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=d9deffd4e83722157079fef5b39e9ce1a6c03337d6b0e9aa1d020ef34599cb43\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character2_level3\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character2/level3.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a0a9a1515d837c39af1385bb4abd1f2c736c34b463caa8c61f4913dc050ab76c\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"set5_character4_level1\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Set5/character4/level1.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=a5010e3d932029549b31d79d08b98875f70162afef3cd9c1da213ea7eeded6e7\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Dragon_Inferno\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Dragon_Inferno.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0ed271ce868ce4b2597cd54318301ca0a05b275e6d1f25510f5daf55dfe87a00\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Snake_Naga\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Snake_Naga.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=72de35680b5aaf323e518eb2fa6f89a40d1bbfb57086d8fe10cff2b4bc12f7fd\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Bloom_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Bloom.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=7e5e49b519e41f8553f28b666ba03723b6a0a42ee0df4abe87664c64a07dd05d\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Practice_Dummy_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Practice_Dummy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=65f3bbfe0d8e4f580ecb0f6a6686cc23e4020ff90928a6b8d9b92bb9103a2018\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Sunflower_Fairy_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Sunflower_Fairy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f857773f7a0e9a6fd14d63f85e49a2457a55ade508dca5adae6aa7ddec83d676\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Target_Dummy_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Target_Dummy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=9defefd229de3a7c3f20815e2784ff1a408e83e5934eeeba569f54f634d3166f\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Training_Dummy_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Training_Dummy.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=fb2bfb28f86ab850d0a939f8a7f991cf1da9568495481db71fa90a7a2630e140\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Werewolf_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Werewolf.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=87290440da56c52c4ddf290df35e4dbe660ff90f870861ff23fdb0219581a499\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Wolf_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Wolf.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=58160de078835113cc3281965709407dfb911d36ba3bea24986c67cfb959b134\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Wolf_Pup_Anim\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Animation/Wolf_Pup.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=49b71963ab002436784e989a30f8a7c8a1b8f21506e0a2d9ef7a5fc6dd314656\"\n        },\n        {\n            \"model_version_id\": \"1.0.4\",\n            \"model_id\": \"Werewolf\",\n            \"url\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/Model/Monster/Model/Werewolf.fbx.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250709%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250709T083738Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=f9cba27be6cd514c7d7d7c0692dc295cc7aeb2aa1508376d45dbbe6c8b49b49c\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

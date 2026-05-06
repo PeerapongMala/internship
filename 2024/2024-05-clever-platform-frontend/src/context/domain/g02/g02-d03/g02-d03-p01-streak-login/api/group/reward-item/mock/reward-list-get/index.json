@@ -1,0 +1,66 @@
+[
+  {
+    "subject_id": 1,
+    "day": 1,
+    "item_id": 1,
+    "gold_coin_amount": null,
+    "arcade_coin_amount": null,
+    "ice_amount": null,
+    "item_amount": 1,
+    "tier": 3,
+    "type": "badge",
+    "name": "item badge 1",
+    "description": "item badge 1 description",
+    "image_url": "https://e7.pngegg.com/pngimages/626/893/png-clipart-blue-and-white-check-logo-facebook-social-media-verified-badge-logo-vanity-url-blue-checkmark-blue-angle-thumbnail.png"
+  },
+  {
+    "subject_id": 1,
+    "day": 2,
+    "item_id": null,
+    "gold_coin_amount": 10,
+    "arcade_coin_amount": null,
+    "ice_amount": null,
+    "item_amount": null,
+    "tier": 1
+  },
+  {
+    "subject_id": 1,
+    "day": 3,
+    "item_id": null,
+    "gold_coin_amount": null,
+    "arcade_coin_amount": 15,
+    "ice_amount": null,
+    "item_amount": null,
+    "tier": 1
+  },
+  {
+    "subject_id": 1,
+    "day": 4,
+    "item_id": null,
+    "gold_coin_amount": null,
+    "arcade_coin_amount": 15,
+    "ice_amount": null,
+    "item_amount": null,
+    "tier": 1
+  },
+  {
+    "subject_id": 1,
+    "day": 5,
+    "item_id": null,
+    "gold_coin_amount": null,
+    "arcade_coin_amount": 15,
+    "ice_amount": null,
+    "item_amount": null,
+    "tier": 1
+  },
+  {
+    "subject_id": 1,
+    "day": 6,
+    "item_id": null,
+    "gold_coin_amount": null,
+    "arcade_coin_amount": null,
+    "ice_amount": 1,
+    "item_amount": null,
+    "tier": 2
+  }
+]

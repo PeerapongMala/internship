@@ -1,0 +1,391 @@
+/* ===== Tax Plan Page ===== */
+.tax-content {
+  max-width: 1100px;
+}
+
+/* ===== Shared Card ===== */
+.tax-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.tax-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+/* ===== Top Grid ===== */
+.tax-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* ===== Input Card (left) ===== */
+.tax-input-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tax-input-header .tax-card-title {
+  margin-bottom: 0;
+}
+
+.tax-level-select {
+  padding: 6px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--gray-700);
+  background: var(--white);
+  outline: none;
+  cursor: pointer;
+  min-width: 120px;
+  transition: border-color 0.15s ease;
+}
+
+.tax-level-select:focus {
+  border-color: var(--primary);
+}
+
+/* ===== Basic Fields (stacked) ===== */
+.tax-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tax-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tax-field-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.tax-field-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.tax-field-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--gray-800);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tax-field-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+/* ===== Advanced Fields (view mode — horizontal rows) ===== */
+.tax-adv-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.tax-adv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.tax-adv-row:first-child {
+  padding-top: 0;
+}
+
+.tax-adv-row:last-child {
+  border-bottom: none;
+}
+
+.tax-adv-label {
+  font-size: 14px;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.tax-adv-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: right;
+}
+
+.tax-adv-total {
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1.5px solid var(--gray-300);
+  border-bottom: none;
+}
+
+.tax-adv-total .tax-adv-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.tax-adv-total .tax-adv-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* ===== Edit / Save Buttons ===== */
+.tax-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.tax-edit-btn:hover {
+  background: var(--gray-50);
+}
+
+.tax-edit-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.tax-edit-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tax-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.tax-action-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.tax-action-btn.cancel {
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+.tax-action-btn.cancel:hover {
+  background: var(--gray-50);
+}
+
+.tax-action-btn.save {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+}
+
+.tax-action-btn.save:hover {
+  opacity: 0.9;
+}
+
+/* ===== Result Card (right) ===== */
+.tax-result-card {
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tax-result-label {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.tax-result-value {
+  font-size: 40px;
+  font-weight: 700;
+  color: #4ADE80;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.tax-result-details {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tax-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tax-result-detail-label {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.tax-result-detail-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===== Tax Brackets Card ===== */
+.tax-brackets-card {
+  margin-bottom: 32px;
+}
+
+.tax-brackets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tax-bracket-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 140px;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.15s ease;
+}
+
+.tax-bracket-row:last-child {
+  border-bottom: none;
+}
+
+.tax-bracket-row.active {
+  background: var(--gray-50);
+}
+
+.tax-bracket-row.current {
+  background: var(--primary-50);
+  border-left: 3px solid var(--primary);
+}
+
+.tax-bracket-rate {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.tax-bracket-row.current .tax-bracket-rate {
+  color: var(--primary);
+}
+
+.tax-bracket-bar-area {
+  height: 8px;
+  background: var(--gray-100);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 16px;
+}
+
+.tax-bracket-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.tax-bracket-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.tax-bracket-range {
+  font-size: 13px;
+  color: var(--gray-500);
+  text-align: right;
+  font-weight: 500;
+}
+
+.tax-bracket-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-50);
+  border: 1px solid var(--primary-200);
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .tax-top-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tax-result-value {
+    font-size: 30px;
+  }
+
+  .tax-input-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tax-level-select {
+    width: 100%;
+  }
+
+  .tax-bracket-row {
+    grid-template-columns: 50px 1fr 110px;
+  }
+}

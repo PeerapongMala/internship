@@ -1,0 +1,12 @@
+/* index.css */
+:root {
+    --color-background: #ffffff; /* สีพื้นหลังใน light mode */
+    --color-text: #000000;       /* สีข้อความใน light mode */
+  }
+  
+  .dark {
+    --color-background: #262626; /* สีพื้นหลังใน dark mode */
+    --color-text: #D7D7D7;       /* สีข้อความใน dark mode */
+    
+  }
+  

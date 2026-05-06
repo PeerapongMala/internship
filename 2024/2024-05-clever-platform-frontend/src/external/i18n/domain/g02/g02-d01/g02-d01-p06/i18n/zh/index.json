@@ -1,0 +1,20 @@
+{
+  "placeholder_school": "请输入学校代码...",
+  "placeholder_user": "请输入用户代码...",
+  "plase_link_your_account": "请绑定您的账户",
+  "link_social_account_with_clever": "将社交账户与CLEVER账户绑定",
+  "school_code_incorrect_please_try_again": "学校代码不正确，请重试",
+  "cant_sign_in": "无法登录？",
+  "contact_us": "联系我们",
+  "link_account_success": "账户绑定成功",
+  "close": "关闭",
+  "offline_mode": "离线模式",
+  "use_this_mode_if_this_device": "如果此设备",
+  "not_personal_device": "不是个人设备，使用此模式",
+  "cant_link_account": "无法绑定账户",
+  "school_user_code_incorrect": "学校代码 / 用户代码不正确 / PIN码不正确",
+  "please_try_again_or_contact_admin": "请重试或联系管理员",
+  "next": "下一步",
+  "login": "登录",
+  "placeholder_pin": "请输入PIN码..."
+}

@@ -1,0 +1,205 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/select2-plugins/css/select2.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/select2-plugins/css/select2-bootstrap-5-theme.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap-icons/font/bootstrap-icons.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/toastr-notifications/css/toastr.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/sweetalert2/css/sweetalert2.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/operation-setting.css")" />
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <title>Verify Setting Page</title>
+</head>
+<body data-root-path="@Url.Content("~/")" path-base-bss="@BSS_WEB.Helpers.AppConfig.PathBase">
+    @Html.AntiForgeryToken()
+    <!-- begin::Page loader -->
+    <div id="pageloading" class="bss-loading">
+        <div class="bss-loadingcontent">
+            <div class="bss-loadingspinner">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-warning" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-info" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-dark" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end::Page Loader -->
+    <div class="pattern-left"></div>
+    <div class="pattern-right"></div>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="@Url.Content("~/images/logo-bss.svg")" width="40" height="40" class="d-inline-block align-top" alt="" />
+                    <img src="@Url.Content("~/images/logo-bss-label.svg")" width="160" height="18" class="d-inline-block align-top" alt="" />
+                    <span id="brand-label" class="d-inline-block align-bottom">ระบบตรวจสอบการนับคัดธนบัตร Version 1.0.0</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- The main navigation container -->
+                <div class="collapse navbar-collapse" style="margin-left: 50px !important;" id="mainNav">
+                    <!-- Renders the view component-->
+                    @*  @await Component.InvokeAsync("Menu") *@
+                </div>
+
+                @*                 <div>
+                <h6 id="user-name-display" class="d-inline-block align-top">@User.FindFirst("FirstName")?.Value @User.FindFirst("LastName")?.Value</h6>
+                <span id="span-role-display" class="d-inline-block align-bottom">( @User.FindFirst("RoleName")?.Value )</span>
+                </div> *@
+                <div class="dropdown" id="dropdownUser">
+                    <a href="#" id="linkUser" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i id="user-icon-profile" class="bi bi-person-circle"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="linkUser">
+                        <li>
+                            <a class="dropdown-item" href="#" id="btnLogOut"><i class="bi bi-box-arrow-right" fill="currentColor" id="btnLogOut" style="font-size: 18px !important;"></i> ออกจากระบบ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" id="container-operation">
+        <div class="form-container-operation">
+            <form id="form-operation-setting">
+                <div class="row">
+                    <div class="operation-setting-title">
+                        <p>ตั้งค่าการทำงานเริ่มต้น</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="operation-setting-datetime">
+                        <p id="p-setting-datetime">Date/Time: 15/11/2568 15:45:00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="operation-setting-bn-type">
+                        <label class="form-label" id="label-banknote-type" for="radioBanknoteType">ประเภทธนบัตร</label>
+                        <div class="radio-group-banknote-type">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioBanknoteType" value="UF" id="radioBntUnfit">
+                                <label class="form-check-label" for="radioBntUnfit">
+                                    <span id="spanViewUnfit" class="badge badge-unfit">Unfit</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioBanknoteType" value="CN" id="radioBntUnsortCaNonMember">
+                                <label class="form-check-label" for="radioBntUnsortCaNonMember">
+                                    <span id="spanViewUnsortCaNonMember" class="badge badge-unsort-ca-non-member">Unsort CA Non Member</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioBanknoteType" value="CA" id="radioBntUnsortCaMember">
+                                <label class="form-check-label" for="radioBntUnsortCaMember">
+                                    <span id="spanViewUnsortCaMember" class="badge badge-unsort-ca-member">Unsort CA Member</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radioBanknoteType" value="UC" id="radioBntUnsortCc">
+                                <label class="form-check-label" for="radioBntUnsortCc">
+                                    <span id="spanViewUnsortCC" class="badge badge-unsort-cc">Unsort CC</span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="operation-setting-sorting-machine">
+                        <label class="form-label" id="label-operation-setting-sorting-machine" for="ddlSortingMachine">Sorting Machine <span class="text-danger"> * </span></label>
+                        <div class="col-12 ddl-sorting-machine">
+                            <select class="form-control form-select" id="ddlSortingMachine">
+                            </select>
+                            <div class="invalid-feedback">this field is required! </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="operation-setting-submit-button">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary" id="btnSetOperation"> เข้าสู่การทำงาน </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="operation-setting-logout-button">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-close-white" id="btnOperationLogout"> ออกจากระบบ </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =======  Modal Confirm  = Start    ========================== -->
+    <!-- Modal Confirm Logout: ยืนยันการออกจากระบบ -->
+    <div class="modal fade" id="confirmLogoutModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center py-5">
+                    <div class="mb-4">
+                        <div class="modal-warning-title">
+                            <i class="bi bi-exclamation-diamond-fill"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mb-3">ออกจากระบบ</h3>
+                    <h6 class="mb-4">คุณแน่ใจหรือไม่ที่ต้องการออกจากระบบ</h6>
+                </div>
+                <div class="modal-footer d-flex justify-content-center gap-2">
+                    <button class="btn btn-gray px-4" data-bs-dismiss="modal" id="btnConfirmClose">ยกเลิก</button>
+                    <button class="btn btn-red px-4" id="btnConfirmLogout">ยืนยัน</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+    </script>
+    <!-- =======  Modal Confirm  = End    ========================== -->
+
+    <!--end::Page Scripts -->
+    <!-- ================== BEGIN HELPERS JS ================== -->
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/lib/select2-plugins/js/select2.full.min.js")"></script>
+    <script src="@Url.Content("~/lib/toastr-notifications/js/toastr.min.js")"></script>
+    <script src="@Url.Content("~/lib/sweetalert2/js/sweetalert2.all.min.js")"></script>
+    <script src="@Url.Content("~/js/helpers/bss-ajax.js")"></script>
+    <script src="@Url.Content("~/js/main/verify-setting.js")"></script>
+    <!-- ================== END HELPERS JS ================== -->
+</body>
+</html>

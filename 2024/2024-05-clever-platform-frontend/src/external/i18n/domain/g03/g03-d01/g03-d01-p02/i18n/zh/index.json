@@ -1,0 +1,12 @@
+{
+  "contact_us": "联系我们",
+  "display_role": "角色: {{ role }}",
+  "copy": "复制",
+  "edit_account": "编辑账户",
+  "edit_password": "编辑密码",
+  "upload_history": "上传历史",
+  "account_info_title": "账户信息:",
+  "account_info_uuid": "账户ID (UUID): {{ uuid }}",
+  "account_info_student_id": "学生ID: {{ studentId }}",
+  "account_info_school": "学校: {{ schoolName }} ({{ schoolId }})"
+}

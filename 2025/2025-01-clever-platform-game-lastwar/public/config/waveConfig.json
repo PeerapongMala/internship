@@ -1,0 +1,150 @@
+{
+  "waveList": [
+    {
+      "name": "wave1",
+      "spawnList": [
+        {
+          "distanceAt": 0,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 0,
+              "effect": "burst",
+              "value": "2"
+            },
+            {
+              "type": "obstacle",
+              "lane": 1,
+              "scoreMultiplier": 1.5,
+              "statMultiplier": 2
+            }
+          ]
+        },
+        {
+          "distanceAt": 5,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 2,
+              "effect": "burstSpeed",
+              "value": "0.5"
+            },
+            {
+              "type": "obstacle",
+              "lane": 0,
+              "scoreMultiplier": 1.5,
+              "statMultiplier": 2
+            }
+          ]
+        },
+        {
+          "distanceAt": 10,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 1,
+              "effect": "burst",
+              "value": "3"
+            },
+            {
+              "type": "obstacle",
+              "lane": 2,
+              "scoreMultiplier": 1.8,
+              "statMultiplier": 2.5
+            }
+          ]
+        },
+        {
+          "distanceAt": 15,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 0,
+              "effect": "burst",
+              "value": "4"
+            },
+            {
+              "type": "obstacle",
+              "lane": 1,
+              "scoreMultiplier": 2,
+              "statMultiplier": 2.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wave2",
+      "spawnList": [
+        {
+          "distanceAt": 0,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 0,
+              "effect": "burst",
+              "value": "5"
+            },
+            {
+              "type": "obstacle",
+              "lane": 1,
+              "scoreMultiplier": 2,
+              "statMultiplier": 3
+            }
+          ]
+        },
+        {
+          "distanceAt": 5,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 2,
+              "effect": "burstSpeed",
+              "value": "-0.3"
+            },
+            {
+              "type": "obstacle",
+              "lane": 0,
+              "scoreMultiplier": 2.5,
+              "statMultiplier": 3
+            }
+          ]
+        },
+        {
+          "distanceAt": 10,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 1,
+              "effect": "burstSpeed",
+              "value": "0.7"
+            },
+            {
+              "type": "obstacle",
+              "lane": 2,
+              "scoreMultiplier": 2.5,
+              "statMultiplier": 3.5
+            }
+          ]
+        },
+        {
+          "distanceAt": 15,
+          "objectList": [
+            {
+              "type": "wall",
+              "lane": 0,
+              "effect": "burst",
+              "value": "-3"
+            },
+            {
+              "type": "obstacle",
+              "lane": 1,
+              "scoreMultiplier": 2.5,
+              "statMultiplier": 3.5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

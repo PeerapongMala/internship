@@ -1,0 +1,3828 @@
+{
+	"info": {
+		"_postman_id": "1eaa8ff6-5480-492d-ae94-33c2a8e95480",
+		"name": "bo-g02-d05-academic-level-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "g02-d05-a01-api-level-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"patdoepass\",\r\n    \"sub_lesson_id\": 1, // optional, id ของบทเรียนย่อย\r\n    \"bloom_type\": 2, // optional, bloom (1-6), frontend config\r\n    \"tag_ids\": [ // optional, id ของ tag\r\n       null,\r\n       null\r\n    ],\r\n    \"sub_criteria_topic_ids\": [ // optional, id ของหัวข้อมาตรฐานย่อย\r\n        1,\r\n        4,\r\n        7\r\n    ],\r\n    \"level_type\": \"pre-post-test\", // optional, ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config\r\n    \"difficulty\": \"medium\", // optional, ระดับความยาก (easy = ง่าย / medium = ปานกลาง / hard = ยาก), frontend config\r\n    \"lock_next_level\": true, // optional, ล๊อคด่านถัดไป\r\n    \"timer_type\": \"no\", // required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config\r\n    \"timer_time\": 2, // optional, จำนวน (วินาที)\r\n    \"status\": \"disabled\", // optional (setting = ตั้งค่าด่าน / question = จัดการคำถาม / translation = แปลภาษา / speech = สร้างเสียง / enabled = เผยแพร่ / disabled = ไม่ใช้งาน), frontend config\r\n    \"wizard_index\": 4, // optional, ลำดับปัจจุบันของ wiard (1-5)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/levels/:levelId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"levels",
+						":levelId"
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "219",
+							"description": "required, ID ของด่าน"
+						}
+					]
+				},
+				"description": "อัพเดทด่าน"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a02-api-level-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:subLessonId/levels?page=1&limit=-1&id=59",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":subLessonId",
+						"levels"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, pagination page"
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, pagination limit"
+						},
+						{
+							"key": "id",
+							"value": "59",
+							"description": "optional, id ของด่าน"
+						},
+						{
+							"key": "tags",
+							"value": "1",
+							"description": "optional, tag",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "10",
+							"description": "optional, tag id ของ level",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "3",
+							"description": "optional, tag id ของ level",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "question",
+							"description": "optional, tag id ของ level",
+							"disabled": true
+						},
+						{
+							"key": "difficulty",
+							"value": "medium",
+							"description": "optional, ระดับความยาก (easy = ง่าย / medium = ปานกลาง / hard = ยาก), frontend config",
+							"disabled": true
+						},
+						{
+							"key": "level_type",
+							"value": "pre-post-test",
+							"description": "optional, ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config",
+							"disabled": true
+						},
+						{
+							"key": "question_type",
+							"value": "multiple-choices",
+							"description": "optional, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "subLessonId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "list ด่าน"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a04-api-level-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/2024-05-clever-platform-backend/v1/src/context/domain/migration/postgres/helper/3-level-main.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:subLessonId/levels/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":subLessonId",
+						"levels",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "subLessonId",
+							"value": "470",
+							"description": "required, ID ของบทเรียนย่อย"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a06-api-level-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sub_lesson_id\": 1, // required, id ของบทเรียนย่อย\r\n    \"bloom_type\": 1, // required, bloom (1-6), frontend config\r\n    \"tag_ids\": [ // optional, id ของ tag\r\n       \r\n    ],\r\n    // \"sub_criteria_topic_ids\": [ // optional, id ของหัวข้อมาตรฐานย่อย\r\n        // 1,\r\n        // 4,\r\n        // 7\r\n    // ],\r\n    \"sub_criteria_topic_ids\": null,\r\n    \"question_type\": \"multiple-choices\", // required, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config\r\n    \"level_type\": \"test\", // required, ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config\r\n    \"difficulty\": \"easy\", // required, ระดับความยาก (easy = ง่าย / medium = ปานกลาง / hard = ยาก), frontend config\r\n    \"lock_next_level\": false, // required, ล๊อคด่านถัดไป\r\n    \"timer_type\": \"warn\", // required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config\r\n    \"timer_time\": 30, // optional, จำนวน (วินาที)\r\n    \"status\": \"question\", // required (setting = ตั้งค่าด่าน / question = จัดการคำถาม / translation = แปลภาษา / speech = สร้างเสียง / enabled = เผยแพร่ / disabled = ไม่ใช้งาน), frontend config\r\n    \"wizard_index\": 1, // required, ลำดับปัจจุบันของ wiard (1-5)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/levels",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"levels"
+					]
+				},
+				"description": "สร้างด่าน"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a08-api-question-multiple-choice-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "28",
+							"description": "required, id ของ level",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "multiple-choices",
+							"description": "required, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"description": "required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"description": "optional, จำนวน (วินาที)",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"description": "required, (left = ด้านขวา / bottom = ด้านล่าง)",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"description": "required, รูปแบบ layout (1:1 / 3:7 / 7:3)",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (โจทย์)",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (ตัวเลือกคำตอบ)",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"description": "required, id saved text ของคำสั่ง",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, id saved text ของโจทย์",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"description": "optional, รูปภาพของโจทย์",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"description": "required, id saved text ของคำใบ้",
+							"type": "text"
+						},
+						{
+							"key": "hint_image",
+							"description": "optional, รูปภาพของคำใบ้",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/images (3).jpg"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"description": "required, แสดงโจทย์เฉพาะเสียง",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "text-speech",
+							"description": "required, รูปแบบตัวเลือกคำตอบ (text-speech = ข้อความ / image = รูปภาพ / speech = เสียง)",
+							"type": "text"
+						},
+						{
+							"key": "correct_choice_amount",
+							"value": "คำตอบถูกได้ 1 ข้อ",
+							"description": "required, จำนวนคำตอบถูก",
+							"type": "text"
+						},
+						{
+							"key": "max_point",
+							"value": "20",
+							"description": "optional, คะแนนเต็มของคำถาม ",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"4dac6191-0082-45b7-9240-2f5601284c44\",\n        \"index\": 1,\n        \"is_correct\": true,\n        \"point\": 5\n    },\n    {\n        \"saved_text_group_id\": \"2a8113c0-1c51-4f8c-9c46-56e951220a53\",\n        \"index\": 2,\n        \"is_correct\": true,\n        \"point\": 4\n    },\n    {\n        \"saved_text_group_id\": \"c1564b2d-9b35-47be-8675-e4b8bae76d2a\",\n        \"index\": 3,\n        \"is_correct\": false\n    }\n]",
+							"description": "optional, ตัวเลือกคำตอบ (กรณีที่รูปแบบคำตอบเป็น text-speech / speech)",
+							"type": "text"
+						},
+						{
+							"key": "image_choices",
+							"value": "[\n    {\n        \"index\": 1,\n        \"is_correct\": true,\n        \"point\": 5\n    },\n    {\n        \"index\": 2,\n        \"is_correct\": true,\n        \"point\": 4\n    },\n    {\n        \"index\": 3,\n        \"is_correct\": false\n    }\n]",
+							"description": "optional, ตัวเลือกคำตอบ (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบถูก",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบผิด",
+							"type": "text"
+						},
+						{
+							"key": "choice_images_1",
+							"description": "ภาพของตัวเลือกคำตอบที่ 1 (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Evidence-desk.jpg",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_2",
+							"description": "ภาพของตัวเลือกคำตอบที่ 2 (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/images (3).jpg",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_3",
+							"description": "ภาพของตัวเลือกคำตอบที่ 3 (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/multiple-choice",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"multiple-choice"
+					]
+				},
+				"description": "สร้างคำถามประเภท multiple choices"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a09-api-question-multiple-choice-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "timer_type",
+							"value": "no",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "timer_time",
+							"value": "32",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "layout",
+							"value": "3:7",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_type",
+							"value": "text-speech",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "correct_choice_amount",
+							"value": "ถูกได้มากกว่า 1 ข้อ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "max_point",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[{\"saved_text_group_id\":\"24e1d37f-929b-4a61-9e05-d0a05fd78b36\",\"index\":1,\"is_correct\":true,\"point\":1},{\"saved_text_group_id\":\"24e1d37f-929b-4a61-9e05-d0a05fd78b36\",\"index\":2,\"is_correct\":false,\"point\":0}]",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "correct_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "258ef1c2-5163-4eb7-9cce-253792c586cf",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "hint_image",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Evidence-desk.jpg",
+							"disabled": true
+						},
+						{
+							"key": "description_image",
+							"type": "file",
+							"src": "/Users/patwanich/Pictures/screenshots/Screenshot 2568-06-26 at 19.59.26.png",
+							"disabled": true
+						},
+						{
+							"key": "image_choices",
+							"value": "[\n    {\n        \"index\": 1,\n        \"is_correct\": true,\n        \"point\": 5,\n        \"image_key\": \"\"\n    },\n    {\n        \"index\": 2,\n        \"is_correct\": true,\n        \"point\": 4,\n        \"image_key\": \"\"\n    },\n    {\n        \"index\": 3,\n        \"is_correct\": false,\n        \"point\": null,\n        \"image_key\": \"\"\n    }\n]",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_1",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_2",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_3",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg",
+							"disabled": true
+						},
+						{
+							"key": "delete_description_image",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "delete_hint_image",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/multiple-choice/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"multiple-choice",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "31341",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				},
+				"description": "อัพเดทคำถามประเภท multiple choices"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a12-api-question-group-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "1",
+							"description": "required, id ของ level",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "pairing",
+							"description": "required, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"description": "required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"description": "optional, จำนวน (วินาที)",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"description": "required, (left = ด้านขวา / bottom = ด้านล่าง)",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"description": "required, รูปแบบ layout (1:1 / 3:7 / 7:3)",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (โจทย์)",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (ตัวเลือกคำตอบ)",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"description": "required, id saved text ของคำสั่ง",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, id saved text ของโจทย์",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"description": "optional, รูปภาพของโจทย์",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"description": "required, id saved text ของคำใบ้",
+							"type": "text"
+						},
+						{
+							"key": "hint_image",
+							"description": "optional, รูปภาพของคำใบ้",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/images (2).jpg"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"description": "required, แสดงโจทย์เฉพาะเสียง",
+							"type": "text"
+						},
+						{
+							"key": "group_amount",
+							"value": "3",
+							"description": "required, จำนวนกลุ่ม",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "image",
+							"description": "required, รูปแบบตัวเลือกคำตอบ (text-speech = ข้อความ / image = รูปภาพ / speech = เสียง)",
+							"type": "text"
+						},
+						{
+							"key": "choice_amount",
+							"value": "33",
+							"description": "required, จำนวนตัวเลือกคำตอบ",
+							"type": "text"
+						},
+						{
+							"key": "dummy_amount",
+							"value": "3",
+							"description": "required, จำนวนตัวเลือกหลอก",
+							"type": "text"
+						},
+						{
+							"key": "can_reuse_choice",
+							"value": "false",
+							"description": "required, ใช้ซ้ำได้",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"4dac6191-0082-45b7-9240-2f5601284c44\",\n        \"index\": 1,\n        \"is_correct\": true,\n        \"group_indexes\": [1, 2]\n    },\n    {\n        \"saved_text_group_id\": \"2a8113c0-1c51-4f8c-9c46-56e951220a53\",\n        \"index\": 2,\n        \"is_correct\": false,\n        \"group_indexes\": [3]\n    },\n    {\n        \"saved_text_group_id\": \"c1564b2d-9b35-47be-8675-e4b8bae76d2a\",\n        \"index\": 3,\n        \"is_correct\": false,\n        \"group_indexes\": [1]\n    }\n]",
+							"description": "optional, ตัวเลือกคำตอบ (กรณีที่รูปแบบคำตอบเป็น text-speech / speech)",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบถูก",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบผิด",
+							"type": "text"
+						},
+						{
+							"key": "groups",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"6aeaaea7-2271-4b0d-ad4e-952de7be8693\",\n        \"index\": 1\n    },\n    {\n        \"saved_text_group_id\": \"08ef729b-7c7c-4d8b-82cf-9565c68571f9\",\n        \"index\": 2\n    },\n    {\n        \"saved_text_group_id\": \"c77cd302-a81c-41a7-926d-3dbcff629bb4\",\n        \"index\": 3\n    }\n]",
+							"description": "requred, กลุ่มของคำตอบ",
+							"type": "text"
+						},
+						{
+							"key": "image_choices",
+							"value": "[\n    {\n        \"index\": 1,\n        \"is_correct\": true,\n        \"group_indexes\": [1, 2]\n    },\n    {\n        \"index\": 2,\n        \"is_correct\": false,\n        \"group_indexes\": [3]\n    },\n    {\n        \"index\": 3,\n        \"is_correct\": false,\n        \"group_indexes\": [1]\n    }\n]",
+							"description": "optional, ตัวเลือกคำตอบ (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_1",
+							"description": "ภาพของตัวเลือกคำตอบที่ 1 (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "choice_images_2",
+							"description": "ภาพของตัวเลือกคำตอบที่ 2 (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_3",
+							"description": "ภาพของตัวเลือกคำตอบที่ 3 (กรณีที่รูปแบบคำตอบเป็น image)",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg",
+							"disabled": true
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"description": "optional",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/group",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"group"
+					]
+				},
+				"description": "สร้างคำถามประเภท group"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a13-api-question-group-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"type": "text"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"type": "text"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "group_amount",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "text-speech",
+							"type": "text"
+						},
+						{
+							"key": "choice_amount",
+							"value": "33",
+							"type": "text"
+						},
+						{
+							"key": "can_reuse_choice",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "dummy_amount",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"4dac6191-0082-45b7-9240-2f5601284c44\",\n        \"index\": 1,\n        \"is_correct\": true,\n        \"group_indexes\": [1, 2, 3]\n    },\n    {\n        \"saved_text_group_id\": \"2a8113c0-1c51-4f8c-9c46-56e951220a53\",\n        \"index\": 2,\n        \"is_correct\": false,\n        \"group_indexes\": [3]\n    },\n    {\n        \"saved_text_group_id\": \"c1564b2d-9b35-47be-8675-e4b8bae76d2a\",\n        \"index\": 3,\n        \"is_correct\": false,\n        \"group_indexes\": [1]\n    }\n]",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"type": "text"
+						},
+						{
+							"key": "groups",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"6aeaaea7-2271-4b0d-ad4e-952de7be8693\",\n        \"index\": 1\n    },\n    {\n        \"saved_text_group_id\": \"08ef729b-7c7c-4d8b-82cf-9565c68571f9\",\n        \"index\": 2\n    }\n]\n\n",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "image_choices",
+							"value": "[\n    {\n        \"index\": 3,\n        \"group_indexes\": [\n            1\n        ],\n        \"is_correct\": false,\n        \"image_key\": \"8bbae140-bc36-41ae-9da5-5da98f1ab06d\"\n    },\n    {\n        \"index\": 2,\n        \"group_indexes\": [\n            3\n        ],\n        \"is_correct\": false,\n        \"image_key\": \"b430840c-3c22-46aa-bd80-63d5209f2ef2\"\n    },\n    {\n        \"index\": 1,\n        \"group_indexes\": [\n            1,\n            2\n        ],\n        \"is_correct\": true,\n        \"image_key\": \"0cd86848-f3b2-44d3-a78f-140ad39f621d\"\n    }\n]",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_1",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_2",
+							"value": "null",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "choice_images_3",
+							"value": "null",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "delete_description_image",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "delete_hint_image",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/group/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"group",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "92",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				},
+				"description": "อัพเดทคำถามประเภท group"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a16-api-question-sort-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "1",
+							"description": "required, id ของ level",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "sorting",
+							"description": "required, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"description": "required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"description": "optional, จำนวน (วินาที)",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"description": "required, (left = ด้านขวา / bottom = ด้านล่าง)",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"description": "required, รูปแบบ layout (1:1 / 3:7 / 7:3)",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (โจทย์)",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (ตัวเลือกคำตอบ)",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"description": "required, id saved text ของคำสั่ง",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, id saved text ของโจทย์",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"description": "optional, รูปภาพของโจทย์",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "fe543cbe-4b82-4391-bcdf-40c632f21e26",
+							"description": "required, id saved text ของคำใบ้",
+							"type": "text"
+						},
+						{
+							"key": "hint_image",
+							"description": "optional, รูปภาพของคำใบ้",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"description": "required, แสดงโจทย์เฉพาะเสียง",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "text-speech",
+							"description": "required, รูปแบบตัวเลือกคำตอบ (text-speech = ข้อความ / image = รูปภาพ / speech = เสียง)",
+							"type": "text"
+						},
+						{
+							"key": "choice_amount",
+							"value": "33",
+							"description": "required, จำนวนตัวเลือกคำตอบ",
+							"type": "text"
+						},
+						{
+							"key": "can_reuse_choice",
+							"value": "false",
+							"description": "required, ใช้ซ้ำได้",
+							"type": "text"
+						},
+						{
+							"key": "dummy_amount",
+							"value": "0",
+							"description": "required, จำนวนตัวเลือกหลอก",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"4dac6191-0082-45b7-9240-2f5601284c44\",\n        \"index\": 1,\n        \"is_correct\": true,\n        \"answer_indexes\": [\n            1\n        ]\n    },\n    {\n        \"saved_text_group_id\": \"2a8113c0-1c51-4f8c-9c46-56e951220a53\",\n        \"index\": 2,\n        \"is_correct\": false\n    },\n    {\n        \"saved_text_group_id\": \"c1564b2d-9b35-47be-8675-e4b8bae76d2a\",\n        \"index\": 3,\n        \"is_correct\": true,\n        \"answer_indexes\": [\n            2,\n            3\n        ]\n    }\n]",
+							"description": "optional, ตัวเลือกคำตอบ (กรณีที่รูปแบบคำตอบเป็น text-speech / speech)",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบถูก",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบผิด",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/sort",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"sort"
+					]
+				},
+				"description": "สร้างคำถามประเภท sort"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a17-api-question-sort-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "คำถามเรียงลำดับ (Sorting)",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "end",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"type": "text"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"type": "text"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "text-speech",
+							"type": "text"
+						},
+						{
+							"key": "choice_amount",
+							"value": "3233",
+							"type": "text"
+						},
+						{
+							"key": "can_reuse_choice",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "dummy_amount",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"saved_text_group_id\": \"4dac6191-0082-45b7-9240-2f5601284c44\",\n        \"index\": 1,\n        \"is_correct\": true,\n        \"answer_indexes\": [\n            1\n        ]\n    },\n    {\n        \"saved_text_group_id\": \"c1564b2d-9b35-47be-8675-e4b8bae76d2a\",\n        \"index\": 3,\n        \"is_correct\": true,\n        \"answer_indexes\": [\n            2,\n            3\n        ]\n    }\n]",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "762ec12d-9015-4946-9b91-538ce058f700",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "68e0effc-cbe7-447c-8bfc-e79b9b518567",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg"
+						},
+						{
+							"key": "delete_description_image",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "delete_hint_image",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/sort/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"sort",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "101",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				},
+				"description": "อัพเดทคำถามประเภท sort"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a20-api-question-placeholder-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "1",
+							"description": "required, id ของ level",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "placeholder",
+							"description": "required, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"description": "required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"description": "optional, จำนวน (วินาที)",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"description": "required, (left = ด้านขวา / bottom = ด้านล่าง)",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"description": "required, รูปแบบ layout (1:1 / 3:7 / 7:3)",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (โจทย์)",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (ตัวเลือกคำตอบ)",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"description": "required, id saved text ของคำสั่ง",
+							"type": "text"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"description": "required, id saved text ของคำใบ้",
+							"type": "text"
+						},
+						{
+							"key": "hint_image",
+							"description": "optional, รูปภาพของคำใบ้",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"description": "required, แสดงโจทย์เฉพาะเสียง",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "text-speech",
+							"description": "required, รูปแบบตัวเลือกคำตอบ (text-speech = ข้อความ / image = รูปภาพ / speech = เสียง)",
+							"type": "text"
+						},
+						{
+							"key": "choice_amount",
+							"value": "33",
+							"description": "required, จำนวนตัวเลือกคำตอบ",
+							"type": "text"
+						},
+						{
+							"key": "can_reuse_choice",
+							"value": "false",
+							"description": "required, ใช้ซ้ำได้",
+							"type": "text"
+						},
+						{
+							"key": "dummy_amount",
+							"value": "0",
+							"description": "required, จำนวนตัวเลือกหลอก",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"text\": \"text คำตอบที่ 1\",\n        \"index\": 1,\n        \"is_correct\": false\n    }\n]",
+							"description": "required, ตัวเลือกคำตอบ (กรณีที่รูปแบบคำตอบเป็น text-speech / speech)",
+							"type": "text"
+						},
+						{
+							"key": "descriptions",
+							"value": "[\n    {\n        \"index\": 1,\n        \"text\": \"Ann good morning blabla {Ans1}\",\n        \"answers\": [\n            {\n                \"index\": 1,\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"choice_index\": 2\n                    }\n                ]\n            }\n        ]   \n    },\n    {\n        \"index\": 2,\n        \"text\": \"Mali good morning {Ans1} {Ans2}\",\n        \"answers\": [\n            {\n                \"index\": 1,\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"choice_index\": 2\n                    },\n                    {\n                        \"index\": 2,\n                        \"choice_index\": 2\n                    }\n                ]\n            },\n            {\n                \"index\": 2,\n                \"text\": [\n                    {\n                        \"index\": 2,\n                        \"choice_index\": 3\n                    }\n                ]\n            }\n        ]\n    }\n]",
+							"description": "required, โจทย์",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"description": "required, id saved text ของคำอธิบายเมื่อคำตอบถูก",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบผิด",
+							"type": "text"
+						},
+						{
+							"key": "hint_type",
+							"value": "none",
+							"description": "optional, ประเภทคำใบ้คำตอบ (none = ไม่แสดงคำใบ้ / count = แสดงจำนวนตัวอักษร / pre-post-count = แสดงจำนวนตัวอักษร + หัวท้าย / prepost = แสดงหัวท้าย)",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"description": "optional",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/placeholder",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"placeholder"
+					]
+				},
+				"description": "สร้างคำถามประเภท placeholder"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a21-api-question-placeholder-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "question_type",
+							"value": "placeholder",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "32",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "576c36c7-3212-4f85-91aa-9ea17950a865",
+							"type": "text"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "group_amount",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "choice_type",
+							"value": "ข้อความ",
+							"type": "text"
+						},
+						{
+							"key": "choice_amount",
+							"value": "33",
+							"type": "text"
+						},
+						{
+							"key": "can_reuse_choice",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "dummy_amount",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "text_choices",
+							"value": "[\n    {\n        \"text\": \"text คำตอบที่ 1\",\n        \"index\": 1,\n        \"is_correct\": false\n    },\n    {\n        \"text\": \"text คำตอบที่ 2\",\n        \"index\": 2,\n        \"is_correct\": false\n    }\n]",
+							"type": "text"
+						},
+						{
+							"key": "descriptions",
+							"value": "[\n    {\n        \"index\": 2,\n        \"text\": \"Mali good morning {Ans1} {Ans2}\",\n        \"answers\": [\n            {\n                \"index\": 1,\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"choice_index\": 2\n                    },\n                    {\n                        \"index\": 2,\n                        \"choice_index\": 2\n                    }\n                ]\n            },\n            {\n                \"index\": 2,\n                \"text\": [\n                    {\n                        \"index\": 2,\n                        \"choice_index\": 3\n                    }\n                ]\n            }\n        ]\n    }\n]",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "395c873e-b977-422b-a471-17af2fa3af58",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "f5d07117-25fa-40a4-809a-16ca5d78b3ce",
+							"type": "text"
+						},
+						{
+							"key": "hint_type",
+							"value": "none",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						},
+						{
+							"key": "hint_image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg"
+						},
+						{
+							"key": "delete_description_image",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "delete_hint_image",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/placeholder/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"placeholder",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "362",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				},
+				"description": "อัพเดทคำถามประเภท placeholder"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a24-api-question-input-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "1",
+							"description": "required, id ของ level",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "input",
+							"description": "required, ประเภทของคำถาม (multiple-choices / pairing / sorting / placeholder / input), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"description": "required, ประเภทการจับเวลา (no = ไม่นับเวลา / warn = เตือนเวลาเกินแต่เล่นต่อได้ / end = หมดเวลา เล่นต่อไม่ได้), frontend config",
+							"type": "text"
+						},
+						{
+							"key": "timer_time",
+							"value": "30",
+							"description": "optional, จำนวน (วินาที)",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"description": "required, (left = ด้านขวา / bottom = ด้านล่าง)",
+							"type": "text"
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"description": "required, รูปแบบ layout (1:1 / 3:7 / 7:3)",
+							"type": "text"
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านขวา",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"description": "required, จำนวน column กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"description": "required, จำนวน row กล่องด้านล่าง",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (โจทย์)",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"description": "required, บังคับใช้ภาษาของบทเรียน (ตัวเลือกคำตอบ)",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"description": "required, id saved text ของคำสั่ง",
+							"type": "text"
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"description": "required, id saved text ของคำใบ้",
+							"type": "text"
+						},
+						{
+							"key": "hint_image",
+							"description": "optional, รูปภาพของคำใบ้",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp"
+						},
+						{
+							"key": "input_type",
+							"value": "กรอกข้อความด้วยแป้นพิมพ์",
+							"description": "required, ประเภทการกรอกคำตอบ",
+							"type": "text"
+						},
+						{
+							"key": "hint_type",
+							"value": "ไม่แสดงคำใบ้เลย",
+							"description": "required, ประเภทคำใบ้คำตอบ (none = ไม่แสดงคำใบ้ / count = แสดงจำนวนตัวอักษร / pre-post-count = แสดงจำนวนตัวอักษร + หัวท้าย / prepost = แสดงหัวท้าย)",
+							"type": "text"
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบถูก",
+							"type": "text"
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"description": "optional, id saved text ของคำอธิบายเมื่อคำตอบผิด",
+							"type": "text"
+						},
+						{
+							"key": "descriptions",
+							"value": "[\n    {\n        \"index\": 1,\n        \"text\": \"Ann good morning blabla {Ans1}\",\n        \"answers\": [\n            {\n                \"index\": 1,\n                \"type\": \"normal\",\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"text\": \"How\"\n                    }\n                ]\n            }\n        ]   \n    },\n    {\n        \"index\": 2,\n        \"text\": \"Mali good morning {Ans1} {Ans2}\",\n        \"answers\": [\n            {\n                \"index\": 1,\n                \"type\": \"array\",\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"text\": \"How is\"\n                    },\n                    {\n                        \"index\": 2,\n                        \"text\": \"How's\"\n                    }\n                ]\n            },\n            {\n                \"index\": 2,\n                \"type\": \"regex\",\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"text\": \"[abc]\"\n                    }\n                ]\n            }\n        ]\n    }\n]",
+							"type": "text"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "true",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"description": "optional",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/input/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"input",
+						""
+					]
+				},
+				"description": "สร้างคำถามประเภท input"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a25-api-question-input-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "timer_type",
+							"value": "warn",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "timer_time",
+							"value": "31",
+							"type": "text"
+						},
+						{
+							"key": "choice_position",
+							"value": "left",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "layout",
+							"value": "1:1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "left_box_columns",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "left_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "bottom_box_columns",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "bottom_box_rows",
+							"value": "อัตโนมัติ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "false",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "command_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "hint_text_id",
+							"value": "d91b496a-516f-4923-9c59-345a4738829c",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "input_type",
+							"value": "กรอกข้อความด้วยเสียง",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "hint_type",
+							"value": "ไม่แสดงคำใบ้เลย",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "correct_text_id",
+							"value": "61563e9e-5385-48d8-981b-a47dd415f9cc",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "wrong_text_id",
+							"value": "7bb93f80-18e6-4660-9126-ac7ebf4eb593",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "descriptions",
+							"value": "[\n    {\n        \"index\": 1,\n        \"text\": \"Ann good morning blabla {Ans1}\",\n        \"answers\": [\n            {\n                \"index\": 1,\n                \"type\": \"normal\",\n                \"text\": [\n                    {\n                        \"index\": 1,\n                        \"text\": \"Hows\"\n                    }\n                ]\n            }\n        ]   \n    }\n]",
+							"type": "text"
+						},
+						{
+							"key": "use_sound_description_only",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "description_text_id",
+							"value": "9288a132-4ca3-49a8-a94f-7a906a9726b1",
+							"type": "text"
+						},
+						{
+							"key": "description_image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						},
+						{
+							"key": "delete_description_image",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "delete_hint_image",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/input/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"input",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "98",
+							"description": "required, ID ของคำถาม input"
+						}
+					]
+				},
+				"description": "อัพเดทคำถามประเภท input"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a28-api-question-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"patdoepass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "1",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				},
+				"description": "ลบคำถาม"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a29-api-level-case-list-question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/levels/:levelId/questions?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"levels",
+						":levelId",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "",
+							"description": "required, ID ของ level"
+						}
+					]
+				},
+				"description": "list คำถามของด่าน"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a32-api-lesson-case-list-by-subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:subjectId/lessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":subjectId",
+						"lessons"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required, ID ของวิชา"
+						}
+					]
+				},
+				"description": "list บทเรียนของวิชา"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a33-api-sub-lesson-case-list-by-lesson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:lessonId/sub-lessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":lessonId",
+						"sub-lessons"
+					],
+					"variable": [
+						{
+							"key": "lessonId",
+							"value": "1",
+							"description": "required, ID ของบทเรียน"
+						}
+					]
+				},
+				"description": "list บทเรียนย่อยของบทเรียน"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a34-api-tag-case-list-by-subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:subjectId/tags",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":subjectId",
+						"tags"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required, ID ของวิชา"
+						}
+					]
+				},
+				"description": "list tag ของวิชา"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a35-api-sub-criteria-case-list-by-curriculum-group",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:curriculumGroupId/sub-criteria",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":curriculumGroupId",
+						"sub-criteria"
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required, ID ของสังกัดวิชา"
+						}
+					]
+				},
+				"description": "list มาตรฐานย่อยของสังกัดวิชา"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a36-api-level-case-sort",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"levels\": {\r\n        \"1\": 1 // level id : index\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/sub-lessons/:subLessonId/levels/sort",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"sub-lessons",
+						":subLessonId",
+						"levels",
+						"sort"
+					],
+					"variable": [
+						{
+							"key": "subLessonId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				},
+				"description": "เรียงลำดับด่าน"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a37-api-saved-text-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:curriculumGroupId/saved-text?page=1&limit=100",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":curriculumGroupId",
+						"saved-text"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "text",
+							"value": "choice",
+							"description": "ข้อความ",
+							"disabled": true
+						},
+						{
+							"key": "language",
+							"value": "en",
+							"description": "ภาษา (en = ภาษาอังกฤษ / th = ภาษาไทย / zh = ภาษาจีน)",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required, ID ของสังกัดวิชา"
+						}
+					]
+				},
+				"description": "list saved text"
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a38-api-saved-text-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "thai_text",
+							"value": "command text th",
+							"type": "text"
+						},
+						{
+							"key": "english_text",
+							"value": "command text en",
+							"type": "text"
+						},
+						{
+							"key": "chinese_text",
+							"value": "command text zh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:curriculumGroupId/saved-text/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":curriculumGroupId",
+						"saved-text",
+						""
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required, ID ของสังกัดวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a39-api-question-case-sort",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"questions\": {\r\n        \"81\": 1,\r\n        \"82\": 2,\r\n        \"83\": 3,\r\n        \"84\": 4,\r\n        \"85\": 5\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/levels/11/questions/sort",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"levels",
+						"11",
+						"questions",
+						"sort"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a40-api-level-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/levels/:levelId?list_questions=true",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"levels",
+						":levelId"
+					],
+					"query": [
+						{
+							"key": "list_questions",
+							"value": "true",
+							"description": "optional, default = false"
+						}
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "401",
+							"description": "required, ID ของด่าน"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a41-api-sub-lesson-case-get-standard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:subLessonId/standard",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":subLessonId",
+						"standard"
+					],
+					"variable": [
+						{
+							"key": "subLessonId",
+							"value": "1",
+							"description": "required, ID ของบทเรียนย่อย"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a42-api-saved-text-case-update-speech",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"thai_text_to_ai\": \"command th text to ai3\", // optional, text to ai (ภาษาไทย)\r\n    \"english_text_to_ai\": \"command en text to ai\", // optional, text to ai (ภาษาอังกฤษ)\r\n    \"chinese_text_to_ai\": \"command zh text to ai\", // optional, text to ai (ภาษาจีน)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/saved-text/:groupId/speech",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"saved-text",
+						":groupId",
+						"speech"
+					],
+					"variable": [
+						{
+							"key": "groupId",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, ID ของกลุ่มข้อความ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a44-api-question-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "32877",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a45-api-saved-text-case-delete-speech",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"language\": \"th\", // required, ภาษาของข้อความที่ต้องการลบเสียงออก (th = ไทย / en = อังกฤษ / zh = จีน)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/saved-text/:groupId/speech",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"saved-text",
+						":groupId",
+						"speech"
+					],
+					"variable": [
+						{
+							"key": "groupId",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, ID ของกลุ่มข้อความ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a46-api-level-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"patdoepass\",\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"level_id\": 3, // required, ID ของด่าน\r\n            \"status\": \"disabled\" // required, สถานะ (enabled / disabled / draft)\r\n        }\r\n    ],\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, admin ที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/levels/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"levels",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a47-api-saved-text-case-translate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"src_language\": \"th\", // required, ภาษาตั้งต้น (th = ไทย / en = อังกฤษ / zh = จีน)\r\n    \"src_text\": \"การกระทำ\", // required, ข้อความตั้งต้น \r\n    \"dest_languages\": [\"en\", \"zh\"] // required, ภาษาที่ต้องการแปลไป (th = ไทย / en = อังกฤษ / zh = จีน)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/saved-text/translate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"saved-text",
+						"translate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a48-api-saved-text-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"thai_text\": \"new description th2\", // optional\r\n    \"english_text\": \"new description en\", // optional\r\n    \"chinese_text\": \"new description zh\", // optional\r\n    \"thai_text_to_ai\": \"new text to ai th2\", // optional\r\n    \"english_text_to_ai\": \"new text to ai en2\", // optional\r\n    \"chinese_text_to_ai\": \"new text to ai zh\", // optional\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/saved-text/:groupId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"saved-text",
+						":groupId"
+					],
+					"variable": [
+						{
+							"key": "groupId",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, ID ของกลุ่มข้อความ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a49-api-saved-text-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/saved-text/:groupId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"saved-text",
+						":groupId"
+					],
+					"variable": [
+						{
+							"key": "groupId",
+							"value": "e0c8e0a9-9d57-44cf-99a8-fe415d27da69",
+							"description": "required, ID ของกลุ่มข้อความ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a50-api-question-case-delete-image",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"image_type\": \"hint\" // required, ประเภทของรูป (description = รูปโจทย์ / hint = รูปคำใบ้)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId/image",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId",
+						"image"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "98",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a51-api-question-case-translate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": [\r\n        {\r\n            \"saved_text_group_id\": \"8510119b-2036-4750-8e3b-9d1fee80c5e5\",\r\n            \"src_text\": \"lorem ipsum th\",\r\n            \"src_language\": \"th\",\r\n            \"dest_languages\": [\r\n                \"en\",\r\n                \"zh\"\r\n            ]\r\n        },\r\n        {\r\n            \"saved_text_group_id\": \"e0c8e0a9-9d57-44cf-99a8-fe415d27da69\",\r\n            \"src_text\": \"lorem1 ipsum th\",\r\n            \"src_language\": \"zh\",\r\n            \"dest_languages\": [\r\n                \"en\",\r\n                \"th\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId/translate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId",
+						"translate"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "1",
+							"description": "required, ID ของคำถาม"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a52-api-question-case-text-save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": [\r\n        {\r\n            \"saved_text_group_id\": \"9288a132-4ca3-49a8-a94f-7a906a9726b1\", // required, ID ของกลุ่มข้อความ\r\n            \"thai_text\": \"8510119b th\", // optional\r\n            \"english_text\": \"8510119b en\", // optional\r\n            \"chinese_text\": \"8510119bdn zh\", // optional\r\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\r\n        },\r\n        {\r\n            \"saved_text_group_id\": \"e0c8e0a9-9d57-44cf-99a8-fe415d27da69\",\r\n            \"thai_text\": \"thai text th\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId/text-save",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId",
+						"text-save"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a53-api-question-case-create-speech",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": [\r\n        {\r\n            \"saved_text_group_id\": \"9288a132-4ca3-49a8-a94f-7a906a9726b1\",\r\n            \"language\": \"th\",\r\n            \"text_to_ai\": \"command text to ai th\",\r\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\r\n        },\r\n        {\r\n            \"saved_text_group_id\": \"e0c8e0a9-9d57-44cf-99a8-fe415d27da69\",\r\n            \"language\": \"en\",\r\n            \"text_to_ai\": \"command text to ai en\",\r\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId/speech",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId",
+						"speech"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a54-api-question-case-text-to-ai-save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": [\r\n        {\r\n            \"saved_text_group_id\": \"9288a132-4ca3-49a8-a94f-7a906a9726b1\", // required, ID ของกลุ่มข้อความ\r\n            \"language\": \"th\",\r\n            \"text_to_ai\": \"8510119b text to ai th\", // optional\r\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\r\n        },\r\n        {\r\n            \"saved_text_group_id\": \"e0c8e0a9-9d57-44cf-99a8-fe415d27da69\", // required, ID ของกลุ่มข้อความ\r\n            \"language\": \"en\", // optional\r\n            \"text_to_ai\": \"38e16b30 text to ai en\", // optional\r\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/:questionId/text-to-ai-save",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						":questionId",
+						"text-to-ai-save"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a55-api-level-case-list-student-answer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/level-play-logs/:levelPlayLogId/answers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"level-play-logs",
+						":levelPlayLogId",
+						"answers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, default = 10",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "levelPlayLogId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a56-api-clever-math-level-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/Users/patwanich/Downloads/tmp-csv/Quiz - Sheet14.csv"
+						},
+						{
+							"key": "root_folder_id",
+							"value": "asdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:lessonId/cm-levels/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":lessonId",
+						"cm-levels",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "lessonId",
+							"value": "117",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-level-list-by-indicator-id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sub_lesson_ids\": [467]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/indicators/:indicatorId/levels",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"indicators",
+						":indicatorId",
+						"levels"
+					],
+					"variable": [
+						{
+							"key": "indicatorId",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sub_lesson_ids\": [467]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/indicators/:indicatorId/levels",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								"indicators",
+								":indicatorId",
+								"levels"
+							],
+							"variable": [
+								{
+									"key": "indicatorId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 30 Dec 2025 03:59:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "182"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "73cb38ec-86ab-4415-ad5d-3a2390b5f31a"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": {\n        \"easy-medium-hard-test\": [\n            6611\n        ],\n        \"pre-post-test\": [],\n        \"sub-lesson-post-test\": [],\n        \"test-easy\": [\n            6611\n        ],\n        \"test-hard\": [],\n        \"test-medium\": []\n    },\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g02-d05-a57-api-level-case-download-zip",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:subLessonId/levels/zip",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":subLessonId",
+						"levels",
+						"zip"
+					],
+					"variable": [
+						{
+							"key": "subLessonId",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a58-api-sub-lesson-url-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:lessonId/sub-lesson-urls",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":lessonId",
+						"sub-lesson-urls"
+					],
+					"variable": [
+						{
+							"key": "lessonId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"sub_lesson_id\": 1,\n    \"updated_at\": \"2023-04-01T12:00:00Z\"\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/:lessonId/sub-lesson-urls",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								":lessonId",
+								"sub-lesson-urls"
+							],
+							"variable": [
+								{
+									"key": "lessonId",
+									"value": "1",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 17 Jul 2025 04:52:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1441"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "cf340891-2a30-49b2-8c24-ccb37bd4bd04"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": {\n        \"1\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/sub-lesson-id-1.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250717%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250717T045236Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=5daa947dc71e0112b2633dcd693eac6d2e2e5dfc07ff149e825c948b0033bfe9\",\n        \"15\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/sub-lesson-id-15.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250717%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250717T045236Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=66152ba311db51c93a4a89d30f02dbc72f2b9878260a6a08c17422b6c0730aa2\",\n        \"320\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/sub-lesson-id-320.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250717%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250717T045236Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=fa564c8d3a66cd9eefe40bdc4b53963e752db9f8a69ca9910990a0cf04ad0852\"\n    },\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g02-d05-a59-api-sub-lesson-file-status-update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sub_lesson_ids\": [471],\n    \"embedded_file\": false, // new 23-12-2025\n    \"level_file\": true, // new 29-12-2025\n    \"group_level_files\": true // new 30-12-2025\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/sub-lessons/file",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"sub-lessons",
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a60-api-sub-lesson-url-case-check",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sub_lesson_time_list\": [\n        {\n            \"sub_lesson_id\": 320,\n            \"updated_at\": \"2025-07-23T06:49:31Z\"\n        },\n        {\n            \"sub_lesson_id\": 1,\n            \"updated_at\": \"2025-07-23T06:49:32Z\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/:lessonId/sub-lesson-urls",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						":lessonId",
+						"sub-lesson-urls"
+					],
+					"variable": [
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sub_lesson_time_list\": [\n        {\n            \"sub_lesson_id\": 320,\n            \"updated_at\": \"2025-07-23T06:49:31Z\"\n        },\n        {\n            \"sub_lesson_id\": 1,\n            \"updated_at\": \"2025-07-23T06:49:32Z\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/:lessonId/sub-lesson-urls",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								":lessonId",
+								"sub-lesson-urls"
+							],
+							"variable": [
+								{
+									"key": "lessonId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 23 Jul 2025 07:41:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1441"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "e697e7cc-d68a-4b19-8eaa-ab47fa8709e4"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": {\n        \"1\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/sub-lesson-id-1.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250723%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250723T074147Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=b82fc7512df4d0ce810c951a876cebbc23c3e88b8d5c91202f0a9efa97ef1395\",\n        \"15\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/sub-lesson-id-15.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250723%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250723T074147Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=75cc2280a5842b74865d631cd7afa85105c0a55eb8b7f42925243d9b67141edf\",\n        \"320\": \"https://cp-prod.aee08c37d57e25fefc5865f8e7fdf41f.r2.cloudflarestorage.com/cp-prod/sub-lesson-id-320.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Checksum-Mode=ENABLED&X-Amz-Credential=d7fee68c6b5c0fec68c93c52083432c8%2F20250723%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250723T074147Z&X-Amz-Expires=1440&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=0a837c1882f510799e0612b73449ad2508b097b58c70bf1e07209858195c142f\"\n    },\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g02-d05-a61-api-lesson-level-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"patdoepass\",\n    \"bulk_edit_list\": [\n        {\n            \"lesson_id\": 6, // required, ID ของด่าน\n            \"status\": \"enabled\" // required, สถานะ (enabled)\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/lesson-levels/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"lesson-levels",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"patdoepass\",\n    \"bulk_edit_list\": [\n        {\n            \"lesson_id\": 6, // required, ID ของด่าน\n            \"status\": \"enabled\" // required, สถานะ (enabled)\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/lesson-levels/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								"lesson-levels",
+								"bulk-edit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 06 Aug 2025 06:49:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "29c7c664-6c50-4055-8e0d-1a11b8713228"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Edited\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g02-d05-a62-api-sub-lesson-file-status-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lesson_ids\": [1, 6]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/sub-lesson-files/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"sub-lesson-files",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lesson_ids\": [1, 6]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/sub-lesson-files/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								"sub-lesson-files",
+								"bulk-edit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 07 Aug 2025 10:32:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0b17eb88-e3b0-4b44-aff4-ec5dddb0e040"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Edited\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g02-d05-a63-api-lesson-case-download-json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/sub-lessons/:subLessonId/download/json",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"sub-lessons",
+						":subLessonId",
+						"download",
+						"json"
+					],
+					"variable": [
+						{
+							"key": "subLessonId",
+							"value": "75"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d05-a64-api-question-learn-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "level_id",
+							"value": "6614",
+							"type": "text"
+						},
+						{
+							"key": "question_type",
+							"value": "learn",
+							"type": "text"
+						},
+						{
+							"key": "enforce_description_language",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "173caa47-348f-4364-a726-5e2dbd85e807",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "some text",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "youtube.com/ccc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/learn",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"learn"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "level_id",
+									"value": "6614",
+									"type": "text"
+								},
+								{
+									"key": "question_type",
+									"value": "learn",
+									"type": "text"
+								},
+								{
+									"key": "enforce_description_language",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "enforce_choice_language",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "command_text_id",
+									"value": "173caa47-348f-4364-a726-5e2dbd85e807",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "some text",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "youtube.com/ccc",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/questions/learn",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								"questions",
+								"learn"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 17 Dec 2025 08:55:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2108"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f116d86d-42a1-4d7e-9c58-518c17f0f811"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 201,\n    \"data\": [\n        {\n            \"id\": 32877,\n            \"level_id\": 6614,\n            \"index\": 2,\n            \"question_type\": \"learn\",\n            \"timer_type\": \"\",\n            \"timer_time\": 0,\n            \"choice_position\": \"\",\n            \"layout\": \"\",\n            \"left_box_columns\": \"\",\n            \"left_box_rows\": \"\",\n            \"bottom_box_columns\": \"\",\n            \"bottom_box_rows\": \"\",\n            \"image_description_url\": null,\n            \"image_hint_url\": null,\n            \"enforce_description_language\": true,\n            \"enforce_choice_language\": true,\n            \"DeleteDescriptionImage\": false,\n            \"DeleteHintImage\": false,\n            \"text\": \"some text\",\n            \"url\": \"youtube.com/ccc\",\n            \"command_text\": {\n                \"id\": 258183,\n                \"saved_text_group_id\": \"173caa47-348f-4364-a726-5e2dbd85e807\",\n                \"translations\": {\n                    \"th\": {\n                        \"language\": \"th\",\n                        \"text\": \"นักเรียนระดับประถมศึกษา 4,866,449 คน  $\\\\\\\\$ เป็นนักเรียนโรงเรียนรัฐบาล 3,789,601 คน  $\\\\\\\\$ ที่เหลือเป็นนักเรียนโรงเรียนเอกชนกี่คน $\\\\\\\\$   $\\\\\\\\$  จำนวนนักเรียนระดับประถมศึกษา {Ans1} คน $\\\\\\\\$                                                               -  $\\\\\\\\$  จำนวนนักเรียนโรงเรียนรัฐบาล     {Ans2} คน  $\\\\\\\\$   $\\\\\\\\$  จำนวนนักเรียนโรงเรียนเอกชน     {Ans3} คน\",\n                        \"text_to_ai\": \"นักเรียนระดับประถมศึกษา 4,866,449 คน  $\\\\\\\\$ เป็นนักเรียนโรงเรียนรัฐบาล 3,789,601 คน  $\\\\\\\\$ ที่เหลือเป็นนักเรียนโรงเรียนเอกชนกี่คน $\\\\\\\\$   $\\\\\\\\$  จำนวนนักเรียนระดับประถมศึกษา {Ans1} คน $\\\\\\\\$                                                               -  $\\\\\\\\$  จำนวนนักเรียนโรงเรียนรัฐบาล     {Ans2} คน  $\\\\\\\\$   $\\\\\\\\$  จำนวนนักเรียนโรงเรียนเอกชน     {Ans3} คน\",\n                        \"speech_url\": null\n                    }\n                }\n            }\n        }\n    ],\n    \"message\": \"Question created\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g02-d05-a65-api-question-learn-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "enforce_description_language",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "enforce_choice_language",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "command_text_id",
+							"value": "3b150488-fe9c-48c1-8930-ee4e63ad4012",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "text",
+							"value": "some text23",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "abc.com/sdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-level/v1/questions/learn/:questionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-level",
+						"v1",
+						"questions",
+						"learn",
+						":questionId"
+					],
+					"variable": [
+						{
+							"key": "questionId",
+							"value": "32877",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "enforce_description_language",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "enforce_choice_language",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "command_text_id",
+									"value": "3b150488-fe9c-48c1-8930-ee4e63ad4012",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "text",
+									"value": "some text23",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "abc.com/sdf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-level/v1/questions/learn/:questionId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-level",
+								"v1",
+								"questions",
+								"learn",
+								":questionId"
+							],
+							"variable": [
+								{
+									"key": "questionId",
+									"value": "32877",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 17 Dec 2025 09:12:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "668"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "3a3b6b60-69b6-441c-a03b-5b840dbc8ee3"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 32877,\n            \"level_id\": 6614,\n            \"index\": 2,\n            \"question_type\": \"learn\",\n            \"timer_type\": \"\",\n            \"timer_time\": 0,\n            \"choice_position\": \"\",\n            \"layout\": \"\",\n            \"left_box_columns\": \"\",\n            \"left_box_rows\": \"\",\n            \"bottom_box_columns\": \"\",\n            \"bottom_box_rows\": \"\",\n            \"image_description_url\": null,\n            \"image_hint_url\": null,\n            \"enforce_description_language\": true,\n            \"enforce_choice_language\": true,\n            \"DeleteDescriptionImage\": false,\n            \"DeleteHintImage\": false,\n            \"text\": \"some text23\",\n            \"url\": \"abc.com/sdf\",\n            \"command_text\": {\n                \"id\": 258196,\n                \"saved_text_group_id\": \"3b150488-fe9c-48c1-8930-ee4e63ad4012\",\n                \"translations\": {\n                    \"\": {\n                        \"language\": \"\",\n                        \"text\": \"Morning\",\n                        \"text_to_ai\": \"Morning\",\n                        \"speech_url\": null\n                    }\n                }\n            }\n        }\n    ],\n    \"message\": \"Question updated\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

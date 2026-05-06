@@ -1,0 +1,1447 @@
+/* =============================================================================
+   Reconsile Transaction — Base CSS (from Figma node 1:18004)
+   File: OAMmUhXjYQKdYn5TAXGnAN
+
+   Font mapping: Figma 'Pridi' → 'bss-pridi' (loaded via Style.css)
+   NOTE: Global * { font-weight: normal !important } requires !important overrides
+   ============================================================================= */
+
+/* =============================================================================
+   1. Page Layout
+   ============================================================================= */
+
+.reconsile-layout {
+    display: flex;
+    flex-direction: column;
+    width: 1410px;
+    min-height: 700px;
+    height: 92vh;
+    margin: 0 auto;
+    padding: 8px 16px;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Title */
+.reconsile-title {
+    width: 100%;
+    text-align: left;
+}
+
+.reconsile-title h1 {
+    font-family: 'bss-pridi' !important;
+    font-size: 30px !important;
+    font-weight: 600 !important;
+    line-height: 1.2em;
+    letter-spacing: 0.675px;
+    color: #212121;
+    margin: 0;
+}
+
+/* Main content area */
+.reconsile-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+    gap: 16px;
+    min-height: 0;
+}
+
+/* =============================================================================
+   2. Top Panel (Info Card + 2-Column Split)
+   ============================================================================= */
+
+.reconsile-top-panel {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #CBD5E1;
+    border-radius: 16px;
+<<<<<<< HEAD
+    padding: 8px 8px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1 auto;
+=======
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1.2;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    max-height: 55%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Info Card Bar */
+.reconsile-info-card {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 8px 24px;
+}
+
+.reconsile-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.reconsile-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.reconsile-info-label {
+    font-family: 'bss-pridi' !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+    color: #212121;
+}
+
+.reconsile-info-value {
+    font-family: 'bss-pridi' !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.2em;
+    letter-spacing: 0.5px;
+    color: #212529;
+}
+
+.reconsile-info-badge {
+<<<<<<< HEAD
+    background: #E4E6E9;
+    padding: 4px 12px;
+    border-radius: 8px;
+    min-width: 152px;
+    text-align: center;
+    font-weight: 700 !important;
+=======
+    background: #d1e5fa;
+    border: 2px solid #297ed4;
+    padding: 4px 12px;
+    border-radius: 6px;
+    min-width: 152px;
+    min-height: 1.6em;
+    text-align: center;
+    font-weight: 500 !important;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    line-height: 1.2em;
+}
+
+.reconsile-info-value.bold {
+    font-weight: 700 !important;
+}
+
+.reconsile-info-value.warning {
+    color: #B45309;
+    font-weight: 700 !important;
+}
+
+/* 2-Column Split */
+.reconsile-split {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.reconsile-split-left {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.reconsile-split-right {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =============================================================================
+   3. Small Denomination Table (Left Split)
+   ============================================================================= */
+
+.reconsile-denom-table-wrapper {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.reconsile-denom-table-scroll {
+    flex: 1;
+<<<<<<< HEAD
+    overflow-y: auto;
+=======
+    overflow-y: hidden;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    overflow-x: hidden;
+}
+
+.reconsile-denom-table-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reconsile-denom-table-scroll::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    border-left: 1px solid #CBD5E1;
+}
+
+.reconsile-denom-table-scroll::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.reconsile-denom-table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #707070;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.reconsile-denom-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.reconsile-denom-table thead th {
+    position: sticky;
+    top: -1px;
+    z-index: 10;
+    background: #D6E0E0 !important;
+    font-family: 'bss-pridi' !important;
+    font-size: 13px !important;
+<<<<<<< HEAD
+    font-weight: 600 !important;
+=======
+    font-weight: 500 !important;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    line-height: 1.55em;
+    letter-spacing: 0.3px;
+    color: #212121;
+    padding: 5px 16px !important;
+    border-bottom: 1px solid #CBD5E1;
+    white-space: nowrap;
+}
+
+.reconsile-denom-table thead th.th-sort {
+    cursor: pointer;
+    user-select: none;
+}
+
+.reconsile-denom-table thead th.th-sort:hover {
+    background: #c5d1d1 !important;
+}
+
+.reconsile-denom-table thead th .sort-icon,
+.reconsile-summary-table thead th .sort-icon {
+    font-size: 12px;
+    color: #6C757D;
+    margin-left: 2px;
+}
+
+.reconsile-denom-table tbody td {
+    font-family: 'bss-pridi' !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    line-height: 1.55em;
+    letter-spacing: 0.286px;
+    color: #212529;
+    padding: 6px 16px !important;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reconsile-denom-table tbody tr {
+    height: 36px !important;
+    border-bottom: 1px solid #CBD5E1;
+}
+
+.reconsile-denom-table tbody tr:nth-child(odd) {
+<<<<<<< HEAD
+    background: #FFFFFF;
+=======
+    background: #F8FAFC;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.reconsile-denom-table tbody tr:nth-child(even) {
+    background: #F2F6F6;
+}
+
+.reconsile-denom-table tbody tr:hover {
+    background: #e8eef4 !important;
+}
+
+.reconsile-denom-table tbody tr.active-row {
+    box-shadow: none;
+}
+
+<<<<<<< HEAD
+/* Column widths — left table (equal thirds per Figma) */
+.reconsile-denom-table .col-hc { width: 33.33%; text-align: left !important; }
+.reconsile-denom-table .col-denom { width: 33.33%; text-align: center !important; }
+.reconsile-denom-table .col-bundle { width: 33.33%; text-align: center !important; }
+=======
+/* Column widths — left table (5 equal columns per Figma) */
+.reconsile-denom-table .col-hc { width: 20%; text-align: left !important; }
+.reconsile-denom-table .col-denom { width: 20%; text-align: center !important; }
+.reconsile-denom-table .col-bank { width: 20%; text-align: left !important; }
+.reconsile-denom-table .col-cashpoint { width: 20%; text-align: left !important; }
+.reconsile-denom-table .col-bundle { width: 20%; text-align: center !important; }
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+
+/* =============================================================================
+   4. Input Form (Right Split)
+   ============================================================================= */
+
+.reconsile-input-form {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+<<<<<<< HEAD
+    padding: 8px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+=======
+    padding: 8px 24px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    flex: 1;
+}
+
+.reconsile-form-group {
+    display: flex;
+    flex-direction: column;
+<<<<<<< HEAD
+    gap: 6px;
+=======
+    gap: 4px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.reconsile-form-label {
+    font-family: 'bss-pridi' !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.55em;
+    letter-spacing: 0.35px;
+    color: #212121;
+    margin: 0 !important;
+}
+
+<<<<<<< HEAD
+=======
+.reconsile-form-label-lg {
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1.55em !important;
+    letter-spacing: 0.022em !important;
+    color: #212121 !important;
+    margin: 0 !important;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* Radio Groups */
+.reconsile-radio-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.reconsile-radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.reconsile-radio-item input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px !important;
+    min-width: 16px;
+    border-radius: 50%;
+    border: 1px solid #DEE2E6;
+    background: #FFFFFF;
+    margin: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.reconsile-radio-item input[type="radio"]:checked {
+    border: 4px solid #003366;
+    background: #FFFFFF;
+}
+
+.reconsile-radio-item label,
+.reconsile-radio-item span {
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.5em;
+<<<<<<< HEAD
+    letter-spacing: 0.4px;
+=======
+    letter-spacing: 0.025em;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    color: #212529;
+    cursor: pointer;
+    margin: 0 !important;
+}
+
+.reconsile-radio-item.selected {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+<<<<<<< HEAD
+=======
+/* ── Banknote Type Row (two-column: radios + remark) ── */
+.reconsile-banknote-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.reconsile-banknote-row > .reconsile-form-group {
+    flex: 1;
+}
+
+/* ── Remark Column (conditional: ปลอม / ชำรุด) ── */
+.reconsile-remark-col {
+    display: none;            /* hidden by default, JS sets display:flex */
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.reconsile-remark-label {
+    font-family: 'bss-pridi' !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.55em !important;
+    letter-spacing: 0.025em !important;
+    color: #212121 !important;
+    white-space: nowrap;
+    margin: 0 !important;
+}
+
+.reconsile-remark-input {
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.5em !important;
+    letter-spacing: 0.025em !important;
+    padding: 8px 16px !important;
+    border: 1px solid #CED4DA !important;
+    border-radius: 8px !important;
+    background: #FFFFFF !important;
+    color: #212121 !important;
+    height: auto !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.reconsile-remark-input::placeholder {
+    font-family: 'bss-pridi' !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    line-height: 1.5em !important;
+    letter-spacing: 0.025em !important;
+    color: #6C757D !important;
+}
+
+.reconsile-remark-input:focus {
+    border-color: #86B7FE;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* Denomination Chip Radio */
+.reconsile-denom-chips {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Outer container — rounded pill with radio + badge */
+.reconsile-denom-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer;
+    user-select: none;
+}
+
+.reconsile-denom-chip input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    border-radius: 50%;
+    border: 1px solid #DEE2E6;
+    background: #FFFFFF;
+    margin: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.reconsile-denom-chip input[type="radio"]:checked {
+    border: 4px solid #003366;
+    background: #FFFFFF;
+}
+
+.reconsile-denom-chip.selected {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Inner badge — rectangular colored banknote chip */
+.reconsile-denom-chip .denom-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 24px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0;
+    font-family: 'bss-pridi' !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    overflow: hidden;
+    position: relative;
+    z-index: 0; /* stacking context for ::before pattern */
+}
+
+/* Banknote pattern overlay at 30% opacity (from Figma node 1:18117) */
+.reconsile-denom-chip .denom-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png");
+    background-size: 445px 435px;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1; /* below text, above background-color */
+    pointer-events: none;
+}
+
+/* Denomination colors — on inner badge */
+.reconsile-denom-chip.denom-1000 .denom-badge { background-color: #FBF8F4 !important; border-color: #9F7D57; color: #4F3E2B; }
+.reconsile-denom-chip.denom-500 .denom-badge  { background-color: #F8F5FF !important; border-color: #6A509D; color: #3D2E5B; }
+.reconsile-denom-chip.denom-100 .denom-badge  { background-color: #FFF5F5 !important; border-color: #C07575; color: #991B1B; }
+.reconsile-denom-chip.denom-50 .denom-badge   { background-color: #F0F8FF !important; border-color: #35A0FD; color: #025CAB; }
+.reconsile-denom-chip.denom-20 .denom-badge   { background-color: #F1F9F1 !important; border-color: #55B254; color: #3B7E3A; }
+
+/* Form Fields Row */
+.reconsile-fields-row {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+.reconsile-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reconsile-field label {
+    font-family: 'bss-pridi' !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.55em;
+    letter-spacing: 0.35px;
+    color: #212121;
+    margin: 0 !important;
+}
+
+.reconsile-field select,
+.reconsile-field input[type="text"],
+.reconsile-field input[type="number"] {
+    font-family: 'bss-pridi' !important;
+    font-size: 20px !important;
+    font-weight: 300 !important;
+    line-height: 1.5em;
+    padding: 8px 16px;
+    border: 1px solid #CED4DA;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #212529;
+    height: auto !important;
+}
+
+.reconsile-field select:focus,
+.reconsile-field input:focus {
+    border-color: #86B7FE !important;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25) !important;
+    outline: none;
+}
+
+/* Save to Summary Button */
+.reconsile-btn-save-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 300px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #198754 !important;
+    border: 1px solid #198754 !important;
+    color: #FFFFFF !important;
+    font-family: 'bss-pridi' !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    height: auto !important;
+    align-self: flex-end;
+<<<<<<< HEAD
+    margin-top: 8px;
+=======
+    margin-top: auto;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.reconsile-btn-save-summary:hover {
+    background: #157347 !important;
+    border-color: #157347 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+/* =============================================================================
+   5. Summary Table (ตารางสรุปยอด)
+   ============================================================================= */
+
+.reconsile-summary-wrapper {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.reconsile-summary-title {
+    padding: 8px 16px;
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1.2em;
+    letter-spacing: 0.4px;
+    color: #212121;
+    border-bottom: 1px solid #CBD5E1;
+}
+
+.reconsile-summary-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.reconsile-summary-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reconsile-summary-scroll::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    border-left: 1px solid #CBD5E1;
+}
+
+.reconsile-summary-scroll::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.reconsile-summary-scroll::-webkit-scrollbar-thumb:hover {
+    background: #707070;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+.reconsile-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.reconsile-summary-table thead th {
+    position: sticky;
+    top: -1px;
+    z-index: 10;
+    background: #D6E0E0 !important;
+    font-family: 'bss-pridi' !important;
+    font-size: 13px !important;
+<<<<<<< HEAD
+    font-weight: 600 !important;
+=======
+    font-weight: 500 !important;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    line-height: 1.55em;
+    letter-spacing: 0.3px;
+    color: #212121;
+    padding: 5px 16px !important;
+    border-bottom: 1px solid #CBD5E1;
+    white-space: nowrap;
+}
+
+.reconsile-summary-table thead th.th-sort {
+    cursor: pointer;
+    user-select: none;
+}
+
+.reconsile-summary-table thead th.th-sort:hover {
+    background: #c5d1d1 !important;
+}
+
+.reconsile-summary-table tbody td {
+    font-family: 'bss-pridi' !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    line-height: 1.55em;
+    letter-spacing: 0.286px;
+    color: #212529;
+    padding: 6px 16px !important;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reconsile-summary-table tbody tr {
+    height: 36px !important;
+    border-bottom: 1px solid #CBD5E1;
+}
+
+.reconsile-summary-table tbody tr:nth-child(odd) {
+<<<<<<< HEAD
+    background: #FFFFFF;
+=======
+    background: #F8FAFC;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.reconsile-summary-table tbody tr:nth-child(even) {
+    background: #F2F6F6;
+}
+
+.reconsile-summary-table tbody tr:hover {
+    background: #e8eef4 !important;
+}
+
+/* Summary table column widths */
+.reconsile-summary-table .col-hc        { width: 14%; text-align: left !important; }
+.reconsile-summary-table .col-time      { width: 12%; text-align: left !important; }
+.reconsile-summary-table .col-denom     { width: 9%; text-align: center !important; }
+.reconsile-summary-table .col-type      { width: 7%; text-align: center !important; }
+.reconsile-summary-table .col-category  { width: 9%; text-align: center !important; }
+.reconsile-summary-table .col-qty       { width: 10%; text-align: center !important; }
+.reconsile-summary-table .col-value     { width: 11%; text-align: right !important; }
+.reconsile-summary-table .col-remark    { width: 14%; text-align: center !important; }
+.reconsile-summary-table .col-action    { width: 150px; text-align: center !important; }
+
+/* =============================================================================
+   6. Denomination Badge (in tables)
+   ============================================================================= */
+
+.reconsile-denom-table .qty-badge,
+.reconsile-summary-table .qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 0;
+    background-image: none !important; /* remove old pattern from all.css */
+}
+
+/* Banknote pattern overlay for table badges (same as chip badges) */
+.reconsile-denom-table .qty-badge::before,
+.reconsile-summary-table .qty-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png") !important;
+    background-size: 445px 435px !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Override global all.css denomination text colors to match Figma */
+.reconsile-denom-table .qty-100,
+.reconsile-summary-table .qty-100,
+.reconsile-denom-chip.denom-100 {
+    color: #991B1B !important;
+}
+
+.reconsile-denom-table .qty-20,
+.reconsile-summary-table .qty-20,
+.reconsile-denom-chip.denom-20 {
+    color: #3B7E3A !important;
+}
+
+/* =============================================================================
+   7. Action Buttons (in tables)
+   ============================================================================= */
+
+.reconsile-summary-table .btn-action {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    border: 1px solid #000000 !important;
+    border-radius: 3.5px;
+    background: transparent !important;
+    color: #000000;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3.5px;
+}
+
+.reconsile-summary-table .btn-action i {
+    font-size: 14px !important;
+}
+
+.reconsile-summary-table .btn-action:hover {
+    background: #1e3a5f !important;
+    color: #FFFFFF !important;
+    border-color: #1e3a5f !important;
+}
+
+.reconsile-summary-table .btn-action.btn-danger:hover {
+    background: #dc3545 !important;
+    color: #FFFFFF !important;
+    border-color: #dc3545 !important;
+}
+
+/* =============================================================================
+   8. Bottom Action Buttons
+   ============================================================================= */
+
+.reconsile-bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 16px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.reconsile-btn-cancel,
+.reconsile-btn-reconcile {
+    width: 300px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'bss-pridi' !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reconsile-btn-cancel {
+    background: #6C757D !important;
+    border: 1px solid #6C757D !important;
+    color: #FFFFFF !important;
+}
+
+.reconsile-btn-cancel:hover {
+    background: #5a6268 !important;
+    border-color: #5a6268 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+.reconsile-btn-reconcile {
+    background: #003366 !important;
+    border: 1px solid #003366 !important;
+    color: #FFFFFF !important;
+}
+
+.reconsile-btn-reconcile:hover {
+    background: #002244 !important;
+    border-color: #002244 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+/* =============================================================================
+   9. Date/Time cell
+   ============================================================================= */
+
+.reconsile-summary-table .td-datetime {
+    font-size: 12px !important;
+    letter-spacing: 0.264px;
+    line-height: 13px;
+}
+
+<<<<<<< HEAD
+=======
+.reconsile-summary-table .td-remark {
+    color: #212529 !important;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* =============================================================================
+   10. Modal Styles
+   ============================================================================= */
+
+.reconsile-modal .modal-content {
+    border-radius: 12px;
+    border: 1px solid #EEEEEE;
+}
+
+.reconsile-modal .modal-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #CBD5E1;
+}
+
+.reconsile-modal .modal-body {
+    padding: 24px 32px;
+}
+
+.reconsile-modal .modal-footer {
+    padding: 16px;
+    border-top: 1px solid #CBD5E1;
+}
+
+.reconsile-modal .modal-title {
+    font-family: 'bss-pridi' !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #000000;
+}
+
+/* Edit form modal */
+.reconsile-modal-edit {
+    max-width: 560px;
+}
+
+.reconsile-edit-body {
+    padding: 24px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reconsile-kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+.reconsile-kv-label {
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #000000;
+}
+
+.reconsile-kv-value {
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #000000;
+    text-align: right;
+}
+
+.reconsile-edit-qty {
+    width: 87px !important;
+    height: 38px !important;
+    border-radius: 6px !important;
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    text-align: center;
+}
+
+/* Edit modal buttons */
+.reconsile-modal-edit .reconsile-btn-popup {
+    min-width: 120px;
+}
+
+/* Delete/Confirm modal */
+.reconsile-modal-confirm .modal-dialog {
+    max-width: 560px;
+}
+
+.reconsile-modal-confirm .modal-content {
+    min-height: 360px;
+}
+
+.reconsile-modal-confirm .reconsile-btn-popup {
+    min-width: 159px;
+}
+
+/* Success modal */
+.reconsile-modal-success .modal-dialog {
+    max-width: 560px;
+}
+
+.reconsile-modal-success .modal-content {
+    min-height: 360px;
+}
+
+.reconsile-modal-success .modal-body {
+    padding: 32px 32px 24px;
+}
+
+.reconsile-modal-success .success-icon {
+    font-size: 48px;
+    color: #198754;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.reconsile-modal-success .success-title {
+    font-family: 'bss-pridi' !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #000000;
+    letter-spacing: 0.025em;
+    line-height: 1.2em;
+    margin-bottom: 48px;
+}
+
+.reconsile-modal-success .success-message {
+    font-family: 'bss-pridi' !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #000000;
+    letter-spacing: 0.025em;
+    line-height: 1.2em;
+    margin-bottom: 0;
+}
+
+.reconsile-modal-success .reconsile-btn-popup {
+    min-width: 160px;
+}
+
+/* Confirmation dialog style (delete, cancel reconcile) */
+.reconsile-modal-confirm .modal-body {
+    padding: 32px 32px 24px;
+}
+
+.reconsile-modal-confirm .confirm-icon {
+    font-size: 48px;
+    color: #FD7E14;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.reconsile-modal-confirm .confirm-title {
+    font-family: 'bss-pridi' !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #000000;
+    letter-spacing: 0.025em;
+    line-height: 1.2em;
+    margin-bottom: 40px;
+}
+
+.reconsile-modal-confirm .confirm-message {
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #000000;
+    letter-spacing: 0.025em;
+    margin-bottom: 0;
+    line-height: 1.5em;
+}
+
+.reconsile-modal-confirm .modal-footer {
+    gap: 24px;
+    padding: 16px;
+}
+
+/* Popup buttons */
+.reconsile-btn-popup {
+    min-width: 120px;
+    height: 37px !important;
+    border-radius: 6px;
+    font-family: 'bss-pridi' !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reconsile-btn-popup.btn-cancel-popup {
+    background: #6C757D !important;
+    border: 1px solid #6C757D !important;
+    color: #FFFFFF !important;
+}
+
+.reconsile-btn-popup.btn-confirm-popup {
+    background: #198754 !important;
+    border: 1px solid #198754 !important;
+    color: #FFFFFF !important;
+}
+
+.reconsile-btn-popup.btn-danger-popup {
+    background: #DC3545 !important;
+    border: 1px solid #DC3545 !important;
+    color: #FFFFFF !important;
+}
+
+.reconsile-btn-popup.btn-primary-popup {
+    background: #003366 !important;
+    border: 1px solid #003366 !important;
+    color: #FFFFFF !important;
+}
+
+/* =============================================================================
+   11. Responsive Scroll Background
+   ============================================================================= */
+
+.reconsile-denom-table-scroll,
+.reconsile-summary-scroll {
+    background: repeating-linear-gradient(
+        to bottom,
+<<<<<<< HEAD
+        #FFFFFF 0px,
+        #FFFFFF 36px,
+=======
+        #F8FAFC 0px,
+        #F8FAFC 36px,
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+        #F2F6F6 36px,
+        #F2F6F6 72px
+    );
+}
+
+/* =============================================================================
+   12. Form Error
+   ============================================================================= */
+
+.reconsile-inline-error {
+    color: #DC3545;
+    font-family: 'bss-pridi' !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    margin-top: 4px;
+    display: none;
+}
+
+.reconsile-inline-error.show {
+    display: block;
+}
+
+/* Hide number input spinners */
+.reconsile-field input[type="number"]::-webkit-outer-spin-button,
+.reconsile-field input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.reconsile-field input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Select dropdown arrow positioning */
+.reconsile-field select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23343A40' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px 8px;
+    padding: 8px 12px 8px 16px;
+    padding-right: 36px;
+}
+<<<<<<< HEAD
+=======
+
+/* =============================================================================
+   Reconcile Happy Case — Modal Chain (Steps 07-13)
+   ============================================================================= */
+
+/* ── Modal base (shared with warning + reconfirm) ── */
+.modal-popup .modal-content {
+    border-radius: 12px !important;
+    border: 1px solid #EEEEEE !important;
+    overflow: hidden;
+}
+
+.modal-popup .modal-top-bar {
+    padding: 16px 16px 8px;
+}
+
+.modal-popup .modal-top-bar .modal-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+.modal-popup .modal-action-bar {
+    border-top: 1px solid #cbd5e1;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Standard popup buttons — 160x38, border-radius 6px */
+.modal-popup .btn-popup {
+    width: 160px;
+    height: 38px !important;
+    border-radius: 6px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-popup-cancel {
+    background: #6c757d !important;
+    color: #FFFFFF !important;
+}
+.btn-popup-cancel:hover {
+    background: #5a6268 !important;
+}
+
+.btn-popup-primary {
+    background: #003366 !important;
+    color: #FFFFFF !important;
+}
+.btn-popup-primary:hover {
+    background: #002244 !important;
+}
+
+.btn-popup-confirm {
+    background: #198754 !important;
+    color: #FFFFFF !important;
+}
+.btn-popup-confirm:hover {
+    background: #157347 !important;
+}
+
+/* ── Reconfirm Reconcile (Figma Steps 09-12) ── */
+.reconfirm-section-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #000 !important;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.reconfirm-data-section {
+    padding: 0;
+    margin-top: 16px;
+}
+
+.reconfirm-data-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #000 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    margin-left: 0 !important;
+}
+
+.reconfirm-data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #000 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    max-width: 525px;
+}
+
+.reconsile-reconfirm-message {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.2em;
+    margin: 4px 0 8px 0;
+    padding: 0;
+}
+
+.reconfirm-form-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+    letter-spacing: 0.35px;
+    line-height: 1.55;
+}
+
+/* ── OTP Input (Figma node 51:77844) ── */
+.otp-input-wrapper {
+    position: relative;
+    width: 200px;
+    height: 38px;
+}
+
+.otp-input-wrapper .otp-input {
+    width: 100%;
+    height: 100%;
+    padding: 6px 32px 6px 12px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #212529;
+}
+
+.otp-input-wrapper .otp-input:focus {
+    border-color: #86B7FE !important;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+.otp-input-wrapper .otp-btn-clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    cursor: pointer;
+    color: #6C757D;
+    font-size: 14px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.otp-input-wrapper .otp-input:not(:placeholder-shown) ~ .otp-btn-clear,
+.otp-input-wrapper .otp-btn-clear.show {
+    display: flex;
+}
+
+/* ── Modal Step Visibility ── */
+.modal-popup .modal-content > .modal-step {
+    display: none !important;
+}
+.modal-popup .modal-content > .modal-step.active {
+    display: block !important;
+}
+
+/* ── Inline validation error ── */
+.popup-inline-error {
+    color: #dc3545;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    margin-top: 4px;
+    display: none;
+}
+.popup-inline-error.show {
+    display: block;
+}
+
+/* ── UC02: Locked HC Row ── */
+.locked-row {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background-color: #f8f8f8 !important;
+}
+.locked-row:hover {
+    background-color: #f8f8f8 !important;
+}
+
+/* ── UC05: Swapped Bundle Row ── */
+.swapped-row {
+    background-color: #F8D7DA !important;
+    border-bottom: 1px solid #F1AEB5 !important;
+}
+.swapped-row td {
+    color: #DC3545 !important;
+}
+.swapped-row:hover {
+    background-color: #F8D7DA !important;
+}
+.swapped-row .qty-badge {
+    color: #DC3545 !important;
+    border-color: #DC3545 !important;
+    background-color: transparent !important;
+}
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f

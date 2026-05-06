@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "6bbca50c-ebe1-4cf9-90ac-b33dfa0f61f8",
+		"name": "bo-g04-d02-item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33535185"
+	},
+	"item": [
+		{
+			"name": "get Item list",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "create item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"teacher_item_group_id\" : 1,\n    \"type\" : \"test\",\n    \"name\" : \"test\",\n    \"description\" : \"test\",\n    \"image_url\" : \"\",\n    \"status\" : \"enabled\",\n    \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n    \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n    \"admin_login_as\" : \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update item",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : 1,\n    \"teacher_item_group_id\" : 1,\n    \"type\" : \"test2\",\n    \"name\" : \"test2\",\n    \"description\" : \"test\",\n    \"image_url\" : \"\",\n    \"status\" : \"enabled\",\n    \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n    \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n    \"admin_login_as\" : \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create item badge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 1,\n    \"template_path\" : \"test\",\n    \"badge_description\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/badge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update item badge",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 1,\n    \"template_path\" : \"test2\",\n    \"badge_description\": \"test2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/badge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item badge by item id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODc1MTA1NSwibmJmIjoxNzM4NjY0NjU1LCJpYXQiOjE3Mzg2NjQ2NTUsImp0aSI6ImU1YmQ3MWVhLWNmOTYtNDViMy05ZDFiLTYwYjU1NmQxZGIyMSJ9.zL5bIK3B0sn-dXB6MBCFp0c8jGdJ4RA8oS2KQaF5DJc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

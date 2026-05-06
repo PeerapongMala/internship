@@ -1,0 +1,489 @@
+/* =============================================================
+   Node 2:18859 — Auto Selling Detail + Adjustment Panel Styles
+   Date: 2026-02-19
+
+   These styles are for the NEW elements that appear when a user
+   clicks a Header Card in the RIGHT panel (มัดขาด-เกิน).
+   Two new panels appear:
+     1. Detail panel (bottom-left) — breakdown by ประเภท
+     2. Adjustment panel (bottom-right) — editor form
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   DETAIL PANEL — แสดงรายละเอียดข้อมูลตาม HeaderCard ที่เลือก
+   Figma node: 2:19399 → 2:19401 (Table)
+   Position: bottom-left, ~844.8px wide, ~215.67px tall
+   --------------------------------------------------------------- */
+
+.detail-panel {
+    /* Container — node 2:19399 */
+    background: #FFFFFF;
+    border: 1px solid #cbd5e1; /* Separators/seprator-opaque */
+    border-radius: 12px; /* Rounded/r-sm */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.detail-panel .detail-panel-inner {
+    /* Inner wrapper — node 2:19400 */
+    background: #FFFFFF;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Detail Panel — Section Header (title bar)
+   Node: 2:19402 */
+.detail-panel .section-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px; /* py-8, px-16 (Space/s-md) */
+    gap: 16px;
+    border-bottom: 1px solid #cbd5e1; /* Gray-300 */
+    min-height: 38px;
+}
+
+.detail-panel .section-header-title {
+    /* Node: 2:19404 */
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 16px;
+    font-weight: 500; /* Medium — Heading/H6 */
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    color: #212121; /* Texts/text-neutral-primary */
+    flex: 1;
+}
+
+.detail-panel .section-header-count {
+    /* Node: 2:19405 */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.308px;
+    color: #212121;
+}
+
+.detail-panel .section-header-count .count-value {
+    /* Node: 2:19407 — the "997" count in warning color */
+    font-weight: 700; /* Bold */
+    color: #b45309; /* Texts/text-warning-primary */
+}
+
+/* Detail Panel — Table Header Row
+   Node: 2:19409 */
+.detail-panel .table-header-row {
+    display: flex;
+    align-items: center;
+    background: #d6e0e0; /* Teal-gray, distinct from brown/gold headers */
+    border-bottom: 1px solid #cbd5e1;
+    height: 30px;
+    padding: 0 8px; /* px-8 (Space/s-xsm) */
+}
+
+.detail-panel .table-header-cell {
+    /* Each header cell */
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Space/s-xxxxsm */
+    padding: 8px;
+    flex: 1 0 0;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 13px;
+    font-weight: 500; /* Medium — Table header */
+    line-height: 1;
+    letter-spacing: 0.299px;
+    color: #212121;
+    height: 100%;
+}
+
+.detail-panel .table-header-cell.col-denomination {
+    /* ชนิดราคา column — fixed width 80px
+       Node: 2:19422 */
+    flex: 0 0 80px;
+    min-width: 60px;
+    max-width: 100px;
+    width: 80px;
+    justify-content: flex-end;
+}
+
+.detail-panel .table-header-cell.col-qty {
+    /* จำนวนฉบับ — right-aligned
+       Node: 2:19433 */
+    justify-content: flex-end;
+}
+
+.detail-panel .table-header-cell.col-value {
+    /* มูลค่า — right-aligned
+       Node: 2:19437 */
+    justify-content: flex-end;
+}
+
+.detail-panel .table-header-cell.col-type-num {
+    /* แบบ — center-aligned
+       Node: 2:19429 */
+    justify-content: center;
+}
+
+/* Detail Panel — Table Body Rows
+   Nodes: 2:19441, 2:19461, 2:19481 */
+.detail-panel .table-body-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0 8px; /* Space/s-xsm */
+    border-bottom: 1px solid #cbd5e1; /* Strokes/stroke-neutral-primary */
+}
+
+.detail-panel .table-body-row:nth-child(even) {
+    /* Alternating row background — node 2:19461 */
+    background: #f2f6f6;
+}
+
+.detail-panel .table-body-row-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.detail-panel .table-body-cell {
+    /* Each body cell */
+    display: flex;
+    align-items: center;
+    flex: 1 0 0;
+    padding: 6px 8px;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 13px;
+    font-weight: 400; /* Regular — Table body */
+    line-height: 1;
+    letter-spacing: 0.286px;
+    color: #212529; /* Body Text/Body Color */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.detail-panel .table-body-cell.col-denomination {
+    flex: 0 0 80px;
+    min-width: 80px;
+    max-width: 80px;
+    width: 80px;
+    justify-content: flex-end;
+}
+
+.detail-panel .table-body-cell.col-qty {
+    justify-content: flex-end;
+}
+
+.detail-panel .table-body-cell.col-value {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.detail-panel .table-body-cell.col-type-num {
+    text-align: center;
+}
+
+/* Denomination badge inside detail panel
+   Node: 2:19450 */
+.detail-panel .denomination-badge {
+    background: #fbf8f4;
+    border: 2px solid #9f7d57;
+    width: 47px;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-panel .denomination-badge-text {
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 13px;
+    font-weight: 700; /* Bold */
+    color: #4f3e2b;
+    letter-spacing: 0.325px;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------------
+   ADJUSTMENT PANEL — ปรับข้อมูลผลนับคัด (Editor View)
+   Figma node: 2:19512
+   Position: bottom-right, ~555.2px wide, 209px tall
+   --------------------------------------------------------------- */
+
+.adjustment-panel {
+    /* Container — node 2:19512 */
+    background: #FFFFFF;
+    border: 1px solid #cbd5e1; /* Separators/seprator-opaque */
+    border-radius: 12px; /* Rounded/r-sm */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Space/s-xxxsm */
+    padding: 12px 16px; /* py-12, px-16 */
+    width: 100%;
+    height: 209px;
+}
+
+/* Adjustment Panel — Title
+   Node: 2:19513, 2:19514 */
+.adjustment-panel .adjustment-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.adjustment-panel .adjustment-title-text {
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 16px;
+    font-weight: 500; /* Medium — Heading/H6 */
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    color: #212121; /* Texts/text-neutral-primary */
+}
+
+/* Adjustment Panel — Form Row (4 fields)
+   Node: 2:19516 */
+.adjustment-panel .form-row {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* Space/s-lg */
+    width: 100%;
+}
+
+.adjustment-panel .form-group {
+    /* Each form field container — nodes 2:19517, 2:19521, 2:19528, 2:19533 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1 0 0;
+}
+
+/* Form label
+   Node: 2:19518, 2:19522, 2:19529, 2:19534 */
+.adjustment-panel .form-label {
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 14px; /* Form Label 2 */
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.35px;
+    color: #212121; /* Color/neutral-text-primary */
+    white-space: nowrap;
+}
+
+/* Form input — editable (white bg)
+   Nodes: 2:19525, 2:19530, 2:19535 */
+.adjustment-panel .form-input {
+    background: #FFFFFF;
+    border: 1px solid #e0dfe2; /* WMS Admin/gray */
+    border-radius: 8px;
+    height: 36px;
+    padding: 8px 12px; /* py-8 px-12 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 13px; /* Form Value */
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.325px;
+    color: #212121;
+}
+
+/* Form input — read-only (gray bg)
+   Node: 2:19519 (Header Card field) */
+.adjustment-panel .form-input-readonly {
+    background: #ededed;
+    border: 1px solid #e0dfe2; /* WMS Admin/gray */
+    border-radius: 8px;
+    height: 36px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 16px; /* Form Value 2 */
+    font-weight: 600; /* SemiBold */
+    line-height: 1;
+    letter-spacing: 0.4px;
+    color: #212121;
+}
+
+/* Form select (dropdown) icon
+   Node: 2:19527, 2:19532 */
+.adjustment-panel .form-select-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Remark field — full width
+   Node: 2:19537 → 2:19540 */
+.adjustment-panel .form-remark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.adjustment-panel .form-remark .form-input {
+    width: 100%;
+}
+
+/* Adjustment Panel — Radio & Button Row
+   Node: 2:19542 */
+.adjustment-panel .action-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px; /* Space/s-xsm */
+    width: 100%;
+    height: 38px;
+}
+
+/* Radio group container (เพิ่ม/ลด)
+   Node: 2:19543 */
+.adjustment-panel .radio-group-direction {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+/* Radio group container (Normal/Add-on/Ent. JAM)
+   Node: 2:19547 */
+.adjustment-panel .radio-group-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    height: 100%;
+}
+
+/* Individual radio button
+   Nodes: 2:19544, 2:19545, 2:19548, 2:19549, 2:19550 */
+.adjustment-panel .radio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.adjustment-panel .radio-item .radio-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 100px;
+    border: 1px solid #dee2e6; /* Theme/Border */
+    background: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.adjustment-panel .radio-item.active .radio-circle {
+    background: #0d6efd; /* Theme Colors/Primary */
+    border-color: #0d6efd;
+    position: relative;
+}
+
+.adjustment-panel .radio-item.active .radio-circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    background: #FFFFFF;
+}
+
+.adjustment-panel .radio-item .radio-label {
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 14px; /* Body/Small */
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+    color: #212529; /* Body Text/Body Color */
+    text-align: left;
+}
+
+/* Vertical separator between radio groups
+   Nodes: 2:19546, 2:19551 */
+.adjustment-panel .radio-separator {
+    width: 1px;
+    height: 100%;
+    background: #d9d9d9;
+    flex-shrink: 0;
+}
+
+/* Save button (บันทึก)
+   Node: 2:19552 */
+.adjustment-panel .btn-save {
+    background: #198754; /* Theme/Success, Green/500 */
+    border: 1px solid #198754;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 16px; /* Body/Regular */
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    padding: 7px 13px;
+    width: 120px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.adjustment-panel .btn-save:hover {
+    background: #157347;
+    border-color: #157347;
+}
+
+
+/* ---------------------------------------------------------------
+   SELECTED ROW STATE — for มัดขาด-เกิน table (RIGHT panel)
+   When a Header Card is clicked/selected
+   --------------------------------------------------------------- */
+
+.header-card-row.selected {
+    /* Blue checkbox becomes checked */
+    /* "Edited" badge appears instead of "Auto Selling" */
+}
+
+.badge-edited {
+    /* The "Edited" status badge — brown/gold style */
+    background: #fbf8f4;
+    border: 1px solid #9f7d57;
+    color: #4f3e2b;
+    font-family: 'bss-pridi', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 2px 8px;
+    border-radius: 4px;
+}

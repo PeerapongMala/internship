@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "6d4d3508-2df3-4cb6-8ac0-dc4398b5e17e",
+		"name": "fo-g04-d01-learning-lesson-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33535185"
+	},
+	"item": [
+		{
+			"name": "learning-lesson-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/learning-lesson/v1/subject/{{subjectId}}/lessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"learning-lesson",
+						"v1",
+						"subject",
+						"{{subjectId}}",
+						"lessons"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/learning-lesson/v1/subject/{{subjectId}}/lessons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"learning-lesson",
+								"v1",
+								"subject",
+								"{{subjectId}}",
+								"lessons"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jan 2025 13:12:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "555"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 6,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"test\",\n            \"status\": \"draft\",\n            \"font_name\": \"\",\n            \"font_size\": \"\",\n            \"background_image_path\": \"\",\n            \"wizard_index\": 1\n        },\n        {\n            \"id\": 9,\n            \"subject_id\": 1,\n            \"index\": 2,\n            \"name\": \"test2\",\n            \"status\": \"test\",\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"wizard_index\": 1\n        },\n        {\n            \"id\": 1,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"test 21\",\n            \"status\": \"update\",\n            \"font_name\": \"test1\",\n            \"font_size\": \"test1\",\n            \"background_image_path\": \"-\",\n            \"wizard_index\": 1\n        }\n    ],\n    \"message\": \"Learning lesson list\"\n}"
+				}
+			]
+		},
+		{
+			"name": "learning-lesson-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/learning-lesson/v1/lesson/{{lessonId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"learning-lesson",
+						"v1",
+						"lesson",
+						"{{lessonId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "learning-sublesson-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/learning-lesson/v1/lesson/{{lessonId}}/sublessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"learning-lesson",
+						"v1",
+						"lesson",
+						"{{lessonId}}",
+						"sublessons"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/learning-lesson/v1/lesson/{{lessonId}}/sublessons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"learning-lesson",
+								"v1",
+								"lesson",
+								"{{lessonId}}",
+								"sublessons"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 12 Jan 2025 14:34:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "645"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 7,\n            \"lesson_id\": 1,\n            \"indicator_id\": 1,\n            \"index\": 1,\n            \"name\": \"test 1\",\n            \"status\": \"draft\",\n            \"created_at\": \"2024-12-26T17:03:30.571928Z\",\n            \"created_by\": \"Pat\",\n            \"updated_at\": \"2024-12-26T17:03:30.571928Z\",\n            \"updated_by\": \"Pat\",\n            \"admin_login_as\": null,\n            \"indicator_name\": null\n        },\n        {\n            \"id\": 9,\n            \"lesson_id\": 1,\n            \"indicator_id\": 1,\n            \"index\": 2,\n            \"name\": \"\",\n            \"status\": \"test\",\n            \"created_at\": \"2024-12-30T13:19:55.391017Z\",\n            \"created_by\": \"Pat\",\n            \"updated_at\": \"2024-12-30T13:19:55.391017Z\",\n            \"updated_by\": \"Pat\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"indicator_name\": null\n        }\n    ],\n    \"message\": \"Learning sublesson list\"\n}"
+				}
+			]
+		},
+		{
+			"name": "learning-sublesson-get",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNjc3MzU0NCwibmJmIjoxNzM2Njg3MTQ0LCJpYXQiOjE3MzY2ODcxNDQsImp0aSI6Ijg0ZWFlMGQ0LTJjY2UtNDkyYy05YmUzLTQzNWE4NmU0MDZhZSJ9.aJ6-2bFRvVtuw0COqqPsAvqMqXdfWcSueSTfMKURkUI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

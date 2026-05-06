@@ -1,0 +1,981 @@
+{
+	"info": {
+		"_postman_id": "692d52bc-e65d-49c5-9d37-6e7fe195d8b8",
+		"name": "bo-g02-d03-academic-lesson-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a02-api-lesson-case-sort",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lessons\": {\r\n        \"1\": 3, // lesson id : index\r\n        \"2\": 4\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/:subjectId/lessons/sort",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						":subjectId",
+						"lessons",
+						"sort"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required, ID ของหลักสูตร"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-lesson-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/:subjectId/lessons/download/csv?start_date=2024-11-17T17:25:19.8233372Z&end_date=2024-11-18T17:25:19.8233372Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						":subjectId",
+						"lessons",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-11-17T17:25:19.8233372Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-18T17:25:19.8233372Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-lesson-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"description": "required",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/lesson-upload.csv"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "00f1b13e-0e62-45d2-9718-099cd545b3ac",
+							"description": "optional",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/:subjectId/lessons/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						":subjectId",
+						"lessons",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-lesson-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/:lessonId?subject_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						":lessonId"
+					],
+					"query": [
+						{
+							"key": "subject_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "lessonId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-lesson-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"lesson_id\": 1, // required\r\n            \"status\": \"disabled\"  // required, สถานะ (enabled / disabled / draft)\r\n        },\r\n        {\r\n            \"lesson_id\": 6,\r\n            \"status\": \"enabled\" \r\n        }\r\n    ],\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, admin ที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create lesson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject_id\": 1, // required\n    \"index\": 1, // optional\n    \"name\": \"test2\", // required\n    \"font_name\":\"test2\", // optional\n    \"font_size\":\"test2\", // optional\n    \"status\": \"enabled\", // required | enabled , disabled , draft \n    \"background_image_path\": \"\", // optional\n    \"wizard_index\": 0 // optional\n    // \"admin_login_as\" : \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create lesson",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject_id\": 1,\n    \"index\": 1,\n    \"name\": \"test2\",\n    \"font_name\":\"test2\",\n    \"font_size\":\"test2\",\n    \"status\": \"test\", // enabled , disabled , draft\n    \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n    \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n    \"admin_login_as\" : \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 09:02:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "473"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a1eb0fc1-585d-48fb-b096-32ce1012fc31"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": {\n        \"id\": 33,\n        \"subject_id\": 1,\n        \"index\": 22,\n        \"name\": \"test2\",\n        \"font_name\": \"test2\",\n        \"font_size\": \"test2\",\n        \"background_image_path\": \"\",\n        \"status\": \"test\",\n        \"created_at\": \"2025-03-13T09:02:12.143389Z\",\n        \"created_by\": \"abf26314-a541-4e39-8fff-ed5aa78a2782\",\n        \"updated_at\": null,\n        \"updated_by\": null,\n        \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"wizard_index\": 0,\n        \"user_id\": null,\n        \"email\": null,\n        \"title\": null,\n        \"first_name\": null,\n        \"last_name\": null\n    },\n    \"message\": \"Subject lesson create\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update lesson",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"จำนวนเฉพาะทางคณิตศาสตร์\",\n    \"font_name\":\"Noto Sans Thai\",\n    \"font_size\": \"Size S - 14 pt\",\n    \"background_image_path\":\"some-bg-path\",\n    \"status\" : \"enabled\" // enabled , disabled , draft\n    // \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/8",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						"8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update lesson",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"จำนวนเฉพาะทางคณิตศาสตร์\",\n    \"font_name\":\"Noto Sans Thai\",\n    \"font_size\": \"Size S - 14 pt\",\n    \"background_image_path\":\"some-bg-path\",\n    \"status\" : \"enabled\" // enabled , disabled , draft\n    // \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons/8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons",
+								"8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Mar 2025 07:07:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "628"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8d4b457a-4f16-4d5b-9675-b2b0aac5b665"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": {\n        \"id\": 8,\n        \"subject_id\": 1,\n        \"index\": 3,\n        \"name\": \"จำนวนเฉพาะทางคณิตศาสตร์\",\n        \"font_name\": \"Noto Sans Thai\",\n        \"font_size\": \"Size S - 14 pt\",\n        \"background_image_path\": \"some-bg-path\",\n        \"status\": \"enabled\",\n        \"created_at\": \"2025-02-28T10:31:55.934264Z\",\n        \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"updated_at\": \"2025-03-13T07:07:15.637531Z\",\n        \"updated_by\": \"abf26314-a541-4e39-8fff-ed5aa78a2782\",\n        \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"wizard_index\": 0,\n        \"user_id\": null,\n        \"email\": null,\n        \"title\": null,\n        \"first_name\": null,\n        \"last_name\": null\n    },\n    \"message\": \"Subject lesson Update\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List lesson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/:subjectId/lessons?search_text=&page=1&limit=10&no_details=true&indicator_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						":subjectId",
+						"lessons"
+					],
+					"query": [
+						{
+							"key": "search_text",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "no_details",
+							"value": "true"
+						},
+						{
+							"key": "indicator_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List lesson",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/1/lessons?search_text=&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"1",
+								"lessons"
+							],
+							"query": [
+								{
+									"key": "search_text",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 03 Dec 2024 09:46:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1990"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 4\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"test lesson 1\",\n            \"font_name\": \"\",\n            \"font_size\": \"\",\n            \"background_image_path\": \"\",\n            \"status\": \"draft\",\n            \"created_at\": \"2024-11-30T03:33:51.681869Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2024-11-30T03:33:51.681869Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": null,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 1,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"test 2\",\n            \"font_name\": \"1\",\n            \"font_size\": \"10\",\n            \"background_image_path\": \"test\",\n            \"status\": \"draft\",\n            \"created_at\": \"2024-11-13T18:53:06.367448Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2024-11-13T18:53:06.367448Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": null,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 1234,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"test 2\",\n            \"font_name\": \"test\",\n            \"font_size\": \"100\",\n            \"background_image_path\": \"test\",\n            \"status\": \"enable\",\n            \"created_at\": \"2024-11-11T00:00:00Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2024-11-18T23:13:04.84284Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": null,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 2,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"test2\",\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"status\": \"draft\",\n            \"created_at\": \"2024-11-18T23:18:14.416589Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2024-11-18T23:18:14.416589Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": null,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        }\n    ],\n    \"message\": \"Subject sub lesson list\"\n}"
+				},
+				{
+					"name": "SUCCESS 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/:subjectId/lessons?search_text=&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								":subjectId",
+								"lessons"
+							],
+							"query": [
+								{
+									"key": "search_text",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							],
+							"variable": [
+								{
+									"key": "subjectId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 03 Mar 2025 13:57:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4102"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "69d648bc-f59a-4aae-9cf2-10c521ce4dbb"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 7\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"subject_id\": 1,\n            \"index\": 1,\n            \"name\": \"ตัวอักษรในภาษาอังกฤษ\",\n            \"level_reward_count\": 2,\n            \"font_name\": \"Noto Sans Thai\",\n            \"font_size\": \"Size S - 14 pt\",\n            \"background_image_path\": \"image path\",\n            \"status\": \"enabled\",\n            \"created_at\": \"2024-11-18T17:25:19.821779Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-02-28T08:23:43.944614Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 5,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 7,\n            \"subject_id\": 1,\n            \"index\": 2,\n            \"name\": \"หลักสูตร-1\",\n            \"level_reward_count\": 0,\n            \"font_name\": \"test2\",\n            \"font_size\": \"10\",\n            \"background_image_path\": \"\",\n            \"status\": \"test\",\n            \"created_at\": \"2025-02-28T08:21:12.526188Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-02-28T08:21:12.526188Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 0,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 8,\n            \"subject_id\": 1,\n            \"index\": 3,\n            \"name\": \"จำนวนเฉพาะทางคณิตศาสตร์\",\n            \"level_reward_count\": 1,\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"status\": \"test\",\n            \"created_at\": \"2025-02-28T10:31:55.934264Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-02-28T10:31:55.934264Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 0,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 9,\n            \"subject_id\": 1,\n            \"index\": 4,\n            \"name\": \"test2\",\n            \"level_reward_count\": 0,\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"status\": \"test\",\n            \"created_at\": \"2025-02-28T11:02:51.380146Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-02-28T11:02:51.380146Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 0,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 10,\n            \"subject_id\": 1,\n            \"index\": 5,\n            \"name\": \"test2\",\n            \"level_reward_count\": 0,\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"status\": \"enabled\",\n            \"created_at\": \"2025-03-03T08:50:50.124613Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-03-03T08:50:50.124613Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 0,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 11,\n            \"subject_id\": 1,\n            \"index\": 6,\n            \"name\": \"test2\",\n            \"level_reward_count\": 0,\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"status\": \"enabled\",\n            \"created_at\": \"2025-03-03T08:58:08.821486Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-03-03T08:58:08.821487Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 0,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        },\n        {\n            \"id\": 12,\n            \"subject_id\": 1,\n            \"index\": 7,\n            \"name\": \"lesson 12\",\n            \"level_reward_count\": 0,\n            \"font_name\": \"test2\",\n            \"font_size\": \"test2\",\n            \"background_image_path\": \"\",\n            \"status\": \"enabled\",\n            \"created_at\": \"2025-03-03T08:58:11.192809Z\",\n            \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"updated_at\": \"2025-03-03T08:58:47.413843Z\",\n            \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"wizard_index\": 0,\n            \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"email\": \"admin@admin.com\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\"\n        }\n    ],\n    \"message\": \"Subject sub lesson list\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a09-api-monster-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0Mjg3OTA0MSwibmJmIjoxNzQyNzkyNjQxLCJpYXQiOjE3NDI3OTI2NDEsImp0aSI6IjkzNDYyMWMwLTRiZDAtNDE5ZS1iZjJmLWIxMzVhYzBiY2Q2NCJ9.HaOzeyeSWqboK0B_rIiMeEKCAUhncqMun21NUX69CJ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/:lesson_id/monsters?page=&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						":lesson_id",
+						"monsters"
+					],
+					"query": [
+						{
+							"key": "level_type",
+							"value": "",
+							"description": "optinal; ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "",
+							"description": "default = 1 // optional"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "default = 10 // optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "lesson_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons/:lesson_id/monsters",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons",
+								":lesson_id",
+								"monsters"
+							],
+							"query": [
+								{
+									"key": "level_type",
+									"value": "test",
+									"description": "optinal; ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "lesson_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 08:34:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "101"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d196a087-e21f-4794-bd91-d33a8c9bcf88"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"total_count\": 0\n    },\n    \"data\": [],\n    \"message\": \"success\",\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "SUCCESS 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons/:lesson_id/monsters",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons",
+								":lesson_id",
+								"monsters"
+							],
+							"query": [
+								{
+									"key": "level_type",
+									"value": "test",
+									"description": "optinal; ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "lesson_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 08:34:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "265"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d296a087-e21f-4794-bd91-d33a8c9bcf88"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"id\": 17,\n            \"image_path\": \"example.com/image1\",\n            \"lesson_id\": 1,\n            \"level_type\": \"test\"\n        },\n        {\n            \"id\": 18,\n            \"image_path\": \"example.com/image2\",\n            \"lesson_id\": 1,\n            \"level_type\": \"pre-post-test\"\n        }\n    ],\n    \"message\": \"success\",\n    \"status_code\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "a10-api-monster-bulk-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"monster_lists\": [\n        {\n            \"image_path\": \"{{$randomImageUrl}}\", //required-\n            \"level_type\": \"test\" // required, ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config\n        },\n        {\n            \"image_path\":\"{{$randomImageUrl}}\",\n            \"level_type\": \"sub-lesson-post-test\"\n        },\n        {\n            \"image_path\":\"{{$randomImageUrl}}\",\n            \"level_type\": \"pre-post-test\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/:lesson_id/monsters",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						":lesson_id",
+						"monsters"
+					],
+					"variable": [
+						{
+							"key": "lesson_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS 201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"monster_lists\": [\n        {\n            \"image_path\": \"{{$randomImageUrl}}\", //required-\n            \"level_type\": \"test\" // required, ประเภทแบบฝึกหัด (test = แบบฝึกหัด / sub-lesson-post-test = แบบฝึกหัดท้ายบทเรียนย่อย / pre-post-test = แบบฝึกหัดก่อน - หลังเรียน), frontend config\n        },\n        {\n            \"image_path\":\"{{$randomImageUrl}}\",\n            \"level_type\": \"sub-lesson-post-test\"\n        },\n        {\n            \"image_path\":\"{{$randomImageUrl}}\",\n            \"level_type\": \"pre-post-test\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons/:lesson_id/monsters",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons",
+								":lesson_id",
+								"monsters"
+							],
+							"variable": [
+								{
+									"key": "lesson_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 07:24:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6d4a44aa-84c6-41f4-a0dc-b5e79ca8590d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"created_success\",\n    \"status_code\": 201\n}"
+				}
+			]
+		},
+		{
+			"name": "a11-api-monster-bulk-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"monster_ids\": [22, 23, 24, 25] // int\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/monsters",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						"monsters"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS 200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"monster_ids\": [22, 23, 24,25] // int\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons/monsters",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons",
+								"monsters"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 08:11:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "9fe9d446-bc32-49c4-8182-a9b137828738"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"delete_success\",\n    \"status_code\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "a12-api-lesson-case-get-meta",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lesson_ids\": [1, 2, 3, 120, 35]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-lesson/v1/lessons/meta",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-lesson",
+						"v1",
+						"lessons",
+						"meta"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lesson_ids\": [1, 2, 3, 120, 35]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/academic-lesson/v1/lessons/meta",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-lesson",
+								"v1",
+								"lessons",
+								"meta"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 12 Dec 2025 10:45:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1011"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d80b147b-23ad-4ebb-b70a-c04cdab06b81"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"subject_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"subject_group_id\": 1,\n            \"subject_group_name\": \"ภาษาอังกฤษ\",\n            \"year_id\": 1,\n            \"year_name\": \"ประถมศึกษาปีที่ 4\",\n            \"lesson_count\": 55,\n            \"sub_lesson_count\": 26,\n            \"lesson_ids\": [\n                1,\n                4,\n                5,\n                6,\n                8,\n                38,\n                39,\n                40,\n                74,\n                75,\n                76,\n                77,\n                78,\n                79,\n                80,\n                93,\n                94,\n                95,\n                96,\n                97,\n                98,\n                99,\n                100,\n                101,\n                102,\n                103,\n                104,\n                105,\n                106,\n                107,\n                108,\n                109,\n                111,\n                112,\n                113,\n                118,\n                122\n            ]\n        },\n        {\n            \"subject_id\": 9,\n            \"subject_name\": \"คณิตศาสตร์\",\n            \"subject_group_id\": 10,\n            \"subject_group_name\": \"คณิตศาสตร์\",\n            \"year_id\": 14,\n            \"year_name\": \"ประถมศึกษาปีที่ 6\",\n            \"lesson_count\": 85,\n            \"sub_lesson_count\": 85,\n            \"lesson_ids\": [\n                28,\n                29,\n                30,\n                31,\n                32,\n                33,\n                34,\n                35,\n                36,\n                37\n            ]\n        },\n        {\n            \"subject_id\": 36,\n            \"subject_name\": \"ภาษาจีน\",\n            \"subject_group_id\": 30,\n            \"subject_group_name\": \"กลุ่มวิชาที่ 4\",\n            \"year_id\": 2,\n            \"year_name\": \"ประถมศึกษาปีที่ 1\",\n            \"lesson_count\": 1,\n            \"sub_lesson_count\": 1,\n            \"lesson_ids\": [\n                120\n            ]\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

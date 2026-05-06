@@ -1,0 +1,260 @@
+﻿@model BSS_WEB.Models.ViewModel.ApproveManualKeyInViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Approve Manual Key-in";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/approve-manual-key-in/approveManualKeyIn.css")"
+      asp-append-version="true" />
+
+@Html.AntiForgeryToken()
+
+<input type="hidden" id="currentUserId" value="@Model.UserId" />
+<input type="hidden" id="currentUserFullName" value="@Model.UserFullName" />
+<input type="hidden" id="currentRoleCode" value="@Model.RoleCode" />
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+            <!-- ============================================================
+			     PAGE HEADER — Figma node 2:49769 (62px height)
+			     ============================================================ -->
+            <div class="page-header">
+                <div class="page-header-left">
+                    <h1 class="page-title">Approve Manual Key-in</h1>
+                </div>
+                <div class="page-header-center">
+                    <!-- Status indicators -->
+                    <div class="status-group">
+                        <span class="status-label">Date:</span>
+                        <span class="status-value" id="headerDate">21/7/2568 16:26</span>
+                    </div>
+                    <div class="status-group">
+                        <span class="status-label">ธปท:</span>
+                        <span class="status-value" id="headerSupervisor">พัฒนา วิไล</span>
+                    </div>
+                </div>
+                <div class="page-header-right">
+                    <button type="button" class="btn-filter" onclick="toggleFilterPanel()">
+                        <img src="~/images/icons/filter-icon.svg" alt="Filter" width="16" height="16" style="filter: brightness(0) invert(1);" />
+                        <span>Filter</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================================
+			     FILTER PANEL — Figma node 2:49792 (102px height, 2 rows)
+			     ============================================================ -->
+            <div class="filter-panel">
+                <!-- Row 1 — 5 filters -->
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label class="filter-label">Header Card:</label>
+                        <input type="text" class="filter-input" id="filterHC" placeholder="รหัส HC" />
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Status:</label>
+                        <select class="filter-select" id="filterStatus">
+                            <option value="">ทั้งหมด</option>
+                            <option value="24">รอ Approve</option>
+                            <option value="16">Approved</option>
+                            <option value="25">Denied</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Shift:</label>
+                        <select class="filter-select" id="filterShift">
+                            <option value="">ทั้งหมด</option>
+                            <option value="1">กะเช้า</option>
+                            <option value="2">กะบ่าย</option>
+                            <option value="3">กะดึก</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Machine:</label>
+                        <select class="filter-select" id="filterMachine">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Banknote Type:</label>
+                        <select class="filter-select" id="filterBnType">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 2 — 4 filters -->
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label class="filter-label">Date From:</label>
+                        <input type="date" class="filter-input" id="filterDateFrom" />
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Date To:</label>
+                        <input type="date" class="filter-input" id="filterDateTo" />
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">User:</label>
+                        <select class="filter-select" id="filterUser">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button type="button" class="btn-search" id="btnSearch">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path
+                                d="M11 6.5C11 9.08 9.08 11 6.5 11C3.92 11 2 9.08 2 6.5C2 3.92 3.92 2 6.5 2C9.08 2 11 3.92 11 6.5ZM10.71 12.13C9.72 12.92 8.47 13.4 7.1 13.4C3.57 13.4 0.7 10.53 0.7 7C0.7 3.47 3.57 0.6 7.1 0.6C10.63 0.6 13.5 3.47 13.5 7C13.5 8.47 12.92 9.82 11.99 10.87L15.56 14.44L14.14 15.86L10.71 12.13Z"
+                                fill="currentColor" />
+                            </svg>
+                            <span>ค้นหา</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+			     MAIN DATA TABLE — Figma node 2:49830 (1408×407px)
+			     ============================================================ -->
+            <div class="main-table-container">
+                <table class="data-table" id="mainDataTable">
+                    <thead>
+                        <tr>
+                            <th class="col-select"><input type="radio" name="selectRow" disabled /></th>
+                            <th class="col-no">No.</th>
+                            <th class="col-hc">Header Card</th>
+                            <th class="col-bntype">Banknote Type</th>
+                            <th class="col-date">Create Date</th>
+                            <th class="col-user">Created By</th>
+                            <th class="col-machine">Machine</th>
+                            <th class="col-shift">Shift</th>
+                            <th class="col-status">Status</th>
+                            <th class="col-total">Total Qty</th>
+                            <th class="col-value">Total Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mainTableBody">
+                        <tr class="no-data-row">
+                            <td colspan="11" style="text-align: center; padding: 30px;">
+                                <div class="no-data-message">ไม่พบข้อมูล</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ============================================================
+			     BOTTOM SECTION — Denomination Details + Details Panel
+			     ============================================================ -->
+            <div class="bottom-section">
+                <!-- Left: Denomination Details Table (900×249px) -->
+                <div class="denomination-section">
+                    <div class="section-header">
+                        <h3 class="section-title">แสดงผลการนับคัดตามรายการ Header Card ที่เลือกไว้</h3>
+                    </div>
+                    <div class="denomination-table-container">
+                        <table class="denomination-table" id="denominationTable">
+                            <thead>
+                                <tr>
+                                    <th class="col-denom">ชนิดราคา</th>
+                                    <th class="col-type">ประเภท</th>
+                                    <th class="col-series">แบบ</th>
+                                    <th class="col-qty">จำนวนฉบับ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="denominationTableBody">
+                                <tr class="no-data-row">
+                                    <td colspan="4" style="text-align: center; padding: 20px;">
+                                        <div class="no-data-message">กรุณาเลือก Header Card</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right: Details Panel (500×249px) -->
+                <div class="details-panel">
+                    <h3 class="panel-title" id="panelTitle">Details</h3>
+                    <div class="panel-content">
+                        <!-- Note input -->
+                        <div class="form-group">
+                            <label class="form-label">หมายเหตุ:</label>
+                            <textarea class="form-textarea" id="inputRemark" rows="3"
+                                      placeholder="กรอกหมายเหตุ (สำหรับ Deny)"></textarea>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="panel-actions">
+                            <button type="button" class="btn-deny" id="btnDeny" disabled>
+                                <img src="~/images/icons/x-octagon-fill.svg" alt="Deny" width="16" height="16" />
+                                <span>Deny</span>
+                            </button>
+                            <div class="divider"></div>
+                            <button type="button" class="btn-approve" id="btnApprove" disabled>
+                                <img src="~/images/icons/check-circle-fill.svg" alt="Approve" width="16" height="16" />
+                                <span>Approve</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     CONFIRMATION MODAL — Figma node 2:50279 (560×360px)
+     ============================================================ -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="24" fill="#FFC107" opacity="0.1" />
+                        <path
+                        d="M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38C31.732 38 38 31.732 38 24C38 16.268 31.732 10 24 10ZM24 28C23.448 28 23 27.552 23 27V17C23 16.448 23.448 16 24 16C24.552 16 25 16.448 25 17V27C25 27.552 24.552 28 24 28ZM24 32C23.448 32 23 31.552 23 31C23 30.448 23.448 30 24 30C24.552 30 25 30.448 25 31C25 31.552 24.552 32 24 32Z"
+                        fill="#FFC107" />
+                    </svg>
+                </div>
+                <h4 class="modal-title" id="confirmModalTitle">Approve</h4>
+                <p class="modal-message" id="confirmModalMessage">คุณแน่ใจหรือไม่ที่ต้องการ Approve ข้อมูลนี้</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn-confirm" id="btnConfirmAction">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     SUCCESS MODAL — Figma node 2:50269 (560×360px)
+     ============================================================ -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-icon success">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="24" fill="#198754" opacity="0.1" />
+                        <path
+                        d="M19 24L21.5 26.5L28 20M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38C31.732 38 38 31.732 38 24C38 16.268 31.732 10 24 10Z"
+                        stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h4 class="modal-title success">สำเร็จ</h4>
+                <p class="modal-message" id="successModalMessage">บันทึกข้อมูลสำเร็จ</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-ok" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/js/approve-manual-key-in/approveManualKeyIn.js")" asp-append-version="true"></script>

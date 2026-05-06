@@ -1,0 +1,866 @@
+{
+	"info": {
+		"_postman_id": "31a06f0c-4fc2-4c3c-aedf-907bab37277e",
+		"name": "bo-g01-d01-02-admin-report-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-admin-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/progress?scope=district-group&parent_scope=กลุ่มเขต 1&report_type=doe",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"progress"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "district-group",
+							"description": "required, district-zone, area-office, district-group, district, province, school, year"
+						},
+						{
+							"key": "parent_scope",
+							"value": "กลุ่มเขต 1"
+						},
+						{
+							"key": "report_type",
+							"value": "doe",
+							"description": "required, (obec = สพฐ / doe = สนศ กทม / lao = อปท / สช = opec / others = อื่นๆ)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "inspection-area (สพฐ)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=inspection-area&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "inspection-area",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "โรงเรียนสาธิตมัธยม",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:25:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "329"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6e5b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"average_progress\": 46.42857142857143,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Entico\",\n                    \"progress\": 50\n                },\n                {\n                    \"scope\": \"Maricopa\",\n                    \"progress\": 42.857142857142854\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "area-office (สพฐ)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=area-office&parent_scope=Maricopa&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "area-office",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "Maricopa"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:29:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "302"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "735b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"average_progress\": 21.428571428571427,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Port Ladarius\",\n                    \"progress\": 42.857142857142854\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "school (สพฐ)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=school&parent_scope=Port Ladarius&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "school",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "Port Ladarius"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:29:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "392"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "745b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"data\": [\n        {\n            \"average_progress\": 16.666666666666668,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Lilla\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"TESTFORM\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"โรงเรียนสาธิตมัธยม\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "year (สพฐ / สนศ. กทม. / อปท / สช)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=year&parent_scope=โรงเรียนสาธิตมัธยม&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "year",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "โรงเรียนสาธิตมัธยม"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:31:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "340"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "785b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"average_progress\": 94.44444444444444,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"ป.4\",\n                    \"progress\": 166.66666666666666\n                },\n                {\n                    \"scope\": \"ป.5\",\n                    \"progress\": 22.22222222222222\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "district-zone (สนศ. กทม.)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=district-zone&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "district-zone",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "โรงเรียนสาธิตมัธยม",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:21:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "384"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "615b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"average_progress\": 21.428571428571427,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"กรุงเทพเหนือ\",\n                    \"progress\": 42.857142857142854\n                },\n                {\n                    \"scope\": \"กรุงเทพกลาง\",\n                    \"progress\": 0\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "district (สนศ. กทม.)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=district&parent_scope=กรุงเทพเหนือ&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "district",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "กรุงเทพเหนือ"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:22:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "655b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"average_progress\": 42.857142857142854,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"บางบอน\",\n                    \"progress\": 42.857142857142854\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "doe-school (สนศ. กทม.)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=doe-school&parent_scope=บางบอน&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "doe-school",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "บางบอน"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 06:24:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "392"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6d5b2ee8-8385-4702-9d3b-a17207f697e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"data\": [\n        {\n            \"average_progress\": 16.666666666666668,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Lilla\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"TESTFORM\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"โรงเรียนสาธิตมัธยม\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "province (อปท)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=province&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "province",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "โรงเรียนสาธิตมัธยม",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 07:27:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "376"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8041d9c3-9b79-43e2-810f-2721beb8a264"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"data\": [\n        {\n            \"average_progress\": 47.61904761904762,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Casperchester\",\n                    \"progress\": 42.857142857142854\n                },\n                {\n                    \"scope\": \"North Dixiemouth\",\n                    \"progress\": 50\n                },\n                {\n                    \"scope\": \"pluto\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "lao-district (อปท)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=lao-district&parent_scope=North Dixiemouth&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "lao-district",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "North Dixiemouth"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 08:00:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "262"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "03656d58-e54e-4d53-ab7d-eb5e0b1ec856"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"average_progress\": 50,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"pluto\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "lao-school (อปท)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=lao-school&parent_scope=pluto&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "lao-school",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "pluto"
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 08:12:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "311"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "3f8b33cd-e2ee-463b-8ee8-c90a568c8749"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"average_progress\": 50,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"โรงเรียนสาธิตมัธยม\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "opec-school (สช)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=opec-school&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "opec-school",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "pluto",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:05:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "392"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "ee825600-91c9-41ad-aca1-88b392379f6a"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"data\": [\n        {\n            \"average_progress\": 16.666666666666668,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Lilla\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"TESTFORM\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"โรงเรียนสาธิตมัธยม\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				},
+				{
+					"name": "etc-school (อื่นๆ)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/admin-report/v1/progress?scope=etc-school&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin-report",
+								"v1",
+								"progress"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "etc-school",
+									"description": "required, inspection-area, area-office, district-group, district, province, school, year"
+								},
+								{
+									"key": "parent_scope",
+									"value": "pluto",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2000-02-20T03:30:42.392Z",
+									"description": "required"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-02-20T03:30:42.392Z",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 04 Mar 2025 09:35:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "392"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "57cfa165-2894-4cc9-9328-63a592ecccec"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"data\": [\n        {\n            \"average_progress\": 16.666666666666668,\n            \"start_date\": \"2000-02-20T03:30:42.392Z\",\n            \"end_date\": \"2025-02-20T03:30:42.392Z\",\n            \"progress_reports\": [\n                {\n                    \"scope\": \"Lilla\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"TESTFORM\",\n                    \"progress\": 0\n                },\n                {\n                    \"scope\": \"โรงเรียนสาธิตมัธยม\",\n                    \"progress\": 50\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a02-api-admin-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/progress/csv?scope=inspection-area&start_date=2000-02-20T03:30:42.392Z&end_date=2025-02-20T03:30:42.392Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"progress",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "inspection-area"
+						},
+						{
+							"key": "parent_scope",
+							"value": "โรงเรียนสาธิตมัธยม",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2000-02-20T03:30:42.392Z"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-02-20T03:30:42.392Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

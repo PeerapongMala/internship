@@ -1,0 +1,24 @@
+{
+  "homework": "Homework",
+  "tabs": {
+    "title": "Assignments",
+    "todo": "To Do",
+    "late": "Overdue",
+    "completed": "Completed"
+  },
+  "lesson": {
+    "stages": "stages",
+    "dueDate": "Due date",
+    "submitted": "Submitted",
+    "pastDue": "Past due"
+  },
+  "button": {
+    "restart": "Restart",
+    "start": "Start"
+  },
+  "achievement": {
+    "prize": "Prize",
+    "notReceived": "Not Received",
+    "received": "Received"
+  }
+}

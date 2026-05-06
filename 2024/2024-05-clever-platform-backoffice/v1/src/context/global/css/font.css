@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'THSarabunNew';
+  src:
+    local('THSarabunNew'),
+    url('/assets/fonts/THSarabunNew/THSarabunNew.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src:
+    local('THSarabunNew'),
+    url('/assets/fonts/THSarabunNew/THSarabunNew-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src:
+    local('THSarabunNew'),
+    url('/assets/fonts/THSarabunNew/THSarabunNew-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'THSarabunNew';
+  src:
+    local('THSarabunNew'),
+    url('/assets/fonts/THSarabunNew/THSarabunNew-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src:
+    local('Prompt'),
+    url('/assets/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src:
+    local('Prompt'),
+    url('/assets/fonts/Prompt/Prompt-Light.ttf') format('truetype');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'hx';
+  src: url('/font/hx-55-r.ttf') format('truetype');
+  /* font-weight: normal; */
+}
+
+/* @font-face {
+  font-family: 'hx';
+  src: url('/font/hx-75-b.ttf') format('truetype');
+  font-weight: bold;
+} */
+
+@font-face {
+  font-family: 'hx-b';
+  src: url('/font/hx-75-b.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai';
+  src:
+    /* url('/font/NotoSansThai/NotoSansThai-Regular.woff2') format('woff2'),
+    url('/font/NotoSansThai/NotoSansThai-Regular.woff') format('woff'), */ url('/font/NotoSansThai/NotoSansThai-Regular.ttf')
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai';
+  src:
+    /* url('/font/NotoSansThai/NotoSansThai-Bold.woff2') format('woff2'),
+    url('/font/NotoSansThai/NotoSansThai-Bold.woff') format('woff'), */ url('/font/NotoSansThai/NotoSansThai-Bold.ttf')
+    format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

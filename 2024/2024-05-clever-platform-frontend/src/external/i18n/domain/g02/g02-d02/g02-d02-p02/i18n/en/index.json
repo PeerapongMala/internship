@@ -1,0 +1,17 @@
+{
+  "title-school-name": "{{schoolName}}",
+  "title-select-subject": "Choose Subject",
+  "ok": "OK",
+  "subject-not-unlocked": "Subject not unlocked",
+  "please-check-conditions": "Please check the following conditions",
+  "cond-1": "The school has enabled the subject",
+  "cond-2": "The contract is active",
+  "cond-3": "Within the contract period",
+  "cond-4": "The contract enables the subject group",
+  "cond-5": "The subject affiliation is active",
+  "cond-6": "The platform is active",
+  "cond-7": "The academic year is active",
+  "cond-8": "The subject group is active",
+  "cond-9": "The subject is active",
+  "cond-10": "The subject is unlocked"
+}

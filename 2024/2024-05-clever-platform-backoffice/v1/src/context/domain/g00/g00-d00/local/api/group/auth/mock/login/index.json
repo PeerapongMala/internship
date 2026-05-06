@@ -1,0 +1,10 @@
+{
+  "status_code": 200,
+  "data": [
+    {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxx.xxxxx",
+      "roles": [1, 2, 3, 4, 5]
+    }
+  ],
+  "message": "Login successfully"
+}

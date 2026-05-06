@@ -1,0 +1,175 @@
+.collection {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0px;
+  text-align: right;
+  font-size: 20px;
+  color: #fed845;
+  font-family: Kanit;
+}
+.space {
+  align-self: stretch;
+  flex: 1;
+  min-width: 10px;
+  max-width: 50px;
+}
+.weapons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 150px;
+  max-width: 400px;
+}
+.collectionLabel {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.weaponsTopbar {
+  align-self: flex-end;
+  max-width: 100%;
+  overflow: hidden;
+  height: 10px;
+  flex-shrink: 0;
+}
+.suppliesTopbar {
+  align-self: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+  height: 10px;
+  flex-shrink: 0;
+}
+.items {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 18px;
+}
+.couple {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+}
+.itemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  gap: 10px;
+}
+.subtractIcon {
+  width: 51.5px;
+  position: relative;
+  height: 52px;
+  z-index: 0;
+}
+.itemFrame {
+  width: 53.5px;
+  position: absolute;
+  margin: 0 !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 54px;
+  z-index: 1;
+}
+.item {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.bottombar {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.weaponsbottombar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 30px;
+  max-width: 180px;
+}
+.weaponsbottombarleftIcon {
+  flex: 1;
+  position: relative;
+  max-width: 155px;
+  overflow: hidden;
+  height: 10px;
+  min-width: 30px;
+}
+.weaponsbottombarrightIcon {
+  width: 29px;
+  position: relative;
+  height: 10px;
+}
+.supplies {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 150px;
+  max-width: 400px;
+  text-align: left;
+  color: #33f9fa;
+}
+.supplyItem {
+  position: absolute;
+  top: 0px;
+  left: 71.5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.collectionBottombar {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+.suppliesbottombarleftIcon {
+  width: 29px;
+  position: relative;
+  height: 10px;
+  object-fit: contain;
+}
+.suppliesbottombarrightIcon {
+  flex: 1;
+  position: relative;
+  max-width: 155px;
+  overflow: hidden;
+  height: 10px;
+  object-fit: contain;
+  min-width: 30px;
+}

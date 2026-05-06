@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "a79e0bc5-bf68-4db8-9517-8fec937877f5",
+		"name": "fo-g02-d02-global-zone-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13929754"
+	},
+	"item": [
+		{
+			"name": "api-select-subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/global-zone/v1/select-subject",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"global-zone",
+						"v1",
+						"select-subject"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-select-subject",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/global-zone/v1/select-subject",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"global-zone",
+								"v1",
+								"select-subject"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 31 Jan 2025 08:17:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "138"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "97f4070c-01ba-4521-831c-a4c59a4a0622"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"subject_id\": 1,\n            \"is_enabled\": true\n        }\n    ],\n    \"status_code\": 200,\n    \"message\": \"Success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-announcement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/global-zone/v1/announcement?type=system",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"global-zone",
+						"v1",
+						"announcement"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "system",
+							"description": "teacher, system"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-announcement",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/global-zone/v1/announcement?type=system",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"global-zone",
+								"v1",
+								"announcement"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "system",
+									"description": "system, teacher"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 31 Jan 2025 08:19:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "83151d6b-a715-4569-a40a-b15a4d20894a"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"announcement_id\": 11,\n            \"started_at\": \"2025-01-30T23:12:09.659332Z\",\n            \"ended_at\": \"2026-03-01T23:12:09.659Z\",\n            \"title\": \"ปุกาศการระบบ\",\n            \"description\": \"ปุกาศจากทางระบบปิดปรับปรุงเซิฟเวอร์\",\n            \"image_url\": null,\n            \"is_read\": false\n        }\n    ],\n    \"status_code\": 200,\n    \"message\": \"Success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-update-announcement-status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/global-zone/v1/announcement/:announcementId?type=read",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"global-zone",
+						"v1",
+						"announcement",
+						":announcementId"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "read",
+							"description": "read, delete"
+						}
+					],
+					"variable": [
+						{
+							"key": "announcementId",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-update-announcement-status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/global-zone/v1/announcement/:announcementId?type=delete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"global-zone",
+								"v1",
+								"announcement",
+								":announcementId"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "delete",
+									"description": "read, delete"
+								}
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 31 Jan 2025 08:17:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "94f4070c-01ba-4521-831c-a4c59a4a0622"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\"\n}"
+				}
+			]
+		}
+	]
+}

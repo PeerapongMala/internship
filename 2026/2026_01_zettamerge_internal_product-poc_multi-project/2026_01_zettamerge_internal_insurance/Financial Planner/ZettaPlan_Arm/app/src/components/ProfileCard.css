@@ -1,0 +1,325 @@
+/* ===== การ์ดโปรไฟล์ ===== */
+.profile-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 40px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 3px var(--primary-200), var(--shadow-lg);
+  object-fit: cover;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.edit-btn:hover {
+  border-color: var(--primary-200);
+  color: var(--primary);
+  background: var(--primary-50);
+}
+
+.edit-btn .material-icons-outlined {
+  font-size: 16px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.profile-gender {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.profile-role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.profile-company {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ========================================
+   โหมดแก้ไข (Edit Mode)
+   ======================================== */
+.profile-card.editing {
+  padding: 0;
+}
+
+.profile-card.editing::before {
+  display: none;
+}
+
+/* แบนเนอร์ด้านบน */
+.profile-edit-banner {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  padding: 32px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.profile-card.editing .profile-avatar-wrapper {
+  margin-bottom: 0;
+}
+
+.profile-card.editing .profile-avatar {
+  width: 120px;
+  height: 120px;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ปุ่มแก้ไขรูปบน avatar */
+.avatar-edit-overlay {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background 0.15s ease;
+}
+
+.avatar-edit-overlay:hover {
+  background: var(--gray-100);
+}
+
+.avatar-edit-overlay .material-icons-outlined {
+  font-size: 16px;
+  color: var(--gray-600);
+}
+
+/* ปุ่มยกเลิก / บันทึก */
+.profile-edit-actions {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cancel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-full);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.btn-cancel .material-icons-outlined {
+  font-size: 16px;
+}
+
+.btn-save {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 20px;
+  background: var(--white);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.btn-save:hover {
+  background: var(--gray-50);
+  transform: translateY(-1px);
+}
+
+.btn-save .material-icons-outlined {
+  font-size: 16px;
+}
+
+/* ฟอร์มแก้ไขข้อมูล */
+.profile-edit-form {
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== ฟอร์ม (ใช้ร่วมกันทุก card) ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-400);
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+.form-row.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 28px 20px;
+  }
+
+  .edit-btn span:not(.material-icons-outlined) {
+    display: none;
+  }
+
+  .edit-btn {
+    padding: 8px;
+  }
+
+  .profile-edit-banner {
+    padding: 24px 16px 36px;
+  }
+
+  .profile-edit-actions {
+    right: 16px;
+    bottom: 12px;
+  }
+
+  .profile-edit-form {
+    padding: 20px 16px 24px;
+  }
+
+  .form-row.two-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-card.editing .profile-avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .btn-cancel span:not(.material-icons-outlined),
+  .btn-save span:not(.material-icons-outlined) {
+    display: none;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    padding: 8px;
+  }
+}

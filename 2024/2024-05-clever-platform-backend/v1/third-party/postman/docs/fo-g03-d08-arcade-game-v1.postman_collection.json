@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "e6a39c8b-5dbe-4848-80fa-f6b383547764",
+		"name": "fo-g03-d08-arcade-game-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "g03-d08-a01-arcade-game-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/arcade-game/v1/arcade-game",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"arcade-game",
+						"v1",
+						"arcade-game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d08-a02-arcade-game-leaderboarad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/arcade-game/v1/arcade-game/arcade-leaderboard/:arcadeGameId?date=event&type=class&event_id=12",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"arcade-game",
+						"v1",
+						"arcade-game",
+						"arcade-leaderboard",
+						":arcadeGameId"
+					],
+					"query": [
+						{
+							"key": "Description",
+							"value": "",
+							"description": "Default จะส่ง leaderboard ของ event ออกมาก่อน (ถ้ามี) ถ้าไม่มีจะส่ง leaderboard ธรรมดาออกโดยที่ ค่าเริ่มต้นจะเป็น\nประเภทรายสัปดาห์ และ ระดับห้องเรียน",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "event",
+							"description": "week / month / event"
+						},
+						{
+							"key": "type",
+							"value": "class",
+							"description": "class / year / affiliation / all (default = class)"
+						},
+						{
+							"key": "event_id",
+							"value": "12"
+						}
+					],
+					"variable": [
+						{
+							"key": "arcadeGameId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d08-a02-arcade-game-leaderboarad",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/arcade-game/arcade-leaderboard/:arcadeGameId?date=event&type=class&event_id=12",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"arcade-game",
+								"arcade-leaderboard",
+								":arcadeGameId"
+							],
+							"query": [
+								{
+									"key": "Description",
+									"value": "",
+									"description": "Default จะส่ง leaderboard ของ event ออกมาก่อน (ถ้ามี) ถ้าไม่มีจะส่ง leaderboard ธรรมดาออกโดยที่ ค่าเริ่มต้นจะเป็น\nประเภทรายสัปดาห์ และ ระดับห้องเรียน",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "event",
+									"description": "week / month / event"
+								},
+								{
+									"key": "type",
+									"value": "class",
+									"description": "class / year / affiliation / all (default = class)"
+								},
+								{
+									"key": "event_id",
+									"value": "12"
+								}
+							],
+							"variable": [
+								{
+									"key": "arcadeGameId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 15 May 2025 09:59:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "906"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "838d728c-8714-4ca5-a6d0-d4658f337ea2"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 3\n    },\n    \"data\": [\n        {\n            \"event_total\": 1,\n            \"event_ids\": [\n                12\n            ]\n        },\n        {\n            \"type\": \"event\",\n            \"title\": \"activity ann\",\n            \"start_date\": \"2025-04-01T07:43:00Z\",\n            \"end_date\": \"2029-04-30T09:43:00Z\"\n        },\n        [\n            {\n                \"no\": 1,\n                \"student_image\": \"https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=pexels-kmerriman-20787.jpg&fm=jpg\",\n                \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n                \"student_name\": \"อภิชาติ เชื้อ\",\n                \"total_score\": 10,\n                \"total_time\": 10,\n                \"me_flag\": true\n            },\n            {\n                \"no\": 2,\n                \"student_image\": null,\n                \"student_id\": \"9f4cb4bf-7410-49a6-9340-d38af63993ef\",\n                \"student_name\": \"น้ำใจ ไมตรี\",\n                \"total_score\": 0,\n                \"total_time\": 0,\n                \"me_flag\": false\n            },\n            {\n                \"no\": 3,\n                \"student_image\": null,\n                \"student_id\": \"4b09316b-0b5c-4f9a-8858-3b0a34fdc48a\",\n                \"student_name\": \"น้ำใจ ไหมไทย\",\n                \"total_score\": 0,\n                \"total_time\": 0,\n                \"me_flag\": false\n            }\n        ]\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

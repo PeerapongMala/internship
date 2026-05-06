@@ -1,0 +1,421 @@
+/* ===== Sidebar ===== */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: width 0.25s ease;
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ===== โลโก้ ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  margin-bottom: 28px;
+  min-height: 32px;
+}
+
+.logo-img-expand {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-img-collapse {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ปุ่มหุบ (ลูกศรซ้าย) */
+.collapse-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-400);
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.collapse-btn:hover {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.collapse-btn .material-icons-outlined {
+  font-size: 20px;
+}
+
+/* ปุ่มโลโก้ตอนหุบ — โลโก้ + ลูกศรขวารวมเป็นปุ่มเดียว */
+.logo-expand-btn {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 6px 8px 10px;
+  margin: 0 auto 20px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.logo-expand-btn:hover {
+  border-color: var(--primary-200);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.12);
+}
+
+.logo-expand-btn:active {
+  transform: scale(0.96);
+}
+
+.logo-expand-arrow {
+  font-size: 18px !important;
+  color: var(--gray-400);
+  transition: color 0.15s ease;
+}
+
+.logo-expand-btn:hover .logo-expand-arrow {
+  color: var(--primary);
+}
+
+/* ===== เมนูนำทาง ===== */
+.nav {
+  flex: 1;
+}
+
+.nav-section {
+  margin-bottom: 20px;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0 12px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  transition: font-size 0.25s ease;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-600);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transform: scale(1);
+}
+
+.nav-icon {
+  font-size: 20px;
+  color: var(--gray-400);
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.nav-text {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-item:hover {
+  background: var(--gray-50);
+  color: var(--primary);
+}
+
+.nav-item:hover .nav-icon {
+  color: var(--primary);
+}
+
+/* เลือกอยู่: พื้นขาว + ตัวอักษรม่วง + เงาม่วง + ลอยขึ้น */
+.nav-item.active {
+  background: var(--white);
+  color: var(--primary);
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+  transform: scale(1.02);
+}
+
+.nav-item.active .nav-icon {
+  color: var(--primary);
+}
+
+/* กด: ยุบลง */
+.nav-item:active {
+  transform: scale(0.96);
+  transition-duration: 0.1s;
+}
+
+.nav-item.active:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.1);
+  transition-duration: 0.1s;
+}
+
+/* ลูกศร submenu */
+.nav-arrow {
+  margin-left: auto;
+  font-size: 18px !important;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nav-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* ===== เมนูย่อย ===== */
+.sub-menu {
+  padding-left: 20px;
+}
+
+.sub-item {
+  padding: 8px 12px 8px 22px;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.sub-item:hover {
+  color: var(--gray-700);
+}
+
+.sub-item.active {
+  color: var(--primary);
+  font-weight: 500;
+  background: transparent;
+}
+
+/* ===== เมนูย่อยตอนหุบ ===== */
+.sub-menu-collapsed {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 3px solid var(--primary);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  padding-top: 2px;
+}
+
+.sub-menu-collapsed .sub-item {
+  padding: 8px;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.sub-menu-collapsed .sub-item .nav-icon {
+  font-size: 20px;
+  color: var(--gray-400);
+}
+
+.sub-menu-collapsed .sub-item:hover .nav-icon {
+  color: var(--primary);
+}
+
+.sub-menu-collapsed .sub-item.active .nav-icon {
+  color: var(--primary);
+}
+
+/* ===== ส่วนล่าง Sidebar ===== */
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.plan-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--primary-50);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+}
+
+.plan-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.plan-icon .material-icons-outlined {
+  font-size: 20px;
+}
+
+.plan-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.plan-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-800);
+  white-space: nowrap;
+}
+
+.plan-subtitle {
+  font-size: 11px;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
+
+.upgrade-btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.upgrade-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ปุ่มไอคอนตอนหุบ (ล่าง) */
+.collapse-bottom-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--white);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.collapse-bottom-icon:hover {
+  opacity: 0.9;
+}
+
+.collapse-bottom-icon .material-icons-outlined {
+  font-size: 20px;
+}
+
+/* ========================================
+   โหมดหุบ (Collapsed)
+   ======================================== */
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar.collapsed .sidebar-inner {
+  padding: 20px 8px;
+  align-items: center;
+}
+
+.sidebar.collapsed .nav-label {
+  text-align: center;
+  padding: 0;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 10px;
+  gap: 0;
+  border-radius: var(--radius-md);
+}
+
+.sidebar.collapsed .nav-item.active {
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+}
+
+.sidebar.collapsed .nav-icon {
+  font-size: 22px;
+}
+
+.sidebar.collapsed .nav-section {
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.sidebar.collapsed .sidebar-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Overlay มือถือ ===== */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-width) !important;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.collapsed {
+    width: var(--sidebar-width) !important;
+  }
+}

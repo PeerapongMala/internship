@@ -1,0 +1,177 @@
+ด่าน,ด่าน / คำถาม,คำถาม,,,,,,,จัดการด่าน,,,,,,,,,,,,,,จัดการคำถาม,,,,,,,,,,,,,,,,,,,จัดการคำถามย่อย,,,,จัดการกลุ่มคำตอบ,,,จัดการคำตอบ,,,,,,
+Level Index,Level Question Type / Quiz Question Type,Quiz Index,"Quiz 
+Language",Command Text,Description Text,Hint Text,Correct Text,Incorrect Text,#Topic,#Sub-Topic,BLOOM,"Sub Criteria 1
+(CEFR)","Sub Criteria 2
+(...)","Sub Criteria 3
+(...)",Filter 1,Filter 2,Filter 3,Level Type,Difficulty,Lock Next Level,Default Timer Type,Default Timer Time,Quiz Timer Type,Quiz Timer Time,"Layout
+Type","Layout
+Ratio","Choice Grid
+(ไม่ควรเกิน 4 แถวหรือคอลัมน์)","Destination Grid
+(ไม่ควรเกิน 4 แถวหรือคอลัมน์)","Enforce
+Description Language
+(default is FALSE)","Enforce
+Choice Language
+(default is FALSE)","Command Speech
+(Audio URL or Text to Speech for AI)","Description Speech
+(Audio URL or Text to Speech for AI)","Hint Speech
+(Audio URL or Text to Speech for AI)","Correct Text
+Speech
+(Audio URL or Text to Speech for AI)","Incorrect Text
+Speech
+(Audio URL or Text to Speech for AI)",Description Speech instead of Text,Description Image,Hint Image,"Choice Hint
+(Input / Placeholder)","Choice Type
+(Multiple choices / Sorting / Pairing)","Input Type
+(Input)","Sub Description
+Index
+(Placeholder / Input)","Sub Description
+Language
+(Placeholder / Input)","Sub Description Text
+(Placeholder / Input)","Sub Description
+Speech
+(Placeholder / Input)","Choice Group Index
+(Pairing / Placeholder / Input)","Choice Group Language
+(Pairing)","Choice Group Text
+(Pairing / Placeholder / Input)",Choice Index,"Choice Language
+(Multiple choices / Sorting / Pairing)",Choice Text,Choice Speech,Choice Image,"Is Correct
+ตัวเลือกจริง
+(Multiple choices / Sorting / Pairing)
+(default is FALSE)","Score
+(Multiple choices)"
+1,ปรนัย (Multiple Choice),,,,,,,,Lesson 1,Sub-Lesson 1,Level 1 จดจำ(Remembering),,,,,,,แบบฝึกหัดท้ายบทเรียนย่อย(ด่านบอส),Easy,Unlock,ไม่จับเวลา,30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,ปรนัย (Multiple Choice),1,EN,Choose the best answer.,1 + 1 = ?,dummy hint,test correct text en11,test correct text en11,,,,,,,,,,,,,,,ไม่จับเวลา,,1,1:1,2 columns,2 rows,TRUE,TRUE,,,,correct text to ai,,TRUE,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBnuRaF10nJF2Rj1UVdJNK8_aRjLc4R0JhlQ&s,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBnuRaF10nJF2Rj1UVdJNK8_aRjLc4R0JhlQ&s,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,two,,,TRUE,10
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,สอง,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,77,https://www.myinstants.com/media/sounds/number-7-student-watches.mp3,,,5
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,4,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,5,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,7,,,,
+,ปรนัย (Multiple Choice),2,EN,Choose the best answer.,2+2 = ?,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,15,1,1:1,2 columns,2 rows,TRUE,TRUE,,,,,,TRUE,,,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,two,,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPy4QWtfglbm7rI4dSi6dvh4n8ZExI828MA&s,TRUE,10
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,สอง,,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPy4QWtfglbm7rI4dSi6dvh4n8ZExI828MA&s,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,7,,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPy4QWtfglbm7rI4dSi6dvh4n8ZExI828MA&s,,5
+,เรียงลำดับ (Sorting),3,EN,Sort into the right order,Just sort it,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,2,3:7,2 rows,3 columns,TRUE,TRUE,,Just sort it,,,,TRUE,,,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,This ,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,This is th text,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,is,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,a,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,cat,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,Dummy 1,,,FALSE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,EN,Dummy 2,,,FALSE,
+,จับคู่ (Pairing),4,EN,Group it,Just group it,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,1,7:3,2 columns,2 columns,TRUE,TRUE,,Just group it,,,,TRUE,,,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,fruit,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,ผลไม้,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,banana,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,กล้วย,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,orange,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,Pen,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,subject,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,stat,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,calculus,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,Dummy 1,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,Dummy 2,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,banana,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,banana,,Pic .banana,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,apple,,Pic apple,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,orange,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,Mouse,,Pic orange,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,Pen,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,penny,,Pic pen,TRUE,
+,เติมคำ (Placeholder),5,EN,place your answer,Just des,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,2,1:1,2 columns,2 columns,TRUE,TRUE,,Just speech,,,,TRUE,,,None,text,,,,,,,,,,,,,,,
+,,5,TH,วางคำตอบ,คำอธิบาย,ดัมมี่,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,"เติม > < หรือ = ในช่องว่าง
+{2}{7} {Ans1} {16}{56}",,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Ans1,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,<,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,=,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,,>,,,,
+,เติมคำ (Input),6,EN,input your answer,just input,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,1,1:1,2 rows,2 rows,TRUE,TRUE,,Just speech,,,,TRUE,,,Character length,text,text,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,She wears {Ans1} and {Ans2},,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Ans1,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Gloves,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,Ans2,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Shoes,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,shoes,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,"Good {Ans1}, How are {Ans2}","Good Morning, How are you ?",,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Ans1,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Morning,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,Evening,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,Ans2,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,you,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,u,,,,
+2,ปรนัย (Multiple Choice),,,,,,,,Lesson 1,Sub-Lesson 1,Level 1 จดจำ(Remembering),,,,,,,แบบฝึกหัดท้ายบทเรียนย่อย(ด่านบอส),Easy,Unlock,ไม่จับเวลา,30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,จับคู่ (Pairing),1,EN,Group it,Just group it,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,1,7:3,2 columns,2 columns,TRUE,TRUE,,Just group it,,,,TRUE,,,,image,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,fruit,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,ผลไม้,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,banana,,https://fastly.picsum.photos/id/106/200/300.jpg?hmac=qnjqfh7hXrQF9MAA1T3JOgK3dhnLfxOo-HkzhyZoB2g,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,orange,,https://fastly.picsum.photos/id/1026/200/300.jpg?hmac=Thvj4aJ_VnAGT6DKAcy1yTs100zlstJTyImDWphGDFI,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,Pen,,https://fastly.picsum.photos/id/933/200/300.jpg?hmac=8zdipGWKGkHz8wyA9J63P3fzghuUL9wqV5Y34b8mLTI,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,subject,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,stat,,https://fastly.picsum.photos/id/106/200/300.jpg?hmac=qnjqfh7hXrQF9MAA1T3JOgK3dhnLfxOo-HkzhyZoB2g,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,banana,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,banana,,https://fastly.picsum.photos/id/106/200/300.jpg?hmac=qnjqfh7hXrQF9MAA1T3JOgK3dhnLfxOo-HkzhyZoB2g,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,apple,,https://fastly.picsum.photos/id/1026/200/300.jpg?hmac=Thvj4aJ_VnAGT6DKAcy1yTs100zlstJTyImDWphGDFI,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,orange,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,Mouse,,https://fastly.picsum.photos/id/106/200/300.jpg?hmac=qnjqfh7hXrQF9MAA1T3JOgK3dhnLfxOo-HkzhyZoB2g,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,Pen,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,penny,,https://fastly.picsum.photos/id/106/200/300.jpg?hmac=qnjqfh7hXrQF9MAA1T3JOgK3dhnLfxOo-HkzhyZoB2g,TRUE,
+3,ปรนัย (Multiple Choice),,,,,,,,Lesson 1,Sub-Lesson 1,Level 1 จดจำ(Remembering),,,,,,,แบบฝึกหัดก่อนเรียน-หลังเรียน,Easy,Unlock,ไม่จับเวลา,30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,ปรนัย (Multiple Choice),1,EN,Choose the best answer.,1 + 1 = ?,dummy hint,test correct text en11,test correct text en11,,,,,,,,,,,,,,,ไม่จับเวลา,,1,1:1,2 columns,2 rows,TRUE,TRUE,,,,correct text to ai,,TRUE,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBnuRaF10nJF2Rj1UVdJNK8_aRjLc4R0JhlQ&s,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBnuRaF10nJF2Rj1UVdJNK8_aRjLc4R0JhlQ&s,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,two,,,TRUE,10
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,สอง,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,77,https://www.myinstants.com/media/sounds/number-7-student-watches.mp3,,,5
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,4,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,5,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,7,,,,
+,ปรนัย (Multiple Choice),2,EN,Choose the best answer.,2+2 = ?,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,15,1,1:1,2 columns,2 rows,TRUE,TRUE,,,,,,TRUE,,,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,two,,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPy4QWtfglbm7rI4dSi6dvh4n8ZExI828MA&s,TRUE,10
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,สอง,,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPy4QWtfglbm7rI4dSi6dvh4n8ZExI828MA&s,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,7,,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPy4QWtfglbm7rI4dSi6dvh4n8ZExI828MA&s,,5
+,เรียงลำดับ (Sorting),3,EN,Sort into the right order,Just sort it,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,2,3:7,2 rows,3 columns,TRUE,TRUE,,Just sort it,,,,TRUE,,,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,This ,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,This is th text,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,is,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,a,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,cat,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,Dummy 1,,,FALSE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,EN,Dummy 2,,,FALSE,
+,จับคู่ (Pairing),4,EN,Group it,Just group it,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,1,7:3,2 columns,2 columns,TRUE,TRUE,,Just group it,,,,TRUE,,,,text,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,fruit,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,ผลไม้,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,banana,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,กล้วย,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,orange,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,Pen,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,subject,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,stat,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,calculus,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,Dummy 1,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,Dummy 2,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,EN,banana,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,banana,,Pic .banana,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,apple,,Pic apple,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,EN,orange,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,Mouse,,Pic orange,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,EN,Pen,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,penny,,Pic pen,TRUE,
+,เติมคำ (Placeholder),5,EN,place your answer,Just des,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,2,1:1,2 columns,2 columns,TRUE,TRUE,,Just speech,,,,TRUE,,,None,text,,,,,,,,,,,,,,,
+,,5,TH,วางคำตอบ,คำอธิบาย,ดัมมี่,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,TH,"เติม > < หรือ = ในช่องว่าง
+{2}{7} {Ans1} {16}{56}",,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Ans1,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,<,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,=,,,TRUE,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,,>,,,,
+,เติมคำ (Input),6,EN,input your answer,just input,dummy hint,,,,,,,,,,,,,,,,,ไม่จับเวลา,25,1,1:1,2 rows,2 rows,TRUE,TRUE,,Just speech,,,,TRUE,,,Character length,text,text,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,EN,She wears {Ans1} and {Ans2},https://cdn.discordapp.com/attachments/1277484028278083597/1339861621467774986/good-morning.mp3?ex=67b042df&is=67aef15f&hm=7eb2f1fbf65d77ea23526875c17a2522fc03a43a52d973996f46da11c8f3c6a8&,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Ans1,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Gloves,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,Ans2,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Shoes,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,shoes,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,EN,"Good {Ans1}, How are {Ans2}","Good Morning, How are you ?",,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Ans1,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,Morning,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,Evening,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,Ans2,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,you,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,u,,,,

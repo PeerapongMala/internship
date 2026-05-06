@@ -1,0 +1,1209 @@
+{
+	"info": {
+		"_postman_id": "85aecc40-ab1e-43ac-bfc9-e18d1703f4f7",
+		"name": "bo-g01-d01-04-admin-report-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-school-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/school-reports?page=1&limit=10&start_date=1000-11-22T12:31:28.887Z&end_date=2000-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"school-reports"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "school_id",
+							"value": "1",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "school_code",
+							"value": "C-123",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "สาธิต",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "school_affiliation_group",
+							"value": "สนศ. กทม.",
+							"description": "optional, สนศ. กทม. / อื่นๆ  / สพฐ / สช / อปท",
+							"disabled": true
+						},
+						{
+							"key": "inspection_area",
+							"value": "Maricopa",
+							"description": "optional, เขตตรวจราชการ (สพฐ)",
+							"disabled": true
+						},
+						{
+							"key": "area_office",
+							"value": "Port Ladarius",
+							"description": "optional, สำนักงานเขตพื้นที่ (สพฐ)",
+							"disabled": true
+						},
+						{
+							"key": "district_zone",
+							"value": "East Los Angeles",
+							"description": "optional, กลุ่มเขต (สนศ. กทม.)",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "O'Fallon",
+							"description": "optional, เขต (สนศ. กทม.)",
+							"disabled": true
+						},
+						{
+							"key": "province",
+							"value": "Angeles",
+							"description": "optional, จังหวัด (อปท)",
+							"disabled": true
+						},
+						{
+							"key": "lao_district",
+							"value": "Angeles",
+							"description": "optional, อำเภอ (อปท)",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z"
+						},
+						{
+							"key": "end_date",
+							"value": "2000-11-22T12:31:28.887Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-class-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/schools/:schoolId/class-reports?page=1&limit=10&academic_year=25&class_year=ป.4&class_name=1&start_date=1000-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"schools",
+						":schoolId",
+						"class-reports"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "academic_year",
+							"value": "25",
+							"description": "optional"
+						},
+						{
+							"key": "class_year",
+							"value": "ป.4",
+							"description": "optional"
+						},
+						{
+							"key": "class_name",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-student-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/classes/:classId/student-reports?page=1&limit=10&student_id=17340&start_date=1000-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"classes",
+						":classId",
+						"student-reports"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "student_id",
+							"value": "17340",
+							"description": "optional, รหัสนักเรียน"
+						},
+						{
+							"key": "title",
+							"value": "เด็กชาย",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "อภิชาติ",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "เชื้อ",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "classId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-lesson-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/lesson-reports?page=1&limit=10&curriculum_group_id=1&curriculum_group_name=มรภ&subject_id=1&subject_name=ภาษา&lesson_id=1&lesson_name=Lesson",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"lesson-reports"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "curriculum_group_name",
+							"value": "มรภ",
+							"description": "optional"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "subject_name",
+							"value": "ภาษา",
+							"description": "optional"
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "lesson_name",
+							"value": "Lesson",
+							"description": "optional"
+						},
+						{
+							"key": "start_date",
+							"value": "1995-11-10T12:31:28.827Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "1995-11-10T12:31:28.827Z",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eb016f26-3ef1-4a39-90a6-50d9beb68fc8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-sub-lesson-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/lessons/:lessonId/sub-lesson-reports?page=1&limit=10&sub_lesson_id=1&sub_lesson_name=Sub-lesson&start_date=1990-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"lessons",
+						":lessonId",
+						"sub-lesson-reports"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "sub_lesson_name",
+							"value": "Sub-lesson",
+							"description": "optional"
+						},
+						{
+							"key": "start_date",
+							"value": "1990-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eb016f26-3ef1-4a39-90a6-50d9beb68fc8",
+							"description": "required"
+						},
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-level-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/sub-lessons/:subLessonId/level-reports?page=1&limit=10&level_index=1&difficulty=easy&start_date=1000-11-22T12:31:28.887Z&end_date=2029-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"sub-lessons",
+						":subLessonId",
+						"level-reports"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "level_index",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "level_type",
+							"value": "sub-lesson-post-test",
+							"description": "optional, test / pre-post-test / sub-lesson-post-test",
+							"disabled": true
+						},
+						{
+							"key": "question_type",
+							"value": "multiple-choices",
+							"description": "optional, multiple-choices / pairing / sorting / placeholder / input",
+							"disabled": true
+						},
+						{
+							"key": "difficulty",
+							"value": "easy",
+							"description": "optional, easy / medium / hard"
+						},
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2029-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eb016f26-3ef1-4a39-90a6-50d9beb68fc8"
+						},
+						{
+							"key": "subLessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-level-play-log-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/level/:levelId/level-play-logs?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"level",
+						":levelId",
+						"level-play-logs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "start_date",
+							"value": "1000-02-13T12:04:18.358Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2026-02-13T12:04:18.358Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "play_index",
+							"value": "1",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "adb35385-a27d-4cd4-b745-43fc7c563047"
+						},
+						{
+							"key": "levelId",
+							"value": "40"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-curriculum-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/curriculum-groups?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"curriculum-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-subject-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/subjects?page=1&limit=10&curriculum_group_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"subjects"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-lesson-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/lessons?page=1&limit=10&curriculum_group_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"lessons"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-sub-lesson-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/lessons/:lessonId?page=1&limit=10&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"lessons",
+						":lessonId"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						},
+						{
+							"key": "lessonId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-student-academic-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/academic-years?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"academic-years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-level-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/levels/:levelId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"levels",
+						":levelId"
+					],
+					"query": [
+						{
+							"key": "list_questions",
+							"value": "true",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a14-api-level-case-list-student-answer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/level-play-logs/:levelPlayLogId?page=999&limit=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"level-play-logs",
+						":levelPlayLogId"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "999",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "1",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "levelPlayLogId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-school-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/school-reports/csv?start_date=2000-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"school-reports",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2000-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-class-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/:schoolId/class-reports/csv?start_date=2025-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						":schoolId",
+						"class-reports",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-student-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/:classId/student-reports/csv?start_date=1000-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						":classId",
+						"student-reports",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "classId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-lesson-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/:userId/lesson-reports/csv?start_date=1000-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						":userId",
+						"lesson-reports",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eb016f26-3ef1-4a39-90a6-50d9beb68fc8",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-sub-lesson-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/lessons/:lessonId/sub-lesson-reports/csv?page=1&limit=10&sub_lesson_id=1&sub_lesson_name=Sub-lesson&start_date=1000-11-22T12:31:28.887Z&end_date=2025-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"lessons",
+						":lessonId",
+						"sub-lesson-reports",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "sub_lesson_name",
+							"value": "Sub-lesson"
+						},
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-22T12:31:28.887Z"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eb016f26-3ef1-4a39-90a6-50d9beb68fc8",
+							"description": "required"
+						},
+						{
+							"key": "lessonId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-level-report-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/sub-lessons/:subLessonId/level-reports/csv?page=1&limit=10&level_index=1&difficulty=easy&start_date=1000-11-22T12:31:28.887Z&end_date=2029-11-22T12:31:28.887Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"sub-lessons",
+						":subLessonId",
+						"level-reports",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "level_index",
+							"value": "1"
+						},
+						{
+							"key": "difficulty",
+							"value": "easy"
+						},
+						{
+							"key": "start_date",
+							"value": "1000-11-22T12:31:28.887Z"
+						},
+						{
+							"key": "end_date",
+							"value": "2029-11-22T12:31:28.887Z"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "eb016f26-3ef1-4a39-90a6-50d9beb68fc8",
+							"description": "required"
+						},
+						{
+							"key": "subLessonId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a21-api-level-play-log-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-report/v1/users/:userId/level/:levelId/level-play-logs/csv?page=1&limit=10&start_date=1000-02-13T12:04:18.358Z&end_date=2026-02-13T12:04:18.358Z&academic_year=2567&play_index=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-report",
+						"v1",
+						"users",
+						":userId",
+						"level",
+						":levelId",
+						"level-play-logs",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "start_date",
+							"value": "1000-02-13T12:04:18.358Z"
+						},
+						{
+							"key": "end_date",
+							"value": "2026-02-13T12:04:18.358Z"
+						},
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "play_index",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "adb35385-a27d-4cd4-b745-43fc7c563047",
+							"description": "required"
+						},
+						{
+							"key": "levelId",
+							"value": "40",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

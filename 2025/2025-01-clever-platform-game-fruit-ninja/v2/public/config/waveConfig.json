@@ -1,0 +1,170 @@
+{
+  "HowToUse": [
+    "Use 'fixedModels index' to reference specific 'model' in the 'spawnList'",
+    "(fixedModels are hard-code defined related to the game assets).",
+    "Use 'waveList' to define different waves of enemies and obstacles.",
+    "Configure 'timeAt' to set when objects spawn during the wave.",
+    "Configure 'objectList' to define what objects spawn at that time, their type, model, and score value (if applicable).",
+    "Copy or download edited wave configuration, send waveConfig json file to the developer team."
+  ],
+  "fixedModels": {
+    "target": [
+      { "index": -1, "hint": "random target" },
+      { "index": 0, "hint": "cupcakeStrawberry" },
+      { "index": 1, "hint": "doughnutPink" },
+      { "index": 2, "hint": "doughnutBrown" },
+      { "index": 3, "hint": "cakeMango" },
+      { "index": 4, "hint": "croissant" }
+    ],
+    "obstacle": [
+      { "index": -1, "hint": "random obstacle" },
+      { "index": 0, "hint": "bomb" }
+    ]
+  },
+  "waveList": [
+    {
+      "name": "wave1",
+      "waveDuration": 20,
+      "spawnList": [
+        { "timeAt": 1.5, "objectList": [{ "type": "target", "model": -1, "score": 10 }] },
+        { "timeAt": 3.0, "objectList": [
+          { "type": "target", "model": 2, "score": 10 },
+          { "type": "target", "model": 3, "score": 10 }
+        ]},
+        { "timeAt": 4.8, "objectList": [
+          { "type": "target", "model": 0, "score": 10 },
+          { "type": "target", "model": 4, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 6.6, "objectList": [
+          { "type": "target", "model": 1, "score": 10 },
+          { "type": "target", "model": -1, "score": 10 }
+        ]},
+        { "timeAt": 8.4, "objectList": [
+          { "type": "target", "model": 3, "score": 10 },
+          { "type": "target", "model": 2, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 10.2, "objectList": [
+          { "type": "target", "model": 0, "score": 10 },
+          { "type": "target", "model": 1, "score": 10 }
+        ]},
+        { "timeAt": 12.0, "objectList": [{ "type": "target", "model": 4, "score": 10 }] },
+        { "timeAt": 13.8, "objectList": [
+          { "type": "target", "model": -1, "score": 10 },
+          { "type": "target", "model": 2, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 15.6, "objectList": [{ "type": "target", "model": 3, "score": 10 }] },
+        { "timeAt": 17.4, "objectList": [
+          { "type": "target", "model": 1, "score": 10 },
+          { "type": "target", "model": 0, "score": 10 }
+        ]},
+        { "timeAt": 19.2, "objectList": [
+          { "type": "target", "model": 4, "score": 10 },
+          { "type": "target", "model": -1, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]}
+      ]
+    },
+    {
+      "name": "wave2",
+      "waveDuration": 20,
+      "spawnList": [
+        { "timeAt": 0.5, "objectList": [{ "type": "target", "model": 2, "score": 10 }] },
+        { "timeAt": 2.2, "objectList": [{ "type": "target", "model": -1, "score": 10 }] },
+        { "timeAt": 3.8, "objectList": [
+          { "type": "target", "model": 1, "score": 10 },
+          { "type": "target", "model": 3, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 5.4, "objectList": [
+          { "type": "target", "model": 4, "score": 10 },
+          { "type": "target", "model": 0, "score": 10 }
+        ]},
+        { "timeAt": 7.2, "objectList": [
+          { "type": "target", "model": -1, "score": 10 },
+          { "type": "target", "model": 2, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 8.8, "objectList": [{ "type": "target", "model": 3, "score": 10 }] },
+        { "timeAt": 10.6, "objectList": [
+          { "type": "target", "model": 1, "score": 10 },
+          { "type": "target", "model": 4, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 12.2, "objectList": [
+          { "type": "target", "model": 0, "score": 10 },
+          { "type": "target", "model": -1, "score": 10 }
+        ]},
+        { "timeAt": 14.0, "objectList": [
+          { "type": "target", "model": 2, "score": 10 },
+          { "type": "target", "model": 3, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 15.6, "objectList": [{ "type": "target", "model": 4, "score": 10 }] },
+        { "timeAt": 17.4, "objectList": [
+          { "type": "target", "model": -1, "score": 10 },
+          { "type": "target", "model": 1, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 19.0, "objectList": [
+          { "type": "target", "model": 0, "score": 10 },
+          { "type": "target", "model": 2, "score": 10 }
+        ]}
+      ]
+    },
+    {
+      "name": "wave3",
+      "waveDuration": 20,
+      "spawnList": [
+        { "timeAt": 0.8, "objectList": [{ "type": "target", "model": 1, "score": 10 }] },
+        { "timeAt": 2.4, "objectList": [
+          { "type": "target", "model": 3, "score": 10 },
+          { "type": "target", "model": -1, "score": 10 }
+        ]},
+        { "timeAt": 4.2, "objectList": [
+          { "type": "target", "model": 0, "score": 10 },
+          { "type": "target", "model": 4, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 6.0, "objectList": [
+          { "type": "target", "model": 2, "score": 15 },
+          { "type": "target", "model": -1, "score": 15 },
+          { "type": "target", "model": 3, "score": 15 }
+        ]},
+        { "timeAt": 7.8, "objectList": [{ "type": "obstacle", "model": 0 }] },
+        { "timeAt": 9.6, "objectList": [
+          { "type": "target", "model": 1, "score": 15 },
+          { "type": "target", "model": 0, "score": 15 },
+          { "type": "target", "model": 4, "score": 15 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 11.4, "objectList": [
+          { "type": "target", "model": -1, "score": 10 },
+          { "type": "target", "model": 2, "score": 10 }
+        ]},
+        { "timeAt": 13.2, "objectList": [
+          { "type": "target", "model": 3, "score": 15 },
+          { "type": "target", "model": 1, "score": 15 },
+          { "type": "target", "model": 0, "score": 15 },
+          { "type": "obstacle", "model": 0 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 15.0, "objectList": [
+          { "type": "target", "model": 4, "score": 10 },
+          { "type": "target", "model": -1, "score": 10 }
+        ]},
+        { "timeAt": 16.8, "objectList": [
+          { "type": "target", "model": 2, "score": 10 },
+          { "type": "target", "model": 3, "score": 10 },
+          { "type": "obstacle", "model": 0 }
+        ]},
+        { "timeAt": 18.6, "objectList": [
+          { "type": "target", "model": 0, "score": 10 },
+          { "type": "target", "model": 1, "score": 10 }
+        ]}
+      ]
+    }
+  ]
+}

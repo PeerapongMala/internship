@@ -1,0 +1,38 @@
+name: CICD-TESTING
+
+on:
+  push:
+    branches: ["testing"]
+  # pull_request:
+  #   branches: ["testing"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: false # This prevents the job from running
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Connect to Server & Deploy
+        env:
+          HOST_USERNAME: ${{ secrets.HOST_USERNAME }}
+          HOST_IP: ${{ secrets.HOST_IP }}
+          SSH_KEY: ${{ secrets.HOST_SSH_KEY }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          echo "${SSH_KEY}" >> private_key
+          chmod 600 private_key
+          ssh -i private_key -o StrictHostKeyChecking=no "${HOST_USERNAME}@${HOST_IP}" << EOF
+
+          cd zettamerge/clever-platform/testing/2024-05-clever-platform-backoffice/v1
+
+          git checkout testing
+          git pull https://$GIT_TOKEN@github.com/ZettaMerge/2024-05-clever-platform-backoffice.git
+
+          npm install
+
+          sudo systemctl restart clever-platform-testing-backoffice.service
+          sudo systemctl status clever-platform-testing-backoffice.service --no-pager
+          EOF

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "001",
+    "curriculum_group": "สุนันทา",
+    "platform_name": "Clever",
+    "subject_group": "คณิตศาสตร์",
+    "year": "ป.4",
+    "subjects": ["คณิตศาสตร์ 1", "คณิตศาสตร์ 2"],
+    "updated_at": "2024-11-25T08:25:00.176322Z",
+    "updated_by": "Admin"
+  },
+  {
+    "id": "002",
+    "curriculum_group": "กระทรวงศึกษาธิการ",
+    "platform_name": "Clever",
+    "subject_group": "ภาษาอังกฤษ",
+    "year": "ป.4",
+    "subjects": ["ภาษาอังกฤษ 1"],
+    "updated_at": "2024-11-25T08:25:00.176322Z",
+    "updated_by": "Admin"
+  },
+  {
+    "id": "003",
+    "curriculum_group": "กระทรวงศึกษาธิการ",
+    "platform_name": "Clever",
+    "subject_group": "ภาษาจีน",
+    "year": "ป.4",
+    "subjects": ["ภาษาจีน"],
+    "updated_at": "2024-11-25T08:25:00.176322Z",
+    "updated_by": "Admin"
+  },
+  {
+    "id": "004",
+    "curriculum_group": "กระทรวงศึกษาธิการ",
+    "platform_name": "Clever",
+    "subject_group": "ภาษาญี่ปุ่น",
+    "year": "ป.5",
+    "subjects": ["ภาษาญี่ปุ่น"],
+    "updated_at": "2024-11-25T08:25:00.176322Z",
+    "updated_by": "Admin"
+  }
+]

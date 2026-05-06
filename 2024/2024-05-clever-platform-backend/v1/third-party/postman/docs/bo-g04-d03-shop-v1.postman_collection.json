@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "352912d3-14b3-4178-bafc-b579973dc912",
+		"name": "bo-g04-d03-shop-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40769587"
+	},
+	"item": [
+		{
+			"name": "Shop item get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/store_item_id/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"store_item_id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item get lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop?page=1&limit=10&status=enabled",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "status",
+							"value": "enabled"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 18,\n    \"stock\": 100,\n    \"price\": 50,\n    \"open_date\" : \"2024-01-01 01:01:01\",\n    \"closed_date\" : \"2024-01-20 01:01:01\",\n    \"status\": \"enabled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 15,\n    \"stock\": 200,\n    \"initial_stock\": 100,\n    \"price\": 300,\n    \"open_date\" : \"2024-01-01 01:01:01\",\n    \"closed_date\" : \"2024-01-30 01:01:01\",\n    \"status\": \"enabled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/store_item_id/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"store_item_id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item update Status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"pending\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/store_item_id/7/status",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"store_item_id",
+						"7",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item update Status Bulk Edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\" : [\n        {\n            \"id\": 2,\n            \"status\": \"recalled\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/transaction/status/bulk_edit",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"transaction",
+						"status",
+						"bulk_edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item update Transacton Status Bulk Edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\" : [\n        {\n            \"id\": 2,\n            \"status\": \"expired\"\n        },\n        {\n            \"id\": 3,\n            \"status\": \"expired\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/status/bulk_edit",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"status",
+						"bulk_edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item get transaction lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/store_item_id/7/transaction?page=1&limit=10",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"store_item_id",
+						"7",
+						"transaction"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shop item update transaction Status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"enabled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/shop/v1/shop/store_transaction_id/2/transaction/status",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shop",
+						"v1",
+						"shop",
+						"store_transaction_id",
+						"2",
+						"transaction",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

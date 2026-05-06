@@ -1,0 +1,28 @@
+{
+  "waves": [
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "8"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "1"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "2"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "3"
+      }
+    }
+  ],
+  "speed": 0,
+  "duration": 0
+}

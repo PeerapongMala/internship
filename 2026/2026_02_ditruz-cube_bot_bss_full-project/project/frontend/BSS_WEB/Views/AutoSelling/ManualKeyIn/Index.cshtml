@@ -1,0 +1,440 @@
+@model BSS_WEB.Views.Verify.ManualKeyIn.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "ManualKeyIn";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/verify/manualKeyIn.css")" asp-append-version="true" />
+@if (Model.CssVariantClass == "verify-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-unsort-cc.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "verify-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-ca-member.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "verify-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentUserFullName"
+	   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+<input type="hidden" id="cssVariantClass" value="@Model.CssVariantClass" />
+<input type="hidden" id="bnTypeCode" value="@Model.BnTypeCode" />
+<input type="hidden" id="currentDepartmentId" value="@User.FindFirst("DepartmentId")?.Value" />
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+
+		<!-- ============================================================
+		     TITLE BAR — page title
+		     ============================================================ -->
+		<div class="mk-title-bar">
+			<div class="mk-page-title">@Model.BnTypeNameDisplay</div>
+		</div>
+
+		<!-- ============================================================
+		     HEADER CARD ROW — Figma node 2:23536
+		     ============================================================ -->
+		<div class="mk-header-card-row">
+			<div>
+				<span class="mk-label">Header Card:</span>
+				<input type="text" class="mk-header-card-input" id="headerCardInput"
+					   placeholder="กรอกรหัส Header Card" style="display:none;" />
+				<span class="mk-header-card-badge" id="headerCardCode">-</span>
+			</div>
+			<div class="mk-date-info">
+				<span class="mk-label">Date:</span>
+				<span id="headerCardDate">-</span>
+			</div>
+		</div>
+
+		<!-- ============================================================
+		     CONTENT AREA — form + info panel
+		     ============================================================ -->
+		<div class="mk-content-area">
+
+			<!-- FORM SECTION (left) — Figma node 2:23554 -->
+			<div class="mk-form-section">
+				<div class="mk-form-title">เพิ่มผลการนับคัดธนบัตร</div>
+
+				<!-- Radio Row: ประเภทธนบัตร + ชนิดราคา -->
+				<div class="mk-radio-row">
+					<!-- ประเภทธนบัตร -->
+					<div class="mk-radio-group">
+						<label class="mk-radio-group-label">ประเภทธนบัตร</label>
+						<div class="mk-radio-options" id="radiobnType">
+							<div class="mk-radio-item active" data-value="ดี" onclick="selectRadio(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="mk-radio-text">ดี</span>
+							</div>
+							<div class="mk-radio-item" data-value="เสีย" onclick="selectRadio(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="mk-radio-text">เสีย</span>
+							</div>
+							<div class="mk-radio-item" data-value="ทำลาย" onclick="selectRadio(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="mk-radio-text">ทำลาย</span>
+							</div>
+							<div class="mk-radio-item" data-value="Reject" onclick="selectRadio(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="mk-radio-text">Reject</span>
+							</div>
+							<div class="mk-radio-item" data-value="ปลอม" onclick="selectRadio(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="mk-radio-text">ปลอม</span>
+							</div>
+							<div class="mk-radio-item" data-value="ชำรุด" onclick="selectRadio(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="mk-radio-text">ชำรุด</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- ชนิดราคา -->
+					<div class="mk-radio-group">
+						<label class="mk-radio-group-label">ชนิดราคา</label>
+						<div class="mk-denom-options" id="radioDenom">
+							<div class="mk-denom-item active" data-value="1000" onclick="selectDenom(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="qty-badge qty-1000">1000</span>
+							</div>
+							<div class="mk-denom-item" data-value="500" onclick="selectDenom(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="qty-badge qty-500">500</span>
+							</div>
+							<div class="mk-denom-item" data-value="100" onclick="selectDenom(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="qty-badge qty-100">100</span>
+							</div>
+							<div class="mk-denom-item" data-value="50" onclick="selectDenom(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="qty-badge qty-50">50</span>
+							</div>
+							<div class="mk-denom-item" data-value="20" onclick="selectDenom(this)">
+								<div class="mk-radio-circle"></div>
+								<span class="qty-badge qty-20">20</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Form Fields: แบบ + จำนวน -->
+				<div class="mk-form-fields-row">
+					<div class="mk-form-group">
+						<label class="mk-form-label">แบบ</label>
+						<select class="mk-form-select" id="selectSeries">
+							<option value="">-- เลือก --</option>
+						</select>
+					</div>
+					<div class="mk-form-group">
+						<label class="mk-form-label">จำนวน</label>
+						<input type="number" class="mk-form-input" id="inputQty" min="0" max="1000" step="1" placeholder="" />
+					</div>
+				</div>
+
+				<!-- Submit -->
+				<div class="mk-submit-row">
+					<button class="mk-btn-submit" onclick="addCountingResult()">บันทึกผลนับคัด</button>
+				</div>
+			</div>
+
+			<!-- INFO PANEL (right 400px) — Figma node 2:23622 -->
+			<div class="mk-info-panel">
+				<div class="mk-info-group">
+					<div class="mk-info-row">
+						<span>บาร์โค้ดรายห่อ:</span>
+						<span class="mk-info-value" id="infoBarcodePack">-</span>
+					</div>
+					<div class="mk-info-row">
+						<span>บาร์โค้ดรายมัด:</span>
+						<span class="mk-info-value" id="infoBarcodeBundle">-</span>
+					</div>
+					<div class="mk-info-row">
+						<span>ธนาคาร:</span>
+						<span class="mk-info-value" id="infoBank">-</span>
+					</div>
+					<div class="mk-info-row mk-cashpoint-row">
+						<span>Cashpoint:</span>
+						<span class="mk-info-value" id="infoCashpoint">-</span>
+					</div>
+				</div>
+				<div class="mk-info-group">
+					<div class="mk-info-row">
+						<span>วันเวลาเตรียม:</span>
+						<span class="mk-info-value" id="infoPrepareDate">-</span>
+					</div>
+					<div class="mk-info-row">
+						<span>วันเวลานับคัด:</span>
+						<span class="mk-info-value" id="infoCountDate">-</span>
+					</div>
+				</div>
+				<div class="mk-info-group">
+					<div class="mk-info-row">
+						<span>Prepare:</span>
+						<span class="mk-info-value" id="infoPrepare">-</span>
+					</div>
+					<div class="mk-info-row">
+						<span>Sorter:</span>
+						<span class="mk-info-value" id="infoSorter">-</span>
+					</div>
+					<div class="mk-info-row">
+						<span>Reconcile:</span>
+						<span class="mk-info-value" id="infoReconcile">-</span>
+					</div>
+					<div class="mk-info-row">
+						<span>Supervisor ที่แก้ไข:</span>
+						<span class="mk-info-value" id="infoSupervisor">-</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ============================================================
+		     RESULTS TABLE — Figma node 2:23668
+		     ============================================================ -->
+		<div class="mk-results-table">
+			<div class="mk-table-header-bar">
+				<div class="mk-hbar-cell mk-hbar-title">แสดงผลการนับคัด</div>
+				<div class="mk-hbar-cell"></div>
+				<div class="mk-hbar-cell"></div>
+				<div class="mk-hbar-cell mk-hbar-count">จำนวนก่อน: <span class="mk-count-value" id="countBefore">0</span> ฉบับ</div>
+				<div class="mk-hbar-cell mk-hbar-count">จำนวนหลัง: <span class="mk-count-value" id="countAfter">0</span> ฉบับ</div>
+				<div class="mk-hbar-cell"></div>
+			</div>
+			<div class="mk-table-body">
+				<div class="mk-col-header">
+					<div class="mk-col mk-sortable" onclick="sortTable('Denom')">ชนิดราคา <i class="bi bi-chevron-expand mk-sort-icon" id="sortIcon-Denom"></i></div>
+					<div class="mk-col mk-sortable" onclick="sortTable('Type')">ประเภท <i class="bi bi-chevron-expand mk-sort-icon" id="sortIcon-Type"></i></div>
+					<div class="mk-col mk-sortable" onclick="sortTable('Series')">แบบ <i class="bi bi-chevron-expand mk-sort-icon" id="sortIcon-Series"></i></div>
+					<div class="mk-col col-right mk-sortable" onclick="sortTable('BeforeQty')">ก่อนปรับ (ฉบับ) <i class="bi bi-chevron-expand mk-sort-icon" id="sortIcon-BeforeQty"></i></div>
+					<div class="mk-col col-right mk-sortable" onclick="sortTable('AfterQty')">หลังปรับ (ฉบับ) <i class="bi bi-chevron-expand mk-sort-icon" id="sortIcon-AfterQty"></i></div>
+					<div class="mk-col col-center">Action</div>
+				</div>
+				<div id="resultsTableBody">
+					<div class="mk-table-empty">ไม่มีข้อมูล</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ============================================================
+		     FOOTER BAR — Figma node 2:23833
+		     ============================================================ -->
+		<div class="mk-footer-bar">
+			<button class="mk-btn-save" onclick="saveAll()">บันทึกข้อมูล</button>
+		</div>
+
+	</div>
+	</div>
+</div>
+
+<!-- ============================================================
+     MODALS
+     ============================================================ -->
+
+<!-- MODAL: แก้ไขข้อมูล (1.1) — Figma node 2:47847 -->
+<div class="modal fade modal-mk-edit" id="editItemModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-top-bar">แก้ไขข้อมูล</div>
+			<div class="modal-form-area">
+			  <div class="modal-form-rows-inner">
+				<div class="modal-form-row">
+					<span class="form-label-left">Header Card</span>
+					<span class="form-value-right" id="editHc">-</span>
+				</div>
+				<div class="modal-form-row">
+					<span class="form-label-left">ชนิดราคา</span>
+					<span class="form-value-right" id="editDenom"></span>
+				</div>
+				<div class="modal-form-row">
+					<span class="form-label-left">ประเภท</span>
+					<span class="form-value-right" id="editType">-</span>
+				</div>
+				<div class="modal-form-row">
+					<span class="form-label-left">แบบ</span>
+					<span class="form-value-right" id="editSeries">-</span>
+				</div>
+				<div class="modal-form-row">
+					<span class="form-label-left">จำนวน (ฉบับ)</span>
+					<span class="form-value-right">
+						<input type="number" class="mk-form-input" id="editQty" min="0" max="1000" step="1"
+							   style="width:87px; height:40px;" />
+					</span>
+				</div>
+			  </div>
+			</div>
+			<div class="modal-action-bar">
+				<button class="mk-btn-cancel" onclick="cancelEditItem()">ยกเลิก</button>
+				<button class="mk-btn-modal-save" onclick="submitEditItem()">บันทึก</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: ยืนยันบันทึกแก้ไข — Figma node 2:47902 -->
+<div class="modal fade modal-mk-confirm" id="confirmEditModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="mk-confirm-top-bar">
+				<div class="mk-confirm-icon">
+					<i class="bi bi-exclamation-triangle-fill"></i>
+				</div>
+				<div class="mk-confirm-title">บันทึกข้อมูล</div>
+			</div>
+			<div class="mk-confirm-body">
+				<div class="mk-confirm-message">คุณแน่ใจหรือไม่ที่ต้องการบันทึกข้อมูลนี้</div>
+			</div>
+			<div class="mk-confirm-footer">
+				<button class="mk-btn-cancel" onclick="cancelConfirmEdit()">ยกเลิก</button>
+				<button class="mk-btn-confirm-yes" onclick="confirmEditSave()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- MODAL: สำเร็จ (1.3/1.7) — Figma node 2:47880 -->
+<div class="modal fade modal-mk-success" id="successModal" tabindex="-1"
+	 data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="mk-success-top-bar">
+				<div class="mk-success-icon">
+					<i class="bi bi-check-circle-fill"></i>
+				</div>
+				<div class="mk-success-title">สำเร็จ</div>
+			</div>
+			<div class="mk-success-body">
+				<div class="mk-success-message" id="successMessage">บันทึกข้อมูลสำเร็จ</div>
+			</div>
+			<div class="mk-success-footer">
+				<button class="mk-btn-ok" onclick="closeSuccessModal()">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: ตรวจสอบการแก้ไข (1.5/1.6) — 2-step -->
+<div class="modal fade modal-mk-review" id="reviewModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+
+			<!-- Step A: ตรวจสอบ + เลือก Manager (1.5) -->
+			<div class="modal-step active" id="reviewStepA">
+				<div class="mk-review-top-bar">ตรวจสอบการแก้ไข</div>
+				<div class="mk-review-section">
+					<div class="mk-review-subtitle" id="reviewSubtitle">เตรียมแก้ไขข้อมูล 1 รายการ</div>
+					<div class="mk-review-hc">Header Card <span id="reviewHc">-</span></div>
+
+					<!-- Review table -->
+					<div class="mk-results-table">
+						<div class="mk-table-header-bar">
+							<span class="mk-table-header-title">แสดงผลการนับคัด</span>
+							<span class="mk-table-header-count">
+								จำนวนก่อน: <span class="mk-count-value" id="reviewCountBefore">0</span> ฉบับ
+							</span>
+							<span class="mk-table-header-count">
+								จำนวนหลัง: <span class="mk-count-value" id="reviewCountAfter">0</span> ฉบับ
+							</span>
+						</div>
+						<div class="mk-col-header">
+							<div class="mk-col"></div>
+							<div class="mk-col">ชนิดราคา</div>
+							<div class="mk-col">ประเภท</div>
+							<div class="mk-col">แบบ</div>
+							<div class="mk-col col-right">ก่อนปรับ (ฉบับ)</div>
+							<div class="mk-col col-right">หลังปรับ (ฉบับ)</div>
+						</div>
+						<div class="mk-table-body" id="reviewTableBody"></div>
+					</div>
+
+					<!-- ยืนยันการแก้ไข -->
+					<div class="mk-review-confirm-section">
+						<div class="mk-review-confirm-title">ยืนยันการแก้ไข</div>
+						<div class="mk-review-form-row">
+							<div class="mk-review-form-group">
+								<label class="mk-review-label">เลือก Manager</label>
+								<select class="mk-review-select" id="reviewManager">
+									<option value="">-- เลือก --</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mk-review-footer">
+					<button class="mk-btn-back" onclick="closeReviewModal()">ย้อนกลับ</button>
+					<button class="mk-btn-approve" id="btnSubmitApproval" onclick="submitApprovalRequest()">ส่งคำขออนุมัติแก้ไข</button>
+				</div>
+			</div>
+
+			<!-- Step B: เหตุผล + OTP (1.6) -->
+			<div class="modal-step" id="reviewStepB">
+				<div class="mk-review-top-bar">ตรวจสอบการแก้ไข</div>
+				<div class="mk-review-section">
+					<div class="mk-review-subtitle" id="reviewSubtitleB">เตรียมแก้ไขข้อมูล 1 รายการ</div>
+					<div class="mk-review-hc">Header Card <span id="reviewHcB">-</span></div>
+
+					<!-- Same review table -->
+					<div class="mk-results-table">
+						<div class="mk-table-header-bar">
+							<span class="mk-table-header-title">แสดงผลการนับคัด</span>
+							<span class="mk-table-header-count">
+								จำนวนก่อน: <span class="mk-count-value" id="reviewCountBeforeB">0</span> ฉบับ
+							</span>
+							<span class="mk-table-header-count">
+								จำนวนหลัง: <span class="mk-count-value" id="reviewCountAfterB">0</span> ฉบับ
+							</span>
+						</div>
+						<div class="mk-col-header">
+							<div class="mk-col"></div>
+							<div class="mk-col">ชนิดราคา</div>
+							<div class="mk-col">ประเภท</div>
+							<div class="mk-col">แบบ</div>
+							<div class="mk-col col-right">ก่อนปรับ (ฉบับ)</div>
+							<div class="mk-col col-right">หลังปรับ (ฉบับ)</div>
+						</div>
+						<div class="mk-table-body" id="reviewTableBodyB"></div>
+					</div>
+
+					<!-- ยืนยันการแก้ไข — Figma node 5:36844 -->
+					<div class="mk-review-confirm-section">
+						<div class="mk-review-confirm-title">ยืนยันการแก้ไข</div>
+						<div class="mk-confirm-row">
+							<!-- Left: เหตุผล (flex:1) -->
+							<div class="mk-confirm-reason">
+								<label class="mk-review-label mk-label-body">เหตุผล</label>
+								<textarea class="mk-review-textarea" id="reviewReason"
+										  placeholder="ระบุเหตุผล"></textarea>
+							</div>
+							<!-- Right: OTP (592px) -->
+							<div class="mk-confirm-otp">
+								<div class="mk-otp-input-group">
+									<label class="mk-review-label">Manager กรอกรหัส OTP</label>
+									<input type="text" class="mk-review-input mk-otp-input" id="reviewOtp"
+										   placeholder="" maxlength="6" inputmode="numeric" pattern="[0-9]{6}" />
+								</div>
+								<div class="mk-otp-row">
+									<button class="mk-btn-resend-otp" onclick="resendOtp()">
+										<i class="bi bi-arrow-clockwise"></i> ส่งรหัส OTP อีกครั้ง
+									</button>
+									<span class="mk-otp-countdown" id="otpCountdown">ส่งอีกครั้งได้ภายใน 04:59 นาที</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mk-review-footer">
+					<button class="mk-btn-back" onclick="goBackToStepA()">ย้อนกลับ</button>
+					<button class="mk-btn-confirm-otp" id="btnConfirmOtp" onclick="confirmOtp()">ยืนยัน OTP</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="@Url.Content("~/js/verify/manualKeyIn.js")" asp-append-version="true"></script>
+}

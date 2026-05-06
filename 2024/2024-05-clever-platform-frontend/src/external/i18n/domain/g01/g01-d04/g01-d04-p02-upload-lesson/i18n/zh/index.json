@@ -1,0 +1,19 @@
+{
+  "header-title": "课程",
+  "tab-all": "全部",
+  "tab-downloaded": "已下载",
+  "tab-sublesson": "子课程",
+  "sublesson-count": "{{downloaded}}/{{total}} 子课程",
+  "error-lesson-not-found": "找不到课程",
+  "lesson": {
+    "empty": {
+      "all": "系统中暂无课程，请上传课程文件。",
+      "downloaded": "尚未下载任何课程。"
+    }
+  },
+  "sublesson": {
+    "empty": "本课程中暂无子课程。",
+    "fallbackName": "子课程 {{id}}",
+    "progress": "{{progress}}%"
+  }
+}

@@ -1,0 +1,828 @@
+{
+	"info": {
+		"_postman_id": "6efe1cac-f428-45d7-bd59-9aea951a48bf",
+		"name": "bo-g01-d07-admin-user-account-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-user-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "patdoe2d3@email.com",
+							"description": "required, email",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"description": "required, คำนำหน้า",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "John",
+							"description": "required, ขื่อ",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Doe",
+							"description": "required, นามสกุล",
+							"type": "text"
+						},
+						{
+							"key": "id_number",
+							"value": "0001",
+							"description": "optional, เลขบัตรประชาชน",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"description": "optional, ภาพโปรไฟล์",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "required, สถานะ (enabled / disabled / draft)",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "patdoepass",
+							"description": "required, รหัสผ่าน",
+							"type": "text"
+						},
+						{
+							"key": "roles",
+							"value": "1",
+							"description": "optional, role ของ user (1 = admin / 2 = content creator / 3 = game master)",
+							"type": "text"
+						},
+						{
+							"key": "roles",
+							"value": "2",
+							"description": "optional, role ของ user (1 = admin / 2 = content creator / 3 = game master)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-user-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/users/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"users",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-user-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/users?page=1&limit=10&roles=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional, ID ของ user",
+							"disabled": true
+						},
+						{
+							"key": "roles",
+							"value": "2",
+							"description": "optional, role ของ user"
+						},
+						{
+							"key": "roles",
+							"value": "1",
+							"description": "optional, role ของ user",
+							"disabled": true
+						},
+						{
+							"key": "roles",
+							"value": "3",
+							"description": "optional, role ของ user",
+							"disabled": true
+						},
+						{
+							"key": "roles",
+							"value": "8",
+							"description": "optional, role ของ user",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-user-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "mrs",
+							"description": "optional, คำนำหน้า",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "doe",
+							"description": "optional, ชื่อ",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "pat",
+							"description": "optional, นามสกุล",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"description": "optional, รูปโปรไฟล์",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"description": "สถานะ (enabled / disabled / draft)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/users/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"users",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "134551ea-5b2a-4ea1-a671-7bd2359976a5",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-user-case-update-roles",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roles\": [1, 2, 3] // required, role\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/users/:userId/roles",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"users",
+						":userId",
+						"roles"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "8fc444c2-b992-4216-b2a0-78f9969808f7",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-parent-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/parents/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"parents",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-observer-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "observeddr@email.comaddddd",
+							"description": "required, email",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "mr",
+							"description": "required, คำนำหน้า",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "observer first name",
+							"description": "required, ชื่อ",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "observer last name",
+							"description": "required, นามสกุล",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"description": "optional, รูปโปรไฟล์",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/The_Mad_Hatter_Fsjal.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "required, สถานะ (enabled / disabled / draft)",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "patdoepass",
+							"description": "required, รหัสผ่าน",
+							"type": "text"
+						},
+						{
+							"key": "observer_accesses",
+							"value": "3",
+							"description": "optiona, ID ของ observer access",
+							"type": "text"
+						},
+						{
+							"key": "observer_accesses",
+							"value": "4",
+							"description": "optiona, ID ของ observer access",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/observers/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"observers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-observer-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/observers/:userId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"observers",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "f1c4fed0-c599-49fc-95e1-33c905f227af",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-observer-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/observers?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"observers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional,  default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "ace415c6-295b-449c-acf1-57c6e4f47613",
+							"description": "optional, ID ของ user",
+							"disabled": true
+						},
+						{
+							"key": "observer_access_id",
+							"value": "3",
+							"description": "optional, ID ของ observer access",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-observer-case-update-observer-access",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"observer_accesses\": [3, 4] // required, array ของ observer access ID\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/observers/:userId/observer-accesses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"observers",
+						":userId",
+						"observer-accesses"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "2ef5268c-2c0c-4a3e-a1a5-4cc0f2b650cf",
+							"description": "required, ID ของ user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-observer-access-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/observer-accesses?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"observer-accesses"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-auth-email-password-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\r\n    \"password\": \"patdoepass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/auth/email-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"auth",
+						"email-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-user-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"user_id\": \"134551ea-5b2a-4ea1-a671-7bd2359976a5\",\r\n            \"status\": \"enabled\"\r\n        },\r\n        {\r\n            \"user_id\": \"79b352fe-668e-44a1-9d14-6fffe1acd1da\",\r\n            \"status\": \"draft\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a14-api-admin-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/admin-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/upload/csv/admin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"upload",
+						"csv",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-parent-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "C:/Users/MG-/Desktop/CSV/g01d07-parent.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/upload/csv/parent",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"upload",
+						"csv",
+						"parent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-observer-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "C:/Users/MG-/Desktop/CSV/g01d07-observer.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/upload/csv/observer",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"upload",
+						"csv",
+						"observer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-content-creator-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "C:/Users/MG-/Desktop/CSV/g01d07-content-creator.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/upload/csv/content-creator",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"upload",
+						"csv",
+						"content-creator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-admin-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/download/csv/admin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"download",
+						"csv",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-parent-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/download/csv/parent",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"download",
+						"csv",
+						"parent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-observer-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/download/csv/observer",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"download",
+						"csv",
+						"observer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a21-api-content-creator-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin-user-account/v1/download/csv/content-creator",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin-user-account",
+						"v1",
+						"download",
+						"csv",
+						"content-creator"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

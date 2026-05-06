@@ -1,0 +1,188 @@
+{
+  "save": "保存",
+  "buy": "购买",
+  "bought": "已购买",
+  "title": "仓库",
+  "shop": "商店",
+  "amount": "数量",
+  "make_mission": "完成任务以获得奖励",
+  "gift_history": "奖励记录",
+  "no_pet": "你还没有宠物",
+  "do_mission_to_get_pet": "完成任务以获得宠物",
+  "go_to_shop": "前往商店",
+  "no_honer": "你还没有称号",
+  "do_mission_to_get_honer": "完成任务以获得称号",
+  "do_mission": "完成任务",
+  "no_frame": "你还没有边框",
+  "do_mission_to_get_frame": "完成任务以获得边框",
+  "no_gift": "你还没有奖励",
+  "do_mission_to_get_gift": "完成任务以获得奖励",
+  "use_item": "使用物品",
+  "used": "已使用",
+  "history": "奖励记录",
+  "insufficient_funds": "商店通知",
+  "insufficient_funds_message": "您的金币数量不足\n请玩游戏以增加金币",
+  "ok": "确定",
+  "characters": {
+    "set1": {
+      "character1": {
+        "name": "迈蒂勇士",
+        "description": "一位强壮的年轻战士，踏上寻找神圣之剑的旅程，保护他的王国"
+      },
+      "character2": {
+        "name": "芬恩森林之影弓箭手",
+        "description": "一位沉默的弓箭手，精准度堪称传奇，守护森林免受危险"
+      },
+      "character3": {
+        "name": "达米安黑暗骑士",
+        "description": "一位被邪恶女巫诅咒的神秘骑士，被迫踏上旅程寻找关于自己过去的真相"
+      },
+      "character4": {
+        "name": "莱娅光明法师",
+        "description": "一位年轻的光明女巫，用魔法治愈人们并驱散黑暗"
+      }
+    },
+    "set2": {
+      "character1": {
+        "name": "DJ唐未来DJ",
+        "description": "热爱音乐，能跟随任何节拍摇摆！梦想有一天为全世界播放音乐，让大家一起跳舞！"
+      },
+      "character2": {
+        "name": "波船长未来水手",
+        "description": "对海洋着迷！喜欢阅读地图，学习关于船的知识，梦想有一天成为伟大的船长"
+      },
+      "character3": {
+        "name": "熊宇想变成熊的孩子",
+        "description": "最爱熊！拥有各种熊的服装，收集熊主题的物品，相信如果信念足够强，有一天他会变成真正的熊！"
+      },
+      "character4": {
+        "name": "好女孩前途无量的孩子",
+        "description": "曾经懒于学习，但现在非常努力！梦想毕业并让父母感到骄傲"
+      }
+    },
+    "set3": {
+      "character1": {
+        "name": "艾什神秘黑客",
+        "description": "技术天才，能在瞬间黑入任何系统，但内心仍然温柔"
+      },
+      "character2": {
+        "name": "霓虹灯光下的赛车手",
+        "description": "速度超越光，无人能及，随时准备挑战未来城市的每一条路径"
+      },
+      "character3": {
+        "name": "六号机械战士",
+        "description": "强大如机器，六号没有失败的任务！"
+      },
+      "character4": {
+        "name": "露娜网络战士",
+        "description": "静如夜晚，锋利如未来之刃，没有目标能逃过她的视线"
+      }
+    },
+    "set4": {
+      "character1": {
+        "name": "托里年轻冒险家",
+        "description": "充满梦想的心，渴望探索广阔的世界"
+      },
+      "character2": {
+        "name": "雷天才思想家",
+        "description": "喜欢阅读书籍，总是有新点子"
+      },
+      "character3": {
+        "name": "敏活泼的孩子",
+        "description": "团队中最小的，但跑得很快，对一切都充满好奇！"
+      },
+      "character4": {
+        "name": "大哥温柔的巨人",
+        "description": "虽然看起来强壮威猛，实际上是最温柔的人"
+      }
+    },
+    "set5": {
+      "character1": {
+        "name": "泰迪淘气熊",
+        "description": "最爱拥抱！见到谁都要先要一个拥抱"
+      },
+      "character2": {
+        "name": "兔子调皮的兔子",
+        "description": "到处蹦蹦跳跳，从不安静，擅长偷胡萝卜"
+      },
+      "character3": {
+        "name": "喵喵聪明的猫",
+        "description": "可爱团队的领导，只需一个眼神就能轻松获得零食"
+      },
+      "character4": {
+        "name": "雪白软绵绵的白猫",
+        "description": "蓬松如雪球，任何抱过他的人都会爱上他"
+      }
+    }
+  },
+  "pets": {
+    "Peacock": {
+      "name": "噗噗 (Pui-Pui)",
+      "description": "柔软蓬松的羽毛闪闪发光。喜欢跳舞，向朋友们展示他的尾巴。被夸奖时会害羞得开心地跳舞！"
+    },
+    "Malayan_A": {
+      "name": "嗒嗒 (Tup-Tap)",
+      "description": "轻柔地走来走去，天性好奇但心地善良。看到水就会立刻跳进去享受清凉"
+    },
+    "Elk_A": {
+      "name": "吉吉 (Jee-Jee)",
+      "description": "跑得像风一样快，但极其害羞。如果想让吉吉靠近，需要用他最喜欢的新鲜叶子"
+    },
+    "Bison": {
+      "name": "毛毛 (Khon-Fu)",
+      "description": "最柔软蓬松的毛，完美的拥抱对象！毛毛心地善良温和，每天都想要人抚摸他的毛"
+    },
+    "Mole": {
+      "name": "泡泡 (Peb-Ble)",
+      "description": "专业挖掘者，总是在洞穴里藏玩具。想看到泡泡冒出来，需要带一些零食作为诱饵"
+    },
+    "Pangolin_A": {
+      "name": "软软 (Num-Nim)",
+      "description": "圆圆的身体，摸起来超级柔软！受到惊吓时会蜷成球状，完美的拥抱对象"
+    },
+    "Iguana_A": {
+      "name": "咪咪 (Mee-Mee)",
+      "description": "全心全意地爱着植物。总能在灌木丛中找到躲藏的咪咪"
+    },
+    "Iguana_B": {
+      "name": "呜呜 (Moo-Moo)",
+      "description": "极其亲切，喜欢温暖的日光浴。轻轻抚摸他的头，他会幸福地闭上眼睛"
+    },
+    "Anteater_B": {
+      "name": "滴滴 (Tid-Tee)",
+      "description": "长长的舌头！吃蚂蚁的速度像闪电一样快。起初很害羞，但一旦信任你，就喜欢用头轻轻蹭你"
+    },
+    "Anteater_A": {
+      "name": "汤汤 (Tom-Tam)",
+      "description": "真正的探险家！喜欢到处嗅闻寻找食物。发现很多蚂蚁时会高兴得跳舞"
+    },
+    "Chipmunk_A": {
+      "name": "淘淘 (Suk-Son)",
+      "description": "顽皮好动，整天跑来跑去，没人能追上！如果他消失了，试着往树上看看——他可能在那里躲着"
+    },
+    "Possum_A": {
+      "name": "扑扑 (Puk-Luk)",
+      "description": "害怕时会装死，但其实只是在演戏！还喜欢倒挂着睡觉取乐"
+    },
+    "Otter_A": {
+      "name": "奥奥 (Ot-to)",
+      "description": "最棒的游泳健将！睡觉时喜欢和朋友们手牵手，这样就不会漂走了。水中终极拥抱伙伴"
+    },
+    "Redpanda_A": {
+      "name": "盼盼 (Pan-Pan)",
+      "description": "顽皮、亲切，超级爱零食！如果你有苹果给他，他会可爱地跟着你到处走"
+    },
+    "Sloth_A": {
+      "name": "慢慢 (Tuam-Tiam)",
+      "description": "动作缓慢但心地最善良！慢慢喜欢拥抱，醒来时总是需要先找个人抱抱"
+    },
+    "Armadillo_A": {
+      "name": "壳壳 (Shel-Ly)",
+      "description": "最柔软蓬松的毛，完美的拥抱对象！心地善良温和，每天都想要人抚摸他的毛"
+    },
+    "Armadillo_B": {
+      "name": "滚滚 (Lhun-Lhun)",
+      "description": "最柔软蓬松的毛，完美的拥抱对象！心地善良温和，每天都想要人抚摸他的毛"
+    }
+  }
+}

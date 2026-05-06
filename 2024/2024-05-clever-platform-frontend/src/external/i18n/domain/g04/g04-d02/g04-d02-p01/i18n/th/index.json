@@ -1,0 +1,44 @@
+{
+  "test": "ด่านบอส",
+  "pretest": "ก่อนเรียน",
+  "posttest": "หลังเรียน",
+  "execise": "แบบฝึกหัด",
+  "answercount": "จำนวนข้อ",
+  "timeset": "กำหนดเวลา",
+  "timeuse": "เวลาที่ใช้",
+  "your_play": "การเล่นของคุณ",
+  "level_type": {
+    "test": "แบบฝึกหัด",
+    "sub-lesson-post-test": "ทดสอบหลังเรียน",
+    "pre-post-test": "ทดสอบก่อนเรียน",
+    "pre-test": "ทดสอบก่อนเรียน",
+    "post-test": "ทดสอบหลังเรียน"
+  },
+  "level": {
+    "dialog": {
+      "title": "ด่านที่ {{level}}",
+      "exercise": "แบบฝึกหัด",
+      "difficulty": "ระดับความยาก",
+      "timeLimit": "กำหนดเวลา",
+      "noTimeLimit": "ไม่มีกำหนด",
+      "questionCount": "จำนวนข้อ",
+      "yourPlay": "การเล่นของคุณ",
+      "score": "คะแนน",
+      "star": "ดาว",
+      "emptyStar": "ดาวที่ว่าง",
+      "timeUsed": "เวลาที่ใช้",
+      "honor": "โล่/ฉายา",
+      "honorAlt": "honor",
+      "offline": {
+        "status": "คุณออฟไลน์อยู่",
+        "savedHistory": "ประวัติการเล่นจะถูกบันทึกไว้ จากนั้น",
+        "rewardsWhenOnline": "จะได้รับรางวัลเมื่อกลับมาออนไลน์อีกครั้ง"
+      }
+    },
+    "difficulty": {
+      "easy": "ง่าย",
+      "medium": "ปานกลาง",
+      "hard": "ยาก"
+    }
+  }
+}

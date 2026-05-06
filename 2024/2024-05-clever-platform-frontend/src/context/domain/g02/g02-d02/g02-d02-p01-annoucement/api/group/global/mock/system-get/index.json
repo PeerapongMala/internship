@@ -1,0 +1,38 @@
+[
+  {
+    "announcement_id": 11,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 1",
+    "description": "ประกาศจากทางระบบปิดปรับปรุงเซิฟเวอร์ครั้งที่ 1",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "announcement_id": 12,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 2",
+    "description": "ประกาศจากทางระบบปิดปรับปรุงเซิฟเวอร์ครั้งที่ 2",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "announcement_id": 13,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 3",
+    "description": "ประกาศจากทางระบบปิดปรับปรุงเซิฟเวอร์ครั้งที่ 3",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "announcement_id": 14,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 4",
+    "description": "ประกาศจากทางระบบปิดปรับปรุงเซิฟเวอร์ครั้งที่ 4",
+    "image_url": null,
+    "is_read": false
+  }
+]

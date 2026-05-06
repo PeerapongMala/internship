@@ -1,0 +1,77 @@
+import { useState, useRef, useEffect, type ReactNode } from 'react';
+import { DownOutlined } from '@ant-design/icons';
+import { useLanguage } from '../i18n/LanguageContext';
+
+function FlagGB() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" className="lang-flag-svg">
+      <path fill="#012169" d="M0 0h640v480H0z" />
+      <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z" />
+      <path fill="#C8102E" d="m424 281 216 159v40L369 281zm-184 20 6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z" />
+      <path fill="#FFF" d="M241 0v480h160V0zM0 160v160h640V160z" />
+      <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z" />
+    </svg>
+  );
+}
+
+function FlagTH() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" className="lang-flag-svg">
+      <g fillRule="evenodd">
+        <path fill="#f4f5f8" d="M0 0h640v480H0z" />
+        <path fill="#2d2a4a" d="M0 162.5h640v160H0z" />
+        <path fill="#a51931" d="M0 0h640v82.5H0zm0 400h640v80H0z" />
+      </g>
+    </svg>
+  );
+}
+
+const LANGUAGES: { key: string; flag: ReactNode; label: string }[] = [
+  { key: 'en', flag: <FlagGB />, label: 'English' },
+  { key: 'th', flag: <FlagTH />, label: 'ภาษาไทย' },
+];
+
+export default function LanguageToggle() {
+  const { lang, setLang } = useLanguage();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const current = LANGUAGES.find((l) => l.key === lang)!;
+
+  return (
+    <div className="lang-dropdown" ref={ref}>
+      <button className="lang-dropdown-btn" onClick={() => setOpen((o) => !o)}>
+        {current.flag}
+        <DownOutlined className="lang-chevron" />
+      </button>
+
+      {open && (
+        <div className="lang-dropdown-menu">
+          {LANGUAGES.map(({ key, flag, label }) => (
+            <button
+              key={key}
+              className={`lang-dropdown-item${key === lang ? ' active' : ''}`}
+              onClick={() => {
+                setLang(key as 'en' | 'th');
+                setOpen(false);
+              }}
+            >
+              {flag}
+              <span>{label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

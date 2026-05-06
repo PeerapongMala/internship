@@ -1,0 +1,36 @@
+name: DEVELOPMENT-CI
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  typescript-check:
+    name: Test
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/npm-type-check.yml@main
+    with:
+      version: "22.14.0"
+      script-name: type-check
+      working-dir: "v1"
+
+  build:
+    name: Build
+    needs: typescript-check
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/backoffice-build.yml@main
+    with:
+      version: "22.14.0"
+      build-output-path: dist
+      build-output-name: clever-backoffice-build
+      working-dir: "v1"
+      script-name: build:no-tsc
+
+    secrets:
+      VITE_API_BASE_URL: ${{secrets.DEV_VITE_API_BASE_URL}}
+      VITE_GAME_BASE_URL: ${{secrets.DEV_VITE_GAME_BASE_URL}}
+      VITE_WS_BASE_URL: ${{secrets.DEV_VITE_WS_BASE_URL}}
+      VITE_DEBUG_API_IS_MOCK: ${{secrets.DEV_VITE_DEBUG_API_IS_MOCK}}
+      VITE_LINE_LIFF_ID: ${{secrets.DEV_VITE_LINE_LIFF_ID}}
+      SERVER_USER: ${{ secrets.HOST_STAGING_USERNAME }}
+      SERVER_HOST: ${{ secrets.HOST_STAGING_IP }}
+      SSH_PRIVATE_KEY: ${{ secrets.HOST_STAGING_SSH_KEY }}

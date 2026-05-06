@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image_url": "https://play-lh.googleusercontent.com/Dvg2KDnnXP0laYvvlJRjz1E7gsxipwsWn837cNKAx2s5ycYSCEuJWwrPiA8JhFYxFoQ",
+    "name": "Survivor.io",
+    "arcade_coin_cost": 10101011
+  },
+  {
+    "id": 2,
+    "image_url": "https://play-lh.googleusercontent.com/iRlGmvtJ524J-gAGdJJchMv-MH-9AuG80TAx8Rv8q3lObiI7kLVZrEvjVOM-yw3BBH4",
+    "name": "Fruit Ninja",
+    "arcade_coin_cost": 456
+  },
+  {
+    "id": 3,
+    "image_url": "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/76fc1b000203faf71b77a75b10022142.png",
+    "name": "Crossy Road",
+    "arcade_coin_cost": 990
+  },
+  {
+    "id": 4,
+    "image_url": "https://img.utdstc.com/icon/6e7/915/6e7915c81723c20c418d4b0c64eb81e22ab481dffcbebe9f9309566cc99ad8ad:200",
+    "name": "Last War",
+    "arcade_coin_cost": 890
+  },
+  {
+    "id": 5,
+    "image_url": "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/3660e32ebe83bc65e05a81b335f74823.png",
+    "name": "Subway Surfers",
+    "arcade_coin_cost": 500
+  },
+  {
+    "id": 6,
+    "image_url": "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d5d34cb9ce7b617b93338982aa0958ab.png",
+    "name": "Jetpack Joyride",
+    "arcade_coin_cost": 500
+  }
+]

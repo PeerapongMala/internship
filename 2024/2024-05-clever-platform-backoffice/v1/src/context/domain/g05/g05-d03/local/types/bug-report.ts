@@ -1,0 +1,22 @@
+export type TBugReport = {
+  bug_id: string;
+  os: string;
+  browser: string;
+  type: string;
+  platform: string;
+  version: string;
+  priority: string;
+  url: string;
+  description: string;
+  status: string;
+  created_at: string;
+  created_by: string;
+  creater_first_name: string;
+  creater_last_name: string;
+  role: string;
+  image_urls: string[];
+  edited_at: string;
+  edited_by: string;
+  editer_first_name: string;
+  editer_last_name: string;
+};

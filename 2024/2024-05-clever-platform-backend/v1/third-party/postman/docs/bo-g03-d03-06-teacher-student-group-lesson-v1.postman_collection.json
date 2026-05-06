@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "b7aa2e13-2ba8-4ff3-a22a-cb631e8da477",
+		"name": "bo-g03-d03-06-teacher-student-group-lesson-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "[A06] GetLessonParams",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/params/lesson",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"params",
+						"lesson"
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A06] GetSubLessonParams",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/params/sub-lesson?lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"params",
+						"sub-lesson"
+					],
+					"query": [
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"description": "required"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A06] GetLessonStatList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/lesson-stat/list?lesson_id=1&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"lesson-stat",
+						"list"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-12",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-31",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A06] GetLessonStatCsv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/lesson-stat/csv?lesson_id=1&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"lesson-stat",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-12",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-31",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

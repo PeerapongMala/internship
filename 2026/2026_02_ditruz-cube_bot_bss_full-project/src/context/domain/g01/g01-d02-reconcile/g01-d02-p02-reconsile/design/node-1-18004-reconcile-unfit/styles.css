@@ -1,0 +1,212 @@
+/* ============================================================
+   Figma Reference CSS — Node 1:18004 (Reconcile - Unfit)
+   ============================================================
+   WARNING: This is a REFERENCE file extracted from Figma specs.
+   DO NOT link as a stylesheet. Copy values to reconsileTransaction.css.
+   font-family: 'Pridi' → implement as 'bss-pridi'
+   ============================================================ */
+
+/* --- Title --- */
+.title {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.2em;
+    letter-spacing: 0.675px; /* 2.25% of 30px */
+    color: #212121;
+}
+
+/* --- Top Panel --- */
+.top-panel {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 8px 8px 16px;
+    gap: 8px;
+}
+
+/* --- Info Card --- */
+.info-card {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 8px 24px;
+}
+
+.info-label {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 20px;
+    color: #212121;
+}
+
+.info-badge {
+    background: #E4E6E9;
+    padding: 4px 12px;
+    border-radius: 8px;
+    width: 152px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.info-warning {
+    font-weight: 700;
+    color: #B45309;
+}
+
+.info-bold {
+    font-weight: 700;
+    color: #212529;
+}
+
+/* --- Radio Group --- */
+.radio-group {
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.radio-item {
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    gap: 16px;
+}
+
+.radio-label {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+}
+
+/* --- Denom Chips --- */
+.denom-chips-group { gap: 16px; }
+
+.denom-chip-badge {
+    width: 47px;
+    height: 24px;
+    border-radius: 8px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 13px;
+}
+
+/* --- Form Fields --- */
+.field-label {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 14px;
+    color: #212121;
+}
+
+.select-input {
+    background: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 8px;
+    padding: 8px 12px 8px 16px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 300;
+    font-size: 20px;
+    color: #212529;
+}
+
+.text-input {
+    background: #FFFFFF;
+    border: 1px solid #CED4DA;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.text-input:focus {
+    border-color: #86B7FE;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+/* --- Save Button --- */
+.save-button {
+    width: 300px;
+    padding: 8px 16px;
+    background: #198754;
+    border-radius: 8px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    align-self: flex-end;
+}
+
+/* --- Input Form Container --- */
+.input-form {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 8px 24px 16px;
+    gap: 16px;
+}
+
+/* --- Table Header --- */
+.table-header {
+    background: #D6E0E0;
+    border-bottom: 1px solid #CBD5E1;
+    padding: 8px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 13px;
+    color: #212121;
+}
+
+/* --- Table Body --- */
+.table-cell {
+    padding: 6px 8px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.table-row-odd { background: #F8FAFC; }
+.table-row-even { background: #F2F6F6; }
+
+/* --- Sort Icon --- */
+.sort-icon {
+    font-size: 12px;
+    color: #6C757D;
+    margin-left: 2px;
+}
+
+/* --- Action Buttons --- */
+.action-button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background: transparent;
+}
+
+.action-icon { font-size: 14px; color: #000000; }
+
+/* --- Bottom Buttons --- */
+.cancel-button {
+    width: 300px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #6C757D;
+    border: 1px solid #6C757D;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.reconcile-button {
+    width: 300px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #003366;
+    border: 1px solid #003366;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+}

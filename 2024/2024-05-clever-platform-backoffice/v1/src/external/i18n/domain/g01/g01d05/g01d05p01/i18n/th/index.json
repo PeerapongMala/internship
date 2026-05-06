@@ -1,0 +1,21 @@
+{
+  "reverseNavigate": "เพิ่มห้องเรียน",
+  "header": "ข้อมูลห้องเรียน",
+  "form": {
+    "schoolYear": "ปีการศึกษา",
+    "schoolClass": "ชั้นปี",
+    "roomName": "ชื่อห้อง"
+  },
+  "saveBtn": "บันทึก",
+  "info": {
+    "roomCode": "รหัสห้องเรียน",
+    "status": "สถานะ",
+    "updatedDate": "แก้ไขล่าสุด",
+    "updatedBy": "แก้ไขล่าสุดโดย"
+  },
+  "status": {
+    "draft": "แบบร่าง",
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน"
+  }
+}

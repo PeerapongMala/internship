@@ -1,0 +1,46 @@
+name: CICD-DEV
+
+on:
+  push:
+    branches: ["main"]
+  # pull_request:
+  #   branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Connect to Server & Deploy
+        env:
+          HOST_USERNAME: ${{ secrets.HOST_STAGING_USERNAME }}
+          HOST_IP: ${{ secrets.HOST_STAGING_IP }}
+          SSH_KEY: ${{ secrets.HOST_STAGING_SSH_KEY }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          echo "$SSH_KEY" >> private_key
+          chmod 600 private_key
+
+          set -e
+          ssh -i private_key -o StrictHostKeyChecking=no "$HOST_USERNAME@$HOST_IP" << EOF
+
+          set -e
+
+          cd zettamerge/clever-platform/development/2024-05-clever-platform-backend/v1 
+
+          git fetch https://$GIT_TOKEN@github.com/ZettaMerge/2024-05-clever-platform-backend.git
+          git checkout main
+          git pull https://$GIT_TOKEN@github.com/ZettaMerge/2024-05-clever-platform-backend.git
+
+          echo "building..."
+          /usr/local/go/bin/go build -o main main.go
+          echo "built successful"
+
+
+          echo "restart..."
+          sudo systemctl restart clever-platform-development-backend.service
+          sudo systemctl status clever-platform-development-backend.service --no-pager
+          EOF

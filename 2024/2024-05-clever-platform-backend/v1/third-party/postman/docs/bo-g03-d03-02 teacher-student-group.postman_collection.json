@@ -1,0 +1,915 @@
+{
+	"info": {
+		"_postman_id": "dca11eb8-2014-42c6-a5d8-b01e218424c4",
+		"name": "bo-g03-d03-02 teacher-student-group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "a00-get-study-group-member-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/student_group/:student_group_id?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"student-group",
+						"member",
+						"student_group",
+						":student_group_id"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "is_member",
+							"value": "true",
+							"description": "optional: true, false",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "student_group_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/student_group/:student_group_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"student_group",
+								":student_group_id"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "sadfsdas",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "is_member",
+									"value": "true",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "student_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 03 Mar 2025 16:32:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "566"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6c2d9408-17a4-4ab9-81c4-b66430d85c0e"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"academic_year\": 2567,\n            \"year\": \"ป.4\",\n            \"room\": 1,\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"student_id\": \"17340\",\n            \"first_name\": \"อภิชาติ\",\n            \"last_name\": \"เชื้อ\",\n            \"latest_login_at\": \"2025-02-17T09:56:05.684Z\",\n            \"is_member\": false\n        },\n        {\n            \"academic_year\": 2567,\n            \"year\": \"ป.4\",\n            \"room\": 1,\n            \"student_user_uuid\": \"09ad8d4c-9ad3-41a6-b6e2-425630504124\",\n            \"student_id\": \"17341\",\n            \"first_name\": \"สมชาย\",\n            \"last_name\": \"สายดี\",\n            \"latest_login_at\": null,\n            \"is_member\": false\n        }\n    ],\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "ERROR 400 key value",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/student_group/:student_group_id?is_member=asdassas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"student_group",
+								":student_group_id"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "is_member",
+									"value": "asdassas",
+									"description": "optional: true, false"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "student_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2025 12:04:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "90f60fd2-a0f0-4cc8-86ac-dc15b856e248"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"Bad request\",\n    \"error_message\": \"Bad request\"\n}"
+				},
+				{
+					"name": "SUCCESS NO DATA",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/student_group/:student_group_id?is_member=false",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"student_group",
+								":student_group_id"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "is_member",
+									"value": "false",
+									"description": "optional: true, false"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "student_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2025 12:02:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "89f60fd2-a0f0-4cc8-86ac-dc15b856e248"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"total_count\": 0\n    },\n    \"data\": [],\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "ERROR 400 Params",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/student_group/:student_group_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"student_group",
+								":student_group_id"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": null,
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "is_member",
+									"value": "true",
+									"description": "optional: true, false",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "student_group_id",
+									"value": "sddfsadf"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2025 12:04:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "92f60fd2-a0f0-4cc8-86ac-dc15b856e248"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"class_id and student_group_id must be numeric\",\n    \"error_message\": \"class_id and student_group_id must be numeric\"\n}"
+				},
+				{
+					"name": "ERROR 403 NO ACCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/student_group/:student_group_id?academic_year=&year=ป.4&is_member=true&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"student_group",
+								":student_group_id"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "",
+									"description": "optional"
+								},
+								{
+									"key": "last_name",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.4",
+									"description": "optional"
+								},
+								{
+									"key": "is_member",
+									"value": "true",
+									"description": "optional: true, false"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional"
+								}
+							],
+							"variable": [
+								{
+									"key": "student_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 21 Feb 2025 11:32:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "432c7e90-5f07-4fe7-8ef4-c07a3413df60"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 403,\n    \"message\": \"Forbidden\",\n    \"error_message\": \"Forbidden\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a01-study-group-member-bulk-edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\", //student_id uuidv4\n            \"is_member\": true // boolean\n        },\n        {\n            \"student_user_uuid\": \"09ad8d4c-9ad3-41a6-b6e2-425630504124\",\n            \"is_member\": true\n        }\n    ]\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/study_group/:study_group_id/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"student-group",
+						"member",
+						"study_group",
+						":study_group_id",
+						"bulk-edit"
+					],
+					"variable": [
+						{
+							"key": "study_group_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ERR 404 | not exist",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\", //student_id\n            \"is_member\": false // boolean default=false\n        },\n        {\n            \"student_user_uuid\": \"09ad8d4c-9ad3-41a6-b6e2-425630504124\",\n            \"is_member\": false\n        }\n    ]\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/study_group/:study_group_id/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"study_group",
+								":study_group_id",
+								"bulk-edit"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "112312"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 10:52:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0c15ca1d-8c86-45ac-ba31-56b3c5a57348"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 404,\n    \"message\": \"student group does not exist\",\n    \"error_message\": \"student group does not exist\"\n}"
+				},
+				{
+					"name": "ERR 403 | NO_ACCESS",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\", //student_id\n            \"is_member\": false // boolean default=false\n        },\n        {\n            \"student_user_uuid\": \"09ad8d4c-9ad3-41a6-b6e2-425630504124\",\n            \"is_member\": false\n        }\n    ]\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/study_group/:study_group_id/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"study_group",
+								":study_group_id",
+								"bulk-edit"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "112321"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 10:53:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0e15ca1d-8c86-45ac-ba31-56b3c5a57348"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 403,\n    \"message\": \"Forbidden\",\n    \"error_message\": \"Forbidden\"\n}"
+				},
+				{
+					"name": "SUCCESS 200",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\", //student_user_uuid\n            \"is_member\": false // boolean default=false\n        },\n        {\n            \"student_user_uuid\": \"09ad8d4c-9ad3-41a6-b6e2-425630504124\",\n            \"is_member\": false\n        }\n    ]\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/study_group/:study_group_id/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"study_group",
+								":study_group_id",
+								"bulk-edit"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 10:57:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "1615ca1d-8c86-45ac-ba31-56b3c5a57348"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "ERR 400 | Validator",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\", //student_id\n            \"is_member\": true // boolean\n        },\n        {\n            \"student_user_uuid\": \"43590i3409eriejeiedfofjdoijdaiodjfioedjoeafios\"\n        }\n    ]\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/study_group/:study_group_id/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"study_group",
+								":study_group_id",
+								"bulk-edit"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 11:20:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "315"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "fa3790f3-b4ce-449a-be5d-4e5914459f0d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"Field validation for 'StudentID' failed on the 'uuid4' condition, Field validation for 'IsMember' failed on the 'required' condition\",\n    \"error_message\": \"Field validation for 'StudentID' failed on the 'uuid4' condition, Field validation for 'IsMember' failed on the 'required' condition\"\n}"
+				},
+				{
+					"name": "ERR 400 | Invalid Format",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"student_user_uuid\": \"cd1592be-7302-4805-a172-86956b0bf2a1\", //student_id\n            \"is_member\": true // boolean default=false\n        },\n        {\n            \"student_user_uuid\": 123123123121331,\n            \"is_member\": \"asdasdssadsasa\"\n        }\n    ]\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/student-group/member/study_group/:study_group_id/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"student-group",
+								"member",
+								"study_group",
+								":study_group_id",
+								"bulk-edit"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 12:23:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "de5b79aa-6277-4ddb-9cec-f1fa41307b36"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 400,\n    \"message\": \"Bad request\",\n    \"error_message\": \"Bad request\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

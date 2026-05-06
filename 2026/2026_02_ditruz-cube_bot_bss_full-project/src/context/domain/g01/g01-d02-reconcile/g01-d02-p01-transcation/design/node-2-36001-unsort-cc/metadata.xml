@@ -1,0 +1,50 @@
+<frame id="2:36001" name="Reconciliation Transaction - Unsort CC" x="1723" y="632" width="1440" height="900">
+  <frame id="2:36002" name="Background" x="0" y="0.4000244140625" width="1440" height="900">
+    <rounded-rectangle id="2:36003" name="Background" x="0" y="0" width="1440.4970703125" height="899.07568359375" />
+    <frame id="2:36004" name="Forground Color" x="0" y="0" width="1440" height="450">
+      <rounded-rectangle id="2:36005" name="Chrome" x="0" y="0" width="1440" height="450" />
+      <rounded-rectangle id="2:36006" name="Gradient Forground" x="0" y="0" width="1440" height="450" />
+      <rounded-rectangle id="2:36007" name="image 1" x="-450.04296875" y="-439.94024658203125" width="901.0858154296875" height="880.9402465820312" />
+      <rounded-rectangle id="2:36008" name="image 1" x="949.25" y="-476.28955078125" width="980.5001220703125" height="958.5791625976562" />
+    </frame>
+    <frame id="32:28954" name="Frame" x="0" y="39.599609375" width="1435" height="860">
+      <frame id="32:28955" name="Frame 6126" x="16" y="8" width="1403" height="62">
+        <frame id="32:28956" name="Frame 6127" x="0" y="0" width="1035" height="62">
+          <frame id="32:28957" name="Frame 6135" x="0" y="0" width="1035" height="59">
+            <text id="32:28958" name="Reconciliation Transaction UNFIT" x="0" y="0" width="1035" height="36" />
+            <text id="32:28959" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1035" height="24" />
+          </frame>
+        </frame>
+        <frame id="32:28960" name="Frame 6153" x="1035" y="13" width="368" height="36">
+          <frame id="32:28961" name="button" x="0" y="0" width="115" height="36" />
+          <frame id="32:28966" name="button" x="131" y="0" width="85" height="36" />
+          <frame id="32:28971" name="button" x="232" y="0" width="136" height="36" />
+        </frame>
+      </frame>
+      <frame id="32:28976" name="Frame 6127" x="11" y="77" width="1403" height="774">
+        <frame id="32:28977" name="Frame 6116" x="0" y="0" width="1071" height="774">
+          <frame id="32:28978" name="Frame 6115" x="0" y="0" width="1071" height="205">
+            <text id="32:28979" name="สแกน Header Card เพื่อกระทบยอดธนบัตรประเภท UNFIT" x="24" y="16" width="389" height="25" />
+            <frame id="32:28980" name="Frame 6151" x="24" y="49" width="1023" height="67" />
+            <frame id="32:29009" name="Frame 6114" x="24" y="124" width="1023" height="65">
+              <frame id="32:29010" name="Frame 6150" x="464" y="8" width="425" height="57">
+                <frame id="32:29011" name="Frame 6145" x="0.5" y="0" width="200" height="57" />
+                <frame id="32:29017" name="Frame 6149" x="224.5" y="0" width="200" height="57" />
+              </frame>
+              <frame id="32:29023" name="Frame 6152" x="913" y="8" width="110" height="57" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:29028" name="Frame 6117" x="1087" y="0" width="316" height="774">
+          <frame id="32:29029" name="Frame 6113" x="0" y="0" width="316" height="123" />
+          <frame id="32:29052" name="Table" x="0" y="139" width="316" height="635" />
+        </frame>
+      </frame>
+      <frame id="32:29198" name="Table" x="11" y="298" width="445" height="553" />
+      <frame id="32:29291" name="Table" x="475" y="298" width="607" height="553" />
+    </frame>
+  </frame>
+  <rounded-rectangle id="2:36009" name="image 1" x="-450.04290771484375" y="-439.94024658203125" width="901.0858154296875" height="880.9402465820312" />
+  <rounded-rectangle id="2:36010" name="image 1" x="949.25" y="-476.2895202636719" width="980.5001220703125" height="958.5791625976562" />
+  <instance id="2:36011" name="Navigation Header" x="0" y="0" width="1440" height="40" />
+</frame>

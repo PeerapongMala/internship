@@ -1,0 +1,17 @@
+{
+  "share_profile_header": "แชร์โปรไฟล์",
+  "uuid_tag": "uuid: {{ uuid }}",
+  "hide_identity_username": "ผู้เล่นไม่ระบุตัวตน",
+  "hide_identity_label": "ซ่อนตัวตน",
+  "show_identity_label": "แสดงตัวตน",
+  "award_subject_title": "ผลงาน / {{ subject }}",
+  "award_consecutive_days_label": "วันต่อเนื่อง",
+  "award_consecutive_days_value": "x{{ days }}",
+  "award_trophy_label": "รางวัลสะสม",
+  "award_trophy_value": "x{{ trophy }}",
+  "save_profile_image_button": "บันทึก",
+  "share_profile_button": "แชร์",
+  "prize": "รางวัล",
+  "todo": "ยังไม่ได้",
+  "completed": "ได้รับแล้ว"
+}

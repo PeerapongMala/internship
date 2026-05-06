@@ -1,0 +1,8 @@
+{
+  "menu_btn_label_consecutive_days": "x{{ consecutiveDays }} days",
+  "menu_btn_label_trophy": "x{{ trophy }}",
+  "menu_btn_label_placed_leaderboard": "#{{ leaderboard }}",
+  "label_selected_subjects": "Subject: {{ subject }}",
+  "label_all_lessons": "All lessons",
+  "label_all_homeworks": "All homework"
+}

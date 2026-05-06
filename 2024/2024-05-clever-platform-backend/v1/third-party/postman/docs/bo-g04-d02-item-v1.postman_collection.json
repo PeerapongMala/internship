@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "061e3f22-3dda-4c08-b7f4-8b54c0da973a",
+		"name": "bo-g04-d02-item-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "get Item list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/items/v1/item?page=1&limit=10&type=badge&search_text",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "type",
+							"value": "badge"
+						},
+						{
+							"key": "search_text",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "frame",
+							"description": "ประเภท, frame = กรอปรูป/ coupon = คูปอง",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "กรอปรูป 1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "lorem ipsum",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg",
+							"disabled": true
+						},
+						{
+							"key": "image_url",
+							"value": "/path/to/default",
+							"description": "ในกรณีที่เป็นรูปที่ fix ไว้จาก frontend เช่น default image ให้ใส่ path หรือ string ที่ไม่ใช่ UUID มา",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/:itemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "24",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update item",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "24",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "new name",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "new description",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"value": "/path/to/default2",
+							"description": "ในกรณีที่เป็นรูปที่ fix ไว้จาก frontend เช่น default image ให้ใส่ path หรือ string ที่ไม่ใช่ UUID มา",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "enabled / disabled / draft",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create item badge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "badge",
+							"description": "badge = โล่",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "โล่นักเรียนเรียนรู้เร็ว",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "lorem ipsum",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						},
+						{
+							"key": "image_url",
+							"value": "/path/to/default",
+							"description": "ในกรณีที่เป็นรูปที่ fix ไว้จาก frontend เช่น default image ให้ใส่ path หรือ string ที่ไม่ใช่ UUID มา",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "template_path",
+							"value": "/path/to/template",
+							"type": "text"
+						},
+						{
+							"key": "badge_description",
+							"value": "นักเรียนคิดเลขเร็ว",
+							"description": "ข้อความที่แสดงในโล่",
+							"type": "text"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/badge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update item badge",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "24",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "new name",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "new description",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/desc.jpg",
+							"disabled": true
+						},
+						{
+							"key": "image_url",
+							"value": "/path/to/default2",
+							"description": "ในกรณีที่เป็นรูปที่ fix ไว้จาก frontend เช่น default image ให้ใส่ path หรือ string ที่ไม่ใช่ UUID มา",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "badge_description",
+							"value": "นักเรียนเรียนรู้ช้า",
+							"type": "text"
+						},
+						{
+							"key": "template_path",
+							"value": "/new/path",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/badge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Items Badge Lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/badge/lists?search_text=badge 2&status=enabled",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"badge",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "search_text",
+							"value": "badge 2"
+						},
+						{
+							"key": "status",
+							"value": "enabled"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get item badge by item id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/badge/:itemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"badge",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "24",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item bulk edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"id\": 1,\r\n            \"status\": \"disabled\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"status\": \"enabled\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/items/v1/item/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"v1",
+						"item",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

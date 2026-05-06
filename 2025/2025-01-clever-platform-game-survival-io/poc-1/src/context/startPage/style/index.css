@@ -1,0 +1,56 @@
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .start-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #e25504, #FF4500); /* ไล่ระดับสีส้ม */
+    color: white; /* สีของข้อความ */
+  }
+  
+  .start-page h1 {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    position: relative;
+    top: -200px;
+  }
+  
+  .start-page img.start-image {
+    width: 500px; /* ขนาดของรูปภาพ */
+    height: auto; /* ให้รักษาอัตราส่วนภาพ */
+    position: relative;
+    top: -130px;
+    animation: bounce 2s infinite;
+  }
+  
+  .start-page button {
+    padding: 2rem 4rem;
+    font-size: 3rem;
+    background-color: white;
+    color: #FF4500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    position: relative;
+    top: -10px;
+  }
+  
+  .start-page button:hover {
+    background-color: #852806;
+    color: white;
+    transform: translateY(-30px);
+  }
+  
+  .start-page button:active {
+    transform: translateY(-5px);
+  }

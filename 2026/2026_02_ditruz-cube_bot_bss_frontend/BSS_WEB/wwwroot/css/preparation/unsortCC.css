@@ -1,0 +1,126 @@
+﻿body::before {
+    background: linear-gradient(98.93deg, #f5a986 0.74%, #f8d4ba 100%) !important;
+}
+
+
+/* Preparation CC */
+.preparationUNSORT_CC td:nth-child(1),
+.preparationUNSORT_CC td:nth-child(2),
+.preparationUNSORT_CC td:nth-child(3),
+.preparationUNSORT_CC td:nth-child(6),
+.preparationUNSORT_CC td:nth-child(8),
+.preparationUNSORT_CC td:nth-child(9) {
+    text-align: center !important;
+}
+
+.preparationUNSORT_CC_SUB td:nth-child(1),
+.preparationUNSORT_CC_SUB td:nth-child(2),
+.preparationUNSORT_CC_SUB td:nth-child(3) {
+    text-align: center !important;
+}
+
+
+/* Register */
+
+.preparationREGISTER_UNSORT_CC td:nth-child(1),
+.preparationREGISTER_UNSORT_CC td:nth-child(4),
+.preparationREGISTER_UNSORT_CC td:nth-child(5) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_T1 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_T1 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_T1 td:nth-child(3),
+.preparationREGISTER_UNSORT_CC_T1 td:nth-child(4),
+.preparationREGISTER_UNSORT_CC_T1 td:nth-child(5) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_T2 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_T2 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_T2 td:nth-child(3) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_T3 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_T3 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_T3 td:nth-child(3) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_T4 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_T4 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_T4 td:nth-child(3),
+.preparationREGISTER_UNSORT_CC_T4 td:nth-child(5) {
+    text-align: center !important;
+}
+
+
+/* Deliver */
+
+.preparationREGISTER_UNSORT_CC_DL td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_DL td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_DL td:nth-child(5),
+.preparationREGISTER_UNSORT_CC_DL td:nth-child(6) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_DL_SUB td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_DL_SUB td:nth-child(3) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_DL_CREATE td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_DL_CREATE td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_DL_CREATE td:nth-child(4) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_DL_CREATE_SUB td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_DL_CREATE_SUB td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_DL_CREATE_SUB td:nth-child(3) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_DL_EDIT td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_DL_EDIT td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_DL_EDIT td:nth-child(4),
+.preparationREGISTER_UNSORT_CC_DL_EDIT td:nth-child(5) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_DL_EDIT_SUB td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_DL_EDIT_SUB td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_DL_EDIT_SUB td:nth-child(3),
+.preparationREGISTER_UNSORT_CC_DL_EDIT_SUB td:nth-child(5) {
+    text-align: center !important;
+}
+
+
+/* Receive */
+
+.preparationREGISTER_UNSORT_CC_RCV_01 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_RCV_01 td:nth-child(2) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_RCV_02 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_RCV_02 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_RCV_02 td:nth-child(6),
+.preparationREGISTER_UNSORT_CC_RCV_02 td:nth-child(7) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_RCV_03 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_RCV_03 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_RCV_03 td:nth-child(3) {
+    text-align: center !important;
+}
+
+.preparationREGISTER_UNSORT_CC_RCV_04 td:nth-child(1),
+.preparationREGISTER_UNSORT_CC_RCV_04 td:nth-child(2),
+.preparationREGISTER_UNSORT_CC_RCV_04 td:nth-child(3),
+.preparationREGISTER_UNSORT_CC_RCV_04 td:nth-child(4),
+.preparationREGISTER_UNSORT_CC_RCV_04 td:nth-child(5) {
+    text-align: center !important;
+}

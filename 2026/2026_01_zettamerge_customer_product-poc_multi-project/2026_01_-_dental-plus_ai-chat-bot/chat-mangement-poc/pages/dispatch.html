@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dispatch Center - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+          <!-- Dispatch Header -->
+          <div class="bg-white px-8 py-4 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+              <div>
+                <h1 class="text-xl font-bold text-gray-800">Dispatch Center</h1>
+                <p class="text-sm text-gray-500">
+                  จัดประเภท -> ข้อมูลรายทีม -> ข้อมูลรายบุคคล
+                </p>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-xl"
+                >
+                  <div
+                    class="ai-badge w-2 h-2 bg-purple-500 rounded-full"
+                  ></div>
+                  <span class="text-sm font-medium text-purple-700"
+                    >AI กำลังทำงาน</span
+                  >
+                </div>
+                <div class="text-right">
+                  <p class="text-2xl font-bold text-gray-800" id="pendingCount">
+                    5
+                  </p>
+                  <p class="text-xs text-gray-500">รอกระจายงาน</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div class="bg-white px-8 py-3 border-b border-gray-200">
+            <div class="flex gap-2">
+              <button
+                onclick="switchTab(1)"
+                id="tab1-btn"
+                class="tab-btn active flex items-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl font-medium text-gray-600 transition-all hover:border-dental-300"
+              >
+                <span
+                  class="w-6 h-6 bg-dental-500 text-white rounded-full text-sm flex items-center justify-center"
+                  >1</span
+                >
+                จัดประเภท
+                <span
+                  class="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full"
+                  id="tab1-count"
+                  >5</span
+                >
+              </button>
+              <button
+                onclick="switchTab(2)"
+                id="tab2-btn"
+                class="tab-btn flex items-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl font-medium text-gray-600 transition-all hover:border-dental-300"
+              >
+                <span
+                  class="w-6 h-6 bg-gray-400 text-white rounded-full text-sm flex items-center justify-center"
+                  >2</span
+                >
+                ข้อมูลรายทีม
+                <span
+                  class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full"
+                  id="tab2-count"
+                  >0</span
+                >
+              </button>
+              <button
+                onclick="switchTab(3)"
+                id="tab3-btn"
+                class="tab-btn flex items-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl font-medium text-gray-600 transition-all hover:border-dental-300"
+              >
+                <span
+                  class="w-6 h-6 bg-gray-400 text-white rounded-full text-sm flex items-center justify-center"
+                  >3</span
+                >
+                ข้อมูลรายบุคคล (Demo)
+                <span
+                  class="bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full"
+                  id="tab3-count"
+                  >0</span
+                >
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab Contents -->
+          <div class="flex-1 overflow-hidden">
+            <!-- Tab 1: จัดประเภท -->
+            <div id="tab1-content" class="tab-content h-full p-6">
+              <div class="flex gap-6 h-full">
+                <!-- Left: Queue -->
+                <div class="w-[420px] flex flex-col">
+                  <div
+                    class="bg-white rounded-2xl shadow-sm border border-gray-100 flex-1 flex flex-col"
+                  >
+                    <div class="p-4 border-b border-gray-100">
+                      <div class="flex items-center justify-between">
+                        <h2
+                          class="font-bold text-gray-800 flex items-center gap-2"
+                        >
+                          <svg
+                            class="w-5 h-5 text-purple-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                            />
+                          </svg>
+                          แชทจากลูกค้า
+                        </h2>
+                        <span
+                          class="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded-full font-medium"
+                          id="queue-count"
+                          >5 รายการ</span
+                        >
+                      </div>
+                      <p class="text-xs text-gray-500 mt-1">
+                        AI ซักประวัติเสร็จแล้ว รอจัดประเภท
+                      </p>
+                    </div>
+
+                    <div
+                      class="flex-1 overflow-y-auto p-4 space-y-3"
+                      id="pending-queue"
+                    >
+                      <!-- Patient cards will be rendered here by JS -->
+                      <div
+                        class="patient-card bg-white border-2 border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-dental-300"
+                        draggable="true"
+                        data-patient="1"
+                        data-channel="line"
+                      >
+                        <div class="flex items-start justify-between mb-2">
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center"
+                            >
+                              <span class="text-red-600 font-semibold">ส</span>
+                            </div>
+                            <div>
+                              <p class="font-semibold text-gray-800">
+                                คุณสมชาย
+                              </p>
+                              <div class="flex items-center gap-1">
+                                <span
+                                  class="w-4 h-4 channel-line rounded text-white text-[8px] flex items-center justify-center font-bold"
+                                  >L</span
+                                >
+                                <span class="text-xs text-gray-500"
+                                  >LINE - คนไข้ใหม่</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="px-2 py-1 bg-red-500 text-white text-xs rounded-full font-medium"
+                            >เร่งด่วน</span
+                          >
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3 mb-2">
+                          <p class="text-xs text-gray-500 mb-1">AI Summary:</p>
+                          <p class="text-sm text-gray-800">
+                            "ปวดฟันคุดมาก 2 วัน กินยาแก้ปวดไม่หาย
+                            ต้องการผ่าฟันคุด"
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-wrap items-center gap-1 mb-2"
+                          id="tags-1"
+                        >
+                          <span
+                            class="tag px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded flex items-center gap-1"
+                            >ผ่าฟันคุด<button
+                              onclick="removeTag(this)"
+                              class="hover:text-blue-900"
+                            >
+                              &times;
+                            </button></span
+                          >
+                          <button
+                            onclick="openTagEditor(1)"
+                            class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded hover:bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div
+                          class="flex items-center justify-between pt-2 border-t border-gray-100"
+                        >
+                          <div class="timer-container flex items-center gap-1 text-orange-600">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="patient-timer text-xs font-mono font-bold" data-patient="1">00:00</span>
+                          </div>
+                          <button
+                            onclick="openAIChatModal('สมชาย')"
+                            class="text-xs text-violet-600 hover:text-violet-800"
+                          >
+                            ดูแชท
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        class="patient-card bg-white border-2 border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-dental-300"
+                        draggable="true"
+                        data-patient="2"
+                        data-channel="fb"
+                      >
+                        <div class="flex items-start justify-between mb-2">
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center"
+                            >
+                              <span class="text-blue-600 font-semibold">ล</span>
+                            </div>
+                            <div>
+                              <p class="font-semibold text-gray-800">
+                                คุณลิซ่า
+                              </p>
+                              <div class="flex items-center gap-1">
+                                <span
+                                  class="w-4 h-4 channel-fb rounded text-white text-[8px] flex items-center justify-center font-bold"
+                                  >f</span
+                                >
+                                <span class="text-xs text-gray-500"
+                                  >Facebook - คนไข้ใหม่</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="px-2 py-1 bg-blue-500 text-white text-xs rounded-full font-medium"
+                            >ใหม่</span
+                          >
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3 mb-2">
+                          <p class="text-xs text-gray-500 mb-1">AI Summary:</p>
+                          <p class="text-sm text-gray-800">
+                            "สนใจจัดฟัน อยากปรึกษาราคาและระยะเวลา งบประมาณ
+                            50,000 บาท"
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-wrap items-center gap-1 mb-2"
+                          id="tags-2"
+                        >
+                          <span
+                            class="tag px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded flex items-center gap-1"
+                            >จัดฟัน<button
+                              onclick="removeTag(this)"
+                              class="hover:text-purple-900"
+                            >
+                              &times;
+                            </button></span
+                          >
+                          <button
+                            onclick="openTagEditor(2)"
+                            class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded hover:bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div
+                          class="flex items-center justify-between pt-2 border-t border-gray-100"
+                        >
+                          <div class="timer-container flex items-center gap-1 text-yellow-600">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="patient-timer text-xs font-mono font-bold" data-patient="2">00:00</span>
+                          </div>
+                          <button
+                            onclick="openAIChatModal('ลิซ่า')"
+                            class="text-xs text-violet-600 hover:text-violet-800"
+                          >
+                            ดูแชท
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        class="patient-card bg-white border-2 border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-dental-300"
+                        draggable="true"
+                        data-patient="3"
+                        data-channel="ig"
+                      >
+                        <div class="flex items-start justify-between mb-2">
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center"
+                            >
+                              <span class="text-pink-600 font-semibold">ว</span>
+                            </div>
+                            <div>
+                              <p class="font-semibold text-gray-800">คุณวิภา</p>
+                              <div class="flex items-center gap-1">
+                                <span
+                                  class="w-4 h-4 channel-ig rounded text-white text-[8px] flex items-center justify-center font-bold"
+                                  >IG</span
+                                >
+                                <span class="text-xs text-gray-500"
+                                  >Instagram - HN: D-2023-156</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="px-2 py-1 bg-green-500 text-white text-xs rounded-full font-medium"
+                            >นัดเดิม</span
+                          >
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3 mb-2">
+                          <p class="text-xs text-gray-500 mb-1">AI Summary:</p>
+                          <p class="text-sm text-gray-800">
+                            "ถามราคาฟอกสีฟัน แค่สอบถามยังไม่ได้ตัดสินใจ"
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-wrap items-center gap-1 mb-2"
+                          id="tags-3"
+                        >
+                          <span
+                            class="tag px-2 py-0.5 bg-cyan-100 text-cyan-700 text-xs rounded flex items-center gap-1"
+                            >ฟอกฟัน<button
+                              onclick="removeTag(this)"
+                              class="hover:text-cyan-900"
+                            >
+                              &times;
+                            </button></span
+                          >
+                          <button
+                            onclick="openTagEditor(3)"
+                            class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded hover:bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div
+                          class="flex items-center justify-between pt-2 border-t border-gray-100"
+                        >
+                          <div class="timer-container flex items-center gap-1 text-yellow-600">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="patient-timer text-xs font-mono font-bold" data-patient="3">00:00</span>
+                          </div>
+                          <button
+                            onclick="openAIChatModal('วิภา')"
+                            class="text-xs text-violet-600 hover:text-violet-800"
+                          >
+                            ดูแชท
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        class="patient-card bg-white border-2 border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-dental-300"
+                        draggable="true"
+                        data-patient="4"
+                        data-channel="tiktok"
+                      >
+                        <div class="flex items-start justify-between mb-2">
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center"
+                            >
+                              <span class="text-yellow-600 font-semibold"
+                                >พ</span
+                              >
+                            </div>
+                            <div>
+                              <p class="font-semibold text-gray-800">
+                                คุณพิมพ์
+                              </p>
+                              <div class="flex items-center gap-1">
+                                <span
+                                  class="w-4 h-4 channel-tiktok rounded text-white text-[8px] flex items-center justify-center font-bold"
+                                  >TT</span
+                                >
+                                <span class="text-xs text-gray-500"
+                                  >TikTok - VIP</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="px-2 py-1 bg-yellow-500 text-white text-xs rounded-full font-medium"
+                            >VIP</span
+                          >
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3 mb-2">
+                          <p class="text-xs text-gray-500 mb-1">AI Summary:</p>
+                          <p class="text-sm text-gray-800">
+                            "ต้องการทำวีเนียร์ 8 ซี่ สอบถามโปรโมชั่นและนัดพบหมอ"
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-wrap items-center gap-1 mb-2"
+                          id="tags-4"
+                        >
+                          <span
+                            class="tag px-2 py-0.5 bg-pink-100 text-pink-700 text-xs rounded flex items-center gap-1"
+                            >วีเนียร์<button
+                              onclick="removeTag(this)"
+                              class="hover:text-pink-900"
+                            >
+                              &times;
+                            </button></span
+                          >
+                          <button
+                            onclick="openTagEditor(4)"
+                            class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded hover:bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div
+                          class="flex items-center justify-between pt-2 border-t border-gray-100"
+                        >
+                          <div class="timer-container flex items-center gap-1 text-orange-600">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="patient-timer text-xs font-mono font-bold" data-patient="4">00:00</span>
+                          </div>
+                          <button
+                            onclick="openAIChatModal('พิมพ์')"
+                            class="text-xs text-violet-600 hover:text-violet-800"
+                          >
+                            ดูแชท
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        class="patient-card bg-white border-2 border-gray-200 rounded-xl p-4 hover:shadow-md hover:border-dental-300"
+                        draggable="true"
+                        data-patient="5"
+                        data-channel="whatsapp"
+                      >
+                        <div class="flex items-start justify-between mb-2">
+                          <div class="flex items-center gap-2">
+                            <div
+                              class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center"
+                            >
+                              <span class="text-indigo-600 font-semibold"
+                                >J</span
+                              >
+                            </div>
+                            <div>
+                              <p class="font-semibold text-gray-800">
+                                John Smith
+                              </p>
+                              <div class="flex items-center gap-1">
+                                <span
+                                  class="w-4 h-4 channel-whatsapp rounded text-white text-[8px] flex items-center justify-center font-bold"
+                                  >W</span
+                                >
+                                <span class="text-xs text-gray-500"
+                                  >WhatsApp - ต่างชาติ</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="px-2 py-1 bg-indigo-500 text-white text-xs rounded-full font-medium"
+                            >EN</span
+                          >
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3 mb-2">
+                          <p class="text-xs text-gray-500 mb-1">AI Summary:</p>
+                          <p class="text-sm text-gray-800">
+                            "Asking about clinic opening hours for Saturday"
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-wrap items-center gap-1 mb-2"
+                          id="tags-5"
+                        >
+                          <span
+                            class="tag px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded flex items-center gap-1"
+                            >EN<button
+                              onclick="removeTag(this)"
+                              class="hover:text-indigo-900"
+                            >
+                              &times;
+                            </button></span
+                          >
+                          <button
+                            onclick="openTagEditor(5)"
+                            class="px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded hover:bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div
+                          class="flex items-center justify-between pt-2 border-t border-gray-100"
+                        >
+                          <div class="timer-container flex items-center gap-1 text-orange-600">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="patient-timer text-xs font-mono font-bold" data-patient="5">00:00</span>
+                          </div>
+                          <button
+                            onclick="openAIChatModal('John')"
+                            class="text-xs text-violet-600 hover:text-violet-800"
+                          >
+                            ดูแชท
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Category Drop Zones -->
+                <div class="flex-1 flex flex-col gap-4">
+                  <!-- Inquiry (Close Case) -->
+                  <div
+                    class="drop-zone bg-gray-50 rounded-2xl shadow-sm border-2 border-gray-300 border-dashed p-4"
+                    data-category="inquiry"
+                  >
+                    <div class="flex items-center gap-3 mb-3">
+                      <div
+                        class="w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-5 h-5 text-gray-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-bold text-gray-700">
+                          สอบถามเฉยๆ (ปิดเคส)
+                        </h3>
+                        <p class="text-xs text-gray-500">
+                          AI ตอบได้ ไม่ต้องส่งต่อ
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="drop-area border-2 border-dashed border-gray-300 rounded-xl p-3 min-h-[60px] bg-white flex items-center justify-center"
+                    >
+                      <div class="text-center text-gray-400 text-sm">
+                        ลากมาวางเพื่อปิดเคส
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 4 Categories Grid -->
+                  <div class="flex-1 grid grid-cols-2 gap-4">
+                    <div
+                      class="drop-zone bg-white rounded-2xl shadow-sm border-2 border-gray-200 p-4"
+                      data-category="general"
+                    >
+                      <div class="flex items-center gap-3 mb-3">
+                        <div
+                          class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center"
+                        >
+                          <svg
+                            class="w-5 h-5 text-blue-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 class="font-bold text-gray-800">
+                            ทันตกรรมทั่วไป
+                          </h3>
+                          <p class="text-xs text-gray-500">
+                            ขูดหินปูน, อุดฟัน, ถอนฟัน
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="drop-area border-2 border-dashed border-gray-200 rounded-xl p-3 min-h-[100px] flex items-center justify-center"
+                      >
+                        <div class="text-center text-gray-400 text-sm">
+                          ลากการ์ดมาวาง
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="drop-zone bg-white rounded-2xl shadow-sm border-2 border-gray-200 p-4"
+                      data-category="surgery"
+                    >
+                      <div class="flex items-center gap-3 mb-3">
+                        <div
+                          class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 14l9-5-9-5-9 5 9 5z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 class="font-bold text-gray-800">
+                            ศัลยกรรมช่องปาก
+                          </h3>
+                          <p class="text-xs text-gray-500">
+                            ผ่าฟันคุด, รากเทียม
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="drop-area border-2 border-dashed border-gray-200 rounded-xl p-3 min-h-[100px] flex items-center justify-center"
+                      >
+                        <div class="text-center text-gray-400 text-sm">
+                          ลากการ์ดมาวาง
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="drop-zone bg-white rounded-2xl shadow-sm border-2 border-gray-200 p-4"
+                      data-category="ortho"
+                    >
+                      <div class="flex items-center gap-3 mb-3">
+                        <div
+                          class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center"
+                        >
+                          <svg
+                            class="w-5 h-5 text-purple-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 class="font-bold text-gray-800">
+                            ทันตกรรมจัดฟัน
+                          </h3>
+                          <p class="text-xs text-gray-500">
+                            จัดฟัน, Invisalign
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="drop-area border-2 border-dashed border-gray-200 rounded-xl p-3 min-h-[100px] flex items-center justify-center"
+                      >
+                        <div class="text-center text-gray-400 text-sm">
+                          ลากการ์ดมาวาง
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="drop-zone bg-white rounded-2xl shadow-sm border-2 border-gray-200 p-4"
+                      data-category="cosmetic"
+                    >
+                      <div class="flex items-center gap-3 mb-3">
+                        <div
+                          class="w-10 h-10 bg-pink-100 rounded-xl flex items-center justify-center"
+                        >
+                          <svg
+                            class="w-5 h-5 text-pink-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 class="font-bold text-gray-800">เสริมความงาม</h3>
+                          <p class="text-xs text-gray-500">
+                            ฟอกฟัน, วีเนียร์, ครอบฟัน
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="drop-area border-2 border-dashed border-gray-200 rounded-xl p-3 min-h-[100px] flex items-center justify-center"
+                      >
+                        <div class="text-center text-gray-400 text-sm">
+                          ลากการ์ดมาวาง
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Tab 2: ข้อมูลรายทีม -->
+            <div id="tab2-content" class="tab-content h-full p-6 hidden">
+              <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h2 class="font-bold text-gray-800 text-lg">
+                      ข้อมูลรายทีม - ดูภาพรวมทีม
+                    </h2>
+                    <p class="text-sm text-gray-500">
+                      ดูว่าแต่ละทีมมีงานกี่ชิ้น ทำเสร็จหรือยัง
+                    </p>
+                  </div>
+                  <select
+                    id="monitor-team-filter"
+                    onchange="filterMonitorByTeam()"
+                    class="px-3 py-2 border border-gray-200 rounded-lg text-sm"
+                  >
+                    <option value="all">ทุกทีม</option>
+                    <option value="team-general">ทีมทันตกรรมทั่วไป</option>
+                    <option value="team-surgery">ทีมศัลยกรรม</option>
+                    <option value="team-ortho">ทีมจัดฟัน</option>
+                    <option value="team-cosmetic">ทีมเสริมความงาม</option>
+                  </select>
+                </div>
+
+                <div class="flex-1 grid grid-cols-3 gap-4 overflow-y-auto">
+                  <div
+                    class="staff-monitor-card bg-white rounded-2xl shadow-sm border border-gray-100 p-5"
+                    data-staff="dr-ann"
+                    data-team="team-general"
+                  >
+                    <div class="flex items-center gap-3 mb-4">
+                      <div
+                        class="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center relative"
+                      >
+                        <span class="text-pink-600 font-bold text-xl">A</span>
+                        <span
+                          class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+                        ></span>
+                      </div>
+                      <div>
+                        <h3 class="font-bold text-gray-800">Admin แอน</h3>
+                        <p class="text-xs text-gray-500">ทีมทันตกรรมทั่วไป</p>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                      <div class="bg-orange-50 rounded-lg p-3 text-center">
+                        <p
+                          class="text-2xl font-bold text-orange-600 current-count"
+                        >
+                          3
+                        </p>
+                        <p class="text-xs text-gray-500">งานในคิว</p>
+                      </div>
+                      <div class="bg-green-50 rounded-lg p-3 text-center">
+                        <p
+                          class="text-2xl font-bold text-green-600 closed-count"
+                        >
+                          5
+                        </p>
+                        <p class="text-xs text-gray-500">ปิดวันนี้</p>
+                      </div>
+                    </div>
+                    <div class="progress-bar mb-2">
+                      <div
+                        class="progress-bar-fill bg-green-500"
+                        style="width: 62%"
+                      ></div>
+                    </div>
+                    <div class="assigned-cards-list space-y-1">
+                      <p class="text-xs text-gray-400">ไม่มีงานในคิว</p>
+                    </div>
+                  </div>
+                  <div
+                    class="staff-monitor-card bg-white rounded-2xl shadow-sm border border-gray-100 p-5"
+                    data-staff="dr-ben"
+                    data-team="team-general"
+                  >
+                    <div class="flex items-center gap-3 mb-4">
+                      <div
+                        class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center relative"
+                      >
+                        <span class="text-blue-600 font-bold text-xl">B</span>
+                        <span
+                          class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+                        ></span>
+                      </div>
+                      <div>
+                        <h3 class="font-bold text-gray-800">Admin เบน</h3>
+                        <p class="text-xs text-gray-500">ทีมทันตกรรมทั่วไป</p>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                      <div class="bg-orange-50 rounded-lg p-3 text-center">
+                        <p
+                          class="text-2xl font-bold text-orange-600 current-count"
+                        >
+                          2
+                        </p>
+                        <p class="text-xs text-gray-500">งานในคิว</p>
+                      </div>
+                      <div class="bg-green-50 rounded-lg p-3 text-center">
+                        <p
+                          class="text-2xl font-bold text-green-600 closed-count"
+                        >
+                          8
+                        </p>
+                        <p class="text-xs text-gray-500">ปิดวันนี้</p>
+                      </div>
+                    </div>
+                    <div class="progress-bar mb-2">
+                      <div
+                        class="progress-bar-fill bg-green-500"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                    <div class="assigned-cards-list space-y-1">
+                      <p class="text-xs text-gray-400">ไม่มีงานในคิว</p>
+                    </div>
+                  </div>
+                  <div
+                    class="staff-monitor-card bg-white rounded-2xl shadow-sm border border-gray-100 p-5"
+                    data-staff="dr-cat"
+                    data-team="team-ortho"
+                  >
+                    <div class="flex items-center gap-3 mb-4">
+                      <div
+                        class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center relative"
+                      >
+                        <span class="text-purple-600 font-bold text-xl">C</span>
+                        <span
+                          class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+                        ></span>
+                      </div>
+                      <div>
+                        <h3 class="font-bold text-gray-800">Admin แคท</h3>
+                        <p class="text-xs text-gray-500">ทีมจัดฟัน</p>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                      <div class="bg-orange-50 rounded-lg p-3 text-center">
+                        <p
+                          class="text-2xl font-bold text-orange-600 current-count"
+                        >
+                          4
+                        </p>
+                        <p class="text-xs text-gray-500">งานในคิว</p>
+                      </div>
+                      <div class="bg-green-50 rounded-lg p-3 text-center">
+                        <p
+                          class="text-2xl font-bold text-green-600 closed-count"
+                        >
+                          6
+                        </p>
+                        <p class="text-xs text-gray-500">ปิดวันนี้</p>
+                      </div>
+                    </div>
+                    <div class="progress-bar mb-2">
+                      <div
+                        class="progress-bar-fill bg-yellow-500"
+                        style="width: 60%"
+                      ></div>
+                    </div>
+                    <div class="assigned-cards-list space-y-1">
+                      <p class="text-xs text-gray-400">ไม่มีงานในคิว</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab 3: ข้อมูลรายบุคคล (Demo Admin แอน) -->
+            <div id="tab3-content" class="tab-content h-full hidden p-6">
+              <div class="flex gap-6 h-full">
+                <!-- Header -->
+                <div class="flex-1 flex flex-col">
+                  <!-- Staff Header -->
+                  <div
+                    class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 mb-4"
+                  >
+                    <div class="flex items-center gap-4">
+                      <div
+                        class="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center"
+                      >
+                        <span class="text-pink-600 font-bold text-2xl">A</span>
+                      </div>
+                      <div class="flex-1">
+                        <h2 class="text-xl font-bold text-gray-800">Admin แอน</h2>
+                        <p class="text-sm text-gray-500">
+                          ข้อมูลรายบุคคล Demo • ข้อมูลจาก Tab 2
+                        </p>
+                      </div>
+                      <div class="flex gap-4">
+                        <div class="text-center">
+                          <p
+                            class="text-2xl font-bold text-blue-600"
+                            id="demo-do-total"
+                          >
+                            0
+                          </p>
+                          <p class="text-xs text-gray-500">รอทำ</p>
+                        </div>
+                        <div class="text-center">
+                          <p
+                            class="text-2xl font-bold text-yellow-600"
+                            id="demo-doing-total"
+                          >
+                            0
+                          </p>
+                          <p class="text-xs text-gray-500">กำลังทำ</p>
+                        </div>
+                        <div class="text-center">
+                          <p
+                            class="text-2xl font-bold text-green-600"
+                            id="demo-done-total"
+                          >
+                            0
+                          </p>
+                          <p class="text-xs text-gray-500">เสร็จแล้ว</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- DO / DOING / DONE Columns -->
+                  <div class="flex-1 grid grid-cols-3 gap-4">
+                    <!-- DO Column -->
+                    <div
+                      class="bg-blue-50 rounded-2xl border-2 border-blue-200 flex flex-col"
+                    >
+                      <div class="p-4 border-b border-blue-200">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center"
+                          >
+                            <span class="text-white font-bold text-sm">DO</span>
+                          </div>
+                          <h3 class="font-bold text-blue-800">รอดำเนินการ</h3>
+                          <span
+                            class="ml-auto bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full"
+                            >0</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="flex-1 overflow-y-auto p-3 space-y-3"
+                        id="demo-do-list"
+                      >
+                        <!-- Cards rendered dynamically from Tab 2 assignments -->
+                        <div
+                          class="empty-message text-center text-gray-300 py-8 text-xs"
+                        >
+                          มอบหมายงานใน Tab 2 ก่อน
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- DOING Column -->
+                    <div
+                      class="bg-yellow-50 rounded-2xl border-2 border-yellow-200 flex flex-col"
+                    >
+                      <div class="p-4 border-b border-yellow-200">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center"
+                          >
+                            <span class="text-white font-bold text-xs"
+                              >DOING</span
+                            >
+                          </div>
+                          <h3 class="font-bold text-yellow-800">
+                            กำลังดำเนินการ
+                          </h3>
+                          <span
+                            class="ml-auto bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded-full"
+                            >0</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="flex-1 overflow-y-auto p-3 space-y-3"
+                        id="demo-doing-list"
+                      >
+                        <!-- Cards rendered dynamically -->
+                        <div
+                          class="empty-message text-center text-gray-300 py-8 text-xs"
+                        >
+                          ยังไม่มีรายการ
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- DONE Column -->
+                    <div
+                      class="bg-green-50 rounded-2xl border-2 border-green-200 flex flex-col"
+                    >
+                      <div class="p-4 border-b border-green-200">
+                        <div class="flex items-center gap-2">
+                          <div
+                            class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center"
+                          >
+                            <span class="text-white font-bold text-sm"
+                              >DONE</span
+                            >
+                          </div>
+                          <h3 class="font-bold text-green-800">เสร็จสิ้น</h3>
+                          <span
+                            class="ml-auto bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full"
+                            >0</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="flex-1 overflow-y-auto p-3 space-y-3"
+                        id="demo-done-list"
+                      >
+                        <!-- Cards rendered dynamically -->
+                        <div
+                          class="empty-message text-center text-gray-300 py-8 text-xs"
+                        >
+                          ยังไม่มีรายการ
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Stats Footer -->
+          <div class="bg-gradient-to-r from-purple-500 to-indigo-600 px-8 py-3">
+            <div class="flex items-center justify-between text-white">
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+                <span class="font-medium">AI ปิดเคสอัตโนมัติวันนี้</span>
+              </div>
+              <div class="flex items-center gap-8">
+                <div class="text-center">
+                  <p class="text-2xl font-bold">47</p>
+                  <p class="text-xs text-purple-200">เคสที่ AI ปิดได้เอง</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-2xl font-bold">62%</p>
+                  <p class="text-xs text-purple-200">ลดงาน Admin</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- AI Chat Modal -->
+    <div id="ai-chat-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[80vh] overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">AI Chat History</h3>
+          <button onclick="closeAIChatModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 overflow-y-auto max-h-[60vh]" id="ai-chat-content">
+          <!-- Chat messages will be rendered here -->
+        </div>
+        <div class="p-4 border-t border-gray-200">
+          <button onclick="closeAIChatModal()" class="w-full px-4 py-2 bg-dental-500 text-white rounded-xl hover:bg-dental-600 transition-colors">
+            ปิด
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tag Editor Modal -->
+    <div id="tag-editor-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">Edit Tags</h3>
+          <button onclick="closeTagEditorModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Add Tag</label>
+            <div class="flex gap-2">
+              <input type="text" id="new-tag-input" class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" placeholder="Enter tag name" />
+              <button onclick="addNewTag()" class="px-4 py-2 bg-dental-500 text-white rounded-lg hover:bg-dental-600 transition-colors text-sm">
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Quick Tags</label>
+            <div class="flex flex-wrap gap-2" id="quick-tags">
+              <button onclick="addQuickTag('ทำฟัน')" class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm hover:bg-blue-200">ทำฟัน</button>
+              <button onclick="addQuickTag('จัดฟัน')" class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm hover:bg-purple-200">จัดฟัน</button>
+              <button onclick="addQuickTag('ฟอกฟัน')" class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm hover:bg-cyan-200">ฟอกฟัน</button>
+              <button onclick="addQuickTag('ผ่าฟันคุด')" class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm hover:bg-red-200">ผ่าฟันคุด</button>
+              <button onclick="addQuickTag('วีเนียร์')" class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm hover:bg-pink-200">วีเนียร์</button>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 border-t border-gray-200">
+          <button onclick="closeTagEditorModal()" class="w-full px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../components/sidebar.js"></script>
+    <script src="../js/dispatch/dispatch-core.js"></script>
+    <script src="../js/dispatch/dispatch-tab1.js"></script>
+    <script src="../js/dispatch/dispatch-tab2.js"></script>
+    <script src="../js/dispatch/dispatch-tab3.js"></script>
+    <script src="../js/dispatch/dispatch-tab4.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof initDispatch === 'function') initDispatch();
+      });
+    </script>
+  </body>
+</html>

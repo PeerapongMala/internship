@@ -1,0 +1,8 @@
+list Ai!
+Claude เขียนโค้ด
+Perplexity ใช้รีเสิร์ช
+grok ใช้ Scape คอมเมนต์ จาก X
+Heygen Video gen
+NotebookLM สรุปข้อมูล
+Stable diffusion
+n8n Ai automation

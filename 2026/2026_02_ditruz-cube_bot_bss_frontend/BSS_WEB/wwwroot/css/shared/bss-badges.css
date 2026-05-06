@@ -1,0 +1,78 @@
+/* ============================================
+   BSS Shared — Status & Denomination Badges
+   ใช้ร่วมกัน: Verify, Revoke, Reconcile
+   ============================================ */
+
+/* ── Status Badge ── */
+.badge-status {
+    height: 19px;
+    padding-top: 2px !important;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 11px;
+    font-weight: 400 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 15px;
+}
+
+/* Status Variants */
+.badge-status--auto-selling {
+  background: #FEFCE8; /* light green/teal */
+  color: #713F12; /* Green/500 */
+  border: #FACC15 1px solid;
+
+}
+
+<<<<<<< HEAD
+=======
+.badge-status--adjust-offset {
+  background: #DBEAFE;
+  color: #172554;
+  border: 1px solid #60A5FA;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.badge-status--edited {
+    background: #fee2e2;
+    color: #dc3545;
+}
+
+.badge-status--send-to-cbms {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.badge-status--revoked {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* ── Denomination Badge ── */
+.denomination-badge {
+    width: 47px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 11px;
+    font-weight: 400 !important;
+    color: #212121;
+}
+
+/* ── Edited Badge (Header Card) ── */
+.badge-edited {
+    background: #FEE2E2;
+    border: 1px solid #F87171;
+    color: #450A0A;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 11px;
+    font-weight: 400 !important;
+    padding: 2px 8px;
+       border-radius: 15px;
+}

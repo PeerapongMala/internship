@@ -1,0 +1,619 @@
+/* ============================================================
+   Edit & Manual Key-in Unsort CC — Extracted CSS
+   Figma Node: 2:23259
+   Date: 2026-02-19
+   Font: Use font-family: 'bss-pridi' (NOT 'Pridi')
+   ============================================================ */
+
+/* --- Page Layout --- */
+.edit-page {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    min-height: 900px;
+    position: relative;
+}
+
+.edit-page-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 0;
+    flex: 1;
+}
+
+/* --- Page Title --- */
+.edit-page-title {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 24px;
+    line-height: 36px;
+    color: #212121;
+    letter-spacing: 0.5px;
+    padding: 13px 0;
+}
+
+/* --- Header Card Row --- */
+.edit-header-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.edit-header-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.edit-header-card-label {
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #212121;
+    letter-spacing: 0.5px;
+}
+
+.edit-header-card-badge {
+    background: #e4e6e9;
+    border-radius: 8px;
+    padding: 4px 12px;
+    width: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.edit-header-card-badge-text {
+    font-family: 'bss-pridi' !important;
+    font-weight: 700 !important;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #212121;
+    letter-spacing: 0.5px;
+}
+
+.edit-header-card-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.edit-header-card-date {
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #212121;
+    letter-spacing: 0.5px;
+}
+
+/* --- Form + Info Panel Row --- */
+.edit-form-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+/* --- Form Section (Left) --- */
+.edit-form-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 16px 24px;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form-title {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 16px;
+    color: #212121;
+    letter-spacing: 0.352px;
+    margin-bottom: 0;
+}
+
+/* --- Radio Groups Row --- */
+.edit-form-radio-row {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.edit-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.edit-form-field-label {
+    font-family: 'bss-pridi' !important;
+    font-weight: 600 !important;
+    font-size: 14px;
+    color: #212121;
+    letter-spacing: 0.35px;
+}
+
+.edit-form-field-label--regular {
+    font-weight: 400 !important;
+}
+
+/* Radio group container */
+.edit-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 0;
+    background: transparent;
+    width: 100%;
+}
+
+.edit-radio-group--denomination {
+    gap: 4px;
+}
+
+/* Single radio item */
+.edit-radio-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.edit-radio-item--denomination {
+    gap: 8px;
+}
+
+.edit-radio-item--selected {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Radio input circle */
+.edit-radio-input {
+    width: 16px;
+    height: 16px;
+    border-radius: 100px;
+    border: 1px solid #dee2e6;
+    background: #ffffff;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+    margin-top: 4px;
+}
+
+.edit-radio-input--checked {
+    background: #003366;
+    border-color: #003366;
+}
+
+.edit-radio-input--checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    background: #ffffff;
+}
+
+.edit-radio-text {
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
+    letter-spacing: 0.4px;
+}
+
+/* --- Denomination Badge (MoneyType) --- */
+.edit-money-badge {
+    width: 47px;
+    height: 24px;
+    border: 2px solid;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.edit-money-badge--1000 {
+    background: #fbf8f4;
+    border-color: #9f7d57;
+    color: #4f3e2b;
+}
+
+.edit-money-badge--500 {
+    background: #f8f5ff;
+    border-color: #6a509d;
+    color: #3d2e5b;
+}
+
+.edit-money-badge--100 {
+    background: #fff5f5;
+    border-color: #c07575;
+    color: #8f4242;
+}
+
+.edit-money-badge--50 {
+    background: #f0f8ff;
+    border-color: #35a0fd;
+    color: #025cab;
+}
+
+.edit-money-badge--20 {
+    background: #f1f9f1;
+    border-color: #55b254;
+    color: #336c32;
+}
+
+.edit-money-badge-text {
+    font-family: 'bss-pridi' !important;
+    font-weight: 700 !important;
+    font-size: 13px;
+    line-height: normal;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.edit-money-badge-text--large {
+    font-weight: 600 !important;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+}
+
+/* --- Form Fields Row (Select + Input) --- */
+.edit-form-fields-row {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    align-items: flex-end;
+}
+
+/* Select field */
+.edit-form-select {
+    width: 100%;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 9px 13px 9px 17px;
+    font-family: 'bss-pridi' !important;
+    font-weight: 300 !important;
+    font-size: 20px;
+    color: #6c757d;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    cursor: pointer;
+    appearance: auto;
+}
+
+/* Input field */
+.edit-form-input {
+    width: 100%;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi' !important;
+    font-weight: 300 !important;
+    font-size: 20px;
+    color: #212529;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+.edit-form-input:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+/* Form submit button */
+.edit-form-submit-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 16px;
+}
+
+.edit-form-submit-btn {
+    width: 300px;
+    height: 46px;
+    background: #198754 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.edit-form-submit-btn span,
+.edit-form-submit-btn {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+
+/* --- Info Panel (Right) --- */
+.edit-info-panel {
+    width: 400px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 16px 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    color: #212121;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+}
+
+.edit-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.edit-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 4px;
+    width: 100%;
+}
+
+.edit-info-label {
+    flex-shrink: 0;
+}
+
+.edit-info-value {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* --- Results Table --- */
+.edit-table-container {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Table title bar */
+.edit-table-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 45px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.edit-table-header-title {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #212121;
+    letter-spacing: 0.4px;
+    flex: 1;
+}
+
+.edit-table-header-count {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    font-family: 'bss-pridi' !important;
+    font-size: 14px;
+    letter-spacing: 0.308px;
+    color: #212121;
+}
+
+.edit-table-header-count--center {
+    justify-content: center;
+}
+
+.edit-table-count-value {
+    font-weight: 700 !important;
+    color: #b45309;
+}
+
+/* Column headers */
+.edit-table-columns {
+    display: flex;
+    height: 30px;
+    background: #d6e0e0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 0 8px;
+    align-items: center;
+}
+
+.edit-table-col-header {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 8px;
+    height: 100%;
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 13px;
+    color: #212121;
+    letter-spacing: 0.299px;
+}
+
+.edit-table-col-header--right {
+    justify-content: flex-end;
+}
+
+.edit-table-col-header--center {
+    justify-content: center;
+}
+
+.edit-table-col-header .sort-icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+/* Data rows */
+.edit-table-row {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    border-bottom: 1px solid #cbd5e1;
+    min-height: 38px;
+}
+
+.edit-table-row--even {
+    background: #f2f6f6;
+}
+
+.edit-table-row--empty {
+    min-height: 34px;
+}
+
+.edit-table-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    min-width: 0;
+}
+
+.edit-table-cell-text {
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 12px;
+    line-height: 13px;
+    color: #212529;
+    letter-spacing: 0.3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    flex: 1;
+}
+
+.edit-table-cell-number {
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #212529;
+    letter-spacing: 0.35px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    flex: 1;
+}
+
+/* Action buttons in table */
+.edit-table-actions {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+}
+
+.edit-action-btn {
+    width: 26px;
+    height: 26px;
+    background: transparent;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 5px 9px;
+    flex-shrink: 0;
+}
+
+.edit-action-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.edit-action-btn .action-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* --- Footer --- */
+.edit-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px 0;
+    gap: 16px;
+    height: 64px;
+}
+
+.edit-save-btn {
+    width: 229px;
+    background: #003366 !important;
+    border: 1px solid #003366;
+    border-radius: 8px;
+    padding: 9px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.edit-save-btn span,
+.edit-save-btn {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 20px;
+    color: #ffffff !important;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}

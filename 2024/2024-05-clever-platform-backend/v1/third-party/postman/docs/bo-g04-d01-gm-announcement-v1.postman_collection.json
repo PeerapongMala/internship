@@ -1,0 +1,2282 @@
+{
+	"info": {
+		"_postman_id": "b07fc620-fad9-492d-9a69-183628413082",
+		"name": "bo-g04-d01-gm-announcement-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "g04-d01-a01-global-announce-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTg1NTk2NywibmJmIjoxNzM5NzY5NTY3LCJpYXQiOjE3Mzk3Njk1NjcsImp0aSI6IjhlZTFhNTc1LWJjNGEtNDcyNi04NDExLTJiYjM2NzBjODI3YSJ9.j-fV7cZbSJH4KCa88Fo9pJ5NxtNZwWtT6qWzdfuWLIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "School",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "system",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-27T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "ประกาศจากระบบ",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ปิดปรับปรุงเซิฟเวอร์ xx-xx-xxx",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/global/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a02-global-announce-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "School",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "system",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-27T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "TESTUPDATEFORM",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "TESTUPDATEFORM",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/BG/8f92aced6c088bbca456520448aa6297.png"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/global/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "9",
+							"description": "Id ของประกาศที่ใช้ในการอัพเดท"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a03-global-announce-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/global/announcement?started_at_start=2025-03-27T10:57:00Z&started_at_end=2025-03-31T13:57:00Z&ended_at_start=2025-05-31T13:57:00Z&ended_at_end=2025-03-31T13:57:00Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement"
+					],
+					"query": [
+						{
+							"key": "started_at_start",
+							"value": "2025-03-27T10:57:00Z"
+						},
+						{
+							"key": "started_at_end",
+							"value": "2025-03-31T13:57:00Z"
+						},
+						{
+							"key": "ended_at_start",
+							"value": "2025-05-31T13:57:00Z"
+						},
+						{
+							"key": "ended_at_end",
+							"value": "2025-03-31T13:57:00Z"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-03-27T10:57:00Z",
+							"description": "วันที่เผยแพร่ ",
+							"disabled": true
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-03-31T13:57:00Z",
+							"description": "วันหยุดเผยแพร่",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": "",
+							"description": "id โรงเรียน",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "",
+							"description": "สถานะ enabled,disabled,draft",
+							"disabled": true
+						},
+						{
+							"key": "announcement_id",
+							"value": "",
+							"description": "search Id ของประกาศ",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "",
+							"description": "search title หัวข้อกิจกิจกรรม",
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "",
+							"description": "search school name ชื่อโรงเรียน",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a04-global-announce-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/global/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "1",
+							"description": "Id ของประกาศที่ต้องการ get \"หมายเหตุ\" : หาก id มีอยู่จริงแต่ประกาศไม่ตรง type ข้อมูลจะไม่แสดง"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a05-global-announce-download-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDgyMzMxNCwibmJmIjoxNzQwNzM2OTE0LCJpYXQiOjE3NDA3MzY5MTQsImp0aSI6ImU4ODkxOTY3LTJhZGUtNDA5NC1hZWNiLThkYTU2MTExZGQ2OCJ9.XMXZ7I9EH22R_zBFIIjnu8pLKy69h2o9nLHaf_DRtG0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/global/announcement/download/csv?start_date=2025-02-24&end_date=2025-03-15",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-02-24",
+							"description": "ดึงข้อมูลตั้งแต่ start_date"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-03-15",
+							"description": "จนถึง end_date"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a06-global-announce-upload-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDgyMzMxNCwibmJmIjoxNzQwNzM2OTE0LCJpYXQiOjE3NDA3MzY5MTQsImp0aSI6ImU4ODkxOTY3LTJhZGUtNDA5NC1hZWNiLThkYTU2MTExZGQ2OCJ9.XMXZ7I9EH22R_zBFIIjnu8pLKy69h2o9nLHaf_DRtG0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/global/announcement/upload/csv",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a07-global-announce-bulk-edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 13,\r\n        \"status\": \"disabled\"\r\n    },\r\n    {\r\n        \"id\": 14,\r\n        \"status\": \"disabled\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/global/announcement/bulk-edit",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"global",
+						"announcement",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a08-event-announce-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTM0MDUzMiwibmJmIjoxNzM5MjU0MTMyLCJpYXQiOjE3MzkyNTQxMzIsImp0aSI6ImRhMjhlMjhhLWU0YzgtNGRjYS1iODA1LWI2ZGI1ZDg0ZmZkZCJ9.YZ5OJUC56kC9kX6XhaVghDQ8T1MU6bv-6OYMByMGOFc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "Subject",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "event",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-27T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "TESTFROM",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "TESTFROM",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/E:/BG/8f92aced6c088bbca456520448aa6297.png"
+						},
+						{
+							"key": "arcade_game_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a09-event-announce-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "Subject",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "event",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-06T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-06T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "TESTUPDATEDFORM",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "TESTUPDATEFORM",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "arcade_game_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "academic_year",
+							"value": "2570",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "10",
+							"description": "Id ของประกาศที่ใช้ในการอัพเดท"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a10-event-announce-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTM0MDUzMiwibmJmIjoxNzM5MjU0MTMyLCJpYXQiOjE3MzkyNTQxMzIsImp0aSI6ImRhMjhlMjhhLWU0YzgtNGRjYS1iODA1LWI2ZGI1ZDg0ZmZkZCJ9.YZ5OJUC56kC9kX6XhaVghDQ8T1MU6bv-6OYMByMGOFc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "",
+							"description": "ปีการศึกษา 2568,2567",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "",
+							"description": "Id ของวิชา 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "year_id",
+							"value": "",
+							"description": "id ชั้นปั 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-22",
+							"description": "วันเผยแพร่ format YYYY-MM-DDTHH-MM-SSZ",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": "",
+							"description": "id โรงเรียน",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "",
+							"description": "สถานะ enabled,disabled,draft",
+							"disabled": true
+						},
+						{
+							"key": "announcement_id",
+							"value": "",
+							"description": "search Id ของประกาศ",
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "",
+							"description": "search school name ชื่อโรงเรียน",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a11-event-announce-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "1",
+							"description": "Id ของประกาศที่ต้องการ get \"หมายเหตุ\" : หาก id มีอยู่จริงแต่ประกาศไม่ตรง type ข้อมูลจะไม่แสดง"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a12-event-announce-download-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement/download/csv?start_date=2025-01-13T00:00:00Z&end_date=2025-01-20T00:00:00Z",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-13T00:00:00Z",
+							"description": "ดึงข้อมูลตั้งแต่ start_date"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-20T00:00:00Z",
+							"description": "จนถึง end_date"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a13-event-announce-upload-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement/upload/csv",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a14-event-announce-bulk-edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 4,\r\n        \"status\": \"disabled\"\r\n    },\r\n    {\r\n        \"id\": 17,\r\n        \"status\": \"disabled\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/event/announcement/bulk-edit",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"event",
+						"announcement",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a15-reward-announce-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODk4NTA0MiwibmJmIjoxNzM4ODk4NjQyLCJpYXQiOjE3Mzg4OTg2NDIsImp0aSI6IjVmNWEwMjcwLTY1MDktNDE4My05MDUwLTM0NmRmYmI5NjdjMyJ9.1I3DkTfQXds13Ksjf9qUG87B3BFD-fecd-iZKDJ_8Aw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "Subject",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "reward",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-23T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "แจกไอเทม 1.2",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "แจกไอเทม 1.2",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/BG/030c5e0f3935cbc7acd0a6a6c6919534.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "item_list[0][item_id]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "item_list[0][amount]",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "item_list[0][expired_at]",
+							"value": "2025-02-24T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "item_list[1][item_id]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "item_list[1][amount]",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "item_list[1][expired_at]",
+							"value": "2025-02-24T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "gold_coin",
+							"value": "500",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "arcade_coin",
+							"value": "500",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "ice",
+							"value": "500",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a16-reward-announce-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODk4NTA0MiwibmJmIjoxNzM4ODk4NjQyLCJpYXQiOjE3Mzg4OTg2NDIsImp0aSI6IjVmNWEwMjcwLTY1MDktNDE4My05MDUwLTM0NmRmYmI5NjdjMyJ9.1I3DkTfQXds13Ksjf9qUG87B3BFD-fecd-iZKDJ_8Aw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "Subject",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "reward",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-23T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "แจกไอเทม",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "แจกไอเทม",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/BG/8f92aced6c088bbca456520448aa6297.png"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "item_list[0][item_id]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "item_list[0][amount]",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "item_list[0][expired_at]",
+							"value": "2025-02-24T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "item_list[1][item_id]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "item_list[1][amount]",
+							"value": "10",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "item_list[1][expired_at]",
+							"value": "2025-02-24T23:59:59Z",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gold_coin",
+							"value": "200",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "arcade_coin",
+							"value": "100",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "ice",
+							"value": "100",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						":announceId"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a17-reward-announce-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODc2NDI1MCwibmJmIjoxNzM4Njc3ODUwLCJpYXQiOjE3Mzg2Nzc4NTAsImp0aSI6ImI0OWUzMjE2LTFhZmYtNGMyYS05MWQzLWFjNDAwMDUzZDliZiJ9.4sWZeAZT6IuRT20mUze5bNv59DIMfy1xiqrxvatZ9Vk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "",
+							"description": "ปีการศึกษา 2568,2567",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "",
+							"description": "Id ของวิชา 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "year_id",
+							"value": "",
+							"description": "id ชั้นปั 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "started_at",
+							"value": "",
+							"description": "วันเผยแพร่ format YYYY-MM-DDTHH-MM-SSZ",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": "",
+							"description": "id โรงเรียน",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "",
+							"description": "สถานะ enabled,disabled,draft",
+							"disabled": true
+						},
+						{
+							"key": "announcement_id",
+							"value": "",
+							"description": "search Id ของประกาศ",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "",
+							"description": "search title หัวข้อกิจกิจกรรม",
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "",
+							"description": "search school name ชื่อโรงเรียน",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a18-reward-announce-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODc2NDI1MCwibmJmIjoxNzM4Njc3ODUwLCJpYXQiOjE3Mzg2Nzc4NTAsImp0aSI6ImI0OWUzMjE2LTFhZmYtNGMyYS05MWQzLWFjNDAwMDUzZDliZiJ9.4sWZeAZT6IuRT20mUze5bNv59DIMfy1xiqrxvatZ9Vk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "10",
+							"description": "Id ของประกาศที่ต้องการ get \"หมายเหตุ\" : หาก id มีอยู่จริงแต่ประกาศไม่ตรง type ข้อมูลจะไม่แสดง"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a19-reward-announce-download-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement/download/csv?start_date=2025-01-02&end_date=2025-01-05",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-02",
+							"description": "ดึงข้อมูลตั้งแต่ start_date"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-05",
+							"description": "จนถึง end_date"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a20-reward-announce-upload-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement/upload/csv",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a21-reward-announce-bulk-edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 24,\r\n        \"status\": \"disabled\"\r\n    },\r\n    {\r\n        \"id\": 29,\r\n        \"status\": \"disabled\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/reward/announcement/bulk-edit",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a22-news-announce-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTMyNjk4MCwibmJmIjoxNzM5MjQwNTgwLCJpYXQiOjE3MzkyNDA1ODAsImp0aSI6ImJkZjg4YTkwLTBkMjctNGY1ZS05ZmVlLWQyMWVmNWE1ZjdiYSJ9.YGM-TpeQrGKApEkGlbovaNeKbtOHx3p2IOCCeEni6ag",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "Subject",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "notification",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-30T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "แจ้งเตือนอัพเดทวิชา",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "อัพเดทวิชา วิทยาศาสตร์",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/E:/BG/31944822_890743787799702_447104807023411200_n.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a23-news-announce-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "Subject",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "notification",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2024-01-06T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2024-02-06T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "TESTFORM",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "TESTFORM",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/E:/BG/31562410_187056625262080_5370570404207263744_o.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "academic_year",
+							"value": "2444",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "1",
+							"description": "Id ของประกาศที่ใช้ในการอัพเดท"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a24-news-announce-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "",
+							"description": "ปีการศึกษา 2568,2567",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "",
+							"description": "Id ของวิชา 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "year_id",
+							"value": "",
+							"description": "id ชั้นปั 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "started_at",
+							"value": null,
+							"description": "วันเผยแพร่ format YYYY-MM-DDTHH-MM-SSZ",
+							"disabled": true
+						},
+						{
+							"key": "ended_at",
+							"value": null,
+							"description": "วันหยุดเผยแพร่ format YYYY-MM-DDTHH-MM-SSZ",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": null,
+							"description": "id โรงเรียน",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": null,
+							"description": "สถานะ enabled,disabled,draft",
+							"disabled": true
+						},
+						{
+							"key": "announcement_id",
+							"value": "",
+							"description": "search Id ของประกาศ",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "",
+							"description": "search title หัวข้อกิจกิจกรรม",
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "",
+							"description": "search school name ชื่อโรงเรียน",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a25-news-announce-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "1",
+							"description": "Id ของประกาศที่ต้องการ get \"หมายเหตุ\" : หาก id มีอยู่จริงแต่ประกาศไม่ตรง type ข้อมูลจะไม่แสดง"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a26-news-announce-download-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement/download/csv?start_date=2024-12-24&end_date=2024-12-26",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-12-24",
+							"description": "ดึงข้อมูลตั้งแต่ start_date"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-12-26",
+							"description": "จนถึง end_date"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a27-news-announce-upload-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement/upload/csv",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a28-news-announce-bulk-edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"status\": \"disabled\"\r\n    },\r\n    {\r\n        \"id\": 23,\r\n        \"status\": \"disabled\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/gm-announcement/v1/news/announcement/bulk-edit",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"gm-announcement",
+						"v1",
+						"news",
+						"announcement",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a29-drop-down-year",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/year?school_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						"year"
+					],
+					"query": [
+						{
+							"key": "school_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a30-drop-down-school",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/school",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						"school"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a31-drop-down-subject",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/subject?year_id=2&school_id=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						"subject"
+					],
+					"query": [
+						{
+							"key": "year_id",
+							"value": "2"
+						},
+						{
+							"key": "school_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a32-drop-down-academic-year",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDg5MTg3MSwibmJmIjoxNzQwODA1NDcxLCJpYXQiOjE3NDA4MDU0NzEsImp0aSI6IjZhMDMzZDU3LTBlN2QtNDUwYy04YzQ2LTY0NDY5NjE4NmYwMyJ9.iTF3TIgBniH6QI7NYf6vzLTROhtbz0Ie2qjYgKgBJq0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/academic-year",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						"academic-year"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a33-reward-item-delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODgwOTUyMywibmJmIjoxNzM4NzIzMTIzLCJpYXQiOjE3Mzg3MjMxMjMsImp0aSI6Ijc3NWYyODY3LTE4N2EtNGM4NC1hZTcxLTdmYjMxYjZhMTZiZiJ9.rNjENlC2Z4b5PHwktdCFrcQOMPazlLb3d2w7qKnIVb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/reward/announcement/:announceId/item/:itemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						":announceId",
+						"item",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "11"
+						},
+						{
+							"key": "itemId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a34-drop-down-arcade-game",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODgwOTUyMywibmJmIjoxNzM4NzIzMTIzLCJpYXQiOjE3Mzg3MjMxMjMsImp0aSI6Ijc3NWYyODY3LTE4N2EtNGM4NC1hZTcxLTdmYjMxYjZhMTZiZiJ9.rNjENlC2Z4b5PHwktdCFrcQOMPazlLb3d2w7qKnIVb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/arcade-game",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						"arcade-game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a35-drop-down-items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODgwOTUyMywibmJmIjoxNzM4NzIzMTIzLCJpYXQiOjE3Mzg3MjMxMjMsImp0aSI6Ijc3NWYyODY3LTE4N2EtNGM4NC1hZTcxLTdmYjMxYjZhMTZiZiJ9.rNjENlC2Z4b5PHwktdCFrcQOMPazlLb3d2w7qKnIVb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/items?school_id=1&subject_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						"items"
+					],
+					"query": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"description": "school_id และ subject_id หากต้องการเห็น itemของโรงเรียนและวิชานั้นๆที่ chain มาให้ส่งมาทั้งคู้\nDefault ของเส้นนี้จะเป็นดึงแค่ item ของ gm"
+						},
+						{
+							"key": "subject_id",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": null,
+							"description": "ประเภทของ item \nValue \nbadge,reward,frame\nโล่,รางวัล,กรอบรูป",
+							"disabled": true
+						},
+						{
+							"key": "ืname",
+							"value": null,
+							"description": "search_text by name",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": null,
+							"description": "search_text by Id",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a36-update-coin-amount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODgwOTUyMywibmJmIjoxNzM4NzIzMTIzLCJpYXQiOjE3Mzg3MjMxMjMsImp0aSI6Ijc3NWYyODY3LTE4N2EtNGM4NC1hZTcxLTdmYjMxYjZhMTZiZiJ9.rNjENlC2Z4b5PHwktdCFrcQOMPazlLb3d2w7qKnIVb4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/reward/announcement/:announceId/coin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"reward",
+						"announcement",
+						":announceId",
+						"coin"
+					],
+					"query": [
+						{
+							"key": "coin_type",
+							"value": "",
+							"description": "Values\ngold_coin\narcade_coin\nice\nเส้นนี้จะไปทำการอัพเดทให้ coin amount แต่ละประเภทให้ = 0\nเชน ถ้าส่ง query gold_coin ไป gold coin ของประกาศนั้นๆ ก็จะ = 0 \nแต่จะยังไม่ถุูกลบออกไป\ncoin จะถูกลบออกจาก database ก็ต่อเมื่อมีการกดอัพเดทและไม่ส่งค่า Coin ใดๆเข้าไปเลย",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g04-d01-a37-drop-down-school-academic-year",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDg5MTg3MSwibmJmIjoxNzQwODA1NDcxLCJpYXQiOjE3NDA4MDU0NzEsImp0aSI6IjZhMDMzZDU3LTBlN2QtNDUwYy04YzQ2LTY0NDY5NjE4NmYwMyJ9.iTF3TIgBniH6QI7NYf6vzLTROhtbz0Ie2qjYgKgBJq0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gm-announcement/v1/announcement/drop-down/:schoolId/academic-year",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gm-announcement",
+						"v1",
+						"announcement",
+						"drop-down",
+						":schoolId",
+						"academic-year"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

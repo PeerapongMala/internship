@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "f8def02d-82e0-4d0f-9e80-587ef8d60e5f",
+		"name": "bo-g04-05-redeem-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13929754"
+	},
+	"item": [
+		{
+			"name": "get-coupon-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-coupon-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/:couponId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						":couponId"
+					],
+					"variable": [
+						{
+							"key": "couponId",
+							"value": "1",
+							"description": "coupon id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-coupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"AB002\",\n    \"started_at\": \"2025-01-20T22:04:31.807484Z\",\n    \"ended_at\": \"2025-01-20T22:04:31.807484Z\",\n    \"status\": \"enabled\",\n    \"stock\": 100,\n    \"initial_stock\": 100,\n    \"gold_coin_amount\": 100,\n    \"arcade_coin_amount\": 100,\n    \"ice_amount\": 100\n    // \"avatar_id\": 1,\n    // \"pet_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-coupon-by-id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\": \"AB001\",\n    \"started_at\": \"2025-01-20T22:04:31.807484Z\",\n    \"ended_at\": \"2025-01-20T22:04:31.807484Z\",\n    \"initial_stock\": 200,\n    \"stock\": 200,\n    \"avatar_id\": null,\n    \"pet_id\": null,\n    \"gold_coin_amount\": 100,\n    \"arcade_coin_amount\": 100,\n    \"ice_amount\": 100,\n    \"status\": \"enabled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/:couponId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						":couponId"
+					],
+					"variable": [
+						{
+							"key": "couponId",
+							"value": "1",
+							"description": "coupon id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulk-edit-coupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"coupon_id\": 1,\n            \"status\": \"setting\"\n        },\n        {\n            \"coupon_id\": 2,\n            \"status\": \"setting\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-coupon-transaction-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/transaction/list/:couponId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						"transaction",
+						"list",
+						":couponId"
+					],
+					"variable": [
+						{
+							"key": "couponId",
+							"value": "1",
+							"description": "couponId"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "csv-upload-coupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"coupon_id\": 1,\n            \"status\": \"setting\"\n        },\n        {\n            \"coupon_id\": 2,\n            \"status\": \"setting\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/csv/upload",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						"csv",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "csv-download-coupon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/redeem/v1/coupon/csv/download?start_date=2025-01-01&end_date=2025-12-31",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"redeem",
+						"v1",
+						"coupon",
+						"csv",
+						"download"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-12-31"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "csv-download-coupon",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/redeem/v1/coupon/csv/download?start_date=2025-01-01&end_date=2025-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"redeem",
+								"v1",
+								"coupon",
+								"csv",
+								"download"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2025-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-12-31"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 21 Jan 2025 09:29:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv; charset=utf-8"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "afebc64a-5aaf-4548-952c-f399f8cbf099"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=\"download.csv\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "No,ID(ห้ามแก้),รหัสโค้ดคูปอง,วันที่เวลาเริ่มเผยแพร่,วันที่เวลาหมดอายุ,จำนวนคูปองสูงสุด (ใส่-1 ถ้าต้องการเป็นแบบไม่จำกัด),เหรียญทอง,เหรียญ arcade,น้ำแข็ง,สถานะ\n1,1,AB001,2025-01-21 05:04,2025-01-20 23:49,200,100,100,100,setting\n2,2,AB002,2025-01-21 05:04,2025-01-20 23:49,100,100,100,100,setting\n3,3,AB002,2025-01-21 05:04,2025-01-20 23:15,100,,,,enabled\n4,4,AB002,2025-01-21 05:04,2025-01-20 23:16,100,100,,,enabled\n5,6,AB002,2025-01-21 05:04,2025-01-20 23:17,100,100,100,100,enabled\n"
+				}
+			]
+		}
+	]
+}

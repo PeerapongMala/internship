@@ -1,0 +1,555 @@
+/* ===== Life Insurance Page ===== */
+.life-ins-content {
+  max-width: 1100px;
+}
+
+/* ===== Banner ===== */
+.life-banner {
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  color: var(--white);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.life-banner.covered {
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+}
+
+.life-banner-label {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.life-banner-value {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.life-banner-value.covered-text {
+  font-size: 40px;
+}
+
+.life-banner-unit {
+  font-size: 20px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.life-banner-desc {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.life-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.life-progress-fill {
+  height: 100%;
+  background: #EF4444;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.life-progress-fill.covered {
+  background: #10B981;
+}
+
+.life-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ===== Shared Card ===== */
+.life-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.life-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+/* ===== Table Section ===== */
+.life-table-section {
+  margin-bottom: 24px;
+}
+
+.life-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.life-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.life-add-btn:hover {
+  opacity: 0.9;
+}
+
+.life-add-btn .material-icons-outlined {
+  font-size: 16px;
+}
+
+.life-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Policy table: limit 3 rows visible, scroll beyond */
+.life-table-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.life-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.life-table thead {
+  border-bottom: 2px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 1;
+}
+
+.life-table th {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.life-table td {
+  padding: 8px 16px;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.life-table .text-right {
+  text-align: right;
+}
+
+.life-table .text-center {
+  text-align: center;
+}
+
+.life-table .value-cell {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Reuse icon-btn */
+.life-table-section .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: all 0.15s ease;
+}
+
+.life-table-section .icon-btn.delete:hover {
+  border-color: #FCA5A5;
+  color: #EF4444;
+  background: #FEF2F2;
+}
+
+.life-table-section .icon-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+/* ===== Bottom Grid ===== */
+.life-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ===== Fields in bottom cards ===== */
+.life-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.life-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.life-field-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.life-field-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.life-field-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--gray-800);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.life-field-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+/* ===== Needs Header ===== */
+.life-needs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.life-needs-header .life-card-title {
+  margin-bottom: 0;
+}
+
+/* ===== Needs Blocks (edit mode) ===== */
+.life-needs-scroll {
+  max-height: 280px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.life-need-block {
+  position: relative;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.life-need-block-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: all 0.15s ease;
+}
+
+.life-need-block-delete:hover {
+  border-color: #FCA5A5;
+  color: #EF4444;
+  background: #FEF2F2;
+}
+
+.life-need-block-delete .material-icons-outlined {
+  font-size: 16px;
+}
+
+/* ===== Assets Hint ===== */
+.life-assets-hint {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+}
+
+.life-assets-link {
+  color: var(--primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ===== Assets Items (read-only, from AssetPage) ===== */
+.life-assets-scroll {
+  max-height: 310px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.life-asset-item {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.life-asset-item-header {
+  margin-bottom: 6px;
+}
+
+.life-asset-item-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.life-asset-item-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.life-empty-text {
+  font-size: 14px;
+  color: var(--gray-400);
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ===== Total Row ===== */
+.life-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-200);
+  margin-bottom: 16px;
+}
+
+.life-total-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #EF4444;
+}
+
+.life-total-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #EF4444;
+}
+
+.life-total-value.accent {
+  color: var(--primary);
+}
+
+/* ===== Edit / Save Buttons ===== */
+.life-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.life-edit-btn:hover {
+  background: var(--gray-50);
+}
+
+.life-edit-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.life-edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.life-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.life-action-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.life-action-btn.cancel {
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+.life-action-btn.cancel:hover {
+  background: var(--gray-50);
+}
+
+.life-action-btn.save {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+}
+
+.life-action-btn.save:hover {
+  opacity: 0.9;
+}
+
+/* ===== Add Cases Modal ===== */
+.life-add-modal {
+  max-width: 600px;
+}
+
+.life-case-table-wrapper {
+  max-height: 360px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+}
+
+.life-case-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.life-case-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--gray-50);
+  z-index: 1;
+}
+
+.life-case-table th {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.life-case-table td {
+  padding: 5px 12px;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.life-case-table .text-right {
+  text-align: right;
+}
+
+.life-case-table .text-center {
+  text-align: center;
+}
+
+.life-case-table .value-cell {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.life-case-table tbody tr {
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.life-case-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.life-case-table tbody tr.selected {
+  background: var(--primary-50);
+}
+
+.life-case-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .life-bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .life-banner-value {
+    font-size: 28px;
+  }
+
+  .life-table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

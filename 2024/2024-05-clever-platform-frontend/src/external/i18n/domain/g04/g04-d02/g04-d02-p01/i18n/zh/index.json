@@ -1,0 +1,44 @@
+{
+  "test": "Boss关卡",
+  "pretest": "课前测试",
+  "posttest": "课后测试",
+  "execise": "练习",
+  "answercount": "题目数量",
+  "timeset": "设定时间",
+  "timeuse": "使用时间",
+  "your_play": "你的游戏",
+  "level_type": {
+    "test": "練習題",
+    "sub-lesson-post-test": "子課程後測練習",
+    "pre-post-test": "課前和課後測驗",
+    "pre-test": "課前測驗",
+    "post-test": "課後測驗"
+  },
+  "level": {
+    "dialog": {
+      "title": "关卡 {{level}}",
+      "exercise": "练习",
+      "difficulty": "难度",
+      "timeLimit": "时间限制",
+      "noTimeLimit": "无时间限制",
+      "questionCount": "题目数量",
+      "yourPlay": "你的游戏",
+      "score": "分数",
+      "star": "星星",
+      "emptyStar": "空星星",
+      "timeUsed": "用时",
+      "honor": "荣誉/称号",
+      "honorAlt": "荣誉",
+      "offline": {
+        "status": "你处于离线状态",
+        "savedHistory": "你的游戏记录将被保存",
+        "rewardsWhenOnline": "当你重新上线时将获得奖励"
+      }
+    },
+    "difficulty": {
+      "easy": "简单",
+      "medium": "中等",
+      "hard": "困难"
+    }
+  }
+}

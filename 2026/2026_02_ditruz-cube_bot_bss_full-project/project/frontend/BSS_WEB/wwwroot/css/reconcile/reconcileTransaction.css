@@ -1,0 +1,1699 @@
+/* ============================================
+   Reconciliation Transaction — Base Styles
+   All values from Figma MCP (node 32:26428)
+   CSS Specs Reference: design/css-specs-from-figma.md
+   Font: Pridi (loaded via all.css)
+   ============================================ */
+
+/* ── 2-Column Page Layout (Figma node 32:26437) ──
+   Left (1071px/1403px ≈ 76%): Scanner + 2 Tables
+   Right (316px/1403px ≈ 23%): Info Card + HC Table
+   ── */
+.page-columns {
+    flex: 1;
+    display: flex;
+    gap: 16px;                   /* Figma: left col ends at 1071, right starts at 1087 → 16px */
+    min-height: 0;
+    overflow: hidden;
+}
+
+.col-left {
+    flex: 1071;                  /* SVG: 1071px = 445(left) + 19(gap) + 607(center) */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;                   /* SVG: scanner bottom y=322, table panel y=338 → 16px */
+}
+
+.col-right {
+    flex: 316;                   /* SVG: right column = 316px */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;                   /* SVG: info card bottom to table top → 16px */
+}
+
+.tables-row {
+    flex: 1;
+    display: flex;
+    gap: 19px;                   /* Figma: left table ends x=456, center starts x=475 → 19px */
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* ── Scanner Section (Figma node 32:26461) ── */
+.scanner-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                    /* Figma: gap-[8px] */
+    background: white;
+    border-radius: 12px;         /* Figma: rounded-[12px] (--rounded/r-sm) */
+    padding: 16px 24px;         /* Figma: py-[16px] px-[24px] (--space/s-lg) */
+    flex-shrink: 0;
+    overflow: clip;              /* Figma: overflow-clip */
+}
+
+/* Scanner title: "สแกน Header Card..." */
+.scanner-title {
+    font-weight: 500 !important; /* Figma: Pridi:Medium (500) */
+    font-size: 16px;             /* Figma: text-[16px] */
+    color: #212121;              /* Figma: --texts/text-neutral-primary */
+    letter-spacing: 0.352px;     /* Figma: tracking-[0.352px] */
+    line-height: normal;         /* Figma: leading-[normal] */
+}
+
+/* Scanner main row: input + count + buttons */
+.scanner-main-row {
+    display: flex;
+    align-items: center;         /* Figma: items-center */
+    gap: 8px;                    /* Figma: gap-[8px] */
+    width: 100%;
+}
+
+/* Header Card input group */
+.scanner-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;                    /* Figma: gap-[4px] (--space/s-xxxsm) */
+    flex-shrink: 0;
+}
+
+/* "Header Card" label */
+.scanner-field-label {
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    font-size: 14px;             /* Figma: text-[14px] */
+    color: #212121;              /* Figma: --color/neutral-text-primary */
+    letter-spacing: 0.35px;      /* Figma: tracking-[0.35px] */
+    line-height: normal;
+}
+
+/* Input wrapper — no border, just sizing container */
+.scanner-input-wrapper {
+    width: 390px;                /* Figma: w-[390.5px] */
+    height: 41px;                /* Figma: h-[41px] */
+    box-sizing: border-box;
+    display: flex;
+}
+
+/* Actual text input — single border + box-shadow for glow effect */
+.scanner-input {
+    width: 100%;
+    flex: 1;
+    padding: 8px 12px;           /* Figma: py-[8px] px-[12px] */
+    border: 3px solid #297ed4;   /* Figma: border-3 border-[#297ed4] */
+    border-radius: 8px;          /* Figma: rounded-[8px] */
+    font-size: 14px;
+    font-weight: 400;
+    background: #d1e5fa;         /* Figma: bg-[#d1e5fa] */
+    box-sizing: border-box;
+    box-shadow: 0 0 0 5px rgba(41,126,212,0.5);  /* Figma outer glow: border-5 rgba(41,126,212,0.5) */
+    outline: none;
+}
+
+.scanner-input:focus {
+    outline: none;
+    border-color: #297ed4;
+    background-color: #d1e5fa;
+}
+
+/* Center info area: count + location */
+.scanner-center-info {
+    flex: 1 0 0;                 /* Figma: flex-[1_0_0] */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;   /* Figma: items-end justify-center on parent */
+    min-height: 0;
+    min-width: 0;
+    align-self: stretch;
+}
+
+/* "กระทบยอดแล้วทั้งหมด 100 มัด" */
+.scanner-count-row {
+    display: flex;
+    gap: 8px;                    /* Figma: gap-[8px] */
+    height: 30px;                /* Figma: h-[30px] */
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;             /* Figma: text-[20px] */
+    line-height: 1.5;            /* Figma: leading-[1.5] */
+    letter-spacing: 0.5px;       /* Figma: tracking-[0.5px] */
+    color: #212121;              /* Figma: --texts/text-neutral-primary */
+}
+
+/* Badge: reconciled count number */
+.count-badge {
+    color: #b45309;              /* Figma: --texts/text-warning-primary */
+    font-size: 20px;
+    font-weight: 700;            /* Figma: Pridi:Bold */
+    text-align: right;
+}
+
+/* "กรุงเทพฯ M7-1" + "ผลัดบ่าย" */
+.scanner-location-row {
+    display: flex;
+    gap: 32px;                   /* Figma: gap-[32px] */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: 500;            /* Figma: Pridi:Medium */
+    font-size: 16px;             /* Figma: text-[16px] */
+    color: #212121;              /* Figma: --texts/text-neutral-primary */
+    letter-spacing: 0.352px;     /* Figma: tracking-[0.352px] */
+    line-height: normal;
+}
+
+/* Filter + Refresh button area */
+.scanner-actions {
+    display: flex;
+    gap: 24px;                   /* Figma: gap-[24px] */
+    align-items: flex-end;       /* Figma: items-end */
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+/* Filter and Refresh buttons */
+.btn-filter,
+.btn-refresh {
+    background: #003366;         /* Figma: bg-[#036] */
+    color: white;
+    border: none;
+    padding: 4px 16px;           /* Figma: py-[4px] px-[16px] */
+    border-radius: 4px;          /* Figma: rounded-[4px] */
+    font-size: 14px;             /* Figma: text-[14px] */
+    font-weight: 500;            /* Figma: Pridi:Medium */
+    letter-spacing: 0.35px;      /* Figma: tracking-[0.35px] */
+    line-height: 1.5;            /* Figma: leading-[1.5] */
+    cursor: pointer;
+    height: 41px;                /* Figma: h-[41px] */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;                    /* Figma: gap-[8px] */
+    white-space: nowrap;
+    overflow: clip;
+}
+
+.btn-filter:hover,
+.btn-refresh:hover {
+    background: #002244;
+}
+
+/* Nav buttons: "เปิดหน้าจอ 2", "Holding", "Holding Detail" */
+.btn-nav {
+    background: #003366;         /* Figma: bg-[#036] */
+    color: white;
+    border: none;
+    padding: 6px 12px;           /* Figma: py-[6px] px-[12px] */
+    border-radius: 6px;          /* Figma: rounded-[6px] */
+    font-size: 16px;             /* Figma: text-[16px] */
+    font-weight: 500;            /* Figma: Pridi:Medium */
+    letter-spacing: 0.4px;       /* Figma: tracking-[0.4px] */
+    line-height: 1.5;            /* Figma: leading-[1.5] */
+    cursor: pointer;
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    overflow: clip;
+}
+
+.btn-nav:hover {
+    background: #002244;
+}
+
+/* "เปิดหน้าจอ 2" — smaller variant (Figma: 14px, py-[4px] px-[8px], rounded-[4px]) */
+.btn-nav-sm {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    letter-spacing: 0.35px;
+}
+
+/* ── Filter Row (inside scanner card, Figma node 32:26492) ── */
+.filter-row {
+    display: flex;
+    align-items: center;         /* Figma: items-center */
+    justify-content: flex-end;   /* Figma: justify-end */
+    gap: 24px;                   /* Figma: gap-[24px] (--sds-size-space-600) */
+    padding-top: 8px;            /* Figma: pt-[8px] */
+    width: 100%;
+    overflow: clip;
+    background: white;
+}
+
+.filter-items {
+    display: flex;
+    gap: 24px;                   /* Figma: gap-[24px] */
+    align-items: center;
+    justify-content: center;
+    width: 425px;                /* Figma: w-[425px] */
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;                    /* Figma: gap-[4px] (--space/s-xxxsm) */
+    width: 200px;                /* Figma: w-[200px] each */
+}
+
+.filter-item label {
+    font-size: 14px;             /* Figma: text-[14px] */
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    white-space: nowrap;
+    color: #212121;              /* Figma: --color/neutral-text-primary */
+    letter-spacing: 0.35px;      /* Figma: tracking-[0.35px] */
+    line-height: normal;
+}
+
+.filter-select {
+    padding: 5px 13px 5px 9px;   /* Figma: pl-[9px] pr-[13px] py-[5px] (small size) */
+    border: 1px solid #ced4da;   /* Figma: border border-[#ced4da] */
+    border-radius: 4px;          /* Figma: rounded-[4px] */
+    font-size: 14px;             /* Figma: text-[14px] */
+    color: #6c757d;              /* Figma: text-[#6c757d] */
+    background: white;
+    cursor: pointer;
+    width: 100%;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+}
+
+/* Clear Filter button */
+.btn-clear-filter {
+    background: #003366;         /* Figma: bg-[#036] */
+    border: 1px solid #003366;   /* Figma: border border-[#036] */
+    color: white;
+    padding: 5px 17px;           /* Figma: py-[5px] px-[17px] */
+    border-radius: 4px;          /* Figma: rounded-[4px] */
+    font-size: 14px;             /* Figma: text-[14px] */
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    letter-spacing: 0.35px;
+    line-height: 1.5;
+    cursor: pointer;
+    height: 31px;                /* Figma: h-[31px] */
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow: clip;
+}
+
+.btn-clear-filter:hover {
+    background: #002244;
+}
+
+/* ── Info Card (Figma node 32:25503 — pixel-perfect) ──
+   Container: bg-white, flex-col, items-center, overflow-clip,
+   px-[12px] py-[16px], rounded-[12px], size-full
+   ── */
+.info-card {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: clip;
+    padding: 16px 12px;          /* Figma: py-[16px] px-[12px] */
+    border-radius: 12px;         /* Figma: rounded-[12px] */
+    flex-shrink: 0;
+    gap: 0;                      /* Figma: NO gap between rows — rows must touch */
+}
+
+/* ── Info Row (Figma: rows 32:25510, 32:25514, 32:25518, 32:25522)
+   Key: leading-[0] on wrapper → line-height:0 makes rows compact
+   Inner <p> has leading-[normal] → text renders normally
+   ── */
+.info-row {
+    display: flex;
+    align-items: flex-start;     /* Figma: items-start */
+    justify-content: space-between;
+    padding: 0 4px;              /* Figma: px-[4px] — ONLY left/right, zero top/bottom */
+    margin: 0;                   /* zero margin */
+    flex-shrink: 0;
+    width: 100%;
+    font-family: 'Pridi', sans-serif;
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    font-size: 13px;             /* Figma: text-[13px] */
+    color: #212121;              /* Figma: --color/neutral-text-primary */
+    letter-spacing: 0.325px;     /* Figma: tracking-[0.325px] */
+    line-height: 0;              /* Figma: leading-[0] on wrapper — KEY for compact spacing */
+}
+
+/* Inner <p> tags: ZERO margin (override Bootstrap p{margin-bottom:1rem}), normal line-height */
+.info-card p,
+.info-card .info-row p {
+    margin: 0 !important;       /* Override Bootstrap's p { margin-bottom: 1rem } */
+    padding: 0 !important;      /* Ensure zero padding */
+    line-height: normal;         /* Figma: leading-[normal] on <p> */
+}
+
+/* ── Date Row (Figma node 32:25504)
+   bg-[#f8d7da], items-center (not items-start), rounded-[4px]
+   ── */
+.info-row-date {
+    background: #f8d7da;         /* Figma: bg-[#f8d7da] */
+    border-radius: 4px;          /* Figma: rounded-[4px] */
+    align-items: center;         /* Figma: items-center (overrides items-start) */
+}
+
+/* Label wrapper (left side) */
+.info-label-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* Value wrapper (right side): w-[100px], text-right, pre-wrap */
+.info-value-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    text-align: right;
+    width: 100px;                /* Figma: w-[100px] */
+}
+.info-value-wrap p {
+    white-space: pre-wrap;       /* Figma: whitespace-pre-wrap */
+}
+
+/* Date value area (Figma node 32:25507): flex, gap-[4px], w-[175.5px], items-center, justify-end */
+.info-date-value-area {
+    display: flex;
+    gap: 4px;                    /* Figma: gap-[4px] */
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    width: 175.5px;              /* Figma: w-[175.5px] */
+}
+
+/* Date text (inside date value area) */
+.info-date-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Icon wrapper (Figma node 32:25509): 14x14 */
+.info-date-icon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Octagon alert icon — 14x14 SVG (Figma node 32:25853) */
+.info-date-icon-wrap svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+}
+
+/* Sorting Machine row (Figma node 32:25518): whitespace-nowrap on entire row */
+.info-row-machine {
+    white-space: nowrap;
+}
+
+/* Sorting Machine value: no fixed width, nowrap */
+.info-value-nowrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    text-align: right;
+}
+.info-value-nowrap p {
+    white-space: nowrap;
+}
+
+/* ── Panel Base ── */
+.panel {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;         /* Figma: rounded-[12px] */
+    overflow: hidden;
+}
+
+/* Preparation table: SVG width = 445px */
+.panel-left {
+    flex: 445;                   /* SVG: left table panel = 445px */
+    min-width: 0;
+}
+
+/* Prep+Machine table: SVG width = 607px */
+.panel-center {
+    flex: 607;                   /* SVG: center table panel = 607px */
+    min-width: 0;
+}
+
+/* HC from Machine table: fills right column */
+.panel-right {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* ── Panel Header (Figma node 32:29199) ── */
+.panel-header {
+    display: flex;               /* Figma: flex */
+    align-items: center;         /* Figma: items-center */
+    padding: 8px 16px;          /* Figma: py-[8px] px-[16px] (--space/s-md) */
+    border-bottom: 1px solid #cbd5e1;  /* Figma: border-b border-[#cbd5e1] (--gray-300) */
+    flex-shrink: 0;
+    background: white;           /* Figma: NOT colored — white background */
+}
+
+/* All variants keep white header bg */
+.panel-header.reconcile-unfit,
+.panel-header.reconcile-unsort-cc,
+.panel-header.reconcile-ca-member,
+.panel-header.reconcile-ca-non-member {
+    background: white;
+}
+
+.panel-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;          /* Figma: Heading/H6 */
+    font-weight: 500 !important;         /* Figma: Pridi:Medium */
+    color: #212121 !important;           /* Figma: --texts/text-neutral-primary */
+    letter-spacing: 0.4px !important;    /* Figma: tracking-[0.4px] */
+    line-height: 120% !important;        /* Figma: 120% = 19.2px */
+    font-style: normal !important;
+    flex: 1 0 0;
+}
+
+/* ── Table Scroll Container ── */
+.panel-table-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;          /* No horizontal scroll — tables fit within panels */
+    min-height: 0;
+    scrollbar-gutter: stable;    /* Reserve space for scrollbar so table content doesn't get overlapped */
+    /* Striped bg for empty rows below data (40px row height) */
+    background: repeating-linear-gradient(
+        to bottom,
+        white 0px, white 40px,
+        #f2f6f6 40px, #f2f6f6 80px
+    );
+    background-position-y: 30px; /* offset by header height */
+}
+
+/* ── Custom Scrollbar (SVG: 8px track, 4px thumb #909090, white bg) ── */
+.panel-table-scroll::-webkit-scrollbar {
+    width: 8px;                  /* SVG: track width = 8px */
+}
+.panel-table-scroll::-webkit-scrollbar-track {
+    background: white;           /* SVG: white panel background */
+    border-left: 1px solid #CBD5E1;   /* SVG: track border color */
+    border-right: 1px solid #CBD5E1;
+}
+.panel-table-scroll::-webkit-scrollbar-thumb {
+    background: #909090;         /* SVG: thumb fill = #909090 */
+    border-radius: 4px;          /* SVG: rx=2 on 4px element → fully rounded */
+    border: 2px solid transparent;     /* Creates 4px visible thumb within 8px track */
+    background-clip: padding-box;
+}
+
+/* ── Table — NO cell borders (Figma node 32:29202, 32:29217) ── */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;             /* Figma: text-[13px] */
+}
+
+.data-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Table header cells */
+.data-table thead th {
+    background: #d6e0e0;         /* Figma: bg-[#d6e0e0] */
+    padding: 8px;                /* Figma: p-[8px] */
+    text-align: center;
+    font-weight: 500;            /* Figma: Pridi:Medium (NOT 600) */
+    color: #212121;              /* Figma: --texts/text-neutral-primary */
+    white-space: nowrap;
+    letter-spacing: 0.299px;     /* Figma: tracking-[0.299px] */
+    font-size: 13px;             /* Figma: text-[13px] */
+    line-height: normal;         /* Figma: leading-[normal] */
+    border: none;                /* Figma: NO cell borders */
+    border-bottom: 1px solid #cbd5e1;  /* Figma: border-b border-[#cbd5e1] */
+}
+
+/* Table body cells */
+.data-table tbody td {
+    padding: 6px 8px;            /* Figma: py-[6px] px-[8px] */
+    vertical-align: middle;
+    color: #013661;              /* Figma: text-[#013661] */
+    letter-spacing: 0.286px;     /* Figma: tracking-[0.286px] */
+    font-size: 13px;             /* Figma: text-[13px] */
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    line-height: normal;
+    border: none;                /* Figma: NO cell borders */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Date/time cells — SMALLER font per Figma (12px not 13px) */
+.data-table tbody td.td-datetime {
+    font-size: 12px;             /* Figma: text-[12px] */
+    letter-spacing: 0.264px;     /* Figma: tracking-[0.264px] */
+    line-height: 13px;           /* Figma: leading-[13px] */
+    white-space: pre-wrap;       /* Figma: whitespace-pre-wrap (allow line break in date) */
+    width: 92px;                 /* Figma: w-[92px] */
+}
+
+/* Row height = 40px (Figma: h-[40px]) */
+.data-table tbody tr {
+    height: 40px;
+}
+
+/* Alternating row stripes (Figma: even=#f2f6f6, odd=white) */
+.data-table tbody tr:nth-child(even) {
+    background: #f2f6f6;
+}
+
+.data-table tbody tr:nth-child(odd) {
+    background: white;
+}
+
+.data-table tbody tr:hover {
+    background: #e8eef4;
+}
+
+.data-table tbody tr.row-selected {
+    background: #d4edfc !important;
+}
+
+/* Warning rows (pink bg) — only Header Card text turns red, other columns stay normal */
+.data-table tbody tr.row-warning {
+    background: #F8D7DA !important;
+}
+
+.data-table tbody tr.row-warning td:nth-child(2) {
+    color: #DC3545 !important;   /* Figma: Theme/Danger — only Header Card cell */
+}
+
+/* ── Sort icon in header (Figma: size-[12px], gap-[2px]) ── */
+.th-sort {
+    cursor: pointer;
+    user-select: none;
+}
+
+.th-sort .sort-icon {
+    display: inline-block;
+    font-size: 10px;             /* Small icon to fit 12px container */
+    width: 12px;                 /* Figma: size-[12px] */
+    height: 12px;
+    margin-left: 2px;            /* Figma: gap-[2px] (--space/s-xxxxsm) */
+    vertical-align: middle;
+    opacity: 0.6;
+    text-align: center;
+    line-height: 12px;
+}
+
+.th-sort:hover .sort-icon {
+    opacity: 1;
+}
+
+/* ── Action Buttons (Figma node 32:29227: size-[20px], gap-[6px]) ──
+   MUST use .data-table prefix to override all.css (.btn-action 28px !important)
+   and Style.css (button { height: 40px !important })
+   ── */
+.action-btns {
+    display: flex;
+    gap: 6px;                    /* Figma: gap-[6px] */
+    justify-content: center;
+    align-items: center;
+}
+
+.data-table .btn-action {
+    width: 20px !important;      /* Figma: size-[20px] — overrides all.css 28px */
+    height: 20px !important;     /* Figma: size-[20px] — overrides all.css 28px + Style.css 40px */
+    min-width: 20px !important;  /* Override all.css min-width: 28px */
+    min-height: 20px !important; /* Override all.css min-height: 28px */
+    padding: 0 !important;
+    border: 1px solid black !important;     /* Figma: border-[black] */
+    background: transparent !important;     /* Figma: bg-transparent */
+    border-radius: 4px !important;          /* Figma: rounded-[4px] */
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: clip;
+    color: black !important;
+    margin: 0 !important;       /* Override all.css margin: 1px */
+    box-sizing: border-box !important;
+    transition: none !important; /* Override all.css transition */
+}
+
+.data-table .btn-action:hover {
+    background: #f0f0f0 !important;
+    border-color: black !important;
+    color: black !important;
+    box-shadow: none !important;
+}
+
+.data-table .btn-action:disabled {
+    background-color: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Danger variant (for warning row delete buttons) */
+.data-table .btn-action.btn-action-danger {
+    background: #dc3545 !important;         /* Figma: Theme/Danger */
+    border-color: #dc3545 !important;
+    color: white !important;
+}
+
+.data-table .btn-action.btn-action-danger:hover {
+    background: #c82333 !important;
+    border-color: #c82333 !important;
+    color: white !important;
+}
+
+/* Denomination badge (matched to Reconsile p02 spec) */
+.qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 0;
+    background-image: none !important;
+}
+
+.qty-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png") !important;
+    background-size: 445px 435px !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.qty-100 { color: #991B1B !important; }
+.qty-20  { color: #3B7E3A !important; }
+
+/* ── Alert: red text ONLY on Header Card cell + octagon icon (no pink bg, no row-level color) ── */
+.data-table tbody td.td-hc-alert {
+    color: #dc3545 !important;   /* Red text only in Header Card cell */
+}
+
+.alert-octagon {
+    display: inline-block !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    vertical-align: middle;
+    margin-left: 4px;
+    flex-shrink: 0;
+    overflow: visible !important;
+}
+
+/* ── Header Card cell — remove td overflow so inner flex wrapper controls it ── */
+.reconcile-table-left tbody td:nth-child(2),
+.reconcile-table-center tbody td:nth-child(2),
+.reconcile-table-right tbody td:nth-child(2) {
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+/* ── Header Card cell flex wrapper — prevents alert icon from being crushed ── */
+.td-hc-wrap {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+.td-hc-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+    padding: 0 !important;
+}
+.td-hc-wrap img {
+    flex-shrink: 0;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    padding: 0 !important;            /* ป้องกัน padding จากทุก source */
+    box-sizing: content-box !important; /* Override Bootstrap border-box -> width/height = content only */
+    display: block;                    /* ป้องกัน inline spacing */
+}
+
+/* ── Spacer Column (empty column before Header Card) ── */
+.col-spacer {
+    width: 8px !important;       /* s-xsm = 8px for left/center tables */
+    min-width: 8px !important;
+    max-width: 8px !important;
+    padding: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    /* Keep border-bottom to maintain continuous header/row lines */
+}
+.col-spacer-sm {
+    width: 4px !important;       /* 4px for right table */
+    min-width: 4px !important;
+    max-width: 4px !important;
+}
+
+/* ── Table cell alignment ── */
+
+/* Date, Denom, Action columns: center (shifted +1 for spacer column) */
+.reconcile-table-left td:nth-child(3),
+.reconcile-table-left td:nth-child(4),
+.reconcile-table-left td:nth-child(5) {
+    text-align: center !important;
+}
+
+.reconcile-table-center td:nth-child(3),
+.reconcile-table-center td:nth-child(4),
+.reconcile-table-center td:nth-child(5),
+.reconcile-table-center td:nth-child(6) {
+    text-align: center !important;
+}
+
+.reconcile-table-right td:nth-child(3) {
+    text-align: left !important;     /* datetime column left-aligned */
+}
+.reconcile-table-right td:nth-child(4),
+.reconcile-table-right td:nth-child(5) {
+    text-align: center !important;
+}
+
+/* ── Right Panel Overrides (Figma node 32:26535) ──
+   Right panel has DIFFERENT font sizes than left/center panels */
+
+/* Right panel title: 15px (not 16px like left/center) */
+.panel-right .panel-title {
+    font-size: 15px;             /* Figma: text-[15px] */
+    letter-spacing: 0.33px;      /* Figma: tracking-[0.33px] */
+}
+
+/* Right panel table header: 11px (not 13px) */
+.reconcile-table-right thead th {
+    font-size: 11px;             /* Figma: text-[11px] */
+    letter-spacing: 0.253px;     /* Figma: tracking-[0.253px] */
+    padding: 8px 4px;            /* Figma: py-[8px] px-[4px] per header cell */
+    height: 30px;                /* Figma: h-[30px] */
+}
+
+/* Right panel table body: 12px (not 13px), color #212529 (not #013661) */
+.reconcile-table-right tbody td {
+    font-size: 12px;             /* Figma: text-[12px] */
+    letter-spacing: 0.264px;     /* Figma: tracking-[0.264px] */
+    color: #212529;              /* Figma: text-[#212529] (different from left/center) */
+    padding: 6px 4px;            /* Figma: py-[6px] px-[4px] (node 32:26554) */
+}
+
+/* Right panel datetime cells */
+.reconcile-table-right tbody td.td-datetime {
+    font-size: 12px;
+    line-height: 13px;           /* Figma: leading-[13px] */
+}
+
+/* Right panel: all cells already use padding 4px via .reconcile-table-right th/td rules above */
+
+/* Right panel warning rows: only Header Card cell red (same as center table) */
+.reconcile-table-right tbody tr.row-warning td:nth-child(2) {
+    color: #DC3545 !important;   /* Figma: Theme/Danger — only Header Card cell */
+}
+
+/* Right panel badge: 12px (not 13px like left/center) */
+.reconcile-table-right .qty-badge {
+    font-size: 12px !important;  /* Figma component-map: Right: font 12px Bold */
+}
+
+/* ── No data message ── */
+.no-data-row td {
+    text-align: center;
+    padding: 20px;
+    color: #909090;
+    font-style: italic;
+}
+
+/* ── Variant overrides ── */
+/* body::before gradient set via variant CSS files */
+
+/* ── Modal styles ── */
+.modal-success-title { font-size: 60px; color: #28a745; }
+.modal-warning-title { font-size: 60px; color: #ffc107; }
+
+.btn-blue       { background: #003366; color: white; border: none; }
+.btn-blue:hover { background: #002244; color: white; }
+.btn-gray       { background: #6c757d; color: white; border: none; }
+.btn-gray:hover { background: #5a6268; color: white; }
+.btn-green       { background: #28a745; color: white; border: none; }
+.btn-green:hover { background: #218838; color: white; }
+.btn-red         { background: #dc3545; color: white; border: none; }
+.btn-red:hover   { background: #c82333; color: white; }
+
+/* ══════════════════════════════════════════════════════
+   PIXEL-PERFECT FIXES — from Figma MCP design context
+   Each section references exact Figma node IDs
+   ══════════════════════════════════════════════════════ */
+
+/* ── Title Section (Figma node 32:26438) ── */
+.main-title .title-section h1 {
+    font-family: 'Pridi', sans-serif;
+    font-weight: 600;            /* Figma: Pridi:SemiBold */
+    font-size: 30px;             /* Figma: text-[30px] */
+    letter-spacing: 0.675px;     /* Figma: tracking-[0.675px] */
+    line-height: 1.2;            /* Figma: leading-[1.2] */
+    color: #212121;              /* Figma: --texts/text-neutral-primary */
+    margin: 0;
+    padding: 0;
+}
+
+.main-title .title-section p {
+    font-family: 'Pridi', sans-serif;
+    font-weight: 400;            /* Figma: Pridi:Regular */
+    font-size: 20px;             /* Figma: text-[20px] */
+    letter-spacing: 0.45px;      /* Figma: tracking-[0.45px] */
+    line-height: 1.2;            /* Figma: leading-[1.2] */
+    color: #212121;
+    margin: 0;
+    padding: 0;
+}
+
+/* Title section: left/right flex with Figma spacing */
+.main-title .title-left {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.main-title .title-right {
+    display: flex;
+    gap: 16px;                   /* Figma: gap-[16px] (node 32:26443) */
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* ── Table Column Widths — Left Table (Figma node 32:26685) ── */
+/* nth-child(1) = spacer, nth-child(2+) = data columns */
+.reconcile-table-left { table-layout: fixed; }
+.reconcile-table-left th:nth-child(2),
+.reconcile-table-left td:nth-child(2) { width: 105px; }  /* Header Card */
+.reconcile-table-left th:nth-child(3),
+.reconcile-table-left td:nth-child(3) { width: 120px; }  /* วันเวลาเตรียม */
+.reconcile-table-left th:nth-child(4),
+.reconcile-table-left td:nth-child(4) { width: 110px; }  /* ชนิดราคา */
+.reconcile-table-left th:nth-child(5),
+.reconcile-table-left td:nth-child(5) { width: 78px; }   /* Action */
+
+/* ── Table Column Widths — Center Table (Figma node 32:26778) ── */
+.reconcile-table-center { table-layout: fixed; }
+.reconcile-table-center th:nth-child(2),
+.reconcile-table-center td:nth-child(2) { width: 105px; }  /* Header Card */
+.reconcile-table-center th:nth-child(3),
+.reconcile-table-center td:nth-child(3) { width: 120px; }  /* วันเวลาเตรียม */
+.reconcile-table-center th:nth-child(4),
+.reconcile-table-center td:nth-child(4) { width: 140px; }  /* วันเวลานับคัด */
+.reconcile-table-center th:nth-child(5),
+.reconcile-table-center td:nth-child(5) { width: 95px; }   /* ชนิดราคา */
+.reconcile-table-center th:nth-child(6),
+.reconcile-table-center td:nth-child(6) { width: 95px; }   /* Action */
+
+/* ── Table Column Widths — Right Table (Figma node 32:26538) ── */
+.reconcile-table-right { table-layout: fixed; }
+.reconcile-table-right th:nth-child(2),
+.reconcile-table-right td:nth-child(2) { width: 98px; padding: 0 !important; }  /* Header Card — no padding, icon tight */
+.reconcile-table-right th:nth-child(3),
+.reconcile-table-right td:nth-child(3) { width: 74px; }   /* วันเวลา นับคัด */
+.reconcile-table-right th:nth-child(4),
+.reconcile-table-right td:nth-child(4) { width: 68px; }   /* ชนิดราคา */
+/* Action column: auto-fill remaining space */
+
+/* ── Left/Center Table Data Cell Padding (Figma node 32:26700) ── */
+/* Figma: Header Card cell = px-[8px] py-[6px] — already default */
+/* Figma: Date cell = px-[8px] py-[6px] with inner text w-[92px] — already default */
+/* Figma: Denom cell = px-[12px] py-[6px] (shifted +1 for spacer) */
+.reconcile-table-left td:nth-child(4),
+.reconcile-table-center td:nth-child(5) {
+    padding: 6px 12px;          /* Figma: px-[12px] py-[6px] */
+}
+/* Figma: Action cell = px-[12px] py-[6px] (shifted +1 for spacer) */
+.reconcile-table-left td:nth-child(5),
+.reconcile-table-center td:nth-child(6) {
+    padding: 6px 12px;          /* Figma: px-[12px] py-[6px] */
+}
+
+/* ── Right Table Row Border (Figma node 32:26552) ── */
+/* Right table rows have border-bottom unlike left/center tables */
+.reconcile-table-right tbody tr {
+    border-bottom: 1px solid #e2e8f0; /* Figma: border-b border-[#e2e8f0] (--slate/200) */
+}
+
+/* ── Right Table Header "วันเวลา\nนับคัด" (Figma: 2-line, leading-[14px], left-aligned) ── */
+.reconcile-table-right .th-datetime-wrap {
+    line-height: 14px;           /* Figma: leading-[14px] for 2-line header */
+    white-space: normal;         /* Allow wrapping to 2 lines */
+    text-align: left !important; /* ชิดซ้าย ไม่มี space เกิน */
+}
+
+/* ── Left/Center table header cells (Figma: p-[8px] per cell) ── */
+.reconcile-table-left thead th,
+.reconcile-table-center thead th {
+    padding: 5px 8px;           /* Figma: p-[8px] per cell */
+    height: 30px;                /* Figma: h-[30px] header row */
+    white-space: nowrap !important; /* Prevent Thai text wrapping in narrow columns */
+}
+
+/* ── Title Section Fix ── */
+/* Override all.css: .main-title { margin-bottom: -10px } — causes title to sink behind cards */
+.main-title {
+    margin-bottom: 7px !important;  /* Figma: title bottom y=70, content y=77 → 7px gap */
+    flex-shrink: 0;
+}
+.main-title .title-right {
+    margin-bottom: 0 !important;    /* Override all.css 20px to prevent extra height */
+}
+
+/* ── Table Header Font Weight Fix ── */
+/* Override Bootstrap's th { font-weight: bold } — Figma uses Medium (500), not Bold */
+.data-table thead th {
+    font-weight: 500 !important;    /* Figma: Pridi:Medium, NOT Bold */
+}
+
+/* ── Action Button Icon Size (Figma: 14x14 icon inside 20x20 button) ──
+   Override all.css: .btn-action i { font-size: 18px !important }
+   ── */
+.data-table .btn-action i {
+    font-size: 14px !important;     /* Figma: icon size-[14px] — overrides all.css 18px */
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ── Shift Text (plain text, not button) ── */
+.shift-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: #212121;
+}
+
+/* ══════════════════════════════════════════════════════
+   NAV DROPDOWN — Page navigation menu (Figma node 32:26417)
+   Container: 230x117, 8px padding, white bg, 12px border-radius
+   Items: 214x33 each, text 12px left padding, Pridi 16px Medium
+   ══════════════════════════════════════════════════════ */
+.nav-dropdown-wrap {
+    position: relative;
+    display: inline-flex;
+}
+
+.nav-dropdown-wrap .btn-nav .nav-chevron {
+    font-size: 12px;
+    margin-left: 4px;
+    transition: transform 0.2s;
+}
+
+.nav-dropdown-wrap.open .btn-nav .nav-chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown {
+    display: none;
+    position: fixed;             /* fixed — escapes .layout overflow:hidden */
+    width: 230px;                /* Figma: 230px */
+    background: white;
+    border-radius: 12px;         /* Figma: project standard */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    padding: 8px;                /* Figma: items start at (8,8) */
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.nav-dropdown-wrap.open .nav-dropdown {
+    display: block;
+}
+
+.nav-dropdown-item {
+    width: 100%;                 /* Figma: 214px = 230 - 8*2 */
+    height: 33px;                /* Figma: 33px */
+    display: flex;
+    align-items: center;
+    gap: 8px;                    /* icon-to-text gap */
+    padding: 0 12px;             /* Figma: text x=12 */
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;  /* Figma: 16px */
+    font-weight: 500 !important; /* Figma: Pridi:Medium */
+    color: #212121 !important;   /* Figma: --texts/text-neutral-primary */
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.nav-dropdown-item i {
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.nav-dropdown-item:hover {
+    background: #f0f4f8;
+}
+
+.nav-dropdown-item:active {
+    background: #e0e8f0;
+}
+
+/* ══════════════════════════════════════════════════════
+   ALERT TOOLTIP — Hover card on red Header Card text
+   (Figma nodes 32:57780, 32:57796, 32:57814)
+   Width: 285px, variable height, 12px border-radius
+   Header: 50px, icon 24x24 + title "Reconcile Transaction"
+   Body: 16px padding, message text
+   ══════════════════════════════════════════════════════ */
+.alert-tooltip {
+    display: none;
+    position: fixed;
+    width: 285px;                /* Figma: 285px fixed */
+    background: white;
+    border: 1px solid #F1AEB5;   /* Figma: Alert Danger Border */
+    border-radius: 12px;         /* Figma: project standard */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    pointer-events: none;        /* Don't block hover on underlying elements */
+}
+
+.alert-tooltip.show {
+    display: block;
+}
+
+.alert-tooltip-header {
+    display: flex;
+    align-items: center;
+    height: 50px;                /* Figma: 50px header */
+    padding: 0 14px;             /* Figma: icon at x=14 */
+    gap: 14px;                   /* Figma: title at x=52 = 14 + 24 + 14 */
+    background: #F8D7DA;         /* Danger callout bg — warning header */
+}
+
+.alert-tooltip-icon {
+    flex-shrink: 0;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.alert-tooltip-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;  /* Figma: ~19px text height → 16px font */
+    font-weight: 500 !important; /* Figma: Pridi:Medium */
+    color: #212121 !important;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.alert-tooltip-body {
+    padding: 16px;               /* Figma: text at (16,16) */
+}
+
+.alert-tooltip-message {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;  /* Figma: Body/Regular 14px */
+    font-weight: 400 !important; /* Figma: Pridi:Regular */
+    color: #212529 !important;   /* Figma: body text color */
+    line-height: 1.5 !important;
+    letter-spacing: 0.35px;
+    margin: 0 !important;
+    word-wrap: break-word;
+}
+
+/* ══════════════════════════════════════════════════════
+   POPUP MODALS — Edit & Delete Flow
+   Figma Section: Node 2:41247 "Popup 20251105"
+   ══════════════════════════════════════════════════════ */
+
+/* ── Shared Modal Base ── */
+.modal-popup .modal-content {
+    border-radius: 12px !important;
+    border: 1px solid #eee !important;
+    overflow: hidden;
+}
+
+.modal-popup .modal-top-bar {
+    padding: 16px;
+    border-bottom: none;
+}
+
+.modal-popup .modal-top-bar .modal-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+.modal-popup .modal-action-bar {
+    border-top: 1px solid #cbd5e1;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Standard popup buttons — 160x38, border-radius 6px */
+.modal-popup .btn-popup {
+    width: 160px;
+    height: 38px;
+    border-radius: 6px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-popup-cancel {
+    background: #6c757d !important;
+    color: white !important;
+}
+.btn-popup-cancel:hover {
+    background: #5a6268 !important;
+    color: white !important;
+}
+
+.btn-popup-confirm {
+    background: #198754 !important;
+    color: white !important;
+}
+.btn-popup-confirm:hover {
+    background: #157347 !important;
+    color: white !important;
+}
+
+.btn-popup-danger {
+    background: #dc3545 !important;
+    color: white !important;
+}
+.btn-popup-danger:hover {
+    background: #c82333 !important;
+    color: white !important;
+}
+
+.btn-popup-primary {
+    background: #003366 !important;
+    color: white !important;
+}
+.btn-popup-primary:hover {
+    background: #002244 !important;
+    color: white !important;
+}
+
+/* ── Edit Form Modal (600px wide, Figma node 2:41649) ── */
+.modal-edit-form .modal-dialog {
+    max-width: 600px;
+}
+
+.modal-edit-form .form-area {
+    padding: 24px 31px;
+}
+
+.modal-edit-form .form-row-fields {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.modal-edit-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-edit-form .form-field-half {
+    width: 253px;
+}
+
+.modal-edit-form .form-field-third {
+    width: 163px;
+}
+
+.modal-edit-form .form-field label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    letter-spacing: 0.325px;
+    margin-bottom: 0;
+}
+
+.modal-edit-form .form-field .form-control,
+.modal-edit-form .form-field .form-select {
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.modal-edit-form .form-field .form-control[readonly] {
+    background: #e9ecef;
+    color: #495057;
+}
+
+/* ── Edit Alert Form Modal (560px wide, Figma node 2:41257 — 6 fields, 3x2 grid) ── */
+.modal-edit-alert .modal-dialog {
+    max-width: 600px;
+}
+
+.modal-edit-alert .form-area {
+    padding: 24px 31px;
+}
+
+.modal-edit-alert .form-grid {
+    display: grid;
+    grid-template-columns: 163px 163px 163px;
+    gap: 16px 24px;
+}
+
+.modal-edit-alert .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-edit-alert .form-field label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 0;
+}
+
+.modal-edit-alert .form-field .form-control,
+.modal-edit-alert .form-field .form-select {
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+/* ── OTP Template Modal — 1280px (Figma: "Template - Modal Dialog - OTP") ── */
+.modal-otp-template .modal-dialog {
+    max-width: 1334px;
+}
+
+.modal-otp-template .modal-content {
+    min-height: 400px;
+}
+
+/* Subtitle below title */
+.modal-otp-template .modal-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    letter-spacing: 0.35px;
+    margin-top: 4px;
+}
+
+/* Content area padding */
+.modal-otp-template .otp-content {
+    padding: 16px 24px;
+}
+
+/* ── Review Table (inside OTP template) ── */
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'bss-pridi', sans-serif !important;
+    margin-bottom: 16px;
+}
+
+.review-table thead th {
+    background: #d6e0e0;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.299px;
+    padding: 5px 8px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #cbd5e1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.review-table tbody td {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #013661 !important;
+    letter-spacing: 0.286px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.review-table tbody tr {
+    height: 36px;
+}
+
+.review-table tbody tr:nth-child(even) {
+    background: #f2f6f6;
+}
+
+.review-table tbody tr:nth-child(odd) {
+    background: white;
+}
+
+/* Warning icon cell in review table */
+.review-table .td-warning-icon {
+    width: 30px;
+    text-align: center;
+}
+
+/* Review table denomination badge */
+.review-table .qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+}
+
+/* ── Confirm/OTP Section (inside OTP template, below table) ── */
+.otp-confirm-section {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.otp-confirm-section .section-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    margin-bottom: 12px;
+}
+
+.otp-confirm-section .confirm-form-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.otp-confirm-section .confirm-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.otp-confirm-section .confirm-field label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 0;
+}
+
+.otp-confirm-section .confirm-field .form-control,
+.otp-confirm-section .confirm-field .form-select,
+.otp-confirm-section textarea.form-control {
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* OTP Step sections (Supervisor / Manager) — shown/hidden per step */
+.otp-step {
+    display: none;
+    padding: 24px;
+    text-align: center;
+}
+
+.otp-step.active {
+    display: block;
+}
+
+.otp-step .otp-role-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    margin-bottom: 16px;
+}
+
+.otp-step .otp-role-sublabel {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #6c757d !important;
+    margin-bottom: 24px;
+}
+
+/* ── Delete Confirm Table Modal (same OTP template, Figma node 2:42573) ── */
+.delete-table-instruction {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 12px;
+}
+
+/* Delete table checkbox column */
+.review-table .td-checkbox {
+    width: 36px;
+    text-align: center;
+}
+
+.review-table .td-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Remark textarea for delete confirm */
+.delete-remark-section {
+    margin-top: 16px;
+}
+
+.delete-remark-section label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.delete-remark-section textarea {
+    width: 100%;
+    min-height: 60px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+    resize: vertical;
+}
+
+/* ── Print Report Modal (Figma node 2:42846 — 1346px) ── */
+.modal-print-report .modal-dialog {
+    max-width: 1346px;
+}
+
+.modal-print-report .modal-content {
+    min-height: 500px;
+}
+
+.modal-print-report .report-top-bar {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    min-height: 86px;
+}
+
+.modal-print-report .report-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+}
+
+.modal-print-report .report-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.5px;
+}
+
+.modal-print-report .report-preview {
+    padding: 16px 24px;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.modal-print-report .report-preview-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 24px;
+    min-height: 400px;
+}
+
+/* Report mock table */
+.report-mock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+}
+
+.report-mock-table th {
+    background: #e9ecef;
+    padding: 6px 8px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.report-mock-table td {
+    padding: 4px 8px;
+    text-align: right;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.report-mock-table td:first-child {
+    text-align: left;
+}
+
+.report-mock-table .report-header-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+    text-align: center;
+    padding: 12px;
+}
+
+.report-mock-table .report-subheader-text {
+    font-size: 13px;
+    font-weight: 400;
+    color: #495057;
+    text-align: left;
+    padding: 4px 8px;
+}
+
+/* ── Modal Step Visibility Helpers ── */
+.modal-popup .modal-content > .modal-step {
+    display: none !important;
+}
+.modal-popup .modal-content > .modal-step.active {
+    display: block !important;
+}
+
+/* ── Reconfirm Reconcile Modal (Figma: Steps 09-12) ── */
+.reconfirm-section-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #000 !important;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.reconfirm-data-section {
+    padding: 8px 0;
+}
+
+.reconfirm-data-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #000 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.reconfirm-data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    color: #000 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    max-width: 525px;
+}
+
+.reconfirm-form-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+    letter-spacing: 0.35px;
+    line-height: 1.55;
+}
+
+/* ── Inline validation error (inside popup) ── */
+.popup-inline-error {
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+    display: none;
+}
+.popup-inline-error.show {
+    display: block;
+}

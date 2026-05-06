@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "กิจกรรม 1",
+    "description": "กิจกรรมจากทางโรงเรียน เรื่องที่ 1",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 2,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "กิจกรรม 2",
+    "description": "กิจกรรมจากทางโรงเรียน เรื่องที่ 2",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 3,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "กิจกรรม 3",
+    "description": "กิจกรรมจากทางโรงเรียน เรื่องที่ 3",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 4,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "กิจกรรม 4",
+    "description": "กิจกรรมจากทางโรงเรียน เรื่องที่ 4",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 5,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "กิจกรรม xss",
+    "description": "<img onload='alert(1);' src='https://cdn.hswstatic.com/gif/gettyimages-1401374620.jpg' /><p style='font-weight:bold;'>ทดสอบ XSS</p><ol><li>bullet 1</li><li>bullet 2</li><li>bullet 3</li></ol>",
+    "image_url": null,
+    "is_read": false
+  }
+]

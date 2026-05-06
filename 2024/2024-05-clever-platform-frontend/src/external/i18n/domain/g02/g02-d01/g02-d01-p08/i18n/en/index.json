@@ -1,0 +1,8 @@
+{
+  "title": "Data Upload",
+  "waiting_upload_tab_label": "Waiting for data upload",
+  "waiting_upload_subtitle": "Data will be uploaded automatically when the device is connected to the internet",
+  "uploaded_history_tab_label": "Upload History",
+  "last_login": "Last login: {{ date }}",
+  "latest_uploaded": "Latest upload: {{ date }}"
+}

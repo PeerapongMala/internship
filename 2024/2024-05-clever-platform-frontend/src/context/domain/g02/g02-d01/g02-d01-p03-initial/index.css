@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wdth,wght@62.5..100,100..900&display=swap');
+
+/* modal-outer */
+.body {
+  font-family: 'Noto Sans Thai';
+}
+
+.text-shadow {
+  @apply [text-shadow:0px_3px_5px_var(--tw-shadow-color)] shadow-black/40;
+}

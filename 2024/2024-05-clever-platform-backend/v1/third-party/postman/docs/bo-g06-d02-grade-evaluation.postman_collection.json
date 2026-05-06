@@ -1,0 +1,1075 @@
+{
+	"info": {
+		"_postman_id": "c289b679-9645-4513-86a5-d9cdb662949b",
+		"name": "g06-d02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "G06D02",
+			"item": [
+				{
+					"name": "a01 api-evaluation-form-create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"school_id\": 1,\n    \"template_id\": 1,\n    // \"academic_year\": \"2567\", // optional\n    // \"year\": \"ชั้น ป.1\", // optional\n    // \"school_room\": \"ห้อง 5\", // optional\n    // \"school_term\": \"ซัมเมอร์\", // optional\n    \"is_lock\": false,\n    \"status\": \"in_progress\",\n    \"wizard_index\": 1 // optional   \n\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-form",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-form"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "a01 api-evaluation-form-create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"school_id\": 1,\n    \"template_id\": 1,\n    // \"academic_year\": \"2567\", // optional\n    // \"year\": \"ชั้น ป.1\", // optional\n    // \"school_room\": \"ห้อง 5\", // optional\n    // \"school_term\": \"ซัมเมอร์\", // optional\n    \"is_lock\": false,\n    \"status\": \"in_progress\",\n    \"wizard_index\": 1 // optional   \n\n\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-form/v1/evaluation-form",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-form",
+										"v1",
+										"evaluation-form"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Apr 2025 13:19:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "420"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "44710bbb-6475-4b21-8696-2367c30f3815"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 17,\n        \"school_id\": 1,\n        \"template_id\": 1,\n        \"academic_year\": null,\n        \"year\": null,\n        \"school_room\": null,\n        \"school_term\": null,\n        \"is_lock\": false,\n        \"status\": \"in_progress\",\n        \"created_at\": \"2025-04-09T13:19:41.44921Z\",\n        \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"updated_at\": \"2025-04-09T13:19:41.44921Z\",\n        \"updated_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"is_archived\": null,\n        \"wizard_index\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "a02 api-evaluation-form-update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    //เอา field จาก a03 มาอัพเดท\n    \"academic_year\": \"2567\", // optional\n    \"year\": \"ชั้น ป.1\", // optional\n    \"school_room\": \"ห้อง 5\", // optional\n    \"school_term\": \"ซัมเมอร์\", // optional\n    \n    \"is_lock\": true\n\n        \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-form/:evaluationFormId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-form",
+								":evaluationFormId"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "14",
+									"description": "รหัสใบตัดเกรด"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a03 api-evaluation-form-get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-form/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-form",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a04 api-evaluation-form-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/:schoolId/evaluation-form?page=1&limit=10&year=ป.1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								":schoolId",
+								"evaluation-form"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "year",
+									"value": "ป.1"
+								},
+								{
+									"key": "status",
+									"value": "report_available",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "ห้อง 4",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a05 api-grade-additional-person-put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"formId\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"type\": \"LEARNING_AREA\",\n            \"name\": \"คณิตศาสตร์\",\n            \"person_data\": [\n                {\n                    \"user_type\": \"teacher\",\n                    \"user_id\": \"abf26314-a541-4e39-8fff-ed5aa78a2782\"\n                },\n                {\n                    \"user_type\": \"teacher\",\n                    \"user_id\": \"e2e684b7-8761-4a96-8be5-4ca93dfc970b\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"type\": \"LEARNING_AREA\",\n            \"name\": \"วิทยาศาสตร์\",\n            \"person_data\": []\n        },\n        {\n            \"id\": 1,\n            \"type\": \"GENERAL_EVALUATION\",\n            \"name\": \"เวลาเรียน\",\n            \"person_data\": [\n                {\n                    \"user_type\": \"teacher\",\n                    \"user_id\": \"abf26314-a541-4e39-8fff-ed5aa78a2782\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"type\": \"GENERAL_EVALUATION\",\n            \"name\": \"คุณลักษณะอันพึงประสงค์\",\n            \"person_data\": [\n                {\n                    \"user_type\": \"teacher\",\n                    \"user_id\": \"abf26314-a541-4e39-8fff-ed5aa78a2782\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"type\": \"GENERAL_EVALUATION\",\n            \"name\": \"สมรรถนะ\",\n            \"person_data\": []\n        },\n        {\n            \"id\": 4,\n            \"type\": \"GENERAL_EVALUATION\",\n            \"name\": \"กิจกรรมพัฒนาผู้เรียน\",\n            \"person_data\": [\n                {\n                    \"user_type\": \"teacher\",\n                    \"user_id\": \"e2e684b7-8761-4a96-8be5-4ca93dfc970b\"\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/responsible-person/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"responsible-person",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a07 api-grade-additional-person-get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/responsible-person/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"responsible-person",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a08 create subject",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/subject",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"subject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a09 update subject",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"id\": 19,\r\n            \"form_id\": 11,\r\n            \"template_subject_id\": 44,\r\n            \"subject_name\": \"eng\",\r\n            \"is_clever\": true,\r\n            \"clever_subject_id\": 1,\r\n            \"clever_subject_template_id\": null,\r\n            \"hours\": 100,\r\n            \"indicator\": [\r\n                {\r\n                    \"id\": 19,\r\n                    \"clever_subject_template_indicator_id\": null,\r\n                    \"evaluation_form_subject_id\": 33,\r\n                    \"name\": \"ตัวชี้วัด Test\",\r\n                    \"max_value\": 30,\r\n                    \"sort\": 1,\r\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\r\n                    \"clever_lesson_id\": 81,\r\n                    \"clever_sub_lesson_id\": 321,\r\n                    \"setting\": [\r\n                        {\r\n                            \"id\": 36,\r\n                            \"evaluation_form_indicator_id\": 19,\r\n                            \"evaluation_key\": \"STAGE_LIST\",\r\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\r\n                            \"value\": \"[]\",\r\n                            \"weight\": 0,\r\n                            \"level_count\": 7 // new 2025-09-11\r\n                        },\r\n                        {\r\n                            \"id\": 37,\r\n                            \"evaluation_form_indicator_id\": 19,\r\n                            \"evaluation_key\": \"STAGE_LIST\",\r\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\r\n                            \"value\": \"[5408]\",\r\n                            \"weight\": 10,\r\n                            \"level_count\": 0 // new 2025-09-11\r\n                        },\r\n                        {\r\n                            \"id\": 38,\r\n                            \"evaluation_form_indicator_id\": 19,\r\n                            \"evaluation_key\": \"STAGE_LIST\",\r\n                            \"evaluation_topic\": \"ด่านง่าย\",\r\n                            \"value\": \"[210,211,212,213,214,215,5411,5412]\",\r\n                            \"weight\": 20,\r\n                            \"level_count\": 0 // new 2025-09-11\r\n                        },\r\n                        {\r\n                            \"id\": 39,\r\n                            \"evaluation_form_indicator_id\": 19,\r\n                            \"evaluation_key\": \"STAGE_LIST\",\r\n                            \"evaluation_topic\": \"ด่านยาก\",\r\n                            \"value\": \"[]\",\r\n                            \"weight\": 0,\r\n                            \"level_count\": 0 // new 2025-09-11\r\n                        },\r\n                        {\r\n                            \"id\": 40,\r\n                            \"evaluation_form_indicator_id\": 19,\r\n                            \"evaluation_key\": \"STAGE_LIST\",\r\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\r\n                            \"value\": \"[]\",\r\n                            \"weight\": 0,\r\n                            \"level_count\": 0 // new 2025-09-11\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/subject/:evaluationFormId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"subject",
+								":evaluationFormId"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a10 get subject list + detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/subject/:evaluationFormId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"subject",
+								":evaluationFormId"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/grade-system-form/v1/subject/:evaluationFormId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-form",
+										"v1",
+										"subject",
+										":evaluationFormId"
+									],
+									"variable": [
+										{
+											"key": "evaluationFormId",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 19 Jun 2025 04:05:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2294"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "c5d2510c-5889-41fa-8bca-98a197c25414"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 19,\n            \"form_id\": 11,\n            \"template_subject_id\": 44,\n            \"subject_name\": \"eng\",\n            \"is_clever\": true,\n            \"clever_subject_id\": 1,\n            \"clever_subject_template_id\": null,\n            \"hours\": 100,\n            \"indicator\": null\n        },\n        {\n            \"id\": 18,\n            \"form_id\": 11,\n            \"template_subject_id\": 43,\n            \"subject_name\": \"math\",\n            \"is_clever\": false,\n            \"clever_subject_id\": null,\n            \"clever_subject_template_id\": 1,\n            \"hours\": 100,\n            \"indicator\": [\n                {\n                    \"id\": 83,\n                    \"clever_subject_template_indicator_id\": 1,\n                    \"evaluation_form_subject_id\": 18,\n                    \"name\": \"จำนวนนับที่มากกว่า 100,000\",\n                    \"max_value\": 30,\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n                    \"clever_lesson_id\": 1,\n                    \"clever_sub_lesson_id\": 1,\n                    \"setting\": [\n                        {\n                            \"id\": 172,\n                            \"evaluation_form_indicator_id\": 83,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านประเมินก่อนเรียน\",\n                            \"value\": \"[1,2,3]\",\n                            \"weight\": 10\n                        },\n                        {\n                            \"id\": 173,\n                            \"evaluation_form_indicator_id\": 83,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"value\": \"[]\",\n                            \"weight\": 10\n                        }\n                    ]\n                }\n            ]\n        },\n        {\n            \"id\": 20,\n            \"form_id\": 11,\n            \"template_subject_id\": 45,\n            \"subject_name\": \"sci\",\n            \"is_clever\": true,\n            \"clever_subject_id\": 14,\n            \"clever_subject_template_id\": null,\n            \"hours\": 100,\n            \"indicator\": [\n                {\n                    \"id\": 11,\n                    \"clever_subject_template_indicator_id\": null,\n                    \"evaluation_form_subject_id\": 20,\n                    \"name\": \"ตัวชี้วัด Test\",\n                    \"max_value\": 30,\n                    \"sort\": 1,\n                    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n                    \"clever_lesson_id\": 81,\n                    \"clever_sub_lesson_id\": 321,\n                    \"setting\": [\n                        {\n                            \"id\": 16,\n                            \"evaluation_form_indicator_id\": 11,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบก่อนเรียน\",\n                            \"value\": \"[]\",\n                            \"weight\": 0\n                        },\n                        {\n                            \"id\": 17,\n                            \"evaluation_form_indicator_id\": 11,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n                            \"value\": \"[5408]\",\n                            \"weight\": 10\n                        },\n                        {\n                            \"id\": 18,\n                            \"evaluation_form_indicator_id\": 11,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านง่าย\",\n                            \"value\": \"[210,211,212,213,214,215,5411,5412]\",\n                            \"weight\": 20\n                        },\n                        {\n                            \"id\": 19,\n                            \"evaluation_form_indicator_id\": 11,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านยาก\",\n                            \"value\": \"[]\",\n                            \"weight\": 0\n                        },\n                        {\n                            \"id\": 20,\n                            \"evaluation_form_indicator_id\": 11,\n                            \"evaluation_key\": \"STAGE_LIST\",\n                            \"evaluation_topic\": \"ด่านปานกลาง\",\n                            \"value\": \"[]\",\n                            \"weight\": 0\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+						}
+					]
+				},
+				{
+					"name": "a11-api-evaluation-form-submit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-form/:evaluationFormId/submit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-form",
+								":evaluationFormId",
+								"submit"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "155"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a12-api-evaluation-form-bulk-update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bulk_edit_list\":[\r\n        {\r\n            \"id\": 1,\r\n            \"academic_year\": \"2568\",\r\n            \"year\": \"ป.2/22\",\r\n            \"school_room\": \"3\",\r\n            \"school_term\": \"1\",\r\n            \"is_lock\": true,\r\n            \"status\": \"active\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"academic_year\": \"2568\",\r\n            \"year\": \"ป.4\",\r\n            \"school_room\": \"4\",\r\n            \"school_term\": \"2\",\r\n            \"is_lock\": false,\r\n            \"status\": \"active\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-form/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-form",
+								"bulk-edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a13-api-evaluation-form-get-template-list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/drop-down/:schoolId/template-list",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"drop-down",
+								":schoolId",
+								"template-list"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/grade-system-form/v1/drop-down/:schoolId/template-list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-form",
+										"v1",
+										"drop-down",
+										":schoolId",
+										"template-list"
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 15:12:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "289"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "217294ad-63e3-4fe4-a400-80b0205de74d"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"year\": \"ชั้น ป.1\",\n            \"template_name\": \"ใบประเมินรายวิชา ป.1\",\n            \"version\": \"0.1\",\n            \"active_flag\": true,\n            \"status\": \"enabled\",\n            \"subject_count\": 1\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+						}
+					]
+				},
+				{
+					"name": "a14-api-evaluation-form-download-csv",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/:schoolId/evaluation-form/download/csv?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								":schoolId",
+								"evaluation-form",
+								"download",
+								"csv"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "a14-api-evaluation-form-download-csv",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/grade-system-form/v1/:schoolId/evaluation-form/download/csv?page=1&limit=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-form",
+										"v1",
+										":schoolId",
+										"evaluation-form",
+										"download",
+										"csv"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									],
+									"variable": [
+										{
+											"key": "schoolId",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jan 2025 08:34:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv"
+								},
+								{
+									"key": "Content-Length",
+									"value": "238"
+								},
+								{
+									"key": "Content-Disposition",
+									"value": "attachment; filename=grade_evaluation_form.csv"
+								}
+							],
+							"cookie": [],
+							"body": "No,Id(ห้ามแก้),TemplateId(ห้ามแก้),TemplateName,ปีการศึกษา,ชั้นปี,ห้อง,เทอม,ล็อคใบเกรด,สถานะ\n1,1,5,Test1,2568,ป.2,3,1,true,active\n"
+						}
+					]
+				},
+				{
+					"name": "a15-api-evaluation-form-upload-csv",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file",
+									"type": "file",
+									"src": "/C:/Users/Frank/Desktop/Fastwork/zatta_merge/2024-05-clever-platform-backend/v1/third-party/postman/docs/grade_evaluation_form.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/:schoolId/evaluation-form/upload/csv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								":schoolId",
+								"evaluation-form",
+								"upload",
+								"csv"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a16 get sheet list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-sheet?form_id=159&page=1&limit=100&school_id=1&only_subject_and_nutrition=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-sheet"
+							],
+							"query": [
+								{
+									"key": "subject_id",
+									"value": "3",
+									"description": "วิชา",
+									"disabled": true
+								},
+								{
+									"key": "general_evaluation_id",
+									"value": "",
+									"description": "อื่นๆ ทั่วไป",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.1",
+									"description": "FIXME",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "2568",
+									"disabled": true
+								},
+								{
+									"key": "school_room",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "school_term",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "general_type",
+									"value": "คุณลักษณะอันพึงประสงค์",
+									"disabled": true
+								},
+								{
+									"key": "general_name",
+									"value": "คุณลักษณะอันพึงประสงค์ ประถม",
+									"disabled": true
+								},
+								{
+									"key": "form_id",
+									"value": "159"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "school_id",
+									"value": "1"
+								},
+								{
+									"key": "only_subject",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "only_subject_and_nutrition",
+									"value": "true"
+								}
+							]
+						},
+						"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+					},
+					"response": []
+				},
+				{
+					"name": "a17 api-evaluation-sheet-update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_lock\": true, //optional\n    \"status\": \"enable\" //optional : draft, enabled, disabled, sent\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/evaluation-sheet/:evaluationSheetId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"evaluation-sheet",
+								":evaluationSheetId"
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "75"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a18-api-grade-subject-indicator-update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 115,\n    \"clever_subject_template_indicator_id\": 1,\n    \"evaluation_form_subject_id\": 112,\n    \"name\": \"จำนวนนับที่มากกว่า 100,000\",\n    \"max_value\": 30,\n    \"sort\": 1,\n    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n    \"clever_lesson_id\": 1,\n    \"clever_sub_lesson_id\": 1,\n    \"setting\": [\n        {\n            \"id\": 222,\n            \"evaluation_form_indicator_id\": 115,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านประเมินก่อนเรียน\",\n            \"value\": \"[1,2]\",\n            \"weight\": 2,\n            \"level_count\": 8 // new 2025-09-11\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/indicator/:indicatorId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"indicator",
+								":indicatorId"
+							],
+							"variable": [
+								{
+									"key": "indicatorId",
+									"value": "115"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 115,\n    \"clever_subject_template_indicator_id\": 1,\n    \"evaluation_form_subject_id\": 112,\n    \"name\": \"จำนวนนับที่มากกว่า 100,000\",\n    \"max_value\": 30,\n    \"sort\": 1,\n    \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n    \"clever_lesson_id\": 1,\n    \"clever_sub_lesson_id\": 1,\n    \"setting\": [\n        {\n            \"id\": 222,\n            \"evaluation_form_indicator_id\": 115,\n            \"evaluation_key\": \"STAGE_LIST\",\n            \"evaluation_topic\": \"ด่านประเมินก่อนเรียน\",\n            \"value\": \"[1,2,3]\",\n            \"weight\": 22\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/grade-system-form/v1/indicator/:indicatorId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"grade-system-form",
+										"v1",
+										"indicator",
+										":indicatorId"
+									],
+									"variable": [
+										{
+											"key": "indicatorId",
+											"value": "115"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 05 Aug 2025 11:04:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "519"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "0364715c-be9b-4cb0-b5f0-d626b648ba74"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 115,\n            \"clever_subject_template_indicator_id\": 1,\n            \"evaluation_form_subject_id\": 112,\n            \"name\": \"จำนวนนับที่มากกว่า 100,000\",\n            \"max_value\": 30,\n            \"sort\": 1,\n            \"score_evaluation_type\": \"ACADEMIC_CRITERIA\",\n            \"clever_lesson_id\": 1,\n            \"clever_sub_lesson_id\": 1,\n            \"setting\": [\n                {\n                    \"id\": 222,\n                    \"evaluation_form_indicator_id\": 115,\n                    \"evaluation_key\": \"STAGE_LIST\",\n                    \"evaluation_topic\": \"ด่านประเมินก่อนเรียน\",\n                    \"value\": \"[1,2,3]\",\n                    \"weight\": 22\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "a19-api-grade-evaluation-form-clone-template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test clone template\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/:formId/clone",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								":formId",
+								"clone"
+							],
+							"variable": [
+								{
+									"key": "formId",
+									"value": "153"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a20-api-grade-template-clone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template_id\": 125,\n    \"form_id\": 153\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-system-form/v1/public-clone",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-system-form",
+								"v1",
+								"public-clone"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

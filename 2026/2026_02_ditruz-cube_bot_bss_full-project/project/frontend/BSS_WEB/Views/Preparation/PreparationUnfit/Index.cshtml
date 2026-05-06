@@ -1,0 +1,686 @@
+@model BSS_WEB.Views.Preparation.PreparationUnfit.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "PreparationUnfit";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/preparation/unfit.css")" asp-append-version="true" />
+
+@Html.AntiForgeryToken()
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+		<div class="main-title">
+			<div class="title-left">
+			<div class="title-section">
+				<h1>Preparation UNFIT</h1>
+				<p>เตรียมธนบัตร UNFIT</p>
+			</div>
+			<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+			<input type="hidden" id="currentUserFullName"
+				   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+			<input type="hidden" id="currentDepartmentId" value="@User.FindFirst("DepartmentID")?.Value" />
+			</div>
+			<div class="title-right">
+					<button class="btn-blue" onclick="printContainer()">
+					<i class="bi bi-printer"></i> Print Prepare Data
+				</button>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="left-panel">
+				<div class="white-card white-card-normal">
+					<div class="card-title">เพิ่มรายการเตรียมธนบัตร UNFIT</div>
+					<div class="steps-row">
+						<div class="step-box">
+							<div class="step-header">
+								<div class="step-num">1</div>
+								<div class="step-title">สแกนบาร์โค้ดภาชนะ</div>
+							</div>
+							<div class="step-wrap">
+								<div class="step-label">บาร์โค้ดภาชนะ</div>
+									<input type="text" maxlength="15" id="barcodeContainerInput" class="step-input-small" autocomplete="off">
+								<div class="step-desc">
+									<div id="bankNameDisplay">ธนาคาร: <span id="bankName">-</span></div>
+									<div id="bnTypeNameDisplay">@Model.BnTypeNameDisplay</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="step-box">
+							<div class="step-header">
+								<div class="step-num">2</div>
+								<div class="step-title">สแกนบาร์โค้ดรายห่อ</div>
+							</div>
+							<div class="step-wrap">
+								<div class="step-label">บาร์โค้ดรายห่อ</div>
+									<input type="text" maxlength="25"
+								   id="barcodeWrapInput"
+								   class="step-input-small"
+								   autocomplete="off"
+								   oninput="toggleDummyButton()">
+									<input type="hidden" id="barcodeWrapOld" value="" />
+								<div class="step-desc">
+								<div>ศูนย์เงินสด: <span id="cashcenterName">-</span></div>
+								<div>ชนิดราคา: <span class="qty-badge.hidden" id="priteType">-</span></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="step-box">
+							<div class="step-header">
+								<div class="step-num">3</div>
+								<div class="step-title">สแกนบาร์โค้ดมัด</div>
+							</div>
+							<div class="step-wrap">
+							<div class="step-label">บาร์โค้ดมัด</div>
+								<input type="text" maxlength="30"
+								   id="barcodeBundleInput" class="step-input-small" autocomplete="off">
+								<div class="step-desc bundle-footer">
+								<span>มัดที่: <strong id="bundleCount">0 / 0</strong></span>
+								<button id="btnDummy" class="btn-blue" type="button" onclick="addDummy()">Dummy</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="step-box">
+							<div class="step-header">
+								<div class="step-num">4</div>
+								<div class="step-title">สแกน Header Card</div>
+							</div>
+							<div class="step-wrap">
+							<div class="step-label">Header Card</div>
+							<input type="text"
+								   id="barcodeHeaderCardInput" maxlength="30"
+								   class="step-input-small"
+								   autocomplete="off"
+								   disabled>
+								<div class="step-desc"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="white-card">
+					<div class="table-controls">
+						<div class="wc-header-left">
+							<button class="btn-refresh" onclick="refreshData()">
+								<i class="bi bi-arrow-clockwise"></i> Refresh
+							</button>
+							<span class="status-text">
+								Prepare ในภาชนะ <strong id="containerName"></strong>
+									แล้วทั้งหมด: <strong id="prepareCount" class="status-count">0 / 0</strong> มัด
+							</span>
+						</div>
+
+						<div class="wc-header-right">
+							<span class="status-text">Reconcile แล้วทั้งหมด: <strong id="reconcileCount" class="status-count">0</strong> มัด</span>
+
+							<span id="selectedCountText" class="status-text" style="display:none;"> Select: <strong id="selectedCount" class="status-count">0</strong></span>
+
+							<button id="btnEditSelected" class="btn-edit-all" style="display: none;" onclick="editMultipleRows()">
+								<i class="bi bi-pencil-fill"></i> Edit
+							</button>
+
+							<button id="btnDeleteMoreSelected" class="btn-delete-all" style="display: none;" onclick="confirmDeleteMultiple()">
+								<i class="bi bi-trash"></i> Delete
+							</button>
+
+							<button id="btnDeleteAllSelected" class="btn-delete-all" style="display: inline-block;" onclick="confirmDeleteAll()">
+								<i class="bi bi-trash"></i> Delete All
+							</button>
+						</div>
+					</div>
+					<div class="main-table-preparation-scroll">
+							<table class="data-table preparationUNFIT">
+							<thead>
+								<tr>
+									<th><input type="checkbox" id="selectAll"></th>
+									<th>บาร์โค้ดรายห่อ</th>
+									<th>บาร์โค้ดรายมัด</th>
+									<th>Header Card</th>
+									<th>ธนาคาร</th>
+									<th>ศูนย์เงินสด</th>
+									<th>ราคา</th>
+									<th>วันเวลาเตรียม</th>
+									<th>บาร์โค้ดภาชนะ</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody id="tableBody"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="right-panel">
+				<div class="sidebar-card">
+					<div class="info-list">
+						<div class="info-row">
+							<span class="info-row-label">Date:</span>
+							<span id="info-current-datetime">21/7/2568 14:00</span>
+						</div>
+						<div class="info-row">
+							<span class="info-row-label">Sorting Machine:</span>
+							<span>@Model.SortingMachine</span>
+						</div>
+						<div class="info-row">
+							<span class="info-row-label">Preparator:</span>
+							<span>@Model.Preparator</span>
+						</div>
+						<div class="info-row">
+							<span class="info-row-label">Shift:</span>
+							<span>@Model.ShiftName</span>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Barcode List Card -->
+				<div class="sidebar-card">
+					<div class="sidebar-title">รายการมัดที่ยังสแกนไม่ครบ</div>
+					<div class="barcode-section-title">
+							รายการมัดธนบัตรจากภาชนะ: <strong id="barcodeWrapPending" class="status-text-blue">-</strong>
+					</div>
+					<div class="main-table-preparation-scroll">
+						<table class="data-table preparationUNFIT_SUB">
+							<thead>
+								<tr>
+									<th>บาร์โค้ดรายห่อ</th>
+									<th>จำนวนมัด</th>
+								</tr>
+							</thead>
+							<tbody id="barcodeListBody">
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="sidebar-card">
+					<div class="sidebar-panel">
+						<div class="sidebar-title">หน้าจอ<br/>แสดงสถานะ</div>
+						<button class="btn-open-window" id="btnShowSecondScreenPreparation">
+								<i class="bi bi-tv me-2"></i>  เปิดหน้าจอ 2
+						</button>
+					</div>
+					<select class="dropdown-select" id="dropdownDisplayTwo">
+					</select>
+					<div class="display-two-small-card">
+						<div class="display-two-small-card-inner">
+							<div class="display-two-small-cashpoint" id="displaySmallCashpoint"></div>
+
+							<div class="display-two-small-row">
+								<div class="display-two-small-bank" id="displaySmallBankName"></div>
+								<div class="display-two-small-deno" id="displaySmallDeno"></div>
+							</div>
+							<div class="display-two-small-container" id="displaySmallContainerId"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!-- Modal 1: แก้ไขรายการเดียว -->
+<div class="modal fade" id="editModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">แก้ไขข้อมูล Header Card</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<input type="hidden" id="editId">
+				<div class="row g-4">
+					<div class="col-md-6">
+						<div class="mb-3">
+							<label class="form-label">Header Card (เก่า)</label>
+							<input type="text" class="form-control" id="oldHeaderCard" disabled>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Preparator (เก่า)</label>
+							<input type="text" class="form-control" id="oldCreatedBy" disabled>
+
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mb-3">
+							<label class="form-label">Header Card (ใหม่)</label>
+							<input type="text" class="form-control" id="editHeaderCard" autocomplete="off" maxlength="20">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Preparator (ใหม่)</label>
+							<select class="form-control select2" id="editCreatedBy">
+								<option value="">-- กรุณาเลือก --</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn btn-blue px-4" onclick="showConfirmModal()">ดำเนินการต่อ</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 1B: แก้ไขหลายรายการ -->
+<div class="modal fade" id="editMultipleModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">แก้ไขข้อมูล</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<div>
+					<h5 class="modal-title">เลือกแก้ไขข้อมูล <strong id="multiEditCount">0</strong> รายการ</h5>
+				</div>
+				<div class="row mb-3 align-items-center gx-3">
+					<label class="form-label col-sm-6 mb-0">Preparator</label>
+					<div class="col-sm-6">
+						<select class="form-select  select2" id="multiEditCreatedBy">
+							<option value="">-- กรุณาเลือก --</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn btn-blue px-4" onclick="showMultiConfirmModal()">ดำเนินการต่อ</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 2: ตรวจสอบการแก้ไข -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 95vw;">
+		<div class="modal-content" style="min-height: 85vh;">
+			<div class="modal-header">
+				<h5 class="modal-title fw-bold">ตรวจสอบการแก้ไข</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<h5>เตรียมแก้ไขข้อมูล <strong id="multiConfirmEditCount">1</strong> รายการ</h5>
+				<div class="sub-table-scroll">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>#</th>
+								<th>บาร์โค้ดรายห่อ</th>
+								<th>บาร์โค้ดรายมัด</th>
+								<th>Header Card (เก่า)</th>
+								<th>Header Card (ใหม่)</th>
+								<th>ธนาคาร</th>
+								<th>ศูนย์เงินสด</th>
+								<th>ราคา</th>
+								<th>วันเวลาเตรียม</th>
+								<th>บาร์โค้ดภาชนะ</th>
+								<th>Preparator (เก่า)</th>
+								<th>Preparator (ใหม่)</th>
+							</tr>
+						</thead>
+						<tbody id="confirmTableBody"></tbody>
+					</table>
+				</div>
+				<div class="mt-3 p-3 border rounded bg-light">
+					<h5 class="fw-bold mb-3">ยืนยันการแก้ไข</h5>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label class="form-label">เหตุผล <span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="reasonText" placeholder="ระบุเหตุผล">
+						</div>
+						<div class="col-md-6">
+							<label class="form-label">เลือก Supervisor <span class="text-danger">*</span></label>
+							<select class="form-select " id="supervisorName">
+								<option value="">- เลือก -</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" onclick="backToEditModal()">ย้อนกลับแก้ไข</button>
+				<button class="btn btn-blue px-4" onclick="submitApprovalRequest()">ส่งคำขออนุมัติแก้ไข</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 3: ยืนยัน OTP -->
+<div class="modal fade" id="otpModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 95vw;">
+		<div class="modal-content" style="min-height: 85vh;">
+			<div class="modal-header">
+				<h5 class="modal-title fw-bold">ยืนยันการแก้ไข</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<h5>เตรียมแก้ไขข้อมูล <strong id="editListCount">1</strong> รายการ</h5>
+				<div class="sub-table-scroll">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>#</th>
+								<th>บาร์โค้ดรายห่อ</th>
+								<th>บาร์โค้ดรายมัด</th>
+								<th>Header Card (เก่า)</th>
+								<th>Header Card (ใหม่)</th>
+								<th>ธนาคาร</th>
+								<th>ศูนย์เงินสด</th>
+								<th>ราคา</th>
+								<th>วันเวลาเตรียม</th>
+								<th>บาร์โค้ดภาชนะ</th>
+								<th>Preparator (เก่า)</th>
+								<th>Preparator (ใหม่)</th>
+							</tr>
+						</thead>
+						<tbody id="otpTableBody"></tbody>
+					</table>
+				</div>
+				<div class="mt-3 p-3 border rounded bg-light">
+					<h5 class="fw-bold mb-3">ยืนยันการแก้ไข</h5>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label class="form-label fw-bold">เหตุผล</label>
+							<input type="text" class="form-control" id="displayReason" disabled>
+						</div>
+						<div class="col-md-6">
+							<label class="form-label fw-bold">Supervisor กรอกรหัส OTP / Refcode : <span id="otp-refcode"></span> </label>
+							<input type="text" id="otpInput" class="form-control" placeholder="กรอกรหัส OTP 6 หลัก" maxlength="6" autocomplete="off" disabled>
+							<small id="otpErrorMsg" class="text-danger fw-bold"></small>
+							<div class="d-flex align-items-center gap-3 mt-2">
+								<button id="btnSendOtp" class="btn-blue btn-sm" onclick="sendOtp()">
+									<i class="bi bi-envelope"></i> ส่งรหัส OTP
+								</button>
+								<span id="otpTimer" class="text-danger fw-bold"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" onclick="backToConfirmModal()">ย้อนกลับ</button>
+				<button id="btnConfirmOtp" class="btn btn-green" disabled onclick="submitOtp()">
+					<i class="bi bi-check-circle"></i> ยืนยัน OTP
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 4: แสดงความสำเร็จ (Edit) -->
+<div class="modal fade" id="successModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-success-title">
+						<i class="bi bi-check-circle-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">สำเร็จ!</h3>
+				<h6 class="mb-4">แก้ไขข้อมูลภาชนะสำเร็จ</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-green px-5" onclick="closeAllModals()">
+					<i class="bi bi-check-lg"></i> ตกลง
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Delete 1: ยืนยันการลบ (1 รายการ) -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">ลบข้อมูล 1 รายการ</h3>
+				<h6 class="mb-4">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้</h6>
+			</div>
+			<div class="modal-footer d-flex justify-content-center gap-2">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn btn-red px-4" onclick="confirmSingleDelete()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Delete 2: ยืนยันการลบ (หลายรายการ) -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">ลบข้อมูล <span id="deleteCountMsg">1</span> รายการ</h3>
+				<h6 class="mb-4">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้</h6>
+			</div>
+			<div class="modal-footer d-flex justify-content-center gap-2">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn btn-red px-4" onclick="showDeleteConfirmModal()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Delete 3: แสดงรายการที่จะลบ + เหตุผล + Supervisor -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 95vw;">
+		<div class="modal-content" style="min-height: 85vh;">
+			<div class="modal-header">
+				<h5 class="modal-title fw-bold">ตรวจสอบการลบข้อมูล</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<h5>เตรียมลบข้อมูล <span id="deleteListCount">1</span> รายการ</h5>
+				<div class="sub-table-scroll">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>#</th>
+								<th>บาร์โค้ดรายห่อ</th>
+								<th>บาร์โค้ดรายมัด</th>
+								<th>Header Card</th>
+								<th>ธนาคาร</th>
+								<th>ศูนย์เงินสด</th>
+								<th>ราคา</th>
+								<th>วันเวลาเตรียม</th>
+								<th>บาร์โค้ดภาชนะ</th>
+								<th>Preparator</th>
+							</tr>
+						</thead>
+						<tbody id="deleteConfirmTableBody"></tbody>
+					</table>
+				</div>
+				<div class="mt-3 p-3 border rounded bg-light">
+					<h5 class="fw-bold mb-3">ยืนยันการลบ</h5>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label class="form-label">เหตุผล <span class="text-danger">*</span></label>
+							<input type="text" class="form-control" id="deleteReasonText" placeholder="ระบุเหตุผล">
+						</div>
+						<div class="col-md-6">
+							<label class="form-label">เลือก Supervisor <span class="text-danger">*</span></label>
+							<select class="form-select" id="deleteSupervisorSelect">
+								<option value="">- เลือก -</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray" onclick="backToConfirmDelete()">ย้อนกลับ</button>
+				<button class="btn btn-blue" onclick="submitDeleteApproval()">ส่งคำขออนุมัติแก้ไข</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Delete 4: ยืนยัน OTP -->
+<div class="modal fade" id="deleteOtpModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered" style="max-width: 95vw;">
+		<div class="modal-content" style="min-height: 85vh;">
+			<div class="modal-header">
+				<h5 class="modal-title fw-bold">ยืนยันการลบ</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<h5>เตรียมลบข้อมูล <span id="deleteOtpListCount">1</span> รายการ</h5>
+				<div class="sub-table-scroll">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>#</th>
+								<th>บาร์โค้ดรายห่อ</th>
+								<th>บาร์โค้ดรายมัด</th>
+								<th>Header Card</th>
+								<th>ธนาคาร</th>
+								<th>ศูนย์เงินสด</th>
+								<th>ราคา</th>
+								<th>วันเวลาเตรียม</th>
+								<th>บาร์โค้ดภาชนะ</th>
+								<th>Preparator</th>
+							</tr>
+						</thead>
+						<tbody id="deleteOtpTableBody"></tbody>
+					</table>
+				</div>
+				<div class="mt-3 p-3 border rounded bg-light">
+					<h5 class="fw-bold mb-3">ยืนยันการลบ</h5>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<label class="form-label fw-bold">เหตุผล</label>
+							<input type="text" class="form-control" id="deleteDisplayReason" disabled>
+						</div>
+						<div class="col-md-6">
+							<label class="form-label fw-bold">Supervisor กรอกรหัส OTP / Refcode : <span id="deleteOtpRefcode"></span></label>
+							<input type="text" id="deleteOtpInput" class="form-control" placeholder="กรอกรหัส OTP 6 หลัก" autocomplete="off" maxlength="6" disabled>
+							<small id="deleteOtpErrorMsg" class="text-danger fw-bold"></small>
+							<div class="d-flex align-items-center gap-3 mt-2">
+								<button id="btnDeleteSendOtp" class="btn-blue btn-sm" onclick="sendDeleteOtp()">
+									<i class="bi bi-envelope"></i> ส่งรหัส OTP
+								</button>
+								<span id="deleteOtpTimer" class="text-danger fw-bold"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" onclick="backToDeleteConfirm()">ย้อนกลับ</button>
+				<button id="btnDeleteConfirmOtp" class="btn btn-green px-4" disabled onclick="submitDeleteOtp()">
+					<i class="bi bi-check-circle"></i> ยืนยัน OTP
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Delete 5: แสดงความสำเร็จ -->
+<div class="modal fade" id="deleteSuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-success-title">
+						<i class="bi bi-check-circle-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">สำเร็จ!</h3>
+				<h6 class="mb-4">ลบข้อมูลสำเร็จ</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-green px-5" onclick="closeAllDeleteModals()">
+					<i class="bi bi-check-lg"></i> ตกลง
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal error จากการ validate -->
+<div class="modal fade" id="barcodeErrorModal" data-bs-backdrop="static" data-bs-keyboard="false"
+	 tabindex="-1" aria-labelledby="barcodeErrorModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3" id="barcodeErrorModalLabel">การแจ้งเตือน</h3>
+				<h6 class="mb-4" id="barcodeErrorMessageText">ข้อความผิดพลาด</h6>
+			</div>
+			<div class="modal-footer justify-content-center gap-2">
+				<button type="button" class="btn btn-blue px-4" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Change Container -->
+<div class="modal fade" id="ChangeContainerModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="text-black fw-bold mb-3">ระบบตรวจพบ<br />Prepare ยังไม่ครบทุกห่อในภาชนะ</h3>
+				<h6 class="text-muted mb-4">คุณแน่ใจหรือไม่ที่ต้องการเปลี่ยนภาชนะ</h6>
+			</div>
+			<div class="modal-footer d-flex justify-content-center gap-2">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal" onclick="cancelChangeContainerModal()">ยกเลิก</button>
+				<button class="btn btn-blue px-4" onclick="confirmChangeContainerModal()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Change Wrap -->
+<div class="modal fade" id="ChangeWrapModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="text-black fw-bold mb-3">ระบบตรวจพบ<br />Prepare ยังไม่ครบทุกมัดในห่อ</h3>
+				<h6 class="text-muted mb-4">คุณแน่ใจหรือไม่ที่ต้องการเปลี่ยนห่อ</h6>
+			</div>
+			<div class="modal-footer d-flex justify-content-center gap-2">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal" onclick="cancelChangeWrapModal()">ยกเลิก</button>
+				<button class="btn btn-blue px-4" onclick="confirmChangeWrapModal()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+@section Scripts {
+
+	<script src="@Url.Content("~/js/preparation/preparationUnfit.js")" asp-append-version="true"></script>
+	<script src="@Url.Content("~/js/helpers/bss-report-export.js")" asp-append-version="true"></script>
+}

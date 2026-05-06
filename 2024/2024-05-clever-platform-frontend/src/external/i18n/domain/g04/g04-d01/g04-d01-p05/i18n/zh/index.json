@@ -1,0 +1,17 @@
+{
+  "about_sublesson_title": "关于迷你课程",
+  "amount_of_level_label": "级别数",
+  "amount_of_sublesson_file_size_label": "文件大小",
+  "download_sublesson_sound_btn_label": "下载旁白",
+  "download_sublesson_btn_label": "下载",
+  "download_audio_files_btn_label": "下载音频文件 ({{count}} 个文件)",
+  "files_label": "个文件",
+  "delete_local_sublesson_data_btn_label": "删除本地数据",
+  "delete_local_sublesson_data_modal_title": "删除本地旁白数据",
+  "delete_local_sublesson_data_modal_message": "您想要删除本地旁白数据吗？<br/>删除旁白数据<strong>不会影响您的游戏记录</strong>。<br/><br/>将旁白数据保留在您的设备上可以让您离线游戏，并且当您连接到互联网时可以重新下载。",
+  "confirm_delete_local_sublesson_data_modal_btn_label": "确认删除",
+  "play_btn_label": "开始游戏",
+  "checkbox_language_th_label": "泰语",
+  "checkbox_language_en_label": "英语",
+  "checkbox_language_cn_label": "中文"
+}

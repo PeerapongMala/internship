@@ -1,0 +1,215 @@
+/* ===== Goal Page Layout ===== */
+.goal-content {
+  max-width: 1280px;
+}
+
+/* ===== Add Button ===== */
+.goal-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  margin-bottom: 24px;
+}
+
+.goal-add-btn:hover {
+  opacity: 0.9;
+}
+
+.goal-add-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+/* ===== Goal Grid ===== */
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ===== Goal Card ===== */
+.goal-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  animation: goalCardIn 0.35s ease;
+}
+
+@keyframes goalCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.goal-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.goal-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* ===== Badge ===== */
+.goal-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  background: var(--gray-100);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+/* ===== Info Rows ===== */
+.goal-info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.goal-info-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.goal-info-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* ===== Highlight Box ===== */
+.goal-highlight {
+  background: var(--primary-50);
+  border: 1.5px solid var(--primary-200);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.goal-highlight-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.goal-highlight-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ===== Edit Button ===== */
+.goal-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.goal-edit-btn:hover {
+  background: var(--gray-50);
+}
+
+.goal-edit-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+/* ===== Modal 2-col row ===== */
+.modal-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ===== Reuse icon-btn from AssetPage ===== */
+.goal-card .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: all 0.15s ease;
+}
+
+.goal-card .icon-btn:hover {
+  border-color: var(--primary-200);
+  color: var(--primary);
+  background: var(--primary-50);
+}
+
+.goal-card .icon-btn.delete:hover {
+  border-color: #FCA5A5;
+  color: #EF4444;
+  background: #FEF2F2;
+}
+
+.goal-card .icon-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .goal-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .goal-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .modal-row-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

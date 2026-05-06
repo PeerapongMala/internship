@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .chat-card { cursor: grab; transition: all 0.2s; }
+      .chat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      .chat-card.dragging { opacity: 0.5; transform: rotate(2deg); cursor: grabbing; }
+      .chat-card.selected { ring: 2px; ring-color: #14b8a6; background-color: #f0fdfa; }
+      .drop-zone { transition: all 0.2s; }
+      .drop-zone.drag-over { background-color: rgba(20, 184, 166, 0.15); border-color: #14b8a6; }
+      .mini-card { cursor: grab; }
+      .mini-card:active { cursor: grabbing; }
+      #chat-detail { transition: width 0.3s ease, opacity 0.3s ease; }
+      #chat-detail.collapsed { width: 0; opacity: 0; overflow: hidden; padding: 0; border: none; }
+    </style>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <div class="bg-white px-8 py-4 border-b border-gray-200">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-gray-800">Center</h1>
+                <p class="text-sm text-gray-500">จัดการแชทและมอบหมายงานให้ Admin</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2 px-4 py-2 bg-indigo-100 rounded-xl">
+                <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium text-indigo-700">AI กำลังทำงาน</span>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-gray-800" id="pending-count">0</p>
+                <p class="text-xs text-gray-500">รอมอบหมาย</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Area: 3 Columns -->
+        <div class="flex-1 flex overflow-hidden">
+
+          <!-- Column 1: Chat Detail (collapsed by default, shows on LEFT when chat is selected) -->
+          <div class="w-[400px] border-r border-gray-200 bg-gray-50 flex flex-col collapsed" id="chat-detail">
+            <div class="flex items-center justify-center h-full text-gray-400">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <p>เลือกแชทจากรายการด้านขวา</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Chat List (รอมอบหมาย) -->
+          <div class="w-80 border-r border-gray-200 bg-white flex flex-col">
+            <div class="p-4 border-b border-gray-100 bg-orange-50">
+              <div class="flex items-center justify-between mb-2">
+                <h2 class="font-bold text-gray-800 flex items-center gap-2">
+                  <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                  </svg>
+                  รอมอบหมาย
+                </h2>
+                <span class="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded-full font-medium" id="queue-count">0</span>
+              </div>
+              <p class="text-xs text-gray-500">ลากการ์ดไปวางที่ช่อง Admin ด้านขวา</p>
+            </div>
+            <div class="flex-1 overflow-y-auto p-3 space-y-2" id="chat-queue">
+              <!-- Chat cards will be rendered here -->
+            </div>
+          </div>
+
+          <!-- Column 3: Admin Drop Zones -->
+          <div class="flex-1 bg-gray-100 flex flex-col overflow-hidden">
+            <div class="p-4 border-b border-gray-200 bg-white">
+              <div class="flex items-center justify-between">
+                <h2 class="font-bold text-gray-800 flex items-center gap-2">
+                  <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  มอบหมายให้ Admin
+                </h2>
+              </div>
+              <!-- Team Filter -->
+              <div class="flex gap-2 mt-3 flex-wrap">
+                <button onclick="filterTeam('all')" class="team-filter active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-500 text-white" data-team="all">ทุกทีม</button>
+                <button onclick="filterTeam('general')" class="team-filter px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-team="general">ทันตกรรมทั่วไป</button>
+                <button onclick="filterTeam('surgery')" class="team-filter px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-team="surgery">ศัลยกรรม</button>
+                <button onclick="filterTeam('ortho')" class="team-filter px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-team="ortho">จัดฟัน</button>
+                <button onclick="filterTeam('cosmetic')" class="team-filter px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200" data-team="cosmetic">เสริมความงาม</button>
+              </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4">
+              <div class="grid grid-cols-2 gap-4" id="admin-grid">
+                <!-- Admin drop zones will be rendered here -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../components/sidebar.js"></script>
+    <script>
+      // Mock Data
+      const mockChats = [
+        { id: 1, name: 'คุณสมชาย', phone: '081-234-5678', channel: 'LINE', avatar: 'ส', summary: 'ปวดฟันคุดมาก 2 วัน กินยาแก้ปวดไม่หาย ต้องการผ่าฟันคุด', priority: 'urgent', service: 'ผ่าฟันคุด', time: '10:32', sentBy: 'ai',
+          messages: [
+            { sender: 'customer', text: 'สวัสดีครับ ปวดฟันคุดมากเลยครับ', time: '10:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ เสียใจที่ทราบว่าคุณปวดฟันค่ะ ช่วยบอกรายละเอียดเพิ่มเติมได้ไหมคะ?', time: '10:31' },
+            { sender: 'customer', text: 'ปวดมา 2 วันแล้ว กินยาแก้ปวดไม่หาย อยากผ่าออกครับ', time: '10:32' },
+          ]
+        },
+        { id: 2, name: 'คุณลิซ่า', phone: '089-876-5432', channel: 'Facebook', avatar: 'ล', summary: 'สนใจจัดฟัน อยากปรึกษาราคาและระยะเวลา งบประมาณ 50,000 บาท', priority: 'new', service: 'จัดฟัน', time: '10:28', sentBy: 'ai',
+          messages: [
+            { sender: 'customer', text: 'สนใจจัดฟันค่ะ', time: '10:25' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ มีหลายแบบให้เลือกค่ะ', time: '10:26' },
+            { sender: 'customer', text: 'งบประมาณ 50,000 บาทพอไหมคะ', time: '10:28' },
+          ]
+        },
+        { id: 3, name: 'คุณวิภา', phone: '091-333-4444', channel: 'Instagram', avatar: 'ว', summary: 'ต้องการทำวีเนียร์ 4 ซี่ สอบถามราคาและนัดปรึกษา', priority: 'normal', service: 'วีเนียร์', time: '10:15', sentBy: 'Admin แอน',
+          messages: [
+            { sender: 'customer', text: 'สนใจทำวีเนียร์ค่ะ', time: '10:10' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ วีเนียร์ที่คลินิกเราใช้วัสดุคุณภาพสูงค่ะ', time: '10:12' },
+            { sender: 'customer', text: 'อยากทำ 4 ซี่ค่ะ ราคาเท่าไหร่', time: '10:15' },
+          ]
+        },
+        { id: 4, name: 'คุณประเสริฐ', phone: '085-555-6666', channel: 'LINE', avatar: 'ป', summary: 'ฟันผุหลายซี่ อยากอุดฟัน สอบถามราคา', priority: 'normal', service: 'อุดฟัน', time: '10:05', sentBy: 'ai',
+          messages: [
+            { sender: 'customer', text: 'ฟันผุหลายซี่ครับ ต้องทำยังไง', time: '10:00' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ต้องมาตรวจก่อนเพื่อดูความรุนแรงค่ะ', time: '10:02' },
+            { sender: 'customer', text: 'ราคาอุดฟันเท่าไหร่ครับ', time: '10:05' },
+          ]
+        },
+        { id: 5, name: 'คุณมานะ', phone: '083-999-0000', channel: 'LINE', avatar: 'ม', summary: 'สนใจฟอกสีฟัน ถามโปรโมชั่น', priority: 'new', service: 'ฟอกสีฟัน', time: '09:55', sentBy: 'Admin เบน',
+          messages: [
+            { sender: 'customer', text: 'มีโปรฟอกสีฟันไหมครับ', time: '09:50' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ เดือนนี้มีโปร Zoom Whitening ลด 20% ค่ะ', time: '09:52' },
+            { sender: 'customer', text: 'ราคาเท่าไหร่หลังลดครับ', time: '09:55' },
+          ]
+        },
+      ];
+
+      const mockAdmins = [
+        { id: 'ann', name: 'Admin แอน', team: 'general', color: 'pink', online: true, tasks: [] },
+        { id: 'ben', name: 'Admin เบน', team: 'general', color: 'blue', online: true, tasks: [] },
+        { id: 'cat', name: 'Admin แคท', team: 'ortho', color: 'purple', online: true, tasks: [] },
+        { id: 'dan', name: 'Admin แดน', team: 'surgery', color: 'red', online: false, tasks: [] },
+        { id: 'eve', name: 'Admin อีฟ', team: 'cosmetic', color: 'amber', online: true, tasks: [] },
+        { id: 'fay', name: 'Admin เฟย์', team: 'ortho', color: 'green', online: true, tasks: [] },
+      ];
+
+      let chats = [...mockChats];
+      let admins = [...mockAdmins];
+      let currentChatId = null;
+      let currentTeamFilter = 'all';
+      let draggedChatId = null;
+
+      const channelColors = {
+        'LINE': 'bg-green-500',
+        'Facebook': 'bg-blue-500',
+        'Instagram': 'bg-gradient-to-br from-purple-500 to-pink-500'
+      };
+
+      const priorityColors = {
+        'urgent': { bg: 'bg-red-100', text: 'text-red-700', badge: 'bg-red-500 text-white', label: 'เร่งด่วน' },
+        'new': { bg: 'bg-blue-100', text: 'text-blue-700', badge: 'bg-blue-500 text-white', label: 'ใหม่' },
+        'normal': { bg: 'bg-gray-100', text: 'text-gray-700', badge: 'bg-gray-400 text-white', label: 'ปกติ' }
+      };
+
+      const teamColors = {
+        'general': { bg: 'bg-blue-100', text: 'text-blue-600', label: 'ทันตกรรมทั่วไป' },
+        'surgery': { bg: 'bg-red-100', text: 'text-red-600', label: 'ศัลยกรรม' },
+        'ortho': { bg: 'bg-purple-100', text: 'text-purple-600', label: 'จัดฟัน' },
+        'cosmetic': { bg: 'bg-amber-100', text: 'text-amber-600', label: 'เสริมความงาม' }
+      };
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        renderChatQueue();
+        renderAdminGrid();
+        updateCounts();
+      });
+
+      // Render Chat Queue
+      function renderChatQueue() {
+        const queue = document.getElementById('chat-queue');
+        queue.innerHTML = chats.map(chat => createChatCard(chat)).join('');
+
+        // Add drag events
+        document.querySelectorAll('.chat-card').forEach(card => {
+          card.addEventListener('dragstart', handleDragStart);
+          card.addEventListener('dragend', handleDragEnd);
+        });
+      }
+
+      // Create Chat Card
+      function createChatCard(chat) {
+        const priority = priorityColors[chat.priority] || priorityColors['normal'];
+        const isSelected = chat.id === currentChatId;
+
+        // Determine sentBy badge
+        const isAI = chat.sentBy === 'ai';
+        const sentByBadge = isAI
+          ? '<span class="px-1.5 py-0.5 bg-green-100 text-green-700 text-[10px] rounded-full font-medium flex items-center gap-1"><span>🤖</span>AI</span>'
+          : `<span class="px-1.5 py-0.5 bg-purple-100 text-purple-700 text-[10px] rounded-full font-medium flex items-center gap-1"><span>👤</span>${chat.sentBy}</span>`;
+
+        return `
+          <div class="chat-card bg-white rounded-xl p-3 shadow-sm border-2 ${isSelected ? 'border-dental-500 bg-dental-50' : 'border-gray-100'}"
+               draggable="true" data-chat-id="${chat.id}" onclick="selectChat(${chat.id})">
+            <div class="flex items-start justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="relative">
+                  <div class="w-9 h-9 ${channelColors[chat.channel] || 'bg-gray-500'} rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    ${chat.avatar}
+                  </div>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800 text-sm">${chat.name}</p>
+                  <p class="text-xs text-gray-500">${chat.channel}</p>
+                </div>
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                <span class="text-xs text-gray-400">${chat.time}</span>
+                <span class="px-1.5 py-0.5 ${priority.badge} text-[10px] rounded-full font-medium">${priority.label}</span>
+                ${sentByBadge}
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-2 mb-2">
+              <p class="text-xs text-gray-600 line-clamp-2">${chat.summary}</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xs rounded-full">${chat.service}</span>
+              <span class="text-xs text-gray-400">${chat.phone}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      // Select Chat (toggle behavior - click same card again to close)
+      function selectChat(chatId) {
+        if (currentChatId === chatId) {
+          // Clicking the same card again - close the chat detail
+          closeChatDetail();
+          return;
+        }
+        currentChatId = chatId;
+        renderChatQueue();
+        showChatDetail(chatId);
+      }
+
+      // Show Chat Detail
+      function showChatDetail(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        const detail = document.getElementById('chat-detail');
+        // Remove collapsed class to show the chat detail
+        detail.classList.remove('collapsed');
+
+        detail.innerHTML = `
+          <div class="flex flex-col h-full">
+            <!-- Header -->
+            <div class="bg-white px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <button onclick="closeChatDetail()" class="p-1 hover:bg-gray-100 rounded-lg transition-colors" title="ปิด">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <div class="w-10 h-10 ${channelColors[chat.channel]} rounded-full flex items-center justify-center text-white font-bold">
+                  ${chat.avatar}
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">${chat.name}</p>
+                  <p class="text-xs text-gray-500">${chat.phone} - ${chat.channel}</p>
+                </div>
+              </div>
+              <span class="px-2 py-1 ${priorityColors[chat.priority].badge} text-xs rounded-full">${priorityColors[chat.priority].label}</span>
+            </div>
+
+            <!-- AI Summary -->
+            <div class="bg-indigo-50 px-4 py-3 border-b border-indigo-100">
+              <div class="flex items-start gap-2">
+                <span class="text-lg">🤖</span>
+                <div>
+                  <p class="text-xs font-medium text-indigo-700 mb-1">AI Summary</p>
+                  <p class="text-sm text-gray-700">${chat.summary}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-3">
+              ${chat.messages.map(msg => createMessageBubble(msg)).join('')}
+            </div>
+
+            <!-- Service Info -->
+            <div class="bg-white px-4 py-3 border-t border-gray-200">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm text-gray-500">บริการ:</span>
+                  <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-lg font-medium">${chat.service}</span>
+                </div>
+                <span class="text-xs text-gray-400">เวลาล่าสุด: ${chat.time}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Close Chat Detail
+      function closeChatDetail() {
+        const detail = document.getElementById('chat-detail');
+        detail.classList.add('collapsed');
+        currentChatId = null;
+        renderChatQueue();
+      }
+
+      // Create Message Bubble
+      function createMessageBubble(msg) {
+        if (msg.sender === 'customer') {
+          return `
+            <div class="flex justify-start">
+              <div class="max-w-[80%] bg-white rounded-2xl rounded-bl-md px-3 py-2 shadow-sm border border-gray-100">
+                <p class="text-sm text-gray-800">${msg.text}</p>
+                <p class="text-xs text-gray-400 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="flex justify-end">
+              <div class="max-w-[80%] bg-green-100 rounded-2xl rounded-br-md px-3 py-2">
+                <p class="text-sm text-gray-800">${msg.text}</p>
+                <p class="text-xs text-green-600 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // Render Admin Grid
+      function renderAdminGrid() {
+        const grid = document.getElementById('admin-grid');
+        const filteredAdmins = currentTeamFilter === 'all'
+          ? admins
+          : admins.filter(a => a.team === currentTeamFilter);
+
+        grid.innerHTML = filteredAdmins.map(admin => createAdminDropZone(admin)).join('');
+
+        // Add drop events
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+          zone.addEventListener('dragover', handleDragOver);
+          zone.addEventListener('dragleave', handleDragLeave);
+          zone.addEventListener('drop', handleDrop);
+        });
+      }
+
+      // Create Admin Drop Zone
+      function createAdminDropZone(admin) {
+        const team = teamColors[admin.team] || teamColors['general'];
+        const colorMap = {
+          'pink': 'bg-pink-100 text-pink-600',
+          'blue': 'bg-blue-100 text-blue-600',
+          'purple': 'bg-purple-100 text-purple-600',
+          'red': 'bg-red-100 text-red-600',
+          'amber': 'bg-amber-100 text-amber-600',
+          'green': 'bg-green-100 text-green-600'
+        };
+        const avatarColor = colorMap[admin.color] || 'bg-gray-100 text-gray-600';
+
+        return `
+          <div class="drop-zone bg-white rounded-2xl shadow-sm border-2 border-gray-200 p-4 flex flex-col" data-admin-id="${admin.id}">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="relative">
+                <div class="w-10 h-10 ${avatarColor.split(' ')[0]} rounded-full flex items-center justify-center">
+                  <span class="${avatarColor.split(' ')[1]} font-bold">${admin.name.charAt(admin.name.length - 3).toUpperCase()}</span>
+                </div>
+                <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 ${admin.online ? 'bg-green-500' : 'bg-gray-400'} rounded-full border-2 border-white"></span>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">${admin.name}</h3>
+                <p class="text-xs ${team.text}">${team.label}</p>
+              </div>
+              <span class="bg-dental-100 text-dental-700 text-xs px-2 py-1 rounded-full font-medium">${admin.tasks.length}</span>
+            </div>
+            <div class="drop-area flex-1 border-2 border-dashed border-gray-200 rounded-xl p-2 min-h-[100px] space-y-2" data-admin-id="${admin.id}">
+              ${admin.tasks.length === 0
+                ? '<div class="empty-msg text-center text-gray-300 text-xs py-6">ลากการ์ดมาวาง</div>'
+                : admin.tasks.map(t => createMiniCard(t)).join('')
+              }
+            </div>
+          </div>
+        `;
+      }
+
+      // Create Mini Card (in admin zone)
+      function createMiniCard(chat) {
+        return `
+          <div class="mini-card bg-gray-50 rounded-lg p-2 border border-gray-200" data-chat-id="${chat.id}">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 ${channelColors[chat.channel]} rounded-full flex items-center justify-center text-white text-xs font-bold">
+                  ${chat.avatar}
+                </div>
+                <span class="text-xs font-medium text-gray-700">${chat.name}</span>
+              </div>
+              <button onclick="removeFromAdmin('${chat.id}')" class="text-gray-400 hover:text-red-500">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <p class="text-xs text-gray-500 mt-1 truncate">${chat.service}</p>
+          </div>
+        `;
+      }
+
+      // Drag & Drop Handlers
+      function handleDragStart(e) {
+        draggedChatId = parseInt(e.target.dataset.chatId);
+        e.target.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+      }
+
+      function handleDragEnd(e) {
+        e.target.classList.remove('dragging');
+        draggedChatId = null;
+      }
+
+      function handleDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        const zone = e.target.closest('.drop-zone');
+        if (zone) zone.classList.add('drag-over');
+      }
+
+      function handleDragLeave(e) {
+        const zone = e.target.closest('.drop-zone');
+        if (zone) zone.classList.remove('drag-over');
+      }
+
+      function handleDrop(e) {
+        e.preventDefault();
+        const zone = e.target.closest('.drop-zone');
+        if (zone) {
+          zone.classList.remove('drag-over');
+          const adminId = zone.dataset.adminId;
+          assignToAdmin(draggedChatId, adminId);
+        }
+      }
+
+      // Assign Chat to Admin
+      function assignToAdmin(chatId, adminId) {
+        const chatIndex = chats.findIndex(c => c.id === chatId);
+        if (chatIndex === -1) return;
+
+        const chat = chats[chatIndex];
+        const admin = admins.find(a => a.id === adminId);
+        if (!admin) return;
+
+        // Check if already assigned
+        if (admin.tasks.some(t => t.id === chatId)) return;
+
+        // Remove from queue and add to admin
+        chats.splice(chatIndex, 1);
+        admin.tasks.push(chat);
+
+        // Re-render
+        renderChatQueue();
+        renderAdminGrid();
+        updateCounts();
+
+        // Clear chat detail if it was the assigned one
+        if (currentChatId === chatId) {
+          currentChatId = null;
+          document.getElementById('chat-detail').innerHTML = `
+            <div class="flex items-center justify-center h-full text-gray-400">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <p>เลือกแชทจากรายการด้านขวา</p>
+              </div>
+            </div>
+          `;
+          document.getElementById('chat-detail').classList.add('collapsed');
+        }
+      }
+
+      // Remove from Admin
+      function removeFromAdmin(chatId) {
+        chatId = parseInt(chatId);
+        for (const admin of admins) {
+          const idx = admin.tasks.findIndex(t => t.id === chatId);
+          if (idx !== -1) {
+            const chat = admin.tasks.splice(idx, 1)[0];
+            chats.unshift(chat);
+            break;
+          }
+        }
+        renderChatQueue();
+        renderAdminGrid();
+        updateCounts();
+      }
+
+      // Filter Team
+      function filterTeam(team) {
+        currentTeamFilter = team;
+        document.querySelectorAll('.team-filter').forEach(btn => {
+          if (btn.dataset.team === team) {
+            btn.className = 'team-filter active px-3 py-1.5 rounded-lg text-xs font-medium bg-indigo-500 text-white';
+          } else {
+            btn.className = 'team-filter px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200';
+          }
+        });
+        renderAdminGrid();
+      }
+
+      // Update Counts
+      function updateCounts() {
+        document.getElementById('pending-count').textContent = chats.length;
+        document.getElementById('queue-count').textContent = chats.length;
+      }
+    </script>
+  </body>
+</html>

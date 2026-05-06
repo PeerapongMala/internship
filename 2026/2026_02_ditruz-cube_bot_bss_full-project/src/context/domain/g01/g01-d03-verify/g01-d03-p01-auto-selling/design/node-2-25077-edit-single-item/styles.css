@@ -1,0 +1,366 @@
+/* ============================================================
+   Edit Single Item - Preparation (Node 2:25077)
+   Modal popup for reviewing and confirming single-item edits
+   Date: 2026-02-19
+
+   IMPORTANT: font-family uses 'bss-pridi' (registered in @font-face),
+   NOT 'Pridi'. Using 'Pridi' causes fallback to sans-serif.
+   ============================================================ */
+
+/* ----- Modal Overlay & Container ----- */
+
+.edit-single-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 12, 12, 0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.edit-single-modal {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    width: 1280px;
+    max-width: 1280px;
+    min-width: 560px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ----- Top Bar ----- */
+
+.edit-single-topbar {
+    background: #ffffff;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 16px 16px 8px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.edit-single-topbar-title {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.6px;
+    color: #000000;
+    margin: 0;
+}
+
+/* ----- Content Area ----- */
+
+.edit-single-content {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.edit-single-subtitle {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.6px;
+    color: #000000;
+    margin: 0;
+    width: 100%;
+}
+
+.edit-single-header-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: #000000;
+    width: 100%;
+}
+
+/* ----- Summary Table ----- */
+
+.edit-single-table-container {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Summary header row */
+.edit-single-table-summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 45px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.edit-single-table-summary-label {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    color: #212121;
+    width: 713px;
+    flex-shrink: 0;
+}
+
+.edit-single-table-summary-counts {
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    font-family: 'bss-pridi' !important;
+    font-size: 14px;
+    letter-spacing: 0.308px;
+    color: #212121;
+}
+
+.edit-single-table-summary-counts .count-value {
+    font-weight: 700 !important;
+    color: #b45309;
+}
+
+/* Column headers */
+.edit-single-table-header {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 8px;
+    background: #d6e0e0;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.edit-single-th {
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 100%;
+    padding: 8px;
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 13px;
+    line-height: normal;
+    letter-spacing: 0.299px;
+    color: #212121;
+}
+
+.edit-single-th.text-right {
+    justify-content: flex-end;
+}
+
+.edit-single-th.col-after {
+    color: #ca6510;
+}
+
+.edit-single-th .sort-icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.edit-single-th-icon {
+    width: 23px;
+    flex-shrink: 0;
+}
+
+/* Data rows */
+.edit-single-table-row {
+    display: flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 8px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.edit-single-table-row.row-alt {
+    background: #f2f6f6;
+}
+
+.edit-single-td {
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 6px 8px;
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.3px;
+    color: #212529;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.edit-single-td.text-right {
+    justify-content: flex-end;
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+}
+
+.edit-single-td.col-after {
+    color: #ca6510;
+    font-size: 13px;
+    line-height: normal;
+    letter-spacing: 0.286px;
+}
+
+.edit-single-td-icon {
+    width: 23px;
+    flex-shrink: 0;
+}
+
+/* MoneyType denomination badge */
+.edit-single-money-badge {
+    width: 47px;
+    height: 24px;
+    background: #fbf8f4;
+    border: 2px solid #9f7d57;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.edit-single-money-badge .badge-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+    mix-blend-mode: color-burn;
+    pointer-events: none;
+}
+
+.edit-single-money-badge .badge-text {
+    font-family: 'bss-pridi' !important;
+    font-weight: 700 !important;
+    font-size: 13px;
+    line-height: normal;
+    color: #4f3e2b;
+    position: relative;
+    z-index: 1;
+}
+
+/* ----- Confirmation Section ----- */
+
+.edit-single-confirm {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.edit-single-confirm-form {
+    width: 400px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.edit-single-confirm-title {
+    font-family: 'bss-pridi' !important;
+    font-weight: 500 !important;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.6px;
+    color: #000000;
+    margin: 0;
+}
+
+.edit-single-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.edit-single-field-label {
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    color: #212121;
+}
+
+.edit-single-field-select {
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: #212529;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+/* ----- Footer / Bottom Bar ----- */
+
+.edit-single-footer {
+    background: #ffffff;
+    border-top: 1px solid #cbd5e1;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.edit-single-btn {
+    min-width: 160px;
+    padding: 7px 13px;
+    border-radius: 6px;
+    font-family: 'bss-pridi' !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid;
+    overflow: hidden;
+}
+
+.edit-single-btn-back {
+    background: #6c757d;
+    border-color: #6c757d;
+    width: 160px;
+}
+
+.edit-single-btn-submit {
+    background: #003366;
+    border-color: #003366;
+}

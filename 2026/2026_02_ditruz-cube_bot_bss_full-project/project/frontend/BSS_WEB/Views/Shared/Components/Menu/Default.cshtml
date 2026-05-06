@@ -1,0 +1,38 @@
+﻿@model List<BSS_WEB.Models.NavigationMenuViewModel>
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    @*     <li class="nav-item">
+    <a class="nav-link text disabled" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li> *@
+    @foreach (var menu in Model.Where(c => c.ParentMenuId == null))
+    {
+        var children = Model.Where(x => x.ParentMenuId == menu.MenuId).ToList();
+        if (children != null && children.Count > 0)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="@Url.Action("Index", "Home", new { menuId = menu.MenuId })"
+                   id="navbarDropdown-@menu.MenuId" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @menu.MenuName
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown-@menu.MenuId">
+                    @foreach (var item in children)
+                    {
+                        <li>
+                            <a class="dropdown-item" asp-area="" asp-controller="@item.ControllerName" asp-action="@item.ActionName">@item.MenuName</a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text" asp-area="" asp-controller="@menu.ControllerName" asp-action="@menu.ActionName">@menu.MenuName</a>
+            </li>
+
+        }
+    }
+</ul>

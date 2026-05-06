@@ -1,0 +1,78 @@
+{
+  "waveList": [
+    {
+      "name": "wave1",
+      "waveDuration": 15,
+      "spawnList": [
+        {
+          "distanceAt": 1,
+          "objectList": [
+            {
+              "type": "wall",
+              "effect": "burst",
+              "value": "8"
+            },
+            {
+              "type": "wall",
+              "effect": "burst",
+              "value": "1"
+            },
+            {
+              "type": "obstacle",
+              "scoreMultiplier": 2,
+              "statMultiplier": 1
+            }
+          ]
+        },
+        {
+          "timeAt": 10,
+          "objectList": [
+            {
+              "type": "fruit",
+              "amount": 5
+            },
+            {
+              "type": "bomb",
+              "amount": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wave2",
+      "waveDuration": 15,
+      "spawnList": [
+        {
+          "timeAt": 1,
+          "objectList": [
+            {
+              "type": "zombie_normal",
+              "amount": 5,
+              "statMultiplier": 1,
+              "scoreMultiplier": 2
+            },
+            {
+              "type": "bomb",
+              "amount": 5
+            }
+          ]
+        },
+
+        {
+          "timeAt": 10,
+          "objectList": [
+            {
+              "type": "fruit",
+              "amount": 5
+            },
+            {
+              "type": "bomb",
+              "amount": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

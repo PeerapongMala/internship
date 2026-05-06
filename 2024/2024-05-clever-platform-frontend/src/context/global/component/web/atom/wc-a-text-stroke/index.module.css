@@ -1,0 +1,23 @@
+.text-stroke-primary {
+  -webkit-text-stroke: 4px theme('colors.primary.stroke');
+}
+
+.text-stroke-secondary {
+  -webkit-text-stroke: 4px theme('colors.secondary.stroke');
+}
+
+.text-stroke-tertiary {
+  -webkit-text-stroke: 4px theme('colors.tertiary.stroke');
+}
+
+.text-stroke-success {
+  -webkit-text-stroke: 4px theme('colors.success.stroke');
+}
+
+.text-stroke-warning {
+  -webkit-text-stroke: 4px theme('colors.warning.stroke');
+}
+
+.text-stroke-danger {
+  -webkit-text-stroke: 4px theme('colors.danger.stroke');
+}

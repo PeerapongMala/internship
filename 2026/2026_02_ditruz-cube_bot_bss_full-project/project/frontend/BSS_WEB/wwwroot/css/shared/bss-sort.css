@@ -1,0 +1,31 @@
+/* ============================================
+   BSS Shared — Sort Indicators
+   ใช้ร่วมกัน: Verify, Revoke, Reconcile
+   Uses Bootstrap Icons (bi-chevron-expand, bi-chevron-up, bi-chevron-down)
+   ============================================ */
+
+.th-sort {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+}
+
+.th-sort:hover {
+    background: #c5d0d0;
+}
+
+.th-sort .sort-icon {
+    display: inline-block;
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    margin-left: 2px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    text-align: center;
+    line-height: 12px;
+}
+
+.th-sort:hover .sort-icon {
+    opacity: 1;
+}

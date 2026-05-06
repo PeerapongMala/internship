@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "91f8be33-48dd-4a8b-aa83-bde06dd7562a",
+		"name": "bo-g04-d06-bug-report-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-bug-report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bug-report/v1/bugs?page=1&limit=10&search_text=fox",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bug-report",
+						"v1",
+						"bugs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "status",
+							"value": "รอตรวจสอบ",
+							"disabled": true
+						},
+						{
+							"key": "platform",
+							"value": "App",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "Bug",
+							"disabled": true
+						},
+						{
+							"key": "priority",
+							"value": "!",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2025-01-28",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-28",
+							"disabled": true
+						},
+						{
+							"key": "search_text",
+							"value": "fox"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-bug-report-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bug-report/v1/bug/:bug_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bug-report",
+						"v1",
+						"bug",
+						":bug_id"
+					],
+					"variable": [
+						{
+							"key": "bug_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-bug-report-log-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bug-report/v1/bug/:bug_id/logs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bug-report",
+						"v1",
+						"bug",
+						":bug_id",
+						"logs"
+					],
+					"variable": [
+						{
+							"key": "bug_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-bug-update-status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bug_id\": 1,\r\n    \"status\": \"แก้ไขเรียบร้อย\",\r\n    \"message\": \"ไม่ได้แก้อะไรเลย\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/bug-report/v1/bug/status",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bug-report",
+						"v1",
+						"bug",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-bug-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bug-report/v1/bug/download/csv?end_date=2025-02-13",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bug-report",
+						"v1",
+						"bug",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-02-13",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-02-13"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

@@ -1,0 +1,1019 @@
+/*
+  Approve Manual Key-in Transaction CSS
+  Matched to Figma design (Node 5:33827)
+  All rules use !important to override global Style.css / all.css
+  Updated: 2026-03-04
+*/
+
+/* ===================================
+   Layout Override
+   High specificity to beat .main-wrapper .layout from all.css
+   =================================== */
+
+.main-wrapper .layout.approve-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 92vh !important;
+  min-height: 700px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  padding-bottom: 8px !important;
+  gap: 8px !important;
+  background-color: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+  box-sizing: border-box !important;
+}
+
+/* ===================================
+   Background Layers
+   =================================== */
+
+.approve-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.approve-page-background {
+  position: absolute;
+  inset: 0;
+  background-color: #EFF2F4;
+  z-index: 1;
+}
+
+.approve-gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 450px;
+  background: linear-gradient(117.593deg, #003366 0%, #8B9DAF 100%);
+  -webkit-mask-image: url('/images/gradient-mask.svg');
+  mask-image: url('/images/gradient-mask.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: center top;
+  mask-position: center top;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: 2;
+}
+
+.approve-decorative-left {
+  position: absolute;
+  top: -440px;
+  left: -20%;
+  width: 60%;
+  height: 881px;
+  opacity: 0.2;
+  z-index: 3;
+}
+
+.approve-decorative-left img,
+.approve-decorative-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.approve-decorative-right {
+  position: absolute;
+  top: -476px;
+  right: -20%;
+  width: 60%;
+  height: 959px;
+  opacity: 0.2;
+  z-index: 4;
+}
+
+/* ===================================
+   Page Header (62px)
+   =================================== */
+
+.approve-page-header {
+  width: 100% !important;
+  height: 62px !important;
+  min-height: 62px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 13px 16px !important;
+  background-color: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-header-left {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 16px !important;
+}
+
+.approve-page-title {
+  font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.675px !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+}
+
+.approve-info-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 60px !important;
+}
+
+.approve-info-date {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.approve-date-badge {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.4px !important;
+}
+
+.approve-info-bot {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 0 4px !important;
+  width: 250px !important;
+}
+
+.approve-info-bar .approve-status-label,
+.approve-info-bar .approve-status-value {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.4px !important;
+  color: #FFFFFF !important;
+}
+
+/* Filter Button — override global button styles */
+button.approve-btn-filter {
+  height: 36px !important;
+  min-width: 92px !important;
+  padding: 4px 16px !important;
+  background-color: #003366 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.35px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+}
+
+button.approve-btn-filter:hover {
+  background-color: #002244 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+/* ===================================
+   Filter Section (3 rows)
+   =================================== */
+
+.approve-filter-section {
+  width: 100% !important;
+  padding: 16px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-filter-row {
+  display: flex !important;
+  gap: 24px !important;
+  margin-bottom: 8px !important;
+}
+
+.approve-filter-row:last-child {
+  margin-bottom: 0 !important;
+  padding-right: 0.1% !important;
+}
+
+.approve-filter-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 1 !important;
+}
+
+
+.approve-filter-item.approve-filter-item-sm {
+  flex: none !important;
+  max-width: 400px !important;
+}
+
+.approve-filter-label {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.35px !important;
+  color: #212121 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  margin-left: 0 !important;
+}
+
+.approve-filter-select {
+  flex: 1 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  height: 31px !important;
+  border: 1px solid #CED4DA !important;
+  border-radius: 4px !important;
+  padding: 4px 12px !important;
+  background-color: #FFFFFF !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.35px !important;
+  color: #212529 !important;
+}
+
+.approve-filter-select.approve-filter-select-sm {
+  max-width: 250px !important;
+}
+
+.approve-filter-select:focus {
+  outline: none !important;
+  border-color: #0d6efd !important;
+}
+
+/* Scrollbar สีเทาสำหรับ dropdown */
+.approve-filter-select::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.approve-filter-select::-webkit-scrollbar-track {
+  background: #F0F0F0 !important;
+  border-radius: 4px !important;
+}
+
+.approve-filter-select::-webkit-scrollbar-thumb {
+  background: #B0B0B0 !important;
+  border-radius: 4px !important;
+}
+
+.approve-filter-select::-webkit-scrollbar-thumb:hover {
+  background: #909090 !important;
+}
+
+/* ===================================
+   Main Table Section
+   =================================== */
+
+.approve-main-table-section {
+  width: 100% !important;
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.approve-table-wrapper {
+  width: 100% !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* List Header with Summary Stats (45px, fixed at top) */
+.approve-list-header {
+  height: 45px !important;
+  min-height: 45px !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-list-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #212121 !important;
+  letter-spacing: 0.4px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.approve-list-stats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-left: auto !important;
+}
+
+.approve-stat-item {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #212121 !important;
+  letter-spacing: 0.35px !important;
+  white-space: nowrap !important;
+}
+
+.approve-stat-divider {
+  width: 1px !important;
+  height: 16px !important;
+  background-color: #cbd5e1 !important;
+}
+
+.approve-stat-green {
+  color: #198754 !important;
+  font-weight: 500 !important;
+}
+
+.approve-stat-price {
+  display: inline-block !important;
+  padding: 0 8px !important;
+  background-color: #FBF8F4 !important;
+  border: 1px solid #9E7D56 !important;
+  border-radius: 4px !important;
+  color: #4F3E2B !important;
+  font-weight: 500 !important;
+}
+
+.approve-stat-amber {
+  color: #B45309 !important;
+  font-weight: 500 !important;
+}
+
+/* Scrollable Table Area — override global hidden scrollbar */
+.approve-table-scroll {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  background: #FFFFFF !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar-track {
+  background: #FFFFFF !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar-thumb {
+  background: #8F8F8F !important;
+  border-radius: 26px !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #6c757d !important;
+}
+
+/* ===================================
+   Main Table — must beat global Style.css rules
+   =================================== */
+
+table.approve-main-table {
+  width: 100% !important;
+  min-width: 2130px !important;
+  border-collapse: collapse !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Column Headers */
+table.approve-main-table thead {
+  background-color: #D6E0E0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+table.approve-main-table thead tr {
+  height: 36px !important;
+}
+
+table.approve-main-table thead tr th {
+  padding: 8px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+  letter-spacing: 0.299px !important;
+  color: #212121 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  white-space: nowrap !important;
+  background-color: #D6E0E0 !important;
+  width: auto !important;
+}
+
+/* Override global last-child width */
+table.approve-main-table thead tr th:last-child {
+  width: 100px !important;
+}
+
+/* Sortable headers */
+table.approve-main-table th.th-sort {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+table.approve-main-table th.th-sort .sort-icon {
+  display: inline-block !important;
+  font-size: 10px !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 2px !important;
+  vertical-align: middle !important;
+  opacity: 0.6 !important;
+  color: #757575 !important;
+}
+
+table.approve-main-table th.th-sort:hover .sort-icon {
+  opacity: 1 !important;
+}
+
+/* Column Widths (Figma spec) */
+table.approve-main-table .col-barcode-pkg { width: 168px !important; min-width: 168px !important; }
+table.approve-main-table .col-barcode-bdl { width: 204px !important; min-width: 204px !important; }
+table.approve-main-table .col-header-card { width: 114px !important; min-width: 114px !important; }
+table.approve-main-table .col-bank { width: 72px !important; min-width: 72px !important; }
+table.approve-main-table .col-zone { width: 61px !important; min-width: 61px !important; }
+table.approve-main-table .col-cashpoint { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-bn-type { width: 188px !important; min-width: 188px !important; }
+table.approve-main-table .col-prepare-date { width: 130px !important; min-width: 130px !important; }
+table.approve-main-table .col-sort-date { width: 130px !important; min-width: 130px !important; }
+table.approve-main-table .col-op-prepare { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-sorter { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-op-reconcile { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-sv-edit { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-sv-cancel { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-status { width: 100px !important; min-width: 100px !important; }
+
+/* Data Rows — override EVERYTHING from global */
+table.approve-main-table tbody tr {
+  height: 34px !important;
+  background-color: #FFFFFF !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+/* Alternating row colors — ฟ้าสลับขาว (Figma confirmed) */
+table.approve-main-table tbody tr:nth-child(odd) {
+  background: #F2F6F6 !important;
+}
+
+table.approve-main-table tbody tr:nth-child(even) {
+  background: #FFFFFF !important;
+}
+
+table.approve-main-table tbody tr:hover {
+  background: #D1E5FA !important;
+}
+
+/* Selected Row */
+table.approve-main-table tbody tr.selected {
+  background: #D1E5FA !important;
+  outline: 2px solid #297ED4 !important;
+  outline-offset: -2px !important;
+}
+
+/* Data Cells — override global td styles */
+table.approve-main-table tbody tr td {
+  padding: 6px 8px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.35px !important;
+  color: #212529 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  width: auto !important;
+}
+
+/* Override global last-child width on td too */
+table.approve-main-table tbody tr td:last-child {
+  width: auto !important;
+  cursor: default !important;
+}
+
+/* Override global first-child bold */
+table.approve-main-table tbody tr td:first-child {
+  font-weight: 400 !important;
+  text-align: left !important;
+}
+
+/* Barcode columns — smaller font, left align */
+table.approve-main-table tbody tr td.col-barcode-pkg,
+table.approve-main-table tbody tr td.col-barcode-bdl {
+  font-size: 13px !important;
+  letter-spacing: 0.286px !important;
+  text-align: left !important;
+}
+
+/* Status Badge — ใช้ shared bss-badges.css (badge-status + badge-status--*) */
+
+/* ===================================
+   Bottom Section (fixed height)
+   =================================== */
+
+.approve-bottom-section {
+  display: flex !important;
+  gap: 8px !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  height: 249px !important;
+  min-height: 249px !important;
+}
+
+/* Left: Detail Breakdown Table */
+.approve-detail-breakdown {
+  flex: 1 !important;
+  max-width: 900px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.approve-detail-header {
+  height: 45px !important;
+  min-height: 45px !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-detail-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.4px !important;
+  color: #212121 !important;
+  white-space: nowrap !important;
+}
+
+.approve-detail-stats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+.approve-stat-item-sm {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #212121 !important;
+  letter-spacing: 0.286px !important;
+  white-space: nowrap !important;
+}
+
+/* Detail table scroll */
+.approve-detail-table-wrapper {
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar {
+  width: 8px !important;
+  background: #FFFFFF !important;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-track {
+  background: #FFFFFF !important;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-thumb {
+  background: #8F8F8F !important;
+  border-radius: 26px !important;
+}
+
+/* Detail Table */
+table.approve-detail-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+table.approve-detail-table thead {
+  background-color: #D6E0E0 !important;
+  position: sticky !important;
+  top: 0 !important;
+}
+
+table.approve-detail-table thead tr {
+  height: 30px !important;
+}
+
+table.approve-detail-table thead tr th {
+  padding: 5px 8px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.299px !important;
+  color: #212121 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: #D6E0E0 !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+table.approve-detail-table thead tr th:last-child {
+  width: auto !important;
+}
+
+/* Detail table sortable headers */
+table.approve-detail-table th.th-sort {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+table.approve-detail-table th.th-sort .sort-icon {
+  display: inline-block !important;
+  font-size: 10px !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 2px !important;
+  vertical-align: middle !important;
+  opacity: 0.6 !important;
+  color: #757575 !important;
+}
+
+table.approve-detail-table th.th-sort:hover .sort-icon {
+  opacity: 1 !important;
+}
+
+table.approve-detail-table tbody tr {
+  height: 40px !important;
+}
+
+/* Alternating — ขาวสลับฟ้า (Figma: odd=white, even=#F2F6F6) */
+/* Use ID selector for maximum specificity */
+#approveDetailTable tbody tr:nth-child(odd) {
+  background: #F8FAFC !important;
+}
+
+#approveDetailTable tbody tr:nth-child(even) {
+  background: #F2F6F6 !important;
+}
+
+table.approve-detail-table tbody tr:hover {
+  background: #D1E5FA !important;
+  cursor: pointer !important;
+}
+
+table.approve-detail-table tbody tr td {
+  padding: 8px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.3px !important;
+  color: #212529 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  vertical-align: middle !important;
+  width: auto !important;
+}
+
+table.approve-detail-table tbody tr td:last-child {
+  width: auto !important;
+}
+
+/* Quantity column — slightly larger */
+table.approve-detail-table tbody tr td.col-detail-qty {
+  font-size: 14px !important;
+  letter-spacing: 0.35px !important;
+  text-align: right !important;
+}
+
+table.approve-detail-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Denomination Badge (detail table) — สี/border/font มาจาก all.css (qty-20/50/100/500/1000) */
+table.approve-detail-table .qty-badge {
+  width: 47px !important;
+  height: 24px !important;
+}
+
+/* ===================================
+   Right: Action Panel (500px)
+   =================================== */
+
+.approve-action-panel {
+  width: 500px !important;
+  min-width: 500px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.approve-action-content {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.approve-action-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #212121 !important;
+  letter-spacing: 0.4px !important;
+  margin: 0 0 12px 0 !important;
+}
+
+.approve-notes-section {
+  margin-bottom: 16px !important;
+}
+
+.approve-notes-label {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.35px !important;
+  color: #212121 !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+  margin-left: 0 !important;
+}
+
+input.approve-notes-input {
+  width: 100% !important;
+  height: 36px !important;
+  border: 1px solid #E0DFE2 !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.325px !important;
+  color: #212121 !important;
+  box-sizing: border-box !important;
+}
+
+input.approve-notes-input:focus {
+  outline: none !important;
+  border-color: #0d6efd !important;
+}
+
+.approve-buttons-section {
+  margin-top: auto !important;
+}
+
+/* Approve Button — override global button styles */
+button.approve-button-approve {
+  width: 100% !important;
+  height: 46px !important;
+  background-color: #198754 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+button.approve-button-approve:hover {
+  background-color: #157347 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-button-approve:disabled {
+  background-color: #CED4DA !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+button.approve-button-approve:disabled:hover {
+  background-color: #CED4DA !important;
+  color: #FFFFFF !important;
+}
+
+/* Separator */
+.approve-button-separator {
+  width: 100% !important;
+  height: 1px !important;
+  background-color: #D9D9D9 !important;
+  margin: 8px 0 !important;
+}
+
+/* Deny Button — override global button styles */
+button.approve-button-denied {
+  width: 100% !important;
+  height: 48px !important;
+  background-color: #DC3545 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #DC3545 !important;
+  border-radius: 8px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+button.approve-button-denied:hover {
+  background-color: #bb2d3b !important;
+  color: #FFFFFF !important;
+  border-color: #bb2d3b !important;
+}
+
+button.approve-button-denied:disabled {
+  background-color: #CED4DA !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+button.approve-button-denied:disabled:hover {
+  background-color: #CED4DA !important;
+  color: #FFFFFF !important;
+}
+
+/* ===================================
+   Modals (560x360px) — override global button:hover
+   =================================== */
+
+.approve-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(11, 11, 11, 0.5) !important;
+  z-index: 1000 !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.approve-modal-overlay.show {
+  display: flex !important;
+}
+
+.approve-modal,
+.approve-modal-success {
+  width: 560px !important;
+  min-height: 360px !important;
+  background-color: #FFFFFF !important;
+  border-radius: 12px !important;
+  border: 1px solid #EEEEEE !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.approve-modal-top-bar {
+  padding: 32px 16px 16px !important;
+  text-align: center !important;
+}
+
+.approve-modal-icon {
+  width: 48px !important;
+  height: 48px !important;
+  margin: 0 auto 16px !important;
+  display: block !important;
+}
+
+.approve-modal-title {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.6px !important;
+  color: #000000 !important;
+  margin: 0 !important;
+}
+
+.approve-modal-message-area {
+  flex: 1 !important;
+  padding: 24px 32px !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.approve-modal-message {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  color: #000000 !important;
+  margin: 0 !important;
+}
+
+.approve-modal-action-area {
+  padding: 16px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  border-top: 1px solid #cbd5e1 !important;
+}
+
+/* Modal Buttons — must use button.class to override global button:hover */
+button.approve-modal-button-cancel {
+  min-width: 160px !important;
+  height: 38px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  cursor: pointer !important;
+  padding: 8px 24px !important;
+  background-color: #6C757D !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-cancel:hover {
+  background-color: #5a6268 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-confirm {
+  min-width: 160px !important;
+  height: 38px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  cursor: pointer !important;
+  padding: 8px 24px !important;
+  background-color: #003366 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-confirm:hover {
+  background-color: #002244 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-ok {
+  min-width: 160px !important;
+  height: 38px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  cursor: pointer !important;
+  padding: 8px 24px !important;
+  background-color: #198754 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-ok:hover {
+  background-color: #157347 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}

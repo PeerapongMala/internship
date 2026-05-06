@@ -1,0 +1,13 @@
+Prompt ai
+State Management : Zustand
+API Protocol: RESTful API
+
+
+1.1 React (Next.js+TypeScript) เป็น Main Framework
+1.2 fiber framework
+1.3 Database Access : sql
+1.4 Authentication: JWT
+2.1 Hosting : ยังไม่ใช้ ทำเป็น Project เล็กๆในคอม
+2.2 Containerization : Docker/Docker Compose
+2.3 CI/CD ทำเป็นต้องมีไหม
+3.1 Project Structure : รองรับการ scale

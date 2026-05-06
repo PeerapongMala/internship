@@ -1,0 +1,39 @@
+name: STAGING-CD
+
+on:
+  push:
+    branches: ['staging']
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Deploy
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/docker-build.yml@main
+    with:
+      working-dir: .
+      image-name: frontend-staging
+
+    secrets:
+      DOCKER_REGISTRY: ${{secrets.DOCKER_REGISTRY}}
+      DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+      DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      BUILD_ARGS: |
+        VITE_API_BASE_URL=${{secrets.STAGING_VITE_API_BASE_URL}}
+        VITE_DEBUG_API_IS_MOCK=${{secrets.STAGING_VITE_DEBUG_API_IS_MOCK}}
+        VITE_CLMS_BASE_URL=${{secrets.STAGING_VITE_CLMS_BASE_URL}}
+        VITE_LINK_LINE_OA_URL=${{secrets.STAGING_VITE_LINK_LINE_OA_URL}}
+        VITE_REPLACE_URL_FROM=${{vars.STAGING_VITE_REPLACE_URL_FROM}}
+        VITE_REPLACE_URL_TO=${{vars.STAGING_VITE_REPLACE_URL_TO}}
+  deploy:
+    name: Deploy
+    needs: build
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/docker-deploy.yml@main
+    with:
+      container-name: frontend-staging
+      namespace-name: backend # due poc naming
+
+    secrets:
+      KUBE_CONFIG: ${{secrets.KUBE_CONFIG}}
+      OVPN_CONFIG: ${{secrets.OVPN_CONFIG}}
+      VPN_USERNAME: ${{secrets.VPN_USERNAME}}
+      VPN_PASSWORD: ${{secrets.VPN_PASSWORD}}

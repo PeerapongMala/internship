@@ -1,0 +1,1206 @@
+{
+	"info": {
+		"_postman_id": "71ef305a-8829-4ed2-9a39-88d0390496c6",
+		"name": "bo-g03-d03-03-teacher-student-group-overview-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "g03-d03-03-a01-api-lesson-filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/lesson-filters?page=1&limit=10&study_group_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"lesson-filters"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "study_group_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a01-api-lesson-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/lesson-filters?page=1&limit=10&study_group_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"lesson-filters"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "study_group_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Apr 2025 12:33:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "fe11a70c-584b-42b3-b4b1-8c9d6c9b2eae"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"lesson_id\": 1,\n            \"name\": \"Lesson 1\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a02-api-sub-lesson-filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/sub-lesson-filters?page=1&limit=10&study_group_id=1&lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"sub-lesson-filters"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "lesson_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a02-api-sub-lesson-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/sub-lesson-filters?page=1&limit=10&study_group_id=1&lesson_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"sub-lesson-filters"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "lesson_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 09 Apr 2025 12:33:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "145"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "ff11a70c-584b-42b3-b4b1-8c9d6c9b2eae"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"lesson_id\": 1,\n            \"name\": \"Sub-lesson 1\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a03-api-overview-stats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/overview-stats?start_at=2023-01-01T00:00:00Z&end_at=2026-01-01T00:00:00Z&study_group_id=1&lesson_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"overview-stats"
+					],
+					"query": [
+						{
+							"key": "start_at",
+							"value": "2023-01-01T00:00:00Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2026-01-01T00:00:00Z"
+						},
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1,2"
+						},
+						{
+							"key": "sub_lesson_ids",
+							"value": "1,2",
+							"description": "not required",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a03-api-overview-stats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/overview-stats?start_at=2023-01-01T00:00:00Z&end_at=2026-01-01T00:00:00Z&study_group_id=1&lesson_ids=1,2&sub_lesson_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"overview-stats"
+							],
+							"query": [
+								{
+									"key": "start_at",
+									"value": "2023-01-01T00:00:00Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2026-01-01T00:00:00Z"
+								},
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "sub_lesson_ids",
+									"value": "1,2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Apr 2025 13:27:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "e60a6200-fd61-42d4-aa29-2c98e1007b91"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"level_stats\": {\n                \"level_passed\": 4,\n                \"total_level\": 4\n            },\n            \"score_stats\": {\n                \"average_score\": 2,\n                \"total_score\": 12\n            },\n            \"time_stats\": {\n                \"average_test_time\": 175.5\n            }\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a04-api-level-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/level-overview?start_at=2023-01-01T00:00:00Z&end_at=2026-01-01T00:00:00Z&study_group_id=1&lesson_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"level-overview"
+					],
+					"query": [
+						{
+							"key": "start_at",
+							"value": "2023-01-01T00:00:00Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2026-01-01T00:00:00Z"
+						},
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1,2"
+						},
+						{
+							"key": "sub_lesson_ids",
+							"value": "1,2",
+							"description": "not required",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a04-api-level-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/level-overview?start_at=2023-01-01T00:00:00Z&end_at=2026-01-01T00:00:00Z&study_group_id=1&lesson_ids=1,2&sub_lesson_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"level-overview"
+							],
+							"query": [
+								{
+									"key": "start_at",
+									"value": "2023-01-01T00:00:00Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2026-01-01T00:00:00Z"
+								},
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "sub_lesson_ids",
+									"value": "1,2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Apr 2025 13:28:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "e80a6200-fd61-42d4-aa29-2c98e1007b91"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"total_level\": 4,\n            \"level_passed\": 4,\n            \"level_failed\": 0\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a05-api-top-students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/top-students?start_at=2023-01-01T00:00:00Z&end_at=2026-02-01T00:00:00Z&limit=10&study_group_id=1&lesson_ids=1,2&sub_lesson_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"top-students"
+					],
+					"query": [
+						{
+							"key": "start_at",
+							"value": "2023-01-01T00:00:00Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2026-02-01T00:00:00Z"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1,2"
+						},
+						{
+							"key": "sub_lesson_ids",
+							"value": "1,2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a05-api-top-students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/top-students?start_at=2023-01-01T00:00:00Z&end_at=2026-02-01T00:00:00Z&limit=10&study_group_id=1&lesson_ids=1,2&sub_lesson_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"top-students"
+							],
+							"query": [
+								{
+									"key": "start_at",
+									"value": "2023-01-01T00:00:00Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2026-02-01T00:00:00Z"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "sub_lesson_ids",
+									"value": "1,2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Apr 2025 13:28:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "e90a6200-fd61-42d4-aa29-2c98e1007b91"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"name\": \"อภิชาติ เชื้อ\",\n            \"score\": 6\n        },\n        {\n            \"student_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"name\": \"Pat Doe\",\n            \"score\": 2\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a06-api-last-logged-in-students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/last-logged-in-students?study_group_id=1&start_at=2023-02-08T12:57:04Z&end_at=2026-02-08T12:57:04Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"last-logged-in-students"
+					],
+					"query": [
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "start_at",
+							"value": "2023-02-08T12:57:04Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2026-02-08T12:57:04Z"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a06-api-last-logged-in-students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/last-logged-in-students?study_group_id=1&start_at=2023-02-08T12:57:04Z&end_at=2026-02-08T12:57:04Z",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"last-logged-in-students"
+							],
+							"query": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "start_at",
+									"value": "2023-02-08T12:57:04Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2026-02-08T12:57:04Z"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Apr 2025 16:24:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f01c0e81-c458-4aba-a42f-cf8dd42d1c52"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 0,\n        \"limit\": 0,\n        \"total_count\": 0\n    },\n    \"data\": [\n        {\n            \"total_student\": 2,\n            \"last_logged_in_student_count\": 1,\n            \"last_logged_in_students\": [\n                {\n                    \"student_id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n                    \"name\": \"Mr Pat Doe\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a07-api-not-participate-students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"study_group_id\": 1,\n    \"start_at\": \"2023-02-08T12:57:04Z\",\n    \"end_at\": \"2026-02-08T12:57:04Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/not-participate-students?study_group_id=1&start_at=2025-02-03T12:57:04Z&end_at=2025-02-05T12:57:04Z&page=1&limit=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"not-participate-students"
+					],
+					"query": [
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "start_at",
+							"value": "2025-02-03T12:57:04Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2025-02-05T12:57:04Z"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a07-api-not-participate-students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"study_group_id\": 1,\n    \"start_at\": \"2023-02-08T12:57:04Z\",\n    \"end_at\": \"2026-02-08T12:57:04Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/not-participate-students?study_group_id=1&start_at=2025-02-03T12:57:04Z&end_at=2025-02-05T12:57:04Z&page=1&limit=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"not-participate-students"
+							],
+							"query": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "start_at",
+									"value": "2025-02-03T12:57:04Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2025-02-05T12:57:04Z"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Apr 2025 16:23:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "278"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "ee1c0e81-c458-4aba-a42f-cf8dd42d1c52"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 5,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"total_student\": 2,\n            \"not_participate_students\": [\n                {\n                    \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n                    \"name\": \"เด็กชาย อภิชาติ เชื้อ\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a08-api-lesson-progressions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"study_group_id\": 1,\n    \"start_at\": \"2023-02-08T12:57:04Z\",\n    \"end_at\": \"2026-02-08T12:57:04Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/lesson-progressions?study_group_id=1&start_at=2025-02-03T12:57:04Z&end_at=2025-02-05T12:57:04Z&page=1&limit=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"lesson-progressions"
+					],
+					"query": [
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "start_at",
+							"value": "2025-02-03T12:57:04Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2025-02-05T12:57:04Z"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a08-api-lesson-progressions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"study_group_id\": 1,\n    \"start_at\": \"2023-02-08T12:57:04Z\",\n    \"end_at\": \"2026-02-08T12:57:04Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/lesson-progressions?study_group_id=1&start_at=2025-02-03T12:57:04Z&end_at=2025-02-05T12:57:04Z&page=1&limit=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"lesson-progressions"
+							],
+							"query": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "start_at",
+									"value": "2025-02-03T12:57:04Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2025-02-05T12:57:04Z"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 03:26:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "adbaac7a-3ca9-488d-aefa-abfa15d589a0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 5,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"scope\": \"Lesson 1\",\n            \"progress\": 200\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d03-03-a09-api-sub-lesson-progressions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"study_group_id\": 1,\n    \"start_at\": \"2023-02-08T12:57:04Z\",\n    \"end_at\": \"2026-02-08T12:57:04Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group-overview/v1/sub-lesson-progressions?study_group_id=1&start_at=2025-02-03T12:57:04Z&end_at=2025-02-05T12:57:04Z&page=1&limit=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group-overview",
+						"v1",
+						"sub-lesson-progressions"
+					],
+					"query": [
+						{
+							"key": "study_group_id",
+							"value": "1"
+						},
+						{
+							"key": "start_at",
+							"value": "2025-02-03T12:57:04Z"
+						},
+						{
+							"key": "end_at",
+							"value": "2025-02-05T12:57:04Z"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d03-03-a09-api-sub-lesson-progressions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"study_group_id\": 1,\n    \"start_at\": \"2023-02-08T12:57:04Z\",\n    \"end_at\": \"2026-02-08T12:57:04Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group-overview/v1/sub-lesson-progressions?study_group_id=1&start_at=2025-02-03T12:57:04Z&end_at=2025-02-05T12:57:04Z&page=1&limit=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group-overview",
+								"v1",
+								"sub-lesson-progressions"
+							],
+							"query": [
+								{
+									"key": "study_group_id",
+									"value": "1"
+								},
+								{
+									"key": "start_at",
+									"value": "2025-02-03T12:57:04Z"
+								},
+								{
+									"key": "end_at",
+									"value": "2025-02-05T12:57:04Z"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 03:27:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "146"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "aebaac7a-3ca9-488d-aefa-abfa15d589a0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 5,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"scope\": \"Sub-lesson 1\",\n            \"progress\": 200\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	]
+}

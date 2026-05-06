@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>503 Service Unavailable</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/helpers/bss-error-page.css")" />
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+</head>
+<body>
+    <div id="error-page">
+        <div class="content">
+            <h2 class="header" data-text="503">
+                503
+            </h2>
+            <h4 data-text="Opps! Service Unavailable">
+                Opps! Service Unavailable
+            </h4>
+            <p>
+                Service not available errors occur when the server temporarily cannot fulfill the request.
+            </p>
+            <div class="btns">
+                <a href="@Url.Content("~/Home/Index")">return home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

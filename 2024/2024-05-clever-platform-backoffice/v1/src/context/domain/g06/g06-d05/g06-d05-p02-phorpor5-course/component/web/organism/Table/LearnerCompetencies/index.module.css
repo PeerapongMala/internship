@@ -1,0 +1,17 @@
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  @apply border border-black;
+}
+
+.table {
+  @apply my-5 text-center text-sm;
+}
+
+.table th,
+.table td {
+  @apply !px-0 !py-2 text-center;
+}

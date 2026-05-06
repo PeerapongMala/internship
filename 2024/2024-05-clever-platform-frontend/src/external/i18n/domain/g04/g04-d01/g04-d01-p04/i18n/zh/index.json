@@ -1,0 +1,20 @@
+{
+  "sublesson_title": "学科{{subjectName}} {{subjectShortYear}} / {{lessonName}}",
+  "menu_header_all_tab": "全部",
+  "menu_header_downloaded_tab": "已下载",
+  "menu_header_undownloaded_tab": "未下载",
+
+  "sublesson_loading": "正在加载子课程...",
+  "sublesson_not_available": "没有可用的子课程",
+  "sublesson_has_update": "有更新，请重新下载",
+
+  "delete_sublesson_modal_title": "删除本地备份数据",
+  "delete_sublesson_confirm_message": "您确定要删除此子课程吗？",
+
+  "delete_sublesson_info_message": "删除内容数据 <strong>不会影响您的游戏历史记录</strong><br/>您仍然可以重新下载<br/>存储数据使您能够持续访问内容",
+  "delete_sublesson_confirm_btn": "确认删除本地数据",
+
+  "delete_sublesson_success_title": "删除子课程成功",
+  "delete_sublesson_success_message": "子课程的本地备份数据已成功删除",
+  "delete_sublesson_ok": "确定"
+}

@@ -1,0 +1,46 @@
+{
+  "breadcrumbs": {
+    "admin": "สำหรับแอดมิน",
+    "school": "โรงเรียน"
+  },
+  "pageTitle": {
+    "school": "โรงเรียน",
+    "totalSchools": "โรงเรียน"
+  },
+  "buttons": {
+    "bulkEdit": "Bulk Edit",
+    "addSchool": "เพิ่มโรงเรียน",
+    "importCSV": "CSV",
+    "exportCSV": "CSV"
+  },
+  "placeholders": {
+    "searchSchool": "รหัสโรงเรียน, ชื่อโรงเรียน...",
+    "affiliation": "สังกัด",
+    "inspectionArea": "เขตตรวจราชการ",
+    "region": "เขตพื้นที่",
+    "province": "จังหวัด"
+  },
+  "tabs": {
+    "all": "ทั้งหมด",
+    "draft": "แบบร่าง",
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน"
+  },
+  "tableHeaders": {
+    "number": "#",
+    "schoolId": "รหัสโรงเรียน",
+    "schoolAbbreviation": "รหัสย่อโรงเรียน",
+    "schoolName": "ชื่อโรงเรียน",
+    "affiliation": "สังกัด",
+    "inspectionArea": "เขตตรวจราชการ",
+    "regionalOffice": "สำนักงานเขตพื้นที่",
+    "province": "จังหวัด",
+    "status": "สถานะ",
+    "contractCount": "จำนวนสัญญา",
+    "viewSchool": "ดูโรงเรียน",
+    "closeSchool": "ปิดโรงเรียน"
+  },
+  "status": {
+    "active": "ใช้งาน"
+  }
+}

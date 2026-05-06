@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Out of Balance Report";
+}
+
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/report/outofbalance.css")" asp-append-version="true" />
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+
+            <div class="container-fluid mt-2">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-5">
+                        <h1 class="title-section">Out of Balance Report</h1>
+                    </div>
+                    <div class="col-md-7 d-flex justify-content-end">
+                        <div class="export-box">
+                            <span class="export-label">Export as:</span>
+                            <div class="export-options-row">
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdPdf" value="pdf" checked>
+                                    <span>PDF</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdExcel" value="excel">
+                                    <span>Excel</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdCSV" value="csv">
+                                    <span>CSV</span>
+                                </label>
+
+                            </div>
+                            <button type="button" class="btn-export-navy" onclick="exportData()">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-card">
+                    <div class="row g-0">
+                        <div class="col ps-3 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="filter-group">
+                                    <label>
+                                        Station Machine:
+                                        <select id="stationMachine" class="form-select custom-input-sm select2" style="width: 100%;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        วันที่:
+                                        <input type="text" id="filterDate" class="form-control custom-input-sm" style="width: 140px;">
+                                    </label>
+                                </div>
+
+                                <div class="filter-group">
+                                    <label>
+                                        ประเภทธนบัตร:
+                                        <select id="cashTypeSelect" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div class="filter-group ms-2">
+                                    <label>
+                                        Shift:
+                                        <select id="shiftTimeSelect" class="form-select custom-input-sm select2" style="width: 350px;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-auto p-3" style="width: 200px;">
+                            <button class="btn-submit-report" id="btnGenerateReport">สร้างรายงาน</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/report/OutofBalance.js")" asp-append-version="true"></script>
+}
+
+<script src="@Url.Content("~/js/helpers/bss-report-export.js")"></script>
+<script src="@Url.Content("~/lib/html2canvas/html2canvas.js")"></script>
+<script src="@Url.Content("~/lib/jspdf/jspdf.umd.min.js")"></script>

@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "ea852bf6-2e15-41e7-a306-203096a66487",
+		"name": "bo-g00-d07-speech-to-text-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-speech-to-text",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "audio_file",
+							"description": "required (mp3 file)",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Downloads/tmp/two-sound.mp3"
+						},
+						{
+							"key": "language",
+							"value": "en",
+							"description": "required, ภาษาของเสียง (en / zh / th)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/speech-to-text/v1/transcribe",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"speech-to-text",
+						"v1",
+						"transcribe"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

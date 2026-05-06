@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Management - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .chat-card { transition: all 0.2s; }
+      .chat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar Container -->
+      <div id="sidebar-container"></div>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <div class="bg-white px-8 py-4 border-b border-gray-200">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <div>
+                <h1 class="text-xl font-bold text-gray-800">Chat Management - Head Admin</h1>
+                <p class="text-sm text-gray-500">ยืนยันแชทที่ AI ปิดแล้ว / ดูประวัติที่จัดการเสร็จ</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-lg">
+                <span class="text-lg">🤖</span>
+                <span class="text-sm text-green-700 font-medium">AI Active</span>
+              </div>
+              <span class="text-sm text-gray-500">ข้อความทั้งหมด:</span>
+              <span class="text-2xl font-bold text-blue-600" id="total-chats">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Tabs (3 Tabs: Audit, Admin Complete, AI Complete History) -->
+        <div class="bg-white px-8 py-3 border-b border-gray-200">
+          <div class="flex items-center gap-2">
+            <button onclick="switchTab('audit')" class="status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-yellow-500 text-white relative" data-tab="audit">
+              <span class="mr-1">🔍</span> Audit - ยืนยันแชทจาก AI
+              <span class="ml-1 px-1.5 py-0.5 bg-yellow-400 text-white text-xs rounded-full" id="count-audit">0</span>
+            </button>
+            <button onclick="switchTab('admin-complete')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-green-100 text-green-700 hover:bg-green-200 relative" data-tab="admin-complete">
+              <span class="mr-1">👤</span> ประวัติ Admin
+              <span class="ml-1 px-1.5 py-0.5 bg-green-200 text-green-700 text-xs rounded-full" id="count-admin-complete">0</span>
+            </button>
+            <button onclick="switchTab('ai-complete')" class="status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-blue-100 text-blue-700 hover:bg-blue-200 relative" data-tab="ai-complete">
+              <span class="mr-1">🤖</span> ประวัติ AI
+              <span class="ml-1 px-1.5 py-0.5 bg-blue-200 text-blue-700 text-xs rounded-full" id="count-ai-complete">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+          <!-- Chat List -->
+          <div class="w-96 border-r border-gray-200 bg-gray-50 flex flex-col">
+            <div class="p-4 border-b border-gray-200 bg-white">
+              <div class="relative">
+                <input type="text" placeholder="ค้นหาชื่อ / เบอร์โทร..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" oninput="searchChat(this.value)" />
+                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4 space-y-3" id="chat-list">
+            </div>
+          </div>
+
+          <!-- Chat Detail / Conversation -->
+          <div class="flex-1 flex flex-col bg-gray-50" id="chat-detail">
+            <div class="flex items-center justify-center h-full text-gray-400">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <p>เลือกแชทจากรายการด้านซ้าย</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 px-8 py-3">
+          <div class="flex items-center justify-between text-white">
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <span class="font-medium">สรุปการจัดการแชทวันนี้</span>
+            </div>
+            <div class="flex items-center gap-8">
+              <div class="text-center">
+                <p class="text-2xl font-bold text-yellow-300" id="footer-audit">0</p>
+                <p class="text-xs text-blue-200">🔍 รอยืนยัน</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold text-green-300" id="footer-admin-complete">0</p>
+                <p class="text-xs text-blue-200">👤 Admin</p>
+              </div>
+              <div class="text-center">
+                <p class="text-2xl font-bold text-blue-300" id="footer-ai-complete">0</p>
+                <p class="text-xs text-blue-200">🤖 AI</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Approve Modal -->
+    <div id="approve-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+      <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="flex items-center justify-between p-5 border-b border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800">อนุมัติราคา / ยืนยันเคส</h3>
+          <button onclick="closeApproveModal()" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-5" id="approve-modal-content">
+        </div>
+        <div class="p-5 border-t border-gray-200 flex gap-3">
+          <button onclick="closeApproveModal()" class="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">ยกเลิก</button>
+          <button onclick="approveCase()" class="flex-1 px-4 py-2.5 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600">อนุมัติ & ส่งต่อ Clinic</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mock Data - Chat Conversations (3 Tabs: AI Complete, Admin Complete, Audit)
+      const mockChats = [
+        { id: 1, name: 'คุณสมชาย', phone: '081-234-5678', channel: 'LINE', avatar: 'ส', status: 'audit', lastMessage: 'ขอบคุณครับ AI ตอบได้ครบถ้วน', time: '10:32', unread: 0, service: 'ผ่าฟันคุด', respondedBy: 'ai', completedAt: '10:35',
+          messages: [
+            { sender: 'customer', text: 'สวัสดีครับ', time: '10:30' },
+            { sender: 'customer', text: 'อยากจะนัดผ่าฟันคุดครับ', time: '10:32' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nบริการผ่าฟันคุดที่ Dental Plus\n💰 ราคา: 3,500-8,000 บาท/ซี่\n⏰ ใช้เวลา: 30-60 นาที\n\nต้องการนัดวันไหนดีคะ?', time: '10:33' },
+            { sender: 'customer', text: 'ขอบคุณครับ AI ตอบได้ครบถ้วน', time: '10:35' },
+          ]
+        },
+        { id: 2, name: 'คุณพิมพ์ลดา', phone: '089-876-5432', channel: 'Facebook', avatar: 'พ', status: 'audit', lastMessage: 'ขอบคุณค่ะ ได้ข้อมูลครบแล้ว', time: '10:28', unread: 0, service: 'จัดฟัน', respondedBy: 'ai', completedAt: '10:30',
+          messages: [
+            { sender: 'customer', text: 'สวัสดีค่ะ', time: '10:25' },
+            { sender: 'customer', text: 'รบกวนสอบถามราคาจัดฟันค่ะ', time: '10:28' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nสำหรับการจัดฟันที่ Dental Plus มีหลายแบบให้เลือกค่ะ:\n\n1. จัดฟันแบบโลหะ: เริ่มต้น 35,000 บาท\n2. จัดฟันแบบเซรามิก: เริ่มต้น 45,000 บาท\n3. จัดฟันใส (Invisalign): เริ่มต้น 120,000 บาท\n\nสนใจแบบไหนเป็นพิเศษคะ?', time: '10:28' },
+          ]
+        },
+        { id: 3, name: 'คุณวิชัย', phone: '062-111-2222', channel: 'LINE', avatar: 'ว', status: 'admin-complete', lastMessage: 'ขอบคุณครับ นัดวันเสาร์นะครับ', time: '10:15', unread: 0, service: 'ขูดหินปูน', respondedBy: 'admin', completedBy: 'แอดมินน้ำ',
+          messages: [
+            { sender: 'customer', text: 'สอบถามเรื่องขูดหินปูนครับ', time: '09:50' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nบริการขูดหินปูนที่ Dental Plus\n💰 ราคา: 800-1,200 บาท\n⏰ ใช้เวลา: 30-45 นาที\n\nต้องการนัดวันไหนดีคะ?', time: '09:51' },
+            { sender: 'customer', text: 'วันเสาร์ว่างไหมครับ', time: '10:00' },
+            { sender: 'ai', text: '🤖 วันเสาร์ที่ 20 ม.ค. ว่างค่ะ\n\nช่วงเวลาที่ว่าง:\n- 09:00\n- 10:30\n- 14:00\n- 15:30\n\nสะดวกช่วงไหนคะ?', time: '10:01' },
+            { sender: 'customer', text: '10:30 ครับ ชื่อ วิชัย โทร 062-111-2222', time: '10:10' },
+            { sender: 'ai', text: '🤖 รับทราบค่ะ ยืนยันการนัดหมาย:\n\n📅 วันเสาร์ที่ 20 ม.ค. 2567\n⏰ เวลา 10:30 น.\n🦷 บริการ: ขูดหินปูน\n👤 คุณวิชัย (062-111-2222)\n📍 สาขาสยาม\n\nระบบจะส่งข้อความแจ้งเตือนก่อนนัด 1 วันค่ะ ขอบคุณที่ใช้บริการค่ะ 🙏', time: '10:11' },
+            { sender: 'customer', text: 'ขอบคุณครับ นัดวันเสาร์นะครับ', time: '10:15' },
+          ]
+        },
+        { id: 4, name: 'คุณนารี', phone: '091-333-4444', channel: 'Instagram', avatar: 'น', status: 'admin-complete', completedBy: 'Admin', lastMessage: 'รบกวนขอราคาพิเศษได้ไหมคะ ทำหลายซี่', time: '10:05', unread: 1, service: 'วีเนียร์', respondedBy: 'ai', priceRequest: { original: 120000, requested: 100000 },
+          messages: [
+            { sender: 'customer', text: 'สนใจทำวีเนียร์ 6 ซี่ค่ะ', time: '09:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nวีเนียร์ที่ Dental Plus\n💰 ราคา: 15,000-25,000 บาท/ซี่\n\nสำหรับ 6 ซี่ ราคาประมาณ 90,000-150,000 บาทค่ะ\n\nต้องการนัดมาปรึกษาก่อนไหมคะ?', time: '09:31' },
+            { sender: 'customer', text: 'ราคาเท่าไหร่คะถ้าทำ 6 ซี่พร้อมกัน', time: '09:45' },
+            { sender: 'ai', text: '🤖 สำหรับวีเนียร์ 6 ซี่ ราคาปกติ 120,000 บาทค่ะ\n\n✨ รวมบริการ:\n- ตรวจและออกแบบรอยยิ้ม\n- วีเนียร์ E-max 6 ซี่\n- ติดตามผล 1 ปี\n\nสนใจนัดปรึกษาไหมคะ?', time: '09:46' },
+            { sender: 'customer', text: 'รบกวนขอราคาพิเศษได้ไหมคะ ทำหลายซี่', time: '10:05' },
+            { sender: 'ai', text: '🤖 รับทราบค่ะ ดิฉันจะส่งเรื่องขอราคาพิเศษให้ผู้จัดการพิจารณาค่ะ\n\nกรุณารอสักครู่นะคะ จะแจ้งกลับโดยเร็วที่สุดค่ะ 🙏', time: '10:06' },
+          ]
+        },
+        { id: 5, name: 'คุณประเสริฐ', phone: '085-555-6666', channel: 'LINE', avatar: 'ป', status: 'admin-complete', lastMessage: 'ขอบคุณครับ Admin ช่วยได้ดีมาก', time: '09:55', unread: 0, service: 'อุดฟัน', respondedBy: 'admin', completedBy: 'แอดมินฟ้า',
+          messages: [
+            { sender: 'customer', text: 'สวัสดีครับ', time: '09:50' },
+            { sender: 'customer', text: 'ฟันผุหลายซี่ ต้องทำยังไงบ้างครับ', time: '09:52' },
+            { sender: 'admin', text: '👤 สวัสดีค่ะ แอดมินฟ้าค่ะ\n\nกรณีฟันผุหลายซี่ แนะนำให้มาตรวจก่อนค่ะ หมอจะประเมินว่าต้องอุดกี่ซี่ หรือต้องรักษารากฟันไหม\n\nราคาอุดฟัน: 800-2,500 บาท/ซี่\n\nสะดวกมาตรวจวันไหนดีคะ?', time: '09:53' },
+            { sender: 'customer', text: 'ขอบคุณครับ Admin ช่วยได้ดีมาก', time: '09:55' },
+          ]
+        },
+        { id: 6, name: 'คุณสุภา', phone: '087-777-8888', channel: 'Facebook', avatar: 'ส', status: 'audit', lastMessage: 'ได้เลยค่ะ ขอบคุณค่ะ', time: '09:40', unread: 0, service: 'ปรึกษา', respondedBy: 'ai', completedAt: '09:45',
+          messages: [
+            { sender: 'customer', text: 'มีโปรโมชั่นอะไรบ้างคะ', time: '09:40' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ โปรโมชั่นเดือนนี้ค่ะ:\n\n🎉 1. ฟอกสีฟัน ลด 20% เหลือ 3,200 บาท\n🎉 2. ขูดหินปูน + ขัดฟัน 999 บาท (จาก 1,500)\n🎉 3. จัดฟันใส ผ่อน 0% 12 เดือน\n\nสนใจบริการไหนเป็นพิเศษคะ?', time: '09:41' },
+            { sender: 'customer', text: 'ได้เลยค่ะ ขอบคุณค่ะ', time: '09:45' },
+          ]
+        },
+        { id: 7, name: 'คุณมานะ', phone: '083-999-0000', channel: 'LINE', avatar: 'ม', status: 'ai-complete', lastMessage: 'ได้เลยครับ ขอบคุณมากครับ', time: '09:20', unread: 0, service: 'ฟอกสีฟัน', respondedBy: 'ai', completedAt: '09:25',
+          messages: [
+            { sender: 'customer', text: 'ฟอกสีฟันราคาเท่าไหร่ครับ', time: '09:00' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ฟอกสีฟันที่ Dental Plus:\n\n💎 Zoom Whitening: 4,000 บาท (ปกติ 5,000)\n⏰ ใช้เวลา: 1-1.5 ชั่วโมง\n✨ ขาวขึ้น 3-8 เฉด\n\nโปรเดือนนี้ลด 20% เหลือ 3,200 บาทค่ะ!', time: '09:01' },
+            { sender: 'customer', text: 'สนใจครับ นัดวันอาทิตย์ได้ไหม', time: '09:10' },
+            { sender: 'ai', text: '🤖 วันอาทิตย์ที่ 21 ม.ค. ว่างค่ะ\n\nช่วงเวลาที่ว่าง:\n- 10:00\n- 13:00\n- 15:00\n\nสะดวกช่วงไหนคะ?', time: '09:11' },
+            { sender: 'customer', text: '13:00 ครับ ชื่อมานะ', time: '09:15' },
+            { sender: 'ai', text: '🤖 ยืนยันการนัดหมาย:\n\n📅 วันอาทิตย์ที่ 21 ม.ค. 2567\n⏰ เวลา 13:00 น.\n🦷 บริการ: ฟอกสีฟัน Zoom\n💰 ราคาโปร: 3,200 บาท\n👤 คุณมานะ\n📍 สาขาสยาม\n\nขอบคุณที่ใช้บริการค่ะ 🙏', time: '09:16' },
+            { sender: 'customer', text: 'ได้เลยครับ ขอบคุณมากครับ', time: '09:20' },
+          ]
+        },
+        { id: 8, name: 'คุณจินตนา', phone: '086-111-3333', channel: 'LINE', avatar: 'จ', status: 'admin-complete', completedBy: 'Admin', lastMessage: 'ทำประกันได้ไหมคะ ประกัน AIA', time: '09:00', unread: 1, service: 'รากเทียม', respondedBy: 'ai', insuranceRequest: { company: 'AIA', amount: 80000 },
+          messages: [
+            { sender: 'customer', text: 'สอบถามเรื่องรากเทียมค่ะ', time: '08:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ รากเทียมที่ Dental Plus:\n\n🦷 รากเทียม Straumann (Swiss): 80,000 บาท/ซี่\n🦷 รากเทียม Osstem (Korea): 45,000 บาท/ซี่\n\nรวมครอบฟันและติดตามผล 5 ปีค่ะ', time: '08:31' },
+            { sender: 'customer', text: 'ทำประกันได้ไหมคะ ประกัน AIA', time: '09:00' },
+            { sender: 'ai', text: '🤖 รับทราบค่ะ Dental Plus รับประกัน AIA ค่ะ\n\nดิฉันจะส่งเรื่องให้ทีมประกันตรวจสอบสิทธิ์ให้นะคะ\n\nกรุณารอสักครู่ จะแจ้งกลับโดยเร็วที่สุดค่ะ 🙏', time: '09:01' },
+          ]
+        },
+        { id: 9, name: 'คุณธนา', phone: '084-222-4444', channel: 'Facebook', avatar: 'ธ', status: 'admin-complete', lastMessage: 'เข้าใจแล้วครับ ขอบคุณแอดมินครับ', time: '08:45', unread: 0, service: 'จัดฟัน', respondedBy: 'admin', completedBy: 'แอดมินน้ำ',
+          messages: [
+            { sender: 'customer', text: 'มีหมอเฉพาะทางจัดฟันไหมครับ', time: '08:45' },
+            { sender: 'admin', text: '👤 สวัสดีค่ะ มีค่ะ!\n\nหมอเฉพาะทางจัดฟันที่ Dental Plus:\n- ทพญ.พิมพ์ใจ (จบเฉพาะทาง มหิดล)\n- ทพ.ศิริชัย (จบเฉพาะทาง จุฬาฯ)\n\nทั้ง 2 ท่านมีประสบการณ์มากกว่า 10 ปีค่ะ', time: '08:47' },
+            { sender: 'customer', text: 'เข้าใจแล้วครับ ขอบคุณแอดมินครับ', time: '08:50' },
+          ]
+        },
+        { id: 10, name: 'คุณกัญญา', phone: '088-333-5555', channel: 'Instagram', avatar: 'ก', status: 'ai-complete', lastMessage: 'ขอบคุณสำหรับข้อมูลค่ะ', time: '08:30', unread: 0, service: 'ผ่าฟันคุด', respondedBy: 'ai', completedAt: '08:35',
+          messages: [
+            { sender: 'customer', text: 'พรุ่งนี้นัดผ่าฟันคุดค่ะ ต้องเตรียมตัวยังไงบ้างคะก่อนมา', time: '08:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ การเตรียมตัวก่อนผ่าฟันคุด:\n\n✅ พักผ่อนให้เพียงพอ\n✅ รับประทานอาหารก่อนมา 2-3 ชม.\n✅ ไม่ดื่มแอลกอฮอล์ 24 ชม. ก่อน\n✅ แจ้งยาที่รับประทานอยู่\n✅ นำบัตรประชาชนมาด้วย\n\n❌ งดสูบบุหรี่ก่อน-หลังผ่า\n\nมีคนมาส่งไหมคะ? แนะนำให้มีคนมาด้วยค่ะ', time: '08:31' },
+            { sender: 'customer', text: 'ขอบคุณสำหรับข้อมูลค่ะ', time: '08:35' },
+          ]
+        },
+        { id: 11, name: 'คุณอนันต์', phone: '082-444-6666', channel: 'LINE', avatar: 'อ', status: 'ai-complete', lastMessage: 'เข้าใจแล้วครับ ขอบคุณครับ', time: '08:15', unread: 0, service: 'ปรึกษา', respondedBy: 'ai', completedAt: '08:20',
+          messages: [
+            { sender: 'customer', text: 'ทำไมต้องถ่าย X-ray ก่อนครับ', time: '08:00' },
+            { sender: 'ai', text: '🤖 การถ่าย X-ray ก่อนรักษาสำคัญมากค่ะ:\n\n🔍 เพื่อดู:\n- รากฟันและกระดูกใต้เหงือก\n- ฟันคุดที่ซ่อนอยู่\n- โพรงประสาทฟัน\n- ปัญหาที่มองไม่เห็นด้วยตา\n\n✨ ช่วยให้หมอวางแผนการรักษาได้แม่นยำค่ะ\n\nที่คลินิกใช้ Digital X-ray ซึ่งปลอดภัย รังสีน้อยมากค่ะ', time: '08:01' },
+            { sender: 'customer', text: 'เข้าใจแล้วครับ ขอบคุณครับ', time: '08:15' },
+          ]
+        },
+        { id: 12, name: 'คุณรัตนา', phone: '089-555-7777', channel: 'LINE', avatar: 'ร', status: 'admin-complete', lastMessage: 'โอเคค่ะ เจอกันวันพฤหัส', time: '07:50', unread: 0, service: 'ตรวจสุขภาพฟัน', respondedBy: 'admin', completedBy: 'แอดมินฟ้า',
+          messages: [
+            { sender: 'customer', text: 'จะพาลูกมาตรวจฟันค่ะ อายุ 5 ขวบ', time: '07:30' },
+            { sender: 'ai', text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\n👶 สำหรับน้องอายุ 5 ขวบ:\n- ตรวจสุขภาพฟัน: ฟรี!\n- เคลือบฟลูออไรด์: 300 บาท\n- เคลือบหลุมร่องฟัน: 400 บาท/ซี่\n\nมีหมอเฉพาะทางเด็กค่ะ นัดวันไหนดีคะ?', time: '07:31' },
+            { sender: 'customer', text: 'วันพฤหัสบ่ายว่างไหมคะ', time: '07:40' },
+            { sender: 'ai', text: '🤖 วันพฤหัสที่ 18 ม.ค. ช่วงบ่ายว่างค่ะ:\n- 13:00\n- 14:30\n- 16:00\n\nสะดวกช่วงไหนคะ?', time: '07:41' },
+            { sender: 'customer', text: '14:30 ค่ะ ชื่อแม่ รัตนา ลูกชื่อน้องบีม', time: '07:45' },
+            { sender: 'ai', text: '🤖 ยืนยันการนัดหมาย:\n\n📅 วันพฤหัสที่ 18 ม.ค. 2567\n⏰ เวลา 14:30 น.\n👶 น้องบีม (5 ขวบ)\n👩 ผู้ปกครอง: คุณรัตนา\n🦷 บริการ: ตรวจสุขภาพฟัน\n📍 สาขาสยาม\n\nขอบคุณที่ใช้บริการค่ะ 🙏', time: '07:46' },
+            { sender: 'customer', text: 'โอเคค่ะ เจอกันวันพฤหัส', time: '07:50' },
+          ]
+        },
+      ];
+
+      let chats = [...mockChats];
+      let currentTab = 'audit';
+      let currentChatId = null;
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        renderChatList();
+        updateCounts();
+      });
+
+      // Switch Tab (3 Tabs: Audit, Admin Complete, AI Complete)
+      function switchTab(tab) {
+        currentTab = tab;
+        document.querySelectorAll('.status-tab').forEach(btn => {
+          btn.classList.remove('active');
+          const btnTab = btn.dataset.tab;
+          if (btnTab === tab) {
+            btn.classList.add('active');
+            if (tab === 'audit') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-yellow-500 text-white relative';
+            else if (tab === 'admin-complete') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-green-600 text-white relative';
+            else if (tab === 'ai-complete') btn.className = 'status-tab active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-blue-600 text-white relative';
+          } else {
+            if (btnTab === 'audit') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-yellow-100 text-yellow-700 hover:bg-yellow-200 relative';
+            else if (btnTab === 'admin-complete') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-green-100 text-green-700 hover:bg-green-200 relative';
+            else if (btnTab === 'ai-complete') btn.className = 'status-tab px-4 py-2 rounded-xl text-sm font-medium transition-all bg-blue-100 text-blue-700 hover:bg-blue-200 relative';
+          }
+        });
+        renderChatList();
+      }
+
+      // Render Chat List
+      function renderChatList() {
+        const filteredChats = chats.filter(c => c.status === currentTab);
+        const chatList = document.getElementById('chat-list');
+
+        if (filteredChats.length === 0) {
+          chatList.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-64 text-gray-400">
+              <svg class="w-12 h-12 mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <p class="text-center text-sm">ไม่มีแชทในหมวดนี้</p>
+            </div>
+          `;
+          return;
+        }
+
+        chatList.innerHTML = filteredChats.map(chat => createChatItem(chat)).join('');
+      }
+
+      // Create Chat Item HTML - Card Style (3 Tabs: AI Complete, Admin Complete, Audit)
+      function createChatItem(chat) {
+        const channelColors = {
+          'LINE': 'bg-green-500',
+          'Facebook': 'bg-blue-500',
+          'Instagram': 'bg-gradient-to-br from-purple-500 to-pink-500'
+        };
+
+        const channelIcons = {
+          'LINE': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>`,
+          'Facebook': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+          'Instagram': `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`
+        };
+
+        const channelIconColors = {
+          'LINE': 'text-green-500',
+          'Facebook': 'text-blue-600',
+          'Instagram': 'text-pink-500'
+        };
+
+        const statusStyles = {
+          'audit': { border: 'border-l-yellow-500', badge: 'bg-yellow-100 text-yellow-700', badgeText: '🔍 รอยืนยัน' },
+          'admin-complete': { border: 'border-l-green-500', badge: 'bg-green-100 text-green-700', badgeText: '👤 Admin' },
+          'ai-complete': { border: 'border-l-blue-500', badge: 'bg-blue-100 text-blue-700', badgeText: '🤖 AI Complete' }
+        };
+
+        const style = statusStyles[chat.status] || statusStyles['ai-complete'];
+
+        const unreadBadge = chat.unread > 0
+          ? `<span class="px-1.5 py-0.5 bg-red-500 text-white text-xs rounded-full font-bold min-w-[20px] text-center">${chat.unread}</span>`
+          : '';
+
+        return `
+          <div class="chat-card bg-white rounded-xl p-4 shadow-sm border-l-4 ${style.border} cursor-pointer transition-all hover:shadow-md hover:-translate-y-0.5 ${currentChatId === chat.id ? 'ring-2 ring-dental-500 bg-dental-50' : ''}" onclick="selectChat(${chat.id})">
+            <!-- Row 1: Avatar + Name + Time -->
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  <div class="w-10 h-10 ${channelColors[chat.channel]} rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    ${chat.avatar}
+                  </div>
+                  <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-sm ${channelIconColors[chat.channel] || 'text-gray-500'}">
+                    ${channelIcons[chat.channel] || ''}
+                  </div>
+                  ${chat.unread > 0 ? '<div class="absolute -top-1 -left-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></div>' : ''}
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">${chat.name}</p>
+                  <p class="text-xs text-gray-500">${chat.phone}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-400">${chat.time}</span>
+                ${unreadBadge}
+              </div>
+            </div>
+
+            <!-- Row 2: Last Message -->
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">${chat.lastMessage}</p>
+
+            <!-- Row 3: Status + Service Badges -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 ${style.badge} text-xs rounded-full font-medium">${style.badgeText}</span>
+                <span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded-full">${chat.service}</span>
+              </div>
+              ${chat.respondedBy === 'ai' ? '<span class="text-xs text-purple-500 font-medium">🤖 AI</span>' : '<span class="text-xs text-blue-500 font-medium">👤 Admin</span>'}
+            </div>
+
+            <!-- Row 4: Footer Info -->
+            <div class="mt-2 pt-2 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
+              <span class="flex items-center gap-1">
+                <span class="${channelIconColors[chat.channel] || 'text-gray-500'}">${channelIcons[chat.channel] || ''}</span>
+                ${chat.channel}
+              </span>
+              ${chat.completedBy ? `<span class="text-green-600">โดย: ${chat.completedBy}</span>` : `<span>ปิดเมื่อ: ${chat.completedAt || chat.time}</span>`}
+            </div>
+          </div>
+        `;
+      }
+
+      // Select Chat
+      function selectChat(chatId) {
+        currentChatId = chatId;
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        // Mark as read
+        chat.unread = 0;
+        renderChatList();
+        updateCounts();
+
+        // Render conversation
+        const chatDetail = document.getElementById('chat-detail');
+        chatDetail.innerHTML = `
+          <!-- Chat Header -->
+          <div class="bg-white px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-dental-500 rounded-full flex items-center justify-center text-white font-bold">
+                ${chat.avatar}
+              </div>
+              <div>
+                <p class="font-bold text-gray-800">${chat.name}</p>
+                <p class="text-xs text-gray-500">${chat.phone} • ${chat.channel}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              ${chat.status === 'audit' ? `
+                <button onclick="confirmAIChat(${chat.id})" class="px-4 py-2 bg-green-500 text-white rounded-xl text-sm font-medium hover:bg-green-600 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  ยืนยัน AI ถูกต้อง
+                </button>
+                <button onclick="rejectAIChat(${chat.id})" class="px-4 py-2 bg-red-100 text-red-600 rounded-xl text-sm font-medium hover:bg-red-200 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  แก้ไข
+                </button>
+              ` : ''}
+              ${chat.status === 'incoming' ? `
+                <button onclick="assignToAI(${chat.id})" class="px-4 py-2 bg-blue-500 text-white rounded-xl text-sm font-medium hover:bg-blue-600">
+                  🤖 ส่ง AI ตอบ
+                </button>
+              ` : ''}
+              ${chat.status !== 'admin-complete' && chat.status !== 'ai-complete' ? `
+                <button onclick="sendToAdmin(${chat.id})" class="px-4 py-2 bg-purple-100 text-purple-600 rounded-xl text-sm font-medium hover:bg-purple-200">
+                  📋 ส่ง Admin
+                </button>
+              ` : ''}
+            </div>
+          </div>
+
+          <!-- Audit Banner (for audit status - pending confirmation) -->
+          ${chat.status === 'audit' ? `
+          <div class="bg-yellow-50 border-b border-yellow-200 px-6 py-3">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white text-sm">🔍</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-yellow-800">AI ปิดแชทนี้แล้ว - รอ Head Admin ยืนยัน</p>
+                <p class="text-xs text-yellow-600 mt-1">บริการ: ${chat.service} | ปิดเมื่อ: ${chat.completedAt || chat.time}</p>
+                <p class="text-xs text-gray-600 mt-1 bg-white rounded px-2 py-1 inline-block">"${chat.lastMessage}"</p>
+              </div>
+            </div>
+          </div>
+          ` : ''}
+
+          <!-- AI Complete Banner (for ai-complete status - confirmed history) -->
+          ${chat.status === 'ai-complete' ? `
+          <div class="bg-blue-50 border-b border-blue-200 px-6 py-3">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <span class="text-white text-sm">🤖</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-blue-800">ประวัติแชท AI - ยืนยันแล้ว</p>
+                <p class="text-xs text-blue-600 mt-1">บริการ: ${chat.service} | ปิดเมื่อ: ${chat.completedAt || chat.time}</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">📁 เก็บประวัติ</span>
+              </div>
+            </div>
+          </div>
+          ` : ''}
+
+          <!-- Archive Banner (for admin-complete status) -->
+          ${chat.status === 'admin-complete' ? `
+          <div class="bg-green-50 border-b border-green-200 px-6 py-3">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-medium text-green-800">ประวัติแชท - ดำเนินการเสร็จสิ้นแล้ว</p>
+                <p class="text-xs text-green-600 mt-1">บริการ: ${chat.service} | โดย: ${chat.completedBy || 'Admin'}</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">📁 เก็บประวัติ</span>
+              </div>
+            </div>
+          </div>
+          ` : ''}
+
+          <!-- Messages -->
+          <div class="flex-1 overflow-y-auto p-6 space-y-4" id="message-area">
+            ${chat.messages.map(msg => createMessageBubble(msg)).join('')}
+          </div>
+
+          <!-- Footer based on status -->
+          ${chat.status === 'audit' ? `
+          <!-- Audit: Action bar for confirm/reject -->
+          <div class="bg-yellow-50 px-6 py-4 border-t border-yellow-200">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-yellow-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium">กรุณาตรวจสอบการตอบของ AI แล้วกดยืนยันหรือส่งกลับแก้ไข</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="confirmAIChat(${chat.id})" class="px-4 py-2 bg-green-500 text-white rounded-xl text-sm font-medium hover:bg-green-600">✓ ยืนยัน</button>
+                <button onclick="rejectAIChat(${chat.id})" class="px-4 py-2 bg-red-100 text-red-600 rounded-xl text-sm font-medium hover:bg-red-200">✗ แก้ไข</button>
+              </div>
+            </div>
+          </div>
+          ` : chat.status === 'admin-complete' ? `
+          <!-- Admin Complete: Read-only archive -->
+          <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+            <div class="flex items-center justify-center gap-2 text-gray-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+              </svg>
+              <span class="text-sm">ประวัติแชท Admin - ดูได้อย่างเดียว</span>
+            </div>
+          </div>
+          ` : chat.status === 'ai-complete' ? `
+          <!-- AI Complete: Read-only archive -->
+          <div class="bg-blue-50 px-6 py-4 border-t border-blue-200">
+            <div class="flex items-center justify-center gap-2 text-blue-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+              </svg>
+              <span class="text-sm">ประวัติแชท AI - ดูได้อย่างเดียว</span>
+            </div>
+          </div>
+          ` : `
+          <!-- Other: Reply input -->
+          <div class="bg-white px-6 py-4 border-t border-gray-200">
+            <div class="flex items-center gap-3">
+              <input type="text" id="reply-input" placeholder="พิมพ์ข้อความตอบกลับ..." class="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" onkeypress="handleReplyKeypress(event, ${chat.id})" />
+              <button onclick="sendReply(${chat.id})" class="px-4 py-2.5 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          `}
+        `;
+
+        // Scroll to bottom
+        setTimeout(() => {
+          const messageArea = document.getElementById('message-area');
+          if (messageArea) messageArea.scrollTop = messageArea.scrollHeight;
+        }, 100);
+      }
+
+      // Create Message Bubble
+      function createMessageBubble(msg) {
+        if (msg.sender === 'customer') {
+          return `
+            <div class="flex justify-start">
+              <div class="max-w-[70%] bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-gray-100">
+                <p class="text-sm text-gray-800 whitespace-pre-wrap">${msg.text}</p>
+                <p class="text-xs text-gray-400 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        } else if (msg.sender === 'ai') {
+          return `
+            <div class="flex justify-end">
+              <div class="max-w-[70%] bg-green-100 rounded-2xl rounded-br-md px-4 py-3">
+                <div class="flex items-center gap-1 mb-1">
+                  <span class="text-xs text-green-600 font-medium">🤖 AI ตอบ</span>
+                </div>
+                <p class="text-sm text-gray-800 whitespace-pre-wrap">${msg.text}</p>
+                <p class="text-xs text-green-600 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        } else if (msg.sender === 'system') {
+          return `
+            <div class="flex justify-center my-2">
+              <div class="px-4 py-2 bg-gray-100 rounded-full">
+                <p class="text-xs text-gray-600">${msg.text}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="flex justify-end">
+              <div class="max-w-[70%] bg-dental-500 text-white rounded-2xl rounded-br-md px-4 py-3">
+                <div class="flex items-center gap-1 mb-1">
+                  <span class="text-xs text-dental-100 font-medium">👤 คุณ</span>
+                </div>
+                <p class="text-sm whitespace-pre-wrap">${msg.text}</p>
+                <p class="text-xs text-dental-200 mt-1 text-right">${msg.time}</p>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // Send Reply
+      function handleReplyKeypress(e, chatId) {
+        if (e.key === 'Enter') sendReply(chatId);
+      }
+
+      function sendReply(chatId) {
+        const input = document.getElementById('reply-input');
+        const text = input.value.trim();
+        if (!text) return;
+
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        const now = new Date();
+        const time = now.toTimeString().slice(0, 5);
+
+        chat.messages.push({ sender: 'agent', text, time });
+        chat.lastMessage = text;
+        chat.time = time;
+        chat.respondedBy = 'human';
+
+        input.value = '';
+        selectChat(chatId);
+        renderChatList();
+      }
+
+      // Assign to AI
+      function assignToAI(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+        chat.status = 'screening';
+        chat.respondedBy = 'ai';
+        renderChatList();
+        updateCounts();
+
+        // Simulate AI response
+        setTimeout(() => {
+          const now = new Date();
+          const time = now.toTimeString().slice(0, 5);
+          chat.messages.push({
+            sender: 'ai',
+            text: '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ\n\nดิฉันกำลังตรวจสอบข้อมูลให้นะคะ กรุณารอสักครู่ค่ะ...',
+            time
+          });
+          chat.lastMessage = '🤖 สวัสดีค่ะ ยินดีให้บริการค่ะ...';
+          chat.time = time;
+          if (currentChatId === chatId) selectChat(chatId);
+        }, 1000);
+      }
+
+      // Send to Admin
+      function sendToAdmin(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+        alert(`ส่งเคสของ ${chat.name} ไป Center/Admin แล้ว`);
+      }
+
+      // Confirm AI Chat - Head Admin ยืนยันว่า AI ตอบถูกต้อง
+      function confirmAIChat(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        // Show confirmation modal
+        const confirmModal = document.createElement('div');
+        confirmModal.id = 'confirm-ai-modal';
+        confirmModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+        confirmModal.innerHTML = `
+          <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+            <div class="bg-green-500 px-5 py-4">
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ยืนยันการตอบของ AI
+              </h3>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-3 mb-4 p-3 bg-gray-50 rounded-xl">
+                <div class="w-12 h-12 bg-dental-100 rounded-full flex items-center justify-center">
+                  <span class="text-dental-700 font-bold text-lg">${chat.avatar}</span>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">${chat.name}</p>
+                  <p class="text-sm text-gray-500">${chat.service}</p>
+                </div>
+              </div>
+              <div class="bg-blue-50 rounded-xl p-4 mb-4">
+                <p class="text-sm text-blue-800 font-medium mb-2">🤖 AI สรุปการสนทนา:</p>
+                <p class="text-sm text-gray-700">${chat.lastMessage}</p>
+                <p class="text-xs text-gray-400 mt-2">เวลาที่ AI ปิดแชท: ${chat.completedAt || chat.time}</p>
+              </div>
+              <p class="text-sm text-gray-600 mb-4">คุณยืนยันว่า AI ตอบถูกต้องและครบถ้วนแล้วใช่ไหม?<br><span class="text-xs text-blue-500">แชทจะถูกย้ายไปยัง "ประวัติ AI"</span></p>
+            </div>
+            <div class="p-5 border-t border-gray-200 flex gap-3">
+              <button onclick="closeConfirmModal()" class="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">ยกเลิก</button>
+              <button onclick="doConfirmAI(${chatId})" class="flex-1 px-4 py-2.5 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600 flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                ยืนยัน
+              </button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(confirmModal);
+      }
+
+      function closeConfirmModal() {
+        const modal = document.getElementById('confirm-ai-modal');
+        if (modal) modal.remove();
+      }
+
+      function doConfirmAI(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        // Move to ai-complete (AI confirmed history)
+        chat.status = 'ai-complete';
+        chat.confirmedBy = 'Head Admin';
+
+        const now = new Date();
+        const time = now.toTimeString().slice(0, 5);
+        chat.completedAt = time;
+        chat.messages.push({
+          sender: 'system',
+          text: '✅ Head Admin ยืนยันการตอบของ AI ถูกต้องแล้ว',
+          time
+        });
+
+        closeConfirmModal();
+        renderChatList();
+        updateCounts();
+
+        // Switch to ai-complete tab to show the confirmed chat
+        switchTab('ai-complete');
+        selectChat(chatId);
+      }
+
+      // Reject AI Chat - ส่งกลับให้ Admin แก้ไข หรือส่งข้อความแก้ไขถึงลูกค้า
+      function rejectAIChat(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        const rejectModal = document.createElement('div');
+        rejectModal.id = 'reject-ai-modal';
+        rejectModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+        rejectModal.innerHTML = `
+          <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden">
+            <div class="bg-orange-500 px-5 py-4">
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                AI ตอบไม่ถูกต้อง - เลือกวิธีแก้ไข
+              </h3>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-3 mb-4 p-3 bg-gray-50 rounded-xl">
+                <div class="w-12 h-12 bg-dental-100 rounded-full flex items-center justify-center">
+                  <span class="text-dental-700 font-bold text-lg">${chat.avatar}</span>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">${chat.name}</p>
+                  <p class="text-sm text-gray-500">${chat.phone} • ${chat.service}</p>
+                </div>
+              </div>
+
+              <!-- เลือกวิธีแก้ไข -->
+              <div class="space-y-3 mb-4">
+                <label class="block text-sm font-medium text-gray-700">เลือกวิธีจัดการ:</label>
+
+                <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-blue-50 hover:border-blue-300 transition-colors">
+                  <input type="radio" name="reject-action" value="send-correction" class="mt-1" checked />
+                  <div>
+                    <p class="font-medium text-gray-800">📤 ส่งข้อความแก้ไขให้ลูกค้าเลย</p>
+                    <p class="text-xs text-gray-500">พิมพ์ข้อความที่ถูกต้องแล้วส่งถึงลูกค้าโดยตรง</p>
+                  </div>
+                </label>
+
+                <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-purple-50 hover:border-purple-300 transition-colors">
+                  <input type="radio" name="reject-action" value="send-admin" class="mt-1" />
+                  <div>
+                    <p class="font-medium text-gray-800">👤 ส่งให้ Admin ดำเนินการ</p>
+                    <p class="text-xs text-gray-500">ส่งเคสไปยัง Admin เพื่อติดต่อลูกค้าเอง</p>
+                  </div>
+                </label>
+              </div>
+
+              <!-- ข้อความแก้ไข (แสดงเมื่อเลือก send-correction) -->
+              <div id="correction-message-section">
+                <label class="block text-sm font-medium text-gray-700 mb-2">ข้อความแก้ไขที่จะส่งถึงลูกค้า:</label>
+                <textarea id="correction-message" rows="4" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="พิมพ์ข้อความที่ถูกต้องที่จะส่งให้ลูกค้า...">ขออภัยค่ะ ข้อมูลที่แจ้งก่อนหน้านี้ไม่ถูกต้อง ขอแก้ไขดังนี้:
+
+</textarea>
+              </div>
+
+              <!-- หมายเหตุ (แสดงเมื่อเลือก send-admin) -->
+              <div id="admin-note-section" class="hidden">
+                <label class="block text-sm font-medium text-gray-700 mb-2">หมายเหตุถึง Admin:</label>
+                <textarea id="admin-note" rows="3" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="เช่น ราคาผิด, ข้อมูลไม่ครบ, ต้องโทรยืนยัน..."></textarea>
+              </div>
+            </div>
+            <div class="p-5 border-t border-gray-200 flex gap-3">
+              <button onclick="closeRejectModal()" class="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200">ยกเลิก</button>
+              <button onclick="doRejectAI(${chatId})" id="reject-submit-btn" class="flex-1 px-4 py-2.5 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600">📤 ส่งข้อความแก้ไข</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(rejectModal);
+
+        // Toggle between options
+        const radios = rejectModal.querySelectorAll('input[name="reject-action"]');
+        radios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            const correctionSection = document.getElementById('correction-message-section');
+            const adminSection = document.getElementById('admin-note-section');
+            const submitBtn = document.getElementById('reject-submit-btn');
+
+            if (this.value === 'send-correction') {
+              correctionSection.classList.remove('hidden');
+              adminSection.classList.add('hidden');
+              submitBtn.textContent = '📤 ส่งข้อความแก้ไข';
+              submitBtn.className = 'flex-1 px-4 py-2.5 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600';
+            } else {
+              correctionSection.classList.add('hidden');
+              adminSection.classList.remove('hidden');
+              submitBtn.textContent = '👤 ส่งให้ Admin';
+              submitBtn.className = 'flex-1 px-4 py-2.5 bg-purple-500 text-white rounded-xl font-medium hover:bg-purple-600';
+            }
+          });
+        });
+      }
+
+      function closeRejectModal() {
+        const modal = document.getElementById('reject-ai-modal');
+        if (modal) modal.remove();
+      }
+
+      function doRejectAI(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        const action = document.querySelector('input[name="reject-action"]:checked').value;
+        const now = new Date();
+        const time = now.toTimeString().slice(0, 5);
+
+        if (action === 'send-correction') {
+          // ส่งข้อความแก้ไขให้ลูกค้าเลย
+          const correctionMsg = document.getElementById('correction-message').value.trim();
+          if (!correctionMsg) {
+            alert('กรุณาพิมพ์ข้อความแก้ไข');
+            return;
+          }
+
+          // เพิ่มข้อความแก้ไขใน chat
+          chat.messages.push({
+            sender: 'admin',
+            text: correctionMsg,
+            time
+          });
+
+          chat.messages.push({
+            sender: 'system',
+            text: '✅ Head Admin ส่งข้อความแก้ไขให้ลูกค้าแล้ว',
+            time
+          });
+
+          // ย้ายไป admin-complete เพราะจัดการเสร็จแล้ว
+          chat.status = 'admin-complete';
+          chat.completedBy = 'Head Admin (แก้ไข AI)';
+          chat.lastMessage = correctionMsg;
+          chat.time = time;
+
+          closeRejectModal();
+          renderChatList();
+          updateCounts();
+
+          // Switch to admin-complete tab
+          switchTab('admin-complete');
+          selectChat(chatId);
+
+        } else {
+          // ส่งให้ Admin ดำเนินการ - ยังคงอยู่ใน ai-complete เพื่อรอแก้ไข
+          const adminNote = document.getElementById('admin-note').value || 'ต้องตรวจสอบเพิ่มเติม';
+
+          chat.messages.push({
+            sender: 'system',
+            text: `⚠️ Head Admin ส่งให้ Admin ดำเนินการ: ${adminNote}`,
+            time
+          });
+
+          // Keep in ai-complete with note
+          chat.rejectReason = adminNote;
+          chat.needsAdminAction = true;
+
+          closeRejectModal();
+          renderChatList();
+          updateCounts();
+          selectChat(chatId);
+
+          alert(`ส่งเรื่องให้ Admin ดำเนินการแล้ว\nหมายเหตุ: ${adminNote}`);
+        }
+      }
+
+      // Show Approve Modal
+      function showApproveModal(chatId) {
+        const chat = chats.find(c => c.id === chatId);
+        if (!chat) return;
+
+        let content = '';
+        if (chat.priceRequest) {
+          content = `
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-dental-100 rounded-full flex items-center justify-center">
+                  <span class="text-dental-700 font-bold text-lg">${chat.avatar}</span>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">${chat.name}</p>
+                  <p class="text-sm text-gray-500">${chat.phone}</p>
+                </div>
+              </div>
+              <div class="bg-orange-50 rounded-xl p-4">
+                <p class="text-sm text-orange-800 font-medium mb-2">📋 ขอราคาพิเศษ</p>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">บริการ:</span>
+                    <span class="font-medium">${chat.service}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">ราคาปกติ:</span>
+                    <span class="font-medium">฿${chat.priceRequest.original.toLocaleString()}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">ราคาขอพิเศษ:</span>
+                    <span class="font-medium text-orange-600">฿${chat.priceRequest.requested.toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">ราคาที่อนุมัติ (บาท)</label>
+                <input type="number" id="approve-price" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" value="${chat.priceRequest.requested}" />
+              </div>
+            </div>
+          `;
+        } else if (chat.insuranceRequest) {
+          content = `
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-dental-100 rounded-full flex items-center justify-center">
+                  <span class="text-dental-700 font-bold text-lg">${chat.avatar}</span>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">${chat.name}</p>
+                  <p class="text-sm text-gray-500">${chat.phone}</p>
+                </div>
+              </div>
+              <div class="bg-orange-50 rounded-xl p-4">
+                <p class="text-sm text-orange-800 font-medium mb-2">🏥 ขอใช้ประกัน</p>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">บริการ:</span>
+                    <span class="font-medium">${chat.service}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">บริษัทประกัน:</span>
+                    <span class="font-medium">${chat.insuranceRequest.company}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">วงเงิน:</span>
+                    <span class="font-medium">฿${chat.insuranceRequest.amount.toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">หมายเหตุ</label>
+                <textarea id="approve-note" rows="2" class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-dental-500" placeholder="บันทึกเพิ่มเติม..."></textarea>
+              </div>
+            </div>
+          `;
+        }
+
+        document.getElementById('approve-modal-content').innerHTML = content;
+        document.getElementById('approve-modal').classList.remove('hidden');
+      }
+
+      function closeApproveModal() {
+        document.getElementById('approve-modal').classList.add('hidden');
+      }
+
+      function approveCase() {
+        if (currentChatId) {
+          const chat = chats.find(c => c.id === currentChatId);
+          if (chat) {
+            chat.status = 'completed';
+            const now = new Date();
+            const time = now.toTimeString().slice(0, 5);
+            chat.messages.push({
+              sender: 'ai',
+              text: '🤖 อนุมัติแล้วค่ะ! ทีมงานจะติดต่อกลับเพื่อนัดหมายนะคะ ขอบคุณที่ใช้บริการค่ะ 🙏',
+              time
+            });
+            renderChatList();
+            updateCounts();
+            selectChat(currentChatId);
+          }
+        }
+        closeApproveModal();
+      }
+
+      // Update Counts
+      function updateCounts() {
+        const counts = { 'audit': 0, 'admin-complete': 0, 'ai-complete': 0 };
+        chats.forEach(c => {
+          if (counts[c.status] !== undefined) counts[c.status]++;
+        });
+
+        document.getElementById('count-audit').textContent = counts['audit'];
+        document.getElementById('count-admin-complete').textContent = counts['admin-complete'];
+        document.getElementById('count-ai-complete').textContent = counts['ai-complete'];
+
+        document.getElementById('total-chats').textContent = chats.length;
+        document.getElementById('footer-audit').textContent = counts['audit'];
+        document.getElementById('footer-admin-complete').textContent = counts['admin-complete'];
+        document.getElementById('footer-ai-complete').textContent = counts['ai-complete'];
+      }
+
+      // Search
+      function searchChat(query) {
+        const q = query.toLowerCase();
+        const filteredChats = mockChats.filter(c =>
+          c.status === currentTab &&
+          (c.name.toLowerCase().includes(q) || c.phone.includes(q))
+        );
+
+        const chatList = document.getElementById('chat-list');
+        if (filteredChats.length === 0) {
+          chatList.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-64 text-gray-400">
+              <svg class="w-10 h-10 mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <p class="text-sm">ไม่พบผลลัพธ์</p>
+            </div>`;
+        } else {
+          chatList.innerHTML = filteredChats.map(chat => createChatItem(chat)).join('');
+        }
+      }
+    </script>
+    <script src="../components/sidebar.js"></script>
+  </body>
+</html>

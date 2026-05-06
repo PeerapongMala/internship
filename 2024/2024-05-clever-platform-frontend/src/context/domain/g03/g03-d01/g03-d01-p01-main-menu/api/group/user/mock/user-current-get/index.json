@@ -1,0 +1,13 @@
+{
+  "id": "123",
+  "fullname": "พงษ์สิทธิ์ วีระกิตธ",
+  "avatar": "https://gravatar.com/avatar/123?s=200&d=robohash&r=pg",
+  "school": {
+    "fullname": "โรงเรียนเรียนสนุกวิทยาคม",
+    "avatar": null
+  },
+  "currency": {
+    "coin": 90000,
+    "key": 90123
+  }
+}

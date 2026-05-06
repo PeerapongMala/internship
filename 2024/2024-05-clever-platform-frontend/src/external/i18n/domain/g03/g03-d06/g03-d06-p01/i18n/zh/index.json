@@ -1,0 +1,22 @@
+{
+  "header_announce_activity_date": "活动时间：{{ date }}",
+  "header_announce_date": "日期：{{ date }}",
+  "btn_footer_join_activity": "参加活动",
+  "btn_footer_delete_message": "删除消息",
+  "btn_footer_receive_item": "领取物品",
+  "btn_footer_open_inventory": "物品栏",
+  "teacher_gift_title": "来自老师{{teacher_name}}的{{reward_name}}",
+  "teacher_gift_description": "您收到来自老师{{teacher_name}}的{{reward_name}} x{{reward_amount}}",
+  "announcement": {
+    "activity": "活动",
+    "mailbox": "邮箱",
+    "teacher_rewards": "教师奖励",
+    "notifications": "通知"
+  },
+  "no_announcement_text": {
+    "activity": "无活动",
+    "mailbox": "无消息",
+    "teacher_rewards": "无教师奖励",
+    "notifications": "无通知"
+  }
+}

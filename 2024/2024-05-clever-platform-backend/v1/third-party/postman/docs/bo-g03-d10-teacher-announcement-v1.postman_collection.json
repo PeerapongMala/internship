@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "c4cfe70f-3277-45f6-bff2-5f64cea66700",
+		"name": "bo-g03-d10-teacher-announcement-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38042661"
+	},
+	"item": [
+		{
+			"name": "g03-d10-a01-teacher-announce-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "School",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "teacher",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-27T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "ประกาศจากโรงเรียน",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "เพิ่มบทเรียน 2",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/E:/BG/8f92aced6c088bbca456520448aa6297.png"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d10-a02-teacher-announce-create Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "School",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "teacher",
+							"type": "text"
+						},
+						{
+							"key": "started_at",
+							"value": "2025-01-27T00:00:00Z",
+							"type": "text"
+						},
+						{
+							"key": "ended_at",
+							"value": "2025-02-20T23:59:59Z",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "ประกาศจากโรงเรียน",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "เพิ่มบทเรียน 1.5",
+							"type": "text"
+						},
+						{
+							"key": "announcement_image",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/BG/8f92aced6c088bbca456520448aa6297.png"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "5",
+							"description": "Id ของประกาศ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d10-a03-teacher-announce-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement"
+					],
+					"query": [
+						{
+							"key": "started_at",
+							"value": null,
+							"description": "วันที่เผยแพร่ ",
+							"disabled": true
+						},
+						{
+							"key": "ended_at",
+							"value": null,
+							"description": "วันหยุดเผยแพร่",
+							"disabled": true
+						},
+						{
+							"key": "school_id",
+							"value": null,
+							"description": "id โรงเรียน",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": null,
+							"description": "สถานะ enabled,disabled,draft",
+							"disabled": true
+						},
+						{
+							"key": "announcement_id",
+							"value": "",
+							"description": "search Id ของประกาศ",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "",
+							"description": "search title หัวข้อกิจกิจกรรม",
+							"disabled": true
+						},
+						{
+							"key": "school_name",
+							"value": "",
+							"description": "search school name ชื่อโรงเรียน",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d10-a04-teacher-announce-get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "5",
+							"description": "Id ของประกาศที่ต้องการ get \"หมายเหตุ\" : หาก id มีอยู่จริงแต่ประกาศไม่ตรง type ข้อมูลจะไม่แสดง"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d10-a05-teacher-announce-csv-download",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODY3NzcxMSwibmJmIjoxNzMyNjc3NzcxLCJpYXQiOjE3MzI2Nzc3NzEsImp0aSI6IjU1MzllNjMwLTk0MjctNDI3MC05YzZmLWE2MGFjZjFkOTJhZCJ9.1vxX4xhXCBjHHr7vO9RfmanbkFQXHHczZCqsOqznolo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement/csv/download?start_date=2025-01-27T00:00:00Z&end_date=2025-02-20T23:59:59Z",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement",
+						"csv",
+						"download"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-27T00:00:00Z"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-02-20T23:59:59Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d10-a06-teacher-announcement-csv-upload",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODI5NzYxMCwibmJmIjoxNzM4MjExMjEwLCJpYXQiOjE3MzgyMTEyMTAsImp0aSI6ImE4ZDQ0MWY3LTk2NGUtNDJiYS1iNzY4LWFjNzc0Mjc4NDUyZiJ9.VQupWGdsdUDU3gW8Sq32DsO251D7JLP46EMaCbgEPsY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement/csv/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement",
+						"csv",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d10-a07-teacher-announcement-bulk-edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczODI5NzYxMCwibmJmIjoxNzM4MjExMjEwLCJpYXQiOjE3MzgyMTEyMTAsImp0aSI6ImE4ZDQ0MWY3LTk2NGUtNDJiYS1iNzY4LWFjNzc0Mjc4NDUyZiJ9.VQupWGdsdUDU3gW8Sq32DsO251D7JLP46EMaCbgEPsY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\":5,\r\n        \"status\":\"enabled\"\r\n    },\r\n    {\r\n        \"id\":6,\r\n        \"status\":\"enabled\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/teacher-announcement/v1/global/announcement/bulk-edit",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teacher-announcement",
+						"v1",
+						"global",
+						"announcement",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

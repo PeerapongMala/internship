@@ -1,0 +1,12 @@
+body {
+  @apply bg-[#fafafa] font-noto-sans-thai;
+}
+
+.th-rotate > * {
+  @apply inline-flex rotate-180 items-center justify-center py-5 text-center [writing-mode:vertical-rl];
+}
+
+.th-fixed th,
+.td-fixed {
+  @apply !p-0 text-center;
+}

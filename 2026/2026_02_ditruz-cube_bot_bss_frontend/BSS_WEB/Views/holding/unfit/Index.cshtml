@@ -1,0 +1,678 @@
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Holding Detail " + (ViewData["BnTypeName"] ?? "UNFIT");
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/holding/holdingUnfit.css")" asp-append-version="true" />
+@{
+	var cssVariant = ViewData["CssVariant"]?.ToString() ?? "holding-unfit";
+}
+@if (cssVariant == "holding-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-unsort-cc.css")" asp-append-version="true" />
+} else if (cssVariant == "holding-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-ca-member.css")" asp-append-version="true" />
+} else if (cssVariant == "holding-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentUserFullName"
+	   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+
+		<!-- ─── Title Bar ─── -->
+		<div class="main-title">
+			<div class="title-left">
+				<div class="title-section">
+					<h1>Holding Detail @(ViewData["BnTypeName"] ?? "UNFIT")</h1>
+				</div>
+			</div>
+
+			<!-- Center info: 2×2 grid of pairs -->
+			<div class="title-center">
+				<div class="title-info-grid">
+					<div class="info-pair date-highlight">
+						<span class="title-info-label">Date:</span>
+						<span class="title-info-value">
+							<span id="infoDate">-</span>
+							<svg class="alert-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z" fill="#DC3545"/>
+							</svg>
+						</span>
+					</div>
+
+					<div class="info-pair separator">
+						<span class="title-info-label">Supervisor:</span>
+						<span class="title-info-value" id="infoSupervisor">-</span>
+					</div>
+
+					<div class="info-pair">
+						<span class="title-info-label">Sorting Machine:</span>
+						<span class="title-info-value" id="infoMachine">-</span>
+					</div>
+
+					<div class="info-pair separator">
+						<span class="title-info-label">Shift:</span>
+						<span class="title-info-value" id="infoShift">-</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="title-right">
+				<button class="btn-nav-filled" onclick="goToReconcileTransaction()">Reconcile Transaction</button>
+				<button class="btn-nav-filled" onclick="goToHolding()">Holding</button>
+			</div>
+		</div>
+
+		<!-- ─── 6-Panel Grid: 2 cols × 3 rows ─── -->
+		<div class="hd-grid">
+
+			<!-- ══ Left Column ══ -->
+			<div class="hd-col">
+
+				<!-- Panel 1: มัดครบจำนวน ครบมูลค่า -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">มัดครบจำนวน ครบมูลค่า</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p1Count" class="is-green">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="1" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="1" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="1" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="1" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p1Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 2: มัดรวมครบจำนวน ครบมูลค่า -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">มัดรวมครบจำนวน ครบมูลค่า</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p2Count" class="is-green">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="2" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="2" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="2" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="2" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p2Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 3: รายละเอียดตาม Header Card -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">รายละเอียดตาม Header Card</span>
+						<span class="hd-panel-count">จำนวนธนบัตร: <strong id="p3Count" class="is-warning">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:24%"><col style="width:12%"><col style="width:14%"><col style="width:10%"><col style="width:16%"><col style="width:24%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="3" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="3" data-col="type">ประเภท <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="series">แบบ <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="count">จำนวนฉบับ <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="3" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p3Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<!-- ── end Left Column ── -->
+
+			<!-- ══ Right Column ══ -->
+			<div class="hd-col">
+
+				<!-- Panel 4: มัดขาด -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดขาด-เกิน</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p4Count" class="is-orange">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="4" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="4" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="4" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="4" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p4Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 5: มัดรวมขาด -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดรวมขาด-เกิน</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p5Count" class="is-orange">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="5" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="5" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="5" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="5" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p5Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 6: มัดเกินโดยยอดจากเครื่องจักร -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดเกินโดยยอดจากเครื่องจักร</span>
+						<span class="hd-panel-count">
+							จำนวน: <strong id="p6Count" class="is-orange">-</strong> ฉบับ
+							เกิน: <strong id="p6Excess" class="is-orange">-</strong> ฉบับ
+						</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="6" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="6" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="6" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="6" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p6Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<!-- ── end Right Column ── -->
+
+		</div>
+		<!-- ── end hd-grid ── -->
+
+	</div>
+	</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     Modal: Error / Alert
+     ══════════════════════════════════════════ -->
+<div class="modal fade" id="errorModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4" style="font-size:56px;color:#F59E0B;line-height:1;">
+					<i class="bi bi-exclamation-diamond-fill"></i>
+				</div>
+				<h3 class="fw-bold mb-3">การแจ้งเตือน</h3>
+				<h6 class="mb-4" id="errorMessage">เกิดข้อผิดพลาด</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-primary px-4" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+<script>
+// ─── State ────────────────────────────────────────────────
+const PAGE_VERSION = (function() {
+    const m = window.location.pathname.match(/\/Detail\/(\d+)/i);
+    return m ? parseInt(m[1], 10) : 0;
+})();
+const sortState = {}; // { panelN: { col, asc } }
+let selectedP1Row = null; // currently selected header card in panel 1
+const USE_MOCK = true; // switch to false when connecting real API
+
+// ─── Init ─────────────────────────────────────────────────
+$(document).ready(function () {
+    startClock();
+    loadPageInfo();
+    loadAllPanels();
+    bindSortHeaders();
+    bindP1RowClick();
+
+    // Version 1: enable scroll bar
+    if (PAGE_VERSION === 1) {
+        $('.hd-table-scroll').addClass('has-scroll');
+    }
+});
+
+// ─── Clock ────────────────────────────────────────────────
+function startClock() {
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+function updateClock() {
+    const now = new Date();
+    const opts = {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+    };
+    $('#infoDate').text(now.toLocaleString('th-TH', opts));
+}
+
+// ─── Page Info ────────────────────────────────────────────
+function loadPageInfo() {
+    $('#infoSupervisor').text('สมวลัย หมาดี');
+    $('#infoMachine').text('กรุงเทพฯ M7-1 คกท.');
+    $('#infoShift').text('ผลัดบ่าย');
+}
+
+// ─── Mock Data (ตาม screenshot) ───────────────────────────
+const MOCK = {
+    // Panel 1: จำนวน 1,000 ฉบับ (version 1 = scroll test, เพิ่ม mock rows)
+    completeBundles: PAGE_VERSION === 1 ? [
+        { headerCard: '0054941520', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1000000, count: 1000 },
+        { headerCard: '0054941521', denomination: '500',  sortDate: '21/07/2568 14:05', value: 500000,  count: 500 },
+        { headerCard: '0054941522', denomination: '100',  sortDate: '21/07/2568 14:10', value: 100000,  count: 300 },
+        { headerCard: '0054941523', denomination: '50',   sortDate: '21/07/2568 14:15', value: 50000,   count: 200 },
+        { headerCard: '0054941524', denomination: '20',   sortDate: '21/07/2568 14:20', value: 20000,   count: 150 },
+        { headerCard: '0054941535', denomination: '1000', sortDate: '21/07/2568 14:25', value: 800000,  count: 800 },
+        { headerCard: '0054941536', denomination: '500',  sortDate: '21/07/2568 14:30', value: 250000,  count: 250 },
+        { headerCard: '0054941537', denomination: '100',  sortDate: '21/07/2568 14:35', value: 150000,  count: 150 },
+        { headerCard: '0054941538', denomination: '1000', sortDate: '21/07/2568 14:40', value: 300000,  count: 300 },
+        { headerCard: '0054941539', denomination: '500',  sortDate: '21/07/2568 14:45', value: 175000,  count: 175 },
+        { headerCard: '0054941540', denomination: '1000', sortDate: '21/07/2568 14:50', value: 900000,  count: 900 },
+        { headerCard: '0054941541', denomination: '500',  sortDate: '21/07/2568 14:55', value: 400000,  count: 400 },
+        { headerCard: '0054941542', denomination: '100',  sortDate: '21/07/2568 15:00', value: 200000,  count: 200 },
+        { headerCard: '0054941543', denomination: '50',   sortDate: '21/07/2568 15:05', value: 75000,   count: 150 },
+        { headerCard: '0054941544', denomination: '20',   sortDate: '21/07/2568 15:10', value: 30000,   count: 100 },
+        { headerCard: '0054941545', denomination: '1000', sortDate: '21/07/2568 15:15', value: 700000,  count: 700 },
+        { headerCard: '0054941546', denomination: '500',  sortDate: '21/07/2568 15:20', value: 350000,  count: 350 },
+        { headerCard: '0054941547', denomination: '100',  sortDate: '21/07/2568 15:25', value: 120000,  count: 120 },
+        { headerCard: '0054941548', denomination: '1000', sortDate: '21/07/2568 15:30', value: 600000,  count: 600 },
+        { headerCard: '0054941549', denomination: '500',  sortDate: '21/07/2568 15:35', value: 275000,  count: 275 }
+    ] : [
+        { headerCard: '0054941520', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1000000, count: 1000 }
+    ],
+    // Panel 2
+    combinedComplete: PAGE_VERSION === 1 ? [
+        { headerCard: '0054941525', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1997000, count: 100 },
+        { headerCard: '0054941526', denomination: '500',  sortDate: '21/07/2568 14:05', value: 500000,  count: 80 },
+        { headerCard: '0054941527', denomination: '100',  sortDate: '21/07/2568 14:10', value: 100000,  count: 60 },
+        { headerCard: '0054941528', denomination: '50',   sortDate: '21/07/2568 14:15', value: 50000,   count: 50 },
+        { headerCard: '0054941529', denomination: '20',   sortDate: '21/07/2568 14:20', value: 20000,   count: 40 },
+        { headerCard: '0054941530', denomination: '1000', sortDate: '21/07/2568 14:25', value: 800000,  count: 90 },
+        { headerCard: '0054941531', denomination: '500',  sortDate: '21/07/2568 14:30', value: 250000,  count: 70 },
+        { headerCard: '0054941532', denomination: '100',  sortDate: '21/07/2568 14:35', value: 150000,  count: 55 },
+        { headerCard: '0054941533', denomination: '1000', sortDate: '21/07/2568 14:40', value: 300000,  count: 85 },
+        { headerCard: '0054941534', denomination: '500',  sortDate: '21/07/2568 14:45', value: 175000,  count: 65 },
+        { headerCard: '0054941550', denomination: '1000', sortDate: '21/07/2568 14:50', value: 600000,  count: 75 },
+        { headerCard: '0054941551', denomination: '500',  sortDate: '21/07/2568 14:55', value: 400000,  count: 95 },
+        { headerCard: '0054941552', denomination: '100',  sortDate: '21/07/2568 15:00', value: 200000,  count: 45 },
+        { headerCard: '0054941553', denomination: '50',   sortDate: '21/07/2568 15:05', value: 75000,   count: 35 },
+        { headerCard: '0054941554', denomination: '1000', sortDate: '21/07/2568 15:10', value: 900000,  count: 110 },
+        { headerCard: '0054941555', denomination: '500',  sortDate: '21/07/2568 15:15', value: 350000,  count: 88 },
+        { headerCard: '0054941556', denomination: '100',  sortDate: '21/07/2568 15:20', value: 120000,  count: 42 },
+        { headerCard: '0054941557', denomination: '1000', sortDate: '21/07/2568 15:25', value: 700000,  count: 78 },
+        { headerCard: '0054941558', denomination: '500',  sortDate: '21/07/2568 15:30', value: 275000,  count: 62 },
+        { headerCard: '0054941559', denomination: '1000', sortDate: '21/07/2568 15:35', value: 500000,  count: 72 }
+    ] : [
+        { headerCard: '0054941525', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1997000, count: 1997 }
+    ],
+    // Panel 3
+    headerCardDetails: PAGE_VERSION === 1 ? [
+        { headerCard: '0054941520', denomination: '1000', type: 'ทำลาย',  series: '17', sheetCount: 1990, value: 1990000 },
+        { headerCard: '0054941520', denomination: '1000', type: 'ดี',      series: '17', sheetCount: 6,    value: 6000   },
+        { headerCard: '0054941520', denomination: '1000', type: 'Reject',  series: '17', sheetCount: 2,    value: 2000   },
+        { headerCard: '0054941520', denomination: '500',  type: 'ทำลาย',  series: '16', sheetCount: 800,  value: 400000 },
+        { headerCard: '0054941520', denomination: '500',  type: 'ดี',      series: '16', sheetCount: 12,   value: 6000   },
+        { headerCard: '0054941520', denomination: '500',  type: 'Reject',  series: '16', sheetCount: 5,    value: 2500   },
+        { headerCard: '0054941520', denomination: '100',  type: 'ทำลาย',  series: '15', sheetCount: 500,  value: 50000  },
+        { headerCard: '0054941520', denomination: '100',  type: 'ดี',      series: '15', sheetCount: 8,    value: 800    },
+        { headerCard: '0054941520', denomination: '100',  type: 'Reject',  series: '15', sheetCount: 3,    value: 300    },
+        { headerCard: '0054941520', denomination: '50',   type: 'ทำลาย',  series: '17', sheetCount: 400,  value: 20000  },
+        { headerCard: '0054941520', denomination: '50',   type: 'ดี',      series: '17', sheetCount: 10,   value: 500    },
+        { headerCard: '0054941520', denomination: '50',   type: 'Reject',  series: '17', sheetCount: 4,    value: 200    },
+        { headerCard: '0054941520', denomination: '20',   type: 'ทำลาย',  series: '16', sheetCount: 300,  value: 6000   },
+        { headerCard: '0054941520', denomination: '20',   type: 'ดี',      series: '16', sheetCount: 15,   value: 300    },
+        { headerCard: '0054941520', denomination: '20',   type: 'Reject',  series: '16', sheetCount: 7,    value: 140    },
+        { headerCard: '0054941520', denomination: '1000', type: 'ทำลาย',  series: '16', sheetCount: 650,  value: 650000 },
+        { headerCard: '0054941520', denomination: '1000', type: 'ดี',      series: '16', sheetCount: 20,   value: 20000  },
+        { headerCard: '0054941520', denomination: '500',  type: 'ทำลาย',  series: '17', sheetCount: 450,  value: 225000 },
+        { headerCard: '0054941520', denomination: '500',  type: 'ดี',      series: '17', sheetCount: 18,   value: 9000   },
+        { headerCard: '0054941520', denomination: '100',  type: 'ทำลาย',  series: '16', sheetCount: 350,  value: 35000  }
+    ] : [
+        { headerCard: '0054941520', denomination: '1000', type: 'ทำลาย', series: '17', sheetCount: 1990, value: 1990000 },
+        { headerCard: '0054941520', denomination: '1000', type: 'ดี',     series: '17', sheetCount: 6,    value: 6000   },
+        { headerCard: '0054941520', denomination: '1000', type: 'Reject', series: '17', sheetCount: 2,    value: 2000   }
+    ],
+    // Panel 4
+    excessBundles: PAGE_VERSION === 1 ? [
+        { headerCard: '0054941525', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1997000, count: 200 },
+        { headerCard: '0054941560', denomination: '500',  sortDate: '21/07/2568 14:05', value: 500000,  count: 150 },
+        { headerCard: '0054941561', denomination: '100',  sortDate: '21/07/2568 14:10', value: 100000,  count: 180 },
+        { headerCard: '0054941562', denomination: '50',   sortDate: '21/07/2568 14:15', value: 50000,   count: 120 },
+        { headerCard: '0054941563', denomination: '20',   sortDate: '21/07/2568 14:20', value: 20000,   count: 100 },
+        { headerCard: '0054941564', denomination: '1000', sortDate: '21/07/2568 14:25', value: 800000,  count: 200 },
+        { headerCard: '0054941565', denomination: '500',  sortDate: '21/07/2568 14:30', value: 250000,  count: 100 },
+        { headerCard: '0054941566', denomination: '100',  sortDate: '21/07/2568 14:35', value: 150000,  count: 250 },
+        { headerCard: '0054941567', denomination: '1000', sortDate: '21/07/2568 14:40', value: 300000,  count: 150 },
+        { headerCard: '0054941568', denomination: '500',  sortDate: '21/07/2568 14:45', value: 175000,  count: 147 },
+        { headerCard: '0054941569', denomination: '1000', sortDate: '21/07/2568 14:50', value: 600000,  count: 180 },
+        { headerCard: '0054941570', denomination: '500',  sortDate: '21/07/2568 14:55', value: 400000,  count: 130 },
+        { headerCard: '0054941571', denomination: '100',  sortDate: '21/07/2568 15:00', value: 200000,  count: 160 },
+        { headerCard: '0054941572', denomination: '50',   sortDate: '21/07/2568 15:05', value: 75000,   count: 90 },
+        { headerCard: '0054941573', denomination: '1000', sortDate: '21/07/2568 15:10', value: 900000,  count: 220 },
+        { headerCard: '0054941574', denomination: '500',  sortDate: '21/07/2568 15:15', value: 350000,  count: 110 },
+        { headerCard: '0054941575', denomination: '100',  sortDate: '21/07/2568 15:20', value: 120000,  count: 140 },
+        { headerCard: '0054941576', denomination: '1000', sortDate: '21/07/2568 15:25', value: 700000,  count: 190 },
+        { headerCard: '0054941577', denomination: '500',  sortDate: '21/07/2568 15:30', value: 275000,  count: 105 },
+        { headerCard: '0054941578', denomination: '1000', sortDate: '21/07/2568 15:35', value: 500000,  count: 175 }
+    ] : [
+        { headerCard: '0054941525', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1997000, count: 1997 }
+    ],
+    // Panel 5
+    combinedExcess: PAGE_VERSION === 1 ? [
+        { headerCard: '0054941533', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1998000, count: 50 },
+        { headerCard: '0054941534', denomination: '1000', sortDate: '21/07/2568 14:05', value: 1998000, count: 50 },
+        { headerCard: '0054941580', denomination: '500',  sortDate: '21/07/2568 14:10', value: 500000,  count: 40 },
+        { headerCard: '0054941581', denomination: '100',  sortDate: '21/07/2568 14:15', value: 100000,  count: 35 },
+        { headerCard: '0054941582', denomination: '50',   sortDate: '21/07/2568 14:20', value: 50000,   count: 30 },
+        { headerCard: '0054941583', denomination: '1000', sortDate: '21/07/2568 14:25', value: 800000,  count: 45 },
+        { headerCard: '0054941584', denomination: '500',  sortDate: '21/07/2568 14:30', value: 250000,  count: 38 },
+        { headerCard: '0054941585', denomination: '100',  sortDate: '21/07/2568 14:35', value: 150000,  count: 42 },
+        { headerCard: '0054941586', denomination: '1000', sortDate: '21/07/2568 14:40', value: 300000,  count: 55 },
+        { headerCard: '0054941587', denomination: '500',  sortDate: '21/07/2568 14:45', value: 175000,  count: 33 },
+        { headerCard: '0054941588', denomination: '1000', sortDate: '21/07/2568 14:50', value: 600000,  count: 48 },
+        { headerCard: '0054941589', denomination: '500',  sortDate: '21/07/2568 14:55', value: 400000,  count: 36 },
+        { headerCard: '0054941590', denomination: '100',  sortDate: '21/07/2568 15:00', value: 200000,  count: 28 },
+        { headerCard: '0054941591', denomination: '50',   sortDate: '21/07/2568 15:05', value: 75000,   count: 25 },
+        { headerCard: '0054941592', denomination: '1000', sortDate: '21/07/2568 15:10', value: 900000,  count: 52 },
+        { headerCard: '0054941593', denomination: '500',  sortDate: '21/07/2568 15:15', value: 350000,  count: 44 },
+        { headerCard: '0054941594', denomination: '100',  sortDate: '21/07/2568 15:20', value: 120000,  count: 31 },
+        { headerCard: '0054941595', denomination: '1000', sortDate: '21/07/2568 15:25', value: 700000,  count: 47 },
+        { headerCard: '0054941596', denomination: '500',  sortDate: '21/07/2568 15:30', value: 275000,  count: 39 },
+        { headerCard: '0054941597', denomination: '1000', sortDate: '21/07/2568 15:35', value: 500000,  count: 41 }
+    ] : [
+        { headerCard: '0054941533', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1998000, count: 999 },
+        { headerCard: '0054941534', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1998000, count: 999 }
+    ],
+    // Panel 6
+    machineExcess: PAGE_VERSION === 1 ? [
+        { headerCard: '0054941526', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1002000, count: 80 },
+        { headerCard: '0054941600', denomination: '500',  sortDate: '21/07/2568 14:05', value: 500000,  count: 60 },
+        { headerCard: '0054941601', denomination: '100',  sortDate: '21/07/2568 14:10', value: 100000,  count: 55 },
+        { headerCard: '0054941602', denomination: '50',   sortDate: '21/07/2568 14:15', value: 50000,   count: 45 },
+        { headerCard: '0054941603', denomination: '20',   sortDate: '21/07/2568 14:20', value: 20000,   count: 35 },
+        { headerCard: '0054941604', denomination: '1000', sortDate: '21/07/2568 14:25', value: 800000,  count: 70 },
+        { headerCard: '0054941605', denomination: '500',  sortDate: '21/07/2568 14:30', value: 250000,  count: 50 },
+        { headerCard: '0054941606', denomination: '100',  sortDate: '21/07/2568 14:35', value: 150000,  count: 65 },
+        { headerCard: '0054941607', denomination: '1000', sortDate: '21/07/2568 14:40', value: 300000,  count: 58 },
+        { headerCard: '0054941608', denomination: '500',  sortDate: '21/07/2568 14:45', value: 175000,  count: 42 },
+        { headerCard: '0054941609', denomination: '1000', sortDate: '21/07/2568 14:50', value: 600000,  count: 75 },
+        { headerCard: '0054941610', denomination: '500',  sortDate: '21/07/2568 14:55', value: 400000,  count: 48 },
+        { headerCard: '0054941611', denomination: '100',  sortDate: '21/07/2568 15:00', value: 200000,  count: 52 },
+        { headerCard: '0054941612', denomination: '50',   sortDate: '21/07/2568 15:05', value: 75000,   count: 38 },
+        { headerCard: '0054941613', denomination: '1000', sortDate: '21/07/2568 15:10', value: 900000,  count: 82 },
+        { headerCard: '0054941614', denomination: '500',  sortDate: '21/07/2568 15:15', value: 350000,  count: 46 },
+        { headerCard: '0054941615', denomination: '100',  sortDate: '21/07/2568 15:20', value: 120000,  count: 40 },
+        { headerCard: '0054941616', denomination: '1000', sortDate: '21/07/2568 15:25', value: 700000,  count: 68 },
+        { headerCard: '0054941617', denomination: '500',  sortDate: '21/07/2568 15:30', value: 275000,  count: 44 },
+        { headerCard: '0054941618', denomination: '1000', sortDate: '21/07/2568 15:35', value: 500000,  count: 56 }
+    ] : [
+        { headerCard: '0054941526', denomination: '1000', sortDate: '21/07/2568 14:00', value: 1002000, count: 1002 }
+    ],
+    machineExcessCount: 1
+};
+
+// ─── Load All Panels ─────────────────────────────────────
+function loadAllPanels() {
+    const d = MOCK;
+    renderP1(d.completeBundles);   // also triggers loadP3Detail for first row
+    renderP2(d.combinedComplete);
+    if (d.completeBundles.length === 0) renderP3([]); // fallback if P1 empty
+    renderP4(d.excessBundles);
+    renderP5(d.combinedExcess);
+    renderP6(d.machineExcess, d.machineExcessCount);
+}
+
+// ─── Panel 1: มัดครบจำนวน ครบมูลค่า ─────────────────────
+function renderP1(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p1Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map((r, i) => `
+            <tr data-hc="${escHtml(r.headerCard)}" ${i === 0 ? 'class="active-row"' : ''}>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p1Body').html(html);
+
+    // load detail for first row by default
+    if (rows.length > 0) {
+        selectedP1Row = rows[0].headerCard;
+        loadP3Detail(selectedP1Row);
+    }
+}
+
+// ─── Panel 2: มัดรวมครบจำนวน ครบมูลค่า ─────────────────
+function renderP2(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p2Count').text('-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p2Body').html(html);
+}
+
+// ─── Panel 3: รายละเอียดตาม Header Card ─────────────────
+function renderP3(rows) {
+    const total = rows.reduce((s, r) => s + (r.sheetCount || 0), 0);
+    $('#p3Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.type)}</td>
+                <td class="text-center">${escHtml(r.series)}</td>
+                <td class="text-center">${formatNum(r.sheetCount)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(6);
+    $('#p3Body').html(html);
+}
+
+function loadP3Detail(headerCard) {
+    if (!headerCard) return;
+    if (USE_MOCK) {
+        const rows = MOCK.headerCardDetails.filter(r => r.headerCard === headerCard);
+        renderP3(rows.length > 0 ? rows : MOCK.headerCardDetails);
+        return;
+    }
+    callApi('/Reconcilation/GetHoldingDetailByHcAsync?headerCard=' + encodeURIComponent(headerCard), null, function (result) {
+        if (result && result.is_success) {
+            renderP3(result.data || []);
+        }
+    }, 'GET');
+}
+
+// ─── Panel 4: มัดยาด-เกิน ────────────────────────────────
+function renderP4(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p4Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p4Body').html(html);
+}
+
+// ─── Panel 5: มัดรวมยาด-เกิน ─────────────────────────────
+function renderP5(rows) {
+    // แสดงค่า count ของ row แรก (ทุก row ใน combined มี count เดียวกัน)
+    const total = rows.length > 0 ? (rows[0].count || 0) : 0;
+    $('#p5Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p5Body').html(html);
+}
+
+// ─── Panel 6: มัดเกินโดยยอดจากเครื่องจักร ───────────────
+function renderP6(rows, excessCount) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p6Count').text(rows.length ? formatNum(total) : '-');
+    $('#p6Excess').text(excessCount != null ? formatNum(excessCount) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p6Body').html(html);
+}
+
+// ─── Row click in Panel 1 → load Panel 3 detail ──────────
+function bindP1RowClick() {
+    $(document).on('click', '#p1Body tr', function () {
+        $('#p1Body tr').removeClass('active-row');
+        $(this).addClass('active-row');
+        const hc = $(this).data('hc');
+        if (hc) {
+            selectedP1Row = hc;
+            loadP3Detail(hc);
+        }
+    });
+}
+
+// ─── Sort headers ─────────────────────────────────────────
+function bindSortHeaders() {
+    $(document).on('click', '.th-sort', function () {
+        const panel = $(this).data('panel');
+        const col   = $(this).data('col');
+        if (!panel || !col) return;
+
+        const key = 'p' + panel;
+        const prev = sortState[key] || { col: null, asc: true };
+        const asc  = (prev.col === col) ? !prev.asc : true;
+        sortState[key] = { col, asc };
+        // TODO: re-sort the in-memory data and re-render
+    });
+}
+
+// ─── Navigation ───────────────────────────────────────────
+function goToReconcileTransaction() {
+    window.location.href = '/Reconcilation/ReconcileTransaction';
+}
+
+function goToHolding() {
+    window.location.href = '/Reconcilation/Holding';
+}
+
+// ─── API helper ──────────────────────────────────────────
+function callApi(url, data, onSuccess, method) {
+    const m = method || 'POST';
+    $.ajax({
+        url: url,
+        type: m,
+        data: m === 'GET' ? data : JSON.stringify(data),
+        contentType: m === 'GET' ? undefined : 'application/json; charset=utf-8',
+        headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() },
+        success: onSuccess,
+        error: function () { showError('เกิดข้อผิดพลาดในการเชื่อมต่อ'); }
+    });
+}
+
+// ─── Helpers ─────────────────────────────────────────────
+function denomBadge(denom) {
+    const cls = { '20':'qty-20','50':'qty-50','100':'qty-100','500':'qty-500','1000':'qty-1000' };
+    const c = cls[String(denom)] || '';
+    return `<span class="qty-badge ${c}">${escHtml(String(denom || '-'))}</span>`;
+}
+
+function noDataRow(cols) {
+    return `<tr class="hd-no-data"><td colspan="${cols}">ไม่พบข้อมูล</td></tr>`;
+}
+
+function padRows(cols, dataCount, minRows) {
+    minRows = minRows || 16;
+    let pad = '';
+    for (let i = dataCount; i < minRows; i++) {
+        pad += '<tr class="hd-empty-row">' + '<td>&nbsp;</td>'.repeat(cols) + '</tr>';
+    }
+    return pad;
+}
+
+function formatNum(val) {
+    if (val == null || val === '') return '-';
+    return Number(val).toLocaleString('th-TH');
+}
+
+function escHtml(str) {
+    if (str == null) return '-';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function showError(msg) {
+    $('#errorMessage').text(msg);
+    $('#errorModal').modal('show');
+}
+</script>
+}

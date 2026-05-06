@@ -1,0 +1,20 @@
+﻿body::before {
+    background: linear-gradient(90deg, #bac0d1, #c3d0de);
+}
+
+
+/* Preparation CA Non Member */
+.preparationUNSORT_CANM td:nth-child(1),
+.preparationUNSORT_CANM td:nth-child(2),
+.preparationUNSORT_CANM td:nth-child(3),
+.preparationUNSORT_CANM td:nth-child(5),
+.preparationUNSORT_CANM td:nth-child(7),
+.preparationUNSORT_CANM td:nth-child(8) {
+    text-align: center !important;
+}
+
+.preparationUNSORT_CANM_SUB td:nth-child(1),
+.preparationUNSORT_CANM_SUB td:nth-child(2),
+.preparationUNSORT_CANM_SUB td:nth-child(3) {
+    text-align: center !important;
+}

@@ -1,0 +1,45 @@
+import { JSX } from "react/jsx-runtime";
+
+export interface Payment {
+    id?: number;
+    order_date?: string;
+    order_number?: string;
+    receipt_number?: number;
+    price?: number;
+    invoice_document_url?: string;
+    receipt_document_url?: string;
+  }
+
+export interface Invoice {
+    id: number;
+    order_date: string; 
+    payment_number: string;
+    order_number: string;
+    receipt_number: string;
+    invoice_number: string;
+    price: number;
+    base_price: number;
+    ad_tax: number;
+    vat_tax: number;
+    invoice_document_url: string;
+    receipt_document_url: string;
+    status: string;
+    paid_at: string;
+    created_at: string; 
+    updated_at: string;
+    user_id: number;
+    announcement_no: string;
+    public_date: string; 
+    image_url_list: string[];
+    first_name: string;
+    last_name: string;
+    company: string;
+    branch: string;
+    tax_id: string;
+    phone: string;
+    address: string;
+    district: string;
+    sub_district: string;
+    province: string;
+    postal_code: string;
+  }

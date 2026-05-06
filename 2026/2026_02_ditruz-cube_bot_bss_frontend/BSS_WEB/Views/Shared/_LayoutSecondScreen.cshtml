@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BSS_WEB</title>
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap-icons/font/bootstrap-icons.css")" />
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <!--end::Layout Skins -->
+    <!-- ================== BEGIN HELPERS CSS STYLE ================== -->
+    @*     <link rel="stylesheet" href="~/css/helpers/bss-theme.css" /> *@
+
+    <style>
+        :root {
+            --pattern-bg: url('@Url.Content("~/images/image_pattern.png")');
+        }
+    </style>
+    <link rel="stylesheet" href="@Url.Content("~/css/master/secondScreen.css?v=20")" />
+    <!-- ================== END HELPERS CSS STYLE ================== -->
+</head>
+<body data-root-path="@Url.Content("~/")" path-base-bss="@BSS_WEB.Helpers.AppConfig.PathBase">
+    <header>
+    </header>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    <!-- ================== BEGIN HELPERS JS ================== -->
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+    <!--end::Global Theme Bundle -->
+    <!--end::Page Scripts -->
+    <!-- ================== END HELPERS JS ================== -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

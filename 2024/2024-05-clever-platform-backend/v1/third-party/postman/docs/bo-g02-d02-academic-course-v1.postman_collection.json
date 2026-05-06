@@ -1,0 +1,1470 @@
+{
+	"info": {
+		"_postman_id": "09582631-bc62-4be2-bdec-bd8be657980b",
+		"name": "bo-g02-d02-academic-course-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-year-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"platform_id\": 1, // required, ID ของ platform\r\n    \"curriculum_group_id\": 1, // required, ID ของสังกัดวิชา\r\n    \"seed_year_id\": 5, // required, ID seed year จาก dropdown\r\n    \"status\": \"enabled\", // required, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, ID ของแอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/years",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"years"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-year-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seed_year_id\": 3, // optional, ID seed year (Unique ในระดับสังกัดวิชา)\r\n    \"status\": \"disabled\", // required, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, ID ของแอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/years/:yearId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"years",
+						":yearId"
+					],
+					"variable": [
+						{
+							"key": "yearId",
+							"value": "1",
+							"description": "required, ID ของชั้นปี"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:platformId/years?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":platformId",
+						"years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "ปีที่ 3",
+							"description": "optional, ชื่อชั้นปี (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "platformId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-year-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:platformId/years/download/csv?start_date=2024-11-18&end_date=2024-11-02",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":platformId",
+						"years",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-11-18"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-02"
+						}
+					],
+					"variable": [
+						{
+							"key": "platformId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-year-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/year-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:platformId/years/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":platformId",
+						"years",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "platformId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-subject-group-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"year_id\": 1, // required, ID ของชั้นปี\r\n    \"seed_subject_group_id\": 5, // required, ID seed subject group จาก dropdown\r\n    \"status\": \"enabled\", // required, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\", // optional, ID ของแอดมินที่ทำแทน\r\n    \"full_option\": true, // new 11-12-2025\r\n    \"theme\": \"theme 1\",  // new 11-12-2025\r\n    \"url\": \"https://somewhere.com\" // new 11-12-2025\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subject-groups/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subject-groups",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-subject-group-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seed_subject_group_id\": 2, // optional, ID seed subject group จาก dropdown\r\n    \"status\": \"disabled\", // optional, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\", // optional, ID ของแอดมินที่ทำแทน\r\n    \"full_option\": false, // new 11-12-2025\r\n    \"theme\": \"theme 2\", // new 11-12-2025\r\n    \"url\": \"https://somewhere1.com\" // new 11-12-2025\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subject-groups/:subjectGroupId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subject-groups",
+						":subjectGroupId"
+					],
+					"variable": [
+						{
+							"key": "subjectGroupId",
+							"value": "32",
+							"description": "required, ID ของกลุ่มวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-subject-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:yearId/subject-groups?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":yearId",
+						"subject-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "อังกฤ",
+							"description": "optional, ชื่อกลุ่มวิชา (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optionalม , สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "yearId",
+							"value": "1",
+							"description": "required, ID ของชั้นปี"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-subject-group-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:curriculumGroupId/subject-groups/download/csv?start_date=2023-11-25&end_date=2025-11-25",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":curriculumGroupId",
+						"subject-groups",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-11-25"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-25"
+						}
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required, ID ของสังกัดวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-subject-group-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/pwn/Downloads/Template CSVs - g02d02-subjects.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:curriculumGroupId/subject-groups/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":curriculumGroupId",
+						"subject-groups",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required, ID ของสังกัดวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-subject-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject_group_id",
+							"value": "1",
+							"description": "required, ID ของกลุ่มวิชา",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "ภาษาสเปน11s",
+							"description": "required, ชื่อหลักสูตร",
+							"type": "text"
+						},
+						{
+							"key": "project",
+							"value": "Clever Platform",
+							"description": "optionoal, ชื่อโครงการ",
+							"type": "text"
+						},
+						{
+							"key": "subject_language_type",
+							"value": "uni",
+							"description": "required, ค่าเริ่มต้นภาษาของบทเรียน (all = ทุกภาษา / uni = ภาษาเดียว / custom = ตั้งค่าเอง)",
+							"type": "text"
+						},
+						{
+							"key": "subject_language",
+							"value": "th",
+							"description": "optional, ภาษาหลักที่ใช้เรียน (th = ภาษาไทย / en = ภาษาอังกฤษ / zh = ภาษาจีน)",
+							"type": "text"
+						},
+						{
+							"key": "subject_image",
+							"description": "optional, รูปภาพของหลักสูตร",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "required, สถานะ (enabled / disabled / draft)",
+							"type": "text"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional, ID ของแอดมินที่ทำแทน",
+							"type": "text"
+						},
+						{
+							"key": "subject_translation_languages",
+							"value": "en",
+							"description": "optional, การแปลภาษา",
+							"type": "text"
+						},
+						{
+							"key": "subject_translation_languages",
+							"value": "zh",
+							"description": "optional, การแปลภาษา",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subjects",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-subject-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "new subject namea",
+							"description": "optional, ชื่อหลักสูตร",
+							"type": "text"
+						},
+						{
+							"key": "subject_language_type",
+							"value": "all",
+							"description": "optional, ค่าเริ่มต้นภาษาของบทเรียน (all = ทุกภาษา / uni = ภาษาเดียว / custom = ตั้งค่าเอง)",
+							"type": "text"
+						},
+						{
+							"key": "subject_language",
+							"value": "th",
+							"description": "optional, ภาษาหลักที่ใช้เรียน (th = ภาษาไทย / en = ภาษาอังกฤษ / zh = ภาษาจีน)",
+							"type": "text"
+						},
+						{
+							"key": "subject_translation_languages",
+							"value": "th",
+							"description": "optional, การแปลภาษา",
+							"type": "text"
+						},
+						{
+							"key": "subject_translation_languages",
+							"value": "en",
+							"description": "optional, การแปลภาษา",
+							"type": "text"
+						},
+						{
+							"key": "subject_translation_languages",
+							"value": "zh",
+							"description": "optional, การแปลภาษา",
+							"type": "text"
+						},
+						{
+							"key": "subject_image",
+							"description": "optional, รูปภาพของหลักสูตร",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"type": "text"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional, ID ของแอดมินที่ทำแทน",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subjects/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subjects",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "30",
+							"description": "required, ID ของหลักสูตร"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-subject-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:curriculumGroupId/subjects?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":curriculumGroupId",
+						"subjects"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "search_text",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "subject_group_id",
+							"value": "5",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "year_id",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a14-api-subject-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:subjectGroupId/subjects/download/csv?start_date=2023-11-25&end_date=2025-11-25",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":subjectGroupId",
+						"subjects",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-11-25"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-11-25"
+						}
+					],
+					"variable": [
+						{
+							"key": "subjectGroupId",
+							"value": "1",
+							"description": "required, ID ของกลุ่มวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-subject-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/pwn/Downloads/Template CSVs - g02d02-subjects.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:subjectGroupId/subjects/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":subjectGroupId",
+						"subjects",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "subjectGroupId",
+							"value": "1",
+							"description": "required, ID ของกลุ่มวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-seed-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/seed-years?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"seed-years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-seed-subject-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/seed-subject-groups?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"seed-subject-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-tag-group-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"กลุ่ม tag ที่ 1 new\" // required, ชื่อกลุ่ม tag\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/tag-groups/:tagGroupId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"tag-groups",
+						":tagGroupId"
+					],
+					"variable": [
+						{
+							"key": "tagGroupId",
+							"value": "1",
+							"description": "required, ID ของ tag group"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-tag-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tag_group_id\": 1,\r\n    \"name\": \"tag 1 of group id 4\",\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/tags",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-tag-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"new name of tag 2\", // optional, ชื่อ tag\r\n    \"status\": \"disabled\", // optional, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/tags/:tagId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"tags",
+						":tagId"
+					],
+					"variable": [
+						{
+							"key": "tagId",
+							"value": "1",
+							"description": "required, ID ของ tag"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a22-api-tag-case-list-by-subject-id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:subjectId/tags",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":subjectId",
+						"tags"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required, ID ของหลักสูตร"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a24-api-year-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/years/:yearId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"years",
+						":yearId"
+					],
+					"variable": [
+						{
+							"key": "yearId",
+							"value": "1",
+							"description": "required, ID ของชั้นปี"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a25-api-subject-group-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subject-groups/:subjectGroupId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subject-groups",
+						":subjectGroupId"
+					],
+					"variable": [
+						{
+							"key": "subjectGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a26-api-subject-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subjects/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subjects",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required, ID ของหลักสูตร"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a27-api-tag-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/tags/:tagId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"tags",
+						":tagId"
+					],
+					"variable": [
+						{
+							"key": "tagId",
+							"value": "1",
+							"description": "required, ID ของ tag"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a28-api-year-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"year_id\": 2, // required, ID ของชั้นปี\r\n            \"status\": \"disabled\"  // required, สถานะ (enabled / disabled / draft)\r\n        },\r\n        {\r\n            \"year_id\": 3,\r\n            \"status\": \"enabled\" \r\n        }\r\n    ],\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, admin ที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/years/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"years",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a29-api-subject-group-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"subject_group_id\": 2, // required, ID ของกลุ่มวิชา\r\n            \"status\": \"disabled\"  // required, สถานะ (enabled / disabled / draft)\r\n        },\r\n        {\r\n            \"subject_group_id\": 3,\r\n            \"status\": \"enabled\" \r\n        }\r\n    ],\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, admin ที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subject-groups/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subject-groups",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a30-api-subject-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"subject_id\": 2, // required, ID ของหลักสูตร\r\n            \"status\": \"disabled\"  // required, สถานะ (enabled / disabled / draft)\r\n        },\r\n        {\r\n            \"subject_id\": 3,\r\n            \"status\": \"enabled\" \r\n        }\r\n    ],\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, admin ที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/subjects/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"subjects",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a31-api-platform-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"curriculum_group_id\": 1, // required, ID ของสังกัดวิชา\r\n    \"seed_platform_id\": 1, // required, seed id\r\n    \"status\": \"enabled\", // required, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/platforms",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"platforms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a32-api-platform-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seed_platform_id\": 1,// optional, seed id\r\n    \"status\": \"disabled\", // optional, สถานะ (enabled / disabled / draft)\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, แอดมินที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/platforms/:platformId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"platforms",
+						":platformId"
+					],
+					"variable": [
+						{
+							"key": "platformId",
+							"value": "1",
+							"description": "required, ID ของ platform"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a33-api-platform-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/:curriculumGroupId/platforms?page=1&limit=10&platform_id=1&platform_name=Clever&status=disabled",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						":curriculumGroupId",
+						"platforms"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "platform_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "platform_name",
+							"value": "Clever",
+							"description": "optional"
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required, ID ของสังกัดวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a34-api-platform-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/platforms/:platformId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"platforms",
+						":platformId"
+					],
+					"variable": [
+						{
+							"key": "platformId",
+							"value": "1",
+							"description": "required, ID ของ platform"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a35-api-seed-platform-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/seed-platforms?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"seed-platforms"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a36-api-platform-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"platform_id\": 1,\r\n            \"status\": \"enabled\"\r\n        },\r\n        {\r\n            \"platform_id\": 2,\r\n            \"status\": \"disabled\"\r\n        }\r\n    ],\r\n     \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\" // optional, admin ที่ทำแทน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/platforms/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"platforms",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a37-api-seed-subject-group-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"เคมี\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/seed-subject-groups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"seed-subject-groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a38-api-seed-subject-group-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"เคมี 3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/seed-subject-groups/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"seed-subject-groups",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a39-api-seed-subject-group-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-courses/v1/seed-subject-groups/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-courses",
+						"v1",
+						"seed-subject-groups",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/academic-courses/v1/seed-subject-groups/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"academic-courses",
+								"v1",
+								"seed-subject-groups",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 22 Dec 2025 09:39:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "88"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "68155cd6-e360-4f37-8ad2-44107f740c27"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 6,\n            \"name\": \"เคมี 3\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

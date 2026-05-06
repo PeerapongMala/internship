@@ -1,0 +1,322 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Abnormal Report";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/report/abnormal.css")" asp-append-version="true" />
+
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+
+            <div class="container-fluid mt-2">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-5">
+                        <h1 class="title-section">Abnormal Report</h1>
+                    </div>
+                    <div class="col-md-7 d-flex justify-content-end">
+                        <div class="export-box">
+                            <span class="export-label">Export as:</span>
+                            <div class="export-options-row">
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdPdf" value="pdf" checked>
+                                    <span>PDF</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdExcel" value="excel">
+                                    <span>Excel</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdCSV" value="csv">
+                                    <span>CSV</span>
+                                </label>
+
+                            </div>
+                            <button type="button" class="btn-export-navy" onclick="exportData()">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-card">
+                    <div class="row g-0">
+                        <div class="col ps-3 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="filter-group">
+                                    <label>
+                                        Station Machine:
+                                        <select id="stationMachine" class="form-select custom-input-sm select2" style="width: 100%;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        วันที่:
+                                        <input type="text" id="filterDate" class="form-control custom-input-sm" style="width: 140px;">
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ประเภทธนบัตร:
+                                        <select id="cashTypeSelect" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ประเภท Abnormal Case:
+                                        <select id="abnormalcaseSelect" class="form-select custom-input-sm select2" style="width: 350px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-auto p-3" style="width: 200px;">
+                            <button class="btn-submit-report" id="btnGenerateReport">สร้างรายงาน</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="report-body" class="report-preview-container" style="margin-top:20px;">
+
+                <div class="text-end small">วันที่พิมพ์ : 02/07/2569</div>
+                <div class="report-title-center">Abnormal Report</div>
+
+                <div class="report-header-info">
+                    <div class="col-md-4">
+                        <div><strong>วันที่นับคัด :</strong> 01/07/2569</div>
+                        <div class="mt-2"><strong>เครื่องจักร :</strong> เครื่อง M7 ศสร.</div>
+                        <div class="mt-2"><strong>ธนาคาร :</strong> BBL</div>
+                        <div class="mt-2"><strong>Operator-Prepare :</strong> ชุติมา พลศรี</div>
+                        <div class="mt-2"><strong>Operator-Reconcile :</strong> ชัญวุฒิ แสนคำ</div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="mt-2"><strong>ประเภทธนบัตร :</strong> Unfit</div>
+                    </div>
+                    <div class="col-md-4 text-end">
+
+                        <div><strong>ผลัด :</strong> ทั้งวัน</div>
+                        <div class="mt-2"><strong>Header Card :</strong> 52980169</div>
+                        <div class="mt-2"><strong>ศูนย์เงินสด :</strong>ธ.กรุงเทพ เชียงใหม่่</div>
+                        <div class="mt-2"><strong>Operator-Sorter :</strong> อรุณา ปัญญเต้</div>
+                        <div class="mt-2"><strong>Supervisor :</strong> อัจฉรา นุติประพันธ์</div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+
+                    <style>
+                        .report-table-all {
+                            width: 100% !important;
+                            border-collapse: collapse !important;
+                            font-family: 'Sarabun', sans-serif !important;
+                            font-size: 10px !important;
+                            margin-bottom: 30px !important;
+                        }
+
+                            .report-table-all th, .report-table-all td {
+                                border: 1px solid #808080 !important;
+                                padding: 3px 5px !important;
+                                vertical-align: middle !important;
+                            }
+
+                            .report-table-all thead tr {
+                                background-color: #aaa !important;
+                                color: #000 !important;
+                                text-align: center !important;
+                            }
+                        /* สีแถวสรุปยอด */
+                        .bg-blue-summary {
+                            background-color: #d9e1f2 !important;
+                            font-weight: bold !important;
+                        }
+
+                        .bg-blue-grand {
+                            background-color: #8ea9db !important;
+                            font-weight: bold !important;
+                        }
+
+                        .text-end {
+                            text-align: right !important;
+                        }
+
+                        .text-center {
+                            text-align: center !important;
+                        }
+
+                        .fw-bold {
+                            font-weight: bold !important;
+                        }
+                    </style>
+
+
+
+                    <table class="report-table-all">
+                        <thead>
+                            <tr>
+                                <th>เครื่องจักร</th>
+                                <th>เวลา Prepare</th>
+                                <th>เวลานับคัด</th>
+                                <th>เวลากระทบยอด</th>
+                                <th>Header Card</th>
+                                <th>ประเภท Abnormal</th>
+                                <th>ธนาคาร</th>
+                                <th>ศูนย์เงินสด</th>
+                                <th>ชนิดราคา</th>
+                                <th>ดี (+)</th>
+                                <th>เสีย (+)</th>
+                                <th>Reject (+)</th>
+                                <th>ทำลาย (+)</th>
+                                <th>ปลอม (0)</th>
+                                <th>ชำรุด (0)</th>
+                                <th>รวมก่อนปรับ</th>
+                                <th>มูลค่าก่อนปรับ</th>
+                                <th>ขาด (+)</th>
+                                <th>เกิน (-)</th>
+                                <th>รวมหลังปรับ</th>
+                                <th>มูลค่าหลังปรับทั้งสิ้น</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4" class="text-center fw-bold">M7-1</td>
+                                <td class="text-center">09:30:10</td>
+                                <td class="text-center">09:50:39</td>
+                                <td class="text-center">10:00:20</td>
+                                <td class="text-center">50711250</td>
+                                <td class="text-center">Manual Key-in</td>
+                                <td class="text-center">ธนาคารกสิกรไทย</td>
+                                <td class="text-center">ธ.กสิกรไทย ราษฎร์บูรณะ</td>
+                                <td class="text-center">20</td>
+                                <td class="text-end">284</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">2</td>
+                                <td class="text-end">714</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">20,000</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">10:12:00</td>
+                                <td class="text-center">10:34:37</td>
+                                <td class="text-center">10:50:45</td>
+                                <td class="text-center">50714349</td>
+                                <td class="text-center">Manual Key-in</td>
+                                <td class="text-center">ธนาคารไทยพาณิชย์</td>
+                                <td class="text-center">ธ.ไทยพาณิชย์ เคหะตึงองค์</td>
+                                <td class="text-center">1000</td>
+                                <td class="text-end">134</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">2</td>
+                                <td class="text-end">864</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">1,000,000</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">13:50:00</td>
+                                <td class="text-center">14:20:12</td>
+                                <td class="text-center">14:30:55</td>
+                                <td class="text-center">59087650</td>
+                                <td class="text-center">Adjust Offset</td>
+                                <td class="text-center">ธนาคารกรุงศรีอยุธยา</td>
+                                <td class="text-center">ธ.กรุงศรีอยุธยา อยุธยา</td>
+                                <td class="text-center">100</td>
+                                <td class="text-end">784</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">17</td>
+                                <td class="text-end">200</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-end">1,001</td>
+                                <td class="text-end">100,100</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">1</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">100,000</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">13:50:02</td>
+                                <td class="text-center">14:20:13</td>
+                                <td class="text-center">14:33:20</td>
+                                <td class="text-center">59028320</td>
+                                <td class="text-center">Adjust Offset</td>
+                                <td class="text-center">ธนาคารกรุงศรีอยุธยา</td>
+                                <td class="text-center">ธ.กรุงศรีอยุธยา อยุธยา</td>
+                                <td class="text-center">100</td>
+                                <td class="text-end">687</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">5</td>
+                                <td class="text-end">307</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-end">999</td>
+                                <td class="text-end">99,900</td>
+                                <td class="text-end">1</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">100,000</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="text-center fw-bold">M7-2</td>
+                                <td class="text-center">11:22:10</td>
+                                <td class="text-center">11:30:25</td>
+                                <td class="text-center">11:45:30</td>
+                                <td class="text-center">55031875</td>
+                                <td class="text-center">Edited</td>
+                                <td class="text-center">ธนาคารกรุงเทพ</td>
+                                <td class="text-center">ธ.กรุงเทพ ลำปาง</td>
+                                <td class="text-center">50</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">4</td>
+                                <td class="text-end">1000</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-end">1,004</td>
+                                <td class="text-end">50,200</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">4</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">50,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/report/Abnormal.js")" asp-append-version="true"></script>
+}
+
+<script src="@Url.Content("~/js/helpers/bss-report-export.js")"></script>
+<script src="@Url.Content("~/lib/html2canvas/html2canvas.js")"></script>
+<script src="@Url.Content("~/lib/jspdf/jspdf.umd.min.js")"></script>

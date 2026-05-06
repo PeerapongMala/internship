@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "42d11811-54a2-4afd-98e7-3ab329b692ee",
+		"name": "bo-g02-d07-academic-profile-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-content-creator-case-update-password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"patdoepass2\" // required, รหัสผ่าน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-profile/v1/content-creator/password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-profile",
+						"v1",
+						"content-creator",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-content-creator-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/academic-profile/v1/content-creator",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-profile",
+						"v1",
+						"content-creator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-content-creator-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "mrs",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "pat",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "doe",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/C:/Users/pwn/OneDrive/Pictures/Saved Pictures/Arthur-zambaldi-courage-monsters-katz.webp"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/academic-profile/v1/content-creator",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"academic-profile",
+						"v1",
+						"content-creator"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

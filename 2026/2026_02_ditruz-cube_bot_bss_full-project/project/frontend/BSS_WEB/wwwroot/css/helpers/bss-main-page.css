@@ -1,0 +1,74 @@
+﻿
+.container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 560px !important;
+    min-height: 400px !important;
+    margin-top: 250px !important;
+}
+
+    .container p {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        margin: 20px 0;
+    }
+
+    .container span {
+        font-size: 12px;
+    }
+
+    .container form {
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        height: 100%;
+    }
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.default-system-logo {
+    position: absolute;
+    top: 110px;
+    left: 150px;
+}
+
+.default-system-name {
+    position: absolute;
+    top: 230px;
+    left: 150px;
+    width: 400px;
+    height: 48px;
+}
+
+    .default-system-name p {
+        font-size: 24px !important;
+        font-weight: 600 !important;
+    }
+
+
+.default-system-version {
+    position: absolute;
+    top: 255px;
+    left: 215px;
+    width: 120px;
+    height: 30px;
+}
+
+    .default-system-version p {
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        color: var(--secondary) !important;
+    }
+

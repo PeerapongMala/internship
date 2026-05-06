@@ -1,0 +1,50 @@
+/* ============================================
+   BSS Shared — Custom Scrollbar
+   ใช้ร่วมกัน: Verify, Revoke, Reconcile
+   Apply class "bss-scrollbar" to any scroll container
+   ============================================ */
+
+/* Webkit (Chrome, Safari, Edge) */
+.bss-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.bss-scrollbar::-webkit-scrollbar-track {
+    background: white;
+    border-left: 1px solid #CBD5E1;
+    border-right: 1px solid #CBD5E1;
+}
+
+.bss-scrollbar::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Firefox */
+.bss-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #909090 #e5e7eb;
+}
+
+/* Transparent track variant */
+.bss-scrollbar-transparent::-webkit-scrollbar {
+    width: 8px;
+}
+
+.bss-scrollbar-transparent::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bss-scrollbar-transparent::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.bss-scrollbar-transparent {
+    scrollbar-width: thin;
+    scrollbar-color: #909090 transparent;
+}

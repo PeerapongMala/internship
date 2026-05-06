@@ -1,0 +1,10 @@
+{
+  "title": "การอัพโหลดข้อมูล",
+  "classroom": "ห้องเรียน",
+  "year": "ชั้นปี",
+  "affiliation":"สังกัด",
+  "country": "ประเทศ",
+  "uploaded_history_tab_label": "ประวัติการอัพโหลด",
+  "last_login": "เข้าสู่ระบบล่าสุด: {{ date }}",
+  "latest_uploaded": "อัพโหลดล่าสุด: {{ date }}"
+}

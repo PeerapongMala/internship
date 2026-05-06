@@ -1,0 +1,19 @@
+{
+  "header-title": "บทเรียน",
+  "tab-all": "ทั้งหมด",
+  "tab-downloaded": "ดาวน์โหลดแล้ว",
+  "tab-sublesson": "บทเรียนย่อย",
+  "sublesson-count": "{{downloaded}}/{{total}} บทเรียนย่อย",
+  "error-lesson-not-found": "ไม่พบบทเรียนย่อย",
+  "lesson": {
+    "empty": {
+      "all": "ยังไม่มีบทเรียนในระบบ กรุณาอัปโหลดไฟล์บทเรียน",
+      "downloaded": "ยังไม่มีบทเรียนที่ดาวน์โหลดแล้ว"
+    }
+  },
+  "sublesson": {
+    "empty": "ไม่มีบทเรียนย่อยในบทเรียนนี้",
+    "fallbackName": "บทเรียนย่อย {{id}}",
+    "progress": "{{progress}}%"
+  }
+}

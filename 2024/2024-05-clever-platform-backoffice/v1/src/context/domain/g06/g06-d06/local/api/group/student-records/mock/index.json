@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "form_id": 5,
+      "order": 0,
+      "student_id": 2,
+      "created_at": "2025-03-03T10:24:44.515041Z",
+      "student_id_no": "STU002",
+      "title": "Mr.",
+      "thai_first_name": "สมชาย",
+      "thai_last_name": "รักเรียน",
+      "eng_first_name": "Somchai",
+      "eng_last_name": "Rukrian",
+      "academic_year": "2567",
+      "year": "ป.1",
+      "school_room": "ห้อง 4"
+    },
+    {
+      "id": 2,
+      "form_id": 5,
+      "order": 1,
+      "student_id": 3,
+      "created_at": "2025-03-03T10:24:44.515041Z",
+      "student_id_no": "STU003",
+      "title": "เด็กชาย",
+      "thai_first_name": "สมปอง",
+      "thai_last_name": "รักเรียน",
+      "eng_first_name": "Sompong",
+      "eng_last_name": "Rukrian",
+      "academic_year": "2567",
+      "year": "ป.1",
+      "school_room": "ห้อง 4"
+    },
+    {
+      "id": 3,
+      "form_id": 5,
+      "order": 2,
+      "student_id": 4,
+      "created_at": "2025-03-03T10:24:44.515041Z",
+      "student_id_no": "STU004",
+      "title": "เด็กหญิง",
+      "thai_first_name": "สมหญิง",
+      "thai_last_name": "รักเรียน",
+      "eng_first_name": "Somying",
+      "eng_last_name": "Rukrian",
+      "academic_year": "2567",
+      "year": "ป.1",
+      "school_room": "ห้อง 4"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Helpers\LoggerManagerHelper.cs" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="8.0.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.19" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.58.0" />
+	<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.12" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
+    <PackageReference Include="SkiaSharp" Version="3.119.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+    <PackageReference Include="ZXing.Net" Version="0.16.11" />
+    <PackageReference Include="ZXing.Net.Bindings.SkiaSharp" Version="0.16.22" />
+	<PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.119.2" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="logs\" />
+		<Folder Include="Repositories\" />
+		<Folder Include="wwwroot\lib\html2canvas\" />
+		<Folder Include="Excels\" />
+	</ItemGroup>
+
+	<Target Name="InstallPlaywrightBrowsers" AfterTargets="Build" Condition="'$(OS)' == 'Windows_NT'">
+		<Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(OutputPath)playwright.ps1&quot; install" />
+	</Target>
+
+	<ItemGroup>
+		<None Include="Controllers\MasterSeriesDenomController.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Excels\**\*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<UseAppHost>false</UseAppHost>
+	</PropertyGroup>
+
+</Project>

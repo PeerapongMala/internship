@@ -1,0 +1,10 @@
+{
+  "dialog_1": "按住並拖曳答案，然後將其放入正確的答案組中",
+  "dialog_2": "點擊選擇要編輯的組",
+  "dialog_3": "按 X 鍵將答案從組中刪除",
+  "card_title": "群組",
+  "question_title": "根據指定條件進行分組",
+  "question": "請正確地將 a/an 與下面的名詞配對，例如：a rat, an apple",
+  "answer": "答案",
+  "placeholder": "將答案拖曳至此"
+}

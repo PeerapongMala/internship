@@ -1,0 +1,22 @@
+{
+  "name": "template-game-three-js",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Three.js TypeScript game template",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.177.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "@types/three": "^0.176.0",
+    "rollup-plugin-visualizer": "^6.0.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

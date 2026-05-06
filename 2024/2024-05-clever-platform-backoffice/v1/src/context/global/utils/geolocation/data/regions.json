@@ -1,0 +1,12 @@
+[
+  { "id": 1, "regionNameTh": "เหนือ", "regionNameEn": "Northern" },
+  {
+    "id": 2,
+    "regionNameTh": "ตะวันออกเฉียงเหนือ",
+    "regionNameEn": "Northeastern"
+  },
+  { "id": 3, "regionNameTh": "ตะวันตก", "regionNameEn": "Western" },
+  { "id": 4, "regionNameTh": "กลาง", "regionNameEn": "Central" },
+  { "id": 5, "regionNameTh": "ตะวันออก", "regionNameEn": "Eastern" },
+  { "id": 6, "regionNameTh": "ใต้", "regionNameEn": "Southern" }
+]

@@ -1,0 +1,163 @@
+/* ============================================
+   BSS Shared — Modal Popup Base
+   ใช้ร่วมกัน: Verify, Revoke, Reconcile
+   Figma: Node 2:41247 "Popup 20251105"
+   ============================================ */
+
+/* ── Modal Content Container ── */
+.modal-popup .modal-content {
+    border-radius: 12px !important;
+    border: 1px solid #eee !important;
+    overflow: hidden;
+}
+
+/* ── Top Bar (Title area) ── */
+.modal-popup .modal-top-bar {
+    padding: 16px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-popup .modal-top-bar .modal-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+.modal-popup .modal-top-bar .modal-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    letter-spacing: 0.35px;
+    margin-top: 4px;
+}
+
+/* ── Action Bar (Bottom buttons) ── */
+.modal-popup .modal-action-bar {
+    border-top: 1px solid #cbd5e1;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ── Standard Popup Buttons — 160x38, border-radius 6px ── */
+.modal-popup .btn-popup {
+    width: 160px;
+    height: 38px;
+    border-radius: 6px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-popup .btn-popup:hover {
+    transform: translateY(-2px);
+}
+
+.modal-popup .btn-popup:disabled:hover {
+    transform: none;
+}
+
+/* Button Variants */
+.btn-popup-cancel {
+    background: #6c757d !important;
+    color: white !important;
+}
+.btn-popup-cancel:hover {
+    background: #198754 !important;
+    color: white !important;
+}
+
+.btn-popup-confirm {
+    background: #198754 !important;
+    color: white !important;
+}
+.btn-popup-confirm:hover {
+    background: #157347 !important;
+    color: white !important;
+}
+
+.btn-popup-danger {
+    background: #dc3545 !important;
+    color: white !important;
+}
+.btn-popup-danger:hover {
+    background: #c82333 !important;
+    color: white !important;
+}
+
+.btn-popup-primary {
+    background: #003366 !important;
+    color: white !important;
+}
+.btn-popup-primary:hover {
+    background: #198754 !important;
+    color: white !important;
+}
+.btn-popup-primary:disabled {
+    background: #a0b4c8 !important;
+    color: white !important;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+.btn-popup-confirm:disabled {
+      background: #198754 !important;
+    color: white !important;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+<<<<<<< HEAD
+=======
+.btn-popup-blue {
+    background: #0d6efd !important;
+    color: white !important;
+}
+.btn-popup-blue:hover {
+    background: #0b5ed7 !important;
+    color: white !important;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* ── Modal Step Visibility ── */
+.modal-popup .modal-content > .modal-step {
+    display: none !important;
+}
+.modal-popup .modal-content > .modal-step.active {
+    display: block !important;
+}
+
+/* ── Inline Validation Error ── */
+.popup-inline-error {
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+    display: none;
+}
+.popup-inline-error.show {
+    display: block;
+}
+
+/* ── Success / Error Modal Icons ── */
+.modal-success-title i {
+    font-size: 64px;
+    color: #198754;
+}
+
+.modal-warning-title i {
+    font-size: 64px;
+    color: #dc3545;
+}

@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "0213c5d7-ec2f-4219-8817-6c9acc4473f3",
+		"name": "bo-g03-d12-teacher-profile-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-teacher-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-profile/v1/teacher",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-profile",
+						"v1",
+						"teacher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-teacher-case-update-password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"patdoepass\" // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-profile/v1/teacher/password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-profile",
+						"v1",
+						"teacher",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-teacher-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "mrs",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "tap",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "eod",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"description": "optional",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-profile/v1/teacher",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-profile",
+						"v1",
+						"teacher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-user-case-delete-oauth",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider\": \"line\" // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-profile/v1/teacher/oauth",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-profile",
+						"v1",
+						"teacher",
+						"oauth"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,952 @@
+@model BSS_WEB.Views.AutoSelling.AutoSelling.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "VerifyAutoSelling";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<!-- Shared CSS modules -->
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-sort.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-badges.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-modal-popup.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-scrollbar.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-table-section.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-review-table.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-edit-form-modal.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-otp-modal.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/shared/bss-print-report-modal.css")" asp-append-version="true" />
+<!-- Page CSS -->
+<link rel="stylesheet" href="@Url.Content("~/css/verify/verifyTransaction.css")" asp-append-version="true" />
+@if (Model.CssVariantClass == "verify-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-unsort-cc.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "verify-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-ca-member.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "verify-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentDepartmentId" value="@User.FindFirst("DepartmentID")?.Value" />
+<input type="hidden" id="currentUserFullName"
+	   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+<input type="hidden" id="cssVariantClass" value="@Model.CssVariantClass" />
+<input type="hidden" id="bnTypeCode" value="@Model.BnTypeCode" />
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+
+		<!-- ============================================================
+		     TITLE BAR — Figma node 2:20495 (1403 x 62)
+		     ============================================================ -->
+		<div class="title-bar">
+			<div class="page-title">Auto Selling @Model.BnTypeName</div>
+
+			<!-- Info Panel — Figma node 2:20500 -->
+			<div class="info-panel">
+				<div class="info-panel-left">
+					<div class="info-row-inline info-row-date">
+						<span class="info-label">Date:</span>
+						<span class="info-value" id="infoDate">-</span>
+						<img src="data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z' fill='%23DC3545'/%3E%3C/svg%3E" width="14" height="14" alt="" class="info-icon" />
+					</div>
+					<div class="info-row-inline">
+						<span class="info-label">Sorting Machine:</span>
+						<span class="info-value">@Model.SortingMachine</span>
+					</div>
+				</div>
+				<div class="info-panel-right">
+					<div class="info-row-inline">
+						<span class="info-label">Supervisor:</span>
+						<span class="info-value">@Model.Verifier</span>
+					</div>
+					<div class="info-row-inline">
+						<span class="info-label">Shift:</span>
+						<span class="info-value">@Model.ShiftName</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Action Buttons — Figma node 2:20519 -->
+			<div class="action-buttons">
+				<button class="btn-filter" id="btnToggleFilter" onclick="toggleFilter()">
+					<svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_filter)"><path d="M7.99951 0C12.4178 0 15.9995 3.58172 15.9995 8C15.9995 12.4183 12.4178 16 7.99951 16C3.58124 16 -0.000485742 12.4183 -0.000488281 8C-0.000488281 3.58172 3.58124 2.58759e-06 7.99951 0ZM7.99951 1C4.13352 1 0.999512 4.13401 0.999512 8C0.999514 11.866 4.13352 15 7.99951 15C11.8655 15 14.9995 11.866 14.9995 8C14.9995 4.13401 11.8655 1 7.99951 1ZM8.49951 11C8.77565 11 8.99951 11.2239 8.99951 11.5C8.99951 11.7761 8.77565 12 8.49951 12H7.49951C7.22337 12 6.99951 11.7761 6.99951 11.5C6.99951 11.2239 7.22337 11 7.49951 11H8.49951ZM10.4995 8C10.7757 8 10.9995 8.22386 10.9995 8.5C10.9995 8.77614 10.7757 9 10.4995 9H5.49951C5.22337 9 4.99951 8.77614 4.99951 8.5C4.99951 8.22386 5.22337 8 5.49951 8H10.4995ZM12.4995 5C12.7757 5 12.9995 5.22386 12.9995 5.5C12.9995 5.77614 12.7757 6 12.4995 6H3.49951C3.22337 6 2.99951 5.77614 2.99951 5.5C2.99951 5.22386 3.22337 5 3.49951 5H12.4995Z" fill="white"/></g><defs><clipPath id="clip_filter"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+					<span class="btn-text">Filter</span>
+				</button>
+				<button class="btn-open-screen" onclick="openSecondScreen()">
+					<svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_screen1)"><rect width="16" height="16" fill="white" fill-opacity="0.01"/><g clip-path="url(#clip_screen2)"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.9995 2C13.9995 2 15.9995 2 15.9995 4V10C15.9995 10.0035 15.9977 12 13.9995 12H9.99951C9.99951 12.6667 10.0828 13.1667 10.2495 13.5H10.9995C11.2757 13.5 11.4995 13.7239 11.4995 14C11.4995 14.2761 11.2757 14.5 10.9995 14.5H4.99951C4.72337 14.5 4.49951 14.2761 4.49951 14C4.49951 13.7239 4.72337 13.5 4.99951 13.5H5.74951C5.91618 13.1667 5.99951 12.6667 5.99951 12H1.99951C1.99594 12 -0.000485151 11.9982 -0.000488281 10V4C-0.000488281 4 -0.000483493 2 1.99951 2H13.9995ZM1.99951 3C1.6745 3 1.4972 3.07836 1.39795 3.14453C1.29244 3.21487 1.20973 3.3159 1.14404 3.44727C1.07646 3.58243 1.03744 3.72962 1.01709 3.85156C1.00732 3.9102 1.0025 3.95725 1.00049 3.98535C0.999675 3.99675 0.999672 4.00474 0.999512 4.00879V10C0.999512 10.325 1.07787 10.5023 1.14404 10.6016C1.21439 10.7071 1.31541 10.7898 1.44678 10.8555C1.58194 10.9231 1.72913 10.9621 1.85107 10.9824C1.90971 10.9922 1.95676 10.997 1.98486 10.999C1.99625 10.9998 2.00425 10.9998 2.0083 11H13.9995C14.3245 11 14.5018 10.9216 14.6011 10.8555C14.7066 10.7851 14.7893 10.6841 14.855 10.5527C14.9226 10.4176 14.9616 10.2704 14.9819 10.1484C14.9917 10.0898 14.9965 10.0428 14.9985 10.0146C14.9993 10.0033 14.9994 9.99526 14.9995 9.99121V4C14.9995 3.67499 14.9212 3.49769 14.855 3.39844C14.7846 3.29292 14.6836 3.21022 14.5522 3.14453C14.4171 3.07695 14.2699 3.03793 14.1479 3.01758C14.0893 3.00781 14.0423 3.00298 14.0142 3.00098C14.0028 3.00016 13.9948 3.00016 13.9907 3H1.99951Z" fill="white"/></g></g><defs><clipPath id="clip_screen1"><rect width="16" height="16" fill="white"/></clipPath><clipPath id="clip_screen2"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+					<span class="btn-text">เปิดหน้าจอ 2</span>
+				</button>
+				<button class="btn-print" onclick="openPrintData()">
+					<svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_print)"><path d="M10.9995 9C11.5518 9 11.9995 9.44772 11.9995 10V13C11.9995 13.5523 11.5518 14 10.9995 14H4.99951C4.44723 14 3.99951 13.5523 3.99951 13V10C3.99951 9.44772 4.44723 9 4.99951 9H10.9995ZM13.9995 5C15.1041 5 15.9995 5.89543 15.9995 7V10C15.9995 11.1046 15.1041 12 13.9995 12H12.9995V10C12.9995 8.89543 12.1041 8 10.9995 8H4.99951C3.89494 8 2.99951 8.89543 2.99951 10V12H1.99951C0.894946 12 -0.000485742 11.1046 -0.000488281 10V7C-0.000488281 5.89543 0.894944 5 1.99951 5H13.9995ZM2.49951 7C2.22337 7 1.99951 7.22386 1.99951 7.5C1.99951 7.77614 2.22337 8 2.49951 8C2.77565 8 2.99951 7.77614 2.99951 7.5C2.99951 7.22386 2.77565 7 2.49951 7ZM10.9995 1C12.1041 1 12.9995 1.89543 12.9995 3V4H2.99951V3C2.99951 1.89543 3.89494 1 4.99951 1H10.9995Z" fill="white"/></g><defs><clipPath id="clip_print"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+					<span class="btn-text">Print Data</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- ============================================================
+		     FILTER BAR — Figma node 2:20536 (1408 x 63)
+		     Hidden by default, toggle via Filter button
+		     ============================================================ -->
+		<div class="filter-bar" id="filterSection" style="display:none;">
+			<div class="filter-bar-inner">
+				<div class="filter-group">
+					<label class="filter-label">Header Card:</label>
+					<select class="filter-select filter-select--header-card" id="filterHeaderCard">
+						<option value="">Please select</option>
+					</select>
+				</div>
+				<div class="filter-group">
+					<label class="filter-label">ธนาคาร:</label>
+					<select class="filter-select filter-select--bank" id="filterBank">
+						<option value="">Please select</option>
+					</select>
+				</div>
+				<div class="filter-group">
+					<label class="filter-label">Zone:</label>
+					<select class="filter-select filter-select--zone" id="filterZone">
+						<option value="">Please select</option>
+					</select>
+				</div>
+				<div class="filter-group">
+					<label class="filter-label">Cashpoint:</label>
+					<select class="filter-select filter-select--cashpoint" id="filterCashpoint">
+						<option value="">Please select</option>
+					</select>
+				</div>
+				<div class="filter-group">
+					<label class="filter-label">ชนิดราคา:</label>
+					<select class="filter-select filter-select--denomination" id="filterDenomination">
+						<option value="">Please select</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<!-- ============================================================
+		     CONTENT PANELS — Figma node 2:20557 (1408 x 663)
+		     Two-column layout: Left (844.8px) | Right (555.2px)
+		     ============================================================ -->
+		<div class="content-panels">
+
+			<!-- LEFT PANEL — Figma node 2:20558 (844.8px) -->
+			<div class="panel-left">
+
+				<!-- Table 1: มัดครบจำนวน ครบมูลค่า — Figma node 2:20559 -->
+				<div class="table-container table-left-top" id="tableLeftTop">
+					<div class="table-section-header">
+						<span class="table-section-title">มัดครบจำนวน ครบมูลค่า</span>
+						<div class="table-section-count">
+							<span class="table-section-count-label">จำนวน:</span>
+							<span class="table-section-count-value" id="table1Count">0</span>
+							<span class="table-section-count-label">ฉบับ</span>
+							<div class="header-action-dropdown"><button class="btn-header-action" onclick="toggleHeaderDropdown(this)">Action <i class="bi bi-caret-down-fill"></i></button><div class="header-action-menu"><button class="header-action-menu-item" onclick="openShiftModal('table1'); closeHeaderDropdown(this);"><svg class="menu-item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_gear1)"><path d="M6.59455 1.04925C7.00739 -0.351095 8.99119 -0.351011 9.40412 1.04925L9.50471 1.3891C9.76849 2.28381 10.79 2.70718 11.6092 2.26117L11.9207 2.09125C13.2028 1.39335 14.6054 2.79648 13.9071 4.07855L13.7371 4.3891C13.291 5.20828 13.7145 6.23071 14.6092 6.49457L14.949 6.59417C16.3496 7.00697 16.3496 8.99095 14.949 9.40375L14.6092 9.50433C13.7148 9.76826 13.2912 10.7897 13.7371 11.6088L13.9071 11.9203C14.605 13.2023 13.2027 14.6046 11.9207 13.9067L11.6092 13.7368C10.7901 13.2909 9.76857 13.7143 9.50471 14.6088L9.40412 14.9487C8.99132 16.3492 7.00735 16.3492 6.59455 14.9487L6.49495 14.6088C6.23111 13.7141 5.2087 13.2905 4.38948 13.7368L4.07893 13.9067C2.79677 14.6051 1.39437 13.2025 2.0926 11.9203L2.26155 11.6088C2.7077 10.7896 2.28429 9.76809 1.38948 9.50433L1.04963 9.40375C-0.350508 8.99078 -0.350549 7.0071 1.04963 6.59417L1.38948 6.49457C2.28435 6.2308 2.70781 5.20837 2.26155 4.3891L2.0926 4.07855C1.39418 2.79635 2.79673 1.39285 4.07893 2.09125L4.38948 2.26117C5.20875 2.70743 6.23118 2.28397 6.49495 1.3891L6.59455 1.04925ZM7.99983 5.07074C6.38229 5.07074 5.07112 6.38191 5.07112 7.99945C5.07132 9.61681 6.38241 10.9282 7.99983 10.9282C9.61712 10.928 10.9283 9.61673 10.9285 7.99945C10.9285 6.38199 9.61725 5.07088 7.99983 5.07074Z" fill="currentColor"/></g><defs><clipPath id="clip_gear1"><rect width="16" height="16" fill="white"/></clipPath></defs></svg> แก้ไข Shift</button></div></div>
+						</div>
+					</div>
+					<div class="table-scroll-area">
+						<table class="verify-table" id="table1">
+							<thead><tr id="table1Head"><!-- JS builds dynamically --></tr></thead>
+							<tbody id="table1Body"><!-- JS renders rows --></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Table 2: มัดรวมครบจำนวน ครบมูลค่า — Figma node 2:20642 -->
+				<div class="table-container table-left-bottom" id="tableLeftBottom">
+					<div class="table-section-header">
+						<span class="table-section-title">มัดรวมครบจำนวน ครบมูลค่า</span>
+						<div class="table-section-count">
+							<span class="table-section-count-label">จำนวน:</span>
+							<span class="table-section-count-value" id="table2Count">0</span>
+							<span class="table-section-count-label">ฉบับ</span>
+							<div class="header-action-dropdown"><button class="btn-header-action" onclick="toggleHeaderDropdown(this)">Action <i class="bi bi-caret-down-fill"></i></button><div class="header-action-menu"><button class="header-action-menu-item" onclick="openShiftModal('table2'); closeHeaderDropdown(this);"><svg class="menu-item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_gear2)"><path d="M6.59455 1.04925C7.00739 -0.351095 8.99119 -0.351011 9.40412 1.04925L9.50471 1.3891C9.76849 2.28381 10.79 2.70718 11.6092 2.26117L11.9207 2.09125C13.2028 1.39335 14.6054 2.79648 13.9071 4.07855L13.7371 4.3891C13.291 5.20828 13.7145 6.23071 14.6092 6.49457L14.949 6.59417C16.3496 7.00697 16.3496 8.99095 14.949 9.40375L14.6092 9.50433C13.7148 9.76826 13.2912 10.7897 13.7371 11.6088L13.9071 11.9203C14.605 13.2023 13.2027 14.6046 11.9207 13.9067L11.6092 13.7368C10.7901 13.2909 9.76857 13.7143 9.50471 14.6088L9.40412 14.9487C8.99132 16.3492 7.00735 16.3492 6.59455 14.9487L6.49495 14.6088C6.23111 13.7141 5.2087 13.2905 4.38948 13.7368L4.07893 13.9067C2.79677 14.6051 1.39437 13.2025 2.0926 11.9203L2.26155 11.6088C2.7077 10.7896 2.28429 9.76809 1.38948 9.50433L1.04963 9.40375C-0.350508 8.99078 -0.350549 7.0071 1.04963 6.59417L1.38948 6.49457C2.28435 6.2308 2.70781 5.20837 2.26155 4.3891L2.0926 4.07855C1.39418 2.79635 2.79673 1.39285 4.07893 2.09125L4.38948 2.26117C5.20875 2.70743 6.23118 2.28397 6.49495 1.3891L6.59455 1.04925ZM7.99983 5.07074C6.38229 5.07074 5.07112 6.38191 5.07112 7.99945C5.07132 9.61681 6.38241 10.9282 7.99983 10.9282C9.61712 10.928 10.9283 9.61673 10.9285 7.99945C10.9285 6.38199 9.61725 5.07088 7.99983 5.07074Z" fill="currentColor"/></g><defs><clipPath id="clip_gear2"><rect width="16" height="16" fill="white"/></clipPath></defs></svg> แก้ไข Shift</button></div></div>
+						</div>
+					</div>
+					<div class="table-scroll-area">
+						<table class="verify-table" id="table2">
+							<thead><tr id="table2Head"><!-- JS builds dynamically --></tr></thead>
+							<tbody id="table2Body"><!-- JS renders rows --></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Detail Panel (hidden) — Figma node 2:19399
+				     Appears when clicking a Header Card in the RIGHT panel (มัดขาด-เกิน)
+				     Shows breakdown by ประเภท (ทำลาย/ดี/Reject) -->
+				<div class="detail-panel" id="detailPanel" style="display:none;">
+					<div class="detail-panel-inner">
+						<div class="section-header">
+							<span class="section-header-title">แสดงรายละเอียดข้อมูลตาม HeaderCard ที่เลือก</span>
+							<div class="section-header-count">
+								<span>จำนวนธนบัตร:</span>
+								<span class="count-value" id="detailPanelCount">0</span>
+								<span>ฉบับ</span>
+							</div>
+						</div>
+						<div class="table-scroll-area">
+							<table class="verify-table" id="detailTable">
+								<thead><tr id="detailTableHead"><!-- JS builds dynamically --></tr></thead>
+								<tbody id="detailPanelBody"><!-- JS renders rows --></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- RIGHT PANEL — Figma node 2:20971 (555.2px) -->
+			<div class="panel-right">
+
+				<!-- Table A: มัดขาด-เกิน — Figma node 2:20972 -->
+				<div class="table-container table-right table-right-a" id="tableRightA">
+					<div class="table-section-header table-section-header--danger">
+						<span class="table-section-title table-section-title--danger">มัดขาด-เกิน</span>
+						<div class="table-section-count">
+							<span class="table-section-count-label">จำนวน:</span>
+							<span class="table-section-count-value" id="tableACount">0</span>
+							<span class="table-section-count-label">ฉบับ</span>
+							<div class="header-action-dropdown"><button class="btn-header-action" onclick="toggleHeaderDropdown(this)">Action <i class="bi bi-caret-down-fill"></i></button><div class="header-action-menu"><button class="header-action-menu-item" onclick="openShiftModal('tableA'); closeHeaderDropdown(this);"><svg class="menu-item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_gear3)"><path d="M6.59455 1.04925C7.00739 -0.351095 8.99119 -0.351011 9.40412 1.04925L9.50471 1.3891C9.76849 2.28381 10.79 2.70718 11.6092 2.26117L11.9207 2.09125C13.2028 1.39335 14.6054 2.79648 13.9071 4.07855L13.7371 4.3891C13.291 5.20828 13.7145 6.23071 14.6092 6.49457L14.949 6.59417C16.3496 7.00697 16.3496 8.99095 14.949 9.40375L14.6092 9.50433C13.7148 9.76826 13.2912 10.7897 13.7371 11.6088L13.9071 11.9203C14.605 13.2023 13.2027 14.6046 11.9207 13.9067L11.6092 13.7368C10.7901 13.2909 9.76857 13.7143 9.50471 14.6088L9.40412 14.9487C8.99132 16.3492 7.00735 16.3492 6.59455 14.9487L6.49495 14.6088C6.23111 13.7141 5.2087 13.2905 4.38948 13.7368L4.07893 13.9067C2.79677 14.6051 1.39437 13.2025 2.0926 11.9203L2.26155 11.6088C2.7077 10.7896 2.28429 9.76809 1.38948 9.50433L1.04963 9.40375C-0.350508 8.99078 -0.350549 7.0071 1.04963 6.59417L1.38948 6.49457C2.28435 6.2308 2.70781 5.20837 2.26155 4.3891L2.0926 4.07855C1.39418 2.79635 2.79673 1.39285 4.07893 2.09125L4.38948 2.26117C5.20875 2.70743 6.23118 2.28397 6.49495 1.3891L6.59455 1.04925ZM7.99983 5.07074C6.38229 5.07074 5.07112 6.38191 5.07112 7.99945C5.07132 9.61681 6.38241 10.9282 7.99983 10.9282C9.61712 10.928 10.9283 9.61673 10.9285 7.99945C10.9285 6.38199 9.61725 5.07088 7.99983 5.07074Z" fill="currentColor"/></g><defs><clipPath id="clip_gear3"><rect width="16" height="16" fill="white"/></clipPath></defs></svg> แก้ไข Shift</button></div></div>
+						</div>
+					</div>
+					<div class="table-scroll-area">
+						<table class="verify-table" id="tableA">
+							<thead><tr id="tableAHead"><!-- JS builds dynamically --></tr></thead>
+							<tbody id="tableABody"><!-- JS renders rows --></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Table B: มัดรวมขาด-เกิน — Figma node 2:20973 -->
+				<div class="table-container table-right table-right-b" id="tableRightB">
+					<div class="table-section-header">
+						<span class="table-section-title" style="color:#DC3545">มัดรวมขาด-เกิน</span>
+						<div class="table-section-count">
+							<span class="table-section-count-label">จำนวน:</span>
+							<span class="table-section-count-value" id="tableBCount">0</span>
+							<span class="table-section-count-label">ฉบับ</span>
+							<div class="header-action-dropdown"><button class="btn-header-action" onclick="toggleHeaderDropdown(this)">Action <i class="bi bi-caret-down-fill"></i></button><div class="header-action-menu"><button class="header-action-menu-item" onclick="openShiftModal('tableB'); closeHeaderDropdown(this);"><svg class="menu-item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_gear4)"><path d="M6.59455 1.04925C7.00739 -0.351095 8.99119 -0.351011 9.40412 1.04925L9.50471 1.3891C9.76849 2.28381 10.79 2.70718 11.6092 2.26117L11.9207 2.09125C13.2028 1.39335 14.6054 2.79648 13.9071 4.07855L13.7371 4.3891C13.291 5.20828 13.7145 6.23071 14.6092 6.49457L14.949 6.59417C16.3496 7.00697 16.3496 8.99095 14.949 9.40375L14.6092 9.50433C13.7148 9.76826 13.2912 10.7897 13.7371 11.6088L13.9071 11.9203C14.605 13.2023 13.2027 14.6046 11.9207 13.9067L11.6092 13.7368C10.7901 13.2909 9.76857 13.7143 9.50471 14.6088L9.40412 14.9487C8.99132 16.3492 7.00735 16.3492 6.59455 14.9487L6.49495 14.6088C6.23111 13.7141 5.2087 13.2905 4.38948 13.7368L4.07893 13.9067C2.79677 14.6051 1.39437 13.2025 2.0926 11.9203L2.26155 11.6088C2.7077 10.7896 2.28429 9.76809 1.38948 9.50433L1.04963 9.40375C-0.350508 8.99078 -0.350549 7.0071 1.04963 6.59417L1.38948 6.49457C2.28435 6.2308 2.70781 5.20837 2.26155 4.3891L2.0926 4.07855C1.39418 2.79635 2.79673 1.39285 4.07893 2.09125L4.38948 2.26117C5.20875 2.70743 6.23118 2.28397 6.49495 1.3891L6.59455 1.04925ZM7.99983 5.07074C6.38229 5.07074 5.07112 6.38191 5.07112 7.99945C5.07132 9.61681 6.38241 10.9282 7.99983 10.9282C9.61712 10.928 10.9283 9.61673 10.9285 7.99945C10.9285 6.38199 9.61725 5.07088 7.99983 5.07074Z" fill="currentColor"/></g><defs><clipPath id="clip_gear4"><rect width="16" height="16" fill="white"/></clipPath></defs></svg> แก้ไข Shift</button></div></div>
+						</div>
+					</div>
+					<div class="table-scroll-area">
+						<table class="verify-table" id="tableB">
+							<thead><tr id="tableBHead"><!-- JS builds dynamically --></tr></thead>
+							<tbody id="tableBBody"><!-- JS renders rows --></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Table C: มัดเกินโดยยอดจากเครื่องจักร — Figma node 2:20974 -->
+				<div class="table-container table-right table-right-c" id="tableRightC">
+					<div class="table-section-header">
+						<span class="table-section-title" style="color:#DC3545">มัดเกินโดยยอดจากเครื่องจักร</span>
+						<div class="table-section-count">
+							<span class="table-section-count-label">จำนวน:</span>
+							<span class="table-section-count-value" id="tableCCount">0</span>
+							<span class="table-section-count-label">ฉบับ</span>
+							<span class="table-section-count-label table-section-count-extra" id="tableCExtraCount" style="display:none;">
+								เกิน: <strong class="count-danger">0</strong> ฉบับ
+							</span>
+							<div class="header-action-dropdown"><button class="btn-header-action" onclick="toggleHeaderDropdown(this)">Action <i class="bi bi-caret-down-fill"></i></button><div class="header-action-menu"><button class="header-action-menu-item" onclick="openShiftModal('tableC'); closeHeaderDropdown(this);"><svg class="menu-item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip_gear5)"><path d="M6.59455 1.04925C7.00739 -0.351095 8.99119 -0.351011 9.40412 1.04925L9.50471 1.3891C9.76849 2.28381 10.79 2.70718 11.6092 2.26117L11.9207 2.09125C13.2028 1.39335 14.6054 2.79648 13.9071 4.07855L13.7371 4.3891C13.291 5.20828 13.7145 6.23071 14.6092 6.49457L14.949 6.59417C16.3496 7.00697 16.3496 8.99095 14.949 9.40375L14.6092 9.50433C13.7148 9.76826 13.2912 10.7897 13.7371 11.6088L13.9071 11.9203C14.605 13.2023 13.2027 14.6046 11.9207 13.9067L11.6092 13.7368C10.7901 13.2909 9.76857 13.7143 9.50471 14.6088L9.40412 14.9487C8.99132 16.3492 7.00735 16.3492 6.59455 14.9487L6.49495 14.6088C6.23111 13.7141 5.2087 13.2905 4.38948 13.7368L4.07893 13.9067C2.79677 14.6051 1.39437 13.2025 2.0926 11.9203L2.26155 11.6088C2.7077 10.7896 2.28429 9.76809 1.38948 9.50433L1.04963 9.40375C-0.350508 8.99078 -0.350549 7.0071 1.04963 6.59417L1.38948 6.49457C2.28435 6.2308 2.70781 5.20837 2.26155 4.3891L2.0926 4.07855C1.39418 2.79635 2.79673 1.39285 4.07893 2.09125L4.38948 2.26117C5.20875 2.70743 6.23118 2.28397 6.49495 1.3891L6.59455 1.04925ZM7.99983 5.07074C6.38229 5.07074 5.07112 6.38191 5.07112 7.99945C5.07132 9.61681 6.38241 10.9282 7.99983 10.9282C9.61712 10.928 10.9283 9.61673 10.9285 7.99945C10.9285 6.38199 9.61725 5.07088 7.99983 5.07074Z" fill="currentColor"/></g><defs><clipPath id="clip_gear5"><rect width="16" height="16" fill="white"/></clipPath></defs></svg> แก้ไข Shift</button></div></div>
+						</div>
+					</div>
+					<div class="table-scroll-area">
+						<table class="verify-table" id="tableC">
+							<thead><tr id="tableCHead"><!-- JS builds dynamically --></tr></thead>
+							<tbody id="tableCBody"><!-- JS renders rows --></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Adjustment Panel (hidden) — Figma node 2:19512
+				     Appears when clicking a Header Card in มัดขาด-เกิน table
+				     Editor form to adjust denomination counts -->
+				<div class="adjustment-panel" id="adjustmentPanel" style="display:none;">
+					<div class="adjustment-title">
+						<span class="adjustment-title-text">ปรับข้อมูลผลนับคัด</span>
+						<button class="btn-adjust-offset" id="btnAdjustOffset" onclick="openAdjustOffsetModal()" style="display:none;">
+							<span class="btn-text">Adjust Offset</span>
+						</button>
+					</div>
+
+					<!-- Form Row: 4 fields -->
+					<div class="form-row">
+						<div class="form-group">
+							<label class="form-label">Header Card</label>
+							<div class="form-input-readonly" id="adjHeaderCard">-</div>
+						</div>
+						<div class="form-group">
+							<label class="form-label">ชนิดราคา</label>
+							<select class="adj-select" id="adjDenomination" disabled>
+								<option value="">-</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="form-label">แบบ</label>
+							<select class="adj-select" id="adjType">
+								<option value="">-</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="form-label">จำนวน (ฉบับ)</label>
+							<input type="number" class="form-input" id="adjQuantity" value="0" min="0" readonly />
+						</div>
+					</div>
+
+					<!-- Remark field -->
+					<div class="form-remark">
+						<label class="form-label">หมายเหตุ</label>
+						<input type="text" class="form-input" id="adjRemark" placeholder="" />
+					</div>
+
+					<!-- Radio buttons + Save -->
+					<div class="action-row">
+						<!-- Radio group 1: เพิ่ม/ลด -->
+						<div class="radio-group-direction">
+							<label class="radio-item active" data-value="add">
+								<span class="radio-circle"></span>
+								<span class="radio-label">เพิ่ม</span>
+							</label>
+							<label class="radio-item" data-value="subtract">
+								<span class="radio-circle"></span>
+								<span class="radio-label">ลด</span>
+							</label>
+						</div>
+
+						<div class="radio-separator"></div>
+
+						<!-- Radio group 2: Normal / Add-on / Ent. JAM -->
+						<div class="radio-group-type">
+							<label class="radio-item active" data-value="normal">
+								<span class="radio-circle"></span>
+								<span class="radio-label">Normal</span>
+							</label>
+							<label class="radio-item" data-value="addon">
+								<span class="radio-circle"></span>
+								<span class="radio-label">Add-on</span>
+							</label>
+							<label class="radio-item" data-value="entjam">
+								<span class="radio-circle"></span>
+								<span class="radio-label">Ent. JAM</span>
+							</label>
+						</div>
+
+						<div class="radio-separator"></div>
+
+						<!-- Save button -->
+						<button class="btn-save" onclick="saveAdjustment()">บันทึก</button>
+					</div>
+				</div>
+
+				<!-- Insert Replace Panel (hidden) — Figma node 5:25266
+				     Appears when clicking แทรกแทน icon in detail table
+				     Auto-fills เพิ่ม/ลด for foreign denomination -->
+				<div class="adjustment-panel insert-replace-panel" id="insertReplacePanel" style="display:none;">
+					<div class="adjustment-title">
+						<span class="adjustment-title-text">ปรับข้อมูลผลนับคัดแทรกแทน</span>
+					</div>
+
+					<!-- Header Card (readonly) -->
+					<div class="form-row" style="margin-bottom:4px;">
+						<div class="form-group" style="flex:0 0 auto;">
+							<label class="form-label">Header Card</label>
+							<div class="form-input-readonly" id="irHeaderCard">-</div>
+						</div>
+					</div>
+
+					<!-- Dynamic rows — JS renders here -->
+					<div id="irRowsContainer">
+						<!-- Each row: ชนิดราคา | แบบ | จำนวน | direction badge -->
+					</div>
+
+					<!-- Remark field -->
+					<div class="form-remark">
+						<label class="form-label">หมายเหตุ</label>
+						<input type="text" class="form-input" id="irRemark" placeholder="" />
+					</div>
+
+					<!-- Radio buttons + Save -->
+					<div class="action-row">
+						<div class="radio-group-type ir-radio-group-type">
+							<label class="radio-item active" data-value="normal">
+								<span class="radio-circle"></span>
+								<span class="radio-label">Normal</span>
+							</label>
+							<label class="radio-item" data-value="addon">
+								<span class="radio-circle"></span>
+								<span class="radio-label">Add-on</span>
+							</label>
+							<label class="radio-item" data-value="entjam">
+								<span class="radio-circle"></span>
+								<span class="radio-label">Ent. JAM</span>
+							</label>
+						</div>
+
+						<div class="radio-separator"></div>
+
+						<button class="btn-save" onclick="saveInsertReplace()">บันทึก</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- ============================================================
+		     FOOTER BUTTONS — Figma node 2:21014 (1408 x 64)
+		     ============================================================ -->
+		<div class="footer-bar">
+			<button class="btn-refresh" onclick="refreshData()">
+				<i class="bi bi-arrow-clockwise"></i> Refresh
+			</button>
+			<div class="footer-spacer"></div>
+			<button class="btn-manual-keyin" onclick="openManualKeyIn()">Manual Key-in</button>
+			<button class="btn-summary" onclick="openSummary()">ดูรายการสรุปทั้งหมด</button>
+		</div>
+
+	</div>
+	</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     POPUP MODALS — Edit & Delete Flows
+     ══════════════════════════════════════════════════════ -->
+
+<!-- Modal: Edit Form — Simple (Figma node 2:41649, 600px) -->
+<div class="modal fade modal-popup modal-edit-form" id="editFormModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-top-bar">
+				<h5 class="modal-title">แก้ไขข้อมูล Header Card</h5>
+			</div>
+			<div class="form-area">
+				<input type="hidden" id="editFormVerifyTranId">
+				<input type="hidden" id="editFormIsAlert" value="0">
+				<div class="form-row-fields">
+					<div class="form-field form-field-half">
+						<label>Header Card (ใหม่)</label>
+						<select class="form-select" id="editFormNewHc">
+							<option value="">-- เลือก --</option>
+						</select>
+						<div class="popup-inline-error" id="editFormError">กรุณาเลือก Header Card ใหม่</div>
+					</div>
+					<div class="form-field form-field-half">
+						<label>Header Card (เก่า)</label>
+						<input type="text" class="form-control" id="editFormOldHc" readonly>
+					</div>
+				</div>
+			</div>
+			<div class="modal-action-bar">
+				<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn-popup btn-popup-confirm" onclick="submitEditForm()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Edit Alert Form — 6 fields (Figma node 2:41257, 600px) -->
+<div class="modal fade modal-popup modal-edit-alert" id="editAlertFormModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-top-bar">
+				<h5 class="modal-title">แก้ไขข้อมูล Header Card</h5>
+			</div>
+			<div class="form-area">
+				<input type="hidden" id="editAlertVerifyTranId">
+				<div class="form-grid">
+					<div class="form-field">
+						<label>Header Card (เก่า) #1</label>
+						<input type="text" class="form-control" id="editAlertOldHc1" readonly>
+					</div>
+					<div class="form-field">
+						<label>ชนิดราคา #1</label>
+						<input type="text" class="form-control" id="editAlertDenom1" readonly>
+					</div>
+					<div class="form-field">
+						<label>Header Card (ใหม่) #1</label>
+						<select class="form-select" id="editAlertNewHc1">
+							<option value="">-- เลือก --</option>
+						</select>
+					</div>
+					<div class="form-field">
+						<label>Header Card (เก่า) #2</label>
+						<input type="text" class="form-control" id="editAlertOldHc2" readonly>
+					</div>
+					<div class="form-field">
+						<label>ชนิดราคา #2</label>
+						<input type="text" class="form-control" id="editAlertDenom2" readonly>
+					</div>
+					<div class="form-field">
+						<label>Header Card (ใหม่) #2</label>
+						<select class="form-select" id="editAlertNewHc2">
+							<option value="">-- เลือก --</option>
+						</select>
+					</div>
+				</div>
+				<div class="popup-inline-error" id="editAlertFormError" style="margin-top:8px">กรุณาเลือก Header Card ใหม่ทั้ง 2 รายการ</div>
+			</div>
+			<div class="modal-action-bar">
+				<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn-popup btn-popup-confirm" onclick="submitEditAlertForm()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Edit Review / OTP (Figma nodes 2:41680 → 2:41761 → 2:41846, 1334px) -->
+<div class="modal fade modal-popup modal-otp-template" id="editReviewModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Review -->
+			<div class="modal-step active" id="editReviewStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+					<div class="modal-subtitle" id="editReviewSubtitle">เตรียมแก้ไขข้อมูล 1 รายการ</div>
+				</div>
+				<div class="otp-content">
+					<table class="review-table" id="editReviewTable">
+						<thead>
+							<tr>
+								<th style="width:30px">#</th>
+								<th class="td-warning-icon" style="width:30px">Warning</th>
+								<th>Header Card (เก่า)</th>
+								<th>Header Card (ใหม่)</th>
+								<th style="width:100px">ชนิดราคา</th>
+								<th>Container Barcode</th>
+								<th>ผู้เตรียม</th>
+								<th>แหล่งที่มา</th>
+							</tr>
+						</thead>
+						<tbody id="editReviewTableBody"></tbody>
+					</table>
+					<div class="otp-confirm-section">
+						<div class="section-title">ยืนยันการแก้ไข</div>
+						<div class="confirm-form-row">
+							<div class="confirm-field">
+								<label>เหตุผล <span class="text-danger">*</span></label>
+								<textarea class="form-control" id="editReviewRemark" rows="2" placeholder="ระบุเหตุผลการแก้ไข"></textarea>
+								<div class="popup-inline-error" id="editReviewRemarkError">กรุณาระบุเหตุผลการแก้ไข</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmEditReview()">ยืนยัน</button>
+				</div>
+			</div>
+
+			<!-- Step B: OTP Supervisor -->
+			<div class="modal-step" id="editReviewStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+				</div>
+				<div class="otp-step active">
+					<div class="otp-role-label">ยืนยัน Supervisor</div>
+					<div class="otp-role-sublabel">กดปุ่มยืนยันเพื่อดำเนินการต่อ (Mock)</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmEditSupervisorOtp()">ยืนยัน</button>
+				</div>
+			</div>
+
+			<!-- Step C: OTP Manager -->
+			<div class="modal-step" id="editReviewStepC">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+				</div>
+				<div class="otp-step active">
+					<div class="otp-role-label">ยืนยัน Manager</div>
+					<div class="otp-role-sublabel">กดปุ่มยืนยันเพื่อดำเนินการต่อ (Mock)</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmEditManagerOtp()">ยืนยัน</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Cancel Send (Multi-step) — Figma nodes 2:31555, 2:31581, 2:31610 -->
+<div class="modal fade modal-popup modal-otp-template" id="cancelSendModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Cancel Send — Info + Manager Select (Figma 2:31555) -->
+			<div class="modal-step active" id="cancelStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">Cancel Send</h5>
+				</div>
+				<div class="cancel-send-content">
+					<div class="cancel-send-info-rows">
+						<div class="cancel-send-info-row">
+							<span>Header Card</span>
+							<span id="cancelInfoHc">-</span>
+						</div>
+						<div class="cancel-send-info-row">
+							<span>ชนิดราคา</span>
+							<span id="cancelInfoDenom">-</span>
+						</div>
+						<div class="cancel-send-info-row">
+							<span>จำนวน (ฉบับ)</span>
+							<span id="cancelInfoQty">-</span>
+						</div>
+					</div>
+					<div class="cancel-send-confirm-section">
+						<h5 class="cancel-send-confirm-heading">ยืนยัน Cancel Send</h5>
+						<div class="cancel-send-manager-group">
+							<label class="cancel-send-manager-label">เลือก Manager</label>
+							<select class="cancel-send-manager-select" id="cancelManagerSelect">
+								<option value="">กรุณาเลือก</option>
+							</select>
+							<div class="popup-inline-error" id="cancelManagerError">กรุณาเลือก Manager</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-primary" onclick="confirmCancelSendA()">ส่งคำขออนุมัติแก้ไข</button>
+				</div>
+			</div>
+
+			<!-- Step B: Confirm (Figma 2:31581) -->
+			<div class="modal-step" id="cancelStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">Cancel Send</h5>
+				</div>
+				<div class="cancel-send-content">
+					<div class="cancel-send-info-rows">
+						<div class="cancel-send-info-row">
+							<span>Header Card</span>
+							<span id="cancelConfirmHc">-</span>
+						</div>
+						<div class="cancel-send-info-row">
+							<span>ชนิดราคา</span>
+							<span id="cancelConfirmDenom">-</span>
+						</div>
+						<div class="cancel-send-info-row">
+							<span>จำนวน (ฉบับ)</span>
+							<span id="cancelConfirmQty">-</span>
+						</div>
+						<div class="cancel-send-info-row">
+							<span>Manager</span>
+							<span id="cancelConfirmManager">-</span>
+						</div>
+					</div>
+					<div class="cancel-send-confirm-section">
+						<h5 class="cancel-send-confirm-heading">ยืนยัน Cancel Send</h5>
+						<div class="cancel-send-otp-group">
+							<label class="cancel-send-manager-label">Manager กรอกรหัส OTP</label>
+							<button class="btn-send-otp" id="btnSendOtp" onclick="sendCancelOtp()" style="display:none;">ส่งรหัส OTP</button>
+							<input type="text" class="cancel-send-otp-input" id="cancelOtpInput" placeholder="กรอกรหัส OTP" autocomplete="off" disabled />
+							<div class="popup-inline-error" id="cancelOtpError"></div>
+							<div class="cancel-send-otp-sent-msg" id="otpSentMsg" style="display:none;">
+								<span class="otp-sent-text">ส่งรหัส OTP แล้ว</span>
+							</div>
+							<div class="cancel-send-resend-row" id="otpResendRow" style="display:none;">
+								<button class="btn-resend-otp" id="btnResendOtp" onclick="sendCancelOtp()" disabled>
+									<svg class="resend-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M7.5898 0.3412C7.7526 0.2056 7.9999 0.3208 8 0.5326V1.9994C11.3136 1.9996 14 4.6858 14 7.9994C13.9998 11.3129 11.3135 13.9993 8 13.9994C4.6864 13.9994 2.0002 11.313 2 7.9994C2 7.1069 2.1954 6.2581 2.5459 5.4955C2.6613 5.2449 2.9582 5.1351 3.209 5.2504C3.4596 5.3659 3.5694 5.6627 3.4541 5.9135C3.1626 6.5477 3 7.254 3 7.9994C3.0002 10.7607 5.2387 12.9994 8 12.9994C10.7612 12.9993 12.9998 10.7606 13 7.9994C13 5.2381 10.7613 2.9996 8 2.9994V4.4653C8 4.6771 7.7527 4.793 7.5898 4.6576L5.2305 2.6908C5.1105 2.5909 5.1105 2.407 5.2305 2.3071L7.5898 0.3412Z" fill="currentColor"/>
+									</svg>
+									ส่งรหัส OTP อีกครั้ง
+								</button>
+								<span class="otp-timer" id="otpTimer"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" id="btnConfirmOtp" onclick="confirmCancelSendB()">ยืนยัน OTP</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal: Shift (เปลี่ยน Shift) — Figma node 2:30538 -->
+<div class="modal fade modal-popup" id="shiftModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: เลือก Shift + ผู้ยืนยัน -->
+			<div class="modal-step active" id="shiftStepA">
+				<div class="modal-top-bar">
+					<span class="modal-top-bar-title">แก้ไข Shift</span>
+				</div>
+				<div class="shift-content">
+					<!-- ตารางรายการที่เลือก -->
+					<div class="shift-table-section">
+						<table class="review-table" id="shiftItemsTable">
+							<thead>
+								<tr>
+									<th class="th-sort" onclick="sortShiftTable('HeaderCardCode')">Header Card <i class="bi bi-chevron-expand sort-icon" id="shiftSort_HeaderCardCode"></i></th>
+									<th class="th-sort" onclick="sortShiftTable('Shift')">Shift <i class="bi bi-chevron-expand sort-icon" id="shiftSort_Shift"></i></th>
+								</tr>
+							</thead>
+							<tbody id="shiftItemsBody"></tbody>
+						</table>
+					</div>
+
+					<!-- เลือก Shift -->
+					<div class="shift-select-section">
+						<label class="shift-select-label" for="shiftTimeSelect">เลือก Shift</label>
+						<select class="form-select shift-time-select" id="shiftTimeSelect">
+							<option value="">กรุณาเลือก</option>
+						</select>
+					</div>
+
+					<!-- ยืนยันการแก้ไข -->
+					<h5 class="cancel-send-confirm-heading">ยืนยันการแก้ไข</h5>
+					<div class="shift-verifier-section">
+						<label class="shift-select-label" for="shiftVerifierSelect">เลือก Supervisor</label>
+						<select class="form-select shift-verifier-select" id="shiftVerifierSelect">
+							<option value="">กรุณาเลือก</option>
+						</select>
+						<div class="popup-inline-error" id="shiftVerifierError">กรุณาเลือก Supervisor</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-primary" onclick="confirmShiftA()">ส่งคำขออนุมัติ</button>
+				</div>
+			</div>
+
+			<!-- Step B: ยืนยัน OTP -->
+			<div class="modal-step" id="shiftStepB">
+				<div class="modal-top-bar">
+					<span class="modal-top-bar-title">ยืนยัน OTP — เปลี่ยน Shift</span>
+				</div>
+				<div class="shift-content">
+					<!-- ตารางรายการ (เหมือน Step A) -->
+					<div class="shift-table-section">
+						<table class="review-table" id="shiftConfirmTable">
+							<thead>
+								<tr>
+									<th class="th-sort" onclick="sortShiftConfirmTable('HeaderCardCode')">Header Card <i class="bi bi-chevron-expand sort-icon" id="shiftConfirmSort_HeaderCardCode"></i></th>
+									<th class="th-sort" onclick="sortShiftConfirmTable('Shift')">Shift <i class="bi bi-chevron-expand sort-icon" id="shiftConfirmSort_Shift"></i></th>
+								</tr>
+							</thead>
+							<tbody id="shiftConfirmBody"></tbody>
+						</table>
+					</div>
+
+					<!-- OTP Section -->
+					<div class="shift-otp-group">
+						<label class="shift-select-label">ผู้ยืนยันกรอกรหัส OTP</label>
+						<button class="btn-send-otp" id="btnShiftSendOtp" onclick="sendShiftOtp()" style="display:none;">ส่งรหัส OTP</button>
+						<input type="text" class="cancel-send-otp-input" id="shiftOtpInput" placeholder="กรอกรหัส OTP" autocomplete="off" disabled />
+						<div class="popup-inline-error" id="shiftOtpError">กรุณากรอกรหัส OTP 6 หลัก</div>
+						<div class="cancel-send-otp-sent-msg" id="shiftOtpSentMsg" style="display:none;">
+							<span class="otp-sent-text">ส่งรหัส OTP แล้ว</span>
+						</div>
+						<div class="cancel-send-resend-row" id="shiftOtpResendRow" style="display:none;">
+							<button class="btn-resend-otp" id="btnShiftResendOtp" onclick="sendShiftOtp()" disabled>
+								<svg class="resend-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.5898 0.3412C7.7526 0.2056 7.9999 0.3208 8 0.5326V1.9994C11.3136 1.9996 14 4.6858 14 7.9994C13.9998 11.3129 11.3135 13.9993 8 13.9994C4.6864 13.9994 2.0002 11.313 2 7.9994C2 7.1069 2.1954 6.2581 2.5459 5.4955C2.6613 5.2449 2.9582 5.1351 3.209 5.2504C3.4596 5.3659 3.5694 5.6627 3.4541 5.9135C3.1626 6.5477 3 7.254 3 7.9994C3.0002 10.7607 5.2387 12.9994 8 12.9994C10.7612 12.9993 12.9998 10.7606 13 7.9994C13 5.2381 10.7613 2.9996 8 2.9994V4.4653C8 4.6771 7.7527 4.793 7.5898 4.6576L5.2305 2.6908C5.1105 2.5909 5.1105 2.407 5.2305 2.3071L7.5898 0.3412Z" fill="currentColor"/>
+								</svg>
+								ส่งรหัส OTP อีกครั้ง
+							</button>
+							<span class="otp-timer" id="shiftOtpTimer"></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" onclick="BssModal.setStep('shiftModal','shiftStepA')">ย้อนกลับ</button>
+					<button class="btn-popup btn-popup-primary" id="btnShiftConfirmOtp" onclick="confirmShiftB()">ยืนยัน OTP</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal: Success -->
+<div class="modal fade modal-popup" id="verifySuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-success-title">
+						<i class="bi bi-check-circle-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">สำเร็จ!</h3>
+				<h6 class="mb-4" id="successMessage">ดำเนินการสำเร็จ</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-green px-5" onclick="closeAllVerifyModals()">
+					<i class="bi bi-check-lg"></i> ตกลง
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Error -->
+<div class="modal fade modal-popup" id="verifyErrorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">การแจ้งเตือน</h3>
+				<h6 class="mb-4" id="verifyErrorMessage" style="white-space: pre-line;">ข้อความผิดพลาด</h6>
+			</div>
+			<div class="modal-footer justify-content-center gap-2">
+				<button type="button" class="btn btn-blue px-4" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Print Report (Figma node 2:42846, 1346px) -->
+<div class="modal fade modal-popup modal-print-report" id="printReportModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="report-top-bar">
+				<span class="report-title">Print Auto Selling Report</span>
+				<span class="report-subtitle">Branch Summary Report</span>
+			</div>
+			<div class="report-preview">
+				<div class="report-preview-box" id="reportPreviewContent">
+					<!-- Mock report content inserted by JS -->
+				</div>
+			</div>
+			<div class="modal-action-bar">
+				<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn-popup btn-popup-primary" onclick="printReport()">พิมพ์</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Adjust Offset (Multi-step) -->
+<div class="modal fade modal-popup modal-offset-confirm" id="adjustOffsetModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-xl">
+		<div class="modal-content">
+			<!-- Step A: เลือกรายการ Header Card เพื่อทำการ Adjust Offset -->
+			<div class="modal-step active" id="offsetStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">Adjust Offset</h5>
+				</div>
+				<div class="modal-body-area">
+					<div class="modal-table-section">
+						<div class="table-section-header">
+							<span class="table-section-title">เลือกรายการ Header Card เพื่อทำการ Adjust Offset</span>
+						</div>
+						<div class="modal-table-scroll">
+							<table class="offset-table" id="offsetSelectTable">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:40px;"><input type="checkbox" id="offsetSelectAll" onchange="toggleOffsetSelectAll(this)" /></th>
+										<th>Header Card</th>
+										<th>ธนาคาร</th>
+										<th>Cashpoint</th>
+										<th class="text-center">ชนิดราคา</th>
+										<th class="text-right">จำนวนฉบับ</th>
+									</tr>
+								</thead>
+								<tbody id="offsetSelectBody"><!-- JS renders rows --></tbody>
+							</table>
+						</div>
+					</div>
+					<div class="popup-inline-error" id="offsetError"></div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm btn-popup-blue" id="btnOffsetNext" onclick="confirmOffsetStepA()">ดำเนินการต่อ</button>
+				</div>
+			</div>
+
+			<!-- Step B: Reconfirm + เลือก Manager -->
+			<div class="modal-step" id="offsetStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">Reconfirm Adjust Offset</h5>
+				</div>
+				<div class="modal-body-area">
+					<div class="modal-table-section">
+						<div class="table-section-header">
+							<span class="table-section-title">รายการ Header Card Adjust Offset</span>
+						</div>
+						<div class="modal-table-scroll">
+							<table class="offset-table" id="offsetConfirmTable">
+								<thead>
+									<tr>
+										<th>Header Card</th>
+										<th>ธนาคาร</th>
+										<th>Cashpoint</th>
+										<th class="text-center">ชนิดราคา</th>
+										<th class="text-right">จำนวนฉบับ</th>
+									</tr>
+								</thead>
+								<tbody id="offsetConfirmBody"></tbody>
+							</table>
+						</div>
+					</div>
+					<div class="modal-confirm-section">
+						<h5 class="modal-confirm-title">ยืนยัน Adjust Offset</h5>
+						<div class="modal-manager-row">
+							<label class="modal-manager-label">เลือก Manager</label>
+							<select class="modal-manager-select" id="offsetManagerSelect">
+								<option value="">กรุณาเลือก</option>
+							</select>
+							<div class="popup-inline-error" id="offsetManagerError">กรุณาเลือก Manager</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" onclick="BssModal.setStep('adjustOffsetModal','offsetStepA')">ย้อนกลับ</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmOffsetStepB()">ส่งคำขออนุมัติ</button>
+				</div>
+			</div>
+
+			<!-- Step C: OTP Verification -->
+			<div class="modal-step" id="offsetStepC">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">Adjust Offset</h5>
+				</div>
+				<div class="modal-body-area">
+					<div class="modal-confirm-section">
+						<h5 class="modal-confirm-title">ยืนยัน Adjust Offset</h5>
+						<div class="cancel-send-otp-group">
+							<label class="cancel-send-manager-label">Manager กรอกรหัส OTP</label>
+							<button class="btn-send-otp" id="btnOffsetSendOtp" onclick="sendOffsetOtp()" style="display:none;">ส่งรหัส OTP</button>
+							<input type="text" class="cancel-send-otp-input" id="offsetOtpInput" placeholder="กรอกรหัส OTP" autocomplete="off" disabled />
+							<div class="popup-inline-error" id="offsetOtpError">กรุณากรอกรหัส OTP 6 หลัก</div>
+							<div class="cancel-send-otp-sent-msg" id="offsetOtpSentMsg" style="display:none;">
+								<span class="otp-sent-text">ส่งรหัส OTP แล้ว</span>
+							</div>
+							<div class="cancel-send-resend-row" id="offsetOtpResendRow" style="display:none;">
+								<button class="btn-resend-otp" id="btnOffsetResendOtp" onclick="sendOffsetOtp()" disabled>
+									<svg class="resend-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M7.5898 0.3412C7.7526 0.2056 7.9999 0.3208 8 0.5326V1.9994C11.3136 1.9996 14 4.6858 14 7.9994C13.9998 11.3129 11.3135 13.9993 8 13.9994C4.6864 13.9994 2.0002 11.313 2 7.9994C2 7.1069 2.1954 6.2581 2.5459 5.4955C2.6613 5.2449 2.9582 5.1351 3.209 5.2504C3.4596 5.3659 3.5694 5.6627 3.4541 5.9135C3.1626 6.5477 3 7.254 3 7.9994C3.0002 10.7607 5.2387 12.9994 8 12.9994C10.7612 12.9993 12.9998 10.7606 13 7.9994C13 5.2381 10.7613 2.9996 8 2.9994V4.4653C8 4.6771 7.7527 4.793 7.5898 4.6576L5.2305 2.6908C5.1105 2.5909 5.1105 2.407 5.2305 2.3071L7.5898 0.3412Z" fill="currentColor"/>
+									</svg>
+									ส่งรหัส OTP อีกครั้ง
+								</button>
+								<span class="otp-timer" id="offsetOtpTimer"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" onclick="BssModal.setStep('adjustOffsetModal','offsetStepB')">ย้อนกลับ</button>
+					<button class="btn-popup btn-popup-confirm" id="btnOffsetConfirmOtp" onclick="confirmOffsetOtp()">ยืนยัน OTP</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<!-- Shared JS modules -->
+	<script src="@Url.Content("~/js/shared/bss-datetime.js")" asp-append-version="true"></script>
+	<script src="@Url.Content("~/js/shared/bss-formatters.js")" asp-append-version="true"></script>
+	<script src="@Url.Content("~/js/shared/bss-sort.js")" asp-append-version="true"></script>
+	<script src="@Url.Content("~/js/shared/bss-modal.js")" asp-append-version="true"></script>
+	<script src="@Url.Content("~/js/shared/bss-dom.js")" asp-append-version="true"></script>
+	<!-- Page JS -->
+	<script src="@Url.Content("~/js/verify/verifyTransaction.js")" asp-append-version="true"></script>
+}

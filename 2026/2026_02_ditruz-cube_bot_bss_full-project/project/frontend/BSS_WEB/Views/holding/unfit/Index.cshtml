@@ -1,0 +1,673 @@
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Holding Detail " + (ViewData["BnTypeName"] ?? "UNFIT");
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/holding/holdingUnfit.css")" asp-append-version="true" />
+@{
+	var cssVariant = ViewData["CssVariant"]?.ToString() ?? "holding-unfit";
+}
+@if (cssVariant == "holding-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-unsort-cc.css")" asp-append-version="true" />
+} else if (cssVariant == "holding-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-ca-member.css")" asp-append-version="true" />
+} else if (cssVariant == "holding-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentUserFullName"
+	   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+
+		<!-- ─── Title Bar ─── -->
+		<div class="main-title">
+			<div class="title-left">
+				<div class="title-section">
+					<h1>Holding Detail @(ViewData["BnTypeName"] ?? "UNFIT")</h1>
+				</div>
+			</div>
+
+			<!-- Center info: 2×2 grid of pairs -->
+			<div class="title-center">
+				<div class="title-info-grid">
+					<div class="info-pair date-highlight">
+						<span class="title-info-label">Date:</span>
+						<span class="title-info-value">
+							<span id="infoDate">-</span>
+							<svg class="alert-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z" fill="#DC3545"/>
+							</svg>
+						</span>
+					</div>
+
+					<div class="info-pair separator">
+						<span class="title-info-label">Supervisor:</span>
+						<span class="title-info-value" id="infoSupervisor">-</span>
+					</div>
+
+					<div class="info-pair">
+						<span class="title-info-label">Sorting Machine:</span>
+						<span class="title-info-value" id="infoMachine">-</span>
+					</div>
+
+					<div class="info-pair separator">
+						<span class="title-info-label">Shift:</span>
+						<span class="title-info-value" id="infoShift">-</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="title-right">
+				<button class="btn-nav-filled" onclick="goToReconcileTransaction()">Reconcile Transaction</button>
+				<button class="btn-nav-filled" onclick="goToHolding()">Holding</button>
+			</div>
+		</div>
+
+		<!-- ─── 6-Panel Grid: 2 cols × 3 rows ─── -->
+		<div class="hd-grid">
+
+			<!-- ══ Left Column ══ -->
+			<div class="hd-col">
+
+				<!-- Panel 1: มัดครบจำนวน ครบมูลค่า -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">มัดครบจำนวน ครบมูลค่า</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p1Count" class="is-green">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="1" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="1" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="1" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="1" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p1Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 2: มัดรวมครบจำนวน ครบมูลค่า -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">มัดรวมครบจำนวน ครบมูลค่า</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p2Count" class="is-green">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="2" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="2" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="2" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="2" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p2Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 3: รายละเอียดตาม Header Card -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">รายละเอียดตาม Header Card</span>
+						<span class="hd-panel-count">จำนวนธนบัตร: <strong id="p3Count" class="is-warning">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:24%"><col style="width:12%"><col style="width:14%"><col style="width:10%"><col style="width:16%"><col style="width:24%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="3" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="3" data-col="type">ประเภท <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="series">แบบ <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="count">จำนวนฉบับ <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="3" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p3Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<!-- ── end Left Column ── -->
+
+			<!-- ══ Right Column ══ -->
+			<div class="hd-col">
+
+				<!-- Panel 4: มัดขาด -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดขาด-เกิน</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p4Count" class="is-orange">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="4" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="4" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="4" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="4" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p4Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 5: มัดรวมขาด -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดรวมขาด-เกิน</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p5Count" class="is-orange">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="5" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="5" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="5" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="5" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p5Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 6: มัดเกินโดยยอดจากเครื่องจักร -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดเกินโดยยอดจากเครื่องจักร</span>
+						<span class="hd-panel-count">
+							จำนวน: <strong id="p6Count" class="is-orange">-</strong> ฉบับ
+							เกิน: <strong id="p6Excess" class="is-orange">-</strong> ฉบับ
+						</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<colgroup><col style="width:30%"><col style="width:18%"><col style="width:32%"><col style="width:20%"></colgroup>
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="6" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="6" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="6" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="6" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p6Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<!-- ── end Right Column ── -->
+
+		</div>
+		<!-- ── end hd-grid ── -->
+
+	</div>
+	</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     Modal: Error / Alert
+     ══════════════════════════════════════════ -->
+<div class="modal fade" id="errorModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4" style="font-size:56px;color:#F59E0B;line-height:1;">
+					<i class="bi bi-exclamation-diamond-fill"></i>
+				</div>
+				<h3 class="fw-bold mb-3">การแจ้งเตือน</h3>
+				<h6 class="mb-4" id="errorMessage">เกิดข้อผิดพลาด</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-primary px-4" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+<script>
+// ─── Config ───────────────────────────────────────────────
+const BN_TYPE_CODE = '@(ViewData["BnTypeCode"] ?? "UF")';
+
+// ─── State ────────────────────────────────────────────────
+const PAGE_VERSION = (function() {
+    const m = window.location.pathname.match(/\/Detail\/(\d+)/i);
+    return m ? parseInt(m[1], 10) : 0;
+})();
+const sortState = {}; // { panelN: { col, asc } }
+let selectedP1Row = null; // currently selected header card in panel 1
+
+
+// ─── Init ─────────────────────────────────────────────────
+$(document).ready(function () {
+    startClock();
+    loadPageInfo();
+    loadAllPanels();
+    bindSortHeaders();
+    bindP1RowClick();
+
+    // Version 1: enable scroll bar
+    if (PAGE_VERSION === 1) {
+        $('.hd-table-scroll').addClass('has-scroll');
+    }
+});
+
+// ─── Clock ────────────────────────────────────────────────
+function startClock() {
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+function updateClock() {
+    const now = new Date();
+    const opts = {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+    };
+    $('#infoDate').text(now.toLocaleString('th-TH', opts));
+}
+
+// ─── Page Info ────────────────────────────────────────────
+function loadPageInfo() {
+    // Page info is loaded via loadAllPanels API response
+    // Kept as no-op for backward compatibility
+}
+
+// ─── Map API PascalCase row to camelCase ─────────────────
+function mapPanelRow(r) {
+    return {
+        headerCard: r.HeaderCard || r.headerCard || '',
+        denomination: String(r.Denomination || r.denomination || ''),
+        sortDate: r.SortDate || r.sortDate || '',
+        value: r.Value ?? r.value ?? 0,
+        count: r.Count ?? r.count ?? 0
+    };
+}
+function mapP3Row(r) {
+    return {
+        headerCard: r.HeaderCard || r.headerCard || '',
+        denomination: String(r.Denomination || r.denomination || ''),
+        type: r.Type || r.type || '',
+        series: r.Series || r.series || '',
+        sheetCount: r.SheetCount ?? r.sheetCount ?? 0,
+        value: r.Value ?? r.value ?? 0
+    };
+}
+
+// ─── Cached panel data (for sort + paired click) ─────────
+let panelCache = { completeBundles: [], combinedComplete: [], excessBundles: [], combinedExcess: [], machineExcess: [], machineExcessCount: 0, headerCardDetails: [] };
+
+// ─── Load All Panels ─────────────────────────────────────
+function loadAllPanels() {
+    callApi('/Holding/GetHoldingDetailData?bnType=' + encodeURIComponent(BN_TYPE_CODE), null, function (result) {
+        if (result && result.is_success && result.data) {
+            var d = result.data;
+            var pi = d.PageInfo || d.pageInfo;
+            if (pi) {
+                $('#infoSupervisor').text(pi.Supervisor || pi.supervisor || '-');
+                $('#infoMachine').text(pi.Machine || pi.machine || '-');
+                $('#infoShift').text(pi.Shift || pi.shift || '-');
+            }
+            var panels = d.Panels || d.panels || {};
+            panelCache.completeBundles = (panels.P1 || panels.p1 || []).map(mapPanelRow);
+            panelCache.combinedComplete = (panels.P2 || panels.p2 || []).map(mapPanelRow);
+            panelCache.excessBundles = (panels.P4 || panels.p4 || []).map(mapPanelRow);
+            panelCache.combinedExcess = (panels.P5 || panels.p5 || []).map(mapPanelRow);
+            panelCache.machineExcess = (panels.P6 || panels.p6 || []).map(mapPanelRow);
+            panelCache.machineExcessCount = panels.MachineExcessCount ?? panels.machineExcessCount ?? 0;
+
+            renderP1(panelCache.completeBundles);
+            renderP2(panelCache.combinedComplete);
+            if (panelCache.completeBundles.length === 0) renderP3([]);
+            renderP4(panelCache.excessBundles);
+            renderP5(panelCache.combinedExcess);
+            renderP6(panelCache.machineExcess, panelCache.machineExcessCount);
+        } else {
+            showError((result && result.msg_desc) || 'ไม่สามารถโหลดข้อมูลได้');
+        }
+    }, 'GET');
+}
+
+// ─── Panel 1: มัดครบจำนวน ครบมูลค่า ─────────────────────
+function renderP1(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p1Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map((r, i) => `
+            <tr data-hc="${escHtml(r.headerCard)}" ${i === 0 ? 'class="active-row"' : ''}>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p1Body').html(html);
+
+    // load detail for first row by default
+    if (rows.length > 0) {
+        selectedP1Row = rows[0].headerCard;
+        loadP3Detail(selectedP1Row);
+    }
+}
+
+// ─── Panel 2: มัดรวมครบจำนวน ครบมูลค่า ─────────────────
+function renderP2(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p2Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr data-hc="${escHtml(r.headerCard)}">
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p2Body').html(html);
+}
+
+// ─── Panel 3: รายละเอียดตาม Header Card ─────────────────
+function renderP3(rows) {
+    const total = rows.reduce((s, r) => s + (r.sheetCount || 0), 0);
+    $('#p3Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.type)}</td>
+                <td class="text-center">${escHtml(r.series)}</td>
+                <td class="text-center">${formatNum(r.sheetCount)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(6);
+    $('#p3Body').html(html);
+}
+
+function loadP3Detail(headerCard) {
+    if (!headerCard) return;
+    callApi('/Holding/GetHoldingDetailByHc?headerCards=' + encodeURIComponent(headerCard) + '&bnType=' + encodeURIComponent(BN_TYPE_CODE), null, function (result) {
+        if (result && result.is_success) {
+            var rows = (result.data || []).map(mapP3Row);
+            renderP3(rows);
+        }
+    }, 'GET');
+}
+
+// ─── Panel 4: มัดยาด-เกิน ────────────────────────────────
+function renderP4(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p4Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr data-hc="${escHtml(r.headerCard)}">
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p4Body').html(html);
+}
+
+// ─── Panel 5: มัดรวมยาด-เกิน ─────────────────────────────
+function renderP5(rows) {
+    // แสดงค่า count ของ row แรก (ทุก row ใน combined มี count เดียวกัน)
+    const total = rows.length > 0 ? (rows[0].count || 0) : 0;
+    $('#p5Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr data-hc="${escHtml(r.headerCard)}">
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p5Body').html(html);
+}
+
+// ─── Panel 6: มัดเกินโดยยอดจากเครื่องจักร ───────────────
+function renderP6(rows, excessCount) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p6Count').text(rows.length ? formatNum(total) : '-');
+    $('#p6Excess').text(excessCount != null ? formatNum(excessCount) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr data-hc="${escHtml(r.headerCard)}">
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p6Body').html(html);
+}
+
+// ─── Row click in any panel → load Panel 3 detail ────────
+function bindP1RowClick() {
+    // Panel 1: click row → highlight + load P3
+    $(document).on('click', '#p1Body tr[data-hc]', function () {
+        clearAllActiveRows();
+        $(this).addClass('active-row');
+        selectedP1Row = $(this).data('hc');
+        loadP3Detail(selectedP1Row);
+    });
+    // Panel 2 (มัดรวม): click row → load P3 (paired rows show together)
+    $(document).on('click', '#p2Body tr[data-hc]', function () {
+        clearAllActiveRows();
+        $(this).addClass('active-row');
+        loadP3DetailPaired($(this).data('hc'), panelCache.combinedComplete, '#p2Body');
+    });
+    // Panel 4 (มัดขาด-เกิน): click row → load P3
+    $(document).on('click', '#p4Body tr[data-hc]', function () {
+        clearAllActiveRows();
+        $(this).addClass('active-row');
+        loadP3Detail($(this).data('hc'));
+    });
+    // Panel 5 (มัดรวมขาด-เกิน): click row → load P3 (paired rows)
+    $(document).on('click', '#p5Body tr[data-hc]', function () {
+        clearAllActiveRows();
+        $(this).addClass('active-row');
+        loadP3DetailPaired($(this).data('hc'), panelCache.combinedExcess, '#p5Body');
+    });
+    // Panel 6 (มัดเกินจากเครื่องจักร): click row → load P3
+    $(document).on('click', '#p6Body tr[data-hc]', function () {
+        clearAllActiveRows();
+        $(this).addClass('active-row');
+        loadP3Detail($(this).data('hc'));
+    });
+}
+
+function clearAllActiveRows() {
+    $('.hd-table tbody tr').removeClass('active-row');
+}
+
+// Load P3 for paired rows (มัดรวม) — show details of all rows with same denomination
+function loadP3DetailPaired(headerCard, panelData, panelBodyId) {
+    if (!headerCard) return;
+    // Find the clicked row's denomination to get paired rows
+    var clickedRow = panelData.find(function(r) { return r.headerCard === headerCard; });
+    if (!clickedRow) { loadP3Detail(headerCard); return; }
+
+    // Find all paired header cards (same denomination in this panel)
+    var pairedHCs = panelData
+        .filter(function(r) { return r.denomination === clickedRow.denomination; })
+        .map(function(r) { return r.headerCard; });
+
+    // Send all paired HCs
+    var hcList = pairedHCs.join(',');
+    // Highlight all paired rows ONLY within this panel
+    panelData.forEach(function(r) {
+        if (r.denomination === clickedRow.denomination) {
+            $(panelBodyId + ' tr[data-hc="' + escHtml(r.headerCard) + '"]').addClass('active-row');
+        }
+    });
+    callApi('/Holding/GetHoldingDetailByHc?headerCards=' + encodeURIComponent(hcList) + '&bnType=' + encodeURIComponent(BN_TYPE_CODE), null, function (result) {
+        if (result && result.is_success) {
+            var rows = (result.data || []).map(mapP3Row);
+            renderP3(rows);
+        }
+    }, 'GET');
+}
+
+// ─── Sort headers ─────────────────────────────────────────
+function bindSortHeaders() {
+    $(document).on('click', '.th-sort', function (e) {
+        e.stopPropagation();
+        var $th = $(this);
+        var panel = $th.data('panel');
+        var col   = $th.data('col');
+        if (panel == null || !col) return;
+
+        panel = Number(panel);
+        var key = 'p' + panel;
+        var prev = sortState[key] || { col: null, asc: true };
+        var asc  = (prev.col === col) ? !prev.asc : true;
+        sortState[key] = { col: col, asc: asc };
+
+        // Update sort icon visual feedback
+        $th.closest('thead').find('.sort-icon')
+            .removeClass('bi-chevron-up bi-chevron-down')
+            .addClass('bi-chevron-expand');
+        var $icon = $th.find('.sort-icon');
+        $icon.removeClass('bi-chevron-expand').addClass(asc ? 'bi-chevron-up' : 'bi-chevron-down');
+
+        // Map panel → data array key + render function
+        var dataSource = panelCache;
+        var mapping = {
+            1: { data: 'completeBundles', render: renderP1NoSelect },
+            2: { data: 'combinedComplete', render: renderP2 },
+            3: { data: 'headerCardDetails', render: renderP3 },
+            4: { data: 'excessBundles', render: renderP4 },
+            5: { data: 'combinedExcess', render: renderP5 },
+            6: { data: 'machineExcess', render: renderP6 }
+        };
+        var m = mapping[panel];
+        if (!m || !dataSource[m.data]) return;
+
+        // Map sort column to data field
+        var fieldMap = {
+            headerCard: 'headerCard', denom: 'denomination', sortDate: 'sortDate',
+            value: 'value', type: 'type', series: 'series', count: 'sheetCount'
+        };
+        var field = fieldMap[col] || col;
+
+        // Sort a copy
+        var sorted = dataSource[m.data].slice().sort(function(a, b) {
+            var va = a[field], vb = b[field];
+            if (typeof va === 'number' && typeof vb === 'number') return asc ? va - vb : vb - va;
+            va = String(va || ''); vb = String(vb || '');
+            return asc ? va.localeCompare(vb, 'th') : vb.localeCompare(va, 'th');
+        });
+        dataSource[m.data] = sorted;
+
+        if (panel === 6) m.render(sorted, dataSource.machineExcessCount);
+        else m.render(sorted);
+    });
+}
+
+// renderP1 without auto-selecting first row (for sort re-render)
+function renderP1NoSelect(rows) {
+    const total = rows.reduce((s, r) => s + (r.count || 0), 0);
+    $('#p1Count').text(rows.length ? formatNum(total) : '-');
+    const html = rows.length
+        ? rows.map((r) => `
+            <tr data-hc="${escHtml(r.headerCard)}" ${r.headerCard === selectedP1Row ? 'class="active-row"' : ''}>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p1Body').html(html);
+}
+
+// ─── Navigation ───────────────────────────────────────────
+function goToReconcileTransaction() {
+    window.location.href = '/Reconcilation/ReconcileTransaction?bnType=' + encodeURIComponent(BN_TYPE_CODE);
+}
+
+function goToHolding() {
+    window.location.href = '/Reconcilation/Holding?bnType=' + encodeURIComponent(BN_TYPE_CODE);
+}
+
+// ─── API helper ──────────────────────────────────────────
+function callApi(url, data, onSuccess, method) {
+    const m = method || 'POST';
+    $.ajax({
+        url: url,
+        type: m,
+        data: m === 'GET' ? data : JSON.stringify(data),
+        contentType: m === 'GET' ? undefined : 'application/json; charset=utf-8',
+        headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() },
+        success: onSuccess,
+        error: function () { showError('เกิดข้อผิดพลาดในการเชื่อมต่อ'); }
+    });
+}
+
+// ─── Helpers ─────────────────────────────────────────────
+function denomBadge(denom) {
+    const cls = { '20':'qty-20','50':'qty-50','100':'qty-100','500':'qty-500','1000':'qty-1000' };
+    const c = cls[String(denom)] || '';
+    return `<span class="qty-badge ${c}">${escHtml(String(denom || '-'))}</span>`;
+}
+
+function noDataRow(cols) {
+    return `<tr class="hd-no-data"><td colspan="${cols}">ไม่พบข้อมูล</td></tr>`;
+}
+
+function padRows(cols, dataCount, minRows) {
+    minRows = minRows || 16;
+    let pad = '';
+    for (let i = dataCount; i < minRows; i++) {
+        pad += '<tr class="hd-empty-row">' + '<td>&nbsp;</td>'.repeat(cols) + '</tr>';
+    }
+    return pad;
+}
+
+function formatNum(val) {
+    if (val == null || val === '') return '-';
+    return Number(val).toLocaleString('th-TH');
+}
+
+function escHtml(str) {
+    if (str == null) return '-';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function showError(msg) {
+    $('#errorMessage').text(msg);
+    $('#errorModal').modal('show');
+}
+</script>
+}

@@ -1,0 +1,21 @@
+{
+  "lesson_title": "วิชา{{subjectName}} {{subjectShortYear}}",
+  "menu-header-all-tab": "ทั้งหมด",
+  "menu-header-downloaded-tab": "ดาวน์โหลดแล้ว",
+  "menu-header-undownloaded-tab": "ยังไม่ได้ดาวน์โหลด",
+  "amount_of_sublesson_downloaded": "{{downloadedCount}}/{{totalCount}} บทเรียนย่อย ดาวน์โหลดแล้ว",
+  "lesson_has_update_please_download": "มีการอัปเดท กรุณาโหลดอีกครั้ง",
+
+  "delete_lesson_modal_title": "ลบข้อมูลสำรองในเครื่อง",
+  "delete_lesson_confirm_message": "คุณต้องการลบบทเรียนนี้หรือไม่?",
+
+  "clear_lesson_data_modal_title": "ล้างข้อมูลการดาวน์โหลด",
+  "clear_lesson_incomplete_download_message": "บทเรียนนี้ยังดาวน์โหลดไม่สมบูรณ์ คุณต้องการล้างข้อมูลที่ดาวน์โหลดไว้หรือไม่?",
+
+  "delete_lesson_info_message": "การลบข้อมูลเนื้อหา <strong>ไม่มีผลต่อประวัติการเล่นของคุณ</strong><br/>คุณยังสามารถดาวน์โหลดได้ใหม่<br/>การโหลดข้อมูลเก็บไว้ทำให้คุณสามารถเข้าถึงเนื้อหาได้อย่างต่อเนื่อง",
+  "delete_lesson_confirm_btn": "ยืนยันการลบข้อมูลในเครื่อง",
+
+  "delete_lesson_success_title": "ลบบทเรียนสำเร็จ",
+  "delete_lesson_success_message": "ข้อมูลสำรองของบทเรียนถูกลบเรียบร้อยแล้ว",
+  "delete_lesson_ok": "ตกลง"
+}

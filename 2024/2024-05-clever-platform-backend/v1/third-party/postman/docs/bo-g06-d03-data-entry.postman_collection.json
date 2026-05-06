@@ -1,0 +1,810 @@
+{
+	"info": {
+		"_postman_id": "6349cf3b-57f8-4755-a439-ac8d7df2fe82",
+		"name": "g06-d03",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "G06D03",
+			"item": [
+				{
+					"name": "a01 get sheet list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet?page=1&limit=99&sort_by=id&sort_order=DESC&school_id=1&only_subject=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "99"
+								},
+								{
+									"key": "sort_by",
+									"value": "id"
+								},
+								{
+									"key": "sort_order",
+									"value": "DESC",
+									"description": "ASC, DESC"
+								},
+								{
+									"key": "subject_id",
+									"value": "3",
+									"description": "วิชา",
+									"disabled": true
+								},
+								{
+									"key": "general_evaluation_id",
+									"value": "",
+									"description": "อื่นๆ ทั่วไป",
+									"disabled": true
+								},
+								{
+									"key": "school_id",
+									"value": "1"
+								},
+								{
+									"key": "year",
+									"value": "ป.2/222",
+									"description": "FIXME",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "2568",
+									"disabled": true
+								},
+								{
+									"key": "school_room",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "school_term",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"disabled": true
+								},
+								{
+									"key": "subject_name",
+									"value": "คณิตศาสตร์",
+									"disabled": true
+								},
+								{
+									"key": "general_type",
+									"value": "คุณลักษณะอันพึงประสงค์",
+									"disabled": true
+								},
+								{
+									"key": "general_name",
+									"value": "คุณลักษณะอันพึงประสงค์ ประถม",
+									"disabled": true
+								},
+								{
+									"key": "only_subject",
+									"value": "true"
+								}
+							]
+						},
+						"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+					},
+					"response": []
+				},
+				{
+					"name": "a02 get sheet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/:evaluationSheetId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								":evaluationSheetId"
+							],
+							"query": [
+								{
+									"key": "indicator_id",
+									"value": "120",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "version",
+									"value": "15",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "no_student_lesson_score",
+									"value": "true",
+									"description": "optional",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "485"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - with indicator",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/:evaluationSheetId?indicator_id=120",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"data-entry",
+										"v1",
+										"evaluation-sheet",
+										":evaluationSheetId"
+									],
+									"query": [
+										{
+											"key": "indicator_id",
+											"value": "120",
+											"description": "optional"
+										}
+									],
+									"variable": [
+										{
+											"key": "evaluationSheetId",
+											"value": "287"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 25 Jun 2025 05:06:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "607"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "df24b7fb-1bc3-4f58-a5bc-c77587b4f18b"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"student_lesson_score\": [\n            {\n                \"evaluation_student_id\": 160,\n                \"evaluation_form_indicator_id\": 120,\n                \"score\": 3,\n                \"max_score\": 3\n            },\n            {\n                \"evaluation_student_id\": 161,\n                \"evaluation_form_indicator_id\": 120,\n                \"score\": 0,\n                \"max_score\": 3\n            },\n            {\n                \"evaluation_student_id\": 162,\n                \"evaluation_form_indicator_id\": 120,\n                \"score\": 0,\n                \"max_score\": 3\n            },\n            {\n                \"evaluation_student_id\": 163,\n                \"evaluation_form_indicator_id\": 120,\n                \"score\": 0,\n                \"max_score\": 3\n            },\n            {\n                \"evaluation_student_id\": 164,\n                \"evaluation_form_indicator_id\": 120,\n                \"score\": 0,\n                \"max_score\": 3\n            },\n            {\n                \"evaluation_student_id\": 165,\n                \"evaluation_form_indicator_id\": 120,\n                \"score\": 0,\n                \"max_score\": 3\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "a03 update sheet",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start_edit_at\": \"2025-01-24T14:40:49.488693Z\",\r\n    // \"end_edit_at\": \"2025-01-25T14:40:49.488693Z\", //optional ไม่ต้องส่งก็ได้, default now()\r\n    \"json_student_score_data\": [\r\n        {\r\n            \"evaluation_student_id\": 1, //id ของ evaluation student ดึงมาใส่เองเพราะบางครังนักเรียนอาจเพิ่มกลางคัน น่าจะยืดหยุ่นดี\r\n            \"student_indicator_data\": [\r\n                {\r\n                    \"indicator_id\": 6, // id from table : evaluation_form_indicator\r\n                    \"indicator_general_name\": \"หัวข้อ\", // สำหรับแบบ general เช่น แนะแนว|ผ่าน (ยังไม่เสร็จ)\r\n                    \"value\": 11, // รองรับทศนิยม 2 ตำแหน่ง\r\n                    \"additional_fields\": {\r\n                        \"b\": 2\r\n                    } //อะไรก็ได้ที่อยากจดไว้เพิ่มเติม ของรายการนี้ (cell นี้)\r\n                }\r\n            ],\r\n            \"additional_fields\": {\r\n                \"grade\": \"4\"\r\n            } //อะไรก็ได้ที่อยากจดไว้เพิ่มเติม ของนักเรียนคนนี้\r\n        }\r\n    ],\r\n    \"additional_data\": {\r\n        \"name\": \"pat\",\r\n        \"age\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/:evaluationSheetId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								":evaluationSheetId"
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a04 add note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"evaluation_sheet_id\": 1,\r\n    \"note_value\": \"test 232\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/note",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								"note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a05 get note",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"evaluation_sheet_id\": 14,\r\n    \"note_value\": \"asdasd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/note/:evaluationSheetId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								"note",
+								":evaluationSheetId"
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a06 history list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"evaluation_sheet_id\": 14,\r\n    \"note_value\": \"asdasd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/edit-history/:evaluationSheetId?page=1&limit=99&sort_by=id&sort_order=DESC&no_details=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								"edit-history",
+								":evaluationSheetId"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "99"
+								},
+								{
+									"key": "sort_by",
+									"value": "id"
+								},
+								{
+									"key": "sort_order",
+									"value": "DESC",
+									"description": "ASC, DESC"
+								},
+								{
+									"key": "no_details",
+									"value": "true",
+									"description": "optional"
+								}
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "72"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a07 history compare",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"evaluation_sheet_id\": 14,\r\n    \"note_value\": \"asdasd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/edit-history/compare/:evaluationSheetId?versionLeft=2&versionRight=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								"edit-history",
+								"compare",
+								":evaluationSheetId"
+							],
+							"query": [
+								{
+									"key": "versionLeft",
+									"value": "2"
+								},
+								{
+									"key": "versionRight",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a08 retrieve version",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data_entry_id\": 7 // เอา id จากเส้น  a06, a07 มาใส่ เพื่อย้อน version\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/:evaluationSheetId/retrieve-version",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								":evaluationSheetId",
+								"retrieve-version"
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a09 seed-academic-year",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/seed-years",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"seed-years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a10 subject-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/subjects?school_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"subjects"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "1",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a11 seed-year-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/seed-years",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"seed-years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a12 class-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/classes?school_id=1&seed_year=ป.4&academic_year=2567",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"classes"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "1",
+									"description": "required"
+								},
+								{
+									"key": "seed_year",
+									"value": "ป.4",
+									"description": "required"
+								},
+								{
+									"key": "academic_year",
+									"value": "2567",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a13-api-evaluation-sheet-get-subject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/:evaluationSheetId/subject",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-sheet",
+								":evaluationSheetId",
+								"subject"
+							],
+							"variable": [
+								{
+									"key": "evaluationSheetId",
+									"value": "38"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/data-entry/v1/evaluation-sheet/:evaluationSheetId/subject",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"data-entry",
+										"v1",
+										"evaluation-sheet",
+										":evaluationSheetId",
+										"subject"
+									],
+									"variable": [
+										{
+											"key": "evaluationSheetId",
+											"value": "38"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 07:19:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "58fe5946-029e-4162-9423-eb2a2788a8bf"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"subject_name\": \"math\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"3\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "a14-api-evaluation-form-setting-get-score",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sheet_id\": 491,\n    \"student_id\": 327,\n    \"indicator_id\": 233,\n    \"school_id\": 1,\n    \"setting\": [\n        {\n            \"id\": 469,\n            \"weight\": 20\n        },{\n            \"id\": 470,\n            \"weight\": 20\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/data-entry/v1/evaluation-form-setting/score",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"data-entry",
+								"v1",
+								"evaluation-form-setting",
+								"score"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sheet_id\": 491,\n    \"student_id\": 327,\n    \"indicator_id\": 233,\n    \"school_id\": 1,\n    \"setting\": [\n        {\n            \"id\": 469,\n            \"weight\": 20\n        },{\n            \"id\": 470,\n            \"weight\": 20\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/data-entry/v1/evaluation-form-setting/score",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"data-entry",
+										"v1",
+										"evaluation-form-setting",
+										"score"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 12 Sep 2025 08:26:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "997"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "97b9d1dc-152e-4114-816a-883ee905879c"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"evaluation_student_id\": 327,\n            \"evaluation_form_indicator_id\": 233,\n            \"level_type\": \"ด่านปานกลาง\",\n            \"score\": 0,\n            \"max_score\": 10\n        },\n        {\n            \"evaluation_student_id\": 327,\n            \"evaluation_form_indicator_id\": 233,\n            \"level_type\": \"ด่านยาก\",\n            \"score\": 0,\n            \"max_score\": 10\n        },\n        {\n            \"evaluation_student_id\": 327,\n            \"evaluation_form_indicator_id\": 233,\n            \"level_type\": \"ด่านทดสอบบทเรียนย่อยก่อนเรียน\",\n            \"score\": 1.11,\n            \"max_score\": 10\n        },\n        {\n            \"evaluation_student_id\": 327,\n            \"evaluation_form_indicator_id\": 233,\n            \"level_type\": \"ด่านรวม ง่าย ปานกลาง และยาก\",\n            \"score\": 1.48,\n            \"max_score\": 10\n        },\n        {\n            \"evaluation_student_id\": 327,\n            \"evaluation_form_indicator_id\": 233,\n            \"level_type\": \"ด่านทดสอบก่อนเรียน\",\n            \"score\": 1.11,\n            \"max_score\": 10\n        },\n        {\n            \"evaluation_student_id\": 327,\n            \"evaluation_form_indicator_id\": 233,\n            \"level_type\": \"ด่านง่าย\",\n            \"score\": 1.48,\n            \"max_score\": 10\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

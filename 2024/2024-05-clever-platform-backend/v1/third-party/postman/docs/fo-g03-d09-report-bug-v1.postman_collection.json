@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "ea5075c0-21ba-41d5-bf50-0b8befd752a4",
+		"name": "fo-g03-d09-report-bug-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40289851"
+	},
+	"item": [
+		{
+			"name": "a01-bugs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/report-bug/v1/bugs",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"report-bug",
+						"v1",
+						"bugs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

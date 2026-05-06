@@ -1,0 +1,2691 @@
+<section id="2:41247" name="Popup 20251105" x="156" y="7204" width="6378" height="6672">
+  <frame id="2:41248" name="Reconciliation Transaction / Popup / Edit HeaderCard - 6" x="4815" y="4533" width="1440" height="911">
+    <frame id="2:41249" name="Modal Alert" x="440" y="275" width="560" height="360">
+      <frame id="2:41250" name="Top Bar" x="0" y="0" width="560" height="141">
+        <instance id="2:41251" name="Error" x="256" y="32" width="48" height="48" />
+        <text id="2:41252" name="สำเร็จ" x="251" y="96" width="58" height="29" />
+      </frame>
+      <frame id="2:41253" name="Frame 44" x="0" y="178" width="560" height="72">
+        <text id="2:41254" name="แก้ไขข้อ Header Card สำเร็จ" x="156.5" y="24" width="247" height="24" />
+      </frame>
+      <frame id="2:41255" name="Frame 16" x="0" y="287" width="560" height="70">
+        <instance id="2:41256" name="button" x="200" y="16" width="160" height="38" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:41257" name="Reconciliation Transaction / Popup / Edit HeaderCard - 7" x="4815" y="476" width="1440" height="900">
+    <frame id="2:41258" name="Modal Dialog" x="440" y="211" width="560" height="383">
+      <frame id="2:41259" name="Top Bar" x="0" y="0" width="560" height="53">
+        <text id="2:41260" name="แก้ไขข้อมูล Header Card" x="16" y="16" width="259" height="29" />
+      </frame>
+      <frame id="2:41261" name="Frame" x="0" y="73" width="560" height="220">
+        <frame id="2:41262" name="Frame" x="11" y="24" width="538" height="78">
+          <frame id="2:41263" name="Frame" x="8" y="8" width="163.3333282470703" height="62">
+            <frame id="2:41264" name="Frame" x="0" y="0" width="52" height="20">
+              <text id="2:41265" name="Label" x="0" y="0" width="52" height="20" />
+              <text id="2:41266" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <instance id="2:41267" name="select" x="0" y="24" width="163.3333282470703" height="38" />
+          </frame>
+          <frame id="2:41268" name="Frame" x="187.3333282470703" y="8" width="163.33334350585938" height="62">
+            <frame id="2:41269" name="Frame" x="0" y="0" width="76" height="20">
+              <text id="2:41270" name="Label" x="0" y="0" width="76" height="20" />
+              <text id="2:41271" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <instance id="2:41272" name="select" x="0" y="24" width="163.33334350585938" height="38" />
+          </frame>
+          <frame id="2:41273" name="Frame" x="366.66668701171875" y="8" width="163.33334350585938" height="60">
+            <frame id="2:41274" name="Frame" x="0" y="0" width="76" height="20">
+              <text id="2:41275" name="Label" x="0" y="0" width="76" height="20" />
+              <text id="2:41276" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <frame id="2:41277" name="Component 62" x="0" y="24" width="163.33334350585938" height="36">
+              <text id="2:41278" name="text" x="12" y="8" width="76" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41279" name="Frame" x="11" y="118" width="538" height="78">
+          <frame id="2:41280" name="Frame" x="8" y="8" width="163.3333282470703" height="62">
+            <frame id="2:41281" name="Frame" x="0" y="0" width="52" height="20">
+              <text id="2:41282" name="Label" x="0" y="0" width="52" height="20" />
+              <text id="2:41283" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <instance id="2:41284" name="select" x="0" y="24" width="163.3333282470703" height="38" />
+          </frame>
+          <frame id="2:41285" name="Frame" x="187.3333282470703" y="8" width="163.33334350585938" height="62">
+            <frame id="2:41286" name="Frame" x="0" y="0" width="76" height="20">
+              <text id="2:41287" name="Label" x="0" y="0" width="76" height="20" />
+              <text id="2:41288" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <instance id="2:41289" name="select" x="0" y="24" width="163.33334350585938" height="38" />
+          </frame>
+          <frame id="2:41290" name="Frame" x="366.66668701171875" y="8" width="163.33334350585938" height="60">
+            <frame id="2:41291" name="Frame" x="0" y="0" width="76" height="20">
+              <text id="2:41292" name="Label" x="0" y="0" width="76" height="20" />
+              <text id="2:41293" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <frame id="2:41294" name="Component 62" x="0" y="24" width="163.33334350585938" height="36">
+              <text id="2:41295" name="text" x="12" y="8" width="74" height="20" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="2:41296" name="Frame" x="0" y="313" width="560" height="70">
+        <instance id="2:41297" name="button" x="16" y="16" width="160" height="38" />
+        <instance id="2:41298" name="button" x="424" y="16" width="120" height="38" />
+      </frame>
+    </frame>
+    <vector id="2:41299" name="Arrow 21" x="924" y="578" width="0.00001722228989819996" height="448" />
+  </frame>
+  <frame id="2:41300" name="Reconciliation Transaction / Popup / Edit HeaderCard - 8" x="4815" y="1496" width="1440" height="900">
+    <frame id="2:41301" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:41302" name="Modal Dialog" x="80" y="100" width="1280" height="700">
+        <frame id="2:41303" name="Top Bar" x="0" y="0" width="1280" height="53">
+          <text id="2:41304" name="ตรวจสอบการแก้ไข" x="16" y="16" width="184" height="29" />
+        </frame>
+        <frame id="2:41305" name="Frame 45" x="0" y="53" width="1280" height="577">
+          <text id="2:41306" name="เตรียมแก้ไขข้อมูล 2 รายการ" x="24" y="24" width="1232" height="29" />
+          <frame id="41:17042" name="Table" x="265" y="69" width="750" height="118">
+            <frame id="41:17043" name="List Header" x="0" y="0" width="750" height="30">
+              <frame id="41:17044" name="Icon - Warning - Delete" x="8" y="0" width="24" height="30">
+                <frame id="41:17045" name="Group 1" x="0" y="3" width="24" height="24" hidden="true">
+                  <vector id="41:17046" name="Rectangle 4927" x="0" y="3" width="24" height="24" />
+                  <instance id="41:17047" name="icon" x="7" y="10" width="10" height="10" />
+                </frame>
+              </frame>
+              <frame id="41:17048" name="Header" x="32" y="0" width="40" height="30">
+                <text id="41:17049" name="#" x="22" y="5" width="10" height="20" />
+                <instance id="41:17050" name="Icon Wrapper" x="55" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17051" name="Header" x="72" y="0" width="100" height="30">
+                <text id="41:17052" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17053" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17054" name="Header" x="172" y="0" width="120" height="30">
+                <text id="41:17055" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17056" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17057" name="Header" x="292" y="0" width="100" height="30">
+                <text id="41:17058" name="ราคา" x="10" y="5" width="80" height="20" />
+              </frame>
+              <frame id="41:17059" name="Header" x="392" y="0" width="110" height="30">
+                <text id="41:17060" name="บาร์โค้ดภาชนะ" x="8" y="5" width="94" height="20" />
+                <instance id="41:17061" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17062" name="Header" x="502" y="0" width="140" height="30">
+                <text id="41:17063" name="Preparator" x="36.5" y="2" width="67" height="20" />
+                <instance id="41:17064" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17065" name="Header" x="642" y="0" width="90" height="30">
+                <text id="41:17066" name="แหล่งที่มา" x="19" y="5" width="52" height="20" />
+                <instance id="41:17067" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+            </frame>
+            <frame id="41:17068" name="List" x="0" y="30" width="750" height="44">
+              <frame id="41:17069" name="Frame" x="8" y="2" width="734" height="40">
+                <frame id="41:17070" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17071" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17072" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17073" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17074" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17075" name="1" x="26" y="10" width="6" height="20" />
+                </frame>
+                <frame id="41:17076" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17077" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17078" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17079" name="0054941209" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17080" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17081" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17082" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17083" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17084" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17085" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17086" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17087" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17088" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17089" name="Prepare" x="8" y="10" width="48" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="41:17090" name="List" x="0" y="74" width="750" height="44">
+              <frame id="41:17091" name="Frame" x="8" y="2" width="734" height="40">
+                <frame id="41:17092" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17093" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17094" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17095" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17096" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17097" name="2" x="25" y="10" width="7" height="20" />
+                </frame>
+                <frame id="41:17098" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17099" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17100" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17101" name="0054941210" x="8" y="10" width="74" height="20" />
+                </frame>
+                <frame id="41:17102" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17103" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17104" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17105" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17106" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17107" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17108" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17109" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17110" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17111" name="Machine" x="8" y="10" width="52" height="20" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:41397" name="Frame 6168" x="265" y="203" width="750" height="175">
+            <frame id="2:41398" name="Frame 6154" x="0" y="0" width="767" height="175">
+              <text id="2:41399" name="ยืนยันการแก้ไข" x="8" y="8" width="148" height="29" />
+              <frame id="2:41400" name="Frame 6154" x="8" y="53" width="712" height="114">
+                <frame id="2:41401" name="Frame" x="0" y="0" width="390" height="114">
+                  <frame id="2:41402" name="Frame" x="0" y="0" width="390" height="24">
+                    <text id="2:41403" name="Label" x="0" y="0" width="50" height="24" />
+                    <text id="2:41404" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                  </frame>
+                  <instance id="2:41405" name="textarea" x="0" y="28" width="390" height="86" />
+                </frame>
+                <frame id="2:41406" name="Frame" x="422" y="0" width="290" height="64">
+                  <frame id="2:41407" name="Frame" x="0" y="0" width="105" height="22">
+                    <text id="2:41408" name="Label" x="0" y="0" width="105" height="22" />
+                    <text id="2:41409" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                  </frame>
+                  <instance id="2:41410" name="select" x="0" y="26" width="290" height="38" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41411" name="Frame 16" x="0" y="630" width="1280" height="70">
+          <instance id="2:41412" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:41413" name="button" x="1104" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:41414" name="Reconciliation Transaction / Popup / Edit HeaderCard - 9" x="4815" y="2517" width="1440" height="900">
+    <frame id="2:41415" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:41416" name="Modal Dialog" x="80" y="100" width="1280" height="700">
+        <frame id="2:41417" name="Top Bar" x="0" y="0" width="1280" height="53">
+          <text id="2:41418" name="ตรวจสอบการแก้ไข" x="16" y="16" width="184" height="29" />
+        </frame>
+        <frame id="2:41419" name="Frame 45" x="0" y="53" width="1280" height="577">
+          <text id="2:41420" name="เตรียมแก้ไขข้อมูล 2 รายการ" x="24" y="24" width="1232" height="29" />
+          <frame id="41:17125" name="Table" x="265" y="69" width="750" height="118">
+            <frame id="41:17126" name="List Header" x="0" y="0" width="750" height="30">
+              <frame id="41:17127" name="Icon - Warning - Delete" x="8" y="0" width="24" height="30">
+                <frame id="41:17128" name="Group 1" x="0" y="3" width="24" height="24" hidden="true">
+                  <vector id="41:17129" name="Rectangle 4927" x="0" y="3" width="24" height="24" />
+                  <instance id="41:17130" name="icon" x="7" y="10" width="10" height="10" />
+                </frame>
+              </frame>
+              <frame id="41:17131" name="Header" x="32" y="0" width="40" height="30">
+                <text id="41:17132" name="#" x="22" y="5" width="10" height="20" />
+                <instance id="41:17133" name="Icon Wrapper" x="55" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17134" name="Header" x="72" y="0" width="100" height="30">
+                <text id="41:17135" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17136" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17137" name="Header" x="172" y="0" width="120" height="30">
+                <text id="41:17138" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17139" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17140" name="Header" x="292" y="0" width="100" height="30">
+                <text id="41:17141" name="ราคา" x="10" y="5" width="80" height="20" />
+              </frame>
+              <frame id="41:17142" name="Header" x="392" y="0" width="110" height="30">
+                <text id="41:17143" name="บาร์โค้ดภาชนะ" x="8" y="5" width="94" height="20" />
+                <instance id="41:17144" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17145" name="Header" x="502" y="0" width="140" height="30">
+                <text id="41:17146" name="Preparator" x="36.5" y="2" width="67" height="20" />
+                <instance id="41:17147" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17148" name="Header" x="642" y="0" width="90" height="30">
+                <text id="41:17149" name="แหล่งที่มา" x="19" y="5" width="52" height="20" />
+                <instance id="41:17150" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+            </frame>
+            <frame id="41:17151" name="List" x="0" y="30" width="750" height="44">
+              <frame id="41:17152" name="Frame" x="8" y="2" width="734" height="40">
+                <frame id="41:17153" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17154" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17155" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17156" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17157" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17158" name="1" x="26" y="10" width="6" height="20" />
+                </frame>
+                <frame id="41:17159" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17160" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17161" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17162" name="0054941209" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17163" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17164" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17165" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17166" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17167" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17168" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17169" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17170" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17171" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17172" name="Prepare" x="8" y="10" width="48" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="41:17173" name="List" x="0" y="74" width="750" height="44">
+              <frame id="41:17174" name="Frame" x="8" y="2" width="734" height="40">
+                <frame id="41:17175" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17176" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17177" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17178" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17179" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17180" name="2" x="25" y="10" width="7" height="20" />
+                </frame>
+                <frame id="41:17181" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17182" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17183" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17184" name="0054941210" x="8" y="10" width="74" height="20" />
+                </frame>
+                <frame id="41:17185" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17186" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17187" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17188" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17189" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17190" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17191" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17192" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17193" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17194" name="Machine" x="8" y="10" width="52" height="20" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:41511" name="Frame 6168" x="265" y="203" width="750" height="237">
+            <frame id="45:17124" name="Frame 6169" x="0" y="0" width="650" height="237">
+              <frame id="45:17125" name="Frame 6169" x="0" y="0" width="648" height="192">
+                <frame id="45:17126" name="Frame 6154" x="0" y="0" width="648" height="192">
+                  <text id="45:17127" name="ยืนยันการแก้ไข" x="8" y="8" width="148" height="29" />
+                  <frame id="45:17128" name="Frame 6154" x="8" y="53" width="632" height="131">
+                    <frame id="45:17129" name="Frame" x="0" y="0" width="300" height="131">
+                      <frame id="45:17130" name="Frame" x="0" y="0" width="300" height="24">
+                        <text id="45:17131" name="Label" x="0" y="0" width="50" height="24" />
+                        <text id="45:17132" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                      </frame>
+                      <instance id="45:17133" name="textarea" x="0" y="28" width="300" height="103" />
+                    </frame>
+                    <frame id="45:17134" name="Frame" x="332" y="0" width="300" height="114">
+                      <frame id="45:17135" name="Frame" x="0" y="4" width="105" height="22">
+                        <text id="45:17136" name="Label" x="0" y="0" width="105" height="22" />
+                        <text id="45:17137" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                      </frame>
+                      <instance id="45:17138" name="select" x="0" y="30" width="300" height="38" />
+                      <frame id="45:17139" name="Frame 6152" x="0" y="72" width="362" height="38">
+                        <instance id="45:17140" name="button" x="0" y="0" width="183" height="38" />
+                        <text id="45:17141" name="Label" x="191" y="10" width="171" height="18" />
+                      </frame>
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41529" name="Frame 16" x="0" y="630" width="1280" height="70">
+          <instance id="2:41530" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:41531" name="button" x="1104" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:41532" name="Reconciliation Transaction / Popup / Edit HeaderCard - 10" x="4815" y="3525" width="1440" height="900">
+    <frame id="2:41533" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:41534" name="Modal Dialog" x="80" y="100" width="1280" height="700">
+        <frame id="2:41535" name="Top Bar" x="0" y="0" width="1280" height="53">
+          <text id="2:41536" name="ตรวจสอบการแก้ไข" x="16" y="16" width="184" height="29" />
+        </frame>
+        <frame id="2:41537" name="Frame 45" x="0" y="53" width="1280" height="577">
+          <text id="2:41538" name="เตรียมแก้ไขข้อมูล 2 รายการ" x="24" y="24" width="1232" height="29" />
+          <frame id="41:17208" name="Table" x="265" y="69" width="750" height="118">
+            <frame id="41:17209" name="List Header" x="0" y="0" width="750" height="30">
+              <frame id="41:17210" name="Icon - Warning - Delete" x="8" y="0" width="24" height="30">
+                <frame id="41:17211" name="Group 1" x="0" y="3" width="24" height="24" hidden="true">
+                  <vector id="41:17212" name="Rectangle 4927" x="0" y="3" width="24" height="24" />
+                  <instance id="41:17213" name="icon" x="7" y="10" width="10" height="10" />
+                </frame>
+              </frame>
+              <frame id="41:17214" name="Header" x="32" y="0" width="40" height="30">
+                <text id="41:17215" name="#" x="22" y="5" width="10" height="20" />
+                <instance id="41:17216" name="Icon Wrapper" x="55" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17217" name="Header" x="72" y="0" width="100" height="30">
+                <text id="41:17218" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17219" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17220" name="Header" x="172" y="0" width="120" height="30">
+                <text id="41:17221" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17222" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17223" name="Header" x="292" y="0" width="100" height="30">
+                <text id="41:17224" name="ราคา" x="10" y="5" width="80" height="20" />
+              </frame>
+              <frame id="41:17225" name="Header" x="392" y="0" width="110" height="30">
+                <text id="41:17226" name="บาร์โค้ดภาชนะ" x="8" y="5" width="94" height="20" />
+                <instance id="41:17227" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17228" name="Header" x="502" y="0" width="140" height="30">
+                <text id="41:17229" name="Preparator" x="36.5" y="2" width="67" height="20" />
+                <instance id="41:17230" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17231" name="Header" x="642" y="0" width="90" height="30">
+                <text id="41:17232" name="แหล่งที่มา" x="19" y="5" width="52" height="20" />
+                <instance id="41:17233" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+            </frame>
+            <frame id="41:17234" name="List" x="0" y="30" width="750" height="44">
+              <frame id="41:17235" name="Frame" x="8" y="2" width="734" height="40">
+                <frame id="41:17236" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17237" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17238" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17239" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17240" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17241" name="1" x="26" y="10" width="6" height="20" />
+                </frame>
+                <frame id="41:17242" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17243" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17244" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17245" name="0054941209" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17246" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17247" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17248" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17249" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17250" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17251" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17252" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17253" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17254" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17255" name="Prepare" x="8" y="10" width="48" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="41:17256" name="List" x="0" y="74" width="750" height="44">
+              <frame id="41:17257" name="Frame" x="8" y="2" width="734" height="40">
+                <frame id="41:17258" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17259" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17260" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17261" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17262" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17263" name="2" x="25" y="10" width="7" height="20" />
+                </frame>
+                <frame id="41:17264" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17265" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17266" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17267" name="0054941210" x="8" y="10" width="74" height="20" />
+                </frame>
+                <frame id="41:17268" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17269" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17270" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17271" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17272" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17273" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17274" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17275" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17276" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17277" name="Machine" x="8" y="10" width="52" height="20" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="45:17365" name="Frame 6169" x="273" y="203" width="734" height="237">
+            <frame id="45:17366" name="Frame 6169" x="0" y="0" width="734" height="200">
+              <frame id="45:17367" name="Frame 6154" x="0" y="0" width="734" height="200">
+                <text id="45:17368" name="ยืนยันการแก้ไข" x="8" y="8" width="148" height="29" />
+                <frame id="45:17369" name="Frame 6154" x="8" y="53" width="718" height="139">
+                  <frame id="45:17370" name="Frame" x="0" y="0" width="329" height="131">
+                    <frame id="45:17371" name="Frame" x="0" y="0" width="329" height="24">
+                      <text id="45:17372" name="Label" x="0" y="0" width="50" height="24" />
+                      <text id="45:17373" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="45:17374" name="textarea" x="0" y="28" width="329" height="103" />
+                  </frame>
+                  <frame id="45:17375" name="Frame" x="389" y="0" width="329" height="113">
+                    <frame id="45:17376" name="Frame" x="0" y="-4.5" width="163" height="22">
+                      <text id="45:17377" name="Label" x="0" y="0" width="163" height="22" />
+                      <text id="45:17378" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="45:17379" name="_input-base" x="0" y="29.5" width="329" height="38" />
+                    <frame id="45:17380" name="Frame 6152" x="0" y="79.5" width="362" height="38">
+                      <instance id="45:17381" name="button" x="0" y="0" width="183" height="38" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41646" name="Frame 16" x="0" y="630" width="1280" height="70">
+          <instance id="2:41647" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:41648" name="button" x="1104" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:41649" name="Reconciliation Transaction / Popup / Edit - 7" x="100" y="479" width="1440" height="698">
+    <frame id="2:41650" name="Modal Dialog" x="420" y="198" width="600" height="303">
+      <frame id="2:41651" name="Top Bar" x="0" y="0" width="600" height="53">
+        <text id="2:41652" name="แก้ไขข้อมูล Header Card" x="16" y="16" width="259" height="29" />
+      </frame>
+      <frame id="2:41653" name="Frame" x="0" y="73" width="600" height="140">
+        <frame id="2:41654" name="Frame" x="31" y="24" width="538" height="78">
+          <frame id="2:41655" name="Frame" x="8" y="8" width="253" height="62">
+            <frame id="2:41656" name="Frame" x="0" y="0" width="76" height="20">
+              <text id="2:41657" name="Label" x="0" y="0" width="76" height="20" />
+              <text id="2:41658" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <instance id="2:41659" name="select" x="0" y="24" width="253" height="38" />
+          </frame>
+          <frame id="2:41660" name="Frame" x="277" y="8" width="253" height="60">
+            <frame id="2:41661" name="Frame" x="0" y="0" width="76" height="20">
+              <text id="2:41662" name="Label" x="0" y="0" width="76" height="20" />
+              <text id="2:41663" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+            </frame>
+            <frame id="2:41664" name="Component 62" x="0" y="24" width="253" height="36">
+              <text id="2:41665" name="0054941209" x="12" y="8" width="229" height="20" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="2:41666" name="Frame" x="0" y="233" width="600" height="70">
+        <instance id="2:41667" name="button" x="16" y="16" width="160" height="38" />
+        <instance id="2:41668" name="button" x="424" y="16" width="160" height="38" />
+      </frame>
+    </frame>
+    <vector id="41:17292" name="Arrow 30" x="897" y="476" width="0.000014818160593677021" height="339" />
+  </frame>
+  <frame id="2:41670" name="Reconciliation Transaction / Popup / Edit - 8" x="100" y="4536" width="1440" height="911">
+    <frame id="2:41671" name="Modal Alert" x="440" y="275.5" width="560" height="360">
+      <frame id="2:41672" name="Top Bar" x="0" y="0" width="560" height="141">
+        <instance id="2:41673" name="Error" x="256" y="32" width="48" height="48" />
+        <text id="2:41674" name="สำเร็จ" x="251" y="96" width="58" height="29" />
+      </frame>
+      <frame id="2:41675" name="Frame 44" x="0" y="178" width="560" height="72">
+        <text id="2:41676" name="แก้ไขข้อมูล Hearder Card สำเร็จ" x="140.5" y="24" width="279" height="24" />
+      </frame>
+      <frame id="2:41677" name="Frame 16" x="0" y="287" width="560" height="70">
+        <instance id="2:41678" name="button" x="200" y="16" width="160" height="38" />
+      </frame>
+    </frame>
+    <vector id="2:41679" name="Arrow 28" x="718" y="614" width="0.000019538992148682155" height="447" />
+  </frame>
+  <frame id="2:41680" name="Reconciliation Transaction / Popup / Edit - 9" x="122" y="1313" width="1440" height="900">
+    <frame id="2:41681" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:41682" name="Modal Dialog" x="80" y="100" width="1280" height="700">
+        <frame id="2:41683" name="Top Bar" x="0" y="0" width="1280" height="53">
+          <text id="2:41684" name="ตรวจสอบการแก้ไข" x="16" y="16" width="184" height="29" />
+        </frame>
+        <frame id="2:41685" name="Frame 45" x="0" y="53" width="1280" height="577">
+          <text id="2:41686" name="เตรียมแก้ไขข้อมูล 1 รายการ" x="24" y="24" width="1232" height="29" />
+          <frame id="41:17484" name="Table" x="316" y="69" width="648" height="74">
+            <frame id="41:17485" name="List Header" x="-1" y="0" width="650" height="30">
+              <frame id="41:17486" name="Icon - Warning - Delete" x="8" y="0" width="24" height="30">
+                <frame id="41:17487" name="Group 1" x="0" y="3" width="24" height="24" hidden="true">
+                  <vector id="41:17488" name="Rectangle 4927" x="0" y="3" width="24" height="24" />
+                  <instance id="41:17489" name="icon" x="7" y="10" width="10" height="10" />
+                </frame>
+              </frame>
+              <frame id="41:17490" name="Header" x="32" y="0" width="40" height="30">
+                <text id="41:17491" name="#" x="22" y="5" width="10" height="20" />
+                <instance id="41:17492" name="Icon Wrapper" x="55" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17493" name="Header" x="72" y="0" width="100" height="30">
+                <text id="41:17494" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17495" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17496" name="Header" x="172" y="0" width="120" height="30">
+                <text id="41:17497" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17498" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17499" name="Header" x="292" y="0" width="100" height="30">
+                <text id="41:17500" name="ราคา" x="10" y="5" width="80" height="20" />
+              </frame>
+              <frame id="41:17501" name="Header" x="392" y="0" width="110" height="30">
+                <text id="41:17502" name="บาร์โค้ดภาชนะ" x="8" y="5" width="94" height="20" />
+                <instance id="41:17503" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17504" name="Header" x="502" y="0" width="140" height="30">
+                <text id="41:17505" name="Preparator" x="36.5" y="2" width="67" height="20" />
+                <instance id="41:17506" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+            </frame>
+            <frame id="41:17507" name="List" x="0" y="30" width="648" height="44">
+              <frame id="41:17508" name="Frame" x="8" y="2" width="632" height="40">
+                <frame id="41:17509" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17510" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17511" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17512" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17513" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17514" name="1" x="26" y="10" width="6" height="20" />
+                </frame>
+                <frame id="41:17515" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17516" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17517" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17518" name="0054941209" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17519" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17520" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17521" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17522" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17523" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17524" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17525" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17526" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17527" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17528" name="Prepare" x="8" y="10" width="48" height="20" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:41744" name="Frame 6168" x="316" y="159" width="648" height="192">
+            <frame id="2:41745" name="Frame 6154" x="0" y="0" width="648" height="192">
+              <text id="2:41746" name="ยืนยันการแก้ไข" x="8" y="8" width="148" height="29" />
+              <frame id="2:41747" name="Frame 6154" x="8" y="53" width="632" height="131">
+                <frame id="2:41748" name="Frame" x="0" y="0" width="300" height="131">
+                  <frame id="2:41749" name="Frame" x="0" y="0" width="300" height="24">
+                    <text id="2:41750" name="Label" x="0" y="0" width="50" height="24" />
+                    <text id="2:41751" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                  </frame>
+                  <instance id="2:41752" name="textarea" x="0" y="28" width="300" height="103" />
+                </frame>
+                <frame id="2:41753" name="Frame" x="332" y="0" width="300" height="64">
+                  <frame id="2:41754" name="Frame" x="0" y="0" width="105" height="22">
+                    <text id="2:41755" name="Label" x="0" y="0" width="105" height="22" />
+                    <text id="2:41756" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                  </frame>
+                  <instance id="2:41757" name="select" x="0" y="26" width="300" height="38" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41758" name="Frame 16" x="0" y="630" width="1280" height="70">
+          <instance id="2:41759" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:41760" name="button" x="1104" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:41761" name="Reconciliation Transaction / Popup / Edit - 10" x="100" y="2512" width="1440" height="900">
+    <frame id="2:41762" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:41763" name="Modal Dialog" x="80" y="100" width="1280" height="700">
+        <frame id="2:41764" name="Top Bar" x="0" y="0" width="1280" height="53">
+          <text id="2:41765" name="ตรวจสอบการแก้ไข" x="16" y="16" width="184" height="29" />
+        </frame>
+        <frame id="2:41766" name="Frame 45" x="0" y="53" width="1280" height="577">
+          <text id="2:41767" name="เตรียมแก้ไขข้อมูล 1 รายการ" x="24" y="24" width="1232" height="29" />
+          <frame id="41:17538" name="Table" x="316" y="69" width="648" height="74">
+            <frame id="41:17539" name="List Header" x="-1" y="0" width="650" height="30">
+              <frame id="41:17540" name="Icon - Warning - Delete" x="8" y="0" width="24" height="30">
+                <frame id="41:17541" name="Group 1" x="0" y="3" width="24" height="24" hidden="true">
+                  <vector id="41:17542" name="Rectangle 4927" x="0" y="3" width="24" height="24" />
+                  <instance id="41:17543" name="icon" x="7" y="10" width="10" height="10" />
+                </frame>
+              </frame>
+              <frame id="41:17544" name="Header" x="32" y="0" width="40" height="30">
+                <text id="41:17545" name="#" x="22" y="5" width="10" height="20" />
+                <instance id="41:17546" name="Icon Wrapper" x="55" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17547" name="Header" x="72" y="0" width="100" height="30">
+                <text id="41:17548" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17549" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17550" name="Header" x="172" y="0" width="120" height="30">
+                <text id="41:17551" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:17552" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17553" name="Header" x="292" y="0" width="100" height="30">
+                <text id="41:17554" name="ราคา" x="10" y="5" width="80" height="20" />
+              </frame>
+              <frame id="41:17555" name="Header" x="392" y="0" width="110" height="30">
+                <text id="41:17556" name="บาร์โค้ดภาชนะ" x="8" y="5" width="94" height="20" />
+                <instance id="41:17557" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:17558" name="Header" x="502" y="0" width="140" height="30">
+                <text id="41:17559" name="Preparator" x="36.5" y="2" width="67" height="20" />
+                <instance id="41:17560" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+            </frame>
+            <frame id="41:17561" name="List" x="0" y="30" width="648" height="44">
+              <frame id="41:17562" name="Frame" x="8" y="2" width="632" height="40">
+                <frame id="41:17563" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:17564" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:17565" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:17566" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:17567" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:17568" name="1" x="26" y="10" width="6" height="20" />
+                </frame>
+                <frame id="41:17569" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:17570" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17571" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:17572" name="0054941209" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:17573" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:17574" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:17575" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:17576" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:17577" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:17578" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:17579" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:17580" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:17581" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:17582" name="Prepare" x="8" y="10" width="48" height="20" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="38:16057" name="Frame 6169" x="315" y="159" width="650" height="237">
+            <frame id="41:17955" name="Frame 6169" x="0" y="0" width="648" height="192">
+              <frame id="41:17956" name="Frame 6154" x="0" y="0" width="648" height="192">
+                <text id="41:17957" name="ยืนยันการแก้ไข" x="8" y="8" width="148" height="29" />
+                <frame id="41:17958" name="Frame 6154" x="8" y="53" width="632" height="131">
+                  <frame id="41:17959" name="Frame" x="0" y="0" width="300" height="131">
+                    <frame id="41:17960" name="Frame" x="0" y="0" width="300" height="24">
+                      <text id="41:17961" name="Label" x="0" y="0" width="50" height="24" />
+                      <text id="41:17962" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="41:17963" name="textarea" x="0" y="28" width="300" height="103" />
+                  </frame>
+                  <frame id="41:17964" name="Frame" x="332" y="0" width="300" height="114">
+                    <frame id="41:17965" name="Frame" x="0" y="4" width="105" height="22">
+                      <text id="41:17966" name="Label" x="0" y="0" width="105" height="22" />
+                      <text id="41:17967" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="41:17968" name="select" x="0" y="30" width="300" height="38" />
+                    <frame id="41:17991" name="Frame 6152" x="0" y="72" width="362" height="38">
+                      <instance id="41:17992" name="button" x="0" y="0" width="183" height="38" />
+                      <text id="41:17993" name="Label" x="191" y="10" width="171" height="18" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41843" name="Frame 16" x="0" y="630" width="1280" height="70">
+          <instance id="2:41844" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:41845" name="button" x="1104" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:41846" name="Reconciliation Transaction / Popup / Edit - 11" x="100" y="3530" width="1440" height="900">
+    <frame id="2:41847" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:41848" name="Modal Dialog" x="80" y="100" width="1280" height="700">
+        <frame id="2:41849" name="Top Bar" x="0" y="0" width="1280" height="53">
+          <text id="2:41850" name="ตรวจสอบการแก้ไข" x="16" y="16" width="184" height="29" />
+        </frame>
+        <frame id="2:41851" name="Frame 45" x="0" y="53" width="1280" height="577">
+          <text id="2:41852" name="เตรียมแก้ไขข้อมูล 1 รายการ" x="24" y="24" width="1232" height="29" />
+          <frame id="41:18017" name="Table" x="316" y="69" width="648" height="74">
+            <frame id="41:18018" name="List Header" x="-1" y="0" width="650" height="30">
+              <frame id="41:18019" name="Icon - Warning - Delete" x="8" y="0" width="24" height="30">
+                <frame id="41:18020" name="Group 1" x="0" y="3" width="24" height="24" hidden="true">
+                  <vector id="41:18021" name="Rectangle 4927" x="0" y="3" width="24" height="24" />
+                  <instance id="41:18022" name="icon" x="7" y="10" width="10" height="10" />
+                </frame>
+              </frame>
+              <frame id="41:18023" name="Header" x="32" y="0" width="40" height="30">
+                <text id="41:18024" name="#" x="22" y="5" width="10" height="20" />
+                <instance id="41:18025" name="Icon Wrapper" x="55" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:18026" name="Header" x="72" y="0" width="100" height="30">
+                <text id="41:18027" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:18028" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:18029" name="Header" x="172" y="0" width="120" height="30">
+                <text id="41:18030" name="Header Card" x="8" y="5" width="76" height="20" />
+                <instance id="41:18031" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:18032" name="Header" x="292" y="0" width="100" height="30">
+                <text id="41:18033" name="ราคา" x="10" y="5" width="80" height="20" />
+              </frame>
+              <frame id="41:18034" name="Header" x="392" y="0" width="110" height="30">
+                <text id="41:18035" name="บาร์โค้ดภาชนะ" x="8" y="5" width="94" height="20" />
+                <instance id="41:18036" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="41:18037" name="Header" x="502" y="0" width="140" height="30">
+                <text id="41:18038" name="Preparator" x="36.5" y="2" width="67" height="20" />
+                <instance id="41:18039" name="Icon Wrapper" x="57" y="9" width="16" height="16" hidden="true" />
+              </frame>
+            </frame>
+            <frame id="41:18040" name="List" x="0" y="30" width="648" height="44">
+              <frame id="41:18041" name="Frame" x="8" y="2" width="632" height="40">
+                <frame id="41:18042" name="Icon - Warning - Delete" x="0" y="0" width="24" height="40">
+                  <frame id="41:18043" name="Frame 1" x="0" y="8" width="24" height="24">
+                    <vector id="41:18044" name="Rectangle 4927" x="0" y="0" width="24" height="24" />
+                    <instance id="41:18045" name="icon" x="6.366666316986084" y="6.366666316986084" width="10" height="10" />
+                  </frame>
+                </frame>
+                <frame id="41:18046" name="content" x="24" y="0" width="40" height="40">
+                  <text id="41:18047" name="1" x="26" y="10" width="6" height="20" />
+                </frame>
+                <frame id="41:18048" name="content" x="64" y="0" width="100" height="40">
+                  <text id="41:18049" name="0054941206" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:18050" name="content" x="164" y="0" width="120" height="40">
+                  <text id="41:18051" name="0054941209" x="8" y="10" width="76" height="20" />
+                </frame>
+                <frame id="41:18052" name="content" x="284" y="0" width="100" height="40">
+                  <frame id="41:18053" name="Frame 6125" x="26.5" y="8" width="47" height="24">
+                    <rounded-rectangle id="41:18054" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="41:18055" name="Label" x="12" y="2" width="23" height="20" />
+                  </frame>
+                </frame>
+                <frame id="41:18056" name="content" x="384" y="0" width="120" height="40">
+                  <text id="41:18057" name="BK12345" x="34" y="10" width="52" height="20" />
+                </frame>
+                <frame id="41:18058" name="content" x="504" y="0" width="140" height="40">
+                  <text id="41:18059" name="ไพศาล เสาวลักษณ์" x="8" y="10" width="97" height="20" />
+                </frame>
+                <frame id="41:18060" name="content" x="644" y="0" width="120" height="40">
+                  <text id="41:18061" name="Prepare" x="8" y="10" width="48" height="20" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:41910" name="Frame 6154" x="297" y="159" width="686" height="179">
+            <text id="2:41911" name="ยืนยันการแก้ไข" x="8" y="8" width="148" height="29" />
+            <frame id="2:41912" name="Frame 6154" x="8" y="53" width="670" height="118">
+              <frame id="2:41913" name="Frame" x="0" y="0" width="350" height="114">
+                <frame id="2:41914" name="Frame" x="0" y="0" width="350" height="24">
+                  <text id="2:41915" name="Label" x="0" y="0" width="50" height="24" />
+                  <text id="2:41916" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                </frame>
+                <instance id="2:41917" name="textarea" x="0" y="28" width="350" height="86" />
+              </frame>
+              <frame id="2:41918" name="Frame 6169" x="382" y="0" width="300" height="118">
+                <frame id="2:41919" name="Frame" x="0" y="0" width="200" height="64">
+                  <frame id="2:41920" name="Frame" x="0" y="0" width="163" height="22">
+                    <text id="2:41921" name="Label" x="0" y="0" width="163" height="22" />
+                    <text id="2:41922" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                  </frame>
+                  <instance id="2:41923" name="input" x="0" y="26" width="200" height="38" />
+                </frame>
+                <frame id="2:41924" name="Frame 6152" x="0" y="80" width="195" height="38">
+                  <instance id="2:41925" name="button" x="0" y="0" width="183" height="38" />
+                  <text id="2:41926" name="Label" x="191" y="10" width="333" height="18" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:41927" name="Frame 16" x="0" y="630" width="1280" height="70">
+          <instance id="2:41928" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:41929" name="button" x="1104" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="45:17416" name="Reconciliation Transaction - Unfit" x="100" y="5613" width="1440" height="900">
+    <frame id="45:17417" name="Background" x="0" y="0" width="1440" height="900">
+      <rounded-rectangle id="45:17418" name="Background" x="0" y="0" width="1440.4970703125" height="899.07568359375" />
+      <frame id="45:17419" name="Forground Color" x="0" y="0" width="1440" height="450">
+        <rounded-rectangle id="45:17420" name="Chrome" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="45:17421" name="Gradient Forground" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="45:17422" name="image 1" x="-450.04296875" y="-439.94024658203125" width="901.0858154296875" height="880.9402465820312" />
+        <rounded-rectangle id="45:17423" name="image 1" x="949.25" y="-476.28955078125" width="980.5001220703125" height="958.5791625976562" />
+      </frame>
+    </frame>
+    <instance id="45:17424" name="Navigation Header" x="0" y="0" width="1440" height="40" />
+    <frame id="45:17425" name="Frame" x="0" y="40" width="1435" height="860">
+      <frame id="45:17426" name="Frame 6126" x="16" y="8" width="1403" height="62">
+        <frame id="45:17427" name="Frame 6127" x="0" y="0" width="1035" height="62">
+          <frame id="45:17428" name="Frame 6135" x="0" y="0" width="1035" height="59">
+            <text id="45:17429" name="Reconciliation Transaction UNFIT" x="0" y="0" width="1035" height="36" />
+            <text id="45:17430" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1035" height="24" />
+          </frame>
+        </frame>
+        <frame id="45:17431" name="Frame 6153" x="1035" y="13" width="368" height="36">
+          <frame id="45:17432" name="button" x="0" y="0" width="115" height="36">
+            <instance id="45:17433" name="icon" x="8" y="10" width="16" height="16" />
+            <frame id="45:17434" name="text" x="32" y="7.5" width="75" height="21">
+              <text id="45:17435" name="text" x="0" y="0" width="75" height="21" />
+            </frame>
+            <instance id="45:17436" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="45:17437" name="button" x="131" y="0" width="85" height="36">
+            <instance id="45:17438" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="45:17439" name="text" x="12" y="6" width="61" height="24">
+              <text id="45:17440" name="text" x="0" y="0" width="61" height="24" />
+            </frame>
+            <instance id="45:17441" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="45:17442" name="button" x="232" y="0" width="136" height="36">
+            <instance id="45:17443" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="45:17444" name="text" x="12" y="6" width="112" height="24">
+              <text id="45:17445" name="text" x="0" y="0" width="112" height="24" />
+            </frame>
+            <instance id="45:17446" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="45:17447" name="Frame 6127" x="11" y="77" width="1403" height="774">
+        <frame id="45:17448" name="Frame 6116" x="0" y="0" width="1071" height="774">
+          <frame id="45:17449" name="Frame 6115" x="0" y="0" width="1071" height="205">
+            <text id="45:17450" name="สแกน Header Card เพื่อกระทบยอดธนบัตรประเภท UNFIT" x="24" y="16" width="389" height="25" />
+            <frame id="45:17451" name="Frame 6151" x="24" y="49" width="1023" height="67">
+              <frame id="45:17452" name="Frame" x="0" y="0" width="390.5" height="67">
+                <frame id="45:17453" name="Frame" x="0" y="0" width="390.5" height="22">
+                  <text id="45:17454" name="Label" x="0" y="0" width="82" height="22" />
+                  <text id="45:17455" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                </frame>
+                <frame id="45:17456" name="Frame 6143" x="0" y="26" width="390.5" height="41">
+                  <frame id="45:17457" name="Frame 6134" x="0" y="0" width="390.5" height="41">
+                    <frame id="45:17458" name="Group" x="0" y="0" width="390.5" height="41">
+                      <text id="45:17459" name="BK12345" x="169.25" y="8" width="52" height="20" hidden="true" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="45:17460" name="Frame 6144" x="398.5" y="0" width="390.5" height="67">
+                <frame id="45:17461" name="Frame 6155" x="64.75" y="12" width="261" height="55">
+                  <frame id="45:17462" name="Frame 6154" x="0" y="0" width="261" height="30">
+                    <text id="45:17463" name="กระทบยอดแล้วทั้งหมด" x="0" y="0" width="184" height="30" />
+                    <text id="45:17464" name="100" x="192" y="0" width="36" height="30" />
+                    <text id="45:17465" name="มัด" x="236" y="0" width="25" height="30" />
+                  </frame>
+                  <frame id="45:17466" name="Frame 6154" x="0" y="30" width="261" height="25">
+                    <text id="45:17467" name="กรุงเทพฯ M7-1 ศกท." x="17" y="0" width="139" height="25" />
+                    <text id="45:17468" name="ผลัดบ่าย" x="188" y="0" width="56" height="25" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="45:17469" name="Frame 6157" x="797" y="0" width="226" height="67">
+                <frame id="45:17470" name="button" x="0" y="26" width="93" height="41">
+                  <instance id="45:17471" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="45:17472" name="text" x="40" y="10" width="37" height="21">
+                    <text id="45:17473" name="text" x="0" y="0" width="37" height="21" />
+                  </frame>
+                  <instance id="45:17474" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+                <frame id="45:17475" name="button" x="117" y="26" width="109" height="41">
+                  <instance id="45:17476" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="45:17477" name="text" x="40" y="10" width="53" height="21">
+                    <text id="45:17478" name="text" x="0" y="0" width="53" height="21" />
+                  </frame>
+                  <instance id="45:17479" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17480" name="Frame 6114" x="24" y="124" width="1023" height="65">
+              <frame id="45:17481" name="Frame 6150" x="464" y="8" width="425" height="57">
+                <frame id="45:17482" name="Frame 6145" x="0.5" y="0" width="200" height="57">
+                  <frame id="45:17483" name="Frame" x="0" y="0" width="200" height="57">
+                    <frame id="45:17484" name="Frame" x="0" y="0" width="200" height="22">
+                      <text id="45:17485" name="Label" x="0" y="0" width="82" height="22" />
+                      <text id="45:17486" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="45:17487" name="select" x="0" y="26" width="200" height="31" />
+                  </frame>
+                </frame>
+                <frame id="45:17488" name="Frame 6149" x="224.5" y="0" width="200" height="57">
+                  <frame id="45:17489" name="Frame" x="50" y="0" width="150" height="57">
+                    <frame id="45:17490" name="Frame" x="0" y="0" width="150" height="22">
+                      <text id="45:17491" name="Label" x="0" y="0" width="54" height="22" />
+                      <text id="45:17492" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="45:17493" name="select" x="0" y="26" width="150" height="31" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="45:17494" name="Frame 6152" x="913" y="8" width="110" height="57">
+                <frame id="45:17495" name="button" x="0" y="26" width="110" height="31">
+                  <instance id="45:17496" name="icon" x="9" y="7.5" width="16" height="16" hidden="true" />
+                  <instance id="45:17497" name="text" x="17" y="5" width="76" height="21" />
+                  <instance id="45:17498" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17499" name="Frame 6117" x="1087" y="0" width="316" height="774">
+          <frame id="45:17500" name="Frame 6113" x="0" y="0" width="316" height="123">
+            <frame id="45:17501" name="Frame" x="12" y="16" width="292" height="20">
+              <text id="45:17502" name="Label" x="4" y="0" width="31" height="20" />
+              <text id="45:17503" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <frame id="45:17504" name="Frame 6156" x="112.5" y="0" width="175.5" height="20">
+                <text id="45:17505" name="Label" x="59.5" y="0" width="98" height="20" />
+                <instance id="45:17506" name="icon-wrapper" x="161.5" y="3" width="14" height="14" />
+              </frame>
+            </frame>
+            <frame id="45:17507" name="Frame" x="12" y="36" width="292" height="20">
+              <text id="45:17508" name="Label" x="4" y="0" width="42" height="20" />
+              <text id="45:17509" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="45:17510" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="45:17511" name="Frame" x="12" y="56" width="292" height="20">
+              <text id="45:17512" name="Label" x="4" y="0" width="86" height="20" />
+              <text id="45:17513" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="45:17514" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="45:17515" name="Frame" x="12" y="76" width="292" height="20">
+              <text id="45:17516" name="Label" x="4" y="0" width="105" height="20" />
+              <text id="45:17517" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="45:17518" name="Label" x="175" y="0" width="113" height="20" />
+            </frame>
+            <frame id="45:17519" name="Frame" x="12" y="96" width="292" height="20">
+              <text id="45:17520" name="Label" x="4" y="0" width="33" height="20" />
+              <text id="45:17521" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="45:17522" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+          </frame>
+          <frame id="45:17523" name="Table" x="0" y="139" width="316" height="635">
+            <frame id="45:17524" name="List Header" x="0" y="0" width="316" height="39">
+              <text id="45:17525" name="Header Card from Machine" x="16" y="8" width="238" height="23" />
+            </frame>
+            <frame id="45:17526" name="List Header" x="0" y="39" width="316" height="30">
+              <frame id="45:17527" name="Header" x="4" y="0" width="98" height="30">
+                <text id="45:17528" name="Header Card" x="4" y="6.5" width="65" height="17" />
+                <instance id="45:17529" name="icon" x="71" y="9" width="12" height="12" />
+                <instance id="45:17530" name="Icon Wrapper" x="96" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="45:17531" name="Header" x="102" y="0" width="74" height="30">
+                <text id="45:17532" name="วันเวลา นับคัด" x="4" y="1" width="32" height="28" />
+                <instance id="45:17533" name="icon" x="38" y="9" width="12" height="12" />
+                <instance id="45:17534" name="Icon Wrapper" x="96" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="45:17535" name="Header" x="176" y="0" width="68" height="30">
+                <text id="45:17536" name="ชนิดราคา" x="7" y="6.5" width="43" height="17" />
+                <instance id="45:17537" name="icon" x="52" y="9" width="12" height="12" />
+              </frame>
+              <frame id="45:17538" name="Header" x="244" y="0" width="68" height="30">
+                <text id="45:17539" name="Action" x="16.5" y="6.5" width="35" height="17" />
+              </frame>
+            </frame>
+            <frame id="45:17540" name="List" x="0" y="69" width="316" height="40">
+              <frame id="45:17541" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="45:17542" name="content" x="0" y="0" width="98" height="40">
+                  <text id="45:17543" name="0054941220" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="45:17544" name="content" x="98" y="0" width="66" height="40">
+                  <text id="45:17545" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="45:17546" name="content" x="164" y="0" width="68" height="40">
+                  <frame id="45:17547" name="Frame 6125" x="17" y="8" width="47" height="24">
+                    <rounded-rectangle id="45:17548" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="45:17549" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="45:17550" name="Frame" x="232" y="4" width="58" height="32">
+                  <instance id="45:17551" name="button" x="6" y="6" width="20" height="20" />
+                  <instance id="45:17552" name="button" x="32" y="6" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17553" name="List" x="0" y="109" width="316" height="40">
+              <frame id="45:17554" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="45:17555" name="content" x="0" y="0" width="98" height="40">
+                  <text id="45:17556" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="45:17557" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="45:17558" name="content" x="98" y="0" width="66" height="40">
+                  <text id="45:17559" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="45:17560" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="45:17561" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="45:17562" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="45:17563" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="45:17564" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="45:17565" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="45:17566" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17567" name="List" x="0" y="149" width="316" height="40">
+              <frame id="45:17568" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="45:17569" name="content" x="0" y="0" width="98" height="40">
+                  <text id="45:17570" name="0054941228" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="45:17571" name="content" x="98" y="0" width="66" height="40">
+                  <text id="45:17572" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="45:17573" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="45:17574" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="45:17575" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="45:17576" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="45:17577" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="45:17578" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="45:17579" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17580" name="List" x="0" y="189" width="316" height="40">
+              <frame id="45:17581" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="45:17582" name="content" x="0" y="0" width="98" height="40">
+                  <text id="45:17583" name="0054941230" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="45:17584" name="content" x="98" y="0" width="66" height="40">
+                  <text id="45:17585" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="45:17586" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="45:17587" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="45:17588" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="45:17589" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="45:17590" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="45:17591" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="45:17592" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17593" name="List" x="0" y="229" width="316" height="40">
+              <frame id="45:17594" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="45:17595" name="content" x="0" y="0" width="98" height="40">
+                  <text id="45:17596" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="45:17597" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="45:17598" name="content" x="98" y="0" width="66" height="40">
+                  <text id="45:17599" name="21/7/2568 14:02" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="45:17600" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="45:17601" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="45:17602" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="45:17603" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="45:17604" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="45:17605" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="45:17606" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17607" name="List" x="0" y="269" width="316" height="40">
+              <frame id="45:17608" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17609" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17610" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17611" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17612" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17613" name="List" x="0" y="309" width="316" height="40">
+              <frame id="45:17614" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17615" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17616" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17617" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17618" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17619" name="List" x="0" y="349" width="316" height="40">
+              <frame id="45:17620" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17621" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17622" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17623" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17624" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17625" name="List" x="0" y="389" width="316" height="40">
+              <frame id="45:17626" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17627" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17628" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17629" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17630" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17631" name="List" x="0" y="429" width="316" height="40">
+              <frame id="45:17632" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17633" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17634" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17635" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17636" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17637" name="List" x="0" y="469" width="316" height="40">
+              <frame id="45:17638" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17639" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17640" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17641" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17642" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17643" name="List" x="0" y="509" width="316" height="40">
+              <frame id="45:17644" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17645" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17646" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17647" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17648" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17649" name="List" x="0" y="549" width="316" height="40">
+              <frame id="45:17650" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17651" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17652" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17653" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17654" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17655" name="List" x="0" y="589" width="316" height="40">
+              <frame id="45:17656" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17657" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17658" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17659" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17660" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17661" name="List" x="0" y="629" width="316" height="40">
+              <frame id="45:17662" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="45:17663" name="content" x="0" y="0" width="171" height="40">
+                  <text id="45:17664" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="45:17665" name="content" x="171" y="0" width="129" height="40">
+                  <text id="45:17666" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="45:17667" name="Frame 6130" x="308" y="73.427734375" width="8" height="561">
+              <rounded-rectangle id="45:17668" name="Rectangle 2" x="2" y="2" width="4" height="186.5443115234375" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="45:17669" name="Table" x="11" y="298" width="445" height="553">
+        <frame id="45:17670" name="List Header" x="0" y="0" width="445" height="35">
+          <frame id="45:17671" name="Frame 6118" x="16" y="8" width="413" height="19">
+            <text id="45:17672" name="Preparation" x="0" y="0" width="91" height="19" />
+          </frame>
+        </frame>
+        <frame id="45:17673" name="List Header" x="0" y="35" width="445" height="30">
+          <frame id="45:17674" name="Header" x="8" y="0" width="105" height="30">
+            <text id="45:17675" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="45:17676" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="45:17677" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17678" name="Header" x="113" y="0" width="120" height="30">
+            <text id="45:17679" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="45:17680" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="45:17681" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17682" name="Header" x="233" y="0" width="110" height="30">
+            <text id="45:17683" name="ชนิดราคา" x="23" y="5" width="50" height="20" />
+            <instance id="45:17684" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="45:17685" name="icon" x="75" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17686" name="Header" x="343" y="0" width="78" height="30">
+            <text id="45:17687" name="Action" x="18" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="45:17688" name="List" x="0" y="65" width="445" height="40">
+          <frame id="45:17689" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="45:17690" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17691" name="0054941124" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17692" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17693" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17694" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="45:17695" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17696" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17697" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17698" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="45:17699" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="45:17700" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17701" name="List" x="0" y="105" width="445" height="40">
+          <frame id="45:17702" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="45:17703" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17704" name="0054941125" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17705" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17706" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17707" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="45:17708" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17709" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17710" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17711" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="45:17712" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="45:17713" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17714" name="List" x="0" y="145" width="445" height="40">
+          <frame id="45:17715" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="45:17716" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17717" name="0054941126" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17718" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17719" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17720" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="45:17721" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17722" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17723" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17724" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="45:17725" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="45:17726" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17727" name="List" x="0" y="185" width="445" height="40">
+          <frame id="45:17728" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="45:17729" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17730" name="0054941127" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17731" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17732" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17733" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="45:17734" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17735" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17736" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17737" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="45:17738" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="45:17739" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17740" name="List" x="0" y="225" width="445" height="40">
+          <frame id="45:17741" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="45:17742" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17743" name="0054941128" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17744" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17745" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17746" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="45:17747" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17748" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17749" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17750" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="45:17751" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="45:17752" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17753" name="List" x="0" y="265" width="445" height="40" />
+        <frame id="45:17754" name="List" x="0" y="305" width="445" height="40" />
+        <frame id="45:17755" name="List" x="0" y="345" width="445" height="40" />
+        <frame id="45:17756" name="List" x="0" y="385" width="445" height="40" />
+        <frame id="45:17757" name="List" x="0" y="425" width="445" height="40" />
+        <frame id="45:17758" name="List" x="0" y="465" width="445" height="40" />
+        <frame id="45:17759" name="List" x="0" y="505" width="445" height="40" />
+        <frame id="45:17760" name="Frame 6131" x="437" y="64" width="8" height="489">
+          <rounded-rectangle id="45:17761" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <frame id="45:17762" name="Table" x="475" y="298" width="607" height="553">
+        <frame id="45:17763" name="List Header" x="0" y="0" width="607" height="35">
+          <frame id="45:17764" name="Frame 6118" x="16" y="8" width="575" height="19">
+            <text id="45:17765" name="Preparation + Data from Machine" x="0" y="0" width="257" height="19" />
+          </frame>
+        </frame>
+        <frame id="45:17766" name="List Header" x="0" y="35" width="607" height="30">
+          <frame id="45:17767" name="Header" x="8" y="0" width="105" height="30">
+            <text id="45:17768" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="45:17769" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="45:17770" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17771" name="Header" x="113" y="0" width="120" height="30">
+            <text id="45:17772" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="45:17773" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="45:17774" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17775" name="Header" x="233" y="0" width="120" height="30">
+            <text id="45:17776" name="วันเวลานับคัด" x="17.5" y="5" width="71" height="20" />
+            <instance id="45:17777" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="45:17778" name="icon" x="90.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17779" name="Header" x="353" y="0" width="105" height="30">
+            <text id="45:17780" name="ชนิดราคา" x="20.5" y="5" width="50" height="20" />
+            <instance id="45:17781" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="45:17782" name="icon" x="72.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="45:17783" name="Header" x="458" y="0" width="105" height="30">
+            <text id="45:17784" name="Action" x="31.5" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="45:17785" name="List" x="0" y="65" width="607" height="40">
+          <frame id="45:17786" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="45:17787" name="content" x="0" y="4" width="105" height="32">
+              <text id="45:17788" name="0054941201" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="45:17789" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17790" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17791" name="content" x="225" y="0" width="120" height="40">
+              <text id="45:17792" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17793" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="45:17794" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17795" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17796" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17797" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="45:17798" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="45:17799" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17800" name="List" x="0" y="105" width="607" height="40">
+          <frame id="45:17801" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="45:17802" name="content" x="0" y="4" width="105" height="32">
+              <text id="45:17803" name="0054941203" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="45:17804" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17805" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17806" name="content" x="225" y="0" width="120" height="40">
+              <text id="45:17807" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17808" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="45:17809" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17810" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17811" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17812" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="45:17813" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="45:17814" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17815" name="List" x="0" y="145" width="607" height="40">
+          <frame id="45:17816" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="45:17817" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17818" name="0054941205" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17819" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17820" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17821" name="content" x="225" y="0" width="120" height="40">
+              <text id="45:17822" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17823" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="45:17824" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17825" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17826" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17827" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="45:17828" name="button" x="42.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17829" name="List" x="0" y="185" width="607" height="40">
+          <frame id="45:17830" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="45:17831" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17832" name="0054941212" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="45:17833" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17834" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17835" name="content" x="225" y="0" width="120" height="40">
+              <text id="45:17836" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17837" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="45:17838" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17839" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17840" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17841" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="45:17842" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="45:17843" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17844" name="List" x="0" y="225" width="607" height="40">
+          <frame id="45:17845" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="45:17846" name="content" x="0" y="0" width="105" height="40">
+              <text id="45:17847" name="0054941209" x="8" y="10" width="76" height="20" />
+              <instance id="45:17848" name="icon-wrapper" x="88" y="13" width="14" height="14" />
+            </frame>
+            <frame id="45:17849" name="content" x="105" y="0" width="120" height="40">
+              <text id="45:17850" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17851" name="content" x="225" y="0" width="120" height="40">
+              <text id="45:17852" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="45:17853" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="45:17854" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="45:17855" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="45:17856" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="45:17857" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="45:17858" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="45:17859" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="45:17860" name="List" x="0" y="265" width="607" height="40" />
+        <frame id="45:17861" name="List" x="0" y="305" width="607" height="40" />
+        <frame id="45:17862" name="List" x="0" y="345" width="607" height="40" />
+        <frame id="45:17863" name="List" x="0" y="385" width="607" height="40" />
+        <frame id="45:17864" name="List" x="0" y="425" width="607" height="40" />
+        <frame id="45:17865" name="List" x="0" y="465" width="607" height="40" />
+        <frame id="45:17866" name="List" x="0" y="505" width="607" height="40" />
+        <frame id="45:17867" name="Frame 6132" x="599" y="64.427734375" width="8" height="488">
+          <rounded-rectangle id="45:17868" name="Rectangle 3" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <instance id="45:17869" name="Cursors / Link &amp; Status" x="548" y="495" width="24" height="24" />
+    </frame>
+  </frame>
+  <frame id="2:42573" name="Reconciliation Transaction / Popup / Delete - 5" x="1613" y="479" width="1440" height="900">
+    <frame id="2:42574" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:42575" name="Modal Dialog" x="53" y="202.5" width="1334" height="495">
+        <frame id="2:42576" name="Top Bar" x="0" y="0" width="1334" height="53">
+          <text id="2:42577" name="ลบข้อมูล" x="16" y="16" width="86" height="29" />
+        </frame>
+        <frame id="2:42578" name="Frame" x="0" y="53" width="1334" height="372">
+          <frame id="2:42579" name="Table - Revoke - Unsort CC" x="24" y="24" width="1286" height="111">
+            <frame id="2:42580" name="List Header" x="0" y="0" width="1286" height="45">
+              <frame id="2:42581" name="Frame" x="16" y="13" width="1254" height="19">
+                <text id="2:42582" name="เลือกรายการ Header Card เพื่อทำการลบข้อมูล" x="0" y="0" width="314" height="19" />
+                <frame id="2:42583" name="Frame 6177" x="1077" y="0" width="283" height="24" hidden="true">
+                  <frame id="2:42584" name="Frame 6178" x="0" y="1" width="160" height="22">
+                    <text id="2:42585" name="จำนวนธนบัตร:" x="0" y="0.5" width="83" height="21" />
+                    <text id="2:42586" name="1,000" x="89" y="0" width="38" height="22" />
+                    <text id="2:42587" name="ฉบับ" x="133" y="0" width="27" height="22" />
+                  </frame>
+                  <frame id="2:42588" name="Frame 6178" x="168" y="0" width="115" height="24">
+                    <text id="2:42589" name="ราคา:" x="0" y="1.5" width="31" height="21" />
+                    <frame id="2:42590" name="Frame 6126" x="37" y="0" width="47" height="24">
+                      <rounded-rectangle id="2:42591" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42592" name="Label" x="7.5" y="2" width="32" height="20" />
+                    </frame>
+                    <text id="2:42593" name="บาท" x="90" y="1" width="25" height="22" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="2:42594" name="Frame 6162" x="1097.5" y="8" width="294.5" height="24" hidden="true">
+                <text id="2:42595" name="จำนวนธนบัตรครบ 1 มัด:" x="77.5" y="1" width="140" height="22" />
+                <text id="2:42596" name="1000" x="225.5" y="1" width="34" height="22" />
+                <text id="2:42597" name="ฉบับ" x="267.5" y="1" width="27" height="22" />
+              </frame>
+              <frame id="2:42598" name="Frame 6163" x="227.5" y="8" width="294.5" height="22" hidden="true">
+                <text id="2:42599" name="จำนวนธนบัตรครบ 1 มัด:" x="86.5" y="0" width="140" height="22" />
+                <text id="2:42600" name="100" x="234.5" y="0" width="25" height="22" />
+                <text id="2:42601" name="ฉบับ" x="267.5" y="0" width="27" height="22" />
+              </frame>
+            </frame>
+            <frame id="2:42602" name="Frame" x="0" y="45" width="1286" height="66">
+              <frame id="2:42603" name="List Header" x="0" y="0" width="1286" height="30">
+                <frame id="2:42604" name="Frame" x="8" y="1" width="20" height="28" hidden="true">
+                  <frame id="2:42605" name="wrapper" x="2" y="6" width="16" height="16">
+                    <instance id="2:42606" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                  </frame>
+                </frame>
+                <frame id="2:42607" name="Header" x="8" y="0" width="170" height="30">
+                  <text id="2:42608" name="Header Card" x="8" y="5" width="76" height="20" />
+                  <instance id="2:42609" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="2:42610" name="icon" x="86" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42611" name="Header" x="178" y="0" width="150" height="30">
+                  <text id="2:42612" name="ชนิดราคา" x="43" y="5" width="50" height="20" />
+                  <instance id="2:42613" name="icon" x="95" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42614" name="Header" x="328" y="0" width="475" height="30">
+                  <text id="2:42615" name="วันเวลานับคัด" x="195" y="5" width="71" height="20" />
+                  <instance id="2:42616" name="icon" x="268" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42617" name="Header" x="750" y="0" width="106" height="30" hidden="true">
+                  <text id="2:42618" name="จำนวนฉบับ" x="15.5" y="5" width="61" height="20" />
+                  <instance id="2:42619" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="2:42620" name="icon" x="78.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42621" name="Header" x="803" y="0" width="475" height="30">
+                  <text id="2:42622" name="แหล่งที่มา" x="204.5" y="5" width="52" height="20" />
+                  <instance id="2:42623" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="2:42624" name="icon" x="258.5" y="9" width="12" height="12" />
+                </frame>
+              </frame>
+              <frame id="2:42625" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="2:42626" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="2:42627" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="2:42628" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="2:42629" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42630" name="content" x="20" y="0" width="170" height="36">
+                    <text id="2:42631" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="2:42632" name="content" x="190" y="0" width="170" height="36">
+                    <text id="2:42633" name="BBL" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42634" name="content" x="360" y="0" width="150" height="36">
+                    <text id="2:42635" name="สีลม" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42636" name="content" x="510" y="0" width="133" height="36">
+                    <frame id="2:42637" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="2:42638" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42639" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42640" name="content" x="643" y="0" width="178" height="36">
+                    <text id="2:42641" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42642" name="content" x="821" y="0" width="168" height="36">
+                    <text id="2:42643" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42644" name="content" x="989" y="0" width="100" height="36">
+                    <text id="2:42645" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="2:42646" name="content" x="1089" y="0" width="176" height="36">
+                    <text id="2:42647" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="2:42648" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="2:42649" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="2:42650" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="2:42651" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="2:42652" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42653" name="content" x="20" y="0" width="170" height="36">
+                    <text id="2:42654" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="2:42655" name="content" x="190" y="0" width="170" height="36">
+                    <text id="2:42656" name="BBL" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42657" name="content" x="360" y="0" width="150" height="36">
+                    <text id="2:42658" name="สีลม" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42659" name="content" x="510" y="0" width="133" height="36">
+                    <frame id="2:42660" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="2:42661" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42662" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42663" name="content" x="643" y="0" width="178" height="36">
+                    <text id="2:42664" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42665" name="content" x="821" y="0" width="168" height="36">
+                    <text id="2:42666" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42667" name="content" x="989" y="0" width="100" height="36">
+                    <text id="2:42668" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="2:42669" name="content" x="1089" y="0" width="176" height="36">
+                    <text id="2:42670" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="2:42671" name="List" x="0" y="30" width="1286" height="36">
+                <frame id="2:42672" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="2:42673" name="Frame" x="0" y="4" width="20" height="28" hidden="true">
+                    <frame id="2:42674" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="2:42675" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42676" name="content" x="0" y="0" width="170" height="36">
+                    <text id="2:42677" name="0054941230" x="8" y="8" width="76" height="20" />
+                  </frame>
+                  <frame id="2:42678" name="content" x="170" y="0" width="157" height="36">
+                    <frame id="2:42679" name="Frame 6125" x="55" y="6" width="47" height="24">
+                      <rounded-rectangle id="2:42680" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42681" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42682" name="content" x="327" y="0" width="447" height="36">
+                    <text id="2:42683" name="21/7/2568 14:00" x="149.5" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42684" name="content" x="706" y="0" width="120" height="36" hidden="true">
+                    <text id="2:42685" name="997" x="89" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42686" name="content" x="774" y="0" width="496" height="36">
+                    <text id="2:42687" name="Machine" x="222" y="11.5" width="52" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="2:42688" name="Scroll Horizontal" x="0" y="103" width="1286" height="8" hidden="true">
+              <frame id="2:42689" name="Frame 6132" x="0" y="0" width="1286" height="8">
+                <rounded-rectangle id="2:42690" name="Rectangle 2" x="2" y="2" width="100" height="4" />
+              </frame>
+            </frame>
+            <frame id="2:42691" name="Scroll Vertical" x="1278" y="0" width="8" height="111" hidden="true">
+              <frame id="2:42692" name="Frame 6132" x="0" y="81" width="8" height="30">
+                <rounded-rectangle id="2:42693" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:42694" name="Frame" x="0" y="425" width="1334" height="70">
+          <instance id="2:42695" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:42696" name="button" x="1158" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:42697" name="Reconciliation Transaction / Popup / Delete - 6" x="1614" y="1491" width="1440" height="900">
+    <frame id="2:42698" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:42699" name="Modal Dialog" x="53" y="238.5" width="1334" height="423">
+        <frame id="2:42700" name="Top Bar" x="0" y="0" width="1334" height="53">
+          <text id="2:42701" name="Reconfirm ลบข้อมูล" x="16" y="16" width="211" height="29" />
+        </frame>
+        <frame id="2:42702" name="Frame" x="0" y="53" width="1334" height="300">
+          <frame id="2:42703" name="Table - Revoke - Unsort CC" x="24" y="24" width="1286" height="111">
+            <frame id="2:42704" name="List Header" x="0" y="0" width="1286" height="45">
+              <frame id="2:42705" name="Frame" x="16" y="13" width="1254" height="19">
+                <text id="2:42706" name="รายการ Header Card" x="0" y="0" width="356" height="19" />
+                <frame id="2:42707" name="Frame 6177" x="1077" y="0" width="283" height="24" hidden="true">
+                  <frame id="2:42708" name="Frame 6178" x="0" y="1" width="160" height="22">
+                    <text id="2:42709" name="จำนวนธนบัตร:" x="0" y="0.5" width="83" height="21" />
+                    <text id="2:42710" name="1,000" x="89" y="0" width="38" height="22" />
+                    <text id="2:42711" name="ฉบับ" x="133" y="0" width="27" height="22" />
+                  </frame>
+                  <frame id="2:42712" name="Frame 6178" x="168" y="0" width="115" height="24">
+                    <text id="2:42713" name="ราคา:" x="0" y="1.5" width="31" height="21" />
+                    <frame id="2:42714" name="Frame 6126" x="37" y="0" width="47" height="24">
+                      <rounded-rectangle id="2:42715" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42716" name="Label" x="7.5" y="2" width="32" height="20" />
+                    </frame>
+                    <text id="2:42717" name="บาท" x="90" y="1" width="25" height="22" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="2:42718" name="Frame 6162" x="1097.5" y="8" width="294.5" height="24" hidden="true">
+                <text id="2:42719" name="จำนวนธนบัตรครบ 1 มัด:" x="77.5" y="1" width="140" height="22" />
+                <text id="2:42720" name="1000" x="225.5" y="1" width="34" height="22" />
+                <text id="2:42721" name="ฉบับ" x="267.5" y="1" width="27" height="22" />
+              </frame>
+              <frame id="2:42722" name="Frame 6163" x="227.5" y="8" width="294.5" height="22" hidden="true">
+                <text id="2:42723" name="จำนวนธนบัตรครบ 1 มัด:" x="86.5" y="0" width="140" height="22" />
+                <text id="2:42724" name="100" x="234.5" y="0" width="25" height="22" />
+                <text id="2:42725" name="ฉบับ" x="267.5" y="0" width="27" height="22" />
+              </frame>
+            </frame>
+            <frame id="2:42726" name="Frame" x="0" y="45" width="1286" height="66">
+              <frame id="2:42727" name="List Header" x="0" y="0" width="1286" height="30">
+                <frame id="2:42728" name="Header" x="8" y="0" width="170" height="30">
+                  <text id="2:42729" name="Header Card" x="8" y="5" width="76" height="20" />
+                  <instance id="2:42730" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="2:42731" name="icon" x="86" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42732" name="Header" x="178" y="0" width="170" height="30" hidden="true">
+                  <text id="2:42733" name="ธนาคาร" x="8" y="5" width="42" height="20" />
+                  <instance id="2:42734" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="2:42735" name="icon" x="52" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42736" name="Header" x="178" y="0" width="150" height="30" hidden="true">
+                  <text id="2:42737" name="Cashpoint" x="8" y="5" width="63" height="20" />
+                  <instance id="2:42738" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="2:42739" name="icon" x="73" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42740" name="Header" x="178" y="0" width="150" height="30">
+                  <text id="2:42741" name="ชนิดราคา" x="43" y="5" width="50" height="20" />
+                  <instance id="2:42742" name="icon" x="95" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42743" name="Header" x="328" y="0" width="281.3333435058594" height="30" hidden="true">
+                  <text id="2:42744" name="วันเวลาเตรียม" x="97.66667175292969" y="5" width="72" height="20" />
+                  <instance id="2:42745" name="icon" x="171.6666717529297" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42746" name="Header" x="328" y="0" width="475" height="30">
+                  <text id="2:42747" name="วันเวลานับคัด" x="195" y="5" width="71" height="20" />
+                  <instance id="2:42748" name="icon" x="268" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42749" name="Header" x="750" y="0" width="106" height="30" hidden="true">
+                  <text id="2:42750" name="จำนวนฉบับ" x="15.5" y="5" width="61" height="20" />
+                  <instance id="2:42751" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="2:42752" name="icon" x="78.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="2:42753" name="Header" x="803" y="0" width="475" height="30">
+                  <text id="2:42754" name="แหล่งที่มา" x="204.5" y="5" width="52" height="20" />
+                  <instance id="2:42755" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="2:42756" name="icon" x="258.5" y="9" width="12" height="12" />
+                </frame>
+              </frame>
+              <frame id="2:42757" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="2:42758" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="2:42759" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="2:42760" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="2:42761" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42762" name="content" x="20" y="0" width="170" height="36">
+                    <text id="2:42763" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="2:42764" name="content" x="190" y="0" width="170" height="36">
+                    <text id="2:42765" name="BBL" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42766" name="content" x="360" y="0" width="150" height="36">
+                    <text id="2:42767" name="สีลม" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42768" name="content" x="510" y="0" width="133" height="36">
+                    <frame id="2:42769" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="2:42770" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42771" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42772" name="content" x="643" y="0" width="178" height="36">
+                    <text id="2:42773" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42774" name="content" x="821" y="0" width="168" height="36">
+                    <text id="2:42775" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42776" name="content" x="989" y="0" width="100" height="36">
+                    <text id="2:42777" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="2:42778" name="content" x="1089" y="0" width="176" height="36">
+                    <text id="2:42779" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="2:42780" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="2:42781" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="2:42782" name="content" x="0" y="0" width="170" height="36">
+                    <text id="2:42783" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="2:42784" name="content" x="170" y="0" width="170" height="36">
+                    <text id="2:42785" name="BBL" x="20" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42786" name="content" x="340" y="0" width="150" height="36">
+                    <text id="2:42787" name="สีลม" x="30" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42788" name="content" x="490" y="0" width="133" height="36">
+                    <frame id="2:42789" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="2:42790" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42791" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42792" name="content" x="623" y="0" width="178" height="36">
+                    <text id="2:42793" name="21/7/2568 14:00" x="26" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42794" name="content" x="801" y="0" width="168" height="36">
+                    <text id="2:42795" name="21/7/2568 14:00" x="26" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42796" name="content" x="969" y="0" width="100" height="36">
+                    <text id="2:42797" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="2:42798" name="content" x="1069" y="0" width="201" height="36">
+                    <text id="2:42799" name="Prepare" x="82.5" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="2:42800" name="List" x="0" y="30" width="1286" height="36">
+                <frame id="2:42801" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="2:42802" name="content" x="0" y="0" width="170" height="36">
+                    <text id="2:42803" name="0054941230" x="8" y="8" width="76" height="20" />
+                  </frame>
+                  <frame id="2:42804" name="content" x="170" y="0" width="170" height="36" hidden="true">
+                    <text id="2:42805" name="BBL" x="20" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42806" name="content" x="170" y="0" width="150" height="36" hidden="true">
+                    <text id="2:42807" name="สีลม" x="30" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42808" name="content" x="170" y="0" width="133" height="36">
+                    <frame id="2:42809" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="2:42810" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="2:42811" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="2:42812" name="content" x="303" y="0" width="178" height="36" hidden="true">
+                    <text id="2:42813" name="21/7/2568 14:00" x="26" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42814" name="content" x="303" y="0" width="458" height="36">
+                    <text id="2:42815" name="21/7/2568 14:00" x="171" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="2:42816" name="content" x="471" y="0" width="100" height="36" hidden="true">
+                    <text id="2:42817" name="997" x="69" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="2:42818" name="content" x="761" y="0" width="509" height="36">
+                    <text id="2:42819" name="Machine" x="234.5" y="11.5" width="52" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="2:42820" name="Scroll Horizontal" x="0" y="103" width="1286" height="8" hidden="true">
+              <frame id="2:42821" name="Frame 6132" x="0" y="0" width="1286" height="8">
+                <rounded-rectangle id="2:42822" name="Rectangle 2" x="2" y="2" width="100" height="4" />
+              </frame>
+            </frame>
+            <frame id="2:42823" name="Scroll Vertical" x="1278" y="0" width="8" height="111" hidden="true">
+              <frame id="2:42824" name="Frame 6132" x="0" y="81" width="8" height="30">
+                <rounded-rectangle id="2:42825" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:42826" name="Frame" x="24" y="151" width="1286" height="125">
+            <text id="2:42827" name="ยืนยัน ลบข้อมูล" x="8" y="8" width="153" height="29" />
+            <frame id="2:42828" name="Frame" x="8" y="53" width="291" height="64">
+              <frame id="2:42829" name="Frame" x="0" y="0" width="105" height="22">
+                <text id="2:42830" name="Label" x="0" y="0" width="105" height="22" />
+                <text id="2:42831" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              </frame>
+              <instance id="2:42832" name="select" x="0" y="26" width="291" height="38" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:42833" name="Frame" x="0" y="353" width="1334" height="70">
+          <instance id="2:42834" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:42835" name="button" x="1158" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+      <line id="2:42836" name="Line 13" x="1303" y="785" width="583" height="0.00005096748282085173" />
+    </frame>
+  </frame>
+  <frame id="2:42837" name="Reconciliation Transaction / Popup / Delete - 7" x="1614" y="3209" width="1440" height="900">
+    <frame id="2:42838" name="Modal Alert" x="440" y="269.5" width="560" height="360">
+      <frame id="2:42839" name="Top Bar" x="0" y="0" width="560" height="141">
+        <instance id="2:42840" name="Error" x="256" y="32" width="48" height="48" />
+        <text id="2:42841" name="สำเร็จ" x="251" y="96" width="58" height="29" />
+      </frame>
+      <frame id="2:42842" name="Frame 44" x="0" y="141" width="560" height="143">
+        <text id="2:42843" name="ลบข้อมูลสำเร็จ" x="175" y="24" width="210" height="24" />
+      </frame>
+      <frame id="2:42844" name="Frame 16" x="0" y="284" width="560" height="70">
+        <instance id="2:42845" name="button" x="200" y="16" width="160" height="38" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:42846" name="Reconciliation Transaction / Popup / Delete - 8" x="1661" y="4307" width="1346" height="900">
+    <frame id="2:42847" name="Modal Dialog" x="0" y="0" width="1346" height="900">
+      <frame id="2:42848" name="Top Bar" x="0" y="0" width="1346" height="86">
+        <text id="2:42849" name="Print Cancel Reconcile Report" x="16" y="32.5" width="354" height="29" />
+        <frame id="2:42850" name="Frame 6126" x="378" y="16" width="1087" height="62">
+          <frame id="2:42851" name="Frame 6127" x="16" y="0" width="550" height="62">
+            <frame id="2:42852" name="Frame 6127" x="0" y="13" width="550" height="36">
+              <frame id="2:42853" name="Frame 6135" x="0" y="0" width="550" height="36">
+                <text id="2:42854" name="Branch Summary Report" x="0" y="0" width="550" height="36" />
+                <text id="2:42855" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1166" height="24" hidden="true" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:42856" name="Frame 6113" x="793" y="11" width="509" height="40" hidden="true">
+            <frame id="2:42857" name="Frame 6189" x="12" y="8" width="235" height="24">
+              <frame id="2:42858" name="Frame" x="0" y="0" width="235" height="24">
+                <text id="2:42859" name="Label" x="34" y="0" width="38" height="24" />
+                <frame id="2:42860" name="Frame 6156" x="80" y="0" width="121" height="24">
+                  <text id="2:42861" name="Label" x="0" y="0" width="121" height="24" />
+                  <instance id="2:42862" name="icon-wrapper" x="161.5" y="5" width="14" height="14" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="2:42863" name="Frame" x="247" y="8" width="250" height="24">
+              <text id="2:42864" name="Label" x="67.5" y="0" width="36" height="24" />
+              <text id="2:42865" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="2:42866" name="Label" x="111.5" y="0" width="71" height="24" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="2:42867" name="Frame 44" x="0" y="86" width="1346" height="739">
+        <rounded-rectangle id="2:42868" name="image 5" x="0" y="30" width="1334" height="595" />
+      </frame>
+      <frame id="2:42869" name="Frame 16" x="0" y="825" width="1346" height="75">
+        <instance id="2:42870" name="button" x="16" y="21" width="160" height="38" />
+        <instance id="2:42871" name="button" x="1170" y="21" width="160" height="38" />
+      </frame>
+    </frame>
+    <frame id="2:42872" name="Frame 44" x="1336" y="28" width="8" height="788">
+      <frame id="2:42873" name="Scroll View UI" x="0" y="58" width="8" height="755">
+        <frame id="2:42874" name="Frame" x="0" y="0" width="8" height="755">
+          <rounded-rectangle id="2:42875" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:42876" name="Reconciliation Transaction / Popup / Delete Multiple - 6" x="3189" y="479" width="1440" height="900">
+    <frame id="2:42877" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:42878" name="Modal Dialog" x="219.5" y="202.5" width="1001" height="495">
+        <frame id="2:42879" name="Top Bar" x="0" y="0" width="1001" height="53">
+          <text id="2:42880" name="ลบข้อมูล" x="16" y="16" width="86" height="29" />
+        </frame>
+        <frame id="2:42881" name="Frame" x="0" y="53" width="1001" height="372">
+          <frame id="41:16406" name="Table - Revoke - Unsort CC" x="24" y="24" width="953" height="147">
+            <frame id="41:16407" name="List Header" x="0" y="0" width="953" height="45">
+              <frame id="41:16408" name="Frame" x="16" y="13" width="921" height="19">
+                <text id="41:16409" name="เลือกรายการ Header Card เพื่อทำการลบข้อมูล" x="0" y="0" width="314" height="19" />
+                <frame id="41:16410" name="Frame 6177" x="1077" y="0" width="283" height="24" hidden="true">
+                  <frame id="41:16411" name="Frame 6178" x="0" y="1" width="160" height="22">
+                    <text id="41:16412" name="จำนวนธนบัตร:" x="0" y="0.5" width="83" height="21" />
+                    <text id="41:16413" name="1,000" x="89" y="0" width="38" height="22" />
+                    <text id="41:16414" name="ฉบับ" x="133" y="0" width="27" height="22" />
+                  </frame>
+                  <frame id="41:16415" name="Frame 6178" x="168" y="0" width="115" height="24">
+                    <text id="41:16416" name="ราคา:" x="0" y="1.5" width="31" height="21" />
+                    <frame id="41:16417" name="Frame 6126" x="37" y="0" width="47" height="24">
+                      <rounded-rectangle id="41:16418" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16419" name="Label" x="7.5" y="2" width="32" height="20" />
+                    </frame>
+                    <text id="41:16420" name="บาท" x="90" y="1" width="25" height="22" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16421" name="Frame 6162" x="1097.5" y="8" width="294.5" height="24" hidden="true">
+                <text id="41:16422" name="จำนวนธนบัตรครบ 1 มัด:" x="77.5" y="1" width="140" height="22" />
+                <text id="41:16423" name="1000" x="225.5" y="1" width="34" height="22" />
+                <text id="41:16424" name="ฉบับ" x="267.5" y="1" width="27" height="22" />
+              </frame>
+              <frame id="41:16425" name="Frame 6163" x="227.5" y="8" width="294.5" height="22" hidden="true">
+                <text id="41:16426" name="จำนวนธนบัตรครบ 1 มัด:" x="86.5" y="0" width="140" height="22" />
+                <text id="41:16427" name="100" x="234.5" y="0" width="25" height="22" />
+                <text id="41:16428" name="ฉบับ" x="267.5" y="0" width="27" height="22" />
+              </frame>
+            </frame>
+            <frame id="41:16429" name="Frame" x="0" y="45" width="953" height="102">
+              <frame id="41:16430" name="List Header" x="0" y="0" width="953" height="30">
+                <frame id="41:16431" name="Frame" x="8" y="1" width="20" height="28">
+                  <frame id="41:16432" name="wrapper" x="2" y="6" width="16" height="16">
+                    <instance id="41:16433" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                  </frame>
+                </frame>
+                <frame id="41:16434" name="Header" x="28" y="0" width="170" height="30">
+                  <text id="41:16435" name="Header Card" x="8" y="5" width="76" height="20" />
+                  <instance id="41:16436" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="41:16437" name="icon" x="86" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16438" name="Header" x="198" y="0" width="150" height="30">
+                  <text id="41:16439" name="ชนิดราคา" x="43" y="5" width="50" height="20" />
+                  <instance id="41:16440" name="icon" x="95" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16441" name="Header" x="348" y="0" width="160" height="30">
+                  <text id="41:16442" name="วันเวลาเตรียม" x="37" y="5" width="72" height="20" />
+                  <instance id="41:16443" name="icon" x="111" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16444" name="Header" x="508" y="0" width="160" height="30">
+                  <text id="41:16445" name="วันเวลานับคัด" x="37.5" y="5" width="71" height="20" />
+                  <instance id="41:16446" name="icon" x="110.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16447" name="Header" x="668" y="0" width="140" height="30">
+                  <text id="41:16448" name="จำนวนฉบับ" x="32.5" y="5" width="61" height="20" />
+                  <instance id="41:16449" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="41:16450" name="icon" x="95.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16451" name="Header" x="808" y="0" width="160" height="30">
+                  <text id="41:16452" name="แหล่งที่มา" x="47" y="5" width="52" height="20" />
+                  <instance id="41:16453" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="41:16454" name="icon" x="101" y="9" width="12" height="12" />
+                </frame>
+              </frame>
+              <frame id="41:16455" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="41:16456" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="41:16457" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16458" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16459" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16460" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16461" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16462" name="content" x="190" y="0" width="170" height="36">
+                    <text id="41:16463" name="BBL" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16464" name="content" x="360" y="0" width="150" height="36">
+                    <text id="41:16465" name="สีลม" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16466" name="content" x="510" y="0" width="133" height="36">
+                    <frame id="41:16467" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16468" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16469" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16470" name="content" x="643" y="0" width="178" height="36">
+                    <text id="41:16471" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16472" name="content" x="821" y="0" width="168" height="36">
+                    <text id="41:16473" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16474" name="content" x="989" y="0" width="100" height="36">
+                    <text id="41:16475" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="41:16476" name="content" x="1089" y="0" width="176" height="36">
+                    <text id="41:16477" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16478" name="List" x="0" y="30" width="953" height="36">
+                <frame id="41:16479" name="Frame" x="8" y="0" width="937" height="36">
+                  <frame id="41:16480" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16481" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16482" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16483" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16484" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16485" name="content" x="190" y="0" width="133" height="36">
+                    <frame id="41:16486" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16487" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16488" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16489" name="content" x="323" y="0" width="178" height="36">
+                    <text id="41:16490" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16491" name="content" x="501" y="0" width="168" height="36">
+                    <text id="41:16492" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16493" name="content" x="669" y="0" width="100" height="36">
+                    <text id="41:16494" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="41:16495" name="content" x="769" y="0" width="176" height="36">
+                    <text id="41:16496" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16497" name="List" x="0" y="66" width="953" height="36">
+                <frame id="41:16498" name="Frame" x="8" y="0" width="937" height="36">
+                  <frame id="41:16499" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16500" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16501" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16502" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16503" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16504" name="content" x="190" y="0" width="133" height="36">
+                    <frame id="41:16505" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16506" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16507" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16508" name="content" x="323" y="0" width="178" height="36">
+                    <text id="41:16509" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16510" name="content" x="501" y="0" width="168" height="36">
+                    <text id="41:16511" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16512" name="content" x="669" y="0" width="100" height="36">
+                    <text id="41:16513" name="997" x="69" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16514" name="content" x="769" y="0" width="176" height="36">
+                    <text id="41:16515" name="Machine" x="62" y="11.5" width="52" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="41:16516" name="Scroll Horizontal" x="0" y="139" width="953" height="8" hidden="true">
+              <frame id="41:16517" name="Frame 6132" x="0" y="0" width="953" height="8">
+                <rounded-rectangle id="41:16518" name="Rectangle 2" x="2" y="2" width="100" height="4" />
+              </frame>
+            </frame>
+            <frame id="41:16519" name="Scroll Vertical" x="945" y="0" width="8" height="147" hidden="true">
+              <frame id="41:16520" name="Frame 6132" x="0" y="81" width="8" height="66">
+                <rounded-rectangle id="41:16521" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:43014" name="Frame" x="0" y="425" width="1001" height="70">
+          <instance id="2:43015" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:43016" name="button" x="825" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:43017" name="Reconciliation Transaction / Popup / Delete Multiple - 7" x="3178.5" y="1466" width="1440" height="900">
+    <frame id="2:43018" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:43019" name="Modal Dialog" x="213.5" y="202.5" width="1013" height="495">
+        <frame id="2:43020" name="Top Bar" x="0" y="0" width="1013" height="53">
+          <text id="2:43021" name="ลบข้อมูล" x="16" y="16" width="86" height="29" />
+        </frame>
+        <frame id="2:43022" name="Frame" x="0" y="53" width="1013" height="372">
+          <frame id="41:16560" name="Table - Revoke - Unsort CC" x="30" y="24" width="953" height="147">
+            <frame id="41:16561" name="List Header" x="0" y="0" width="953" height="45">
+              <frame id="41:16562" name="Frame" x="16" y="13" width="921" height="19">
+                <text id="41:16563" name="เลือกรายการ Header Card เพื่อทำการลบข้อมูล" x="0" y="0" width="314" height="19" />
+                <frame id="41:16564" name="Frame 6177" x="1077" y="0" width="283" height="24" hidden="true">
+                  <frame id="41:16565" name="Frame 6178" x="0" y="1" width="160" height="22">
+                    <text id="41:16566" name="จำนวนธนบัตร:" x="0" y="0.5" width="83" height="21" />
+                    <text id="41:16567" name="1,000" x="89" y="0" width="38" height="22" />
+                    <text id="41:16568" name="ฉบับ" x="133" y="0" width="27" height="22" />
+                  </frame>
+                  <frame id="41:16569" name="Frame 6178" x="168" y="0" width="115" height="24">
+                    <text id="41:16570" name="ราคา:" x="0" y="1.5" width="31" height="21" />
+                    <frame id="41:16571" name="Frame 6126" x="37" y="0" width="47" height="24">
+                      <rounded-rectangle id="41:16572" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16573" name="Label" x="7.5" y="2" width="32" height="20" />
+                    </frame>
+                    <text id="41:16574" name="บาท" x="90" y="1" width="25" height="22" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16575" name="Frame 6162" x="1097.5" y="8" width="294.5" height="24" hidden="true">
+                <text id="41:16576" name="จำนวนธนบัตรครบ 1 มัด:" x="77.5" y="1" width="140" height="22" />
+                <text id="41:16577" name="1000" x="225.5" y="1" width="34" height="22" />
+                <text id="41:16578" name="ฉบับ" x="267.5" y="1" width="27" height="22" />
+              </frame>
+              <frame id="41:16579" name="Frame 6163" x="227.5" y="8" width="294.5" height="22" hidden="true">
+                <text id="41:16580" name="จำนวนธนบัตรครบ 1 มัด:" x="86.5" y="0" width="140" height="22" />
+                <text id="41:16581" name="100" x="234.5" y="0" width="25" height="22" />
+                <text id="41:16582" name="ฉบับ" x="267.5" y="0" width="27" height="22" />
+              </frame>
+            </frame>
+            <frame id="41:16583" name="Frame" x="0" y="45" width="953" height="102">
+              <frame id="41:16584" name="List Header" x="0" y="0" width="953" height="30">
+                <frame id="41:16585" name="Frame" x="8" y="1" width="20" height="28">
+                  <frame id="41:16586" name="wrapper" x="2" y="6" width="16" height="16">
+                    <instance id="41:16587" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                  </frame>
+                </frame>
+                <frame id="41:16588" name="Header" x="28" y="0" width="170" height="30">
+                  <text id="41:16589" name="Header Card" x="8" y="5" width="76" height="20" />
+                  <instance id="41:16590" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="41:16591" name="icon" x="86" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16592" name="Header" x="198" y="0" width="150" height="30">
+                  <text id="41:16593" name="ชนิดราคา" x="43" y="5" width="50" height="20" />
+                  <instance id="41:16594" name="icon" x="95" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16595" name="Header" x="348" y="0" width="160" height="30">
+                  <text id="41:16596" name="วันเวลาเตรียม" x="37" y="5" width="72" height="20" />
+                  <instance id="41:16597" name="icon" x="111" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16598" name="Header" x="508" y="0" width="160" height="30">
+                  <text id="41:16599" name="วันเวลานับคัด" x="37.5" y="5" width="71" height="20" />
+                  <instance id="41:16600" name="icon" x="110.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16601" name="Header" x="668" y="0" width="140" height="30">
+                  <text id="41:16602" name="จำนวนฉบับ" x="32.5" y="5" width="61" height="20" />
+                  <instance id="41:16603" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="41:16604" name="icon" x="95.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16605" name="Header" x="808" y="0" width="160" height="30">
+                  <text id="41:16606" name="แหล่งที่มา" x="47" y="5" width="52" height="20" />
+                  <instance id="41:16607" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="41:16608" name="icon" x="101" y="9" width="12" height="12" />
+                </frame>
+              </frame>
+              <frame id="41:16609" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="41:16610" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="41:16611" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16612" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16613" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16614" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16615" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16616" name="content" x="190" y="0" width="170" height="36">
+                    <text id="41:16617" name="BBL" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16618" name="content" x="360" y="0" width="150" height="36">
+                    <text id="41:16619" name="สีลม" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16620" name="content" x="510" y="0" width="133" height="36">
+                    <frame id="41:16621" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16622" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16623" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16624" name="content" x="643" y="0" width="178" height="36">
+                    <text id="41:16625" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16626" name="content" x="821" y="0" width="168" height="36">
+                    <text id="41:16627" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16628" name="content" x="989" y="0" width="100" height="36">
+                    <text id="41:16629" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="41:16630" name="content" x="1089" y="0" width="176" height="36">
+                    <text id="41:16631" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16632" name="List" x="0" y="30" width="953" height="36">
+                <frame id="41:16633" name="Frame" x="8" y="0" width="937" height="36">
+                  <frame id="41:16634" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16635" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16636" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16637" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16638" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16639" name="content" x="190" y="0" width="133" height="36">
+                    <frame id="41:16640" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16641" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16642" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16643" name="content" x="323" y="0" width="178" height="36">
+                    <text id="41:16644" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16645" name="content" x="501" y="0" width="168" height="36">
+                    <text id="41:16646" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16647" name="content" x="669" y="0" width="100" height="36">
+                    <text id="41:16648" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="41:16649" name="content" x="769" y="0" width="176" height="36">
+                    <text id="41:16650" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16651" name="List" x="0" y="66" width="953" height="36">
+                <frame id="41:16652" name="Frame" x="8" y="0" width="937" height="36">
+                  <frame id="41:16653" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16654" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16655" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16656" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16657" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16658" name="content" x="190" y="0" width="133" height="36">
+                    <frame id="41:16659" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16660" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16661" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16662" name="content" x="323" y="0" width="178" height="36">
+                    <text id="41:16663" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16664" name="content" x="501" y="0" width="168" height="36">
+                    <text id="41:16665" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16666" name="content" x="669" y="0" width="100" height="36">
+                    <text id="41:16667" name="997" x="69" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16668" name="content" x="769" y="0" width="176" height="36">
+                    <text id="41:16669" name="Machine" x="62" y="11.5" width="52" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="41:16670" name="Scroll Horizontal" x="0" y="139" width="953" height="8" hidden="true">
+              <frame id="41:16671" name="Frame 6132" x="0" y="0" width="953" height="8">
+                <rounded-rectangle id="41:16672" name="Rectangle 2" x="2" y="2" width="100" height="4" />
+              </frame>
+            </frame>
+            <frame id="41:16673" name="Scroll Vertical" x="945" y="0" width="8" height="147" hidden="true">
+              <frame id="41:16674" name="Frame 6132" x="0" y="81" width="8" height="66">
+                <rounded-rectangle id="41:16675" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:43155" name="Frame" x="0" y="425" width="1013" height="70">
+          <instance id="2:43156" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:43157" name="button" x="837" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:43158" name="Reconciliation Transaction / Popup / Delete Multiple - 8" x="3189" y="2506" width="1440" height="900">
+    <frame id="2:43159" name="Template - Modal Dialog - OTP" x="0" y="0" width="1440" height="900">
+      <frame id="2:43160" name="Modal Dialog" x="219.5" y="220.5" width="1001" height="459">
+        <frame id="2:43161" name="Top Bar" x="0" y="0" width="1001" height="53">
+          <text id="2:43162" name="Reconfirm ลบข้อมูล" x="16" y="16" width="211" height="29" />
+        </frame>
+        <frame id="2:43163" name="Frame" x="0" y="53" width="1001" height="336">
+          <frame id="41:16714" name="Table - Revoke - Unsort CC" x="24" y="24" width="953" height="147">
+            <frame id="41:16715" name="List Header" x="0" y="0" width="953" height="45">
+              <frame id="41:16716" name="Frame" x="16" y="13" width="921" height="19">
+                <text id="41:16717" name="เลือกรายการ Header Card เพื่อทำการลบข้อมูล" x="0" y="0" width="314" height="19" />
+                <frame id="41:16718" name="Frame 6177" x="1077" y="0" width="283" height="24" hidden="true">
+                  <frame id="41:16719" name="Frame 6178" x="0" y="1" width="160" height="22">
+                    <text id="41:16720" name="จำนวนธนบัตร:" x="0" y="0.5" width="83" height="21" />
+                    <text id="41:16721" name="1,000" x="89" y="0" width="38" height="22" />
+                    <text id="41:16722" name="ฉบับ" x="133" y="0" width="27" height="22" />
+                  </frame>
+                  <frame id="41:16723" name="Frame 6178" x="168" y="0" width="115" height="24">
+                    <text id="41:16724" name="ราคา:" x="0" y="1.5" width="31" height="21" />
+                    <frame id="41:16725" name="Frame 6126" x="37" y="0" width="47" height="24">
+                      <rounded-rectangle id="41:16726" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16727" name="Label" x="7.5" y="2" width="32" height="20" />
+                    </frame>
+                    <text id="41:16728" name="บาท" x="90" y="1" width="25" height="22" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16729" name="Frame 6162" x="1097.5" y="8" width="294.5" height="24" hidden="true">
+                <text id="41:16730" name="จำนวนธนบัตรครบ 1 มัด:" x="77.5" y="1" width="140" height="22" />
+                <text id="41:16731" name="1000" x="225.5" y="1" width="34" height="22" />
+                <text id="41:16732" name="ฉบับ" x="267.5" y="1" width="27" height="22" />
+              </frame>
+              <frame id="41:16733" name="Frame 6163" x="227.5" y="8" width="294.5" height="22" hidden="true">
+                <text id="41:16734" name="จำนวนธนบัตรครบ 1 มัด:" x="86.5" y="0" width="140" height="22" />
+                <text id="41:16735" name="100" x="234.5" y="0" width="25" height="22" />
+                <text id="41:16736" name="ฉบับ" x="267.5" y="0" width="27" height="22" />
+              </frame>
+            </frame>
+            <frame id="41:16737" name="Frame" x="0" y="45" width="953" height="102">
+              <frame id="41:16738" name="List Header" x="0" y="0" width="953" height="30">
+                <frame id="41:16739" name="Frame" x="8" y="1" width="20" height="28">
+                  <frame id="41:16740" name="wrapper" x="2" y="6" width="16" height="16">
+                    <instance id="41:16741" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                  </frame>
+                </frame>
+                <frame id="41:16742" name="Header" x="28" y="0" width="170" height="30">
+                  <text id="41:16743" name="Header Card" x="8" y="5" width="76" height="20" />
+                  <instance id="41:16744" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+                  <instance id="41:16745" name="icon" x="86" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16746" name="Header" x="198" y="0" width="150" height="30">
+                  <text id="41:16747" name="ชนิดราคา" x="43" y="5" width="50" height="20" />
+                  <instance id="41:16748" name="icon" x="95" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16749" name="Header" x="348" y="0" width="160" height="30">
+                  <text id="41:16750" name="วันเวลาเตรียม" x="37" y="5" width="72" height="20" />
+                  <instance id="41:16751" name="icon" x="111" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16752" name="Header" x="508" y="0" width="160" height="30">
+                  <text id="41:16753" name="วันเวลานับคัด" x="37.5" y="5" width="71" height="20" />
+                  <instance id="41:16754" name="icon" x="110.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16755" name="Header" x="668" y="0" width="140" height="30">
+                  <text id="41:16756" name="จำนวนฉบับ" x="32.5" y="5" width="61" height="20" />
+                  <instance id="41:16757" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="41:16758" name="icon" x="95.5" y="9" width="12" height="12" />
+                </frame>
+                <frame id="41:16759" name="Header" x="808" y="0" width="160" height="30">
+                  <text id="41:16760" name="แหล่งที่มา" x="47" y="5" width="52" height="20" />
+                  <instance id="41:16761" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+                  <instance id="41:16762" name="icon" x="101" y="9" width="12" height="12" />
+                </frame>
+              </frame>
+              <frame id="41:16763" name="List" x="0" y="30" width="1286" height="36" hidden="true">
+                <frame id="41:16764" name="Frame" x="8" y="0" width="1270" height="36">
+                  <frame id="41:16765" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16766" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16767" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16768" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16769" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16770" name="content" x="190" y="0" width="170" height="36">
+                    <text id="41:16771" name="BBL" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16772" name="content" x="360" y="0" width="150" height="36">
+                    <text id="41:16773" name="สีลม" x="8" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16774" name="content" x="510" y="0" width="133" height="36">
+                    <frame id="41:16775" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16776" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16777" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16778" name="content" x="643" y="0" width="178" height="36">
+                    <text id="41:16779" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16780" name="content" x="821" y="0" width="168" height="36">
+                    <text id="41:16781" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16782" name="content" x="989" y="0" width="100" height="36">
+                    <text id="41:16783" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="41:16784" name="content" x="1089" y="0" width="176" height="36">
+                    <text id="41:16785" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16786" name="List" x="0" y="30" width="953" height="36">
+                <frame id="41:16787" name="Frame" x="8" y="0" width="937" height="36">
+                  <frame id="41:16788" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16789" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16790" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16791" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16792" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16793" name="content" x="190" y="0" width="133" height="36">
+                    <frame id="41:16794" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16795" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16796" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16797" name="content" x="323" y="0" width="178" height="36">
+                    <text id="41:16798" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16799" name="content" x="501" y="0" width="168" height="36">
+                    <text id="41:16800" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16801" name="content" x="669" y="0" width="100" height="36">
+                    <text id="41:16802" name="1,000" x="58" y="11.5" width="34" height="13" />
+                  </frame>
+                  <frame id="41:16803" name="content" x="769" y="0" width="176" height="36">
+                    <text id="41:16804" name="Prepare" x="64" y="11.5" width="48" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="41:16805" name="List" x="0" y="66" width="953" height="36">
+                <frame id="41:16806" name="Frame" x="8" y="0" width="937" height="36">
+                  <frame id="41:16807" name="Frame" x="0" y="4" width="20" height="28">
+                    <frame id="41:16808" name="wrapper" x="2" y="6" width="16" height="16">
+                      <instance id="41:16809" name="checkbox-input" x="0" y="0" width="16" height="16" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16810" name="content" x="20" y="0" width="170" height="36">
+                    <text id="41:16811" name="0054941212" x="8" y="8" width="73" height="20" />
+                  </frame>
+                  <frame id="41:16812" name="content" x="190" y="0" width="133" height="36">
+                    <frame id="41:16813" name="Frame 6125" x="43" y="6" width="47" height="24">
+                      <rounded-rectangle id="41:16814" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                      <text id="41:16815" name="Label" x="12" y="2" width="23" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="41:16816" name="content" x="323" y="0" width="178" height="36">
+                    <text id="41:16817" name="21/7/2568 14:00" x="15" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16818" name="content" x="501" y="0" width="168" height="36">
+                    <text id="41:16819" name="21/7/2568 14:00" x="10" y="11.5" width="148" height="13" />
+                  </frame>
+                  <frame id="41:16820" name="content" x="669" y="0" width="100" height="36">
+                    <text id="41:16821" name="997" x="69" y="11.5" width="23" height="13" />
+                  </frame>
+                  <frame id="41:16822" name="content" x="769" y="0" width="176" height="36">
+                    <text id="41:16823" name="Machine" x="62" y="11.5" width="52" height="13" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="41:16824" name="Scroll Horizontal" x="0" y="139" width="953" height="8" hidden="true">
+              <frame id="41:16825" name="Frame 6132" x="0" y="0" width="953" height="8">
+                <rounded-rectangle id="41:16826" name="Rectangle 2" x="2" y="2" width="100" height="4" />
+              </frame>
+            </frame>
+            <frame id="41:16827" name="Scroll Vertical" x="945" y="0" width="8" height="147" hidden="true">
+              <frame id="41:16828" name="Frame 6132" x="0" y="81" width="8" height="66">
+                <rounded-rectangle id="41:16829" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:43287" name="Frame" x="24" y="187" width="953" height="125">
+            <text id="2:43288" name="ยืนยัน ลบข้อมูล" x="8" y="8" width="153" height="29" />
+            <frame id="2:43289" name="Frame" x="8" y="53" width="291" height="64">
+              <frame id="2:43290" name="Frame" x="0" y="0" width="91" height="22">
+                <text id="2:43291" name="Label" x="0" y="0" width="91" height="22" />
+                <text id="2:43292" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              </frame>
+              <instance id="2:43293" name="select" x="0" y="26" width="291" height="38" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="2:43294" name="Frame" x="0" y="389" width="1001" height="70">
+          <instance id="2:43295" name="button" x="16" y="16" width="160" height="38" />
+          <instance id="2:43296" name="button" x="825" y="16" width="160" height="38" />
+        </frame>
+      </frame>
+      <line id="2:43297" name="Line 14" x="1135" y="660" width="0.000006113394647400128" height="145" />
+      <line id="2:43298" name="Line 15" x="1135" y="805" width="415" height="0" />
+    </frame>
+  </frame>
+  <frame id="2:43299" name="Reconciliation Transaction / Popup / Delete Multiple - 9" x="3189" y="4304" width="1440" height="900">
+    <frame id="2:43300" name="Modal Alert" x="440" y="269.5" width="560" height="360">
+      <frame id="2:43301" name="Top Bar" x="0" y="0" width="560" height="141">
+        <instance id="2:43302" name="Error" x="256" y="32" width="48" height="48" />
+        <text id="2:43303" name="สำเร็จ" x="251" y="96" width="58" height="29" />
+      </frame>
+      <frame id="2:43304" name="Frame 44" x="0" y="141" width="560" height="143">
+        <text id="2:43305" name="ลบข้อมูลสำเร็จ" x="175" y="24" width="210" height="24" />
+      </frame>
+      <frame id="2:43306" name="Frame 16" x="0" y="284" width="560" height="70">
+        <instance id="2:43307" name="button" x="200" y="16" width="160" height="38" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:43308" name="Reconciliation Transaction / Popup / Delete Multiple - 10" x="3236" y="5381" width="1346" height="900">
+    <frame id="2:43309" name="Modal Dialog" x="0" y="0" width="1346" height="900">
+      <frame id="2:43310" name="Top Bar" x="0" y="0" width="1346" height="86">
+        <text id="2:43311" name="Print Cancel Reconcile Report" x="16" y="32.5" width="354" height="29" />
+        <frame id="2:43312" name="Frame 6126" x="378" y="16" width="1087" height="62">
+          <frame id="2:43313" name="Frame 6127" x="16" y="0" width="550" height="62">
+            <frame id="2:43314" name="Frame 6127" x="0" y="13" width="550" height="36">
+              <frame id="2:43315" name="Frame 6135" x="0" y="0" width="550" height="36">
+                <text id="2:43316" name="Branch Summary Report" x="0" y="0" width="550" height="36" />
+                <text id="2:43317" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1166" height="24" hidden="true" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="2:43318" name="Frame 6113" x="793" y="11" width="509" height="40" hidden="true">
+            <frame id="2:43319" name="Frame 6189" x="12" y="8" width="235" height="24">
+              <frame id="2:43320" name="Frame" x="0" y="0" width="235" height="24">
+                <text id="2:43321" name="Label" x="34" y="0" width="38" height="24" />
+                <frame id="2:43322" name="Frame 6156" x="80" y="0" width="121" height="24">
+                  <text id="2:43323" name="Label" x="0" y="0" width="121" height="24" />
+                  <instance id="2:43324" name="icon-wrapper" x="161.5" y="5" width="14" height="14" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="2:43325" name="Frame" x="247" y="8" width="250" height="24">
+              <text id="2:43326" name="Label" x="67.5" y="0" width="36" height="24" />
+              <text id="2:43327" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="2:43328" name="Label" x="111.5" y="0" width="71" height="24" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="2:43329" name="Frame 44" x="0" y="86" width="1346" height="739">
+        <rounded-rectangle id="2:43330" name="image 5" x="0" y="30" width="1334" height="595" />
+      </frame>
+      <frame id="2:43331" name="Frame 16" x="0" y="825" width="1346" height="75">
+        <instance id="2:43332" name="button" x="16" y="21" width="160" height="38" />
+        <instance id="2:43333" name="button" x="1170" y="21" width="160" height="38" />
+      </frame>
+    </frame>
+    <frame id="2:43334" name="Frame 44" x="1336" y="28" width="8" height="788">
+      <frame id="2:43335" name="Scroll View UI" x="0" y="58" width="8" height="755">
+        <frame id="2:43336" name="Frame" x="0" y="0" width="8" height="755">
+          <rounded-rectangle id="2:43337" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="2:43338" name="Frame 6207" x="3102" y="1311" width="1" height="1" />
+  <vector id="2:43342" name="Vector 72" x="2334" y="2277" width="0.000010490733984624967" height="240" />
+  <vector id="2:43343" name="Vector 76" x="3908" y="3309" width="0.000011452383660071064" height="262" />
+  <vector id="2:43344" name="Vector 75" x="2334" y="2622" width="0.0000048519646043132525" height="111" />
+  <vector id="2:43345" name="Vector 77" x="3908" y="3676" width="0.0000048519646043132525" height="111" />
+  <vector id="2:43346" name="Vector 74" x="2334" y="2893" width="0.000012894859537482262" height="295" />
+  <vector id="2:43347" name="Vector 78" x="3908" y="3947" width="0.000014512180769088445" height="332" />
+  <text id="2:43348" name="OTP Supervisor" x="2198" y="2550" width="311" height="51" />
+  <text id="2:43349" name="OTP Manager" x="3772" y="3604" width="273" height="51" />
+  <text id="2:43350" name="Confirm Success" x="2250" y="2766" width="168" height="102" />
+  <text id="2:43351" name="Confirm Success" x="3824" y="3820" width="168" height="102" />
+  <line id="2:43352" name="Line 12" x="2914" y="2137" width="0.000006119594218034763" height="140" />
+  <vector id="2:43353" name="Arrow 14" x="2905" y="1157" width="0.000014512182133330498" height="332" />
+  <vector id="2:43354" name="Arrow 16" x="2337" y="3816" width="0.00002023837441811338" height="463" />
+  <vector id="2:43355" name="Arrow 18" x="3909" y="4912" width="0.000020107240288780304" height="460" />
+  <vector id="2:43357" name="Arrow 22" x="6066" y="2271" width="0" height="235" />
+  <line id="2:43358" name="Line 20" x="6081" y="4307" width="0.0000070812448029755615" height="162" />
+  <line id="2:43359" name="Line 21" x="6082" y="4469" width="547" height="0" />
+  <vector id="2:43360" name="Arrow 23" x="5535" y="4469" width="0" height="64" />
+  <vector id="2:43361" name="Arrow 24" x="6063" y="3300" width="0.00000948537217482226" height="217" />
+  <vector id="2:43363" name="Arrow 26" x="1349" y="3300" width="0.000009485371265327558" height="217" />
+  <frame id="2:45303" name="Frame 6208" x="4" y="1175" width="1" height="1" />
+  <vector id="41:18016" name="Arrow 31" x="1353" y="2100" width="0.000017834246364145656" height="408" />
+  <vector id="41:18122" name="Arrow 32" x="1343" y="4319" width="0.000009266815027331177" height="212" />
+  <vector id="41:21243" name="Arrow 35" x="4299" y="1169" width="0.00002111260209858301" height="483" />
+  <vector id="41:21244" name="Arrow 36" x="4299" y="2151" width="0.00002434724547129008" height="557" />
+</section>

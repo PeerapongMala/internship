@@ -1,0 +1,13 @@
+seance animetion
+model หลังตอบ แปลกๆ
+test game base
+
+dzqiki
+
+main
+.env
+cd repro
+sub modules ต้องถูกเปิดด้วย cli / gitGUI /fork /GitHub
+/?debugCode=dzqiki
+
+ช่วยสร้างบทวิเคราะห์ project นี้ให้หน่อย อยากทราบทั้งหมดฟังชั่น หรือ อยากทราบข้อมูลโดยรวมของโปรเจคนี้ สร้างเป็นไฟล์md

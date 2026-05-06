@@ -1,0 +1,424 @@
+/* ===== Health Insurance Page ===== */
+.health-ins-content {
+  max-width: 1100px;
+}
+
+/* ===== Shared Card ===== */
+.health-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.health-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+/* ===== Table Section ===== */
+.health-table-section {
+  margin-bottom: 24px;
+}
+
+.health-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.health-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.health-add-btn:hover {
+  opacity: 0.9;
+}
+
+.health-add-btn .material-icons-outlined {
+  font-size: 16px;
+}
+
+.health-table-wrapper {
+  overflow-x: auto;
+}
+
+.health-table-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.health-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.health-table thead {
+  border-bottom: 2px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 1;
+}
+
+.health-table th {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.health-table td {
+  padding: 8px 16px;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.health-table .text-right {
+  text-align: right;
+}
+
+.health-table .text-center {
+  text-align: center;
+}
+
+.health-table .value-cell {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Icon button */
+.health-table-section .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: all 0.15s ease;
+}
+
+.health-table-section .icon-btn.delete:hover {
+  border-color: #FCA5A5;
+  color: #EF4444;
+  background: #FEF2F2;
+}
+
+.health-table-section .icon-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+/* ===== Bottom Grid ===== */
+.health-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ===== Fields in coverage card ===== */
+.health-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.health-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.health-field-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.health-field-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.health-field-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--gray-800);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.health-field-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+/* ===== Edit / Save Buttons ===== */
+.health-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.health-edit-btn:hover {
+  background: var(--gray-50);
+}
+
+.health-edit-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.health-edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.health-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.health-action-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.health-action-btn.cancel {
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+.health-action-btn.cancel:hover {
+  background: var(--gray-50);
+}
+
+.health-action-btn.save {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+}
+
+.health-action-btn.save:hover {
+  opacity: 0.9;
+}
+
+/* ===== Comparison Card ===== */
+.health-compare-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.health-compare-header .health-card-title {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.health-level-select {
+  padding: 6px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--gray-700);
+  background: var(--white);
+  outline: none;
+  cursor: pointer;
+  min-width: 180px;
+  transition: border-color 0.15s ease;
+}
+
+.health-level-select:focus {
+  border-color: var(--primary);
+}
+
+.health-compare-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.health-compare-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.health-compare-item-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.health-compare-item-values {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.health-compare-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--gray-100);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.health-compare-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease, background 0.3s ease;
+}
+
+/* ===== Add Cases Modal ===== */
+.health-add-modal {
+  max-width: 600px;
+}
+
+.health-case-table-wrapper {
+  max-height: 360px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+}
+
+.health-case-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.health-case-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--gray-50);
+  z-index: 1;
+}
+
+.health-case-table th {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.health-case-table td {
+  padding: 5px 12px;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.health-case-table .text-right {
+  text-align: right;
+}
+
+.health-case-table .text-center {
+  text-align: center;
+}
+
+.health-case-table .value-cell {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.health-case-table tbody tr {
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.health-case-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.health-case-table tbody tr.selected {
+  background: var(--primary-50);
+}
+
+.health-case-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .health-bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .health-table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .health-compare-header {
+    flex-direction: column;
+  }
+
+  .health-level-select {
+    width: 100%;
+  }
+}

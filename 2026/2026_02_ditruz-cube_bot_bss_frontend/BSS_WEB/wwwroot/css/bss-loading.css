@@ -1,0 +1,76 @@
+﻿@font-face {
+    font-family: "Pridi";
+    src: url("/fonts/Pridi-Light.ttf") format("truetype");
+    font-weight: normal;
+}
+
+* {
+    font-family: 'Pridi' !important;
+}
+
+
+/* 1. นิยามการหมุน (ใช้ @@ สองตัว) */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+/* 2. ตัวควบคุมการแสดงผล Loading */
+#pageloading {
+    display: none; /* เริ่มต้นซ่อนไว้ */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.9); /* พื้นหลังขาวขุ่น */
+    z-index: 99999;
+}
+
+.loading-overlay {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 3. ตัว Spinner */
+.custom-spinner {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    border: 0.5em solid #003366; /* สีน้ำเงิน BOT */
+    border-right-color: transparent; /* ทำให้แหว่งเพื่อให้เห็นการหมุน */
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    -webkit-animation: spin 0.75s linear infinite;
+}
+
+.loading-text {
+    color: #495057;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: sans-serif;
+}

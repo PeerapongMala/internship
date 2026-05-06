@@ -1,0 +1,7 @@
+.icon {
+  @apply pointer-events-none absolute right-[10px] top-[50%] translate-y-[-50%] transform;
+}
+
+.date-range-container {
+  @apply relative inline-block;
+}

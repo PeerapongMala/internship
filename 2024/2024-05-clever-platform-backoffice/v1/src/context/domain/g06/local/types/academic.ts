@@ -1,0 +1,43 @@
+export type TSubLesson = {
+  admin_login_as: string | null;
+  created_at: string;
+  created_by: string;
+  email: string | null;
+  first_name: string | null;
+  id: number;
+  index: number;
+  indicator_id: number;
+  indicator_name: string;
+  last_name: string | null;
+  lesson_id: string;
+  level_count: number;
+  name: string;
+  status: string;
+  title: string | null;
+  transcript: string;
+  updated_at: string | null;
+  updated_by: string | null;
+  user_id: string | null;
+};
+
+export type TLesson = {
+  id: number;
+  subject_id?: number;
+  index?: number;
+  name: string;
+  font_name?: string;
+  font_size?: string;
+  background_image_path?: string;
+  status?: string;
+  created_at?: string;
+  created_by?: string;
+  updated_at?: string | null;
+  updated_by?: string | null;
+  admin_login_as?: string | null;
+  wizard_index?: number;
+  user_id?: string | null;
+  email?: string | null;
+  title?: string | null;
+  first_name?: string | null;
+  last_name?: string | null;
+};

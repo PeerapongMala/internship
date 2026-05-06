@@ -1,0 +1,35 @@
+{
+  "tab": {
+    "announcement": "เนื้อหาประกาศ",
+    "prize": "ของรางวัล"
+  },
+  "btn": {
+    "chooseItem": "เลิอกไอเทม",
+    "choose": "เลือก",
+    "back": "ย้อนกลับ",
+    "ok": "ตกลง"
+  },
+  "field": {
+    "item": {
+      "category": "หมวดหมู่",
+      "id": "รหัสไอเทม",
+      "type": "ประเภทไอเทม",
+      "imageURL": "รูปภาพ",
+      "name": "ชื่อไอเทม",
+      "quantity": "จำนวน",
+      "dayPeriod": "วันที่สามารถใช้ได้",
+      "modifiedDate": "แก้ไขล่าสุด",
+      "date": "ว/ด/ป"
+    },
+    "removeBtn": "ลบ"
+  },
+  "placeholder": {
+    "search": "ค้นหา"
+  },
+  "itemType": {
+    "coupon": "คูปอง",
+    "frame": "กรอปรูป",
+    "badge": "โล่",
+    "coin": "เหรียญ"
+  }
+}

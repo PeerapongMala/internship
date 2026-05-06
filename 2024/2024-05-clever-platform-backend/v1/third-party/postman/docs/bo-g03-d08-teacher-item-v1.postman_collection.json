@@ -1,0 +1,401 @@
+{
+	"info": {
+		"_postman_id": "62dbbcde-eeec-40ea-b00e-70ddaabdf549",
+		"name": "bo-g03-d08-teacher-item-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-teacher-item-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/teacher-item-groups?page=1&limit=10&id=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"teacher-item-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "",
+							"description": "optional"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-teacher-item-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/subjects/:subjectId/items?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"subjects",
+						":subjectId",
+						"items"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "-1"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "badge",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-teacher-item-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "badge",
+							"description": "required, badge = โล่ / frame = กรอบรูป / coupon = รางวัล",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "badge 2",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "this is badge 2",
+							"type": "text"
+						},
+						{
+							"key": "default_image",
+							"value": "/path/to/default/image",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "required, รูป item / รูปโล่",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/saved/Bad-Beginning-sp.jpg",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "required, enabled / disabled / draft",
+							"type": "text"
+						},
+						{
+							"key": "template_item_id",
+							"value": "1",
+							"description": "ID ของ รูปแบบ template",
+							"type": "text"
+						},
+						{
+							"key": "badge_description",
+							"value": "นักเรียนคิดเลขเร็ว",
+							"description": "ข้อความที่แสดงในโล่",
+							"type": "text"
+						},
+						{
+							"key": "template_path",
+							"value": "/path/to/image",
+							"description": "พื้นหลัง",
+							"type": "text"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "default_image",
+							"value": "/path/to/default/image",
+							"description": "ใช้ในกรณีที่เป้ฯรูป default (fixed จาก frontend)",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/subjects/:subjectId/items",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"subjects",
+						":subjectId",
+						"items"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-teacher-item-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/items/:itemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"items",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-teacher-item-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "updated name",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "optional",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/saved/Cheer-UpCheeseburger.jpg"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "template_item_id",
+							"value": "",
+							"description": "optional",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "badge_description",
+							"value": "test description",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "template_path",
+							"value": "/new/path",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "admin_login_as",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "default_image",
+							"value": "/tmp/path",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/items/:itemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"items",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "3",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-template-item-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/template-items?page=1&limit=-1&type=frame",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"template-items"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "type",
+							"value": "frame",
+							"description": "optional, default = badge (badge / frame / coupon)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-teacher-item-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"id\": 28,\r\n            \"status\": \"disabled\"\r\n        },\r\n        {\r\n            \"id\": 29,\r\n            \"status\": \"draft\"\r\n        },\r\n        {\r\n            \"id\": 31,\r\n            \"status\": \"enabled\"\r\n        }\r\n    ],\r\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-item/v1/items/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-item",
+						"v1",
+						"items",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

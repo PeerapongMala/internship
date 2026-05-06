@@ -1,0 +1,121 @@
+{
+  "save": "บันทึก",
+  "buy": "ซื้อ",
+  "bought": "ซื้อแล้ว",
+  "title": "ร้านค้า",
+  "answer_label_1": "Answer 1",
+  "group_label_1": "Group 1",
+  "template1": {
+    "questionTitle": "Q1. จัดกลุ่มตามเงื่อนไขที่กำหนด",
+    "questionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec odio vitae nunc."
+  },
+  "template2": {
+    "questionTitle": "Q1. Group according to the specified conditions",
+    "answers": {
+      "fish": "Fish",
+      "cat": "Cat",
+      "dog": "Dog",
+      "bird": "Bird Bird Bird"
+    },
+    "firstParagraph": "Lorem ipsum dolor sit amet,",
+    "secondText": "elit. Donec nec odio vitae nunc.",
+    "thirdText": "ipsum dolor sit amet,",
+    "fourthText": "adipiscing elit.",
+    "fifthText": "vitae"
+  },
+  "pageFinish": {
+    "title": "เกมส์จบแล้ว",
+    "completionMessage": "คุณเล่นด่านนี้จบแล้ว",
+    "homeButton": "กลับสู่หน้าหลัก"
+  },
+  "pageAnswer": {
+    "correctAnswerTitle": "คุณตอบถูก",
+    "wrongAnswerTitle": "คุณตอบผิด",
+    "correctAnswerText": "คำตอบของคุณถูกต้อง",
+    "wrongAnswerText": "คำตอบของคุณไม่ถูกต้อง",
+    "correctAnswerLabel": "คำตอบที่ถูกต้องคือ",
+    "understandButton": "เข้าใจแล้ว",
+    "correctImage": "ภาพคำตอบถูก",
+    "wrongImage": "ภาพคำตอบผิด",
+    "petImage": "รูปสัตว์เลี้ยง"
+  },
+  "modalTimeout": {
+    "warn": {
+      "title": "หมดเวลาแล้ว",
+      "message": "เสียใจ เวลาหมดแล้ว คุณยังเล่นเกมนี้ต่อได้นะ",
+      "continueWithoutTimeLimit": "เล่นต่อแบบไม่จำกัดเวลา",
+      "playAgain": "เริ่มเล่นใหม่"
+    },
+    "end": {
+      "title": "หมดเวลาแล้ว",
+      "messageSorry": "เสียใจ เวลาหมดแล้ว",
+      "messageTryAgain": "คุณเลยไม่ผ่านด่านข้อนี้ ลองอีกครั้งสิ",
+      "exitGame": "ออกจากเกม",
+      "tryAgain": "ลองอีกครั้ง"
+    },
+    "icons": {
+      "play": "ไอคอนเล่น",
+      "forward": "ไอคอนเดินหน้า",
+      "home": "ไอคอนบ้าน"
+    }
+  },
+  "modalNotFound": {
+    "title": "ไม่พบข้อมูล",
+    "message": "ไม่พบข้อมูลด่าน",
+    "backToLevelSelect": "กลับหน้าเลือกด่าน",
+    "tryAgain": "ลองอีกครั้ง",
+    "icons": {
+      "home": "ไอคอนบ้าน",
+      "forward": "ไอคอนเดินหน้า"
+    }
+  },
+  "modalInput": {
+    "titles": {
+      "textInput": "พิมพ์คำตอบ",
+      "speechInput": "พูดคำตอบ"
+    },
+    "buttons": {
+      "confirm": "ตกลง"
+    },
+    "text": {
+      "hint": "คำใบ้: คำตอบมี {{count}} ตัวอักษร",
+      "placeholder": "พิมพ์คำตอบ..."
+    },
+    "speech": {
+      "youSaid": "คุณพูดว่า",
+      "listening": "กำลังฟัง...",
+      "tapToStart": "กดเพื่อเริ่มพูด",
+      "processing": "กำลังประมวลผล..."
+    },
+    "errors": {
+      "speechToTextFailed": "ไม่สามารถแปลงเสียงเป็นข้อความได้ กรุณาลองใหม่อีกครั้ง",
+      "somethingWentWrong": "มีบางอย่างผิดพลาด"
+    },
+    "icons": {
+      "mic": "ไอคอนไมโครโฟน",
+      "refresh": "ไอคอนรีเฟรช"
+    }
+  },
+  "header": {
+    "setting": "ตั้งค่า",
+    "teacher": "ครู",
+    "lessonInfo": "ข้อมูลบทเรียน",
+    "score": "คะแนน",
+    "sword": "ดาบ"
+  },
+  "titles": {
+    "defaultTitle": "",
+    "hintButton": "ปุ่มคำใบ้"
+  },
+  "questionInputList": {
+    "soundButton": "ปุ่มเสียง",
+    "answerField": "ช่องกรอกคำตอบ",
+    "micButton": "ปุ่มไมโครโฟน",
+    "blankPlaceholder": "___ {{count}} ___"
+  },
+  "groupOrDrop": {
+    "dragAnswerHere": "ลากคำตอบมาวางที่นี่",
+    "noAnswers": "ไม่มีคำตอบ",
+    "emptyGroupImage": "ภาพกลุ่มว่างเปล่า"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "lesson_title": "Subject {{subjectName}} {{subjectShortYear}}",
+  "menu-header-all-tab": "All",
+  "menu-header-downloaded-tab": "Downloaded",
+  "menu-header-undownloaded-tab": "Not Downloaded",
+  "amount_of_sublesson_downloaded": "{{downloadedCount}}/{{totalCount}} Sub-lessons Downloaded",
+  "lesson_has_update_please_download": "Update Available - Please Download Again",
+
+  "delete_lesson_modal_title": "Delete Local Backup Data",
+  "delete_lesson_confirm_message": "Do you want to delete this lesson?",
+
+  "clear_lesson_data_modal_title": "Clear Incomplete Download Data",
+  "clear_lesson_incomplete_download_message": "Do you want to clear the incomplete download data for this lesson?",
+
+  "delete_lesson_info_message": "Deleting content data <strong>will not affect your play history</strong><br/>You can redownload at any time.<br/>Keeping content data on your device allows you to continue accessing the content seamlessly.",
+  "delete_lesson_confirm_btn": "Confirm Delete Local Data",
+
+  "delete_lesson_success_title": "Lesson Deleted Successfully",
+  "delete_lesson_success_message": "The lesson backup data has been successfully deleted.",
+  "delete_lesson_ok": "OK"
+}

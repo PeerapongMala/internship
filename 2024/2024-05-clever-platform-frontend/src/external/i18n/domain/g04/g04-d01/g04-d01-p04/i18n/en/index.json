@@ -1,0 +1,20 @@
+{
+  "sublesson_title": "Subject {{subjectName}} {{subjectShortYear}} / {{lessonName}}",
+  "menu_header_all_tab": "All",
+  "menu_header_downloaded_tab": "Downloaded",
+  "menu_header_undownloaded_tab": "Not Downloaded",
+
+  "sublesson_loading": "Loading sub-lessons...",
+  "sublesson_not_available": "No sub-lessons available",
+  "sublesson_has_update": "Update Available, Please Download Again",
+
+  "delete_sublesson_modal_title": "Delete local backup data",
+  "delete_sublesson_confirm_message": "Do you want to delete this sub-lesson?",
+
+  "delete_sublesson_info_message": "Deleting content data <strong>does not affect your play history</strong><br/>You can still download it again<br/>Storing data allows you to access content continuously",
+  "delete_sublesson_confirm_btn": "Confirm delete local data",
+
+  "delete_sublesson_success_title": "Delete sub-lesson successful",
+  "delete_sublesson_success_message": "Local backup data of the sub-lesson has been successfully deleted",
+  "delete_sublesson_ok": "OK"
+}

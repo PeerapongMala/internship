@@ -1,0 +1,26 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BSS_WEB.Models.ServiceModel.Preparation
+{
+    public class CreateTransactionContainerPrepareRequest
+    {
+        [Required]
+        public int departmentId { get; set; }
+        public int? machineId { get; set; }
+
+        [Required]
+        [MaxLength(10)]
+        public string containerCode { get; set; }
+
+        public long? receiveId { get; set; }
+
+        public long? registerUnsortId { get; set; }
+
+        [Required]
+        public int bntypeId { get; set; }
+
+        public bool? isActive { get; set; }
+
+        public int? createdBy { get; set; }
+    }
+}

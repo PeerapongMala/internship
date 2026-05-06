@@ -1,0 +1,96 @@
+/* ============================================
+   BSS Shared — Print Report Modal
+   ใช้ร่วมกัน: Verify, Reconcile
+   Figma: Node 2:42846 — 1346px
+   ============================================ */
+
+.modal-print-report .modal-dialog {
+    max-width: 1346px;
+}
+
+.modal-print-report .modal-content {
+    min-height: 500px;
+}
+
+.modal-print-report .report-top-bar {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    min-height: 86px;
+}
+
+.modal-print-report .report-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+}
+
+.modal-print-report .report-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.5px;
+}
+
+.modal-print-report .report-preview {
+    padding: 16px 24px;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.modal-print-report .report-preview-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 24px;
+    min-height: 400px;
+}
+
+/* ── Report Mock Table ── */
+.report-mock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+}
+
+.report-mock-table th {
+    background: #e9ecef;
+    padding: 6px 8px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.report-mock-table td {
+    padding: 4px 8px;
+    text-align: right;
+    border: 1px solid #dee2e6;
+    font-size: 12px;
+}
+
+.report-mock-table td:first-child {
+    text-align: left;
+}
+
+.report-mock-table .report-header-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+    text-align: center;
+    padding: 12px;
+}
+
+.report-mock-table .report-subheader-text {
+    font-size: 13px;
+    font-weight: 400;
+    color: #495057;
+    text-align: left;
+    padding: 4px 8px;
+}

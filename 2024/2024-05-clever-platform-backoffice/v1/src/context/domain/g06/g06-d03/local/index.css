@@ -1,0 +1,33 @@
+body {
+  @apply bg-[#fafafa] font-noto-sans-thai;
+}
+
+.th-rotate > * {
+  @apply inline-flex min-h-[110px] rotate-180 items-center [writing-mode:vertical-rl];
+}
+
+.data-entry-table {
+  @apply w-max table-fixed;
+}
+.data-entry-table td input {
+  @apply w-9 bg-white text-center;
+}
+.data-entry-table th {
+  @apply border !border-neutral-300 bg-neutral-100 !p-2 text-center align-middle;
+}
+.data-entry-table td {
+  @apply border !border-neutral-300 bg-white !px-0 !py-2;
+}
+
+.th-fixed th,
+.td-fixed {
+  @apply !p-0 text-center;
+}
+
+.th-fullname {
+  @apply min-w-[376px] text-center;
+}
+
+.td-fullname {
+  @apply text-nowrap;
+}

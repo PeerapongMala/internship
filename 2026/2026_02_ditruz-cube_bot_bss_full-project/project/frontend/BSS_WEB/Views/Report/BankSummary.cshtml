@@ -1,0 +1,432 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Bank Summary Report";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/report/banksummaryreport.css")" asp-append-version="true" />
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+
+            <div class="container-fluid mt-2">
+
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-5">
+                        <h1 class="title-section">Bank Summary Report</h1>
+                    </div>
+                    <div class="col-md-7 d-flex justify-content-end">
+                        <div class="export-box">
+                            <span class="export-label">Export as:</span>
+                            <div class="export-options-row">
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdPdf" value="pdf" checked>
+                                    <span>PDF</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdExcel" value="excel">
+                                    <span>Excel</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" id="rdCSV" value="csv">
+                                    <span>CSV</span>
+                                </label>
+
+
+                            </div>
+                            <button type="button" class="btn-export-navy" onclick="exportData()">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-card">
+                    <div class="row g-0">
+                        <div class="col ps-3 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="filter-group">
+                                    <label>
+                                        Station Machine:
+                                        <select id="stationMachine" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        วันที่:
+                                        <input type="text" id="filterDate" class="form-control custom-input-sm" style="width: 140px !important;">
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ธนาคาร:
+                                        <select id="institutionSelect" class="form-select custom-input-sm select2" style="width: 350px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    @*  <label>ศูนย์เงินสด/สาขา:
+                                    <select class="form-select custom-input-sm" style="min-width: 150px;"><option>ทั้งหมด</option></select></label> *@
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3" style="padding-top:10px;">
+                                <div class="filter-group">
+                                    <label>
+                                        ประเภทธนบัตร:
+                                        <select id="cashTypeSelect" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ชนิดราคา:
+                                        <select id="denominationSelect" class="form-select custom-input-sm select2" style="width: 100px;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group ms-2">
+                                    <label>
+                                        ช่วงเวลา:
+                                        @*  <div id="timePeriodGroup" class="time-options">
+                                        <label><input type="radio" name="time" value="SHIFT04" checked> <span>ทั้งวัน</span></label>
+                                        <label><input type="radio" name="time" value="SHIFT01"> <span>เช้า</span></label>
+                                        <label><input type="radio" name="time" value="SHIFT02"> <span>บ่าย</span></label>
+                                        <label><input type="radio" name="time" value="SHIFT03"> <span>นอกเวลาทำการ รปท.</span></label>
+                                    </div> *@
+                                        <select id="shiftTimeSelect" class="form-select custom-input-sm select2" style="width: 350px;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto p-3" style="width: 200px;">
+                            <button class="btn-submit-report" id="btnGenerateReport">สร้างรายงาน</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            
+                <div id="report-body" class="report-preview-container" style="display:none;">
+
+                    <div class="report-title-center">Unsort Shift Summary Report</div>
+
+                    <div class="row report-header-info mb-4">
+                        <div class="col-md-4">
+                            <div><strong>Machine:</strong> เครื่อง M7 ศสร.</div>
+                            <div><strong>ผู้เตรียมธนบัตร:</strong> สุภาวดี ยี่สุ่น</div>
+                            <div><strong>ผู้กระทบยอด:</strong> รัมย์ปวีร์ อักษรเพียร</div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="text-navy ">CC</div>
+                            <div class="text-navy small">นอกเวลาทำการ รปท.</div>
+                            <div class="mt-2"><strong>ชนิดราคา:</strong> All</div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <div><strong>วันที่พิมพ์:</strong> 2/7/2025</div>
+                            <div><strong>วันที่ปฏิบัติงาน:</strong> 2025-07-01</div>
+                            <div><strong>ผู้ปฏิบัติงาน:</strong> วรรณิศา ปาคะเซนทร์</div>
+                            <div><strong>ผู้ควบคุมงาน:</strong> จุไรรัตน์ กลิ่นพิกุล</div>
+                            <div class="mt-2"><strong>รอบ:</strong> Overtime</div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table-report text-center" border="1" style="border-collapse: collapse; width: 100%; font-family: sans-serif; font-size: 13px; border-color: #3366ff;">
+                            <thead style="background-color: #f2f2f2;">
+                                <tr>
+                                    <th>ธนาคาร</th>
+                                    <th>ชนิดราคา</th>
+                                    <th>แบบ</th>
+                                    <th>ดี (+)</th>
+                                    <th>เสีย (+)</th>
+                                    <th>Reject (+)</th>
+                                    <th>ทำลาย (+)</th>
+                                    <th>ปลอม (0)</th>
+                                    <th>ชำรุด (0)</th>
+                                    <th>รวมก่อนปรับ</th>
+                                    <th>มูลค่าก่อนปรับ</th>
+                                    <th>ขาด (+)</th>
+                                    <th>เกิน (-)</th>
+                                    <th>รวมหลังปรับ</th>
+                                    <th>มูลค่าหลังปรับทั้งสิ้น</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color: #d9e9ff; font-weight: bold;">
+                                    <td colspan="3" style="text-align: center !important; vertical-align: middle !important;">รวม ธนาคารกสิกร</td>
+                                    <td>143,993</td>
+                                    <td>2</td>
+                                    <td>1,269</td>
+                                    <td>135,709</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>280,973</td>
+                                    <td>246,783,450</td>
+                                    <td>27</td>
+                                    <td>0</td>
+                                    <td>281,000</td>
+                                    <td>246,800,000</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="5" style="background-color: #fff;" text-align: center !important; vertical-align: middle !important;">ธนาคารกสิกร</td>
+                                    <td colspan="2" style="text-align: center !important; vertical-align: middle !important;">รวม 1000</td>
+                                    <td>130,414</td>
+                                    <td>2</td>
+                                    <td>1,070</td>
+                                    <td>113,498</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>244,984</td>
+                                    <td>244,984,000</td>
+                                    <td>16</td>
+                                    <td>0</td>
+                                    <td>245,000</td>
+                                    <td>245,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center !important; vertical-align: middle !important;">1000</td>
+                                    <td>17</td>
+                                    <td>130,414</td>
+                                    <td>2</td>
+                                    <td>1,070</td>
+                                    <td>113,498</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>244,984</td>
+                                    <td>244,984,000</td>
+                                    <td>16</td>
+                                    <td>0</td>
+                                    <td>245,000</td>
+                                    <td>245,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center !important; vertical-align: middle !important;">รวม 50</td>
+                                    <td>13,579</td>
+                                    <td>0</td>
+                                    <td>199</td>
+                                    <td>22,211</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>35,989</td>
+                                    <td>1,799,450</td>
+                                    <td>11</td>
+                                    <td>0</td>
+                                    <td>36,000</td>
+                                    <td>1,800,000</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="text-align: center !important; vertical-align: middle !important;">50</td>
+                                    <td>17P</td>
+                                    <td>10,720</td>
+                                    <td>0</td>
+                                    <td>111</td>
+                                    <td>7,703</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>18,534</td>
+                                    <td>926,700</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>18,534</td>
+                                    <td>926,700</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>2,859</td>
+                                    <td>0</td>
+                                    <td>88</td>
+                                    <td>14,508</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>17,455</td>
+                                    <td>872,750</td>
+                                    <td>11</td>
+                                    <td>0</td>
+                                    <td>17,466</td>
+                                    <td>873,300</td>
+                                </tr>
+
+                                <tr style="background-color: #d9e9ff; font-weight: bold;">
+                                    <td colspan="3" style="text-align: center !important; vertical-align: middle !important;">รวม ธนาคารกรุงไทย</td>
+                                    <td>266,709</td>
+                                    <td>1</td>
+                                    <td>4,932</td>
+                                    <td>143,359</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>415,001</td>
+                                    <td>29,898,100</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>415,000</td>
+                                    <td>29,900,000</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="7" style="background-color: #fff;">ธนาคารกรุงไทย</td>
+                                    <td colspan="2" style="text-align: center !important; vertical-align: middle !important;">รวม 500</td>
+                                    <td>34,543</td>
+                                    <td>1</td>
+                                    <td>90</td>
+                                    <td>10,362</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>44,996</td>
+                                    <td>22,498,000</td>
+                                    <td>4</td>
+                                    <td>0</td>
+                                    <td>45,000</td>
+                                    <td>22,500,000</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" style="text-align: center !important; vertical-align: middle !important;">500</td>
+                                    <td>17</td>
+                                    <td>13,973</td>
+                                    <td>1</td>
+                                    <td>50</td>
+                                    <td>8,712</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>22,736</td>
+                                    <td>11,368,000</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>22,736</td>
+                                    <td>11,368,000</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>11,770</td>
+                                    <td>0</td>
+                                    <td>20</td>
+                                    <td>1,405</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>13,195</td>
+                                    <td>6,597,500</td>
+                                    <td>4</td>
+                                    <td>0</td>
+                                    <td>13,199</td>
+                                    <td>6,599,500</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>8,800</td>
+                                    <td>0</td>
+                                    <td>20</td>
+                                    <td>245</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>9,065</td>
+                                    <td>4,532,500</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>9,065</td>
+                                    <td>4,532,500</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center !important; vertical-align: middle !important;">รวม 20</td>
+                                    <td>232,166</td>
+                                    <td>0</td>
+                                    <td>4,842</td>
+                                    <td>132,997</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>370,005</td>
+                                    <td>7,400,100</td>
+                                    <td>0</td>
+                                    <td>5</td>
+                                    <td>370,000</td>
+                                    <td>7,400,000</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="text-align: center !important; vertical-align: middle !important;">20</td>
+                                    <td>17P</td>
+                                    <td>187,952</td>
+                                    <td>0</td>
+                                    <td>290</td>
+                                    <td>14,810</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>203,052</td>
+                                    <td>4,061,040</td>
+                                    <td>0</td>
+                                    <td>5</td>
+                                    <td>203,047</td>
+                                    <td>4,060,940</td>
+                                </tr>
+                                <tr>
+                                    <td>17</td>
+                                    <td>44,214</td>
+                                    <td>0</td>
+                                    <td>4,552</td>
+                                    <td>118,187</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>166,953</td>
+                                    <td>3,339,060</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>166,953</td>
+                                    <td>3,339,060</td>
+                                </tr>
+
+                                <tr style="background-color: #adb9ca; font-weight: bold;">
+                                    <td colspan="3">รวมทั้งหมด</td>
+                                    <td>410,702</td>
+                                    <td>3</td>
+                                    <td>6,201</td>
+                                    <td>279,068</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>695,974</td>
+                                    <td>276,681,550</td>
+                                    <td>31</td>
+                                    <td>5</td>
+                                    <td>696,000</td>
+                                    <td>276,700,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    @*      <div class="report-preview-container shadow-sm scrollable-report">
+                    <iframe id="reportFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+                </div> *@
+
+
+
+                    <div id="pdf-viewer-container" style="width: 100%; height: 92%;">
+                        <iframe id="pdf-iframe" style="width: 100%; height: 100%; border: none; display: none;"></iframe>
+                    </div>
+
+
+                </div>
+
+
+               
+
+            <div id="pdf-viewer-container" style="width: 100%; height: 73%;margin-top:10px;">
+                <iframe id="pdf-iframe" style="width: 100%; height: 100%; border: none; display: none;" title=""></iframe>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="@Url.Content("~/js/report/BankSummary.js")" asp-append-version="true"></script>
+<script src="@Url.Content("~/js/helpers/bss-report-export.js")"></script>

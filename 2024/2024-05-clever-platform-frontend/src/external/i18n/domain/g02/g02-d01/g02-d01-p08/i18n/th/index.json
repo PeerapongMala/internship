@@ -1,0 +1,8 @@
+{
+  "title": "การอัพโหลดข้อมูล",
+  "waiting_upload_tab_label": "รออัพโหลดข้อมูล",
+  "waiting_upload_subtitle": "ข้อมูลจะถูกอัพโหลดอัตโนมัติ เมื่ออุปกรณ์เชื่อมต่ออินเทอร์เน็ต",
+  "uploaded_history_tab_label": "ประวัติการอัพโหลด",
+  "last_login": "เข้าสู่ระบบล่าสุด: {{ date }}",
+  "latest_uploaded": "อัพโหลดล่าสุด: {{ date }}"
+}

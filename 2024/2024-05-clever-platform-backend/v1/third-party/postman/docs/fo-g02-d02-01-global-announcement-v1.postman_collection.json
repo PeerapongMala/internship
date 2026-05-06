@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "59eef80a-c49c-4eab-a43d-8ada925b10be",
+		"name": "fo-g02-d02-01-global-announcement-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38042661"
+	},
+	"item": [
+		{
+			"name": "g02-d02-01-a01-system-announcement-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTg1NTg5NywibmJmIjoxNzM5NzY5NDk3LCJpYXQiOjE3Mzk3Njk0OTcsImp0aSI6IjhhNDViYTBjLTU0ZjQtNGNhMC1hMDJkLTRmMDQ4ZWNhZTFjOCJ9.HRldm2e6iBp_fjUXYw213rE4SL8XaHckd0k8KozeZnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/global-announcement/v1/announcement/system",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"global-announcement",
+						"v1",
+						"announcement",
+						"system"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d02-01-a02-teacher-announcement-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTg1NTg5NywibmJmIjoxNzM5NzY5NDk3LCJpYXQiOjE3Mzk3Njk0OTcsImp0aSI6IjhhNDViYTBjLTU0ZjQtNGNhMC1hMDJkLTRmMDQ4ZWNhZTFjOCJ9.HRldm2e6iBp_fjUXYw213rE4SL8XaHckd0k8KozeZnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/global-announcement/v1/announcement/teacher",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"global-announcement",
+						"v1",
+						"announcement",
+						"teacher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d02-01-a03-read-announcement-by-id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTg1NTg5NywibmJmIjoxNzM5NzY5NDk3LCJpYXQiOjE3Mzk3Njk0OTcsImp0aSI6IjhhNDViYTBjLTU0ZjQtNGNhMC1hMDJkLTRmMDQ4ZWNhZTFjOCJ9.HRldm2e6iBp_fjUXYw213rE4SL8XaHckd0k8KozeZnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/global-announcement/v1/announcement/:announceId",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"global-announcement",
+						"v1",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "58"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d02-01-a04-system-announcement-read-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTg1NTg5NywibmJmIjoxNzM5NzY5NDk3LCJpYXQiOjE3Mzk3Njk0OTcsImp0aSI6IjhhNDViYTBjLTU0ZjQtNGNhMC1hMDJkLTRmMDQ4ZWNhZTFjOCJ9.HRldm2e6iBp_fjUXYw213rE4SL8XaHckd0k8KozeZnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/global-announcement/v1/announcement/system",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"global-announcement",
+						"v1",
+						"announcement",
+						"system"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g02-d02-01-a05-teacher-announcement-read-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTg1NTg5NywibmJmIjoxNzM5NzY5NDk3LCJpYXQiOjE3Mzk3Njk0OTcsImp0aSI6IjhhNDViYTBjLTU0ZjQtNGNhMC1hMDJkLTRmMDQ4ZWNhZTFjOCJ9.HRldm2e6iBp_fjUXYw213rE4SL8XaHckd0k8KozeZnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/global-announcement/v1/announcement/teacher",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"global-announcement",
+						"v1",
+						"announcement",
+						"teacher"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

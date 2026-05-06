@@ -1,0 +1,949 @@
+/* ============================================
+   Revoke Transaction — Single-Column Layout
+   Figma node 2-51049
+   Font: 'bss-pridi' (registered via @font-face)
+   Style.css forces font-weight:normal on *, must use !important
+   ============================================ */
+
+/* ============================================
+ * TITLE BAR
+ * ============================================ */
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 62px;
+    padding-top: 8px;
+    margin-bottom: 0;
+    padding-left: 2px;
+    flex-shrink: 0;
+}
+
+.page-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 30px;
+    font-weight: 600 !important;
+    color: #212121;
+    letter-spacing: 0.675px;
+    line-height: 1.2;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ============================================
+ * INFO PANEL — Figma: transparent bg, Date + Supervisor only
+ * ============================================ */
+
+.info-panel {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 8px 0;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.info-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 12px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.info-value {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 12px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* ============================================
+ * FILTER BUTTON — Figma: navy #003366, radius 4px
+ * ============================================ */
+
+.btn-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 98px;
+    height: 36px;
+    padding: 4px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background: #003366;
+    color: #FFFFFF;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-filter:hover {
+    background: #002244;
+}
+
+.btn-filter .btn-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.btn-filter .btn-text {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    color: #FFFFFF;
+}
+
+/* ============================================
+ * FILTER BAR
+ * ============================================ */
+
+.filter-bar {
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+<<<<<<< HEAD
+    margin-bottom: 8px;
+=======
+    margin-bottom: 5px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.filter-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 31px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    height: 31px;
+    gap: 8px;
+    flex: 1;
+}
+
+.filter-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.35px;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.filter-select {
+    height: 31px;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    padding: 5px 9px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 400 !important;
+    color: #6C757D;
+    background: #FFFFFF;
+    flex: 1;
+    min-width: 0;
+}
+
+.filter-select:not([value=""]),
+.filter-select option:not([value=""]) {
+    color: #212121;
+}
+
+/* ============================================
+ * REVOKE CONTENT — Single Column
+ * ============================================ */
+
+.revoke-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* ============================================
+ * TABLE SECTIONS
+ * ============================================ */
+
+.hc-table-section,
+.detail-table-section {
+    background: #FFFFFF;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.hc-table-section {
+    flex: 1;
+}
+
+.detail-table-section {
+    flex: 1;
+}
+
+<<<<<<< HEAD
+/* Detail table: 5 equal columns (flex:1 0 0 per Figma) */
+.detail-table-section .revoke-table {
+    table-layout: fixed;
+}
+=======
+/* Detail table: custom column widths */
+.detail-table-section .revoke-table {
+    table-layout: fixed;
+}
+.detail-table-section .revoke-table thead th:nth-child(1),
+.detail-table-section .revoke-table tbody td:nth-child(1) { width: 30%; } /* ชนิดราคา */
+.detail-table-section .revoke-table thead th:nth-child(2),
+.detail-table-section .revoke-table tbody td:nth-child(2) { width: 30%; } /* ประเภท */
+.detail-table-section .revoke-table thead th:nth-child(3),
+.detail-table-section .revoke-table tbody td:nth-child(3) { width: 15%; } /* แบบ */
+.detail-table-section .revoke-table thead th:nth-child(4),
+.detail-table-section .revoke-table tbody td:nth-child(4) { width: 25%; } /* จำนวนฉบับ */
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+
+.detail-table-section .revoke-table thead th {
+    height: 30px;
+    padding: 8px;
+    font-size: 13px;
+}
+
+.detail-table-section .revoke-table tbody td {
+    height: 40px;
+    padding: 6px 8px;
+    font-size: 12px;
+}
+
+.detail-table-section .revoke-table thead th:first-child,
+.detail-table-section .revoke-table tbody td:first-child {
+    padding-left: 16px !important;
+}
+
+/* จำนวนฉบับ */
+.detail-table-section .revoke-table tbody td.col-qty {
+    font-size: 14px;
+}
+
+<<<<<<< HEAD
+/* Badge — สี่เหลี่ยม ไม่มีมุมโค้ง */
+.detail-table-section .qty-badge {
+    border-radius: 0;
+    font-weight: 700 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+}
+
+=======
+/* Denomination badge (matched to Reconsile p02 spec) */
+.qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 0;
+    background-image: none !important;
+}
+
+.qty-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png") !important;
+    background-size: 445px 435px !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.qty-100 { color: #991B1B !important; }
+.qty-20  { color: #3B7E3A !important; }
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.table-section-header {
+    height: 45px;
+    min-height: 45px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.table-section-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 600 !important;
+    color: #212121;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.table-section-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.table-section-count-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 2.3px;
+}
+
+.table-section-count-value {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 2.3px;
+}
+
+/* ============================================
+ * TABLE SCROLL AREA
+ * ============================================ */
+
+.table-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    min-height: 0;
+}
+
+.table-scroll-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table-scroll-area::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Firefox */
+.table-scroll-area {
+    scrollbar-width: thin;
+    scrollbar-color: #909090 #e5e7eb;
+}
+
+/* ============================================
+ * REVOKE TABLE — Standard <table>
+ * ============================================ */
+
+.revoke-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'bss-pridi', sans-serif !important;
+}
+
+.revoke-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #D6E0E0;
+    font-size: 13px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 0.3px;
+    line-height: 20px;
+    padding: 8px 12px;
+    height: 34px;
+    border-bottom: 1px solid #cbd5e1;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.revoke-table tbody td {
+    font-size: 12px;
+    font-weight: 400 !important;
+    color: #212529;
+    letter-spacing: 0.35px;
+    line-height: 1.5;
+    padding: 8px 12px;
+    height: 38px;
+    border-bottom: 1px solid #DEE2E6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.revoke-table tbody tr {
+    border-left: 2px solid transparent;
+}
+
+.revoke-table tbody tr:hover {
+    background: #f2f6f6;
+}
+
+.revoke-table tbody tr.selected {
+    background: #D1E5FA;
+    border-left: 2px solid #297ED4;
+}
+
+/* Zebra striping for detail table */
+.detail-table-section .revoke-table tbody tr:nth-child(odd) {
+    background: #f2f6f6;
+}
+.detail-table-section .revoke-table tbody tr:nth-child(even) {
+    background: #FFFFFF;
+}
+
+/* Checkbox column — header */
+.revoke-table th.col-chk {
+  width: 48px;
+  text-align: center;
+  padding-left: 16px !important;
+  margin-top: 5px !important;
+}
+
+/* Checkbox column — body cells */
+.revoke-table td.col-chk {
+    width: 48px;
+    text-align: center;
+    padding-left: 16px !important;
+    margin-top: 5px !important;
+}
+
+.revoke-table .col-chk input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+     margin-top: 5px !important;
+}
+
+/* Denomination badge — uses qty-badge + qty-{price} from all.css */
+/* all.css provides: .qty-badge (base), .qty-1000, .qty-500, .qty-100, .qty-50, .qty-20
+   with background-image pattern and correct colors per denomination */
+
+/* Sort icon in header — Bootstrap Icons (same as Reconcile) */
+.th-sort {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+}
+
+.th-sort:hover {
+    background: #c5d0d0;
+}
+
+.th-sort .sort-icon {
+    display: inline-block;
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    margin-left: -2px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    text-align: center;
+    line-height: 12px;
+}
+
+.th-sort:hover .sort-icon {
+    opacity: 1;
+}
+
+/* Text alignment */
+.revoke-table .text-right {
+    text-align: right;
+}
+
+.revoke-table .text-center {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #909090 !important;
+}
+
+/* ============================================
+ * STATUS BADGE
+ * ============================================ */
+
+.badge-status {
+    height: 19px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 11px;
+    font-weight: 400 !important;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.badge-status--send-to-cbms {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.badge-status--revoked {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-status--edited {
+    background: #fee2e2;
+    color: #DC3545;
+}
+
+/* ============================================
+ * FOOTER BAR
+ * ============================================ */
+
+.footer-bar {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.footer-spacer {
+    flex: 1;
+}
+
+.btn-revoke {
+    width: 229px;
+    height: 48px !important;
+    padding: 9px 17px;
+    border-radius: 8px;
+    background: #003366;
+    border: 1px solid #003366;
+    color: #FFFFFF;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+<<<<<<< HEAD
+.btn-revoke:hover {
+    background: #002244;
+}
+
+=======
+.btn-revoke:hover:not(:disabled) {
+    background: #002244;
+}
+
+.btn-revoke:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* ============================================
+ * MODAL — Shared Base
+ * ============================================ */
+
+.modal-popup .modal-content {
+    border-radius: 12px !important;
+    border: 1px solid #eee !important;
+    overflow: hidden;
+}
+
+.modal-popup .modal-top-bar {
+    padding: 16px;
+<<<<<<< HEAD
+    border-bottom: none;
+=======
+    border-bottom: 1px solid #dee2e6;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.modal-popup .modal-top-bar .modal-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+.modal-popup .modal-top-bar .modal-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    letter-spacing: 0.35px;
+    margin-top: 4px;
+}
+
+.modal-popup .modal-action-bar {
+    border-top: 1px solid #cbd5e1;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-popup .btn-popup {
+    width: 160px;
+    height: 38px;
+    border-radius: 6px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-popup-cancel {
+    background: #6c757d !important;
+    color: white !important;
+}
+.btn-popup-cancel:hover {
+    background: #5a6268 !important;
+    color: white !important;
+}
+
+.btn-popup-confirm {
+    background: #003366 !important;
+    color: white !important;
+}
+.btn-popup-confirm:hover {
+    background: #002244 !important;
+    color: white !important;
+}
+
+/* ============================================
+ * MODAL — Revoke Confirm (Figma node 2-52791)
+ * ============================================ */
+
+.modal-revoke-confirm .modal-body-area {
+    padding: 24px;
+    max-height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scrollbar-gutter: stable;
+}
+
+.modal-revoke-confirm .modal-body-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-revoke-confirm .modal-body-area::-webkit-scrollbar-track {
+    background: white;
+}
+
+.modal-revoke-confirm .modal-body-area::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Table section inside modal — bordered frame */
+.modal-table-section {
+    border: 1px solid #cbd5e1;
+<<<<<<< HEAD
+    border-radius: 12px;
+=======
+    border-radius: 16px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    overflow: hidden;
+    min-height: 215px;
+}
+
+.modal-table-section .table-section-header {
+    min-height: 45px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.modal-table-scroll {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.modal-table-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-table-scroll::-webkit-scrollbar-track {
+    background: white;
+    border-left: 1px solid #CBD5E1;
+    border-right: 1px solid #CBD5E1;
+}
+
+.modal-table-scroll::-webkit-scrollbar-thumb {
+    background: #909090;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Firefox */
+.modal-table-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #909090 #e5e7eb;
+}
+
+/* Modal table row styling */
+.modal-table-section .revoke-table thead th {
+    padding: 8px;
+}
+
+.modal-table-section .revoke-table tbody td {
+    font-size: 14px;
+    padding: 6px 8px;
+}
+
+.modal-table-section .revoke-table thead th:first-child,
+.modal-table-section .revoke-table tbody td:first-child {
+    padding-left: 16px !important;
+}
+
+.modal-table-section .revoke-table tbody tr:nth-child(odd) {
+    background: #FFFFFF;
+}
+
+.modal-table-section .revoke-table tbody tr:nth-child(even) {
+    background: #f2f6f6;
+}
+
+/* Confirm section */
+.modal-confirm-section {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-confirm-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.modal-manager-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-manager-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #212121;
+    white-space: nowrap;
+}
+
+.modal-manager-select {
+    width: 291px;
+    padding: 7px 13px;
+    border: 1px solid #CED4DA;
+    border-radius: 6px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #6c757d;
+    background: #FFFFFF;
+}
+
+.modal-manager-select:not([value=""]) {
+    color: #212121;
+}
+
+/* ============================================
+<<<<<<< HEAD
+=======
+ * OTP STEP (Step B)
+ * ============================================ */
+
+.revoke-otp-info-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.revoke-otp-info-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    color: #333;
+}
+
+.revoke-otp-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.revoke-otp-input {
+    width: 50%;
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #212529;
+}
+
+.revoke-otp-input:focus {
+    border-color: #003366;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(0, 51, 102, 0.25);
+}
+
+.revoke-otp-input:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+}
+
+.revoke-otp-sent-msg {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.revoke-otp-sent-msg .otp-sent-text {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 400;
+    color: #198754;
+}
+
+.revoke-otp-resend-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.revoke-otp-resend-row .btn-resend-otp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #003366;
+    border: 1px solid #003366;
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 14px;
+    cursor: pointer;
+    line-height: 1.5;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.revoke-otp-resend-row .btn-resend-otp .resend-icon {
+    flex-shrink: 0;
+}
+
+.revoke-otp-resend-row .btn-resend-otp:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.revoke-otp-resend-row .btn-resend-otp:not(:disabled):hover {
+    background: #198754;
+    border-color: #198754;
+    transform: translateY(-2px);
+}
+
+.revoke-otp-resend-row .otp-timer {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c757d;
+}
+
+/* ============================================
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+ * SUCCESS / ERROR MODAL ICONS
+ * ============================================ */
+
+.modal-success-title i {
+    font-size: 64px;
+    color: #198754;
+}
+
+.modal-warning-title i {
+    font-size: 64px;
+    color: #DC3545;
+}

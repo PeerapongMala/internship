@@ -1,0 +1,30 @@
+﻿@model BSS_WEB.Views.Preparation.SecondScreenPreparationUnsortCAMember.IndexModel
+@{
+    Layout = "~/Views/Shared/_LayoutSecondScreen.cshtml";
+    ViewData["Title"] = "Display Two Preparation Unsort CA Member";
+}
+
+@Html.AntiForgeryToken()
+<div class="container">
+    <div class="second-screen-card">
+        <div class="second-screen-card-inner">
+            <div class="second-screen-cashpoint">
+                <span class="marquee-content" id="displayCashpoint">XXX</span>
+            </div>
+            <div class="second-screen-row extra-container">
+                <div class="extra-content">
+                    <div class="second-screen-bank" id="displayBankName">XXX</div>
+                    <div class="second-screen-zone" id="displayZone">XXX</div>
+                    <div class="second-screen-deno" id="displayDeno">XXX</div>
+                    <input type="text" id="denoType" value="XXX" style="display:none;" />
+                </div>
+            </div>
+            <div class="second-screen-container" id="displayContainerId">XXX</div>
+        </div>
+    </div>
+    <button type="button" id="btnRefreshSecondScreen" style="display:none;"></button>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/master/secondScreen.js")" asp-append-version="true"></script>
+}

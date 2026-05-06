@@ -1,0 +1,2048 @@
+{
+	"info": {
+		"_postman_id": "5c1bd20b-7260-43ac-95a5-be3a8d1631e9",
+		"name": "bo-g01-d02-admin-affiliation-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-school-affiliation-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "LLC",
+							"description": "optional, ชื่อสังกัด (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "school_affiliation_group",
+							"value": "สช",
+							"description": "optional, ประเภทกลุ่มสังกัด (สช / อื่นๆ)",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "เอกชน",
+							"description": "optional, ประเภทสังกัด (รัฐ / เอกชน)",
+							"disabled": true
+						}
+					]
+				},
+				"description": "# list สังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-school-affiliation-doe-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/doe/?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"doe",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "Row",
+							"description": "optional, ชื่อสังกัด (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "เอกชน",
+							"description": "optional, ประเภทสังกัด (รัฐ / เอกชน)",
+							"disabled": true
+						},
+						{
+							"key": "district_zone",
+							"value": "Tequilar",
+							"description": "optional, เขตตรวจ (6 เขต)",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "Gislasonfort",
+							"description": "optional, เขตพื้นที่ (50 เขต)",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "disabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						}
+					]
+				},
+				"description": "# list สังกัดประเภท สนศ. กทม."
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-school-affiliation-obec-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/obec?page=1&limit=10&type=รัฐ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"obec"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "Swan",
+							"description": "optional, ชื่อสังกัด (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "inspection_area",
+							"value": "North Estelleland",
+							"description": "optional, เขต (18 เขตตรวจ)",
+							"disabled": true
+						},
+						{
+							"key": "area_office",
+							"value": "East Pete",
+							"description": "optional, พื้นที่",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "รัฐ",
+							"description": "optional, ประเภทสังกัด (รัฐ / เอกชน)"
+						}
+					]
+				},
+				"description": "# list สังกัดโรงเรียนนประเภท สพฐ"
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-school-affiliation-lao-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/lao?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"lao"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "Robel",
+							"description": "optional, ชื่อสังกัด (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "lao_type",
+							"value": "อบต",
+							"description": "optional, ประเภท (อบจ / อบต / เทศบาลนคร / เทศบาลตำบล / เทศบาลอำเภอ)",
+							"disabled": true
+						},
+						{
+							"key": "province",
+							"value": "Yostfurt",
+							"description": "optional, จังหวัด",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "Rueckerland",
+							"description": "optional, อำเภอ",
+							"disabled": true
+						},
+						{
+							"key": "sub_district",
+							"value": "North Tanyaview",
+							"description": "optional, ตำบล",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						}
+					]
+				},
+				"description": "# list สังกัดโรงเรียนประเภท อปท"
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-school-affiliation-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_affiliation_group\": \"อื่นๆ\", // required, ประเภทกลุ่มสังกัด (สช / อื่นๆ)\r\n    \"type\": \"เอกชน\", // required, ประเภทสังกัด (รัฐ / เอกชน)\r\n    \"name\": \"{{$randomCompanyName}}\", // required, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // required, ตัวย่อสังกัด\r\n    \"status\": \"disabled\" // required, สถานะ (enabled / disabled / draft)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						""
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-school-affiliation-doe-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"เอกชน\", // required, ประเภทสังกัด (รัฐ / เอกชน)\r\n    \"name\": \"{{$randomCompanyName}}\", // required, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // required, ตัวย่อสังกัด\r\n    \"status\": \"disabled\",  // required, สถานะ (enabled / disabled / draft)\r\n    \"district_zone\": \"{{$randomCity}}\", // required, เขตตรวจ (6 เขต)\r\n    \"district\": \"{{$randomCity}}\" // required, เขตพื้นที่ (50 เขต)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/doe",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"doe"
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สนศ. กทม."
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-school-affiliation-obec-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"รัฐ\", // required, ประเภทสังกัด (รัฐ / เอกชน)\r\n    \"name\": \"{{$randomCompanyName}}\", // required, ชื่อสังกัด\r\n    // \"short_name\": \"{{$randomAbbreviation}}\", // required, ตัวย่อสังกัด\r\n    \"status\": \"disabled\",  // required, สถานะ (enabled / disabled / draft)\r\n    \"inspection_area\": \"{{$randomCity}}\", // required, เขต (18 เขตตรวจ)\r\n    \"area_office\": \"{{$randomCity}}\" // required, พื้นที่\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/obec",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"obec"
+					]
+				},
+				"description": "# สร้างสังกัดประเภท สพฐ"
+			},
+			"response": []
+		},
+		{
+			"name": "a08-api-school-affiliation-lao-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lao_type\": \"อบต\", // required, ประเภท (อบจ / อบต / เทศบาลนคร / เทศบาลตำบล / เทศบาลอำเภอ)\r\n    \"name\": \"{{$randomCompanyName}}\", // required, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // required, ตัวย่อสังกัด\r\n    \"status\": \"disabled\",  // required, สถานะ (enabled / disabled / draft)\r\n    \"district\": \"{{$randomCity}}\", // required, อำเภอ\r\n    \"sub_district\": \"{{$randomCity}}\", // required, ตำบล\r\n    \"province\": \"{{$randomCity}}\" // required, จังหวัด\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/lao",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"lao"
+					]
+				},
+				"description": "# สร้างสังกัดประเภท อปท"
+			},
+			"response": []
+		},
+		{
+			"name": "a09-api-school-affiliation-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"รัฐ\", // optional, ประเภทสังกัด (รัฐ / เอกชน)\r\n    \"name\": \"{{$randomCompanyName}}\", // optional, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // optional, ตัวย่อสังกัด\r\n    \"status\": \"enabled\" // optional, สถานะ (enabled / disabled / draft)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/:schoolAffiliationId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						":schoolAffiliationId"
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "1",
+							"description": "required, ID ของสังกัดโรงเรียนประเภท สช / อื่นๆ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a10-api-school-affiliation-doe-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"รัฐ\", // optional, ประเภทสังกัด (รัฐ / เอกชน)\r\n    \"name\": \"{{$randomCompanyName}}\", // optional, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // optional, ตัวย่อสังกัด\r\n    \"status\": \"enabled\",  // optional, สถานะ (enabled / disabled / draft)\r\n    \"district_zone\": \"{{$randomCity}}\", // optional, เขตตรวจ (6 เขต)\r\n    \"district\": \"{{$randomCity}}\" // optional, เขตพื้นที่ (50 เขต)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/doe/:schoolAffiliationId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"doe",
+						":schoolAffiliationId"
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "20",
+							"description": "required, ID ของสังกัดโรงเรียนประเภท สนศ. กทม."
+						}
+					]
+				},
+				"description": "# อัพเดทสังกัดประเภท สนศ. กทม."
+			},
+			"response": []
+		},
+		{
+			"name": "a11-api-school-affiliation-obec-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"เอกชน\", // required, ประเภทสังกัด (รัฐ / เอกชน)\r\n    \"name\": \"{{$randomCompanyName}}\", // required, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // required, ตัวย่อสังกัด\r\n    \"status\": \"enabled\",  // required, สถานะ (enabled / disabled / draft)\r\n    \"inspection_area\": \"{{$randomCity}}\", // required, เขต (18 เขตตรวจ)\r\n    \"area_office\": \"{{$randomCity}}\" // required, พื้นที่\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/obec/:schoolAffiliationId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"obec",
+						":schoolAffiliationId"
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "22",
+							"description": "required, ID ของสังกัดโรงเรียนประเภท สพฐ"
+						}
+					]
+				},
+				"description": "# อัพเดทสังกัดประเภท สพฐ"
+			},
+			"response": []
+		},
+		{
+			"name": "a12-api-school-affiliation-lao-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lao_type\": \"อบต\", // optional, ประเภท (อบจ / อบต / เทศบาลนคร / เทศบาลตำบล / เทศบาลอำเภอ)\r\n    \"name\": \"{{$randomCompanyName}}\", // optional, ชื่อสังกัด\r\n    \"short_name\": \"{{$randomAbbreviation}}\", // optional, ตัวย่อสังกัด\r\n    \"status\": \"enabled\",  // optional, สถานะ (enabled / disabled / draft)\r\n    \"district\": \"{{$randomCity}}\", // optional, อำเภอ\r\n    \"sub_district\": \"{{$randomCity}}\", // optional, ตำบล\r\n    \"province\": \"{{$randomCity}}\" // optional, จังหวัด\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/lao/:schoolAffiliationId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"lao",
+						":schoolAffiliationId"
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "23",
+							"description": "required, ID ของสังกัดโรงเรียนประเภท อปท"
+						}
+					]
+				},
+				"description": "# อัพเดทสังกัดประเภท อปท"
+			},
+			"response": []
+		},
+		{
+			"name": "a13-api-school-affiliation-get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/all/:schoolAffiliationId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"all",
+						":schoolAffiliationId"
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "# ดูข้อมูลสังกัด"
+			},
+			"response": []
+		},
+		{
+			"name": "a14-api-contract-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_affiliation_id\": 1, // required, id ของสังกัดโรงเรียน\r\n    \"seed_platform_id\": 1, // required\r\n    // \"seed_project_id\": 1, // required\r\n    \"name\": \"สัญญาประจำปี 2567\", // required, ชื่อสัญญา\r\n    \"start_date\": \"2024-10-30T08:29:35.815287Z\", // required, วันที่เริ่มต้นสัญญา\r\n    \"end_date\": \"{{$isoTimestamp}}\", // required, วันที่สิ้นสุดสัญญา\r\n    \"wizard_index\": 1 // required, index ของ wizard (1-4)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts"
+					]
+				},
+				"description": "# สร้างสัญญา"
+			},
+			"response": []
+		},
+		{
+			"name": "a15-api-contract-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // \"name\": \"สัญญาประจำปี 2567\", // optional, ชื่อสัญญา\r\n    // \"seed_platform_id\": 2, // optional\r\n    // \"seed_project_id\": 1, // optional\r\n    // \"start_date\": \"2024-10-30T08:29:35.815287Z\", // optional, วันที่เริ่มต้นสัญญา\r\n    // \"end_date\": \"{{$isoTimestamp}}\", // optional, วันที่สิ้นสุดสัญญา\r\n    \"status\": \"enabled\"  // optional, สถานะ (enabled / disabled / draft)\r\n    // \"wizard_index\": 2 // optional, index ของ wizard (1-4)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "1",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				},
+				"description": "# อัพเดทข้อมูลสัญญา"
+			},
+			"response": []
+		},
+		{
+			"name": "a16-api-contract-case-add-school",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_ids\": [6] // required, Array ของ ID โรงเรียน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/schools",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"schools"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "11",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				},
+				"description": "# อัพเดทโรงเรียนในสัญญา"
+			},
+			"response": []
+		},
+		{
+			"name": "a17-api-contract-case-add-subject-group",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subjects\": [\r\n        {\r\n            \"subject_group_id\": 1, // required, ID ของหลักสูตร\r\n            \"is_enabled\": false // required, เปิดใช้งานหลักสูตรนี้ในสังกัด\r\n        },\r\n        {\r\n            \"subject_group_id\": 2,\r\n            \"is_enabled\": true\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/subject-groups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"subject-groups"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "2",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				},
+				"description": "# อัพเดทหลักสูตรในสัญญา"
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-school-affiliation-list-contract",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/:schoolAffiliationId/contracts?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						":schoolAffiliationId",
+						"contracts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "9",
+							"description": "optional, ชื่อสัญญา (Partial match)",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional, สถานะ (enabled / disabled / draft)",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "1",
+							"description": "required, ID ของสังกัดโรงเรียน"
+						}
+					]
+				},
+				"description": "# list สัญญาของสังกัด"
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-contract-case-list-subject-group",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/subject-groups?page=1&limit=10&search_text=ภาษา&seed_year_id=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"subject-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "ภาษา",
+							"description": "optional, ชื่อวิชา (Partial match)"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional, ID สังกัดวิชา",
+							"disabled": true
+						},
+						{
+							"key": "seed_year_id",
+							"value": "4",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "1",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				},
+				"description": "# list หลักสูตรของสัญญา"
+			},
+			"response": []
+		},
+		{
+			"name": "a20-api-contract-case-list-school",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/schools?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"schools"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "1",
+							"description": "optional, ชื่อโรงเรียน (Partial match) / ID โรงเรียน",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "9",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				},
+				"description": "# list โรงเรียนในสัญญา"
+			},
+			"response": []
+		},
+		{
+			"name": "a22-api-curriculum-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/list?page=1&limit=10&id=1&name=มหา&short_name=มรภ&status=enabled",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "name",
+							"value": "มหา",
+							"description": "optional"
+						},
+						{
+							"key": "short_name",
+							"value": "มรภ",
+							"description": "optional"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional"
+						}
+					]
+				},
+				"description": "# list สังกัดวิชา"
+			},
+			"response": []
+		},
+		{
+			"name": "a23-api-year-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/:curriculumGroupId/years/?page=1&limit=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						":curriculumGroupId",
+						"years",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "2",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1"
+						}
+					]
+				},
+				"description": "# list ชั้นปีของสังกัดวิชา"
+			},
+			"response": []
+		},
+		{
+			"name": "a24-api-subject-group-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/platforms/:platformId/subject-groups?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"platforms",
+						":platformId",
+						"subject-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "seed_year_id",
+							"value": "4",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "platformId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				},
+				"description": "# list กลุ่มวิชาของชั้นปี"
+			},
+			"response": []
+		},
+		{
+			"name": "a25-api-school-case-list-by-school-affiliation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/:schoolAffiliationId/schools?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						":schoolAffiliationId",
+						"schools"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "",
+							"description": "optional, ID / ชื่อ ของโรงเรียน",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "1",
+							"description": "required, ID ของ สังกัดโรงเรียน"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a26-api-contract-case-delete-school",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_ids\": [1, 2] // required, Array ของ ID โรงเรียน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/schools",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"schools"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "1",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a27-api-contract-case-delete-subject-group",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject_group_ids\": [] // required, Array ของ ID กลุ่มวิชา\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/subject-groups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"subject-groups"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "2",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a28-api-contract-case-toggle-subject-group",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_enabled\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/subject-groups/:subjectGroupId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"subject-groups",
+						":subjectGroupId"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "3",
+							"description": "required, ID ของสัญญา"
+						},
+						{
+							"key": "subjectGroupId",
+							"value": "2",
+							"description": "required, ID ของกลุ่มวิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a29-api-contract-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "4",
+							"description": "required, ID ของสัญญา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a30-api-school-affiliation-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"school_affiliation_id\": 1, // required, ID ของสังกัดโรงเรียน\r\n            \"status\": \"draft\" // required, สถานะ (enabled / disabled / draft)\r\n        },\r\n        {\r\n            \"school_affiliation_id\": 2,\r\n            \"status\": \"draft\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/school-affiliations/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"school-affiliations",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a31-api-school-affiliation-case-download-csv",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-12-09T08:44:24.776372Z",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-12-21T08:44:24.776372Z",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a32-api-school-affiliation-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/school-affiliations-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a34-api-curriculum-group-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"curriculum_group_id\": 3,\r\n            \"status\": \"disabled\"\r\n        },\r\n        {\r\n            \"curriculum_group_id\": 4,\r\n            \"status\": \"disabled\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a35-api-curriculum-group-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/download/csv?start_date=2024-11-17T17:25:19.8233372Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-11-17T17:25:19.8233372Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-12-09T08:44:24.776372Z",
+							"description": "optional",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a36-api-curriculum-group-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/curriculum-groups-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a37-api-curriculum-group-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"new name\", // optional\r\n    \"short_name\": \"new shortname\", // optional\r\n    \"status\": \"disabled\" // optional\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/:curriculumGrouopId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						":curriculumGrouopId"
+					],
+					"variable": [
+						{
+							"key": "curriculumGrouopId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a38-api-curriculum-group-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ONET\", // required\r\n    \"short_name\": \"ON\", // required\r\n    \"status\": \"enabled\" // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a39-api-curriulum-group-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/:curriculumGrouopId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						":curriculumGrouopId"
+					],
+					"variable": [
+						{
+							"key": "curriculumGrouopId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a40-api-content-creator-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/content-creators?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"content-creators"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "2",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "@admin.com",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "Pat",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "last_name",
+							"value": "Do",
+							"description": "optional",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a41-curriculum-group-case-update-content-creator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": 2, // 1 = add / 2 = remove\r\n    \"content_creator_ids\": [ \"cd1592be-7302-4805-a172-86956b0bf2a1\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/:curriculumGrouopId/content-creators",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						":curriculumGrouopId",
+						"content-creators"
+					],
+					"variable": [
+						{
+							"key": "curriculumGrouopId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a45-api-curriculum-group-case-download-content-creator-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/:curriculumGrouopId/content-creators/download/csv?start_date=2024-11-18T08:44:24.776372Z&end_date=2024-11-19T08:44:24.776372Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						":curriculumGrouopId",
+						"content-creators",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-11-18T08:44:24.776372Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-19T08:44:24.776372Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "curriculumGrouopId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a46-api-curriculum-group-case-upload-content-creator-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/content-creators-download"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/curriculum-groups/:curriculumGroupId/content-creators/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"curriculum-groups",
+						":curriculumGroupId",
+						"content-creators",
+						"upload",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a47-api-seed-year-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [\r\n        {\r\n            \"seed_year_id\": 1,\r\n            \"status\": \"disabled\"\r\n        },\r\n        {\r\n            \"seed_year_id\": 2,\r\n            \"status\": \"disabled\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a48-api-seed-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years?page=1&limit=10&id=1&name=ประถม&short_name=1&status=enabled",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "name",
+							"value": "ประถม",
+							"description": "optional"
+						},
+						{
+							"key": "short_name",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a49-api-seed-year-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-11-18T08:44:24.776372Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-12-18T08:44:24.776372Z",
+							"description": "optional",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a50-api-seed-year-case-upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"description": "required",
+							"type": "file",
+							"src": "/C:/Users/patwanich/work/zettamerge/clever-platform/csv/seed-year-upload.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a51-api-seed-year-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ประถม 1\", // optional\r\n    \"short_name\": \"ป.123\", // optional\r\n    \"status\": \"disabled\" // optional\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years/:seedYearId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years",
+						":seedYearId"
+					],
+					"variable": [
+						{
+							"key": "seedYearId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a52-api-seed-year-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ประถมศึกษาปีที่ 7\", // required\r\n    \"short_name\": \"ป. 1\", // required\r\n    \"status\": \"enabled\" // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a53-api-seed-year-get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-years/:seedYearId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-years",
+						":seedYearId"
+					],
+					"variable": [
+						{
+							"key": "seedYearId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a54-api-seed-platform-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/seed-platforms",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"seed-platforms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a55-api-contract-case-download-csv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/school-affiliations/:schoolAffiliationId/contracts?start_date=2024-11-18T08:44:24.776372Z&end_date=2024-11-20T21:44:24.776372Z",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"school-affiliations",
+						":schoolAffiliationId",
+						"contracts"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-11-18T08:44:24.776372Z",
+							"description": "optional"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-11-20T21:44:24.776372Z",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolAffiliationId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a56-api-contract-refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/school-affiliations/v1/contracts/:contractId/refresh",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"school-affiliations",
+						"v1",
+						"contracts",
+						":contractId",
+						"refresh"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

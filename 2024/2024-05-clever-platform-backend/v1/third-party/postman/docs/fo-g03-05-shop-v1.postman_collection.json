@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "143edebc-d2a0-4a30-bc73-0a7cd1fd6ea9",
+		"name": "fo-g03-05-shop-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40769587"
+	},
+	"item": [
+		{
+			"name": "Pet lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/pet",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pet get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/pet/pet_id/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"pet",
+						"pet_id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Avatar lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/avatar",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Avatar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/avatar/avatar_id/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"avatar",
+						"avatar_id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item badge lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/badge",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item badge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/badge/item_id/2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"badge",
+						"item_id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item frame lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/frame",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"frame"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item frame",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/frame/item_id/7",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"frame",
+						"item_id",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item coupon lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/coupon",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"coupon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item coupon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/coupon/item_id/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"coupon",
+						"item_id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Avatar Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"avatar_id\" : 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/avatar",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item badge create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 14,\n    \"type\": \"badge\",\n    \"amount\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/badge",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item frame create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 17,\n    \"type\": \"frame\",\n    \"amount\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/frame",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"frame"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item badge update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 14,\n    \"type\": \"badge\",\n    \"amount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/badge",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"badge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item coupon update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 16,\n    \"type\": \"coupon\",\n    \"amount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/coupon",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"coupon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item frame update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 17,\n    \"type\": \"frame\",\n    \"amount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/frame",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"frame"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item coupon create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": 16,\n    \"type\": \"coupon\",\n    \"amount\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/shop/v1/item/type/coupon",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"type",
+						"coupon"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0NTk1MzM4NiwibmJmIjoxNzM5OTUzNDQ2LCJpYXQiOjE3Mzk5NTM0NDYsImp0aSI6IjI0MDU1ZmYyLWM2MGMtNGFmMy1iZjI2LTE4NzBkZGFmYjNlMCJ9.CwJ3u7ifeoXnrz8DVtdIPHXU36lGP5GluGHODPaw8dE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

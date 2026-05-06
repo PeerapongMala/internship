@@ -1,0 +1,20 @@
+{
+  "placeholder_school": "กรอกรหัสโรงเรียน...",
+  "placeholder_user": "กรอกรหัสผู้ใช้งาน...",
+  "plase_link_your_account": "กรุณาผูกบัญชี",
+  "link_social_account_with_clever": "ผูกบัญชีโซเชียล กับบัญชี CLEVER",
+  "school_code_incorrect_please_try_again": "รหัสโรงเรียนไม่ถูกต้อง กรุณาลองอีกครั้ง",
+  "cant_sign_in": "เข้าสู่ระบบไม่ได้?",
+  "contact_us": "ติดต่อเรา",
+  "link_account_success": "ผูกบัญชีสำเร็จ",
+  "close": "ปิด",
+  "offline_mode": "โหมดเล่นแบบออฟไลน์",
+  "use_this_mode_if_this_device": "ใช้โหมดนี้ หากอุปกรณ์เครื่องนี้",
+  "not_personal_device": "ไม่ใช่อุปกรณ์ส่วนตัว",
+  "cant_link_account": "ไม่สามารถผูกบัญชีได้",
+  "school_user_code_incorrect": "รหัสโรงเรียน / รหัสผู้ใช้งานไม่ถูกต้อง / รหัสพินไม่ถูกต้อง",
+  "please_try_again_or_contact_admin": "กรุณาลองอีกครั้ง หรือติดต่อแอดมิน",
+  "next": "ถัดไป",
+  "login": "เข้าสู่ระบบ",
+  "placeholder_pin": "กรอกพิน..."
+}

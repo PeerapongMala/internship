@@ -1,0 +1,63 @@
+services:
+  postgres:
+    container_name: "postgres_ZettaMerge"
+    image: postgres:17.1
+    ports:
+      - "54320:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdatabase:/var/lib/postgresql/data/
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    platform: linux/amd64
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  go-app:
+    container_name: "go-app"
+    build:
+      context: .
+      dockerfile: DockerfileDev
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+        restart: true
+    volumes:
+      - .:/opt/app/api/go-app
+    environment:
+      - PORT=8000
+      - POSTGRES_URL=postgres://postgres:postgres@postgres:5432/postgres
+      # - OBS_ENDPOINT=https://obs.ap-southeast-1.myhuaweicloud.com
+      - GOOGLE_APPLICATION_CREDENTIALS=./google-application-credentials.json
+      - ACCESS_TOKEN_LIFETIME=99999
+      - JWT_SECRET=secret
+      - GCP_INTEGRATED=false
+      - VIEWABLE_YEARS_PAST=2
+      - CORS_ALLOW_ORIGINS=
+
+  migrate:
+    container_name: "migrate"
+    build:
+      context: .
+      dockerfile: DockerfileDev
+    depends_on:
+      postgres:
+        condition: service_healthy
+        restart: true
+    volumes:
+      - .:/opt/app/api/go-app
+    entrypoint: ["goose", "-dir", "src/context/domain/migration/postgres", "postgres", "postgres://postgres:postgres@postgres:5432/postgres", "up"]
+
+volumes:
+  pgdatabase:
+    driver: local

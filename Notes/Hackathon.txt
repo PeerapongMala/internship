@@ -1,0 +1,35 @@
+Fig 2
+architecture ไม่ควรใส่flow ลบได้เลย
+Fig 3 
+ขอแหล่งอ้างอิง
+as... ต้องมีคำอธิบาย
+
+รูป compare (เปรียบเทียบ)
+
+Flow ทำงาน สำคัญมั้ย อธิบายมั้ย
+
+Fig 4 ทำไมถึงเป็น 30 วิ level อื่นจะเวลาเท่ากันมั้ย
+
+เป็น
+
+A Discussion
+B Conclusion
+C Future Work
+
+รูป level1 หลายๆรูป
+2 หลายๆรูป 
+เพื่อให้พรีเซ้นง่าย
+
+
+
+หัวชื่อใหญ่ เขียนว่า ปรับสถาปัตยกรรม
+
+
+
+abstract เนื้อหา ขอปัญหาที่มา ด้วย
+
+abstract/introduction จะมีคำว่า this research เป็นคำว่า study/work
+
+ The results demonstrate that the new ThreeTier Architecture significantly enhances maintainability, scalability, and data reliability, providing a robust foundation for digital mental health interventions.
+
+เป็นnew เลยหรอ หรือมีก่อนแล้ว

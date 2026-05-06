@@ -1,0 +1,86 @@
+{
+  "waveList": [
+    {
+      "name": "wave1",
+      "waveDuration": 15,
+      "spawnList": [
+        {
+          "distanceAt": 1,
+          "objectList": [
+            {
+              "type": "wall",
+              "effect": "burst",
+              "value": "8"
+            },
+            {
+              "type": "wall",
+              "effect": "burst",
+              "value": "1"
+            },
+            {
+              "type": "obstacle",
+              "scoreMultiplier": 2,
+              "statMultiplier": 3
+            }
+          ]
+        },
+        {
+          "distanceAt": 2,
+          "objectList": [
+            {
+              "type": "obstacle",
+              "scoreMultiplier": 2,
+              "statMultiplier": 3
+            }
+          ]
+        },
+        {
+          "distanceAt": 2.5,
+          "objectList": [
+            {
+              "type": "obstacle",
+              "scoreMultiplier": 2,
+              "statMultiplier": 3
+            }
+          ]
+        },
+        {
+          "distanceAt": 3.5,
+          "objectList": [
+            {
+              "type": "obstacle",
+              "scoreMultiplier": 2,
+              "statMultiplier": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wave2",
+      "waveDuration": 15,
+      "spawnList": [
+        {
+          "distanceAt": 1,
+          "objectList": [
+            {
+              "type": "wall",
+              "effect": "burst",
+              "value": "8"
+            },
+            {
+              "type": "wall",
+              "effect": "burst",
+              "value": "1"
+            },
+            {
+              "type": "obstacle",
+              "scoreMultiplier": 2,
+              "statMultiplier": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

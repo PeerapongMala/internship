@@ -1,0 +1,263 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Cashpoint /Cashcenter Report";
+}
+
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/report/cashpointcenter.css")" asp-append-version="true" />
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+
+            <div class="container-fluid mt-2">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-5">
+                        <h1 class="title-section">Cashpoint/Cashcenter Report</h1>
+                    </div>
+                    <div class="col-md-7 d-flex justify-content-end">
+                        <div class="export-box">
+                            <span class="export-label">Export as:</span>
+                            <div class="export-options-row">
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" value="pdf" checked>
+                                    <span>PDF</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" value="xlsx">
+                                    <span>xlsx</span>
+                                </label>
+                                <label class="option-pill-sm">
+                                    <input type="radio" name="exportFmt" value="csv">
+                                    <span>CSV</span>
+                                </label>
+
+                            </div>
+                            <button type="button" class="btn-export-navy" onclick="exportData()">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-card">
+                    <div class="row g-0">
+                        <div class="col ps-3 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="filter-group">
+                                    <label>
+                                        Station Machine:
+                                        <select id="stationMachine" class="form-select custom-input-sm select2" style="width: 200px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        วันที่:
+                                        <input type="text" id="filterDate" class="form-control custom-input-sm" style="width: 140px !important;">
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ประเภทธนบัตร:
+                                        <select id="cashTypeSelect" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ธนาคาร:
+                                        <select id="institutionSelect" class="form-select custom-input-sm select2" style="width: 350px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3" style="padding-top:10px;">
+                                <div class="filter-group">
+                                    <label>
+                                        ศูนย์เงินสด/สาขา:
+                                        <select id="cashCenterSelect" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">ทั้งหมด</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        Zone:
+                                        <select id="zoneSelect" class="form-select custom-input-sm select2" style="width: 150px !important;">
+                                            <option value="">ทั้งหมด</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        Cashpoint:
+                                        <select id="cashPointSelect" class="form-select custom-input-sm select2" style="width: 250px !important;">
+                                            <option value="">ทั้งหมด</option>
+                                        </select>
+                                    </label>
+                                </div>
+                               
+                                <div class="filter-group">
+                                    <label>
+                                        ช่วงเวลา:
+                                        <select id="shiftTimeSelect" class="form-select custom-input-sm select2" style="width: 200px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="filter-group">
+                                    <label>
+                                        ชนิดราคา:
+                                        <select id="denominationSelect" class="form-select custom-input-sm select2" style="width: 150px !important;">
+                                            <option value="">กำลังโหลดข้อมูล...</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-auto p-3" style="width: 200px;">
+                            <button class="btn-submit-report" id="btnGenerateReport" style="width: 100%;">สร้างรายงาน</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div id="report-body" class="report-preview-container" style="margin-top:20px;display: none;">
+
+                <div class="text-end small">วันที่พิมพ์ : 2/7/2025</div>
+                <div class="report-title-center">Cashpoint/Cashcenter Report</div>
+
+                <div class="report-header-info">
+                    <div class="col-md-4">
+                        <div><strong>วันที่นับคัด :</strong> 1/7/2025</div>
+                        <div class="mt-2"><strong>ชนิดราคา :</strong> ทั้งหมด</div>
+                        <div class="mt-2"><strong>Operator-Prepare :</strong> ชุติมา พลศรี</div>
+                        <div class="mt-2"><strong>Operator-Reconcile :</strong> ชัญวุฒิ แสนคำ</div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div><strong>เครื่องจักร :</strong> เครื่อง M7 ศสร.</div>
+                        <div class="mt-2"><strong>ผลัด :</strong> ทั้งวัน</div>
+                        <div class="mt-2"><strong>Operator-Sorter :</strong> อรุณา ปัญญเต้</div>
+                        <div class="mt-2"><strong>Supervisor :</strong> อัจฉรา นุติประพันธ์</div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered report-table-custom">
+                        <thead>
+                            <tr>
+                                <th>เครื่องจักร</th>
+                                <th>ธนาคาร</th>
+                                <th>ศูนย์เงินสด/สาขา</th>
+                                <th>ประเภทธนบัตร</th>
+                                <th>ชนิดราคา</th>
+                                <th>ทำลาย (+)</th>
+                                <th>ดี (+)</th>
+                                <th>เสีย (+)</th>
+                                <th>Reject (+)</th>
+                                <th>ปลอม (0)</th>
+                                <th>ชำรุด (0)</th>
+                                <th>รวมก่อนปรับ</th>
+                                <th>ขาด (+)</th>
+                                <th>เกิน (-)</th>
+                                <th>รวมทั้งสิ้น</th>
+                                <th>มูลค่าทั้งสิ้น</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>เครื่อง M7 ศสร.</td>
+                                <td>KTB</td>
+                                <td>อ่าวลึก</td>
+                                <td>Unfit</td>
+                                <td>1000</td>
+                                <td class="text-end">496</td>
+                                <td class="text-end">4,502</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">2</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">5,000</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">5,000</td>
+                                <td class="text-end">5,000,000</td>
+                            </tr>
+
+                            <tr>
+                                <td rowspan="3">เครื่อง M7 ศสร.</td>
+                                <td rowspan="3">KTB</td>
+                                <td rowspan="3">CCC สุราษฎร์ธานี RCM</td>
+                                <td rowspan="3">Unfit</td>
+                                <td>100</td>
+                                <td class="text-end">17,998</td>
+                                <td class="text-end">29,558</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">444</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">48,000</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">48,000</td>
+                                <td class="text-end">4,800,000</td>
+                            </tr>
+                            <tr>
+                                <td>1000</td>
+                                <td class="text-end">5,420</td>
+                                <td class="text-end">54,411</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">169</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">60,000</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">60,000</td>
+                                <td class="text-end">60,000,000</td>
+                            </tr>
+                            <tr>
+                                <td>500</td>
+                                <td class="text-end">2,387</td>
+                                <td class="text-end">5,607</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">6</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">8,000</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">0</td>
+                                <td class="text-end">8,000</td>
+                                <td class="text-end">4,000,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <div id="pdf-viewer-container" style="width: 100%; height: 73%;margin-top:10px;">
+                <iframe id="pdf-iframe" style="width: 100%; height: 100%; border: none; " title=""></iframe>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/js/report/CashPointCenter.js")" asp-append-version="true"></script>
+<script src="@Url.Content("~/js/helpers/bss-report-export.js")"></script>

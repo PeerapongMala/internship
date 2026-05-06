@@ -1,0 +1,1 @@
+export { ClinicBranch } from './ClinicBranch';

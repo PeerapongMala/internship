@@ -1,0 +1,15 @@
+{
+  "menu-header-title": "Self-Import Sublessons",
+  "menu-header-sublesson-tab": "Upload Sublesson",
+  "menu-header-model-tab": "Upload Model",
+  "model": {
+    "loading": "Loading...",
+    "empty": "No models found. Please upload a model file.",
+    "total": "Total models"
+  },
+  "lesson": {
+    "empty": "No lessons found. Please upload lesson files.",
+    "lesson": "Lessons",
+    "sublesson": "Sub-lessons"
+  }
+}

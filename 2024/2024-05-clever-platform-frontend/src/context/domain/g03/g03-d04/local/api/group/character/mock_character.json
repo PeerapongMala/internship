@@ -1,0 +1,28 @@
+{
+  "status_code": 200,
+  "message": "success",
+  "data": [
+    {
+      "inventory_id": 1,
+      "avatar_id": 1,
+      "is_equipped": false,
+      "model_id": "1",
+      "level": 1
+    },
+    {
+      "inventory_id": 1,
+      "avatar_id": 3,
+      "is_equipped": false,
+      "model_id": "3",
+      "level": 3
+    },
+    {
+      "inventory_id": 1,
+      "avatar_id": 2,
+      "is_equipped": true,
+      "model_id": "2",
+      "level": 1
+    }
+  ],
+  "error": null
+}

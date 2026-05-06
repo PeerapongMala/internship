@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "56a056d9-4d7c-4492-958f-28204d29b892",
+		"name": "g06-d05",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24739400",
+		"_collection_link": "https://lunar-spaceship-361336.postman.co/workspace/Team-Workspace~9a64deaa-19be-49c8-8fb1-cc7663ae9ecb/collection/24739400-56a056d9-4d7c-4492-958f-28204d29b892?action=share&source=collection_link&creator=24739400"
+	},
+	"item": [
+		{
+			"name": "G06D05",
+			"item": [
+				{
+					"name": "a01 create porphor5",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject_teacher\": \"ชื่อครูประจำวิชา\",\r\n    \"head_of_subject\": \"ชื่อหัวหน้างานวิชาการโรงเรียน\",\r\n    \"principal\": \"ชื่อผู้อำนวยการโรงเรียน\",\r\n    \"deputy_director\": \"ชื่อรองผู้อำนวยการโรงเรียน\",\r\n    \"registrar\": \"ชื่อนายทะเบียน\",\r\n    \"sign_date\": \"2025-03-13 14:30\", //optional: default now\r\n    \"issue_date\": \"2025-03-14 08:45\", //optional: default now\r\n    \"document_number_start\": \"000000011\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/:evaluationFormId/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								":evaluationFormId",
+								"create"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a02 get porphor5 list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/:evaluationFormId/list",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								":evaluationFormId",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						},
+						"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+					},
+					"response": []
+				},
+				{
+					"name": "a03 get detail porphor5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start_edit_at\": \"2025-01-24T14:40:49.488693Z\",\r\n    \"end_edit_at\": \"2025-01-25T14:40:49.488693Z\", //optional ไม่ต้องส่งก็ได้, default now()\r\n    \"json_student_score_data\": [\r\n        {\r\n            \"evaluation_student_id\": 1, //id ของ evaluation student ดึงมาใส่เองเพราะบางครังนักเรียนอาจเพิ่มกลางคัน น่าจะยืดหยุ่นดี\r\n            \"student_indicator_data\": [\r\n                {\r\n                    \"indicator_id\": 6, // id from table : evaluation_form_indicator\r\n                    \"indicator_general_name\": \"หัวข้อ\", // สำหรับแบบ general เช่น แนะแนว|ผ่าน (ยังไม่เสร็จ)\r\n                    \"value\": 11 // รองรับทศนิยม 2 ตำแหน่ง\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/:evaluationFormId/detail?id=14",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								":evaluationFormId",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "51",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "14"
+								}
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a06 update detail porphor5",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [ // support update multiple record (แต่ยังไม่มีเคสที่ต้องอัพเดทหลาย record)\r\n        {\r\n            \"id\": 51, //require field\r\n            \"data_json\": { //require field, ส่งทั้ง object มาอัพเดท\r\n                \"academic_year\": \"2567\",\r\n                \"year\": \"ป.1\",\r\n                \"subjects\": [\r\n                    {\r\n                        \"id\": 3,\r\n                        \"code\": \"1\",\r\n                        \"subject_name\": \"คณิตศาสตร์\",\r\n                        \"hours_per_year\": \"200\",\r\n                        \"total_score\": 200,\r\n                        \"learning_group\": \"คณิตศาสตร์\",\r\n                        \"general_type\": null,\r\n                        \"general_name\": null,\r\n                        \"SchoolName\": \"โรงเรียนสาธิตมัธยม\",\r\n                        \"SchoolArea\": \"สำนักงานเขตการศึกษาเขต 1\",\r\n                        \"teacher\": null,\r\n                        \"teacher_advisor\": null\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        {\r\n            \"id\": 52,\r\n            \"data_json\": {\r\n                \"SchoolName\": \"โรงเรียนสาธิตมัธยม\",\r\n                \"SchoolArea\": \"สำนักงานเขตการศึกษาเขต 1\",\r\n                \"academic_year\": \"2567\",\r\n                \"year\": \"ป.1\",\r\n                \"subject\": [\r\n                    {\r\n                        \"id\": 7,\r\n                        \"code\": \"\",\r\n                        \"name\": \"กิจกรรมพัฒนาผู้เรียน ประถม 99\",\r\n                        \"hours_per_year\": \"1\",\r\n                        \"learning_group\": \"กิจกรรมพัฒนาผู้เรียน\",\r\n                        \"teacher\": null,\r\n                        \"teacher_advisor\": null,\r\n                        \"scores\": {},\r\n                        \"is_subject\": false\r\n                    },\r\n                    {\r\n                        \"id\": 6,\r\n                        \"code\": \"\",\r\n                        \"name\": \"สมรรถนะ ประถม\",\r\n                        \"hours_per_year\": \"1\",\r\n                        \"learning_group\": \"สมรรถนะ\",\r\n                        \"teacher\": null,\r\n                        \"teacher_advisor\": null,\r\n                        \"scores\": {},\r\n                        \"is_subject\": false\r\n                    },\r\n                    {\r\n                        \"id\": 5,\r\n                        \"code\": \"\",\r\n                        \"name\": \"เวลาเรียนประถม\",\r\n                        \"hours_per_year\": \"1\",\r\n                        \"learning_group\": \"เวลาเรียน\",\r\n                        \"teacher\": null,\r\n                        \"teacher_advisor\": null,\r\n                        \"scores\": {},\r\n                        \"is_subject\": false\r\n                    },\r\n                    {\r\n                        \"id\": 4,\r\n                        \"code\": \"\",\r\n                        \"name\": \"คุณลักษณะอันพึงประสงค์ ประถม\",\r\n                        \"hours_per_year\": \"1\",\r\n                        \"learning_group\": \"คุณลักษณะอันพึงประสงค์\",\r\n                        \"teacher\": null,\r\n                        \"teacher_advisor\": null,\r\n                        \"scores\": {\r\n                            \"2.5\": 1\r\n                        },\r\n                        \"is_subject\": false\r\n                    },\r\n                    {\r\n                        \"id\": 3,\r\n                        \"code\": \"1\",\r\n                        \"name\": \"คณิตศาสตร์\",\r\n                        \"hours_per_year\": \"1\",\r\n                        \"learning_group\": \"คณิตศาสตร์\",\r\n                        \"teacher\": null,\r\n                        \"teacher_advisor\": null,\r\n                        \"scores\": {\r\n                            \"2.5\": 2,\r\n                            \"4\": 1\r\n                        },\r\n                        \"is_subject\": true\r\n                    }\r\n                ],\r\n                \"student_status\": {\r\n                    \"start_total\": 3,\r\n                    \"start_male\": 1,\r\n                    \"start_female\": 2,\r\n                    \"end_total\": 3,\r\n                    \"end_male\": 1,\r\n                    \"end_female\": 2,\r\n                    \"transfer_in_total\": 0,\r\n                    \"transfer_in_male\": 0,\r\n                    \"transfer_in_female\": 0,\r\n                    \"transfer_out_total\": 0,\r\n                    \"transfer_out_male\": 0,\r\n                    \"transfer_out_female\": 0\r\n                },\r\n                \"approval\": {\r\n                    \"subject_teacher\": \"-\",\r\n                    \"head_of_subject\": \"-\",\r\n                    \"deputy_director\": \"-\",\r\n                    \"principal\": \"-\",\r\n                    \"approved\": true,\r\n                    \"date\": \"2025-03-01 23:09\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/:evaluationFormId/detail",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								":evaluationFormId",
+								"detail"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a04 get porphor6 list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/porphor6/:evaluationFormId/list?page=1&limit=99&sort_by=order&sort_order=ASC",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								"porphor6",
+								":evaluationFormId",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "99"
+								},
+								{
+									"key": "sort_by",
+									"value": "order"
+								},
+								{
+									"key": "sort_order",
+									"value": "ASC",
+									"description": "ASC, DESC"
+								},
+								{
+									"key": "search_text",
+									"value": "สมปอง",
+									"description": "for student_id_no, title, thai_first_name, thai_last_name",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						},
+						"description": "# สร้างสังกัดประเภท สช / อื่นๆ"
+					},
+					"response": []
+				},
+				{
+					"name": "a05 get detail porphor6",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/porphor6/:evaluationFormId/detail?id=8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								"porphor6",
+								":evaluationFormId",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16",
+									"description": "support multi id",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "8"
+								}
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a07 update detail porphor6",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [ // support update multiple record (แต่ยังไม่มีเคสที่ต้องอัพเดทหลาย record)\r\n        {\r\n            \"id\": 16, //require field\r\n            \"data_json\": { //require field, ส่งทั้ง object มาอัพเดท\r\n                \"SchoolName\": \"โรงเรียนสาธิตมัธยม\",\r\n                \"SchoolArea\": \"สำนักงานเขตการศึกษาเขต 1\",\r\n                \"evaluation_student_id\": 2,\r\n                \"title\": \"Mr.\",\r\n                \"thai_first_name\": \"สมชาย\",\r\n                \"thai_last_name\": \"รักเรียน\",\r\n                \"eng_first_name\": \"Somchai\",\r\n                \"eng_last_name\": \"Rukrian\",\r\n                \"number\": 1,\r\n                \"student_id\": \"STU002\",\r\n                \"birth_date\": \"2005-01-01\",\r\n                \"nationality\": \"Thai\",\r\n                \"religion\": \"Buddhism\",\r\n                \"parent_marital_status\": \"married\",\r\n                \"gender\": \"\",\r\n                \"ethnicity\": \"\",\r\n                \"score_percentage\": 89,\r\n                \"total_score_rank\": 1,\r\n                \"average_learning_score\": 4,\r\n                \"average_learning_rank\": 1,\r\n                \"subject\": [\r\n                    {\r\n                        \"subject_code\": \"คณิตศาสตร์\",\r\n                        \"subject_name\": \"คณิตศาสตร์\",\r\n                        \"hour\": \"200\",\r\n                        \"total_score\": 100,\r\n                        \"avg_score\": 73.33333333333333,\r\n                        \"score\": 89,\r\n                        \"grade\": \"4\",\r\n                        \"note\": \"\",\r\n                        \"sheet_id\": 0\r\n                    }\r\n                ],\r\n                \"general\": [\r\n                    {\r\n                        \"subject_name\": null,\r\n                        \"general_type\": \"คุณลักษณะอันพึงประสงค์\",\r\n                        \"general_name\": \"คุณลักษณะอันพึงประสงค์ ประถม\",\r\n                        \"evaluation_student_id\": 2,\r\n                        \"student_indicator_data\": [\r\n                            {\r\n                                \"indicator_id\": null,\r\n                                \"indicator_general_name\": \"หัวข้อ\",\r\n                                \"value\": 95.5\r\n                            }\r\n                        ],\r\n                        \"additional_fields\": {\r\n                            \"grade\": \"2.5\",\r\n                            \"total_score\": 65\r\n                        }\r\n                    }\r\n                ],\r\n                \"subject_teacher\": \"-\",\r\n                \"head_of_subject\": \"-\",\r\n                \"principal\": \"-\",\r\n                \"registrar\": \"-\",\r\n                \"sign_date\": \"2025-03-01 23:09\",\r\n                \"issue_date\": \"2025-03-01 23:09\",\r\n                \"father_title\": \"\",\r\n                \"father_first_name\": \"\",\r\n                \"father_last_name\": \"\",\r\n                \"father_occupation\": \"-\",\r\n                \"mother_title\": \"\",\r\n                \"mother_first_name\": \"\",\r\n                \"mother_last_name\": \"\",\r\n                \"mother_occupation\": \"-\",\r\n                \"guardian_title\": \"\",\r\n                \"guardian_first_name\": \"\",\r\n                \"guardian_last_name\": \"\",\r\n                \"guardian_relation\": \"\",\r\n                \"guardian_occupation\": \"-\",\r\n                \"address_no\": \"\",\r\n                \"address_moo\": \"\",\r\n                \"address_sub_district\": \"\",\r\n                \"address_district\": \"\",\r\n                \"address_province\": \"\",\r\n                \"address_postal_code\": \"\",\r\n                \"additional_field\": null\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/porphor5/v1/porphor6/:evaluationFormId/detail",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"porphor5",
+								"v1",
+								"porphor6",
+								":evaluationFormId",
+								"detail"
+							],
+							"variable": [
+								{
+									"key": "evaluationFormId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

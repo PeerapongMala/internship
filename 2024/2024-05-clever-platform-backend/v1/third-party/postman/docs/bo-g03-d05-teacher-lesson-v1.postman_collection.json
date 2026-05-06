@@ -1,0 +1,839 @@
+{
+	"info": {
+		"_postman_id": "fb0c464a-569e-459e-9632-0c1fc3ca903a",
+		"name": "bo-g03-d07-teacher-reward-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "g03-d07-a01-teacher-reward-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "reward_name",
+							"value": "ปากกา (Pat)",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "reward_amount",
+							"value": "1",
+							"description": "required",
+							"type": "text"
+						},
+						{
+							"key": "student_ids",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "student_ids",
+							"value": "9f4cb4bf-7410-49a6-9340-d38af63993ef",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "1",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "class_ids",
+							"value": "1",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/patwanich/Pictures/screenshots/Screenshot 2568-06-02 at 13.08.53.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a02-teacher-reward-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward?subject_id=1&status=send",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward"
+					],
+					"query": [
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "ถ้าไม่ส่งเข้าไปจะแสดงทั้งหมดโดยไม่ระบุวิชา"
+						},
+						{
+							"key": "status",
+							"value": "send",
+							"description": "สถานะ\nsend = ส่งแล้ว\ncallback = เรียกคืน\nreceived = รับแล้ว"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-reward/v1/reward?subject_id=1&status=send",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-reward",
+								"v1",
+								"reward"
+							],
+							"query": [
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "ถ้าไม่ส่งเข้าไปจะแสดงทั้งหมดโดยไม่ระบุวิชา"
+								},
+								{
+									"key": "status",
+									"value": "send",
+									"description": "สถานะ\nsend = ส่งแล้ว\ncallback = เรียกคืน\nreceived = รับแล้ว"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 08:09:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2057"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "fe0f595f-704a-4d89-ae50-f3a852503127"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 130\n    },\n    \"data\": [\n        {\n            \"student_title\": \"เด็กหญิง\",\n            \"student_first_name\": \"น้ำใจ\",\n            \"student_last_name\": \"ไหมไทย\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"กรอบคลื่นเวทมนตร์\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"นาย\",\n            \"student_first_name\": \"น้ำใจ\",\n            \"student_last_name\": \"ไมตรี\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"badge 2\",\n            \"amount\": -1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"นาย\",\n            \"student_first_name\": \"น้ำใจ\",\n            \"student_last_name\": \"ไมตรี\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"badge 2\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"นาย\",\n            \"student_first_name\": \"น้ำใจ\",\n            \"student_last_name\": \"ไมตรี\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"กรอบทูตแห่งดวงดาว\",\n            \"amount\": 10,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"นาย\",\n            \"student_first_name\": \"น้ำใจ\",\n            \"student_last_name\": \"ไมตรี\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"ปากกา (Pat)\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"o\",\n            \"student_first_name\": \"o\",\n            \"student_last_name\": \"o\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"ปากกา (Pat)\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"ร\",\n            \"student_first_name\": \"ร\",\n            \"student_last_name\": \"ร\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"ปากกา (Pat)\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"นาย\",\n            \"student_first_name\": \"pop\",\n            \"student_last_name\": \"pop\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"ปากกา (Pat)\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"pooooo\",\n            \"student_first_name\": \"pooooo\",\n            \"student_last_name\": \"pooooo\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"ปากกา (Pat)\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        },\n        {\n            \"student_title\": \"แชท\",\n            \"student_first_name\": \"แชท\",\n            \"student_last_name\": \"แชท\",\n            \"year\": \"ป.4\",\n            \"class_name\": \"1\",\n            \"item_name\": \"ปากกา (Pat)\",\n            \"amount\": 1,\n            \"status\": \"send\"\n        }\n    ],\n    \"message\": \"data received\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d07-a03-teacher-reward-callback",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward/:rewardId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward",
+						":rewardId"
+					],
+					"variable": [
+						{
+							"key": "rewardId",
+							"value": "1",
+							"description": "id ของ reward_id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a04-teacher-reward-bulk-edit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 3\r\n    },\r\n    {\r\n        \"id\": 4\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a05-teacher-reward-csv-download",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward/download/csv?start_date=2025-02-26&end_date=2024-02-28&subject_id=1&status=send",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-02-26"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-02-28"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "ุถ้าไม่ใส่ subject id จะดึงข้อมูลทั้งหมดโดยไม่ระบุวิชา"
+						},
+						{
+							"key": "status",
+							"value": "send",
+							"description": "สถานะ\nsend = ส่งแล้ว\ncallback = เรียกคืน\nreceived = รับแล้ว"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a06-teacher-reward-upload-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward/upload/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward",
+						"upload",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a07-teacher-subject-drop-down",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/teacher-subject/drop-down",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"teacher-subject",
+						"drop-down"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a08-student-drop-down",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/students/drop-down",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"students",
+						"drop-down"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "ป.4",
+							"description": "ชั้นปี",
+							"disabled": true
+						},
+						{
+							"key": "student_id",
+							"value": "17340",
+							"description": "Search_text รหัสนักเรียน",
+							"disabled": true
+						},
+						{
+							"key": "class_id",
+							"value": "1",
+							"description": "ห้องเรียน 1,2,3,4,5.....",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"description": "ปีการศึกษา",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a09-academic-year-drop-down",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/academic-year/drop-down",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"academic-year",
+						"drop-down"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a10-year-drop-down",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/year/drop-down",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"year",
+						"drop-down"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a11-class-dropdown",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/class/drop-down",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"class",
+						"drop-down"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a12-student-get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDYzMjg4NCwibmJmIjoxNzQwNTQ2NDg0LCJpYXQiOjE3NDA1NDY0ODQsImp0aSI6IjA3ZGE0YjEwLTk3NTEtNGM3MC05Zjc2LTVhZDRhYmIwODY4MSJ9.adcWMyJZADe0_j4yQ9GEr7zRadH02Hu4BIvmlIBun3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward/student/:studentid",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward",
+						"student",
+						":studentid"
+					],
+					"variable": [
+						{
+							"key": "studentid",
+							"value": "17340",
+							"description": "รหัสนักเรียน"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a13-teacher-item-drop-down",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/teacher-items/:subjectId/drop-down",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"teacher-items",
+						":subjectId",
+						"drop-down"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "subject Id เอามาจาก a07"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a14-item-get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDcyNDMzMCwibmJmIjoxNzQwNjM3OTMwLCJpYXQiOjE3NDA2Mzc5MzAsImp0aSI6ImE5ZTA3MmJiLTU4YTgtNDdmOC1hYWE5LTVkYTEzZGJhNDVlOCJ9.Gjf4YCDpHxtsgY8hRkzOZ92NUUwSIA90t0fBrNJnL2o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csv_file",
+							"type": "file",
+							"src": "/C:/Users/Sam/Desktop/CSVTEST/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/reward/:itemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"reward",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "itemId",
+							"value": "1",
+							"description": "item id เอามาจาก เส้น a13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a15-coupon-transaction-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/coupon-transactions?search_text=coupon 3&year=ป.4&class_id=1&status=pending",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"coupon-transactions"
+					],
+					"query": [
+						{
+							"key": "search_text",
+							"value": "coupon 3"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_id",
+							"value": "1"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"description": "pending / sent"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d07-a16-coupon-transaction-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"sent\" // pending / sent\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-reward/v1/coupon-transactions/:couponTransactionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-reward",
+						"v1",
+						"coupon-transactions",
+						":couponTransactionId"
+					],
+					"variable": [
+						{
+							"key": "couponTransactionId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

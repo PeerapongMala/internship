@@ -1,0 +1,148 @@
+{
+  "weight_height_measurement": {
+    "semester_1": {
+      "round_1": {
+        "measurement_date": "May 12, 2019",
+        "weight_kg": 1,
+        "height_cm": 2
+      },
+      "round_2": {
+        "measurement_date": "November 7, 2017",
+        "weight_kg": 6,
+        "height_cm": 7
+      }
+    },
+    "semester_2": {
+      "round_1": {
+        "measurement_date": "December 19, 2013",
+        "weight_kg": 11,
+        "height_cm": 12
+      },
+      "round_2": {
+        "measurement_date": "May 9, 2014",
+        "weight_kg": 16,
+        "height_cm": 17
+      }
+    }
+  },
+  "nutritional_assessment_by_age": {
+    "semester_1": {
+      "round_1": {
+        "weight_for_age": 3,
+        "height_for_age": 4,
+        "weight_for_height": 5
+      },
+      "round_2": {
+        "weight_for_age": 8,
+        "height_for_age": 9,
+        "weight_for_height": 10
+      }
+    },
+    "semester_2": {
+      "round_1": {
+        "weight_for_age": 13,
+        "height_for_age": 14,
+        "weight_for_height": 15
+      },
+      "round_2": {
+        "weight_for_age": 18,
+        "height_for_age": 19,
+        "weight_for_height": 20
+      }
+    }
+  },
+  "attendance_summary": {
+    "months": [
+      {
+        "month": "May",
+        "total_days": 8,
+        "days_attended": 8,
+        "attendance_percentage": 87.5,
+        "notes": null
+      },
+      {
+        "month": "June",
+        "total_days": 13,
+        "days_attended": 13,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "July",
+        "total_days": 12,
+        "days_attended": 12,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "August",
+        "total_days": 15,
+        "days_attended": 15,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "September",
+        "total_days": 12,
+        "days_attended": 12,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "October",
+        "total_days": null,
+        "days_attended": null,
+        "attendance_percentage": null,
+        "notes": null
+      },
+      {
+        "month": "November",
+        "total_days": 14,
+        "days_attended": 14,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "December",
+        "total_days": 12,
+        "days_attended": 12,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "January",
+        "total_days": 14,
+        "days_attended": 14,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "February",
+        "total_days": 13,
+        "days_attended": 13,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "March",
+        "total_days": 12,
+        "days_attended": 12,
+        "attendance_percentage": 100.0,
+        "notes": null
+      },
+      {
+        "month": "April",
+        "total_days": null,
+        "days_attended": null,
+        "attendance_percentage": null,
+        "notes": null
+      }
+    ],
+    "annual_summary": {
+      "total_days": 125,
+      "days_attended": 124,
+      "attendance_percentage": 99.2,
+      "notes": null
+    }
+  }
+}

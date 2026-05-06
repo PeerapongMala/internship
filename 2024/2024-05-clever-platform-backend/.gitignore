@@ -1,0 +1,15 @@
+/v1/tmp
+.vscode/
+.idea/
+/v1/secret/.env
+/v1/.env
+/v1/dist
+*/secret
+v1/.env
+.DS_Store
+.air.
+__debug_*
+
+main
+log_error.log
+log_standard.log

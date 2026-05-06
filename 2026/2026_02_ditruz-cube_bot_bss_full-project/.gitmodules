@@ -1,0 +1,6 @@
+[submodule "project/backend"]
+	path = project/backend
+	url = https://github.com/ZettaMerge/2026_02_ditruz-cube_bot_bss_backend
+[submodule "project/frontend"]
+	path = project/frontend
+	url = https://github.com/ZettaMerge/2026_02_ditruz-cube_bot_bss_frontend

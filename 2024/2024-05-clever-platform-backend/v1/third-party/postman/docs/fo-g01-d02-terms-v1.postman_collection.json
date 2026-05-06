@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "b31ecc42-65b1-4c6a-9853-1d839fed42b6",
+		"name": "fo-g01-d02-terms-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-tos-case-accept",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tos_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/terms/v1/accept",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"terms",
+						"v1",
+						"accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-tos-case-check-acceptance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/terms/v1/:tosId/acceptance",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"terms",
+						"v1",
+						":tosId",
+						"acceptance"
+					],
+					"variable": [
+						{
+							"key": "tosId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-tos-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/terms/v1/tos/:tosId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"terms",
+						"v1",
+						"tos",
+						":tosId"
+					],
+					"variable": [
+						{
+							"key": "tosId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

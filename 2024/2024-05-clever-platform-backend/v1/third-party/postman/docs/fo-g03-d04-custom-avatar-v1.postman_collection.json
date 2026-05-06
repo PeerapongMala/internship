@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "87faf29c-99f3-4924-8d5e-b6051a18f1d4",
+		"name": "f0-g03-d04-custom-avatar-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12544339"
+	},
+	"item": [
+		{
+			"name": "Character Equipment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"avatar_id\": \"2\",\n    \"is_equipped\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/character/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"character",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Character",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/character/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"character",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-badge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/item-badge/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"item-badge",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-coupon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/item-coupon/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"item-coupon",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item-frame",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/item-frame/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"item-frame",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/pet/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"pet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item badge Equipment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": \"1\",\n    \"is_equipped\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/item-badge/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"item-badge",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item coupon  Equipment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": \"14\",\n    \"is_equipped\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/item-coupon/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"item-coupon",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item frame  Equipment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"item_id\": \"15\",\n    \"is_equipped\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/item-frame/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"item-frame",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pet Equipment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pet_id\": \"1\",\n    \"is_equipped\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/main-menu/custom-avatar/custom-avatar/v1/pet/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"main-menu",
+						"custom-avatar",
+						"custom-avatar",
+						"v1",
+						"pet",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0NDc0MzE2NSwibmJmIjoxNzM4NzQzMjI1LCJpYXQiOjE3Mzg3NDMyMjUsImp0aSI6Ijk0NWUzZmJkLTEwNGQtNGY5Zi04ZDY3LTJhN2M0MzZjZjQ5MiJ9.FpCB5cFJ67rmYb_fhHPtmy7T-Foxl9vQGSV8RZHiTv4",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,22 @@
+.table td,
+.table th {
+  @apply items-center border text-center;
+}
+
+.table {
+  @apply w-full table-fixed;
+}
+
+.table th,
+.table td {
+  @apply !px-0 !py-2 text-center;
+}
+
+.table th:first-child,
+.table td:first-child {
+  @apply w-[200px];
+}
+
+.table tr:has(td):nth-child(even) {
+  @apply bg-white-light/20 dark:bg-[#1a2941]/40;
+}

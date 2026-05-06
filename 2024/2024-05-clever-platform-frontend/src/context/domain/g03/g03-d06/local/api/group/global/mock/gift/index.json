@@ -1,0 +1,38 @@
+[
+  {
+    "id": 21,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ของขวัญจากครู 1",
+    "description": "ของขวัญจากครู ครั้งที่ 1",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 22,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 2",
+    "description": "ของขวัญจากครู ครั้งที่ 2",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 23,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 3",
+    "description": "ของขวัญจากครู ครั้งที่ 3",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 24,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "ประกาศ 4",
+    "description": "ของขวัญจากครู ครั้งที่ 4",
+    "image_url": null,
+    "is_read": false
+  }
+]

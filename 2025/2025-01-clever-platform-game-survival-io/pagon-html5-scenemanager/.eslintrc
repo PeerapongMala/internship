@@ -1,0 +1,10 @@
+{
+    "extends": [
+        "standard",
+        "prettier"
+    ],
+    "parser": "babel-eslint",
+    "globals": {
+        "SceneTemplate":true
+    }
+}

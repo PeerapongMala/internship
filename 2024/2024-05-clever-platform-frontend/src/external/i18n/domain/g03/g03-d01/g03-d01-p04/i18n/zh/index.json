@@ -1,0 +1,14 @@
+{
+  "share_profile_header": "分享个人资料",
+  "uuid_tag": "UUID: {{ uuid }}",
+  "hide_identity_username": "匿名玩家",
+  "hide_identity_label": "隐藏身份",
+  "show_identity_label": "显示身份",
+  "award_subject_title": "成就 / {{ subject }}",
+  "award_consecutive_days_label": "连续天数",
+  "award_consecutive_days_value": "x{{ days }}",
+  "award_trophy_label": "累计奖杯",
+  "award_trophy_value": "x{{ trophy }}",
+  "save_profile_image_button": "保存",
+  "share_profile_button": "分享"
+}

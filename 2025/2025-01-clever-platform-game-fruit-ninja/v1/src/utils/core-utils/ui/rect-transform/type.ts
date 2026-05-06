@@ -1,0 +1,30 @@
+export enum Pivot {
+  TopLeft = "top-left",
+  TopCenter = "top-center",
+  TopRight = "top-right",
+  MiddleLeft = "middle-left",
+  MiddleCenter = "middle-center",
+  MiddleRight = "middle-right",
+  BottomLeft = "bottom-left",
+  BottomCenter = "bottom-center",
+  BottomRight = "bottom-right",
+}
+
+export enum Anchor {
+  TopLeft = "top-left",
+  TopCenter = "top-center",
+  TopRight = "top-right",
+  TopStretch = "top-stretch",
+  MiddleLeft = "middle-left",
+  MiddleCenter = "middle-center",
+  MiddleRight = "middle-right",
+  MiddleStretch = "middle-stretch",
+  BottomLeft = "bottom-left",
+  BottomCenter = "bottom-center",
+  BottomRight = "bottom-right",
+  BottomStretch = "bottom-stretch",
+  LeftStretch = "left-stretch",
+  CenterStretch = "center-stretch",
+  RightStretch = "right-stretch",
+  Stretch = "stretch",
+}

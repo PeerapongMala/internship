@@ -1,0 +1,43 @@
+{
+  "dialog_1": "Listen to the sentence and fill in the correct answer.",
+  "dialog_2": "Type the answer in the text box.",
+  "dialog_3": "Press the microphone and say the answer.",
+  "dialog_card_title": "Type the answer",
+  "dialog_card_question": "The answer hint has 4 letters.",
+  "dialog_card_placeholder": "          Type the answer...",
+  "question": "Listen to the sentence and type the answer",
+  "answer": "Answer",
+
+  "question_box": "Question box.",
+  "countdown_timer": "Countdown timer.",
+  "click_use_hint": "Click to use the hint.",
+  "click_access_all_lesson": "Click this button to access all lessons.",
+  "stage_status_bar": "Stage status bar.",
+  "click_select_correct_answer": "Click to select the correct answer. There is only one correct answer.",
+  "click_fight_to_check_answer": "Click the Fight button to check your answer",
+
+  "choose_correct_answer": "Choose the correct answer.",
+  "sample_lesson_title": "1-1) Natural number",
+  "stage": "ID",
+  "tutorial_multiple_choice_question_body": "Kanda's salary is 52,680 baht. This month, she got 111,350 baht in total. “How much was her bonus?”",
+  "tutorial_multiple_choice_question_hightlight": "How can this be written as a symbolic sentence?",
+  "level_type": {
+    "test": "Exercise",
+    "sub-lesson-post-test": "Sub-lesson Post-Test",
+    "pre-post-test": "Pre/Post Test",
+    "pre-test": "Pre-Test",
+    "post-test": "Post-Test"
+  },
+
+  "tutorial_sort_question_body": "Sort the sentences",
+  "drag_n_drop_to_answer_box": "Drag and drop then sort the answer into the answer box.",
+  "drag_answer_here": "Drag and drop answer here",
+
+  "timer_second_prefix": "s",
+  "answer_1_prefix": "A.",
+  "answer_2_prefix": "B.",
+  "answer_3_prefix": "C.",
+  "answer_4_prefix": "D.",
+  "answer_5_prefix": "E.",
+  "no_correct_answer": "No correct answer."
+}

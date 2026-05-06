@@ -1,0 +1,7 @@
+{
+  "header_announce_date": "Date: {{ date }}",
+  "announce_from_school": "Announcement from School",
+  "announce_from_system": "Announcement from System",
+  "no_announcement_from_school": "No Announcement from School",
+  "no_announcement_from_system": "No Announcement from System"
+}

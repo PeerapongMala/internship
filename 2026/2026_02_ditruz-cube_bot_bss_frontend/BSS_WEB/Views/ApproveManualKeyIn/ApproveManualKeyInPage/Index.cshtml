@@ -1,0 +1,499 @@
+@model BSS_WEB.Views.ApproveManualKeyIn.ApproveManualKeyInPage.IndexModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Approve Manual Key-in";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/approveManualKeyIn/approveManualKeyInTransaction.css")" asp-append-version="true" />
+
+@Html.AntiForgeryToken()
+
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentUserFullName"
+       value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+
+<div class="main-wrapper">
+<<<<<<< HEAD
+    <!-- Background Layer - Figma Node 2-49538 -->
+=======
+    <!-- Background Layer -->
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    <div class="approve-background-container">
+        <div class="approve-page-background"></div>
+        <div class="approve-gradient-layer"></div>
+        <div class="approve-decorative-left">
+            <img src="~/images/decorative-pattern.png" alt="">
+        </div>
+        <div class="approve-decorative-right">
+            <img src="~/images/decorative-pattern.png" alt="">
+        </div>
+    </div>
+
+    <div class="sub-wrapper">
+        <div class="layout approve-layout">
+
+<<<<<<< HEAD
+            <!-- Page Header — Figma node 2:49769 (62px) -->
+=======
+            <!-- Page Header (62px) — Figma node 2:49769 -->
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+            <div class="approve-page-header">
+                <div class="approve-header-left">
+                    <h1 class="approve-page-title">Approve Manual Key-in</h1>
+                </div>
+<<<<<<< HEAD
+                <div class="approve-header-center">
+                    <div class="approve-status-group">
+                        <span class="approve-status-label">Date:</span>
+                        <span class="approve-status-value" id="headerDate"></span>
+                    </div>
+                    <div class="approve-status-group">
+                        <span class="approve-status-label">ธปท:</span>
+                        <span class="approve-status-value">@Model.Approver</span>
+                    </div>
+                </div>
+                <div class="approve-header-right">
+                    <button class="approve-btn-filter" onclick="toggleFilter()">
+                        <i class="bi bi-funnel"></i> Filter
+=======
+                <div class="approve-info-bar">
+                    <div class="approve-info-date">
+                        <span class="approve-status-label">Date:</span>
+                        <span class="approve-date-badge" id="headerDate"></span>
+                    </div>
+                    <div class="approve-info-bot">
+                        <span class="approve-status-label">ธปท:</span>
+                        <span class="approve-status-value">@Model.Approver</span>
+                    </div>
+                    <button class="approve-btn-filter" onclick="toggleFilter()">
+                        <i class="bi bi-funnel"></i> Filter <i class="bi bi-chevron-down"></i>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+                    </button>
+                </div>
+            </div>
+
+<<<<<<< HEAD
+            <!-- Filter Panel — Figma node 2:49793 (102px, 2 rows) -->
+            <div class="approve-filter-section" id="filterSection">
+                <!-- Row 1: 5 filters -->
+                <div class="approve-filter-row">
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">Header Card:</label>
+                    <select class="approve-filter-select" id="filterHeaderCard">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">Type:</label>
+                    <select class="approve-filter-select" id="filterType">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">ธนาคาร:</label>
+                    <select class="approve-filter-select" id="filterBank">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">Zone:</label>
+                    <select class="approve-filter-select" id="filterZone">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">ศูนย์เงินสด/Cashpoint:</label>
+                    <select class="approve-filter-select" id="filterCashpoint">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+            </div>
+
+                <!-- Row 2: 4 filters + Search/Clear buttons -->
+                <div class="approve-filter-row">
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">Operator - Prepare:</label>
+                    <select class="approve-filter-select" id="filterOperatorPrepare">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">Operator - Reconcile:</label>
+                    <select class="approve-filter-select" id="filterOperatorReconcile">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">Supervisor(s):</label>
+                    <select class="approve-filter-select" id="filterSupervisor">
+                        <option value="">กรุณาเลือก</option>
+                    </select>
+                </div>
+                <div class="approve-filter-item">
+                    <label class="approve-filter-label">สถานะ:</label>
+                    <select class="approve-filter-select" id="filterStatus">
+                        <option value="">กรุณาเลือก</option>
+                        <option value="PENDING">รออนุมัติ</option>
+                        <option value="APPROVED">อนุมัติแล้ว</option>
+                        <option value="DENIED">ปฏิเสธแล้ว</option>
+                    </select>
+                </div>
+                <div class="approve-filter-actions">
+                    <button class="approve-btn-search" onclick="searchData()">
+                        <i class="bi bi-search"></i> ค้นหา
+                    </button>
+                    <button class="approve-btn-clear" onclick="clearFilters()">
+                        ล้างค่า
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Table (1408×407px) - Sortable Columns -->
+        <div class="approve-main-table-section">
+            <div class="approve-table-wrapper">
+                <!-- List Header (Node 2:49979) -->
+                <div class="approve-list-header">
+                    <h3 class="approve-list-title">รายการ Header Card</h3>
+                </div>
+                <table class="approve-main-table" id="approveMainTable">
+                    <thead>
+                        <tr>
+                            <th class="col-select"><input type="checkbox" id="selectAllCheckbox" onclick="toggleSelectAll()" /></th>
+                            <th class="col-no">ลำดับ</th>
+                            <th class="col-header-card th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-machine th-sort" data-sort="machine">Machine <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-denom th-sort" data-sort="denomination">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-m7-qty th-sort" data-sort="m7Qty">จำนวน M7 <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-manual-qty th-sort" data-sort="manualQty">จำนวน Manual <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-diff th-sort" data-sort="diff">ผลต่าง <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-status th-sort" data-sort="status">สถานะ <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-prepare-date th-sort" data-sort="prepareDate">วันที่เตรียม <i class="bi bi-chevron-expand sort-icon"></i></th>
+                            <th class="col-action">จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="approveMainTableBody">
+                        <!-- Empty placeholder rows for striped display -->
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                        <tr class="empty-row"><td colspan="11"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Bottom Section: 2-column layout (900px + 500px) -->
+        <div class="approve-bottom-section">
+            <!-- Left: Detail Breakdown Table (900px) - Node 2:49832 -->
+            <div class="approve-detail-breakdown">
+                <div class="approve-detail-header">
+                    <span class="approve-detail-title">แสดงผลการนับคัดตามรายการ Header Card ที่เลือกไว้</span>
+                    <span class="approve-detail-hc" id="detailHeaderCardCode">-</span>
+                </div>
+                <div class="approve-detail-table-wrapper">
+                    <table class="approve-detail-table" id="approveDetailTable">
+                        <thead>
+                            <tr>
+                                <th class="col-denom-badge">ชนิดราคา</th>
+                                <th class="col-bn-type">ประเภทธนบัตร</th>
+                                <th class="col-form">รูปแบบการนับคัด</th>
+                                <th class="col-qty">จำนวน</th>
+                            </tr>
+                        </thead>
+                        <tbody id="approveDetailTableBody">
+                            <!-- Empty placeholder rows for striped display -->
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                            <tr class="empty-row"><td colspan="4"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right: Action Panel (500px) - Node 2:49964 -->
+            <div class="approve-action-panel">
+                <div class="approve-action-content">
+                    <div class="approve-notes-section">
+                        <label class="approve-notes-label">หมายเหตุ:</label>
+                        <textarea class="approve-notes-textarea" id="approveNotes" rows="3" placeholder="กรอกหมายเหตุ..."></textarea>
+                    </div>
+                    <div class="approve-buttons-section">
+                        <button class="approve-button-approve" id="btnApprove" onclick="showApproveConfirmModal()">
+                            <i class="bi bi-check-circle"></i> Approve
+                        </button>
+                        <div class="approve-button-separator"></div>
+                        <button class="approve-button-denied" id="btnDeny" onclick="showDenyConfirmModal()">
+                            <i class="bi bi-x-circle"></i> Denied
+                        </button>
+=======
+            <!-- Filter Panel (102px, 3 rows) — Figma node 2:49793 -->
+            <div class="approve-filter-section" id="filterSection">
+                <!-- Row 1: 5 filters -->
+                <div class="approve-filter-row">
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">Header Card:</label>
+                        <select class="approve-filter-select" id="filterHeaderCard">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">Type:</label>
+                        <select class="approve-filter-select" id="filterType">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">ธนาคาร:</label>
+                        <select class="approve-filter-select" id="filterBank">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">Zone:</label>
+                        <select class="approve-filter-select" id="filterZone">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">ศูนย์เงินสด/Cashpoint:</label>
+                        <select class="approve-filter-select" id="filterCashpoint">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 2: 4 filters -->
+                <div class="approve-filter-row">
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">Operator - Prepare:</label>
+                        <select class="approve-filter-select" id="filterOperatorPrepare">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">Operator - Reconsile:</label>
+                        <select class="approve-filter-select" id="filterOperatorReconcile">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">Supervisor(s):</label>
+                        <select class="approve-filter-select" id="filterSupervisor">
+                            <option value="">ทั้งหมด</option>
+                        </select>
+                    </div>
+                    <div class="approve-filter-item">
+                        <label class="approve-filter-label">สถานะ:</label>
+                        <select class="approve-filter-select" id="filterStatus">
+                            <option value="">ทั้งหมด</option>
+                            <option value="PENDING">รออนุมัติ</option>
+                            <option value="APPROVED">อนุมัติแล้ว</option>
+                            <option value="DENIED">ปฏิเสธแล้ว</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Main Table (1408x407px) — Figma node 2:49978 -->
+            <div class="approve-main-table-section">
+                <div class="approve-table-wrapper">
+                    <!-- List Header with Summary Stats (45px) -->
+                    <div class="approve-list-header">
+                        <h3 class="approve-list-title">รายการ Header Card</h3>
+                    </div>
+
+                    <!-- Scrollable Table Area -->
+                    <div class="approve-table-scroll">
+                        <table class="approve-main-table" id="approveMainTable">
+                            <thead>
+                                <tr>
+                                    <th class="col-barcode-pkg th-sort" data-sort="barcodePackage">บาร์โค้ดรายห่อ <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-barcode-bdl th-sort" data-sort="barcodeBundle">บาร์โค้ดรายมัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-header-card th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-bank th-sort" data-sort="bank">ธนาคาร <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-zone th-sort" data-sort="zone">Zone <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-cashpoint th-sort" data-sort="cashpoint">ศูนย์เงินสด/Cashpoint <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-bn-type th-sort" data-sort="bnType">ประเภทธนบัตร <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-prepare-date th-sort" data-sort="prepareDate">วันเวลาเตรียม <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-sort-date th-sort" data-sort="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-op-prepare th-sort" data-sort="operatorPrepare">Operator - Prepare <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-sorter th-sort" data-sort="sorter">Sorter <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-op-reconcile th-sort" data-sort="operatorReconcile">Operator - Reconcile <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-sv-edit th-sort" data-sort="supervisorEdit">Supervisor ที่แก้ไข <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-sv-cancel th-sort" data-sort="supervisorCancel">Supervisor ที่ยกเลิก <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-status th-sort" data-sort="status">สถานะ <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody id="approveMainTableBody">
+                                <!-- Rows rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section: 2-column layout (900px + 500px) -->
+            <div class="approve-bottom-section">
+                <!-- Left: Detail Breakdown Table (900px) — Figma node 2:49832 -->
+                <div class="approve-detail-breakdown">
+                    <div class="approve-detail-header">
+                        <span class="approve-detail-title">แสดงผลการนับคัดตามรายการ Header Card ที่เลือกไว้</span>
+                    </div>
+                    <div class="approve-detail-table-wrapper">
+                        <table class="approve-detail-table" id="approveDetailTable">
+                            <thead>
+                                <tr>
+                                    <th class="col-denom-badge th-sort" data-sort="denomination">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-detail-type th-sort" data-sort="bnType">ประเภท <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-detail-form th-sort" data-sort="denomSeries">แบบ <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                    <th class="col-detail-qty th-sort" data-sort="qty">จำนวนฉบับ <i class="bi bi-chevron-expand sort-icon"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody id="approveDetailTableBody">
+                                <!-- Rows rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right: Action Panel (500px) — Figma node 2:49964 -->
+                <div class="approve-action-panel">
+                    <div class="approve-action-content">
+                        <h4 class="approve-action-title">แก้ไขข้อมูลผลนับคัด</h4>
+                        <div class="approve-notes-section">
+                            <label class="approve-notes-label">หมายเหตุ:</label>
+                            <input type="text" class="approve-notes-input" id="approveNotes" placeholder="นี่คือรายละเอียดที่พิมพ์เพื่อกดปุ่ม Denied" />
+                        </div>
+                        <div class="approve-buttons-section">
+                            <button class="approve-button-approve" id="btnApprove" onclick="showApproveConfirmModal()">
+                                <i class="bi bi-check-circle-fill"></i> Approve
+                            </button>
+                            <div class="approve-button-separator"></div>
+                            <button class="approve-button-denied" id="btnDeny" onclick="showDenyConfirmModal()">
+                                <i class="bi bi-x-octagon-fill"></i> Deny
+                            </button>
+                        </div>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<<<<<<< HEAD
+</div>
+
+<!-- Approve Confirmation Modal (560×360px) -->
+<div class="approve-modal-overlay" id="approveConfirmModal" style="display:none;">
+    <div class="approve-modal">
+        <div class="approve-modal-top-bar">
+            <img class="approve-modal-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23198754'/%3E%3Cpath d='M9 12l2 2 4-4' stroke='white' stroke-width='2'/%3E%3C/svg%3E" width="24" height="24" alt="">
+            <h3 class="approve-modal-title">Approve</h3>
+        </div>
+        <div class="approve-modal-message-area">
+            <p class="approve-modal-message">ยืนยันการ Approve รายการที่เลือกหรือไม่?</p>
+=======
+
+<!-- Approve Confirmation Modal (560x360px) — Figma node 2:50270 -->
+<div class="approve-modal-overlay" id="approveConfirmModal" style="display:none;">
+    <div class="approve-modal">
+        <div class="approve-modal-top-bar">
+            <svg class="approve-modal-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" fill="#0D6EFD"/>
+                <path d="M24 16v10" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="24" cy="31" r="1.5" fill="white"/>
+            </svg>
+            <h3 class="approve-modal-title">Approve</h3>
+        </div>
+        <div class="approve-modal-message-area">
+            <p class="approve-modal-message">คุณแน่ใจหรือไม่ที่ต้องการ Approve ข้อมูลนี้</p>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+        </div>
+        <div class="approve-modal-action-area">
+            <button class="approve-modal-button-cancel" onclick="closeApproveConfirmModal()">Cancel</button>
+            <button class="approve-modal-button-confirm" onclick="confirmApprove()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Deny Confirmation Modal -->
+<div class="approve-modal-overlay" id="denyConfirmModal" style="display:none;">
+    <div class="approve-modal">
+        <div class="approve-modal-top-bar">
+<<<<<<< HEAD
+            <img class="approve-modal-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23DC3545'/%3E%3Cpath d='M8 8l8 8M16 8l-8 8' stroke='white' stroke-width='2'/%3E%3C/svg%3E" width="24" height="24" alt="">
+            <h3 class="approve-modal-title">Deny</h3>
+        </div>
+        <div class="approve-modal-message-area">
+            <p class="approve-modal-message">ยืนยันการ Deny รายการที่เลือกหรือไม่?</p>
+=======
+            <svg class="approve-modal-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" fill="#DC3545"/>
+                <path d="M16 16l16 16M32 16l-16 16" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <h3 class="approve-modal-title">Deny</h3>
+        </div>
+        <div class="approve-modal-message-area">
+            <p class="approve-modal-message">คุณแน่ใจหรือไม่ที่ต้องการ Deny ข้อมูลนี้</p>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+        </div>
+        <div class="approve-modal-action-area">
+            <button class="approve-modal-button-cancel" onclick="closeDenyConfirmModal()">Cancel</button>
+            <button class="approve-modal-button-confirm" onclick="confirmDeny()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="approve-modal-overlay" id="successModal" style="display:none;">
+    <div class="approve-modal-success">
+        <div class="approve-modal-top-bar">
+<<<<<<< HEAD
+            <img class="approve-modal-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23198754'/%3E%3Cpath d='M9 12l2 2 4-4' stroke='white' stroke-width='2'/%3E%3C/svg%3E" width="24" height="24" alt="">
+            <h3 class="approve-modal-title">Success</h3>
+        </div>
+        <div class="approve-modal-message-area">
+            <p class="approve-modal-message" id="successMessage">บันทึกสำเร็จ</p>
+=======
+            <svg class="approve-modal-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" fill="#198754"/>
+                <path d="M16 24l6 6 10-10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="approve-modal-title">สำเร็จ</h3>
+        </div>
+        <div class="approve-modal-message-area">
+            <p class="approve-modal-message" id="successMessage">บันทึกข้อมูลสำเร็จ</p>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+        </div>
+        <div class="approve-modal-action-area">
+            <button class="approve-modal-button-ok" onclick="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+</div>
+
+<<<<<<< HEAD
+<script src="@Url.Content("~/js/approveManualKeyIn/approveManualKeyInTransaction.js")" asp-append-version="true"></script>
+=======
+@section Scripts {
+    <script src="@Url.Content("~/js/approveManualKeyIn/approveManualKeyInTransaction.js")" asp-append-version="true"></script>
+}
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f

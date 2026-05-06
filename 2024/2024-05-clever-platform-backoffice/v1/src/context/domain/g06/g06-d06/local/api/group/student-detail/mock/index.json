@@ -1,0 +1,196 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "form_id": 5,
+      "order": 1,
+      "student_id": 3,
+      "created_at": "2025-03-03T10:24:44.515041Z",
+      "student_id_no": "STU003",
+      "title": "เด็กชาย",
+      "thai_first_name": "สมปอง",
+      "thai_last_name": "รักเรียน",
+      "eng_first_name": "Sompong",
+      "eng_last_name": "Rukrian",
+      "academic_year": "2567",
+      "year": "ป.1",
+      "school_room": "ห้อง 4",
+      "data_json": {
+        "SchoolName": "โรงเรียนสาธิตมัธยม",
+        "SchoolArea": "สำนักงานเขตการศึกษาเขต 1",
+        "evaluation_student_id": 3,
+        "title": "เด็กชาย",
+        "thai_first_name": "สมปอง",
+        "thai_last_name": "รักเรียน",
+        "eng_first_name": "Sompong",
+        "eng_last_name": "Rukrian",
+        "number": 2,
+        "student_id": "STU003",
+        "birth_date": "2005-01-01",
+        "citizen_no": "1234567890123",
+        "nationality": "Thai",
+        "religion": "Buddhism",
+        "parent_marital_status": "married",
+        "gender": "ช",
+        "ethnicity": "Thai",
+        "score_percentage": 66,
+        "total_score_rank": 2,
+        "average_learning_score": 2.5,
+        "average_learning_rank": 2,
+        "subject": [
+          {
+            "subject_code": "คณิตศาสตร์",
+            "subject_name": "คณิตศาสตร์",
+            "hour": "1",
+            "total_score": 100,
+            "avg_score": 73.33333333333333,
+            "score": 66,
+            "grade": "2.5",
+            "note": "",
+            "sheet_id": 0
+          }
+        ],
+        "general": [
+          {
+            "subject_name": null,
+            "general_type": "กิจกรรมพัฒนาผู้เรียน",
+            "general_name": "กิจกรรมพัฒนาผู้เรียน ประถม",
+            "evaluation_student_id": 2,
+            "student_indicator_data": [
+              {
+                "indicator_id": null,
+                "indicator_general_name": "แนะแนว",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ลูกเสือ-เนตรนารี",
+                "value": 2
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ชุมนุม",
+                "value": 2,
+                "additional_fields": {
+                  "ชื่อชุมนุม": "ทดสอบ"
+                }
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "กิจกรรมเพื่อสังคม และสาธารณประโยชน์",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "subject_name": null,
+            "general_type": "สมรรถนะ",
+            "general_name": "สมรรถนะ ประถม",
+            "evaluation_student_id": 2,
+            "student_indicator_data": [
+              {
+                "indicator_id": null,
+                "indicator_general_name": "สมรรถนะสำคัญของผู้เรียน",
+                "value": 3
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ผลการประเมินสมรรถนะสำคัญของผู้เรียน",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "subject_name": null,
+            "general_type": "คุณลักษณะอันพึงประสงค์",
+            "general_name": "คุณลักษณะอันพึงประสงค์ ประถม",
+            "evaluation_student_id": 2,
+            "student_indicator_data": [
+              {
+                "indicator_id": null,
+                "indicator_general_name": "รักชาติ",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ซื่อสัตย์",
+                "value": 3
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "มีวินัย",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ใฝ่เรียนรู้",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "พอเพียง",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "มุ่งมั่น",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "เป็นไทย",
+                "value": 10
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "สาธารณะ",
+                "value": 0
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ผลประเมินคุณลักษณะอันพึงประสงค์",
+                "value": 3
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "อ่าน คิดวิเคราะห์ และเขียนสื่อความ",
+                "value": 1
+              },
+              {
+                "indicator_id": null,
+                "indicator_general_name": "ผลประเมินอ่าน คิดวิเคราะห์ และเขียนสื่อความ",
+                "value": 4
+              }
+            ]
+          }
+        ],
+        "subject_teacher": "-",
+        "head_of_subject": "-",
+        "principal": "-",
+        "registrar": "-",
+        "sign_date": "2025-03-03 10:24",
+        "issue_date": "2025-03-03 10:24",
+        "father_title": "Mr.",
+        "father_first_name": "สมพงษ์",
+        "father_last_name": "รักเรียน",
+        "father_occupation": "-",
+        "mother_title": "Mrs.",
+        "mother_first_name": "สมศรี",
+        "mother_last_name": "รักเรียน",
+        "mother_occupation": "-",
+        "guardian_title": "Mr.",
+        "guardian_first_name": "สมพงษ์",
+        "guardian_last_name": "รักเรียน",
+        "guardian_relation": "Father",
+        "guardian_occupation": "-",
+        "address_no": "99/1",
+        "address_moo": "5",
+        "address_sub_district": "ตำบลทดสอบ",
+        "address_district": "อำเภอทดสอบ",
+        "address_province": "จังหวัดทดสอบ",
+        "address_postal_code": "10110",
+        "additional_field": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Cancel Send Popup - Manager Approval Confirmation (Node 2:31555)
+   Date: 2026-02-19
+   Extracted from Figma design specs
+
+   IMPORTANT: This project uses font-family: 'bss-pridi' (NOT 'Pridi').
+   The @font-face in the project registers Pridi as 'bss-pridi'.
+   ========================================================================== */
+
+/* --- Overlay / Backdrop --- */
+.cancel-send-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 12, 12, 0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+/* --- Modal Dialog Container --- */
+.cancel-send-modal {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    width: 560px;
+    min-height: 360px;
+    max-height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    font-family: 'bss-pridi', 'Pridi', sans-serif;
+}
+
+/* --- Top Bar (Title) --- */
+.cancel-send-modal .modal-top-bar {
+    display: flex;
+    align-items: center;
+    height: 59px;
+    padding: 16px 16px 8px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #cbd5e1; /* Slate/300 */
+}
+
+.cancel-send-modal .modal-title {
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 500 !important; /* Medium */
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.6px;
+    color: #000000;
+    margin: 0;
+}
+
+/* --- Content Area --- */
+.cancel-send-modal .modal-content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    align-items: center;
+    flex: 1;
+}
+
+/* --- Info Rows Section --- */
+.cancel-send-modal .info-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    width: 100%;
+}
+
+.cancel-send-modal .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 400 !important; /* Regular */
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: #000000;
+}
+
+/* Money Type Badge (denomination) */
+.cancel-send-modal .money-type-badge {
+    width: 47px;
+    height: 24px;
+    background: #fbf8f4;
+    border: 2px solid #9f7d57;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cancel-send-modal .money-type-badge .badge-text {
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 600 !important; /* SemiBold */
+    font-size: 16px;
+    color: #4f3e2b;
+    text-align: center;
+    letter-spacing: 0.4px;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Confirmation Section --- */
+.cancel-send-modal .confirm-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+    width: 100%;
+    max-width: 540px;
+}
+
+.cancel-send-modal .confirm-heading {
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 500 !important; /* Medium */
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.6px;
+    color: #000000;
+    margin: 0;
+}
+
+/* --- Manager Select --- */
+.cancel-send-modal .manager-select-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Space/s-xxxsm */
+    width: 291px;
+}
+
+.cancel-send-modal .manager-select-label {
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 400 !important; /* Regular */
+    font-size: 14px;
+    color: #212121; /* Color/neutral-text-primary */
+    letter-spacing: 0.35px;
+    line-height: normal;
+}
+
+.cancel-send-modal .manager-select {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #ced4da; /* Gray/400 */
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: #6c757d; /* Gray/600 - placeholder color */
+    cursor: pointer;
+    appearance: auto;
+}
+
+.cancel-send-modal .manager-select:focus {
+    border-color: #003366;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(0, 51, 102, 0.25);
+}
+
+/* --- Footer Bar --- */
+.cancel-send-modal .modal-footer-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 16px; /* Space/s-md */
+    background: #ffffff;
+    border-top: 1px solid #cbd5e1; /* Slate/300 */
+}
+
+/* --- Buttons (shared) --- */
+.cancel-send-modal .btn-cancel-send,
+.cancel-send-modal .btn-submit-approval {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 160px;
+    padding: 7px 13px;
+    border-radius: 6px;
+    font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+    font-weight: 400 !important; /* Regular */
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid;
+}
+
+/* Cancel Button (Secondary/Gray) */
+.cancel-send-modal .btn-cancel-send {
+    width: 160px;
+    background: #6c757d; /* Theme Colors/Secondary */
+    border-color: #6c757d;
+}
+
+.cancel-send-modal .btn-cancel-send:hover {
+    background: #5a6268;
+    border-color: #545b62;
+}
+
+/* Confirm/Submit Button (Primary/Navy) */
+.cancel-send-modal .btn-submit-approval {
+    background: #003366; /* Primary */
+    border-color: #003366;
+}
+
+.cancel-send-modal .btn-submit-approval:hover {
+    background: #002952;
+    border-color: #002244;
+}

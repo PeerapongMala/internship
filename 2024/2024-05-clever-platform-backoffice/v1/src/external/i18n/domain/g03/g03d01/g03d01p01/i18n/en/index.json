@@ -1,0 +1,55 @@
+{
+  "form": {
+    "header": "Member get member",
+    "description": "แนะนำเพื่อนมาเป็นลูกบ้านบริทาเนีย รับค่าแนะนำสูงสุด 50,000 บาท",
+    "field": {
+      "recommend": {
+        "label": "ชื่อผู้แนะนำ(ภาษาไทย)",
+        "name": {
+          "input": {
+            "placeholder": "กรอกชื่อ"
+          }
+        },
+        "surname": {
+          "input": {
+            "placeholder": "กรอกนามสกุล"
+          }
+        }
+      },
+      "target": {
+        "label": "ชื่อผู้มุ่งหวัง(ภาษาไทย)",
+        "name": {
+          "input": {
+            "placeholder": "กรอกชื่อ"
+          }
+        },
+        "surname": {
+          "input": {
+            "placeholder": "กรอกนามสกุล"
+          }
+        }
+      },
+      "tel": {
+        "label": "เบอร์โทรศัพท์",
+        "input": {
+          "placeholder": "xxx-xxx-xxxx"
+        }
+      },
+      "interestProject": {
+        "label": "เลือกโครงการที่สนใจ",
+        "input": {
+          "placeholder": "เลือกโครงการ Britania"
+        }
+      },
+      "budjet": {
+        "label": "งบประมาณ",
+        "input": {
+          "placeholder": "เลือกงบประมาณ"
+        }
+      }
+    },
+    "submit": {
+      "label": "ส่งข้อมูล"
+    }
+  }
+}

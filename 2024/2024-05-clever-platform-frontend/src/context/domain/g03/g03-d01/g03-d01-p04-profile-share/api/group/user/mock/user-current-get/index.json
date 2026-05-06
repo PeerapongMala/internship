@@ -1,0 +1,15 @@
+{
+  "account": {
+    "fullname": "Kristin Watson",
+    "uuid": "0000001",
+    "currency": {
+      "coin": 90000,
+      "key": 99123
+    }
+  },
+  "award": {
+    "subject": "วิชาคณิตศาสตร์",
+    "consecutiveDays": 4,
+    "trophy": 3
+  }
+}

@@ -1,0 +1,473 @@
+/* Wrapper */
+.vc-wrapper {
+    max-width: 640px !important;
+    margin: 0 auto !important;
+    padding: 16px 0 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+}
+
+/* Title Bar (outside wrapper, full width)  */
+.vc-title-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 16px !important;
+    margin-bottom: 8px !important;
+}
+
+.vc-page-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 30px !important;
+    font-weight: 600 !important;
+    color: #212121 !important;
+    letter-spacing: 0.675px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+}
+
+.vc-btn-print {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #003366 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 20px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: background 0.2s !important;
+}
+
+.vc-btn-print:hover {
+    background: #002244 !important;
+}
+
+.vc-btn-print i {
+    font-size: 16px !important;
+}
+
+/* Info Card  */
+.vc-info-card {
+    background: #fff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    padding: 16px 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.vc-info-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0 4px !important;
+    height: 24px !important;
+    box-sizing: border-box !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+    letter-spacing: 0.4px !important;
+    line-height: 1.5 !important;
+}
+
+.vc-info-row--date {
+    background: #f8d7da !important;
+    border-radius: 4px !important;
+}
+
+.vc-info-label {
+    font-weight: 400 !important;
+    white-space: nowrap !important;
+}
+
+.vc-info-value {
+    font-weight: 400 !important;
+    text-align: right !important;
+}
+
+.vc-alert-icon {
+    margin-left: 8px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Detail Card  */
+.vc-detail-card {
+    background: #fff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.vc-detail-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #212121 !important;
+    padding: 8px 8px !important;
+    height: 35px !important;
+    box-sizing: border-box !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+}
+
+/* Table scroll container  */
+.vc-table-scroll {
+    max-height: 234px !important; /* 30px header + 6 rows × 34px */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* Reset scrollbar to browser default (override Style.css blue gradient) */
+.vc-table-scroll::-webkit-scrollbar {
+    width: 8px !important;
+    background-color: #f1f1f1 !important;
+}
+
+.vc-table-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1 !important;
+    border-radius: 4px !important;
+}
+
+.vc-table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1 !important;
+}
+
+/* Table  */
+.vc-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-family: 'bss-pridi', sans-serif !important;
+}
+
+.vc-table thead tr {
+    background: #D6E0E0 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+}
+
+.vc-table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    background: #D6E0E0 !important;
+}
+
+.vc-table th {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #4a5568 !important;
+    padding: 4.5px 8px !important;
+    height: 30px !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+}
+
+.vc-sort-icon {
+    font-size: 10px !important;
+    color: #94a3b8 !important;
+    margin-left: 4px !important;
+}
+
+.vc-th-denom { width: 83px !important; }
+.vc-th-type  { width: 83px !important; }
+.vc-th-series { width: 83px !important; }
+.vc-th-qty   { width: 125px !important; text-align: right !important; }
+.vc-th-shortage { width: 125px !important; text-align: center !important; }
+.vc-th-excess { width: 125px !important; text-align: center !important; }
+
+.vc-table tbody tr {
+    border-bottom: 1px solid #cbd5e1 !important;
+    transition: background 0.15s !important;
+}
+
+.vc-table tbody tr:nth-child(even) {
+    background: #F2F6F6 !important;
+}
+
+.vc-table tbody tr:hover {
+    background: #f1f5f9 !important;
+}
+
+.vc-table td {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+    padding: 7.5px 8px !important;
+    height: 34px !important;
+    box-sizing: border-box !important;
+}
+
+.vc-table td.vc-td-qty {
+    text-align: right !important;
+    font-weight: 500 !important;
+}
+
+.vc-table td.vc-td-center {
+    text-align: center !important;
+    color: #6c757d !important;
+}
+
+<<<<<<< HEAD
+/* Denomination badge — override Style.css * { font-weight: normal !important } */
+.qty-badge {
+    font-weight: 700 !important;
+}
+
+=======
+/* Denomination badge (matched to Reconsile p02 spec) */
+.qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 0;
+    background-image: none !important;
+}
+
+.qty-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png") !important;
+    background-size: 445px 435px !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.qty-100 { color: #991B1B !important; }
+.qty-20  { color: #3B7E3A !important; }
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* Empty rows for visual spacing (matching Figma) */
+.vc-table tbody tr.vc-empty-row td {
+    height: 34px !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+}
+
+/* Summary Card  */
+.vc-summary-card {
+    background: #fff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    padding: 16px 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.vc-summary-row {
+    display: flex !important;
+    align-items: center !important;
+    padding: 4px 4px !important;
+    height: 25px !important;
+    box-sizing: border-box !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+}
+
+.vc-summary-label {
+    flex: 1 !important;
+}
+
+.vc-summary-value {
+    min-width: 80px !important;
+    text-align: right !important;
+    font-weight: 700 !important;
+    margin-right: 8px !important;
+}
+
+.vc-summary-unit {
+    width: 40px !important;
+    text-align: left !important;
+    color: #4a5568 !important;
+}
+
+.vc-summary-row--danger .vc-summary-value {
+    color: #DC2626 !important;
+}
+
+.vc-summary-row--total {
+    border-top: 1px solid #cbd5e1 !important;
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    height: 33px !important;
+}
+
+.vc-summary-row--total .vc-summary-label {
+    font-weight: 700 !important;
+}
+
+.vc-summary-row--total .vc-summary-value {
+    font-size: 18px !important;
+}
+
+/* Footer Buttons  */
+.vc-footer {
+    display: flex !important;
+    gap: 61px !important;
+    margin-top: 8px !important;
+}
+
+.vc-btn-back,
+.vc-btn-verify {
+    width: 289px !important;
+    height: 47px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 7.5px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: background 0.2s, opacity 0.2s !important;
+}
+
+.vc-btn-back {
+    background: #6c757d !important;
+    border: 1px solid #6c757d !important;
+    color: #fff !important;
+}
+
+.vc-btn-back:hover {
+    background: #5a6268 !important;
+}
+
+.vc-btn-verify {
+    background: #003366 !important;
+    border: 1px solid #003366 !important;
+    color: #fff !important;
+}
+
+.vc-btn-verify:hover {
+    background: #002244 !important;
+}
+
+/* ============================================================
+   MODAL ALERT — 560×360, shared by Confirm/Success/Error
+   ============================================================ */
+
+.vc-modal-alert {
+    border-radius: 12px !important;
+    border: 1px solid #eee !important;
+    overflow: hidden !important;
+    min-height: 360px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Top bar — icon + title centered */
+.vc-modal-top {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 32px 16px 16px !important;
+    gap: 16px !important;
+}
+
+.vc-modal-icon {
+    width: 48px !important;
+    height: 48px !important;
+    flex-shrink: 0 !important;
+}
+
+.vc-modal-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: #212529 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 2.5px !important;
+    margin: 0 !important;
+}
+
+/* Body — message text centered */
+.vc-modal-body {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px 32px !important;
+}
+
+.vc-modal-message {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 2.5px !important;
+    text-align: center !important;
+    margin: 0 !important;
+}
+
+/* Footer — buttons */
+.vc-modal-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    padding: 16px !important;
+    border-top: 1px solid #cbd5e1 !important;
+}
+
+.vc-modal-btn {
+    min-width: 160px !important;
+    height: 38px !important;
+    border-radius: 6px !important;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.vc-modal-btn--cancel {
+    background: #6c757d !important;
+    border: 1px solid #6c757d !important;
+    color: #fff !important;
+}
+.vc-modal-btn--cancel:hover {
+    background: #5a6268 !important;
+}
+
+.vc-modal-btn--confirm {
+    background: #003366 !important;
+    border: 1px solid #003366 !important;
+    color: #fff !important;
+}
+.vc-modal-btn--confirm:hover {
+    background: #002244 !important;
+}
+
+.vc-modal-btn--success {
+    background: #198754 !important;
+    border: 1px solid #198754 !important;
+    color: #fff !important;
+}
+.vc-modal-btn--success:hover {
+    background: #146c43 !important;
+}

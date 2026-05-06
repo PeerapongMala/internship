@@ -1,0 +1,19 @@
+{
+  "header-title": "Lessons",
+  "tab-all": "All",
+  "tab-downloaded": "Downloaded",
+  "tab-sublesson": "Sublessons",
+  "sublesson-count": "{{downloaded}}/{{total}} Sublessons",
+  "error-lesson-not-found": "Lesson not found",
+  "lesson": {
+    "empty": {
+      "all": "No lessons available. Please upload lesson files.",
+      "downloaded": "No downloaded lessons yet."
+    }
+  },
+  "sublesson": {
+    "empty": "No sublessons in this lesson.",
+    "fallbackName": "Sublesson {{id}}",
+    "progress": "{{progress}}%"
+  }
+}

@@ -1,0 +1,91 @@
+﻿{
+    "$schema": "http://json.schemastore.org/launchsettings.json",
+    "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+            "applicationUrl": "http://localhost:26352",
+            "sslPort": 44337
+        }
+    },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5204",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:7050;http://localhost:5204",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "BSS.WEB.APP_NAME": "BSS_WEB",
+        "BSS.WEB.PATH_BASE": "BSS_WEB",
+        "BSS.WEB.SYSTEM_CODE": "BSSWEB",
+        "BSS.WEB.SYSTEM_NAME": "BOT BSS System",
+        "BSS.WEB.PRIVATE_KEY": "BSSWEBAPPKEYP@ssw0rd2025",
+        "BSS.WEB.TEST_FLAG": "N",
+        "BSS.WEB.BSS_API_BASE_URL": "http://localhost:7037/BSS_API",
+        "BSS.WEB.BSS_API_KEY": "dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6",
+        "BSS.WEB.LOG.APP.OUTPUT_TYPE": "CONSOLE", //CONSOLE OR FILE
+        "BSS.WEB.LOG.APP.FILE_PATH": "../BSS_API/logs/bot_bss_webapi-.log",
+        "BSS.WEB.LOG.APP.MIN_LEVEL": "Information", //Information
+        "BSS.WEB.LOG.APP.ROLLING_INTERVAL": "DAY", //for FILE only
+        "BSS.WEB.LOG.APP.FILE_SIZE": "5MB", //(e.g., "5MB", "1048576")
+        "BSS.WEB.LOG.APP.LOG_FORMAT": "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{AppName}] [{Environment}] [{RequestId}] [{Level:u3}] {Message:lj}{NewLine}{Exception}",
+        "BSS.WEB.SESSION_TIMEOUT": "30",
+        "BSS.WEB.IS_EXTERNAL_WEB": "N",
+        "BSS.WEB.JWT_ISSUER_SIGNING_KEY": "BssWebSuperSecreatkey12345!@#$%^&*()_+67890",
+        "BSS.WEB.JWT_VALID_ISSUER": "BOTBSSWEB",
+        "BSS.WEB.JWT_VALID_AUDIENCE": "BOTBSSWEB",
+        "BSS.WEB.JWT_EXPIRY_MINUTES": "30",
+        "BSS.WEB.IS_MOCK_USER_AUTHEN": "Y",
+        "BSS.WEB.REFRESH_TOKEN_EXPIRY_DAYS": "7"
+      }
+    },
+    "remote_test": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://26.176.125.16:7050;http://26.176.125.16:5204",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "BSS.WEB.APP_NAME": "BSS_WEB",
+        "BSS.WEB.PATH_BASE": "BSS_WEB",
+        "BSS.WEB.SYSTEM_CODE": "BSSWEB",
+        "BSS.WEB.SYSTEM_NAME": "BOT BSS System",
+        "BSS.WEB.PRIVATE_KEY": "BSSWEBAPPKEYP@ssw0rd2025",
+        "BSS.WEB.TEST_FLAG": "N",
+        "BSS.WEB.BSS_API_BASE_URL": "http://26.176.125.16:7037/BSS_API",
+        "BSS.WEB.BSS_API_KEY": "dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6",
+        "BSS.WEB.LOG.APP.OUTPUT_TYPE": "CONSOLE", //CONSOLE OR FILE
+        "BSS.WEB.LOG.APP.FILE_PATH": "../BSS_API/logs/bot_bss_webapi-.log",
+        "BSS.WEB.LOG.APP.MIN_LEVEL": "Information", //Information
+        "BSS.WEB.LOG.APP.ROLLING_INTERVAL": "DAY", //for FILE only
+        "BSS.WEB.LOG.APP.FILE_SIZE": "5MB", //(e.g., "5MB", "1048576")
+        "BSS.WEB.LOG.APP.LOG_FORMAT": "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{AppName}] [{Environment}] [{RequestId}] [{Level:u3}] {Message:lj}{NewLine}{Exception}",
+        "BSS.WEB.SESSION_TIMEOUT": "30",
+        "BSS.WEB.IS_EXTERNAL_WEB": "N",
+        "BSS.WEB.JWT_ISSUER_SIGNING_KEY": "BssWebSuperSecreatkey12345!@#$%^&*()_+67890",
+        "BSS.WEB.JWT_VALID_ISSUER": "BOTBSSWEB",
+        "BSS.WEB.JWT_VALID_AUDIENCE": "BOTBSSWEB",
+        "BSS.WEB.JWT_EXPIRY_MINUTES": "30",
+        "BSS.WEB.IS_MOCK_USER_AUTHEN": "Y",
+        "BSS.WEB.REFRESH_TOKEN_EXPIRY_DAYS": "7"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

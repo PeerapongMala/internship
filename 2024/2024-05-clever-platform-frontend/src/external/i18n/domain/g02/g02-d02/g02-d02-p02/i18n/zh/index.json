@@ -1,0 +1,17 @@
+{
+  "title-school-name": "{{schoolName}}",
+  "title-select-subject": "选择课程",
+  "ok": "确定",
+  "subject-not-unlocked": "课程未解锁",
+  "please-check-conditions": "请检查以下条件",
+  "cond-1": "学校已启用课程",
+  "cond-2": "合同处于启用状态",
+  "cond-3": "处于合同期内",
+  "cond-4": "合同已启用课程组",
+  "cond-5": "课程所属单位处于启用状态",
+  "cond-6": "平台处于启用状态",
+  "cond-7": "年级处于启用状态",
+  "cond-8": "课程组处于启用状态",
+  "cond-9": "课程处于启用状态",
+  "cond-10": "课程已解锁"
+}

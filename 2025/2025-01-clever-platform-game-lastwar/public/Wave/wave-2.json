@@ -1,0 +1,347 @@
+{
+  "waves": [
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "6"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "3"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "15"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "12"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "9"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "4"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "14"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "13"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "7"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "2"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "11"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "10"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "8"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "3"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "12"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "14"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "10"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "5"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "15"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "13"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "9"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "6"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "13"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "14"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "7"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "2"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "14"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "11"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "8"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "5"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "10"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "12"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "11"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "4"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "13"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "11"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "10"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "3"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "14"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "15"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "9"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "6"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "12"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "10"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "11"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "5"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "13"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "15"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "8"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "4"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "15"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "12"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "10"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "6"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "14"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "11"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "9"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "5"
+      }
+    },
+    {
+      "type": "obstacle",
+      "left": {
+        "effect": "hp",
+        "value": "13"
+      },
+      "right": {
+        "effect": "hp",
+        "value": "14"
+      }
+    },
+    {
+      "type": "wall",
+      "left": {
+        "effect": "burst",
+        "value": "10"
+      },
+      "right": {
+        "effect": "burst",
+        "value": "7"
+      }
+    }
+  ],
+  "speed": 0,
+  "duration": 0
+}

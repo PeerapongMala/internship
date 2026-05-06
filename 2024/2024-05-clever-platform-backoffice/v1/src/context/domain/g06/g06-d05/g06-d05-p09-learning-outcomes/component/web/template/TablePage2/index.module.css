@@ -1,0 +1,29 @@
+.table th,
+.table td {
+  @apply border !px-0 text-center;
+}
+
+.table {
+  @apply w-full;
+}
+
+.table tr:has(td):nth-child(even) {
+  @apply bg-white-light/20 dark:bg-[#1a2941]/40;
+}
+
+.fix-width {
+  @apply w-32 min-w-32;
+}
+
+.fix-width-no {
+  @apply w-20 min-w-20;
+}
+
+.table td,
+.table th {
+  @apply !text-xs;
+}
+
+.th-rotate {
+  @apply h-32 min-h-32 -rotate-90 items-center text-nowrap text-center;
+}

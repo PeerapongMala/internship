@@ -1,0 +1,21 @@
+import { FC } from 'react';
+
+const IconText: FC<{ className?: string }> = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M5.83317 16.6668V5.8335H1.6665V3.3335H12.4998V5.8335H8.33317V16.6668H5.83317ZM13.3332 16.6668V10.0002H10.8332V7.50016H18.3332V10.0002H15.8332V16.6668H13.3332Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default IconText;

@@ -1,0 +1,1946 @@
+/* ============================================
+   Manual Key-in — Edit & Manual Key-in Styles
+   Built from Figma spec node 2:23259
+   Font: 'bss-pridi' (registered via @font-face in Style.css)
+   Style.css forces font-weight:normal on *, must use !important
+   ============================================ */
+
+/* ============================================
+ * Navbar overrides — Figma node 2:47430
+ * Nav items inside orange bar: Pridi 600/16px/0.4px #212121
+ * ============================================ */
+
+.bot-navbar .navbar-nav .nav-link {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px !important;
+    color: #212121 !important;
+    white-space: nowrap;
+    padding: 4px 8px !important;
+}
+
+/* Profile text — Figma node 2:47433 */
+.mk-profile-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0 !important;
+    padding-bottom: 6px;
+}
+
+.mk-profile-text #user-name-display {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+}
+
+.mk-profile-text #span-role-display {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    color: #212121 !important;
+    letter-spacing: 0.242px !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Profile container — gap 4px between text and avatar */
+.bot-navbar .d-flex.align-items-center {
+    gap: 4px;
+}
+
+/* Avatar circle — Figma node 2:47438 */
+.mk-avatar-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #F4C6A5;
+    flex-shrink: 0;
+}
+
+.mk-avatar-circle i {
+    font-size: 20px;
+    color: #2C3E50;
+    line-height: 1;
+}
+
+.bot-navbar .navbar-nav .dropdown-menu {
+    border-radius: 8px;
+}
+
+.bot-navbar .navbar-nav .dropdown-item {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #212121;
+    padding: 8px 16px;
+}
+
+/* ============================================
+ * TITLE BAR — page title area (62px)
+ * ============================================ */
+
+.mk-title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+<<<<<<< HEAD
+    padding-top: 13px;
+=======
+    padding: 0 16px;
+    gap: 30px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    margin-bottom: 0;
+}
+
+.mk-page-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 30px;
+    font-weight: 600 !important;
+    color: #212121;
+    letter-spacing: 0.675px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* ============================================
+ * HEADER CARD ROW — Figma node 2:23536
+ * ============================================ */
+
+.mk-header-card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 8px 24px;
+    margin-bottom: 10px;
+}
+
+.mk-header-card-row .mk-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.5px;
+}
+
+.mk-header-card-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e4e6e9;
+    border-radius: 8px;
+    padding: 4px 12px;
+    min-width: 152px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 700 !important;
+    color: #212121;
+    margin-left: 16px;
+}
+
+<<<<<<< HEAD
+=======
+.mk-header-card-input {
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    padding: 4px 12px;
+    min-width: 200px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 700 !important;
+    color: #212121;
+    margin-left: 16px;
+    outline: none;
+}
+
+.mk-header-card-input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.mk-header-card-row .mk-date-info {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+ * CONTENT AREA — flex row (form + info panel)
+ * ============================================ */
+
+.mk-content-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    min-height: 0;
+<<<<<<< HEAD
+=======
+    flex-shrink: 0;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* ============================================
+ * FORM SECTION — left side (flex:1)
+ * Figma node 2:23554
+ * ============================================ */
+
+.mk-form-section {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.mk-form-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 0.352px;
+    margin-bottom: 12px;
+}
+
+/* Radio Group Row */
+.mk-radio-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.mk-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mk-radio-group-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 600 !important;
+    color: #212121;
+    letter-spacing: 0.35px;
+    margin-left: 0 !important;
+}
+
+.mk-radio-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 0;
+}
+
+.mk-radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.mk-radio-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.mk-radio-item.active {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.mk-radio-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+}
+
+.mk-radio-item.active .mk-radio-circle,
+.mk-denom-item.active .mk-radio-circle {
+    background: #003366;
+    border-color: #003366;
+}
+
+.mk-radio-circle::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    display: none;
+}
+
+.mk-radio-item.active .mk-radio-circle::after,
+.mk-denom-item.active .mk-radio-circle::after {
+    display: block;
+}
+
+.mk-radio-text {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #212529;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* Denomination badge selector */
+.mk-denom-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.mk-denom-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.mk-denom-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.mk-denom-item.active {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+<<<<<<< HEAD
+/* All qty-badge on this page — sharp corners per Figma */
+.main-wrapper .qty-badge {
+    border-radius: 0;
+}
+
+/* Denomination badges in form — reuse global .qty-badge + .qty-* from all.css
+   Only override size/font for the form selector context */
+.mk-denom-item .qty-badge {
+    width: 47px;
+    height: 24px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px;
+}
+=======
+/* Denomination badge (matched to Reconsile p02 spec) */
+.qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 0;
+    background-image: none !important;
+}
+
+/* All qty-badge on this page — sharp corners per Figma */
+.main-wrapper .qty-badge,
+.modal-mk-edit .qty-badge,
+.modal-mk-confirm .qty-badge,
+.modal-mk-review .qty-badge {
+    border-radius: 0 !important;
+}
+
+.qty-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png") !important;
+    background-size: 445px 435px !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.qty-100 { color: #991B1B !important; }
+.qty-20  { color: #3B7E3A !important; }
+
+/* Denomination badges in form — reuse global .qty-badge + .qty-* from all.css
+   Only override size/font for the form selector context */
+/* mk-denom-item uses global .qty-badge spec */
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+
+/* Form Fields Row */
+.mk-form-fields-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.mk-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.mk-form-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+<<<<<<< HEAD
+    font-weight: 400 !important;
+    color: #212121;
+=======
+    font-weight: 600 !important;
+    color: #212121;
+    letter-spacing: 0.35px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    margin-left: 0 !important;
+}
+
+.mk-form-select,
+.mk-form-input {
+    width: 100%;
+    height: 48px;
+    background: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+<<<<<<< HEAD
+    padding: 9px 13px 9px 17px;
+=======
+    padding: 9px 17px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 300 !important;
+    color: #6C757D;
+    letter-spacing: 0.5px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.mk-form-select:focus,
+.mk-form-input:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+.mk-form-input[type="number"] {
+    text-align: right;
+}
+
+.mk-form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236C757D' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+<<<<<<< HEAD
+    background-position: right 12px center;
+    padding-right: 32px;
+=======
+    background-position: right 13px center;
+    padding-left: 17px;
+    padding-right: 36px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* Submit button row */
+.mk-submit-row {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 16px;
+}
+
+.mk-btn-submit {
+    width: 300px;
+    height: 46px;
+    background: #198754 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 500 !important;
+    color: #fff !important;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mk-btn-submit:hover {
+    background: #157347 !important;
+    color: #fff !important;
+}
+
+/* ============================================
+ * INFO PANEL — right side (400px fixed)
+ * Figma node 2:23622
+ * ============================================ */
+
+<<<<<<< HEAD
+.mk-info-panel {
+    width: 400px;
+    flex-shrink: 0;
+    background: #fff;
+=======
+/* --- Figma node 5:36361 — exact spec --- */
+.mk-info-panel {
+    width: 400px;
+    max-width: 400px;
+    flex-shrink: 0;
+    background: #FFFFFF;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+<<<<<<< HEAD
+=======
+    box-sizing: border-box;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.mk-info-row {
+    display: flex;
+    justify-content: space-between;
+<<<<<<< HEAD
+=======
+    align-items: flex-start;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    padding: 0 4px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+}
+
+<<<<<<< HEAD
+.mk-info-row .mk-info-value {
+    text-align: right;
+}
+
+/* mk-info-divider removed — Figma has no dividers */
+=======
+.mk-info-row > span:first-child {
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-right: 8px;
+}
+
+.mk-info-row .mk-info-value {
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+/* Cashpoint label — Figma node 5:36377: 14px */
+.mk-info-row.mk-cashpoint-row > span:first-child {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: normal;
+}
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+
+/* ============================================
+ * RESULTS TABLE — Figma node 2:23668
+ * ============================================ */
+
+.mk-results-table {
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+<<<<<<< HEAD
+    flex: 1;
+    min-height: 0;
+}
+
+.mk-table-header-bar {
+    display: flex;
+    align-items: center;
+    min-height: 45px;
+    padding: 8px 16px;
+    gap: 16px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+=======
+    height: 410px;
+    min-height: 0;
+}
+
+/* Header bar — CSS Grid with 6 auto-placed children matching column header */
+.mk-table-header-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 241px 1fr 1fr;
+    align-items: center;
+    min-height: 45px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.mk-hbar-cell {
+    padding: 8px;
+}
+
+.mk-hbar-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+}
+
+.mk-hbar-count {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.308px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.mk-count-value {
+    font-weight: 700 !important;
+    color: #b45309;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.mk-table-header-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+<<<<<<< HEAD
+    flex: 3;
+=======
+    margin-right: auto;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-table-header-count {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #212121;
+    letter-spacing: 0.308px;
+<<<<<<< HEAD
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Align จำนวนก่อน with ก่อนปรับ column (241px fixed) */
+.mk-table-header-count.mk-count-before {
+    flex: 0 0 241px;
+}
+
+/* Align จำนวนหลัง with หลังปรับ column (flex:1) */
+.mk-table-header-count.mk-count-after {
+    flex: 1;
+}
+
+/* Spacer matching Action column (flex:1) */
+.mk-table-header-spacer {
+    flex: 1;
+}
+
+.mk-count-value {
+    font-weight: 700 !important;
+    color: #b45309;
+}
+
+/* Column Headers */
+.mk-col-header {
+    display: flex;
+=======
+    white-space: nowrap;
+}
+
+/* Push counts to the right */
+.mk-table-header-count:first-of-type {
+    margin-left: auto;
+}
+
+/* Review modal table — auto height, scroll when exceeds */
+.modal-mk-review .mk-results-table {
+    height: auto;
+    max-height: 300px;
+    overflow-x: clip;
+    overflow-y: auto;
+}
+
+/* Review modal — header bar uses flex (only 3 children vs 6-col grid) */
+.modal-mk-review .mk-table-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.modal-mk-review .mk-table-header-bar .mk-hbar-title {
+    margin-right: auto;
+}
+
+/* Review modal table — 5 columns (no Action column) */
+.modal-mk-review .mk-col-header {
+    grid-template-columns: 23px 1fr 1fr 1fr 1fr 1fr;
+}
+
+.modal-mk-review .mk-table-row {
+    grid-template-columns: 23px 1fr 1fr 1fr 1fr 1fr;
+}
+
+/* Review modal — no pointer cursor or hover on read-only rows */
+.modal-mk-review .mk-table-row:not(.mk-empty-row) {
+    cursor: default;
+}
+
+.modal-mk-review .mk-table-row:not(.mk-empty-row):hover {
+    background: inherit;
+}
+
+.modal-mk-review .mk-table-row:nth-child(even):hover {
+    background: #f2f6f6;
+}
+
+/* Review modal — หลังปรับ(ฉบับ) column header: orange text */
+.modal-mk-review .mk-col-header .mk-col:last-child {
+    color: #ca6510 !important;
+}
+
+/* Review modal — หลังปรับ(ฉบับ) data values: orange text */
+.modal-mk-review .mk-table-row .mk-cell-after {
+    color: #ca6510 !important;
+}
+
+/* Review modal — text columns (ชนิดราคา, ประเภท, แบบ = cols 2-4) align left */
+.modal-mk-review .mk-col-header .mk-col:nth-child(n+2):nth-child(-n+4) {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.modal-mk-review .mk-table-row .mk-cell:nth-child(n+2):nth-child(-n+4) {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Column Headers — CSS Grid matching header bar */
+.mk-col-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 241px 1fr 1fr;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    align-items: center;
+    height: 30px;
+    background: #d6e0e0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 0 8px;
+<<<<<<< HEAD
+=======
+    position: sticky;
+    top: 0;
+    z-index: 1;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-col-header .mk-col {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 500 !important;
+    color: #212121;
+    letter-spacing: 0.299px;
+<<<<<<< HEAD
+    flex: 1;
+=======
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.mk-col.col-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.mk-col.col-center {
+    text-align: center;
+    justify-content: center;
+}
+
+<<<<<<< HEAD
+/* Column 4 (ก่อนปรับ) fixed width per Figma */
+.mk-col-header .mk-col:nth-child(4) {
+    flex: 0 0 241px;
+    width: 241px;
+}
+.mk-table-row .mk-cell:nth-child(4) {
+    flex: 0 0 241px;
+    width: 241px;
+}
+
+=======
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* Sortable column headers */
+.mk-sortable {
+    cursor: pointer;
+    user-select: none;
+}
+.mk-sortable:hover {
+    background: rgba(0, 0, 0, 0.04);
+<<<<<<< HEAD
+=======
+    border-radius: 4px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* Sort icon in column headers */
+.mk-sort-icon {
+    font-size: 12px;
+    color: #6c757d;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+/* Data Rows */
+.mk-table-body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Scrollbar — light gray track + teal thumb */
+.mk-table-body::-webkit-scrollbar {
+    width: 8px;
+    background: #e2e8f0;
+}
+
+.mk-table-body::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 4px;
+}
+
+.mk-table-body::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+<<<<<<< HEAD
+.mk-table-row {
+    display: flex;
+=======
+/* Data Rows — CSS Grid matching column header */
+.mk-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 241px 1fr 1fr;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    align-items: center;
+    min-height: 38px;
+    padding: 0 8px;
+    border-bottom: 1px solid #cbd5e1;
+<<<<<<< HEAD
+=======
+    background: #fff;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-table-row:nth-child(even) {
+    background: #f2f6f6;
+}
+
+<<<<<<< HEAD
+.mk-table-row .mk-cell {
+    flex: 1;
+=======
+.mk-table-row.selected {
+    background: #d1e5fa !important;
+    outline: 2px solid #297ed4;
+    outline-offset: -2px;
+}
+
+.mk-table-row:not(.mk-empty-row) {
+    cursor: pointer;
+}
+
+.mk-table-row:not(.mk-empty-row):hover {
+    background: #e8f0f0;
+}
+
+.mk-table-row:not(.mk-empty-row).selected:hover {
+    background: #d1e5fa !important;
+}
+
+.mk-table-row .mk-cell {
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    padding: 6px 8px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 12px;
+    font-weight: 400 !important;
+    color: #212529;
+    letter-spacing: 0.3px;
+    line-height: 13px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mk-cell.cell-number {
+    font-size: 14px;
+    text-align: right;
+    justify-content: flex-end;
+    letter-spacing: 0.35px;
+    line-height: 1.5;
+}
+
+<<<<<<< HEAD
+.mk-cell.cell-center {
+    text-align: center;
+    justify-content: center;
+}
+
+/* Table qty-badge override — match Figma 47x24 size */
+.mk-table-row .qty-badge {
+    width: 47px;
+    height: 24px;
+    font-size: 13px;
+    font-weight: 700 !important;
+    letter-spacing: 0.325px;
+}
+
+=======
+.mk-table-row .mk-cell.cell-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: stretch;
+    padding: 0;
+    width: 100%;
+}
+
+.mk-col-header .mk-col.col-center {
+    padding: 0;
+}
+
+/* mk-table-row uses global .qty-badge spec */
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+/* Action buttons in table */
+.mk-action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+<<<<<<< HEAD
+=======
+    align-items: center;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-btn-action {
+    width: 26px;
+<<<<<<< HEAD
+    height: 26px !important;
+    display: flex;
+=======
+    min-width: 26px;
+    height: 26px !important;
+    display: inline-flex;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+<<<<<<< HEAD
+    padding: 0;
+    transition: all 0.15s;
+=======
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    transition: all 0.15s;
+    line-height: 1;
+    flex-shrink: 0;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-btn-action:hover {
+    background: #f0f0f0 !important;
+    border-color: #000 !important;
+    color: #000 !important;
+}
+
+.mk-btn-action i {
+    font-size: 16px;
+<<<<<<< HEAD
+}
+
+/* Empty placeholder rows — striped fill */
+.mk-table-row.mk-empty-row {
+    height: 34px;
+    min-height: 34px;
+=======
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Edited indicator icon — orange diamond */
+.mk-edited-icon {
+    font-size: 20px;
+    color: #fd7e14;
+    line-height: 1;
+}
+
+/* Empty placeholder rows — same height as data rows */
+.mk-table-row.mk-empty-row {
+    min-height: 38px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* Empty state */
+.mk-table-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* ============================================
+ * FOOTER BAR — Figma node 2:23833
+ * ============================================ */
+
+.mk-footer-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 64px;
+    padding: 8px 0;
+    gap: 16px;
+}
+
+.mk-btn-save {
+    width: 229px;
+    height: auto !important;
+    background: #003366 !important;
+    border: 1px solid #003366;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px;
+    font-weight: 500 !important;
+    color: #fff !important;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mk-btn-save:hover {
+    background: #002244 !important;
+    color: #fff !important;
+    border-color: #002244 !important;
+}
+
+/* ============================================
+ * REVIEW SECTION — ตรวจสอบการแก้ไข (1.5/1.6)
+ * Inside modal, full-width layout
+ * ============================================ */
+
+.mk-review-section {
+    padding: 24px;
+<<<<<<< HEAD
+=======
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-review-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px;
+    font-weight: 500 !important;
+<<<<<<< HEAD
+    color: #212121;
+    margin-bottom: 16px;
+=======
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    margin: 0;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-review-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+<<<<<<< HEAD
+    font-size: 20px;
+    font-weight: 500 !important;
+    color: #212121;
+    margin-bottom: 8px;
+=======
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    margin: 0;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-review-hc {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+<<<<<<< HEAD
+    color: #212121;
+    margin-bottom: 16px;
+=======
+    color: #000;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    margin: 0;
+    width: 100%;
+}
+
+/* Confirm section wrapper — Figma node 5:36735/5:36736 */
+.mk-review-confirm-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+    width: 100%;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-review-confirm-title {
+    font-family: 'bss-pridi', sans-serif !important;
+<<<<<<< HEAD
+    font-size: 20px;
+    font-weight: 500 !important;
+    color: #212121;
+    margin-top: 24px;
+    margin-bottom: 12px;
+=======
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    margin: 0;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-review-form-row {
+    display: flex;
+    gap: 24px;
+<<<<<<< HEAD
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+=======
+    margin: 0;
+    flex-wrap: wrap;
+    width: 100%;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-review-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 250px;
+}
+
+<<<<<<< HEAD
+=======
+/* Step A — single manager select: cap at 550px per Figma */
+#reviewStepA .mk-review-form-group {
+    max-width: 550px;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.mk-review-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #212121;
+    margin-left: 0 !important;
+}
+
+.mk-review-select,
+.mk-review-input,
+.mk-review-textarea {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ced4da;
+<<<<<<< HEAD
+    border-radius: 8px;
+    padding: 9px 17px;
+=======
+    border-radius: 6px;
+    padding: 7px 13px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #212529;
+    outline: none;
+}
+
+.mk-review-select { height: 48px; appearance: auto; cursor: pointer; }
+.mk-review-input { height: 48px; }
+<<<<<<< HEAD
+.mk-review-textarea { min-height: 60px; resize: vertical; }
+=======
+.mk-review-textarea { height: 48px; min-height: 48px; resize: none; box-sizing: border-box; padding-top: 12px; }
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+
+.mk-review-select:focus,
+.mk-review-input:focus,
+.mk-review-textarea:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+<<<<<<< HEAD
+/* OTP section */
+.mk-otp-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.mk-btn-resend-otp {
+    height: 40px !important;
+    background: #e2e8f0 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px;
+    font-weight: 400 !important;
+    color: #475569 !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.mk-btn-resend-otp:hover {
+    background: #cbd5e1 !important;
+    color: #334155 !important;
+=======
+/* Step B confirm row — Figma node 5:36844 */
+.mk-confirm-row {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* Left: เหตุผล — flex:1 */
+.mk-confirm-reason {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+/* เหตุผล label: same size as OTP label */
+.mk-review-label.mk-label-body {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: 1.5;
+}
+
+/* Textarea: border-radius 4px per Figma */
+.mk-review-textarea {
+    border-radius: 4px;
+}
+
+/* Right: OTP — fixed 592px */
+.mk-confirm-otp {
+    width: 592px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mk-otp-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* OTP input — 200px width per Figma */
+.mk-otp-input {
+    width: 200px !important;
+}
+
+/* OTP resend row */
+.mk-otp-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Resend button — Figma: #003366, white text, 6px radius */
+.mk-btn-resend-otp {
+    height: auto !important;
+    background: #003366 !important;
+    border: 1px solid #003366;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #fff !important;
+    cursor: pointer;
+    white-space: nowrap;
+    opacity: 0.3;
+}
+
+.mk-btn-resend-otp:hover {
+    background: #002244 !important;
+    color: #fff !important;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-otp-countdown {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px;
+    font-weight: 400 !important;
+    color: #6c757d;
+<<<<<<< HEAD
+    white-space: nowrap;
+    padding-bottom: 10px;
+=======
+    letter-spacing: 0.325px;
+    line-height: 18px;
+    white-space: nowrap;
+    flex: 1;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* Review footer buttons */
+.mk-review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+<<<<<<< HEAD
+    padding: 16px 24px;
+    border-top: 1px solid #dee2e6;
+    background: #f8f9fa;
+=======
+    padding: 16px;
+    border-top: 1px solid #cbd5e1;
+    background: #fff;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.mk-btn-back {
+    min-width: 160px;
+    height: auto !important;
+    background: #495057 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.mk-btn-back:hover {
+    background: #343a40 !important;
+    color: #fff !important;
+}
+
+.mk-btn-approve {
+    min-width: 200px;
+    height: auto !important;
+    background: #1e3a5f !important;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.mk-btn-approve:hover {
+    background: #162b46 !important;
+    color: #fff !important;
+}
+
+.mk-btn-confirm-otp {
+    min-width: 200px;
+    height: auto !important;
+    background: #198754 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.mk-btn-confirm-otp:hover {
+    background: #157347 !important;
+    color: #fff !important;
+}
+
+/* ============================================
+ * MODAL OVERRIDES — popup styles
+ * ============================================ */
+
+/* Edit Item Modal (1.1) */
+.modal-mk-edit .modal-dialog {
+    max-width: 550px;
+}
+
+.modal-mk-edit .modal-content {
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.modal-mk-edit .modal-top-bar {
+    display: flex;
+    align-items: center;
+    padding: 16px 16px 8px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    border-bottom: 1px solid #CBD5E1;
+}
+
+.modal-mk-edit .modal-form-area {
+    padding: 24px;
+}
+
+/* Inner wrapper around rows: Figma has outer p-24 + inner p-8 + gap-8 */
+.modal-mk-edit .modal-form-rows-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+}
+
+.modal-mk-edit .modal-form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #000;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+}
+
+.modal-mk-edit .modal-form-row .form-label-left {
+    font-weight: 400 !important;
+}
+
+.modal-mk-edit .modal-form-row .form-value-right {
+    text-align: right;
+    font-weight: 400 !important;
+}
+
+<<<<<<< HEAD
+/* Badge in modal — Figma: Pridi 600/16px, color #4F3E2B, 47x24 */
+.modal-mk-edit .qty-badge {
+    width: 47px;
+    height: 24px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px;
+    color: #4F3E2B !important;
+}
+=======
+/* modal-mk-edit uses global .qty-badge spec */
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+
+/* Modal edit input — override base .mk-form-input (300/20px) to match Figma 400/16px */
+.modal-mk-edit .mk-form-input {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #212529;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    border-radius: 6px;
+    padding: 6px 12px;
+    border: 1px solid #ced4da;
+}
+
+.modal-mk-edit .mk-form-input:focus {
+    border-color: #86B7FE;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+.modal-mk-edit .modal-action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-top: 1px solid #CBD5E1;
+    background: #FFFFFF;
+}
+
+.mk-btn-cancel {
+    width: 120px;
+    height: auto !important;
+    background: #6c757d !important;
+    border: 1px solid #6c757d;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #fff !important;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.mk-btn-cancel:hover {
+    background: #5a6268 !important;
+    color: #fff !important;
+}
+
+.mk-btn-modal-save {
+    width: 120px;
+    height: auto !important;
+    background: #198754 !important;
+    border: 1px solid #198754;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #fff !important;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.mk-btn-modal-save:hover {
+    background: #157347 !important;
+    color: #fff !important;
+}
+
+<<<<<<< HEAD
+/* Confirm Modal (1.2) */
+.modal-mk-confirm .modal-dialog {
+    max-width: 500px;
+}
+
+.modal-mk-confirm .modal-content {
+    border-radius: 12px;
+    text-align: center;
+}
+
+.modal-mk-confirm .modal-body {
+    padding: 40px 24px 20px;
+}
+
+.modal-mk-confirm .mk-confirm-icon {
+    font-size: 60px;
+    color: #fd7e14;
+    margin-bottom: 16px;
+=======
+/* Confirm Modal — Figma node 2:47902 */
+.modal-mk-confirm .modal-dialog {
+    max-width: 550px;
+}
+
+.modal-mk-confirm .modal-content {
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.modal-mk-confirm .mk-confirm-top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 16px;
+    gap: 16px;
+}
+
+.modal-mk-confirm .mk-confirm-icon {
+    font-size: 48px;
+    color: #FD7E14;
+    line-height: 1;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.modal-mk-confirm .mk-confirm-title {
+    font-family: 'bss-pridi', sans-serif !important;
+<<<<<<< HEAD
+    font-size: 22px;
+    font-weight: 700 !important;
+    color: #212121;
+    margin-bottom: 12px;
+=======
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+.modal-mk-confirm .mk-confirm-body {
+    display: flex;
+    padding: 24px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    justify-content: center;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.modal-mk-confirm .mk-confirm-message {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+<<<<<<< HEAD
+    color: #212529;
+}
+
+.modal-mk-confirm .modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.mk-btn-confirm-yes {
+    min-width: 150px;
+    height: auto !important;
+    background: #dc3545 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #fff !important;
+=======
+    color: #000;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.modal-mk-confirm .mk-confirm-footer {
+    border-top: 1px solid #CBD5E1;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.modal-mk-confirm .mk-btn-cancel {
+    min-width: 160px;
+    width: auto;
+}
+
+.mk-btn-confirm-yes {
+    min-width: 160px;
+    height: auto !important;
+    background: #dc3545 !important;
+    border: 1px solid #dc3545;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #fff !important;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    cursor: pointer;
+}
+
+.mk-btn-confirm-yes:hover {
+    background: #bb2d3b !important;
+    color: #fff !important;
+}
+
+<<<<<<< HEAD
+/* Success Modal (1.3/1.7) */
+.modal-mk-success .modal-dialog {
+    max-width: 500px;
+}
+
+.modal-mk-success .modal-content {
+    border-radius: 12px;
+    text-align: center;
+}
+
+.modal-mk-success .modal-body {
+    padding: 40px 24px 20px;
+}
+
+.modal-mk-success .mk-success-icon {
+    font-size: 60px;
+    color: #198754;
+    margin-bottom: 16px;
+=======
+/* Success Modal — Figma node 2:47880 */
+.modal-mk-success .modal-dialog {
+    max-width: 550px;
+}
+
+.modal-mk-success .modal-content {
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.modal-mk-success .mk-success-top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 16px;
+    gap: 16px;
+}
+
+.modal-mk-success .mk-success-icon {
+    font-size: 48px;
+    color: #198754;
+    line-height: 1;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.modal-mk-success .mk-success-title {
+    font-family: 'bss-pridi', sans-serif !important;
+<<<<<<< HEAD
+    font-size: 22px;
+    font-weight: 700 !important;
+    color: #212121;
+    margin-bottom: 12px;
+=======
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+.modal-mk-success .mk-success-body {
+    display: flex;
+    padding: 24px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    justify-content: center;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+.modal-mk-success .mk-success-message {
+    font-family: 'bss-pridi', sans-serif !important;
+<<<<<<< HEAD
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #212121;
+}
+
+.modal-mk-success .modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: 12px 24px;
+=======
+    font-size: 20px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.modal-mk-success .mk-success-footer {
+    border-top: 1px solid #CBD5E1;
+    padding: 16px;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    display: flex;
+    justify-content: center;
+}
+
+.mk-btn-ok {
+<<<<<<< HEAD
+    min-width: 200px;
+    height: auto !important;
+    background: #198754 !important;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 500 !important;
+    color: #fff !important;
+=======
+    min-width: 160px;
+    width: 160px;
+    height: auto !important;
+    background: #198754 !important;
+    border: 1px solid #198754;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    color: #fff !important;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    cursor: pointer;
+}
+
+.mk-btn-ok:hover {
+    background: #157347 !important;
+    color: #fff !important;
+}
+
+<<<<<<< HEAD
+/* Review Modal (1.5/1.6) — large modal */
+.modal-mk-review .modal-dialog {
+    max-width: 1334px;
+}
+
+.modal-mk-review .modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+=======
+/* Review Modal (1.5/1.6) — Figma node 5:36641: 1280x700 */
+.modal-mk-review .modal-dialog {
+    max-width: 1280px;
+}
+
+.modal-mk-review .modal-content {
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    overflow: clip;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* Multi-step pattern */
+.modal-mk-review .modal-step {
+    display: none !important;
+}
+
+.modal-mk-review .modal-step.active {
+<<<<<<< HEAD
+    display: block !important;
+=======
+    display: flex !important;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Top bar — Figma node 5:36642: 53px */
+.mk-review-top-bar {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #cbd5e1;
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 24px;
+    font-weight: 500 !important;
+    color: #000;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+}
+
+/* Content area fills remaining space — Figma node 5:36644: 577px */
+.modal-mk-review .mk-review-section {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}
+
+/* Cell highlight for changed values */
+.mk-cell-changed {
+<<<<<<< HEAD
+    color: #dc3545 !important;
+=======
+    color: #212529 !important;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+    font-weight: 500 !important;
+}

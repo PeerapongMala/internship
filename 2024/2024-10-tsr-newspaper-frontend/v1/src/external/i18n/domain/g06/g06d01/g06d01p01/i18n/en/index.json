@@ -1,0 +1,63 @@
+{
+  "header": "Contact",
+  "contact": {
+    "name": "บริษัท บริทาเนีย จำกัด (มหาชน)",
+    "address": "4345 อาคารภิรัชทาวเวอร์ ชั้น 21 ไบเทคบางนา ถนนสุขุมวิท แขวงบางนา เขตบางนา จังหวัดกรุงเทพมหานคร 10260",
+    "email": {
+      "label": "Email",
+      "value": "britanialead@outlook.com"
+    },
+    "tel": {
+      "label": "Call Center",
+      "value": "1509",
+      "time": "(Working Hour 9.00-18.00 PM)"
+    },
+    "followUs": "Follow Us"
+  },
+  "form": {
+    "header": "ส่งข้อความถึงเรา",
+    "field": {
+      "customer": {
+        "label": "ชื่อ-นามสกุล(ภาษาไทย)",
+        "name": {
+          "input": {
+            "placeholder": "กรอกชื่อ"
+          }
+        },
+        "surname": {
+          "input": {
+            "placeholder": "กรอกนามสกุล"
+          }
+        }
+      },
+      "tel": {
+        "label": "เบอร์โทรศัพท์",
+        "input": {
+          "placeholder": "xxx-xxx-xxxx"
+        }
+      },
+      "email": {
+        "label": "อีเมล์",
+        "input": {
+          "placeholder": "ระบุอีเมล์"
+        }
+      },
+      "message": {
+        "label": "ส่งข้อความถึงเรา",
+        "input": {
+          "placeholder": "โปรดระบุข้อความ"
+        }
+      },
+      "agreement": {
+        "label": "ให้บริษัทฯเก็บรวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้า ที่ได้ให้ไว้แก่บริษัทฯ เพื่อวัตถุประสงค์ทางการตลาด ดังนี้",
+        "input": {
+          "yes": "ยินยอม",
+          "no": "ไม่ยินยอม"
+        }
+      }
+    },
+    "submit": {
+      "label": "ส่งข้อมูล"
+    }
+  }
+}

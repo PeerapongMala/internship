@@ -1,0 +1,20 @@
+{
+  "bugReport": {
+    "title": "Track Bug Reports",
+    "topic": "Issue Code",
+    "details": "Details",
+    "status": "Status",
+    "reportedBy": "Reported By",
+    "type": "Type",
+    "fixedSuccessfully": "Fixed Successfully",
+    "loading": "Loading data...",
+    "notFound": "No bug reports found",
+    "date_title": "Date",
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "closed": "Closed",
+    "modal": {
+      "title": "Report Bug"
+    }
+  }
+}

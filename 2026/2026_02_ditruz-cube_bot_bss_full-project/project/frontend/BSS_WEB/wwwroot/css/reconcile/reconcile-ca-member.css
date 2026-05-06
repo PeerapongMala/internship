@@ -1,0 +1,4 @@
+/* Reconcile — CA Member variant (green/sage gradient) */
+body::before {
+    background: linear-gradient(90deg, #afc5aa, #d3e3cd) !important;
+}

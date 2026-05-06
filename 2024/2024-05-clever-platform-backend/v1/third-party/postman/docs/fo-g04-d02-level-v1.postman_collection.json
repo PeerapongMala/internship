@@ -1,0 +1,626 @@
+{
+	"info": {
+		"_postman_id": "6c58281e-28f0-4250-a5db-77a930ac79cd",
+		"name": "fo-g04-d02-level-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "get-level-detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/level-detail/:subLessionId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"level-detail",
+						":subLessionId"
+					],
+					"variable": [
+						{
+							"key": "subLessionId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-level-detail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/level-detail/:subLessionId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"level-detail",
+								":subLessionId"
+							],
+							"variable": [
+								{
+									"key": "subLessionId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 15:47:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3342"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"level\": 1,\n            \"difficulty\": \"easy\",\n            \"question_count\": 2,\n            \"star\": 3,\n            \"time_used\": \"15\",\n            \"status\": \"unlock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 3,\n            \"level\": 2,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"unlock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 4,\n            \"level\": 3,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 5,\n            \"level\": 4,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 6,\n            \"level\": 5,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 7,\n            \"level\": 6,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 8,\n            \"level\": 7,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 9,\n            \"level\": 8,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 10,\n            \"level\": 9,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 11,\n            \"level\": 10,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 12,\n            \"level\": 11,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 13,\n            \"level\": 12,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 14,\n            \"level\": 13,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 15,\n            \"level\": 14,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 16,\n            \"level\": 15,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 17,\n            \"level\": 16,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 18,\n            \"level\": 17,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 19,\n            \"level\": 18,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 20,\n            \"level\": 19,\n            \"difficulty\": \"easy\",\n            \"question_count\": 1,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 21,\n            \"level\": 20,\n            \"difficulty\": \"easy\",\n            \"question_count\": 3,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 22,\n            \"level\": 21,\n            \"difficulty\": \"easy\",\n            \"question_count\": 3,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 23,\n            \"level\": 22,\n            \"difficulty\": \"easy\",\n            \"question_count\": 2,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 24,\n            \"level\": 23,\n            \"difficulty\": \"easy\",\n            \"question_count\": 3,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 25,\n            \"level\": 24,\n            \"difficulty\": \"easy\",\n            \"question_count\": 2,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 26,\n            \"level\": 25,\n            \"difficulty\": \"easy\",\n            \"question_count\": 3,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 27,\n            \"level\": 26,\n            \"difficulty\": \"easy\",\n            \"question_count\": 2,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        },\n        {\n            \"id\": 28,\n            \"level\": 27,\n            \"difficulty\": \"easy\",\n            \"question_count\": 3,\n            \"star\": null,\n            \"time_used\": null,\n            \"status\": \"lock\",\n            \"game_reward\": null\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get-gold-coin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/gold-coin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"gold-coin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-gold-coin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/gold-coin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"gold-coin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 15:46:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n        \"gold_coin\": 100,\n        \"arcade_coin\": 100,\n        \"ice\": 100\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get-homework",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/homework/subject/:id?all_subject=true",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"homework",
+						"subject",
+						":id"
+					],
+					"query": [
+						{
+							"key": "all_subject",
+							"value": "true",
+							"description": "// เอาการบ้านของทุกวิชา (12-12-2025)"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-homework",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/homework/:subjectId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"homework",
+								":subjectId"
+							],
+							"variable": [
+								{
+									"key": "subjectId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 15:44:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "217"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"homework_id\": 1,\n            \"subject_id\": 1,\n            \"homework_template_id\": 1,\n            \"home_work_name\": \"การบ้าน 1\",\n            \"due_at\": \"2024-12-16T06:50:07.699Z\",\n            \"closed_at\": \"2024-12-16T06:50:07.699Z\",\n            \"total_level\": 1,\n            \"pass_level\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get-achivement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/achivement/:type/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"achivement",
+						":type",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "type",
+							"value": "subject"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-achivement",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/achivement/:subLessionId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"achivement",
+								":subLessionId"
+							],
+							"variable": [
+								{
+									"key": "subLessionId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 15:44:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "305"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"level_special_reward_id\": 2,\n            \"amount\": 2,\n            \"type\": \"badge\",\n            \"name\": \"item badge 2\",\n            \"description\": \"item badge 2 description\",\n            \"image_url\": \"https://w7.pngwing.com/pngs/15/560/png-transparent-verified-badge-symbol-computer-icons-twitter-discord-flat-icon-blue-text-logo-thumbnail.png\",\n            \"received_at\": null\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get-leaderboard-by-level-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/leaderboard/level/:levelId?filterType=all&startDate=2025-07-09&endDate=2025-07-13",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"leaderboard",
+						"level",
+						":levelId"
+					],
+					"query": [
+						{
+							"key": "filterType",
+							"value": "all",
+							"description": "\"all\", \"affiliation\", \"school\", \"class\""
+						},
+						{
+							"key": "startDate",
+							"value": "2025-07-09"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-07-13"
+						}
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "2856"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-leaderboard",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/leaderboard/level/:levelId?filterType=all&startDate=2024-01-01&endDate=2025-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"leaderboard",
+								"level",
+								":levelId"
+							],
+							"query": [
+								{
+									"key": "filterType",
+									"value": "all",
+									"description": "\"all\", \"affiliation\", \"school\", \"class\""
+								},
+								{
+									"key": "startDate",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-12-31"
+								}
+							],
+							"variable": [
+								{
+									"key": "levelId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 18 Jan 2025 18:13:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "208"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"no\": 1,\n            \"user_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"user_name\": \"อภิชาติ เชื้อ\",\n            \"user_image_url\": \"https://example.com/dummy.png\",\n            \"star\": 3,\n            \"time_used\": 15,\n            \"me_flag\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get-leaderboard-by-sublession-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/leaderboard/sub-lesson/:subLessionId?filterType=all&startDate=2025-07-09&endDate=2025-07-13",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"leaderboard",
+						"sub-lesson",
+						":subLessionId"
+					],
+					"query": [
+						{
+							"key": "filterType",
+							"value": "all",
+							"description": "\"all\", \"affiliation\", \"school\", \"class\""
+						},
+						{
+							"key": "startDate",
+							"value": "2025-07-09"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-07-13"
+						}
+					],
+					"variable": [
+						{
+							"key": "subLessionId",
+							"value": "332"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-leaderboard-by-sublession-id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/leaderboard/sub-lession/:subLessionId?filterType=all&startDate=2024-01-01&endDate=2025-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"leaderboard",
+								"sub-lession",
+								":subLessionId"
+							],
+							"query": [
+								{
+									"key": "filterType",
+									"value": "all",
+									"description": "\"all\", \"affiliation\", \"school\", \"class\""
+								},
+								{
+									"key": "startDate",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-12-31"
+								}
+							],
+							"variable": [
+								{
+									"key": "subLessionId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 18 Jan 2025 18:13:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "208"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"no\": 1,\n            \"user_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"user_name\": \"อภิชาติ เชื้อ\",\n            \"user_image_url\": \"https://example.com/dummy.png\",\n            \"star\": 5,\n            \"time_used\": 30,\n            \"me_flag\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "api-level-case-get-last-play",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/level/v1/last-play",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"level",
+						"v1",
+						"last-play"
+					],
+					"query": [
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/last-play",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"last-play"
+							],
+							"query": [
+								{
+									"key": "sub_lesson_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "lesson_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 12 Dec 2025 07:40:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "b9f8f383-6a96-4a9b-9ccf-b78f2fd30080"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"level_id\": 5428,\n            \"sub_lesson_id\": 323,\n            \"lesson_id\": 82,\n            \"subject_id\": 7\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

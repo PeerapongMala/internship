@@ -1,0 +1,392 @@
+﻿@model IEnumerable<BSS_WEB.Models.DisplayModel.MasterUserDisplay>
+
+@{
+    ViewData["Title"] = "Master User";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/admin.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+
+
+<!-- =======  Data-Table  = Start  ========================== -->
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+            <div class="main-title">
+                <div class="title-left">
+                    <div class="title-section title-admin">
+                        <h1>จัดการผู้ใช้งาน</h1>
+                    </div>
+                </div>
+                <div class="title-right d-flex gap-2 mt-1">
+                    <button type="button" class="btn btn-blue" id="btnItemCreate"
+                            onclick="showCreatePopup();">
+                        <i class="bi bi-plus-circle" fill="currentColor"></i> เพิ่มข้อมูล
+                    </button>
+                    <button type="button" class="btn btn-blue" id="btnToggleFilter">
+                        <i class="bi bi-filter-circle" fill="currentColor"></i> Filter
+                    </button>
+
+                    @Html.AntiForgeryToken()
+                </div>
+            </div>
+
+            <!-- =======  Filter - Display  = Start  ========================== -->
+            <div class="container" id="filterDisplay">
+                <div class="row justify-content-end g-3">
+                    <div class="col-12 col-md-3">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <div for="ddlFilterUserRole">Role:</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-control form-select"
+                                        id="ddlFilterUserRole"
+                                        onchange="LoadRoleFilterChange();">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <div for="ddlFilterDepartment">ศูนย์จัดการธนบัตร:</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-control form-select"
+                                        id="ddlFilterDepartment"
+                                        onchange="LoadDepartmentFilterChange();">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <div for="ddlFilterStatus">สถานะใช้งาน:</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-control form-select"
+                                        id="ddlFilterStatus"
+                                        onchange="LoadStatusFilterChange();">
+                                    <option value="">ทั้งหมด</option>
+                                    <option value="1" selected="selected">Active</option>
+                                    <option value="0">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-pt3 mt-2">
+                <div class="row">
+                    <div class="full-panel">
+                        <div class="white-card">
+                            <!-- =======  Filter - Display  = End  ========================== -->
+                            <div class="main-table-preparation-scroll main-table-master">
+                                <table id="dtUser" class="masterDataTable data-table-master"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======  Data-Table  = End    ========================== -->
+<div style="display:none;">
+    <input type="text" id="rowItemSelected" value="" style="display:none;" />
+    <input type="text" id="modeSave" value="" style="display:none;" />
+    <input type="text" id="rowUserNameSelected" value="" style="display:none;" />
+    <input type="text" id="rowUsernameDisplay" value="" style="display:none;" />
+</div>
+
+<!-- =======  Modal View Detail  = Start    ========================== -->
+<div class="modal fade" id="ViewItemDetailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleViewModalLabel">รายละเอียด</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formViewUserDetail">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewUserName" class="col-form-label">User Name:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewUserName" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewFullName" class="col-form-label">ชื่อ:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewFullName" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewEmail" class="col-form-label">อีเมล:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewEmail" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewDepartment" class="col-form-label">ศูนย์จัดการธนบัตร:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewDepartment" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewRole" class="col-form-label">Role:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewRole" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="txtViewEffectiveDate" class="col-form-label">วันที่มีผลบังคับใช้:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control-plaintext" id="txtViewEffectiveDate" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="spanViewStatus" class="col-form-label">สถานะใช้งาน:</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <span id="spanViewStatus" class="badge badge-active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-red" id="btnDeleteUser"><i class="bi bi-trash3-fill" fill="currentColor"></i> ลบรายชื่อ </button>
+                <button type="button" class="btn btn-blue" id="btnEditDetail"><i class="bi bi-pencil-fill" fill="currentColor"></i> แก้ไข </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal View Detail  = End    ========================== -->
+<!-- =======  Modal Create & Edit  = Start    ========================== -->
+<div class="modal fade" id="addOrEditItemModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleModalLabel">เพิ่มข้อมูล</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-x-hidden">
+                <form id="formCreateEditUser" autocomplete="off">
+                    <div class="mb-3 hide-on-edit">
+                        <label class="form-label" for="ddlCompany">ชื่อบริษัท</label>
+                        <select class="form-control form-select" id="ddlCompany">
+                        </select>
+                    </div>
+                    <div id="divSyncUserFromBot" class="mb-3 row">
+                        <label class="form-label" for="btnSyncUserFromBot">กรุณากดปุ่มอัปเดตข้อมูลด้านล่าง เพื่อตรวจสอบความถูกต้องเบื้องต้นก่อนแก้ไข</label>
+                        <button type="button" class="btn btn-blue" style="width:240px !important; margin-left:10px !important;" id="btnSyncUserFromBot"> อัปเดตข้อมูลผู้ใช้งานจาก BOT </button>
+                        <span style="width:200px !important">
+                            <button id="loadingSyncUserFromBot" class="btn btn-blue" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                <span role="status">Loading...</span>
+                            </button>
+                        </span>
+                    </div>
+                    <div id="divSearchUserFromBot" class="mb-3 row">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="txtSearchUserFromBot">กรุณาตรวจสอบก่อนเพิ่มรายชื่อด้วยวิธีค้นหาจากฐานข้อมูล</label>
+                            <input class="form-control" id="txtSearchUserFromBot" autocomplete="off" placeholder="ค้นหาด้วย Username..." />
+                            <div id="search-user-loading">
+                                <button id="loadingSyncUserFromBot" class="btn btn-blue" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                    <span role="status">Loading...</span>
+                                </button>
+                            </div>
+                            <div id="search-user-from-bot">
+                                <p id="no-results">No match found</p>
+                                <p id="has-results"> แสดงรายชื่อที่มีสถานะ Active เท่านั้น </p>
+                                <ul id="my-user-list">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" style="margin-top:30px !important;">
+                            <button type="button" class="btn btn-blue" style="width:100px !important;" id="btnSearchUserFromBot"><i class="bi bi-search" fill="currentColor"></i> ค้นหา </button>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-6">
+                            <span class="text-muted small char-counter float-end">0/10</span>
+                            <label class="form-label" for="txtUserFirstName">ชื่อ <span class="text-danger"> * </span></label>
+                            <input class="form-control" id="txtUserFirstName" required autocomplete="off" maxlength="50" />
+                            <div class="invalid-feedback">this field is required! </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="text-muted small char-counter float-end">0/10</span>
+                            <label class="form-label" for="txtUserLastName">นามสกุล <span class="text-danger"> * </span></label>
+                            <input class="form-control" id="txtUserLastName" autocomplete="off" required maxlength="50" />
+                            <div class="invalid-feedback">this field is required! </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-12">
+                            <span class="text-muted small char-counter float-end">0/10</span>
+                            <label class="form-label" for="txtUserEmail">อีเมล <span class="text-danger"> * </span></label>
+                            <input class="form-control email-only" id="txtUserEmail" autocomplete="off" required maxlength="100" />
+                            <div class="invalid-feedback">this field is required! </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="ddlDepartment">ศูนย์จัดการธนบัตร <span class="text-danger"> * </span></label>
+                        <select class="form-control form-select" id="ddlDepartment" required>
+                        </select>
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+                    <div class="mb-3">
+                        <hr />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="ddlUserRole">Role <span class="text-danger"> * </span></label>
+                        <select class="form-control form-select" id="ddlUserRole" required>
+                        </select>
+                        <div class="invalid-feedback">this field is required! </div>
+                    </div>
+                    <div class="mb-3">
+                        <hr />
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-6">
+                            <label class="form-label" for="txtEffectiveDateStart">วันที่เริ่ม <span class="text-danger"> * </span></label>
+                            <div class="input-group">
+                                <input class="form-control" id="txtEffectiveDateStart" autocomplete="off" required />
+                                <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+                            </div>
+                            <div class="invalid-feedback">this field is required! </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-label" for="txtEffectiveDateEnd">วันที่สิ้นสุด <span class="text-danger"> * </span></label>
+                            <div class="input-group">
+                                <input class="form-control" id="txtEffectiveDateEnd" autocomplete="off" required />
+                                <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+                            </div>
+                            <div class="invalid-feedback">this field is required! </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <hr />
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-6">
+                            <label class="form-check-label" for="checkIsActive">ตั้งค่าสถานะการใช้งาน</label>
+                        </div>
+                        <div class="col-sm-6 row">
+                            <div class="col-sm-10" style="text-align:end !important;">
+                                <span id="spanStatus" class="badge">In Active</span>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input large-switch" type="checkbox" value="" id="checkIsActive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @* <div id="divHrEditDeleteUser" class="mb-3">
+                        <hr />
+                    </div> *@
+
+                </form>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <div>
+                    <div id="divEditDeleteUser">
+                        <button type="button" class="btn btn-red" id="btnEditDeleteUser"><i class="bi bi-trash3-fill" fill="currentColor"></i> ลบรายชื่อ </button>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-gray" data-bs-dismiss="modal" id="btnCancel"><i class="bi bi-x-circle" fill="currentColor"></i> ยกเลิก </button>
+                    <button type="button" class="btn btn-blue" id="btnSave"><i class="bi bi-plus-circle" fill="currentColor"></i> บันทึก </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal Create & Edit  = End    ========================== -->
+<!-- =======  Modal Confirm  = Start    ========================== -->
+<div class="modal fade" id="confirmSaveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleSaveModalLabel">ยืนยันการบันทึกข้อมูล</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ต้องการยืนยันเพื่อทำการบันทึกข้อมูลหรือไม่ ?
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-gray" data-bs-dismiss="modal" id="btnConfirmClose"><i class="bi bi-x-circle" fill="currentColor"></i> ยกเลิก </button>
+                <button type="button" class="btn btn-green" id="btnConfirmSave"><i class="bi bi-plus-circle" fill="currentColor"></i> ยืนยัน </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal Confirm  = End    ========================== -->
+<!-- =======  Modal Confirm  = Start    ========================== -->
+<div class="modal fade" id="confirmDeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleSaveModalLabel">ยืนยันการลบข้อมูล</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3">ลบข้อมูล</h3>
+                <h6 class="mb-4">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้</h6>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-gray" data-bs-dismiss="modal" id="btnConfirmClose"><i class="bi bi-x-circle" fill="currentColor"></i> ยกเลิก </button>
+                <button type="button" class="btn btn-red" id="btnConfirmDelete"><i class="bi bi-plus-circle" fill="currentColor"></i> ยืนยัน </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =======  Modal Confirm  = End    ========================== -->
+@section CustomStyle {
+    <link rel="stylesheet" href="@Url.Content("~/css/helpers/bss-datatable-style.css")" />
+}
+@section Scripts {
+    <script src="@Url.Content("~/js/helpers/serverside.datatable.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/masterdata/MasterUser.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/master/admin.js")" asp-append-version="true"></script>
+}

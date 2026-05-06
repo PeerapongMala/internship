@@ -1,0 +1,22 @@
+{
+    "ScoreIncreasement": 5,
+    "MultiplerScoreIncreasement": 250,
+    "MultiplerScoreDecayRate": 50,
+    "MaxMultiplerScore": 2000,
+    "ComboIncreaseJudgement": 500,
+
+    
+    "StartFruitAmount": 1,
+    "StartBombAmount": 0,
+    "FruitIncreaseAmount": 1,
+    "BombIncreaseAmount": 1,
+    "MaxBombAmount": 3,
+    "MaxFruitAmount": 7,
+    "FruitIncreasementPer": 3,
+    "BombIncreasementPer": 5,
+
+    "FruitMissAmount": 0,
+    "MaxGameTime": 120
+}
+
+

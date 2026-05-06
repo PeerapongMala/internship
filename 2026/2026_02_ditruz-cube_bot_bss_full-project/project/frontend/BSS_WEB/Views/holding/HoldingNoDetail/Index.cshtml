@@ -1,0 +1,188 @@
+@model BSS_WEB.Views.Holding.HoldingNoDetail.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Holding";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/holding/holdingNoDetail.css")" asp-append-version="true" />
+@if (Model.CssVariantClass == "holding-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-unsort-cc.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "holding-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-ca-member.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "holding-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/holding/holding-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+
+<input type="hidden" id="cssVariantClass" value="@Model.CssVariantClass" />
+<input type="hidden" id="bnTypeCode" value="@Model.BnTypeCode" />
+
+<!-- TITLE BAR -->
+<div class="hn-title-bar">
+	<h1 class="hn-page-title">Holding @Model.BnTypeName</h1>
+	<div class="hn-title-actions">
+		<button class="hn-btn-outline" onclick="goToReconcileTransaction()">Reconcile Transaction</button>
+		<button class="hn-btn-print" onclick="printData()">
+			<i class="bi bi-printer"></i>
+			<span>Print Data</span>
+		</button>
+	</div>
+</div>
+
+<div class="hn-wrapper">
+
+	<!-- INFO HEADER — 2-column grid -->
+	<div class="hn-info-card">
+		<div class="hn-info-grid">
+			<!-- Left column -->
+			<div class="hn-info-col">
+				<div class="hn-info-row hn-info-row--date">
+					<span class="hn-info-label">Date:</span>
+					<div>
+						<span class="hn-info-value" id="infoDate">-</span>
+						<img src="data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z' fill='%23DC3545'/%3E%3C/svg%3E"
+							width="14" height="14" alt="" class="hn-alert-icon" />
+					</div>
+				</div>
+				<div class="hn-info-row">
+					<span class="hn-info-label">Sorter:</span>
+					<span class="hn-info-value" id="infoSorter">@Model.Sorter</span>
+				</div>
+				<div class="hn-info-row">
+					<span class="hn-info-label">Reconciliator:</span>
+					<span class="hn-info-value" id="infoReconciliator">@Model.Reconciliator</span>
+				</div>
+			</div>
+			<!-- Right column -->
+			<div class="hn-info-col">
+				<div class="hn-info-row">
+					<span class="hn-info-label">Sorting Machine:</span>
+					<span class="hn-info-value" id="infoSortingMachine">@Model.SortingMachine</span>
+				</div>
+				<div class="hn-info-row">
+					<span class="hn-info-label">Shift:</span>
+					<span class="hn-info-value" id="infoShift">@Model.ShiftName</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- SUMMARY TABLE — สรุปยอดผลการนับคัด -->
+	<div class="hn-detail-card">
+		<div class="hn-detail-title">สรุปยอดผลการนับคัด</div>
+		<div class="hn-table-scroll">
+			<table class="hn-table">
+				<thead>
+					<tr>
+						<th class="hn-th-denom hn-sortable" data-col="DenominationPrice" data-type="number" onclick="sortTable(this)">ชนิดราคา <i class="bi bi-chevron-expand hn-sort-icon"></i></th>
+						<th class="hn-th-type hn-sortable" data-col="Type" data-type="string" onclick="sortTable(this)">ประเภท <i class="bi bi-chevron-expand hn-sort-icon"></i></th>
+						<th class="hn-th-series hn-sortable" data-col="Series" data-type="number" onclick="sortTable(this)">แบบ <i class="bi bi-chevron-expand hn-sort-icon"></i></th>
+						<th class="hn-th-qty hn-sortable" data-col="Qty" data-type="number" onclick="sortTable(this)">จำนวนฉบับ <i class="bi bi-chevron-expand hn-sort-icon"></i></th>
+					</tr>
+				</thead>
+				<tbody id="detailTableBody">
+					<!-- JS will populate rows -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- SUMMARY FOOTER — ยอดรวม -->
+	<div class="hn-summary-card">
+		<div class="hn-summary-row">
+			<span class="hn-summary-label">รวมธนบัตร ดี/เสีย/ทำลาย ทั้งสิ้น (+)</span>
+			<span class="hn-summary-value" id="sumGood">-</span>
+			<span class="hn-summary-unit">ฉบับ</span>
+		</div>
+		<div class="hn-summary-row hn-summary-row--danger">
+			<span class="hn-summary-label">รวมธนบัตร Reject จำนวนทั้งสิ้น (+)</span>
+			<span class="hn-summary-value" id="sumReject">-</span>
+			<span class="hn-summary-unit">ฉบับ</span>
+		</div>
+		<div class="hn-summary-row hn-summary-row--danger">
+			<span class="hn-summary-label">ธนบัตร ปลอม/ชำรุด จำนวนทั้งสิ้น (O)</span>
+			<span class="hn-summary-value" id="sumCounterfeit">-</span>
+			<span class="hn-summary-unit">ฉบับ</span>
+		</div>
+		<div class="hn-summary-row hn-summary-row--info">
+			<span class="hn-summary-label">เกินจำนวน (ระบบ) จำนวนทั้งสิ้น (O)</span>
+			<span class="hn-summary-value" id="sumExcess">-</span>
+			<span class="hn-summary-unit">ฉบับ</span>
+		</div>
+		<div class="hn-summary-row hn-summary-row--total">
+			<span class="hn-summary-label">รวมทั้งสิ้น</span>
+			<span class="hn-summary-value" id="sumTotal">-</span>
+			<span class="hn-summary-unit">ฉบับ</span>
+		</div>
+	</div>
+
+	<!-- SUBMIT BUTTON -->
+	<div class="hn-footer">
+		<button class="hn-btn-submit" onclick="rejectAction()">ส่งยอด Reject</button>
+	</div>
+
+</div>
+
+<!-- MODAL: Confirm Reject -->
+<div class="modal fade" id="rejectConfirmModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered" style="max-width:560px;">
+		<div class="modal-content hn-modal-alert">
+			<div class="hn-modal-top">
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='%233D8BFD' viewBox='0 0 16 16'%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.399l-.502.001-.04-.188 2.084-.376h.025zm-.502-1.588a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96'/%3E%3C/svg%3E"
+					 width="48" height="48" alt="" class="hn-modal-icon" />
+				<h5 class="hn-modal-title">ส่งยอด Reject</h5>
+			</div>
+			<div class="hn-modal-body">
+				<p class="hn-modal-message">ยืนยันการส่งยอด Reject</p>
+			</div>
+			<div class="hn-modal-footer">
+				<button class="hn-modal-btn hn-modal-btn--cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="hn-modal-btn hn-modal-btn--confirm" onclick="confirmReject(event)">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: Success -->
+<div class="modal fade" id="rejectSuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered" style="max-width:560px;">
+		<div class="modal-content hn-modal-alert">
+			<div class="hn-modal-top">
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='%23198754' viewBox='0 0 16 16'%3E%3Cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3E%3C/svg%3E"
+					 width="48" height="48" alt="" class="hn-modal-icon" />
+				<h5 class="hn-modal-title">สำเร็จ</h5>
+			</div>
+			<div class="hn-modal-body">
+				<p class="hn-modal-message" id="rejectSuccessMessage">ส่งข้อมูลสำเร็จ</p>
+			</div>
+			<div class="hn-modal-footer">
+				<button class="hn-modal-btn hn-modal-btn--success" onclick="closeSuccessModal()">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: Error -->
+<div class="modal fade" id="rejectErrorModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered" style="max-width:560px;">
+		<div class="modal-content hn-modal-alert">
+			<div class="hn-modal-top">
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='%23DC3545' viewBox='0 0 16 16'%3E%3Cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2'/%3E%3C/svg%3E"
+					 width="48" height="48" alt="" class="hn-modal-icon" />
+				<h5 class="hn-modal-title">การแจ้งเตือน</h5>
+			</div>
+			<div class="hn-modal-body">
+				<p class="hn-modal-message" id="rejectErrorMessage">มีข้อผิดพลาดในการส่งยอด Reject</p>
+			</div>
+			<div class="hn-modal-footer">
+				<button class="hn-modal-btn hn-modal-btn--confirm" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="@Url.Content("~/js/holding/holdingNoDetail.js")" asp-append-version="true"></script>
+}

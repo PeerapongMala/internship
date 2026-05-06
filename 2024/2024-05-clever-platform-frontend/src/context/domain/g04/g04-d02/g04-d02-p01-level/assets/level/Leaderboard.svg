@@ -1,0 +1,35 @@
+<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_10273_37383)">
+<g filter="url(#filter0_dd_10273_37383)">
+<path d="M3.83341 16.3333H7.16675V9.66667H3.83341V16.3333ZM8.83342 16.3333H12.1667V4.66667H8.83342V16.3333ZM13.8334 16.3333H17.1667V11.3333H13.8334V16.3333ZM2.16675 18V8H7.16675V3H13.8334V9.66667H18.8334V18H2.16675Z" fill="url(#paint0_linear_10273_37383)"/>
+<path d="M3.82091 16.3333V16.3458H3.83341H7.16675H7.17925V16.3333V9.66667V9.65417H7.16675H3.83341H3.82091V9.66667V16.3333ZM8.82092 16.3333V16.3458H8.83342H12.1667H12.1792V16.3333V4.66667V4.65417H12.1667H8.83342H8.82092V4.66667V16.3333ZM13.8209 16.3333V16.3458H13.8334H17.1667H17.1792V16.3333V11.3333V11.3208H17.1667H13.8334H13.8209V11.3333V16.3333ZM13.8334 9.67917H18.8209V17.9875H2.17925V8.0125H7.16675H7.17925V8V3.0125H13.8209V9.66667V9.67917H13.8334Z" stroke="url(#paint1_linear_10273_37383)" stroke-width="0.025"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_dd_10273_37383" x="-5.83325" y="3" width="32.6667" height="31" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="8"/>
+<feGaussianBlur stdDeviation="4"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10273_37383"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_10273_37383" result="effect2_dropShadow_10273_37383"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_10273_37383" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_10273_37383" x1="10.5001" y1="10.5" x2="10.5001" y2="18" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1_linear_10273_37383" x1="10.5001" y1="10.5" x2="10.5001" y2="18" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+</linearGradient>
+<clipPath id="clip0_10273_37383">
+<rect width="20" height="20" fill="white" transform="translate(0.5 0.5)"/>
+</clipPath>
+</defs>
+</svg>

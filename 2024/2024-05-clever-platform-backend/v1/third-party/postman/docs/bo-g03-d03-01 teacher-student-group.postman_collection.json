@@ -1,0 +1,625 @@
+{
+	"info": {
+		"_postman_id": "17b87e21-c859-412f-b8d8-737bb02f0c95",
+		"name": "bo-g03-d03-01 teacher-student-group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "a00-create-or-update-study-group",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // \"student_group_id\": 1, // include for update, exclude for create\n    \"class_id\": 1, //required\n    \"subject_id\": 1, //required\n    \"study_group_name\": \"Clever Group 01\", // required\n    \"status\" : \"enabled\"// enabled, disabled\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ERR 404 | student_group_id not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_group_id",
+									"value": "12311421",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "class_id",
+									"value": "2",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "study_group_name",
+									"value": "My Study Group XD",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "disable",
+									"description": "enable, disable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 25 Feb 2025 12:15:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "aeefb38f-9956-4948-b934-f4788c890553"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 404,\n    \"message\": \"student group does not exist\",\n    \"error_message\": \"student group does not exist\"\n}"
+				},
+				{
+					"name": "Update Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_group_id",
+									"value": "6",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "class_id",
+									"value": "2",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "study_group_name",
+									"value": "My Study Group XD",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "disable",
+									"description": "enable, disable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Feb 2025 12:01:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "4bb049ac-ef4b-4449-b5ac-0cbafb1288d3"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"updated success\",\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "Created Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_group_id",
+									"value": "6",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "class_id",
+									"value": "2",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "study_group_name",
+									"value": "Created Study Group",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "enable",
+									"description": "enable, disable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 25 Feb 2025 12:17:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "cdca40bd-0e71-4fc7-a9ef-00eba1ae2034"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"created success\",\n    \"status_code\": 201\n}"
+				},
+				{
+					"name": "ERR 500 | something went wrong",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_group_id",
+									"value": "6",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "class_id",
+									"value": "321312321123112331",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "study_group_name",
+									"value": "Created Study Group",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "enable",
+									"description": "enable, disable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Feb 2025 12:02:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "4db049ac-ef4b-4449-b5ac-0cbafb1288d3"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 500,\n    \"message\": \"Internal server error\",\n    \"error_message\": \"Internal server error\"\n}"
+				},
+				{
+					"name": "ERROR 403 | no access class",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student_group_id",
+									"value": "6",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "class_id",
+									"value": "3",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "study_group_name",
+									"value": "Created Study Group",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "enable",
+									"description": "enable, disable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 25 Feb 2025 11:58:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "5524848d-a488-41f4-9575-6315cb6f9f8d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 403,\n    \"message\": \"Forbidden\",\n    \"error_message\": \"Forbidden\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a01-get-study-group-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:study_group_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":study_group_id"
+					],
+					"variable": [
+						{
+							"key": "study_group_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ERR 404 | NOT FOUND",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/:study_group_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								":study_group_id"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "51231"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Feb 2025 12:50:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a4673ab1-a95f-498a-8981-ee02571361e6"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 404,\n    \"message\": \"Not found\",\n    \"error_message\": \"Not found\"\n}"
+				},
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/:study_group_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								":study_group_id"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 12 Mar 2025 08:04:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "423"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "2e54ae33-1744-4a27-852c-1e8ce9c121c2"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 7,\n            \"subject_id\": 1,\n            \"class_id\": 2,\n            \"name\": \"Created Study Group\",\n            \"status\": \"enable\",\n            \"created_at\": \"2025-02-17T11:58:24.496921Z\",\n            \"created_by\": \"abf26314-a541-4e39-8fff-ed5aa78a2782\",\n            \"updated_at\": null,\n            \"updated_by\": null,\n            \"admin_login_as\": null,\n            \"student_count\": 0,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"class_academic_year\": 2567,\n            \"class_year\": \"ป.5\",\n            \"class_name\": \"1\"\n        }\n    ],\n    \"message\": \"Data retrieved\",\n    \"status_code\": 200\n}"
+				},
+				{
+					"name": "ERR 403 | No access",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-group/:study_group_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-group",
+								":study_group_id"
+							],
+							"variable": [
+								{
+									"key": "study_group_id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 25 Feb 2025 12:03:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "1ea5eeb6-591a-463b-8f09-bfd3f3c0eaca"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 403,\n    \"message\": \"Forbidden\",\n    \"error_message\": \"Forbidden\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

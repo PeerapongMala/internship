@@ -1,0 +1,283 @@
+/* ==========================================================
+ * Figma Design Specs — Verify Auto Selling
+ * Source: Figma MCP get_design_context on node 2:20263
+ * Generated: 2026-02-19
+ *
+ * ★ ไฟล์นี้เป็น REFERENCE เท่านั้น — ห้าม link เป็น stylesheet
+ * ★ ใช้เป็นต้นฉบับ copy ค่าไปใส่ใน production CSS
+ * ★ font-family: 'Pridi' จาก Figma → ต้อง map เป็น 'bss-pridi' ตอน implement
+ * ========================================================== */
+
+/* --- Section: Title Bar (Node 2:20495) --- */
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  padding-top: 13px;
+}
+
+.page-title {
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 30px;
+  font-weight: 600;
+  color: #212121;
+  letter-spacing: 0.675px;
+  line-height: 1.2;
+}
+
+/* --- Section: Info Panel (Node 2:20500) --- */
+
+.info-panel {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.info-label {
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  color: #212529;
+  letter-spacing: 2.5px;
+  line-height: 18px;
+}
+
+.info-value {
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  color: #212121;
+  letter-spacing: 2.2px;
+}
+
+/* --- Section: Action Buttons (Node 2:20519) --- */
+
+.btn-filter {
+  width: 98px;
+  height: 36px;
+  border-radius: 4px;
+  background: #003366;
+  color: #ffffff;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+}
+
+.btn-open-screen {
+  width: 125px;
+  height: 36px;
+  border-radius: 6px;
+  background: #003366;
+  color: #ffffff;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+}
+
+.btn-print {
+  width: 127px;
+  height: 36px;
+  border-radius: 6px;
+  background: #003366;
+  color: #ffffff;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+}
+
+/* --- Section: Filter Bar (Node 2:20710) --- */
+
+.filter-bar {
+  height: 63px;
+  padding: 16px 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.filter-group label {
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 400;
+  color: #212529;
+  letter-spacing: 2.5px;
+  margin-bottom: 8px;
+}
+
+.filter-group select {
+  height: 31px;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 5px 13px 5px 9px;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 400;
+  color: #212529;
+}
+
+/* --- Section: Table Info Header (Node 2:17732) --- */
+
+.table-info-header {
+  height: 38px;
+  background: #ffffff;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-title {
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 16px;
+  font-weight: 500;
+  color: #212121;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
+}
+
+.table-count {
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 14px;
+  font-weight: 400;
+  color: #212121;
+  letter-spacing: 0.308px;
+}
+
+.table-count strong {
+  font-weight: 700;
+  color: #198754;
+}
+
+/* --- Section: Table Header (Node 2:17878) --- */
+
+.data-table thead th {
+  height: 30px;
+  background: #d6e0e0;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 8px;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 500;
+  color: #212121;
+  letter-spacing: 0.299px;
+  line-height: 1;
+}
+
+/* --- Section: Table Body Rows (Node 2:17891) --- */
+
+.data-table tbody tr {
+  height: 36px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: #f2f6f6;
+}
+
+.data-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.data-table tbody td {
+  padding: 6px 8px;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  color: #212529;
+  letter-spacing: 0.286px;
+  line-height: 1;
+}
+
+/* --- Section: Status Badge (Node 2:17896) --- */
+
+.status-badge {
+  height: 19px;
+  background: #fefce8;
+  border: 1px solid #facc15;
+  border-radius: 23.5px;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 400;
+  color: #713f12;
+}
+
+/* --- Section: Denomination Badge (Node 2:17897) --- */
+
+.denom-badge {
+  width: 47px;
+  height: 24px;
+  background: #fbf8f4;
+  border: 2px solid #9f7d57;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 13px;
+  font-weight: 700;
+  color: #4f3e2b;
+}
+
+/* --- Section: Bottom Action Buttons (Node 2:20895) --- */
+
+.bottom-actions {
+  height: 64px;
+  padding: 8px 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-refresh {
+  width: 229px;
+  height: 48px;
+  background: #003366;
+  color: #ffffff;
+  border: 1px solid #003366;
+  border-radius: 8px;
+  padding: 9px 17px;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+.btn-manual-keyin {
+  width: 173px;
+  height: 48px;
+  background: #003366;
+  color: #ffffff;
+  border: 1px solid #003366;
+  border-radius: 8px;
+  padding: 9px 17px;
+  font-family: 'Pridi', sans-serif; /* → implement เป็น 'bss-pridi' */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+/* --- Section: Checkbox (Node 2:17879) --- */
+
+input[type='checkbox'].table-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background: #ffffff;
+}

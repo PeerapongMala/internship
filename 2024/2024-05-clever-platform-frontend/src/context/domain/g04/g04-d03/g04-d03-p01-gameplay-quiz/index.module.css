@@ -1,0 +1,7 @@
+.ghost {
+  @apply !w-fit min-w-16 z-10;
+}
+
+.ghost-placeholder-list {
+  @apply !absolute z-10;
+}

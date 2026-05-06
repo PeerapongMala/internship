@@ -1,0 +1,334 @@
+/* ============================================================
+   Reconciliation Display 2 — secondScreenReconsile.css
+   Extends master secondScreen.css (loaded via _LayoutSecondScreen)
+   Matches Figma file BsIzHq1P3dX7lrAmWJp6BC
+   ============================================================ */
+
+/* ---- D2 Container (replaces Bootstrap .container) ---- */
+.container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.d2-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ---- Card ---- */
+.second-screen-card {
+    height: 100vh !important;
+    padding: 40px !important;
+    box-sizing: border-box !important;
+}
+
+.second-screen-card-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 35px !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+}
+
+/* ==========================================================
+   STATE-BASED VISIBILITY
+   Default (no class / initial): title visible, data+badge hidden
+   inprogress: data visible (no reject, no badge), title hidden
+   success/error: data+reject+badge visible, title hidden
+   ========================================================== */
+
+/* ---- Initial State: Title (visible by default) ---- */
+.d2-initial-title {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.d2-initial-title,
+.d2-initial-title * {
+    text-align: center !important;
+    font-size: clamp(60px, 12vmin, 150px) !important;
+    font-weight: 700 !important;
+    color: #003366 !important;
+    line-height: 1.07 !important;
+    letter-spacing: 0.1em !important;
+    font-family: 'bss-pridi', serif !important;
+}
+
+/* Hide title when NOT initial */
+body.d2-state-inprogress .d2-initial-title,
+body.d2-state-success .d2-initial-title,
+body.d2-state-error .d2-initial-title {
+    display: none !important;
+}
+
+/* ---- Data Area (hidden by default) ---- */
+.d2-data-area {
+    width: 100% !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    flex: 1 !important;
+    gap: 8px !important;
+}
+
+/* Show data area when NOT initial */
+body.d2-state-inprogress .d2-data-area,
+body.d2-state-success .d2-data-area,
+body.d2-state-error .d2-data-area {
+    display: flex !important;
+}
+
+/* In success/error, data area shrinks to leave ~17% for badge bar (5:1 ratio) */
+body.d2-state-success .d2-data-area,
+body.d2-state-error .d2-data-area {
+    flex: 5 1 0 !important;
+    min-height: 0 !important;
+}
+
+/* Rows must also allow shrinking below content in success/error */
+body.d2-state-success .d2-row,
+body.d2-state-error .d2-row {
+    min-height: 0 !important;
+}
+
+/* ---- Badge Area (hidden by default) ---- */
+.d2-badge-area {
+    width: 100% !important;
+    min-height: 0;
+    display: none !important;
+}
+
+body.d2-state-success .d2-badge-area,
+body.d2-state-error .d2-badge-area {
+    display: flex !important;
+    flex: 1 0 0 !important;
+    align-self: stretch !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Remove card bottom rounding so badge bar has sharp corners */
+body.d2-state-success .second-screen-card-inner,
+body.d2-state-error .second-screen-card-inner {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* ---- Reject Row 4 (hidden by default, show ONLY in success/error) ---- */
+/* Use .d2-row.d2-row-4 for higher specificity than .d2-row */
+.d2-row.d2-row-4 {
+    display: none !important;
+}
+
+body.d2-state-success .d2-row.d2-row-4,
+body.d2-state-error .d2-row.d2-row-4 {
+    display: flex !important;
+}
+
+/* ==========================================================
+   BILLBOARD ROWS (inprogress / success / error)
+   3 rows stretch to fill vertical space equally (flex: 1)
+   Figma: 1440x900, content frame 40px padding, ~35px radius
+   ========================================================== */
+
+.d2-row {
+    width: 100% !important;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ---- Row 1: Bank Code (left 50%) + Machine/Cashpoint (right 50%) ---- */
+.d2-row-1 {
+    gap: 0 !important;
+}
+
+.d2-bank-code {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: clamp(80px, 18vmin, 160px) !important;
+    font-weight: 700 !important;
+    color: #003366 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.55 !important;
+}
+
+.d2-machine-name {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: clamp(36px, 8vmin, 72px) !important;
+    font-weight: 700 !important;
+    color: #003366 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.25 !important;
+}
+
+/* ---- Row 2: Branch Name (center, marquee) ---- */
+.d2-row-2 {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.d2-row-2 .marquee-content {
+    position: relative !important;
+    z-index: 1 !important;
+    font-size: clamp(55px, 12vmin, 110px) !important;
+    font-weight: 500 !important;
+    color: #003366 !important;
+    font-family: 'bss-pridi', serif !important;
+    line-height: 1.55 !important;
+    white-space: nowrap !important;
+}
+
+/* ---- Row 3: ฿Denom (left 50%) + HC Code (right 50%) ---- */
+.d2-row-3 {
+    gap: 0 !important;
+}
+
+.d2-denom {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: clamp(50px, 11vmin, 100px) !important;
+    font-weight: 700 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.55 !important;
+}
+
+.d2-hc-code {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: clamp(48px, 10.5vmin, 95px) !important;
+    font-weight: 700 !important;
+    color: #003366 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.55 !important;
+}
+
+/* ---- Row 4: Reject Count (styling) ---- */
+/* Figma: inner frame row, baseline-aligned, gap 32px */
+.d2-row-4 {
+    gap: 32px !important;
+}
+
+.d2-reject-label {
+    font-size: clamp(30px, 6.5vmin, 59px) !important;
+    font-weight: 700 !important;
+    color: #003366 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.55 !important;
+}
+
+.d2-reject-count {
+    font-size: clamp(75px, 16.5vmin, 150px) !important;
+    font-weight: 700 !important;
+    color: #003366 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.55 !important;
+}
+
+/* ---- Badge Bar ---- */
+/* Figma: full-width colored rectangle — inner pill has same bg color so radius invisible */
+.d2-badge-bar {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    align-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+.d2-badge-bar-success {
+    background-color: #00A155 !important;
+}
+
+.d2-badge-bar-error {
+    background-color: #991B1B !important;
+}
+
+/* Figma success title: Pridi 60px, Medium 500, #F6F6F6 */
+.d2-badge-bar-success .d2-badge-title {
+    font-size: clamp(40px, 6.67vmin, 60px) !important;
+    font-weight: 500 !important;
+    color: #F6F6F6 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.3 !important;
+}
+
+/* Figma error title (single badge): Pridi 68px, SemiBold 600, #FFFFFF — same as badge-tag */
+.d2-badge-bar-error .d2-badge-title {
+    font-size: clamp(45px, 7.56vmin, 68px) !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.3 !important;
+}
+
+.d2-badge-bar .d2-badge-desc {
+    font-size: clamp(20px, 3.5vmin, 32px) !important;
+    font-weight: 500 !important;
+    color: #F6F6F6 !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.05em !important;
+    line-height: 0.9em !important;
+    margin-top: 0.5vmin;
+}
+
+.d2-badge-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 19px !important;
+}
+
+/* Figma error: Pridi 68px, weight 600, color #FFFFFF, letter-spacing 5% */
+.d2-badge-tag {
+    font-size: clamp(45px, 7.56vmin, 68px) !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    font-family: 'bss-pridi', serif !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.3 !important;
+}
+
+/* ---- State Backgrounds ---- */
+body.d2-state-initial,
+body.d2-state-inprogress,
+body.d2-state-error,
+body.d2-state-success {
+    background-color: #F6F6F6 !important;
+    background: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.03)), var(--pattern-bg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* ---- Denom Colors (by denomination value) ---- */
+.d2-denom-20 { color: #336C32 !important; }
+.d2-denom-50 { color: #013665 !important; }
+.d2-denom-100 { color: #BE4949 !important; }
+.d2-denom-500 { color: #3D2E5B !important; }
+.d2-denom-1000 { color: #9F7D57 !important; }

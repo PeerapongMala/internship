@@ -1,0 +1,697 @@
+{
+	"info": {
+		"_postman_id": "44555e55-66a6-46f4-8ad4-a6f5e06b1936",
+		"name": "bo-g03-d09-teacher-shop-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "Teacher shop subject list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-shop/v1/teacher/shop/subject",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"subject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/subject_id/1?page=1&limit=10",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"subject_id",
+						"1"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "badge",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-shop/v1/teacher/shop/subject_id/1/store_item_id/6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"subject_id",
+						"1",
+						"store_item_id",
+						"6"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "enabled",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "badge",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-shop/v1/teacher/shop/subject_id/1/store_item_id/148",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-shop",
+								"v1",
+								"teacher",
+								"shop",
+								"subject_id",
+								"1",
+								"store_item_id",
+								"148"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "enabled",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "badge",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jun 2025 09:17:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1608"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "db251c89-b14d-463e-9767-426db9c4a5e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": {\n        \"id\": 148,\n        \"item_id\": 174,\n        \"teacher_store_id\": null,\n        \"stock\": 0,\n        \"initial_stock\": 1,\n        \"price\": 111,\n        \"open_date\": \"2023-11-15T08:23:45Z\",\n        \"closed_date\": \"2026-11-15T08:23:45Z\",\n        \"status\": \"pending\",\n        \"created_at\": \"2025-06-04T11:38:10.15766Z\",\n        \"created_by\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n        \"updated_at\": null,\n        \"updated_by\": null,\n        \"admin_login_as\": null,\n        \"limit_per_user\": null,\n        \"item_name\": \"new name\",\n        \"item_description\": \"new description\",\n        \"item_type\": \"coupon\",\n        \"created_by_name\": \"ครู บอ\",\n        \"updated_by_name\": null,\n        \"transaction_count\": 0,\n        \"image_url\": \"https://cp-prod.obs.ap-southeast-2.myhuaweicloud.com:443/c0fde705-d4b3-4e51-bac4-355621f73e32?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1749030113&Signature=O6jyVWOLjxsQV9QLM8s6RbFzxAQ%3D\",\n        \"student_ids\": [\n            {\n                \"user_id\": \"072600f4-b303-498e-accf-0355012736ff\",\n                \"student_id\": \"46372\",\n                \"title\": \"แชท\",\n                \"first_name\": \"แชท\",\n                \"last_name\": \"แชท\",\n                \"last_login\": null\n            },\n            {\n                \"user_id\": \"134b3401-202e-49b7-90d6-d44fde2ed376\",\n                \"student_id\": \"71314\",\n                \"title\": \"นาย\",\n                \"first_name\": \"นายดี\",\n                \"last_name\": \"สุขไหม\",\n                \"last_login\": null\n            }\n        ],\n        \"study_group_ids\": [\n            {\n                \"study_group_id\": 2,\n                \"study_group_name\": \"Math 5/1 g1\",\n                \"class_name\": \"6\",\n                \"class_year\": \"ป.4\",\n                \"student_count\": 2\n            },\n            {\n                \"study_group_id\": 3,\n                \"study_group_name\": \"กลุ่มพื้นฐานกก\",\n                \"class_name\": \"1\",\n                \"class_year\": \"ป.4\",\n                \"student_count\": 4\n            }\n        ],\n        \"class_ids\": [\n            {\n                \"class_id\": 1,\n                \"class_academic_year\": 2568,\n                \"class_name\": \"1\",\n                \"class_year\": \"ป.4\",\n                \"student_count\": 42\n            },\n            {\n                \"class_id\": 2,\n                \"class_academic_year\": 2570,\n                \"class_name\": \"3\",\n                \"class_year\": \"ป.4\",\n                \"student_count\": 0\n            }\n        ]\n    },\n    \"message\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Teacher shop subject get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/subject/subject_id/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"subject",
+						"subject_id",
+						"1"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "enabled",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "badge",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher Shop create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "รางวัล 1",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "pending / enabled ",
+							"type": "text"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "open_date",
+							"value": "2024-11-15T08:23:45Z",
+							"type": "text"
+						},
+						{
+							"key": "closed_date",
+							"value": "2026-11-15T08:23:45Z",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/patwanich/Pictures/screenshots/Screenshot 2568-06-02 at 13.08.53.png"
+						},
+						{
+							"key": "image_key",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "class_ids",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "class_ids",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "student_ids",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-shop/v1/teacher/shop",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "item_name",
+							"value": "new name",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "item_description",
+							"value": "new description",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "111",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "initial_stock",
+							"value": "1",
+							"description": "required, ถ้าไม่จำกัดไม่ต้องส่ง ",
+							"type": "text"
+						},
+						{
+							"key": "limit_per_user",
+							"value": "1",
+							"description": "required, ถ้าไม่จำกัดไม่ต้องส่ง ",
+							"type": "text"
+						},
+						{
+							"key": "open_date",
+							"value": "2023-11-15T08:23:45Z",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "closed_date",
+							"value": "2026-11-15T08:23:45Z",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"description": "optional",
+							"type": "file",
+							"src": "/Users/patwanich/Pictures/screenshots/Screenshot 2568-06-04 at 10.07.31.png"
+						},
+						{
+							"key": "student_ids",
+							"value": "072600f4-b303-498e-accf-0355012736ff",
+							"description": "required, ถ้าไม่มีไม่ต้องส่ง",
+							"type": "text"
+						},
+						{
+							"key": "student_ids",
+							"value": "134b3401-202e-49b7-90d6-d44fde2ed376",
+							"description": "required, ถ้าไม่มีไม่ต้องส่ง",
+							"type": "text"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "2",
+							"description": "required, ถ้าไม่มีไม่ต้องส่ง",
+							"type": "text"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "3",
+							"description": "required, ถ้าไม่มีไม่ต้องส่ง",
+							"type": "text"
+						},
+						{
+							"key": "class_ids",
+							"value": "1",
+							"description": "required, ถ้าไม่มีไม่ต้องส่ง",
+							"type": "text"
+						},
+						{
+							"key": "class_ids",
+							"value": "2",
+							"description": "required, ถ้าไม่มีไม่ต้องส่ง",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-shop/v1/teacher/shop/store_item_id/:storeItemId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"store_item_id",
+						":storeItemId"
+					],
+					"variable": [
+						{
+							"key": "storeItemId",
+							"value": "148"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop update status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"pending\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/store_item_id/8/status",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"store_item_id",
+						"8",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop update status Bulk Edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\" : [\n        {\n            \"id\": 2,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 3,\n            \"status\": \"enabled\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/status/bulk_edit",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"status",
+						"bulk_edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop get transaction lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/store_item_id/7/transaction?page=1&limit=10",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"store_item_id",
+						"7",
+						"transaction"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search_text",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher shop update transaction Status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"recalled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/transaction/store_transaction_id/2/status",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"transaction",
+						"store_transaction_id",
+						"2",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Teacher Shop update transaction Status Bulk Edit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\" : [\n        {\n            \"id\": 2,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 1,\n            \"status\": \"enabled\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/teacher-shop/v1/teacher/shop/transaction/status/bulk_edit",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						"transaction",
+						"status",
+						"bulk_edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teacher-shop-case-copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-shop/v1/teacher/shop/:teacherShopItemId/copy",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-shop",
+						"v1",
+						"teacher",
+						"shop",
+						":teacherShopItemId",
+						"copy"
+					],
+					"variable": [
+						{
+							"key": "teacherShopItemId",
+							"value": "148"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-shop/v1/teacher/shop/:teacherShopItemId/copy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-shop",
+								"v1",
+								"teacher",
+								"shop",
+								":teacherShopItemId",
+								"copy"
+							],
+							"variable": [
+								{
+									"key": "teacherShopItemId",
+									"value": "148"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 04 Jun 2025 09:17:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1371"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "da251c89-b14d-463e-9767-426db9c4a5e9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 201,\n    \"data\": [\n        {\n            \"subject_id\": 1,\n            \"class_ids\": [\n                {\n                    \"class_id\": 1,\n                    \"class_academic_year\": 2568,\n                    \"class_name\": \"1\",\n                    \"class_year\": \"ป.4\",\n                    \"student_count\": 42\n                },\n                {\n                    \"class_id\": 2,\n                    \"class_academic_year\": 2570,\n                    \"class_name\": \"3\",\n                    \"class_year\": \"ป.4\",\n                    \"student_count\": 0\n                }\n            ],\n            \"study_group_ids\": [\n                {\n                    \"study_group_id\": 2,\n                    \"study_group_name\": \"Math 5/1 g1\",\n                    \"class_name\": \"6\",\n                    \"class_year\": \"ป.4\",\n                    \"student_count\": 2\n                },\n                {\n                    \"study_group_id\": 3,\n                    \"study_group_name\": \"กลุ่มพื้นฐานกก\",\n                    \"class_name\": \"1\",\n                    \"class_year\": \"ป.4\",\n                    \"student_count\": 4\n                }\n            ],\n            \"student_ids\": [\n                {\n                    \"user_id\": \"072600f4-b303-498e-accf-0355012736ff\",\n                    \"student_id\": \"46372\",\n                    \"title\": \"แชท\",\n                    \"first_name\": \"แชท\",\n                    \"last_name\": \"แชท\",\n                    \"last_login\": null\n                },\n                {\n                    \"user_id\": \"134b3401-202e-49b7-90d6-d44fde2ed376\",\n                    \"student_id\": \"71314\",\n                    \"title\": \"นาย\",\n                    \"first_name\": \"นายดี\",\n                    \"last_name\": \"สุขไหม\",\n                    \"last_login\": null\n                }\n            ],\n            \"item_name\": \"new name\",\n            \"item_description\": \"new description\",\n            \"image_url\": \"https://cp-prod.obs.ap-southeast-2.myhuaweicloud.com:443/c0fde705-d4b3-4e51-bac4-355621f73e32?AWSAccessKeyId=4KLUJRJMVTOMM8YDKMF2&Expires=1749030095&Signature=04R5z0DiKnLySgk4tqscnLQCb4U%3D\",\n            \"image_key\": \"c0fde705-d4b3-4e51-bac4-355621f73e32\",\n            \"initial_stock\": 1,\n            \"price\": 111,\n            \"open_date\": \"2023-11-15T08:23:45Z\",\n            \"closed_date\": \"2026-11-15T08:23:45Z\",\n            \"status\": \"pending\",\n            \"limit_per_user\": null\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

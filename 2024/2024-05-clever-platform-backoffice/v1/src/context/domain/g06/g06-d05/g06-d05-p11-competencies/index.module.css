@@ -1,0 +1,16 @@
+.table {
+  @apply w-full table-fixed text-nowrap;
+}
+
+.table td,
+.table th {
+  @apply items-center border !px-0 text-center;
+}
+
+.th-rotate {
+  @apply h-32 min-h-32 -rotate-90 items-center text-nowrap text-center;
+}
+
+.fix-width {
+  @apply w-[300px] min-w-[200px];
+}

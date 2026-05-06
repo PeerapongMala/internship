@@ -1,0 +1,11 @@
+.chat-header {
+  color: var(--text-gray-20, #333);
+  text-align: center;
+  /* 18B */
+  font-family: 'Noto Sans Thai';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  flex: 1 1 0%;
+}

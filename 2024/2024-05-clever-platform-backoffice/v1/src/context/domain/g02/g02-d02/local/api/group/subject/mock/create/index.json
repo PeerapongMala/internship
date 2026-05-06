@@ -1,0 +1,42 @@
+{
+  "status_code": 201,
+  "data": [
+    {
+      "id": 49,
+      "subject_group_id": 17,
+      "name": "คณิต3",
+      "project": "คณิต3",
+      "subject_language_type": "uni",
+      "subject_language": "th",
+      "subject_translation_languages": [],
+      "image_url": null,
+      "status": "enabled",
+      "created_at": "2024-12-16T16:12:06.20914Z",
+      "created_by": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+      "updated_at": null,
+      "updated_by": null,
+      "admin_login_as": null,
+      "tag_groups": [
+        {
+          "id": 28,
+          "index": 1,
+          "name": "Tag1",
+          "tags": []
+        },
+        {
+          "id": 29,
+          "index": 2,
+          "name": "Tag2",
+          "tags": []
+        },
+        {
+          "id": 30,
+          "index": 3,
+          "name": "Tag3",
+          "tags": []
+        }
+      ]
+    }
+  ],
+  "message": "Subject created"
+}

@@ -1,0 +1,20 @@
+.joystick-container {
+    position: fixed;
+    bottom: 50px; /* ปรับความสูงจากขอบล่าง */
+    right: 700px; /* ปรับความสูงจากขอบขวา */
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .joystick {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    position: absolute;
+  }

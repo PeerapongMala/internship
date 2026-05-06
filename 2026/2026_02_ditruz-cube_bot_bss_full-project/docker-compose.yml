@@ -1,0 +1,26 @@
+services:
+  sonarqube:
+    image: sonarqube:26.1.0.118079-community
+    ports:
+      - ${SONAR_PORT}:9000
+    tmpfs:
+      - /tmp
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+
+  maildev:
+    image: maildev/maildev:2.1.0
+    ports:
+      - ${SMTP_DEV_MAIL_PORT:-9225}:1025
+      - ${SMTP_DEV_WEB_PORT:-9226}:1080
+    environment:
+      - MAILDEV_WEB_USER=${SMTP_DEV_WEB_USERNAME}
+      - MAILDEV_WEB_PASS=${SMTP_DEV_WEB_PASSWORD}
+    restart: unless-stopped
+
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:

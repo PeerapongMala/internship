@@ -1,0 +1,123 @@
+package service
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"strconv"
+
+	userConstant "github.com/ZettaMerge/2024-05-clever-platform-backend/src/context/domain/g01/g01-d07-admin-user-account-v1/constant"
+	"github.com/ZettaMerge/2024-05-clever-platform-backend/src/context/domain/g02/g02-d01-academic-standard-v1/constant"
+	"github.com/ZettaMerge/2024-05-clever-platform-backend/src/core/helper"
+	"github.com/gofiber/fiber/v2"
+	"github.com/pkg/errors"
+)
+
+func (api *APIStruct) IndicatorUpdate(context *fiber.Ctx) error {
+	var body constant.IndicatorsUpdateRequest
+
+	IndicatorIdStr := context.Params("indicatorId")
+	IndicatorId, err := strconv.Atoi(IndicatorIdStr)
+	if err != nil {
+		return context.Status(fiber.StatusBadRequest).JSON(constant.StatusResponse{
+			StatusCode: fiber.StatusBadRequest,
+			Message:    "Indicator Id should be valid integer",
+		})
+	}
+	body.Id = IndicatorId
+	if err := context.BodyParser(&body); err != nil {
+		return context.Status(fiber.StatusBadRequest).JSON(constant.StatusResponse{
+			StatusCode: fiber.StatusBadRequest,
+			Message:    "bad request",
+		})
+	}
+	subjectId, ok := context.Locals("subjectId").(string)
+	if !ok {
+		// log.Printf("%+v", errors.WithStack(err))
+		return helper.RespondHttpError(context, helper.NewHttpError(http.StatusInternalServerError, nil))
+	}
+	roles, ok := context.Locals("roles").([]int)
+	if !ok {
+
+		return helper.RespondHttpError(context, helper.NewHttpError(http.StatusInternalServerError, nil))
+	}
+	body.Roles = roles
+	body.UpdatedBy = subjectId
+	body.SubjectId = subjectId
+	err = api.Service.IndicatorUpdate(body)
+	if err != nil {
+		if err.Error() == "learning content id is not exist" {
+			return context.Status(fiber.StatusNotFound).JSON(constant.StatusResponse{
+				StatusCode: fiber.StatusNotFound,
+				Message:    "Learning content id is not exist",
+			})
+		}
+		if err.Error() == "user not allowed" {
+			return context.Status(fiber.StatusForbidden).JSON(constant.StatusResponse{
+				StatusCode: fiber.StatusForbidden,
+				Message:    "User isn't content creator of this curriculum group",
+			})
+		}
+		if err.Error() == "indicators id is not exist" {
+			return context.Status(fiber.StatusNotFound).JSON(constant.StatusResponse{
+				StatusCode: fiber.StatusNotFound,
+				Message:    "indicators id is not exist",
+			})
+
+		}
+		return context.Status(fiber.StatusInternalServerError).JSON(constant.StatusResponse{
+			StatusCode: fiber.StatusInternalServerError,
+			Message:    "Cannot Update Indicators",
+		})
+	}
+	return context.Status(fiber.StatusOK).JSON(constant.StatusResponse{
+		StatusCode: fiber.StatusOK,
+		Message:    "Indicators Update",
+	})
+}
+func (service *serviceStruct) IndicatorUpdate(c constant.IndicatorsUpdateRequest) error {
+	curriculumGroupId, err := service.repositoryStorage.GetByLearningContentId(c.LearningContentId)
+	if err != nil {
+		if err.Error() == "learning content id is not exist" {
+			return fmt.Errorf("learning content id is not exist")
+		}
+		return err
+
+	}
+	check := false
+	for _, role := range c.Roles {
+		if role == int(userConstant.Admin) {
+			check = true
+			break
+		}
+	}
+	if !check {
+		_, err := service.repositoryStorage.CheckContentCreator(curriculumGroupId, c.SubjectId)
+
+		if err != nil {
+			if err.Error() == "user not allowed" {
+				return fmt.Errorf("user not allowed")
+			}
+			return err
+
+		}
+	}
+	err = service.repositoryStorage.IndicatorUpdate(constant.IndicatorsUpdateRequest{
+		Id:                c.Id,
+		LearningContentId: c.LearningContentId,
+		Name:              c.Name,
+		ShortName:         c.ShortName,
+		TranscriptName:    c.TranscriptName,
+		Status:            c.Status,
+		UpdatedBy:         c.UpdatedBy,
+	})
+	if err != nil {
+		if err.Error() == "indicators id is not exist" {
+			return fmt.Errorf("indicators id is not exist")
+		}
+		log.Printf("%+v", errors.WithStack(err))
+		return err
+
+	}
+	return nil
+}

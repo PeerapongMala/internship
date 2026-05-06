@@ -1,0 +1,142 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v5.0.5eb040c7)"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1319,
+            "type": "VEC3",
+            "max": [
+                85.36540985107422,
+                214.92225646972657,
+                85.36540985107422
+            ],
+            "min": [
+                -85.36540985107422,
+                -2.2351740369686014e-7,
+                -85.36540222167969
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 1319,
+            "type": "VEC3",
+            "max": [
+                0.9972677230834961,
+                1.0,
+                0.9999889135360718
+            ],
+            "min": [
+                -0.9970138072967529,
+                -1.0,
+                -0.9999594688415527
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 6210,
+            "type": "SCALAR",
+            "max": [
+                1318
+            ],
+            "min": [
+                0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 56496,
+            "uri": "result.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 15828,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 15828,
+            "byteLength": 15828,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 31656,
+            "byteLength": 24840,
+            "target": 34963
+        }
+    ],
+    "images": [
+        {
+            "uri": "..\\Casual Games\\Textures\\Cupcake_strawberry.tga"
+        }
+    ],
+    "materials": [
+        {
+            "name": "Cupcake_strawberry",
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 0.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Scene",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 2,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "children": [
+                1
+            ]
+        },
+        {
+            "name": "Cupcake_strawberry",
+            "mesh": 0
+        }
+    ],
+    "samplers": [
+        {}
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "textures": [
+        {
+            "source": 0,
+            "sampler": 0
+        }
+    ],
+    "scene": 0
+}

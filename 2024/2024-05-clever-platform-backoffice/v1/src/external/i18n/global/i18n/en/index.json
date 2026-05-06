@@ -1,0 +1,14 @@
+{
+  "header": {
+    "menu": {
+      "privileges": "Privileges",
+      "memberGetMember": "Member get member",
+      "britaniaActivity": "Britania activity",
+      "about": "About",
+      "contact": "Contact"
+    }
+  },
+  "validate": {
+    "required": "กรุณากรอกข้อมูลให้ครบถ้วน"
+  }
+}

@@ -1,0 +1,18 @@
+CREATE TABLE bss_txn_container_prepare (
+    container_prepare_id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    department_id INTEGER NOT NULL,
+    machine_id INTEGER,
+    container_code NVARCHAR(10) NOT NULL,
+    receive_id BIGINT,
+    bntype_id INTEGER NOT NULL,
+    is_active BIT,
+    created_by INTEGER,
+    created_date DATETIME NOT NULL DEFAULT GETDATE(),
+    updated_by INTEGER,
+    updated_date DATETIME,
+    CONSTRAINT FK_bss_txn_package_prepare_department FOREIGN KEY (department_id) REFERENCES bss_mst_bn_operation_center(department_id),
+    CONSTRAINT FK_bss_txn_package_prepare_machine FOREIGN KEY (machine_id) REFERENCES bss_mst_machine(machine_id),
+    CONSTRAINT FK_bss_txn_package_prepare_bntype FOREIGN KEY (bntype_id) REFERENCES bss_mst_bn_type(bntype_id),
+    CONSTRAINT FK_bss_txn_package_prepare_receive_cbms FOREIGN KEY (receive_id) REFERENCES  bss_txn_receive_cbms_data(receive_id)
+    
+);

@@ -1,0 +1,4 @@
+/* Reconsile CA Non-Member variant — nav-purple gradient */
+body::before {
+    background: linear-gradient(90deg, #bac0d1, #c3d0de) !important;
+}

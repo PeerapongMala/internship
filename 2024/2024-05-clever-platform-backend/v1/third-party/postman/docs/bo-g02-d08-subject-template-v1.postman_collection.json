@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "9996d33e-07e8-427a-91a0-9ff41f97e35b",
+		"name": "bo-g02-d08-subject-template-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-subject-template-create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"template 2\",\n    \"seed_year_id\": 1,\n    \"subject_id\": 1,\n    \"wizard_index\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/subject-template/v1/templates",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-template",
+						"v1",
+						"templates"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"template 1\",\n    \"seed_year_id\": 1,\n    \"subject_id\": 1,\n    \"wizard_index\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subject-template/v1/templates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subject-template",
+								"v1",
+								"templates"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 16 Jun 2025 08:15:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "11cf17a4-de1a-4d7a-a4ff-b0423fc5ec80"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 201,\n    \"message\": \"Created\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a02-api-subject-template-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/subject-template/v1/templates?page=1&limit=10&name=tem&seed_year_id=1&subject_id=1&id=1&include_indicators=true&curriculum_group_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-template",
+						"v1",
+						"templates"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional"
+						},
+						{
+							"key": "name",
+							"value": "tem",
+							"description": "optional"
+						},
+						{
+							"key": "seed_year_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "status",
+							"value": "enabled",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"description": "optional"
+						},
+						{
+							"key": "include_indicators",
+							"value": "true",
+							"description": "optional"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"description": "optional"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/subject-template/v1/templates?page=1&limit=10&name=tem&seed_year_id=1&subject_id=1&id=1&include_indicators=true&curriculum_group_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subject-template",
+								"v1",
+								"templates"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional"
+								},
+								{
+									"key": "name",
+									"value": "tem",
+									"description": "optional"
+								},
+								{
+									"key": "seed_year_id",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "status",
+									"value": "enabled",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "include_indicators",
+									"value": "true",
+									"description": "optional"
+								},
+								{
+									"key": "curriculum_group_id",
+									"value": "1",
+									"description": "optional"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 19 Jun 2025 04:16:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1061"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "3410acda-bdad-4296-a71b-f5a15eefdbb5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"template 4\",\n            \"subject_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"seed_year_id\": 1,\n            \"seed_year_short_name\": \"ป.4\",\n            \"status\": \"enabled\",\n            \"created_at\": \"2025-06-16T08:15:30.807361Z\",\n            \"created_by\": \"บอ\",\n            \"updated_at\": null,\n            \"updated_by\": null,\n            \"wizard_index\": 2,\n            \"indicators\": [\n                {\n                    \"id\": 30,\n                    \"subject_template_id\": 1,\n                    \"lesson_id\": 1,\n                    \"sub_lesson_id\": 1,\n                    \"name\": \"indicator 11\",\n                    \"type\": \"ACADEMIC_CRITERIA\",\n                    \"index\": 1,\n                    \"value\": 10,\n                    \"levels\": [\n                        {\n                            \"subject_template_indicator_id\": 30,\n                            \"level_type\": \"pre-post-test\",\n                            \"weight\": 11,\n                            \"levels\": [\n                                2\n                            ]\n                        },\n                        {\n                            \"subject_template_indicator_id\": 30,\n                            \"level_type\": \"sub-lesson-post-test\",\n                            \"weight\": 12,\n                            \"levels\": [\n                                4,\n                                5,\n                                6\n                            ]\n                        }\n                    ]\n                },\n                {\n                    \"id\": 31,\n                    \"subject_template_id\": 1,\n                    \"lesson_id\": 4,\n                    \"sub_lesson_id\": 3,\n                    \"name\": \"indicator 12\",\n                    \"type\": \"ACADEMIC_CRITERIA\",\n                    \"index\": 2,\n                    \"value\": 102,\n                    \"levels\": [\n                        {\n                            \"subject_template_indicator_id\": 31,\n                            \"level_type\": \"easy\",\n                            \"weight\": 13,\n                            \"levels\": [\n                                1,\n                                2,\n                                3\n                            ]\n                        },\n                        {\n                            \"subject_template_indicator_id\": 31,\n                            \"level_type\": \"medium\",\n                            \"weight\": 14,\n                            \"levels\": [\n                                4,\n                                5,\n                                6\n                            ]\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a03-api-subject-template-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"template 4\",\n    \"status\": \"draft\",\n    \"wizard_index\": 2,\n    \"is_indicator_update\": true, // true ถ้ามีการ update indicators\n    \"indicators\": [\n        {\n            \"sub_lesson_id\": 1,\n            \"name\": \"indicator 11\",\n            \"type\": \"ACADEMIC_CRITERIA\",\n            \"index\": 1,\n            \"value\": 10,\n            \"levels\": [\n                {\n                    \"level_type\": \"pre-post-test\",\n                    \"weight\": 11,\n                    \"levels\": [\n                        2\n                    ],\n                    \"level_count\": 3 // new 2025-09-12\n                },\n                {\n                    \"level_type\": \"sub-lesson-post-test\",\n                    \"weight\": 12,\n                    \"levels\": [\n                        4,\n                        5,\n                        6\n                    ],\n                    \"level_count\": 4\n                }\n            ]\n        },\n        {\n            \"sub_lesson_id\": 3,\n            \"name\": \"indicator 12\",\n            \"type\": \"ACADEMIC_CRITERIA\",\n            \"index\": 2,\n            \"value\": 102,\n            \"levels\": [\n                {\n                    \"level_type\": \"easy\",\n                    \"weight\": 13,\n                    \"levels\": [\n                        1,\n                        2,\n                        3\n                    ],\n                    \"level_count\": 5\n                },\n                {\n                    \"level_type\": \"medium\",\n                    \"weight\": 14,\n                    \"levels\": [\n                        4,\n                        5,\n                        6\n                    ],\n                    \"level_count\": 6\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/subject-template/v1/templates/:templateId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-template",
+						"v1",
+						"templates",
+						":templateId"
+					],
+					"variable": [
+						{
+							"key": "templateId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"template 4\",\n    \"status\": \"draft\",\n    \"wizard_index\": 2,\n    \"is_indicator_update\": false, // true ถ้ามีการ update indicators\n    \"indicators\": [\n        {\n            \"sub_lesson_id\": 1,\n            \"name\": \"indicator 11\",\n            \"type\": \"ACADEMIC_CRITERIA\",\n            \"index\": 1,\n            \"value\": 10,\n            \"levels\": [\n                {\n                    \"level_type\": \"pre-post-test\",\n                    \"weight\": 11,\n                    \"levels\": [\n                        2\n                    ]\n                },\n                {\n                    \"level_type\": \"sub-lesson-post-test\",\n                    \"weight\": 12,\n                    \"levels\": [\n                        4,\n                        5,\n                        6\n                    ]\n                }\n            ]\n        },\n        {\n            \"sub_lesson_id\": 3,\n            \"name\": \"indicator 12\",\n            \"type\": \"ACADEMIC_CRITERIA\",\n            \"index\": 2,\n            \"value\": 102,\n            \"levels\": [\n                {\n                    \"level_type\": \"easy\",\n                    \"weight\": 13,\n                    \"levels\": [\n                        1,\n                        2,\n                        3\n                    ]\n                },\n                {\n                    \"level_type\": \"medium\",\n                    \"weight\": 14,\n                    \"levels\": [\n                        4,\n                        5,\n                        6\n                    ]\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subject-template/v1/templates/:templateId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subject-template",
+								"v1",
+								"templates",
+								":templateId"
+							],
+							"variable": [
+								{
+									"key": "templateId",
+									"value": "1",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 17 Jun 2025 02:53:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "86274f94-5fb2-493b-967f-d72d0a6aad62"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Updated\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a04-api-subject-template-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"id\": 1,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 2,\n            \"status\": \"draft\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/subject-template/v1/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-template",
+						"v1",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"id\": 1,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 2,\n            \"status\": \"draft\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subject-template/v1/bulk-edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subject-template",
+								"v1",
+								"bulk-edit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 17 Jun 2025 03:59:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "39f02f67-3cd2-4f25-9553-8c74e2ce1c88"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Edited\"\n}"
+				}
+			]
+		},
+		{
+			"name": "a05-api-subject-template-indicator-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/subject-template/v1/indicators/:indicatorId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-template",
+						"v1",
+						"indicators",
+						":indicatorId"
+					],
+					"variable": [
+						{
+							"key": "indicatorId",
+							"value": "30",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/subject-template/v1/indicators/:indicatorId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subject-template",
+								"v1",
+								"indicators",
+								":indicatorId"
+							],
+							"variable": [
+								{
+									"key": "indicatorId",
+									"value": "30",
+									"description": "required"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 19 Jun 2025 04:18:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "395"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d02e41de-0d7d-4a3f-9f86-185436cccf31"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": 30,\n            \"subject_template_id\": 1,\n            \"lesson_id\": 1,\n            \"sub_lesson_id\": 1,\n            \"name\": \"indicator 11\",\n            \"type\": \"ACADEMIC_CRITERIA\",\n            \"index\": 1,\n            \"value\": 10,\n            \"levels\": [\n                {\n                    \"subject_template_indicator_id\": 30,\n                    \"level_type\": \"pre-post-test\",\n                    \"weight\": 11,\n                    \"levels\": [\n                        2\n                    ]\n                },\n                {\n                    \"subject_template_indicator_id\": 30,\n                    \"level_type\": \"sub-lesson-post-test\",\n                    \"weight\": 12,\n                    \"levels\": [\n                        4,\n                        5,\n                        6\n                    ]\n                }\n            ]\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

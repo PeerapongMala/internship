@@ -1,0 +1,12 @@
+{
+  "role": "Student",
+  "uuid": "0000001",
+  "fullname": "Kristin Watson",
+  "schoolName": "เรียนดี",
+  "schoolId": "SC001",
+  "studentId": "ST0001",
+  "family": {
+    "uuid": "0000001",
+    "fullname": "ครอบครัว LINE ID (Mom)"
+  }
+}

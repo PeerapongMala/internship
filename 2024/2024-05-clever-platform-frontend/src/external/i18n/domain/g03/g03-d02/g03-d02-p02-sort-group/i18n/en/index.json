@@ -1,0 +1,10 @@
+{
+    "dialog_1": "Click and drag the answer and drop it into the correct answer group.",
+    "dialog_2": "Click to select the group you want to edit.",
+    "dialog_3": "Press X to remove the answer from the group.",
+    "card_title": "Group",
+    "question_title": "Group according to the specified conditions.",
+    "question": "Match a/an with the nouns below correctly, for example, a rat, an apple.",
+    "answer": "Answer",
+    "placeholder": "Drag the answer here"
+}

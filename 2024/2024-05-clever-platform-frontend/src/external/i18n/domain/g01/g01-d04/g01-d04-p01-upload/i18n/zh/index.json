@@ -1,0 +1,15 @@
+{
+  "menu-header-title": "自行导入课程",
+  "menu-header-sublesson-tab": "上传子课程",
+  "menu-header-model-tab": "上传模型",
+  "model": {
+    "loading": "正在加载...",
+    "empty": "系统中暂无模型，请上传模型文件",
+    "total": "模型总数"
+  },
+  "lesson": {
+    "empty": "系统中暂无课程，请上传课程文件",
+    "lesson": "课程",
+    "sublesson": "子课程"
+  }
+}

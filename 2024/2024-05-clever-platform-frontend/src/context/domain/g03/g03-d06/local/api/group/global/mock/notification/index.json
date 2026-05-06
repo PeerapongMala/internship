@@ -1,0 +1,47 @@
+[
+  {
+    "id": 31,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "แจ้งเตือน 1",
+    "description": "แจ้งเตือนจากทางโรงเรียน เรื่องที่ 1",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 32,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "แจ้งเตือน 2",
+    "description": "แจ้งเตือนจากทางโรงเรียน เรื่องที่ 2",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 33,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "แจ้งเตือน 3",
+    "description": "แจ้งเตือนจากทางโรงเรียน เรื่องที่ 3",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 34,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "แจ้งเตือน 4",
+    "description": "แจ้งเตือนจากทางโรงเรียน เรื่องที่ 4",
+    "image_url": null,
+    "is_read": false
+  },
+  {
+    "id": 35,
+    "started_at": "2025-01-30T23:12:09.659332Z",
+    "ended_at": "2026-03-01T23:12:09.659Z",
+    "title": "แจ้งเตือน xss",
+    "description": "<img onload='alert(1);' src='https://cdn.hswstatic.com/gif/gettyimages-1401374620.jpg' /><p style='font-weight:bold;'>ทดสอบ XSS</p><ol><li>bullet 1</li><li>bullet 2</li><li>bullet 3</li></ol>",
+    "image_url": null,
+    "is_read": false
+  }
+]

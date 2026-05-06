@@ -1,0 +1,11 @@
+{
+  "amount_of_sublesson_label": "จำนวนบทเรียนย่อย",
+  "amount_of_lesson_file_size_label": "ขนาดไฟล์",
+  "download_lesson_btn_label": "ดาวน์โหลดบทเรียน",
+  "delete_local_lesson_data_btn_label": "ลบข้อมูลจากเครื่อง",
+  "delete_local_lesson_data_modal_title": "ลบข้อมูลเนื้อหาจากเครื่อง",
+  "delete_local_lesson_data_modal_message": "คุณต้องการลบข้อมูลเนื้อหาจากเครื่อง<br/>การลบข้อมูลเนื้อหาจะ<strong>ไม่มีผลต่อประวัติการเล่นของคุณ</strong><br/><br/>การเก็บข้อมูลเนื้อหาไว้ในเครื่องทำให้คุณสามารถเล่นโหมดออฟไลน์ได้และคุณสามารถดาวน์โหลดข้อมูลใหม่ได้อีกครั้งเมื่อคุณเชื่อมต่ออินเตอร์เน็ต",
+  "confirm_delete_local_lesson_data_modal_btn_label": "ยืนยันการลบ",
+  "view_sublesson_btn_label": "เลือกบทเรียน",
+  "about_lesson": "เกี่ยวกับบทเรียน"
+}

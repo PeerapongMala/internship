@@ -1,0 +1,108 @@
+{
+  "tab_menu_setting": "Settings",
+  "tab_menu_download": "Download",
+  "tab_menu_account": "Account",
+  "tab_menu_about_us": "About Us",
+  "label_background_music": "Background Music",
+  "label_sfx_music": "SFX Music",
+  "label_text_language": "Game Language",
+  "label_sound_language": "Voice Language",
+  "label_font_size": "Font Size",
+  "label_sound_music": "Narration",
+  "label_enable_gameplay_model_renderer": "Show Battle Scene",
+  "label_enable_particle": "Show Background Effects",
+  "option_label_language_th": "Thai",
+  "option_label_language_en": "English",
+  "option_label_language_cn": "Chinese",
+  "footer_version": "Version {{ version }}",
+  "footer_update": "Update",
+  "footer_logout_game": "Log Out",
+  "section_tab_menu_account": "Account",
+  "section_tab_menu_family_qrcode": "Scan QR / Family",
+  "account_display_role": "Role: {{ role }}",
+  "account_button_copy_uuid": "Copy UUID",
+  "account_info_title": "Account Info:",
+  "account_info_uuid": "Account ID (UUID): {{ uuid }}",
+  "account_info_student_id": "Student ID: {{ studentId }}",
+  "account_info_school": "School: {{ schoolName }} ({{ schoolId }})",
+  "account_footer_button_bug_report": "Bug Report",
+  "account_footer_button_change_pin": "Change PIN",
+  "account_footer_button_share_profile": "Share Profile",
+  "student_uuid": "Student UUID: {{ id }}",
+  "family_id": "Family: {{ id }}",
+  "family_owner": "Account Owner: {{ name }}",
+  "family_line_description": "Scan to join family with Line @Clever",
+  "section_tab_menu_waiting_upload": "Waiting for Upload",
+  "section_tab_menu_uploaded_history": "Upload History",
+  "section_tab_waiting_upload_subtitle": "Data will be uploaded automatically when the device is connected to the internet",
+  "btn_account_list_last_login": "Last Login: {{ date }}",
+  "btn_account_list_latest_uploaded": "Last Upload: {{ date }}",
+  "section_tab_menu_about_us": "About Us",
+  "section_tab_menu_contact_us": "Contact Us",
+  "about_us_content": {
+    "title": "About Clever",
+    "content": "Clever Platform is an educational gaming platform developed by Nextgen Education Co., Ltd.<br>It aims to promote creative learning through technology that is easy to understand and safe.<br>It is suitable for learners of all ages who want to enjoy learning through games.<br>The system is designed for use in schools, at home, or in learning centers, with progress tracking functions<br>that allow teachers and parents to continuously monitor learners' development.<br>We are committed to developing a platform that supports learning in the digital era,<br>providing opportunities for everyone to access quality education."
+  },
+  "language": "English",
+  "confirm": "Confirm",
+  "privacy_policy": "Privacy Policy",
+  "terms_of_use": "Terms Of Use",
+  "privacy_policy_content": {
+    "title": "Clever Platform Privacy Policy",
+    "summary_title": "Overview",
+    "summary_content": "This privacy policy explains the types of personal information (hereinafter referred to as Personal Data) that Nextgen Education Co., Ltd. (hereinafter referred to as the Company) collects, uses, and stores, as well as the disclosure of Personal Data to third parties, in compliance with the Personal Data Protection Act B.E. 2562 (PDPA).<br><br>The Company reserves the right to update or modify this policy from time to time to comply with legal requirements and business purposes. Notification of any changes will be made through the Company’s website.",
+
+    "1_title": "1. Personal Data We Collect",
+    "1_content": "The personal data collected by the Company includes username, PIN code, device ID, application version, user profile information, scores or performance results, and usage activities within the application.",
+
+    "2_title": "2. Purpose of Using Personal Data",
+    "2_1_content": "To provide information and activities related to the Clever Platform.",
+    "2_2_content": "To develop and improve service quality.",
+    "2_3_content": "To maintain data security and prevent fraud.",
+    "2_4_content": "For internal purposes such as analysis and research to enhance services.",
+
+    "3_title": "3. Protection of Personal Data",
+    "3_content": "The Company implements appropriate measures to protect personal data, including the use of encryption (TLS) and restricting data access to authorized personnel only.",
+
+    "4_title": "4. Automated Decision-Making and Profiling",
+    "4_content": "The Company does not engage in any activities involving automated decision-making or profiling that would significantly impact users.",
+
+    "5_title": "5. Data Subject Rights",
+    "5_content": "You have the right to access, correct, delete, or update your personal data held by the Company. The Company may require additional information to verify your identity before proceeding.",
+
+    "6_title": "6. Data Retention Period",
+    "6_content": "The Company will retain your personal data as long as necessary to provide services. When no longer necessary, the Company will delete or destroy the personal data immediately.",
+
+    "7_title": "7. Children's Privacy",
+    "7_content": "The Company places great importance on protecting the personal data of children under 13 years of age. Parental or legal guardian consent will be obtained before collecting such data. If the Company becomes aware of any collection without proper consent, it will immediately delete the data.",
+
+    "8_title": "8. Company’s Commitment to Data Protection",
+    "8_content": "The Company has informed and trained all employees to strictly comply with this policy to ensure the security of users' personal data.",
+
+    "9_title": "9. Contact Information for Inquiries and Complaints",
+    "9_content": "If you have any questions or complaints regarding the handling of personal data, you can contact the Company at:<br><br>Email: nextgen@nextgen-education.com<br>Phone: 099-805-4987<br>Website: https://nextgen-education.com"
+  },
+  "date": "Date: {{date}}",
+
+  "downloadContent": {
+    "title": {
+      "preset": "Download Speed Settings - Preset",
+      "asset": "Download Settings - Asset",
+      "sublesson": "Download Settings - Sublesson",
+      "level": "Download Settings - Level"
+    },
+    "preset": {
+      "ultra_slow": "Ultra Slow (Safest)",
+      "slow": "Slow",
+      "normal": "Normal",
+      "fast": "Fast",
+      "turbo": "Very Fast",
+      "custom": "Custom"
+    },
+    "assetConcurrency": "Number of image downloads",
+    "sublessonConcurrency": "Number of sublesson downloads",
+    "sublessonDelay": "Sublesson download delay (ms)",
+    "levelDelay": "Level download delay (ms)",
+    "questionDelay": "Question download delay (ms)"
+  }
+}

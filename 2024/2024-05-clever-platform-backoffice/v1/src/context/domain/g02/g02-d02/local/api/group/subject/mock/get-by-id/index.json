@@ -1,0 +1,22 @@
+{
+  "status_code": 200,
+  "data": [
+    {
+      "id": 39,
+      "subject_group_id": 7,
+      "name": "ภาษาอังกฤษ",
+      "project": "Clever Platform",
+      "subject_language_type": "uni",
+      "subject_language": "thai",
+      "subject_translation_languages": [],
+      "image_url": null,
+      "status": "enabled",
+      "created_at": "2024-11-21T14:12:58.355929Z",
+      "created_by": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+      "updated_at": null,
+      "updated_by": null,
+      "admin_login_as": null
+    }
+  ],
+  "message": "Data retrieved"
+}

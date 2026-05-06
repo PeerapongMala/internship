@@ -1,0 +1,49 @@
+/* ============================================================
+   Figma Reference CSS — Node 1:22426 (Success Modal)
+   WARNING: Reference only. font-family: 'Pridi' → 'bss-pridi'
+   ============================================================ */
+
+.modal-content {
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+}
+
+.success-icon {
+    font-size: 48px;
+    color: #198754;
+}
+
+.success-title {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+}
+
+.success-message {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+.modal-footer {
+    padding: 16px;
+    gap: 24px;
+    justify-content: center;
+    border-top: 1px solid #CBD5E1;
+}
+
+.btn-confirm {
+    width: 160px;
+    padding: 6px 12px;
+    background: #198754;
+    border: 1px solid #198754;
+    border-radius: 6px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}

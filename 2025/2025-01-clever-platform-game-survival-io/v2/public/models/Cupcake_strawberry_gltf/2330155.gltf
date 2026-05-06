@@ -1,0 +1,118 @@
+{
+	"asset":	{
+		"version":	"2.0",
+		"generator":	"exported by Modelo"
+	},
+	"scene":	0,
+	"scenes":	[{
+			"nodes":	[0]
+		}],
+	"textures":	[{
+			"source":	0,
+			"name":	"Cupcake_strawberry.jpg",
+			"sampler":	0
+		}],
+	"samplers":	[{
+			"magFilter":	9729,
+			"minFilter":	9984,
+			"wrapS":	10497,
+			"wrapT":	10497
+		}],
+	"images":	[{
+			"uri":	"Cupcake_strawberry.jpg"
+		}],
+	"materials":	[{
+			"pbrMetallicRoughness":	{
+				"baseColorTexture":	{
+					"index":	0
+				},
+				"metallicFactor":	0,
+				"roughnessFactor":	1
+			},
+			"name":	"Cupcake_strawberry_0",
+			"doubleSided":	true
+		}],
+	"meshes":	[{
+			"primitives":	[{
+					"attributes":	{
+						"POSITION":	1,
+						"NORMAL":	2,
+						"TEXCOORD_0":	3
+					},
+					"indices":	0,
+					"material":	0
+				}]
+		}],
+	"accessors":	[{
+			"bufferView":	0,
+			"byteOffset":	0,
+			"componentType":	5125,
+			"count":	6210,
+			"type":	"SCALAR",
+			"name":	"accessorIndices_0",
+			"max":	[1320],
+			"min":	[0]
+		}, {
+			"bufferView":	1,
+			"byteOffset":	0,
+			"componentType":	5126,
+			"count":	1321,
+			"type":	"VEC3",
+			"name":	"accessorPositions",
+			"max":	[0.85364371538162231, 2.14919638633728, 0.85364371538162231],
+			"min":	[-0.85364371538162231, -2.23514673436398e-09, -0.85364359617233276]
+		}, {
+			"bufferView":	2,
+			"byteOffset":	0,
+			"componentType":	5126,
+			"count":	1321,
+			"type":	"VEC3",
+			"name":	"accessorNormals",
+			"max":	[0.9921259880065918, 1, 0.9921259880065918],
+			"min":	[-0.9921259880065918, -1, -0.9921259880065918]
+		}, {
+			"bufferView":	3,
+			"byteOffset":	0,
+			"componentType":	5126,
+			"count":	1321,
+			"type":	"VEC2",
+			"name":	"accessorUVs",
+			"max":	[0.998046875, 0.998046875],
+			"min":	[0.001953125, 0.010128617286682129]
+		}],
+	"nodes":	[{
+			"children":	[1],
+			"matrix":	[1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1]
+		}, {
+			"mesh":	0,
+			"matrix":	[1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1]
+		}],
+	"bufferViews":	[{
+			"buffer":	0,
+			"byteOffset":	0,
+			"byteLength":	24840,
+			"name":	"bufferViewIndex"
+		}, {
+			"buffer":	0,
+			"byteOffset":	24840,
+			"byteLength":	15852,
+			"byteStride":	12,
+			"name":	"bufferViewPosition"
+		}, {
+			"buffer":	0,
+			"byteOffset":	40692,
+			"byteLength":	15852,
+			"byteStride":	12,
+			"name":	"bufferViewNormal"
+		}, {
+			"buffer":	0,
+			"byteOffset":	56544,
+			"byteLength":	10568,
+			"byteStride":	8,
+			"name":	"bufferViewUV"
+		}],
+	"buffers":	[{
+			"byteLength":	67112,
+			"uri":	"2330155.bin"
+		}]
+}

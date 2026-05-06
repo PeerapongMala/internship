@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+@font-face {
+  font-family: "Digitalt";
+  src: url("/font/Digitalt.ttf") format("truetype");
+}
+
+.digitalt-font {
+  font-family: "Digitalt", sans-serif;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+    rotate: 0deg;
+  }
+  50% {
+    transform: scale(1.2);
+    rotate: 3deg;
+  }
+  100% {
+    transform: scale(1);
+    rotate: 0deg;
+  }
+}
+
+.animate-scale {
+  animation: scale 2s infinite;
+}
+.delay-animation {
+  animation-delay: 1s; /* Delay of 1 second */
+}
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  width: "stretch";
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* background: rgb(0, 0, 0); */
+}
+.dot {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  /* background-color: #ffffff; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999; /* so that it stays on top of all other elements */
+}

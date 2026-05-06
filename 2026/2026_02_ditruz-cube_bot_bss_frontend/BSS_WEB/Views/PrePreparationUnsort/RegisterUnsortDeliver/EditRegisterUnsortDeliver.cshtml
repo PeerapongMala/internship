@@ -1,0 +1,386 @@
+﻿@model BSS_WEB.Views.PrePreparationUnsort.RegisterUnsortDeliver.EditRegisterUnsortDeliverModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "แก้ไขใบนำส่ง UNSORT CC";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/preparation/unsortCC.css")" asp-append-version="true" />
+
+<!--<link rel="stylesheet" href="@Url.Content("~/css/registerUnsortcc/EditRegisterUnsortDeliver.css")" />-->
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+            <input type="hidden" id="hdnWaybillId" value="@ViewBag.WaybillId" />
+            <div class="main-title mb-2">
+                <div class="title-left">
+                    <div class="title-section">
+                        <h1>แก้ไขใบนำส่ง UNSORT CC</h1>
+                    </div>
+                </div>
+                <div class="title-right">
+                </div>
+            </div>
+
+            <div class="white-card mb-2">
+                <div class="row g-3 align-items-center row-cols-1 row-cols-lg-3">
+                    <div class="col">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">รหัสใบนำส่ง: </label>
+                            </div>
+                            <div class="col">
+                                <span id="lblWaybillCode" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="filterBarcodeCol" class="col" style="display:none">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">บาร์โค้ดภาชนะ: </label>
+                            </div>
+                            <div class="col">
+                                <select id="ddlContainerFilter" class="form-select" disabled>
+                                    <option value="">-- ทั้งหมด --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="filterDateCol" class="col" style="display:none">
+                        <div class="row g-2 align-items-center flex-nowrap">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">วันที่ลงทะเบียน: </label>
+                            </div>
+                            <div class="col">
+                                <div class="date-range-wrapper">
+                                    <div class="date-range-input-group d-flex align-items-center border rounded p-1 bg-white">
+                                        <input type="text" id="editFilterDateStart"
+                                               class="form-control form-control-sm border-0 bg-transparent flex-fill text-center min-w-0"
+                                               placeholder="dd/mm/yyyy" readonly>
+                                        <span class="px-1 small text-muted">ถึง</span>
+                                        <input type="text" id="editFilterDateEnd"
+                                               class="form-control form-control-sm border-0 bg-transparent flex-fill text-center min-w-0"
+                                               placeholder="dd/mm/yyyy" readonly>
+                                        <button type="button" class="btn btn-link btn-sm p-0 ms-1" onclick="resetEditDateToNow()">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-pt3 mb-2">
+                <div class="row">
+                    <div class="full-panel">
+
+                        <div class="white-card">
+                            <div class="table-controls">
+                                <div class="wc-header-left">
+                                    <span class="card-title">รายการภาชนะ</span>
+                                </div>
+                                <div class="wc-header-right">
+                                </div>
+                            </div>
+                            <div id="containerScroll" class="main-table-preparation-scroll">
+                                <table class="data-table preparationREGISTER_UNSORT_CC_DL_EDIT">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" id="checkAll" onclick="toggleSelectAll(this)">
+                                            </th>
+                                            <th>บาร์โค้ดภาชนะ</th>
+                                            <th>วันที่ลงทะเบียน</th>
+                                            <th>สถานะ</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="containerTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-pt3">
+                <div class="row">
+                    <div class="full-panel">
+
+                        <!-- แสดงตารางธนบัตรตั้งแต่แรก -->
+                        <div id="banknoteSection" class="white-card">
+
+                            <div class="table-controls">
+                                <div class="wc-header-left">
+                                    <span class="card-title">รายการลงทะเบียนธนบัตรตามบาร์โค้ดภาชนะที่เลือก</span>
+                                </div>
+                                <div class="wc-header-right">
+                                    <span class="card-title">จำนวนมัด: <strong id="lblTotalBundle" class="status-count">0</strong> มัด</span>
+                                </div>
+                            </div>
+
+                            <div id="banknoteScroll" class="main-table-preparation-scroll">
+                                <table class="data-table preparationREGISTER_UNSORT_CC_DL_EDIT_SUB">
+                                    <thead>
+                                        <tr>
+                                            <th>ธนาคาร</th>
+                                            <th>ชนิดราคา</th>
+                                            <th>จำนวน (มัด)</th>
+                                            <th>วันที่ลงทะเบียน</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="banknoteTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="btn-wrapper d-flex">
+                                <button type="button" class="btn btn-gray px-4" onclick="goBack()">ยกเลิก</button>
+                                <button type="button" id="btnConfirm" class="btn btn-green px-5 ms-auto" onclick="confirmCreateDelivery()">ยืนยันแก้ไข</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal: แก้ไขข้อมูลธนบัตร -->
+<div class="modal fade" id="editBankNoteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">แก้ไขข้อมูลธนบัตร</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label class="form-label">บาร์โค้ดภาชนะ</label>
+                        <input type="text" class="form-control bg-light" id="oldContainerBankNote" disabled>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-12" id="sectionViewBank">
+                        <label class="form-label">ธนาคาร</label>
+                        <input type="text" class="form-control bg-light" id="oldBankNoteFull" disabled>
+                    </div>
+                    <div class="col-md-6" id="sectionOldBank">
+                        <label class="form-label">ธนาคารเดิม</label>
+                        <input type="text" class="form-control bg-light" id="oldBankNoteHalf" disabled>
+                    </div>
+                    <div class="col-md-6" id="sectionEditBank">
+                        <label class="form-label">แก้ไขธนาคาร</label>
+                        <select class="form-select" id="editBankNote">
+                            <option value="">-- เลือกธนาคาร --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-12" id="sectionViewPrice">
+                        <label class="form-label">ชนิดราคา</label>
+                        <input type="text" class="form-control bg-light" id="oldPriceFull" disabled>
+                    </div>
+                    <div class="col-md-6" id="sectionOldPrice">
+                        <label class="form-label">ชนิดราคาเดิม</label>
+                        <input type="text" class="form-control bg-light" id="oldPriceHalf" disabled>
+                    </div>
+                    <div class="col-md-6" id="sectionEditPrice">
+                        <label class="form-label">แก้ไขชนิดราคา</label>
+                        <div class="d-flex gap-2">
+                            <select class="form-select" id="editPriceType" onchange="updatePriceTypeBadge(this.value)">
+                                <option value="">-- เลือกชนิดราคา --</option>
+                            </select>
+                            <span id="priceTypeBadge" class="qty-badge" style="min-width: 80px; display: flex; align-items: center; justify-content: center; font-weight: 600;">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">จำนวนมัดเดิม</label>
+                        <input type="text" class="form-control bg-light" id="oldCountBundle" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">แก้ไขจำนวนมัด <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="editoldCountBundle" min="0" max="999" step="1">
+                        <div id="bundleError" class="invalid-feedback">
+                            กรุณากรอกจำนวนมัดให้ถูกต้อง (0 - 999)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+                <button class="btn btn-green px-4" onclick="updateBankNote()">
+                    <i class="bi bi-check-lg"></i> บันทึก
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* แก้ไขภาชนะ *@
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">แก้ไขบาร์โค้ดภาชนะ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">บาร์โค้ดภาชนะ</label>
+                            <input type="text" class="form-control" id="oldContainer" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">บาร์โค้ดภาชนะ</label>
+                            <input type="text" class="form-control" id="editContainer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center gap-2">
+                <button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+                <button class="btn btn-green px-4" onclick="updateContainer()">บันทึก</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: ยืนยันการแก้ไข -->
+<div class="modal fade" id="ConfirmEditModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3">ยืนยันการแก้ไข</h3>
+                <h6 class="mb-4">คุณแน่ใจหรือไม่ที่ต้องการแก้ไขข้อมูลนี้?</h6> 
+            </div>
+            <div class="modal-footer d-flex justify-content-center gap-2">
+                <button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+                <button class="btn btn-red px-4" onclick="confirmUpdateContainer()">
+                    <i class="bi bi-check-lg"></i> ยืนยัน 
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: ยืนยันการลบ -->
+<div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3">ยืนยันการลบ</h3>
+                <h6 class="mb-4">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้?</h6>
+            </div>
+            <div class="modal-footer d-flex justify-content-center gap-2">
+                <button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+                <button class="btn btn-red px-4" onclick="executeDeleteBanknote()">
+                   ยืนยัน 
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: แก้ไขสำเร็จ -->
+<div class="modal fade" id="editSuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-success-title">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3">สำเร็จ!</h3>
+                <h6 id="successModalMessage" class="mb-4">ดำเนินการเรียบร้อยแล้ว</h6>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-green px-5" onclick="closeAllModals()">
+                    <i class="bi bi-check-lg"></i> ตกลง
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ConfirmSaveModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3">ยืนยันการบันทึก</h3>
+                <h6 class="mb-4">คุณต้องการบันทึกการแก้ไขข้อมูลใบนำส่งนี้ใช่หรือไม่?</h6>
+            </div>
+            <div class="modal-footer d-flex justify-content-center gap-2">
+                <button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+                <button class="btn btn-red px-4" onclick="executeSaveDelivery()">
+                    ยืนยัน
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: แจ้งเตือน -->
+<div class="modal fade" id="barcodeErrorModal" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabindex="-1" aria-labelledby="barcodeErrorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3" id="barcodeErrorModalLabel">การแจ้งเตือน</h3>
+                <h6 class="mb-4" id="barcodeErrorMessageText">ข้อความผิดพลาด</h6>
+            </div>
+            <div class="modal-footer justify-content-center gap-2">
+                <button type="button" class="btn btn-blue" data-bs-dismiss="modal">ตกลง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/main/bss-status-constants.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/registerUnsortCC/EditRegisterUnsortDeliver.js")" asp-append-version="true"></script>
+}

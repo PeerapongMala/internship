@@ -1,0 +1,2109 @@
+/*
+  Approve Manual Key-in Transaction CSS
+<<<<<<< HEAD
+  Built from Figma design tokens (Node 2:49536)
+  Date: 2026-02-19
+*/
+
+/* ===================================
+   CSS Variables (Design Tokens)
+   =================================== */
+
+:root {
+  /* Colors */
+  --primary: #003366;
+  --primary-bootstrap: #0d6efd;
+  --secondary: #6c757d;
+  --success: #198754;
+  --danger: #DC3545;
+  --blue-400: #3D8BFD;
+
+  --white: #FFFFFF;
+  --gray-300: #cbd5e1;
+  --gray-400: #CED4DA;
+  --gray-600: #6C757D;
+  --gray-800: #343A40;
+  --slate-50: #f8fafc;
+
+  --text-primary: #212121;
+  --text-body: #212529;
+  --text-tertiary: #909090;
+
+  --separator: #cbd5e1;
+  --stroke: #cbd5e1;
+
+  /* Typography */
+  --font-family-base: 'bss-pridi', 'Pridi', sans-serif;
+
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 16px;
+  --font-size-body: 16px;
+  --font-size-body-sm: 14px;
+  --font-size-form: 13px;
+  --font-size-table: 13px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  --line-height-heading: 1.2;
+  --line-height-body: 1.5;
+  --line-height-tight: 1;
+  --line-height-form: 100%;
+
+  --letter-spacing-base: 2.5px;
+  --letter-spacing-table-header: 2.3px;
+  --letter-spacing-table-body: 2.2px;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+
+  /* Border Radius */
+  --radius-sm: 12px;
+}
+
+/* ===================================
+   Layout Override (uses .main-wrapper from all.css)
+   =================================== */
+
+.layout.approve-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh;  /* Fixed viewport height */
+  max-height: 100vh;  /* Constraint to viewport */
+  overflow: hidden !important;  /* Prevent outer scroll */
+  padding: 0 !important;
+  gap: 16px;
+  background-color: transparent;  /* Let background layer show through */
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   Background Layers - Figma Node 2-49538
+=======
+  Matched to Figma design (Node 5:33827)
+  All rules use !important to override global Style.css / all.css
+  Updated: 2026-03-04
+*/
+
+/* ===================================
+   Layout Override
+   High specificity to beat .main-wrapper .layout from all.css
+   =================================== */
+
+.main-wrapper .layout.approve-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 92vh !important;
+  min-height: 700px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  padding-bottom: 8px !important;
+  gap: 8px !important;
+  background-color: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+  box-sizing: border-box !important;
+}
+
+/* ===================================
+   Background Layers
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+   =================================== */
+
+.approve-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+<<<<<<< HEAD
+/* Layer 1: Page Background (#EDEDED) */
+.approve-page-background {
+  position: absolute;
+  inset: 0;
+  background-color: #EDEDED;
+  z-index: 1;
+}
+
+/* Layer 2: Gradient (Full viewport width) */
+=======
+.approve-page-background {
+  position: absolute;
+  inset: 0;
+  background-color: #EFF2F4;
+  z-index: 1;
+}
+
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.approve-gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+<<<<<<< HEAD
+  width: 100vw;  /* Full viewport width */
+=======
+  width: 100vw;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+  height: 450px;
+  background: linear-gradient(117.593deg, #003366 0%, #8B9DAF 100%);
+  -webkit-mask-image: url('/images/gradient-mask.svg');
+  mask-image: url('/images/gradient-mask.svg');
+<<<<<<< HEAD
+  -webkit-mask-size: cover;  /* Scale to cover full width */
+=======
+  -webkit-mask-size: cover;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+  mask-size: cover;
+  -webkit-mask-position: center top;
+  mask-position: center top;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: 2;
+}
+
+<<<<<<< HEAD
+/* Layer 3: Decorative Left (Full width spread) */
+.approve-decorative-left {
+  position: absolute;
+  top: -440px;
+  left: -20%;  /* Extend beyond left edge */
+  width: 60%;  /* Cover left portion of viewport */
+  height: 881px;
+  opacity: 0.2;
+  -webkit-mask-image: url('/images/gradient-mask.svg');
+  mask-image: url('/images/gradient-mask.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: right center;
+  mask-position: right center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: 3;
+}
+
+.approve-decorative-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 4: Decorative Right (Full width spread) */
+.approve-decorative-right {
+  position: absolute;
+  top: -476px;
+  right: -20%;  /* Extend beyond right edge */
+  width: 60%;  /* Cover right portion of viewport */
+  height: 959px;
+  opacity: 0.2;
+  -webkit-mask-image: url('/images/gradient-mask.svg');
+  mask-image: url('/images/gradient-mask.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  z-index: 4;
+}
+
+=======
+.approve-decorative-left {
+  position: absolute;
+  top: -440px;
+  left: -20%;
+  width: 60%;
+  height: 881px;
+  opacity: 0.2;
+  z-index: 3;
+}
+
+.approve-decorative-left img,
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+.approve-decorative-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+<<<<<<< HEAD
+/* ===================================
+   Page Header Section
+   =================================== */
+
+.approve-page-header {
+  width: 100%;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  margin-bottom: 16px;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.approve-header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.approve-page-title {
+  font-family: var(--font-family-base);
+  font-size: 30px;  /* Figma: 30px - updated from 24px */
+  font-weight: 600;  /* Figma: SemiBold - updated from 500 */
+  line-height: var(--line-height-heading);  /* 1.2 */
+  letter-spacing: 0.675px;  /* Figma: exact - updated from 2.5px */
+  color: #FFFFFF;  /* Figma: White on gradient - updated from #212121 */
+  margin: 0;
+}
+
+.approve-header-center {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.approve-status-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.approve-status-label {
+  font-family: var(--font-family-base);
+  font-size: 16px;  /* Figma: 16px - updated from 14px */
+  font-weight: 400;  /* Figma: Regular - updated from 500 */
+  letter-spacing: 0.4px;  /* Figma: exact - updated from 2.5px */
+  color: #FFFFFF;  /* Figma: White on gradient - updated from #909090 */
+}
+
+.approve-status-value {
+  font-family: var(--font-family-base);
+  font-size: 16px;  /* Figma: 16px - updated from 14px */
+  font-weight: 400;  /* Figma: Regular - updated from 500 */
+  letter-spacing: 0.4px;  /* Figma: exact - updated from 2.5px */
+  color: #FFFFFF;  /* Figma: White on gradient - updated from #212121 */
+}
+
+.approve-header-right {
+  display: flex;
+  gap: 12px;
+}
+
+/* Filter Button - Dark Navy Blue (ตามดีไซน์เดิม) */
+.approve-btn-filter {
+  height: 36px;
+  min-width: 92px;
+  padding: 4px 16px;
+  background-color: var(--primary);  /* #003366 - สีน้ำเงินเข้ม */
+  color: var(--white);
+  border: none;
+  border-radius: 4px;  /* ขอบไม่โค้งมาก */
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);  /* 500 */
+  letter-spacing: 0.35px;  /* Figma: exact - updated from 2.5px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.approve-btn-filter:hover {
+  background-color: #002244;  /* เข้มขึ้นเล็กน้อยตอน hover */
+}
+
+/* ===================================
+   Filter Section (102px - 2 rows) - Node 2:49793
+   =================================== */
+
+.approve-filter-section {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.approve-filter-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.approve-filter-row:last-child {
+  margin-bottom: 0;
+}
+
+.approve-filter-row-1,
+.approve-filter-row-2 {
+  display: flex;
+  gap: 16px;
+}
+
+.approve-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.approve-filter-label {
+  font-family: var(--font-family-base);
+  font-size: 14px;  /* Figma: 14px - updated from 13px */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  line-height: var(--line-height-form);  /* 100% */
+  letter-spacing: 0.35px;  /* Figma: exact - updated from 2.5px */
+  color: var(--text-primary);  /* #212121 */
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.approve-filter-select,
+.approve-filter-input {
+  flex: 1;  /* ⭐ ขยายเต็มพื้นที่ที่เหลือหลังจาก label */
+  min-width: 0;  /* ⭐ อนุญาตให้หดได้เมื่อพื้นที่ไม่พอ */
+  height: 31px;
+  border: 1px solid var(--gray-300);  /* #cbd5e1 */
+  border-radius: 4px;
+  padding: 4px 12px;
+  background-color: var(--white);
+  font-family: var(--font-family-base);
+  font-size: 14px;  /* Figma: 14px - updated from 13px */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  letter-spacing: 0.35px;  /* Figma: exact - updated from 2.5px */
+  color: var(--text-primary);  /* #212121 */
+}
+
+.approve-filter-select:focus,
+.approve-filter-input:focus {
+  outline: none;
+  border-color: var(--primary-bootstrap);
+}
+
+.approve-filter-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.approve-btn-search,
+.approve-btn-clear {
+  height: 31px;
+  padding: 5px 17px;
+  border-radius: 4px;
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.approve-btn-search {
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+}
+
+.approve-btn-search:hover {
+  background-color: #002244;
+}
+
+.approve-btn-clear {
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+}
+
+.approve-btn-clear:hover {
+  background-color: #002244;
+}
+
+/* ===================================
+   Main Table (1408×407px) - Node 2:49978
+   =================================== */
+
+.approve-main-table-section {
+  width: 100%;
+  margin-bottom: 16px;
+  flex: 1;  /* ยืดเต็มพื้นที่ที่เหลือ */
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;  /* แสดงตารางแม้ไม่มีข้อมูล */
+  max-height: calc(100vh - 400px);  /* จำกัดความสูงตามหน้าจอ ลบพื้นที่ header/filter/bottom */
+  overflow: hidden;  /* ป้องกัน scroll ที่ตัว section */
+}
+
+.approve-table-wrapper {
+  width: 100%;
+  flex: 1;  /* ยืดเต็มความสูงของ approve-main-table-section */
+  overflow: auto;  /* Scroll ได้ทั้งแนวตั้งและแนวนอน */
+  border: 1px solid var(--gray-300);  /* #CBD5E1 */
+  border-radius: 12px;  /* Figma: r-sm token - updated from 8px */
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Scrollbar (Node 2:50266) */
+.approve-table-wrapper::-webkit-scrollbar {
+  width: 8px;  /* Vertical scrollbar */
+  height: 8px;  /* Horizontal scrollbar */
+}
+
+.approve-table-wrapper::-webkit-scrollbar-track {
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+}
+
+.approve-table-wrapper::-webkit-scrollbar-thumb {
+  background: #909090;  /* Figma: text-neutral-tertiary */
+  border-radius: 26px;
+}
+
+.approve-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #6c757d;
+}
+
+/* List Header Section (Node 2:49979) */
+.approve-list-header {
+  min-height: 45px;
+  padding: 8px 16px;  /* Figma: 8px vertical, 16px horizontal */
+  border-bottom: 1px solid var(--gray-300);  /* #CBD5E1 */
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+}
+
+.approve-list-title {
+  font-family: var(--font-family-base);
+  font-size: 16px;  /* Figma: 16px */
+  font-weight: 600;  /* Pridi SemiBold */
+  color: #212121;  /* Figma: text-neutral-primary */
+  letter-spacing: 0.4px;  /* Figma: exact */
+  line-height: 1.2;  /* Figma: 120% */
+  margin: 0;
+}
+
+.approve-main-table {
+  width: 100%;
+  min-width: 1200px;  /* Minimum width for horizontal scroll */
+  height: 100%;  /* ยืดเต็มความสูงของ wrapper */
+  border-collapse: collapse;
+  background-color: var(--white);
+}
+
+.approve-main-table thead {
+  background-color: #D6E0E0;  /* Figma: teal-gray - updated from #f0f0f0 */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.approve-main-table th {
+  padding: 8px;  /* Figma: 8px - updated from 6px 8px */
+  text-align: center;
+  font-family: var(--font-family-base);
+  font-size: 13px;  /* Figma: 13px - updated from 12px */
+  font-weight: 500;  /* Figma: Medium - updated from 600 */
+  line-height: normal;  /* Figma: normal - updated from 1.4 */
+  letter-spacing: 0.286px;  /* Figma: exact - updated from normal */
+  color: #212121;  /* Figma: text-neutral-primary - updated from #333333 */
+  border-bottom: 1px solid var(--gray-300);  /* Figma: #CBD5E1 - updated from #cccccc */
+  white-space: nowrap;
+}
+
+/* Sortable Table Headers (Node 2:49978) */
+.approve-main-table th.th-sort {
+  cursor: pointer;
+  user-select: none;
+}
+
+.approve-main-table th.th-sort .sort-icon {
+  display: inline-block;
+  font-size: 10px;
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  vertical-align: middle;
+  opacity: 0.6;
+  text-align: center;
+  line-height: 12px;
+}
+
+.approve-main-table th.th-sort:hover .sort-icon {
+  opacity: 1;
+}
+
+.approve-main-table td {
+  padding: 6px 8px;  /* Figma: 6px 8px vertical/horizontal */
+  font-family: var(--font-family-base);
+  font-size: 14px;  /* Figma: 14px Body/Small - updated from 12px */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  line-height: 1.5;  /* Figma: 150% - updated from 1.4 */
+  letter-spacing: 0.35px;  /* Figma: exact - updated from normal */
+  color: #212529;  /* Figma: Body Text/Body Color - updated from #333333 */
+  border-bottom: 1px solid var(--gray-300);  /* Figma: #CBD5E1 - updated from #e0e0e0 */
+}
+
+/* Alternating row colors (Figma specs) - MUST come before hover */
+.approve-main-table tbody tr:nth-child(even) {
+  background-color: #F2F6F6 !important;  /* Figma: light gray */
+}
+
+.approve-main-table tbody tr:nth-child(odd) {
+  background-color: #ffffff !important;  /* White for odd rows */
+}
+
+.approve-main-table tbody tr:hover {
+  background-color: #e8f4ff !important;  /* Figma: Light blue hover */
+  cursor: pointer;
+}
+
+/* Selected Row (Node 2:49978) - Figma specs */
+.approve-main-table tbody tr.selected {
+  background-color: #D1E5FA !important;  /* Figma: light blue - updated from #cce5ff */
+  border: 2px solid #297ED4;
+}
+
+/* Empty Row Height (Reconcile pattern: 40px) */
+.approve-main-table tbody tr.empty-row {
+  height: 40px;  /* Match reconcile page pattern */
+}
+
+/* Regular row height */
+.approve-main-table tbody tr {
+  height: 40px;  /* Match reconcile page pattern */
+}
+
+/* Status Badge (Node 2:50093) - Pill-shaped badge */
+.approve-main-table .status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 19px;  /* Figma: exact height */
+  padding: 0 8px;  /* Figma: 8px horizontal padding */
+  font-family: var(--font-family-base);
+  font-size: 13px;  /* Figma: 13px */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  letter-spacing: 0.286px;  /* Figma: exact */
+  border-radius: 23.5px;  /* Figma: pill shape */
+  white-space: nowrap;
+}
+
+/* Status Badge - Yellow (แก้ไข) */
+.approve-main-table .status-badge.status-edit {
+  background-color: #FEFCE8;  /* Figma: yellow/50 */
+  border: 1px solid #FACC15;  /* Figma: yellow/400 */
+  color: #713F12;  /* Figma: yellow/900 */
+}
+
+/* Status Badge - Green (Approved) */
+.approve-main-table .status-badge.status-approved {
+  background-color: #F0FDF4;  /* green/50 */
+  border: 1px solid #4ADE80;  /* green/400 */
+  color: #14532D;  /* green/900 */
+}
+
+/* Status Badge - Red (Denied) */
+.approve-main-table .status-badge.status-denied {
+  background-color: #FEF2F2;  /* red/50 */
+  border: 1px solid #F87171;  /* red/400 */
+  color: #7F1D1D;  /* red/900 */
+}
+
+/* Status Badge - Gray (Pending) */
+.approve-main-table .status-badge.status-pending {
+  background-color: #F9FAFB;  /* gray/50 */
+  border: 1px solid #D1D5DB;  /* gray/300 */
+  color: #374151;  /* gray/700 */
+}
+
+.approve-main-table .col-select {
+  width: 40px;
+  text-align: center;
+}
+
+.approve-main-table .col-no {
+  width: 60px;
+}
+
+.approve-main-table .col-action {
+  width: 100px;
+  text-align: center;
+}
+
+/* Denomination Badges in Main Table */
+.approve-main-table .qty-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0;
+  border-radius: 0 !important;
+  font-weight: 700;
+  font-size: 13px;
+  width: 47px !important;
+  height: 24px !important;
+  background-image: url("/images/image_pattern.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: 800px 800px !important;
+  background-position: -225px -322px !important;
+}
+
+/* ===================================
+   Bottom Section (2-column layout)
+   =================================== */
+
+.approve-bottom-section {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Left: Detail Breakdown Table (900px) */
+
+.approve-detail-breakdown {
+  flex: 1;
+  max-width: 900px;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.approve-detail-header {
+  height: 45px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--separator);
+  background-color: var(--slate-50);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.approve-detail-title {
+  font-family: var(--font-family-base);
+  font-size: 16px;  /* Figma: 16px - updated from 14px */
+  font-weight: var(--font-weight-medium);  /* 500 */
+  letter-spacing: 0.4px;  /* Figma: exact - updated from 2.5px */
+  color: var(--text-primary);  /* #212121 */
+}
+
+.approve-detail-hc {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-base);
+  color: var(--primary);
+}
+
+.approve-detail-table-wrapper {
+  max-height: 204px;
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar for Detail Table (match main table style) */
+.approve-detail-table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-track {
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-thumb {
+  background: #909090;  /* Figma: text-neutral-tertiary */
+  border-radius: 26px;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #6c757d;
+}
+
+.approve-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.approve-detail-table thead {
+  background-color: #f8fafc;  /* Figma: Slate/50 - updated from #d6e0e0 */
+  position: sticky;
+  top: 0;
+}
+
+.approve-detail-table th {
+  padding: 5px 8px;
+  text-align: center;
+  font-family: var(--font-family-base);
+  font-size: 13px;  /* Figma: 13px (already correct) */
+  font-weight: var(--font-weight-medium);  /* 500 */
+  line-height: var(--line-height-form);  /* 100% */
+  letter-spacing: 0.299px;  /* Figma: exact - updated from 2.3px */
+  color: var(--text-primary);  /* #212121 */
+  border-bottom: 1px solid var(--separator);
+  white-space: nowrap;
+}
+
+.approve-detail-table td {
+  padding: 8px;
+  text-align: center;
+  font-family: var(--font-family-base);
+  font-size: 12px;  /* Figma: 12px for type/form columns - updated from 13px */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  line-height: var(--line-height-tight);  /* 1 */
+  letter-spacing: 0.3px;  /* Figma: exact - updated from 2.2px */
+  color: var(--text-primary);  /* #212121 */
+  border-bottom: 1px solid var(--separator);
+}
+
+/* Quantity column (จำนวนฉบับ) - slightly larger font */
+.approve-detail-table td:last-child {
+  font-size: 14px;  /* Figma: 14px for quantity column */
+  letter-spacing: 0.35px;  /* Figma: exact */
+  text-align: right;
+}
+
+.approve-detail-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Alternating row colors for detail table (match main table) */
+.approve-detail-table tbody tr:nth-child(even) {
+  background-color: #F2F6F6 !important;  /* Light gray */
+}
+
+.approve-detail-table tbody tr:nth-child(odd) {
+  background-color: #ffffff !important;  /* White */
+}
+
+.approve-detail-table tbody tr:hover {
+  background-color: #e8f4ff !important;  /* Light blue hover */
+  cursor: pointer;
+}
+
+/* Empty row height for detail table */
+.approve-detail-table tbody tr.empty-row {
+  height: 36px;  /* Slightly smaller for detail table */
+}
+
+/* Regular row height for detail table */
+.approve-detail-table tbody tr {
+  height: 36px;
+}
+
+/* Denomination Badges in Detail Table (Node 2:49832) - Figma specs */
+.approve-detail-table .qty-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0;
+  border-radius: 12px !important;  /* Figma: r-sm token */
+  border: 2px solid #9F7D57 !important;  /* Figma: Brown border - updated from 1px #C9A96E */
+  font-weight: 700;  /* Figma: Bold - updated from 400 */
+  font-size: 13px;
+  letter-spacing: 0.325px;  /* Figma: exact - updated from 2.5px */
+  color: #4F3E2B;  /* Figma: Dark brown - updated from #212121 */
+  width: 47px !important;
+  height: 24px !important;
+  background-color: #FBF8F4 !important;  /* Figma: Cream - updated from #FFFFFF */
+  background-image: none !important;  /* Remove sprite - TODO: add banknote image with blend */
+  position: relative;
+}
+
+/* TODO: Add banknote image overlay when icon is downloaded */
+/* .approve-detail-table .qty-badge::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/banknote-1000.png');
+  background-size: cover;
+  opacity: 0.3;
+  mix-blend-mode: color-burn;
+  z-index: 0;
+} */
+
+/* Right: Action Panel (500px) */
+
+.approve-action-panel {
+  width: 500px;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
+.approve-action-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.approve-notes-section {
+  margin-bottom: 16px;
+}
+
+.approve-notes-label {
+  font-family: var(--font-family-base);
+  font-size: 14px;  /* Figma: 14px (already correct) */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  line-height: normal;  /* Figma: normal */
+  letter-spacing: 0.35px;  /* Figma: exact - updated from 2.5px */
+  color: var(--text-primary);  /* #212121 */
+  display: block;
+  margin-bottom: 8px;
+}
+
+.approve-notes-textarea {
+  width: 100%;
+  min-height: 60px;
+  border: 1px solid #E0DFE2;  /* Figma: Light gray - updated from #cbd5e1 */
+  border-radius: 8px;  /* Figma: 8px - updated from 4px */
+  padding: 8px 12px;
+  font-family: var(--font-family-base);
+  font-size: 13px;  /* Figma: 13px (already correct) */
+  font-weight: var(--font-weight-regular);  /* 400 */
+  letter-spacing: 0.325px;  /* Figma: exact - updated from 2.5px */
+  color: var(--text-primary);  /* #212121 */
+  resize: vertical;
+}
+
+.approve-notes-textarea:focus {
+  outline: none;
+  border-color: var(--primary-bootstrap);
+}
+
+.approve-buttons-section {
+  margin-top: auto;
+}
+
+/* Action Panel Buttons (Node 2:49964) - Figma Specs */
+.approve-button-approve {
+  width: 100%;  /* 468px (500px panel - 32px padding) */
+  height: 46px;
+  background-color: var(--success);  /* #198754 */
+  color: var(--white);
+  border: none;
+  border-radius: 8px;  /* Figma: 8px - updated from 4px */
+  font-family: var(--font-family-base);
+  font-size: 20px;  /* Figma: 20px from complete specs */
+  font-weight: 500;  /* Figma: Medium - updated from 700 */
+  letter-spacing: 0.5px;  /* Figma: exact - updated from normal */
+  line-height: 1.5;  /* Figma: 1.5 (30px) */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;  /* Space between icon and text */
+}
+
+.approve-button-approve:hover {
+  background-color: #157347;
+}
+
+.approve-button-approve:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.approve-button-separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--separator);  /* #cbd5e1 or #DEE2E6 */
+  margin: 4px 0;  /* Updated from 16px to 4px */
+}
+
+.approve-button-denied {
+  width: 100%;  /* 468px (500px panel - 32px padding) */
+  height: 48px;
+  background-color: var(--danger);  /* #DC3545 */
+  color: var(--white);
+  border: 1px solid var(--danger);  /* Figma: border present */
+  border-radius: 8px;  /* Figma: 8px - updated from 4px */
+  font-family: var(--font-family-base);
+  font-size: 20px;  /* Figma: 20px from complete specs */
+  font-weight: 500;  /* Figma: Medium - updated from 700 */
+  letter-spacing: 0.5px;  /* Figma: exact - updated from normal */
+  line-height: 1.5;  /* Figma: 1.5 (30px) */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;  /* Space between icon and text */
+}
+
+.approve-button-denied:hover {
+  background-color: #bb2d3b;
+}
+
+.approve-button-denied:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===================================
+   Modals (560×360px)
+   =================================== */
+
+.approve-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Figma Node 2-50270 - Success Modal */
+.approve-modal,
+.approve-modal-success {
+  width: 560px;
+  background-color: var(--white);
+  border-radius: 12px; /* Figma spec */
+  border: 1px solid #EEEEEE; /* Figma spec */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.approve-modal-top-bar {
+  padding: 32px 16px; /* Figma: 32px vertical, 16px horizontal */
+  text-align: center;
+}
+
+.approve-modal-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.approve-modal-title {
+  font-family: var(--font-family-base);
+  font-size: 24px; /* Figma spec */
+  font-weight: 500; /* Medium */
+  line-height: normal;
+  letter-spacing: 0.6px; /* Figma spec */
+  color: #000000; /* Figma: black */
+  margin: 0;
+}
+
+.approve-modal-message-area {
+  min-height: 143px; /* Figma content height */
+  padding: 24px 32px; /* Figma: 24px vertical, 32px horizontal */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approve-modal-message {
+  font-family: var(--font-family-base);
+  font-size: 20px; /* Figma spec */
+  font-weight: 500; /* Medium */
+  line-height: normal;
+  letter-spacing: 0.5px; /* Figma spec */
+  color: #000000; /* Figma: black */
+  margin: 0;
+}
+
+.approve-modal-action-area {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  border-top: 1px solid var(--separator);
+}
+
+.approve-modal-button-cancel,
+.approve-modal-button-confirm,
+.approve-modal-button-ok {
+  min-width: 160px; /* Figma: 160px */
+  height: 38px;
+  border-radius: 6px; /* Figma spec */
+  font-family: var(--font-family-base);
+  font-size: 16px; /* Figma: Regular 16px */
+  font-weight: 400; /* Regular */
+  letter-spacing: normal;
+  cursor: pointer;
+  border: none;
+  padding: 8px 24px;
+}
+
+.approve-modal-button-cancel {
+  background-color: var(--white);
+  color: var(--text-primary);
+  border: 1px solid var(--gray-300);
+}
+
+.approve-modal-button-cancel:hover {
+  background-color: var(--slate-50);
+}
+
+.approve-modal-button-confirm {
+  background-color: var(--primary-bootstrap);
+  color: var(--white);
+}
+
+.approve-modal-button-confirm:hover {
+  background-color: var(--blue-400);
+}
+
+.approve-modal-button-ok {
+  background-color: #198754; /* Figma: green */
+  color: #FFFFFF; /* Figma: white text */
+}
+
+.approve-modal-button-ok:hover {
+  background-color: #157347; /* Darker green on hover */
+}
+
+/* ===================================
+   Utilities
+   =================================== */
+
+.approve-separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--separator);
+}
+
+.approve-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.approve-text-tertiary {
+  color: var(--text-tertiary) !important;
+}
+
+.approve-bg-white {
+  background-color: var(--white) !important;
+}
+
+.approve-bg-slate-50 {
+  background-color: var(--slate-50) !important;
+}
+
+/* Denomination Badge (for table cells) */
+.approve-denomination-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-form);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-base);
+  background-color: var(--slate-50);
+  border: 1px solid var(--gray-300);
+=======
+.approve-decorative-right {
+  position: absolute;
+  top: -476px;
+  right: -20%;
+  width: 60%;
+  height: 959px;
+  opacity: 0.2;
+  z-index: 4;
+}
+
+/* ===================================
+   Page Header (62px)
+   =================================== */
+
+.approve-page-header {
+  width: 100% !important;
+  height: 62px !important;
+  min-height: 62px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 13px 16px !important;
+  background-color: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-header-left {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 16px !important;
+}
+
+.approve-page-title {
+  font-family: 'bss-pridi', 'Pridi', sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.675px !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+}
+
+.approve-info-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 60px !important;
+}
+
+.approve-info-date {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.approve-date-badge {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.4px !important;
+}
+
+.approve-info-bot {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 0 4px !important;
+  width: 250px !important;
+}
+
+.approve-info-bar .approve-status-label,
+.approve-info-bar .approve-status-value {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.4px !important;
+  color: #FFFFFF !important;
+}
+
+/* Filter Button — override global button styles */
+button.approve-btn-filter {
+  height: 36px !important;
+  min-width: 92px !important;
+  padding: 4px 16px !important;
+  background-color: #003366 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.35px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
+}
+
+button.approve-btn-filter:hover {
+  background-color: #002244 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+/* ===================================
+   Filter Section (3 rows)
+   =================================== */
+
+.approve-filter-section {
+  width: 100% !important;
+  padding: 16px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-filter-row {
+  display: flex !important;
+  gap: 24px !important;
+  margin-bottom: 8px !important;
+}
+
+.approve-filter-row:last-child {
+  margin-bottom: 0 !important;
+}
+
+.approve-filter-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex: 1 !important;
+}
+
+.approve-filter-item.approve-filter-item-sm {
+  flex: none !important;
+  max-width: 400px !important;
+}
+
+.approve-filter-label {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.35px !important;
+  color: #212121 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  margin-left: 0 !important;
+}
+
+.approve-filter-select {
+  flex: 1 !important;
+  min-width: 0 !important;
+  height: 31px !important;
+  border: 1px solid #CED4DA !important;
+  border-radius: 4px !important;
+  padding: 4px 12px !important;
+  background-color: #FFFFFF !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.35px !important;
+  color: #212529 !important;
+}
+
+.approve-filter-select.approve-filter-select-sm {
+  max-width: 250px !important;
+}
+
+.approve-filter-select:focus {
+  outline: none !important;
+  border-color: #0d6efd !important;
+}
+
+/* ===================================
+   Main Table Section
+   =================================== */
+
+.approve-main-table-section {
+  width: 100% !important;
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.approve-table-wrapper {
+  width: 100% !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* List Header with Summary Stats (45px, fixed at top) */
+.approve-list-header {
+  height: 45px !important;
+  min-height: 45px !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-list-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #212121 !important;
+  letter-spacing: 0.4px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.approve-list-stats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-left: auto !important;
+}
+
+.approve-stat-item {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #212121 !important;
+  letter-spacing: 0.35px !important;
+  white-space: nowrap !important;
+}
+
+.approve-stat-divider {
+  width: 1px !important;
+  height: 16px !important;
+  background-color: #cbd5e1 !important;
+}
+
+.approve-stat-green {
+  color: #198754 !important;
+  font-weight: 500 !important;
+}
+
+.approve-stat-price {
+  display: inline-block !important;
+  padding: 0 8px !important;
+  background-color: #FBF8F4 !important;
+  border: 1px solid #9E7D56 !important;
+  border-radius: 4px !important;
+  color: #4F3E2B !important;
+  font-weight: 500 !important;
+}
+
+.approve-stat-amber {
+  color: #B45309 !important;
+  font-weight: 500 !important;
+}
+
+/* Scrollable Table Area — override global hidden scrollbar */
+.approve-table-scroll {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  background: #FFFFFF !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar-track {
+  background: #FFFFFF !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar-thumb {
+  background: #8F8F8F !important;
+  border-radius: 26px !important;
+}
+
+.approve-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #6c757d !important;
+}
+
+/* ===================================
+   Main Table — must beat global Style.css rules
+   =================================== */
+
+table.approve-main-table {
+  width: 100% !important;
+  min-width: 2130px !important;
+  border-collapse: collapse !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Column Headers */
+table.approve-main-table thead {
+  background-color: #D6E0E0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+}
+
+table.approve-main-table thead tr {
+  height: 36px !important;
+}
+
+table.approve-main-table thead tr th {
+  padding: 8px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+  letter-spacing: 0.299px !important;
+  color: #212121 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  white-space: nowrap !important;
+  background-color: #D6E0E0 !important;
+  width: auto !important;
+}
+
+/* Override global last-child width */
+table.approve-main-table thead tr th:last-child {
+  width: 100px !important;
+}
+
+/* Sortable headers */
+table.approve-main-table th.th-sort {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+table.approve-main-table th.th-sort .sort-icon {
+  display: inline-block !important;
+  font-size: 10px !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 2px !important;
+  vertical-align: middle !important;
+  opacity: 0.6 !important;
+  color: #757575 !important;
+}
+
+table.approve-main-table th.th-sort:hover .sort-icon {
+  opacity: 1 !important;
+}
+
+/* Column Widths (Figma spec) */
+table.approve-main-table .col-barcode-pkg { width: 168px !important; min-width: 168px !important; }
+table.approve-main-table .col-barcode-bdl { width: 204px !important; min-width: 204px !important; }
+table.approve-main-table .col-header-card { width: 114px !important; min-width: 114px !important; }
+table.approve-main-table .col-bank { width: 72px !important; min-width: 72px !important; }
+table.approve-main-table .col-zone { width: 61px !important; min-width: 61px !important; }
+table.approve-main-table .col-cashpoint { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-bn-type { width: 188px !important; min-width: 188px !important; }
+table.approve-main-table .col-prepare-date { width: 130px !important; min-width: 130px !important; }
+table.approve-main-table .col-sort-date { width: 130px !important; min-width: 130px !important; }
+table.approve-main-table .col-op-prepare { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-sorter { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-op-reconcile { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-sv-edit { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-sv-cancel { width: 160px !important; min-width: 160px !important; }
+table.approve-main-table .col-status { width: 100px !important; min-width: 100px !important; }
+
+/* Data Rows — override EVERYTHING from global */
+table.approve-main-table tbody tr {
+  height: 34px !important;
+  background-color: #FFFFFF !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+/* Alternating row colors — ฟ้าสลับขาว (Figma confirmed) */
+table.approve-main-table tbody tr:nth-child(odd) {
+  background: #F2F6F6 !important;
+}
+
+table.approve-main-table tbody tr:nth-child(even) {
+  background: #FFFFFF !important;
+}
+
+table.approve-main-table tbody tr:hover {
+  background: #D1E5FA !important;
+}
+
+/* Selected Row */
+table.approve-main-table tbody tr.selected {
+  background: #D1E5FA !important;
+  outline: 2px solid #297ED4 !important;
+  outline-offset: -2px !important;
+}
+
+/* Data Cells — override global td styles */
+table.approve-main-table tbody tr td {
+  padding: 6px 8px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.35px !important;
+  color: #212529 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  width: auto !important;
+}
+
+/* Override global last-child width on td too */
+table.approve-main-table tbody tr td:last-child {
+  width: auto !important;
+  cursor: default !important;
+}
+
+/* Override global first-child bold */
+table.approve-main-table tbody tr td:first-child {
+  font-weight: 400 !important;
+  text-align: left !important;
+}
+
+/* Barcode columns — smaller font, left align */
+table.approve-main-table tbody tr td.col-barcode-pkg,
+table.approve-main-table tbody tr td.col-barcode-bdl {
+  font-size: 13px !important;
+  letter-spacing: 0.286px !important;
+  text-align: left !important;
+}
+
+/* ===================================
+   Status Badge — override global .status-badge from all.css
+   =================================== */
+
+table.approve-main-table .status-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 19px !important;
+  padding: 0 8px !important;
+  gap: 4px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.286px !important;
+  line-height: 13px !important;
+  border-radius: 23.5px !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+table.approve-main-table .status-badge .status-icon {
+  width: 12px !important;
+  height: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Yellow — แก้ไข (Edit/ManualKeyIn) */
+table.approve-main-table .status-badge.status-edit {
+  background-color: #FEFCE8 !important;
+  border: 1px solid #FACC15 !important;
+  color: #713F12 !important;
+}
+
+/* Green — อนุมัติ (Approved) */
+table.approve-main-table .status-badge.status-approved {
+  background-color: #F0FDF4 !important;
+  border: 1px solid #4ADE80 !important;
+  color: #14532D !important;
+}
+
+/* Red — ปฏิเสธ (Denied) */
+table.approve-main-table .status-badge.status-denied {
+  background-color: #FEF2F2 !important;
+  border: 1px solid #F87171 !important;
+  color: #7F1D1D !important;
+}
+
+/* Gray — รออนุมัติ (Pending) */
+table.approve-main-table .status-badge.status-pending {
+  background-color: #F9FAFB !important;
+  border: 1px solid #D1D5DB !important;
+  color: #374151 !important;
+}
+
+/* ===================================
+   Bottom Section (fixed height)
+   =================================== */
+
+.approve-bottom-section {
+  display: flex !important;
+  gap: 8px !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  height: 249px !important;
+  min-height: 249px !important;
+}
+
+/* Left: Detail Breakdown Table */
+.approve-detail-breakdown {
+  flex: 1 !important;
+  max-width: 900px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.approve-detail-header {
+  height: 45px !important;
+  min-height: 45px !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+}
+
+.approve-detail-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.4px !important;
+  color: #212121 !important;
+  white-space: nowrap !important;
+}
+
+.approve-detail-stats {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+.approve-stat-item-sm {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #212121 !important;
+  letter-spacing: 0.286px !important;
+  white-space: nowrap !important;
+}
+
+/* Detail table scroll */
+.approve-detail-table-wrapper {
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar {
+  width: 8px !important;
+  background: #FFFFFF !important;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-track {
+  background: #FFFFFF !important;
+}
+
+.approve-detail-table-wrapper::-webkit-scrollbar-thumb {
+  background: #8F8F8F !important;
+  border-radius: 26px !important;
+}
+
+/* Detail Table */
+table.approve-detail-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+table.approve-detail-table thead {
+  background-color: #D6E0E0 !important;
+  position: sticky !important;
+  top: 0 !important;
+}
+
+table.approve-detail-table thead tr {
+  height: 30px !important;
+}
+
+table.approve-detail-table thead tr th {
+  padding: 5px 8px !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.299px !important;
+  color: #212121 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  background-color: #D6E0E0 !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+table.approve-detail-table thead tr th:last-child {
+  width: auto !important;
+}
+
+/* Detail table sortable headers */
+table.approve-detail-table th.th-sort {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+table.approve-detail-table th.th-sort .sort-icon {
+  display: inline-block !important;
+  font-size: 10px !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 2px !important;
+  vertical-align: middle !important;
+  opacity: 0.6 !important;
+  color: #757575 !important;
+}
+
+table.approve-detail-table th.th-sort:hover .sort-icon {
+  opacity: 1 !important;
+}
+
+table.approve-detail-table tbody tr {
+  height: 40px !important;
+}
+
+/* Alternating — ขาวสลับฟ้า (Figma: odd=white, even=#F2F6F6) */
+/* Use ID selector for maximum specificity */
+#approveDetailTable tbody tr:nth-child(odd) {
+  background: #F8FAFC !important;
+}
+
+#approveDetailTable tbody tr:nth-child(even) {
+  background: #F2F6F6 !important;
+}
+
+table.approve-detail-table tbody tr:hover {
+  background: #D1E5FA !important;
+  cursor: pointer !important;
+}
+
+table.approve-detail-table tbody tr td {
+  padding: 8px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.3px !important;
+  color: #212529 !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  vertical-align: middle !important;
+  width: auto !important;
+}
+
+table.approve-detail-table tbody tr td:last-child {
+  width: auto !important;
+}
+
+/* Quantity column — slightly larger */
+table.approve-detail-table tbody tr td.col-detail-qty {
+  font-size: 14px !important;
+  letter-spacing: 0.35px !important;
+  text-align: right !important;
+}
+
+table.approve-detail-table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Denomination Badge (detail table) */
+table.approve-detail-table .qty-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 47px !important;
+  height: 24px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+  border: 2px solid #9E7D56 !important;
+  background-color: #FBF8F4 !important;
+  background-image: none !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.325px !important;
+  color: #4F3E2B !important;
+}
+
+/* ===================================
+   Right: Action Panel (500px)
+   =================================== */
+
+.approve-action-panel {
+  width: 500px !important;
+  min-width: 500px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.approve-action-content {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.approve-action-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #212121 !important;
+  letter-spacing: 0.4px !important;
+  margin: 0 0 12px 0 !important;
+}
+
+.approve-notes-section {
+  margin-bottom: 16px !important;
+}
+
+.approve-notes-label {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.35px !important;
+  color: #212121 !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+  margin-left: 0 !important;
+}
+
+input.approve-notes-input {
+  width: 100% !important;
+  height: 36px !important;
+  border: 1px solid #E0DFE2 !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.325px !important;
+  color: #212121 !important;
+  box-sizing: border-box !important;
+}
+
+input.approve-notes-input:focus {
+  outline: none !important;
+  border-color: #0d6efd !important;
+}
+
+.approve-buttons-section {
+  margin-top: auto !important;
+}
+
+/* Approve Button — override global button styles */
+button.approve-button-approve {
+  width: 100% !important;
+  height: 46px !important;
+  background-color: #198754 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+button.approve-button-approve:hover {
+  background-color: #157347 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-button-approve:disabled {
+  background-color: #CED4DA !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+button.approve-button-approve:disabled:hover {
+  background-color: #CED4DA !important;
+  color: #FFFFFF !important;
+}
+
+/* Separator */
+.approve-button-separator {
+  width: 100% !important;
+  height: 1px !important;
+  background-color: #D9D9D9 !important;
+  margin: 8px 0 !important;
+}
+
+/* Deny Button — override global button styles */
+button.approve-button-denied {
+  width: 100% !important;
+  height: 48px !important;
+  background-color: #DC3545 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #DC3545 !important;
+  border-radius: 8px !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+button.approve-button-denied:hover {
+  background-color: #bb2d3b !important;
+  color: #FFFFFF !important;
+  border-color: #bb2d3b !important;
+}
+
+button.approve-button-denied:disabled {
+  background-color: #CED4DA !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+button.approve-button-denied:disabled:hover {
+  background-color: #CED4DA !important;
+  color: #FFFFFF !important;
+}
+
+/* ===================================
+   Modals (560x360px) — override global button:hover
+   =================================== */
+
+.approve-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(11, 11, 11, 0.5) !important;
+  z-index: 1000 !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.approve-modal-overlay.show {
+  display: flex !important;
+}
+
+.approve-modal,
+.approve-modal-success {
+  width: 560px !important;
+  min-height: 360px !important;
+  background-color: #FFFFFF !important;
+  border-radius: 12px !important;
+  border: 1px solid #EEEEEE !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.approve-modal-top-bar {
+  padding: 32px 16px 16px !important;
+  text-align: center !important;
+}
+
+.approve-modal-icon {
+  width: 48px !important;
+  height: 48px !important;
+  margin: 0 auto 16px !important;
+  display: block !important;
+}
+
+.approve-modal-title {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.6px !important;
+  color: #000000 !important;
+  margin: 0 !important;
+}
+
+.approve-modal-message-area {
+  flex: 1 !important;
+  padding: 24px 32px !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.approve-modal-message {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  color: #000000 !important;
+  margin: 0 !important;
+}
+
+.approve-modal-action-area {
+  padding: 16px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  border-top: 1px solid #cbd5e1 !important;
+}
+
+/* Modal Buttons — must use button.class to override global button:hover */
+button.approve-modal-button-cancel {
+  min-width: 160px !important;
+  height: 38px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  cursor: pointer !important;
+  padding: 8px 24px !important;
+  background-color: #6C757D !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-cancel:hover {
+  background-color: #5a6268 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-confirm {
+  min-width: 160px !important;
+  height: 38px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  cursor: pointer !important;
+  padding: 8px 24px !important;
+  background-color: #003366 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-confirm:hover {
+  background-color: #002244 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-ok {
+  min-width: 160px !important;
+  height: 38px !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  cursor: pointer !important;
+  padding: 8px 24px !important;
+  background-color: #198754 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+button.approve-modal-button-ok:hover {
+  background-color: #157347 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+}

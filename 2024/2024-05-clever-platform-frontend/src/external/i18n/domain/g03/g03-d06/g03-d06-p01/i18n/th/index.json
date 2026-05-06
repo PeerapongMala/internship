@@ -1,0 +1,22 @@
+{
+  "header_announce_activity_date": "ระยะเวลากิจกรรม: {{ date }}",
+  "header_announce_date": "วันที่: {{ date }}",
+  "btn_footer_join_activity": "ร่วมกิจกรรม",
+  "btn_footer_delete_message": "ลบข้อความ",
+  "btn_footer_receive_item": "รับไอเทม",
+  "btn_footer_open_inventory": "คลังเก็บของ",
+  "teacher_gift_title": "{{reward_name}} จาก ครู{{teacher_name}}",
+  "teacher_gift_description": "คุณได้รับ {{reward_name}} จำนวน {{reward_amount}} จาก ครู{{teacher_name}}",
+  "announcement": {
+    "activity": "กิจกรรม",
+    "mailbox": "กล่องจดหมาย",
+    "teacher_rewards": "รางวัลจากครู",
+    "notifications": "แจ้งเตือน"
+  },
+  "no_announcement_text": {
+    "activity": "ยังไม่มีประกาศกิจกรรม",
+    "mailbox": "ยังไม่มีข้อความ",
+    "teacher_rewards": "ยังไม่มีรางวัลจากครู",
+    "notifications": "ยังไม่มีการแจ้งเตือน"
+  }
+}

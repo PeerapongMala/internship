@@ -1,0 +1,49 @@
+{
+  "name": "poc-capacitor-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "web:dev": "vite",
+    "web:build": "tsc -b && vite build",
+    "web:preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "sync": "npx cap sync",
+    "start": "npm run start:android",
+    "build": "npm run web:build & npm run sync",
+    "android:start": "npx cap open android & npx cap run android",
+    "android": "npm run build & npm run android:start",
+    "ios:start": "npx cap open ios & npx cap run ios",
+    "ios": "npm run build & npm run ios:start"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/ios": "^6.1.2",
+    "@tanstack/react-router": "^1.76.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2",
+    "@eslint/js": "^9.11.1",
+    "@tanstack/router-devtools": "^1.76.3",
+    "@tanstack/router-plugin": "^1.76.0",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.7.0",
+    "vite": "^5.4.8"
+  }
+}

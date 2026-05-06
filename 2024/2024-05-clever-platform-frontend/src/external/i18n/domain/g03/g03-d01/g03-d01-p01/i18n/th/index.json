@@ -1,0 +1,8 @@
+{
+  "menu_btn_label_consecutive_days": "x{{ consecutiveDays }} วัน",
+  "menu_btn_label_trophy": "x{{ trophy }}",
+  "menu_btn_label_placed_leaderboard": "#{{ leaderboard }}",
+  "label_selected_subjects": "วิชา: {{ subject }}",
+  "label_all_lessons": "บทเรียนทั้งหมด",
+  "label_all_homeworks": "การบ้านทั้งหมด"
+}

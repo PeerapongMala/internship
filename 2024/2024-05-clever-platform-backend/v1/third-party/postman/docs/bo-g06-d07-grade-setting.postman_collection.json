@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "12c3f3be-1244-490f-a12e-7054d660d709",
+		"name": "g06-d07",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "G06D07",
+			"item": [
+				{
+					"name": "a01 student information upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file",
+									"type": "file",
+									"src": "/C:/Users/Frank/Desktop/Fastwork/zatta_merge/2024-05-clever-platform-backend/v1/third-party/postman/docs/sheet ป.1 ปพ (ข้อมูลนักเรียน).csv"
+								},
+								{
+									"key": "academic_year",
+									"value": "2567",
+									"description": "require",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/student-information/upload/csv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"student-information",
+								"upload",
+								"csv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a02 student information download csv",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/student-information/download/csv?school_id=1&academic_year=2567&year=ป.1&school_room=ห้อง 4&search_text",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"student-information",
+								"download",
+								"csv"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "1",
+									"description": "require"
+								},
+								{
+									"key": "academic_year",
+									"value": "2567",
+									"description": "oprional, for filter"
+								},
+								{
+									"key": "year",
+									"value": "ป.1",
+									"description": "oprional, for filter"
+								},
+								{
+									"key": "school_room",
+									"value": "ห้อง 4",
+									"description": "oprional, for filter"
+								},
+								{
+									"key": "search_text",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a03 student information list + detail (ยังไม่ได้กรอง field ที่ไม่จำเป็นออก)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/student-information?page=1&limit=10&school_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"student-information"
+							],
+							"query": [
+								{
+									"key": "school_room",
+									"value": "5",
+									"description": "oprional, for filter",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "school_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a10 student information get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/student-information/:studentId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"student-information",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a04 student information update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "//เอา object จาก a10 มาได้เลย\r\n{\r\n    // \"id\": 4, //ไม่ใช้\r\n    // \"form_id\": 5, //ไม่ใช้\r\n    //optional, ถ้าไม่ส่งมาจะไม่อัพเดท (ตอนนี้ allow ให้อัพเดททั้งหมดครับ)\r\n    \"is_out\": true, // new 22-08-2025\r\n    \"citizen_no\": \"1234567890125\",\r\n    \"student_id\": \"17343\",\r\n    \"gender\": \"ญ\",\r\n    \"title\": \"เด็กหญิง\",\r\n    \"thai_first_name\": \"สมหญิง\",\r\n    \"thai_last_name\": \"รักเรียน\",\r\n    \"eng_first_name\": \"Somying\",\r\n    \"eng_last_name\": \"Rukrian\",\r\n    \"birth_date\": \"2005-01-01\",\r\n    \"ethnicity\": \"Thai\",\r\n    \"nationality\": \"Thai\",\r\n    \"religion\": \"Buddhism\",\r\n    \"parent_marital_status\": \"married\",\r\n    \"father_title\": \"Mr.\",\r\n    \"father_first_name\": \"สมพงษ์\",\r\n    \"father_last_name\": \"รักเรียน\",\r\n    \"mother_title\": \"Mrs.\",\r\n    \"mother_first_name\": \"สมศรี\",\r\n    \"mother_last_name\": \"รักเรียน\",\r\n    \"guardian_relation\": \"มารดา\",\r\n    \"guardian_title\": \"Mrs.\",\r\n    \"guardian_first_name\": \"สมศรี\",\r\n    \"guardian_last_name\": \"รักเรียน\",\r\n    \"address_no\": \"99/1\",\r\n    \"address_moo\": \"5\",\r\n    \"address_sub_district\": \"ตำบลทดสอบ\",\r\n    \"address_district\": \"อำเภอทดสอบ\",\r\n    \"address_province\": \"จังหวัดทดสอบ\",\r\n    \"address_postal_code\": \"10110\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/student-information/:studentId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"student-information",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a07 student address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/student-address?schoolID=1&academicYear=2567&year=ป.1&schoolRoom=5&formID=8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"student-address"
+							],
+							"query": [
+								{
+									"key": "schoolID",
+									"value": "1",
+									"description": "require"
+								},
+								{
+									"key": "academicYear",
+									"value": "2567",
+									"description": "oprional, for filter"
+								},
+								{
+									"key": "year",
+									"value": "ป.1",
+									"description": "oprional, for filter"
+								},
+								{
+									"key": "schoolRoom",
+									"value": "5",
+									"description": "oprional, for filter"
+								},
+								{
+									"key": "formID",
+									"value": "8",
+									"description": "oprional, กรองแค่สำหรับ form นั้นๆ"
+								},
+								{
+									"key": "studentID",
+									"value": "13",
+									"description": "optional, ไว้กรองสำหรับดูของคนเดียว",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a08 update document template",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "logo_image",
+									"description": "optional, ไม่ส่งไม่อัพเดท",
+									"type": "file",
+									"src": "/Users/patwanich/Desktop/Screenshot 2568-08-28 at 14.32.36.png",
+									"disabled": true
+								},
+								{
+									"key": "background_image",
+									"description": "optional, ไม่ส่งไม่อัพเดท",
+									"type": "file",
+									"src": "/Users/patwanich/Desktop/Screenshot 2568-08-28 at 15.59.38.png",
+									"disabled": true
+								},
+								{
+									"key": "format_id",
+									"value": "1",
+									"description": "1, 2 เป็น free text (primary key, require field)",
+									"type": "text"
+								},
+								{
+									"key": "colour_setting",
+									"value": "{\"position1\":\"FFCFEF\", \"position2\":\"000000\"}",
+									"description": "เป็น free text แนะนำให้ใช้เป็น json ไว้เก็บข้อมูลสีจุดต่างๆ, optional, ไม่ส่งไม่อัพเดท",
+									"type": "text"
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_default",
+									"value": "true",
+									"description": "optional, ไม่ส่งไม่อัพเดท",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "pd",
+									"type": "text"
+								},
+								{
+									"key": "delete_logo_image",
+									"value": "true",
+									"description": "optional",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "delete_background_image",
+									"value": "true",
+									"description": "optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/document_template/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"document_template",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "47"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a09 get all document template",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczNTQxNTg1OCwibmJmIjoxNzM1MDU1ODU4LCJpYXQiOjE3MzUwNTU4NTgsImp0aSI6IjIzNGU5ZDYwLTIxZjItNGUyZS04YzFkLWI5ZGNlYzk1NjdiOCJ9.lcSw-5kqRRyHHbH8_yuNDqWA-GaBBUQ8ErfEk9_iLb8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/document_template?format_id=1&school_id=1&id=9&name=pat's template",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"document_template"
+							],
+							"query": [
+								{
+									"key": "format_id",
+									"value": "1",
+									"description": "optional, ไว้เลือกว่าอยากได้แค่ id ไหน"
+								},
+								{
+									"key": "school_id",
+									"value": "1"
+								},
+								{
+									"key": "is_default",
+									"value": "true",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "9"
+								},
+								{
+									"key": "name",
+									"value": "pat's template"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "a10-api-document-template-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "logo_image",
+									"type": "file",
+									"src": "/Users/patwanich/Desktop/Screenshot 2568-08-20 at 10.17.15.png"
+								},
+								{
+									"key": "background_image",
+									"type": "file",
+									"src": "/Users/patwanich/Desktop/Screenshot 2568-08-20 at 10.17.15.png"
+								},
+								{
+									"key": "format_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "colour_setting",
+									"value": "{\"position1\":\"FFFFFF\", \"position2\":\"000000\"}",
+									"type": "text"
+								},
+								{
+									"key": "school_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "is_default",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/grade-settings/v1/document-templates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"grade-settings",
+								"v1",
+								"document-templates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,9 @@
+.after {
+  @apply relative;
+}
+
+.after::after {
+  content: '';
+
+  @apply absolute right-[-0.7rem] top-0 h-full w-[1px] bg-[#D4D4D4];
+}

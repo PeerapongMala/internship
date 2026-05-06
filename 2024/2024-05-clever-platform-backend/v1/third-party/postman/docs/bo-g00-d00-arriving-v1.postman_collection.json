@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "744bbfd1-f407-4dc5-b7fa-ddbe0a2ca796",
+		"name": "bo-g00-d00-arriving-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "g00-d00-a01-api-curriculum-group-case-list-by-content-creator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/arriving/v1/curriculum-groups?page=1&limit=10&search_text=สุนัน",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"arriving",
+						"v1",
+						"curriculum-groups"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "search_text",
+							"value": "สุนัน",
+							"description": "optional, ชื่อสังกัด (Partial match)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-auth-case-login-with-email-password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code == 200) {",
+							"    const raw = pm.response.text()",
+							"    const response = JSON.parse(raw)",
+							"",
+							"    if (response.data[0]?.access_token){",
+							"        const token = response.data[0].access_token",
+							"        pm.environment.set(\"access_token\", token)",
+							"    }",
+							"}",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\", // required, อีเมล\r\n    \"password\": \"patdoepass\"    // required, รหัสผ่าน\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/arriving/v1/auth/login/email-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"arriving",
+						"v1",
+						"auth",
+						"login",
+						"email-password"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login Teacher1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"teacher@teacher.com\", // required, อีเมล\r\n    \"password\": \"12345\"    // required, รหัสผ่าน\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arriving/v1/auth/login/email-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arriving",
+								"v1",
+								"auth",
+								"login",
+								"email-password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 16:31:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "893"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "52b9c4c2-d0fc-40f9-9aa9-1fb13871cfa0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n            \"title\": \"ครู\",\n            \"first_name\": \"เชื้อ\",\n            \"last_name\": \"อภิชาติ\",\n            \"school_id\": \"1\",\n            \"school_code\": \"C-123\",\n            \"school_name\": \"โรงเรียนสาธิตมัธยม\",\n            \"school_image_url\": \"https://my-bucket-name.obs.ap-southeast-1.myhuaweicloud.com/https://www.example.com/dummy-url\",\n            \"image_url\": \"https://my-bucket-name.obs.ap-southeast-1.myhuaweicloud.com/https://example.com/dummy.png\",\n            \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIwMGYxYjEzZS0wZTYyLTQ1ZDItOTcxOC0wOTljZDU0NWIzYWMiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc1MDczNDYzOCwibmJmIjoxNzQ0NzM0Njk4LCJpYXQiOjE3NDQ3MzQ2OTgsImp0aSI6IjQ3N2ZmYzk3LTM4YWQtNDYyNS05MjYyLTI1YWVlMjA1MzE3ZCJ9.tmbeSfR5eIbBuyW9daEd604H6kmIg4OThwniVW2vtRA\",\n            \"roles\": [\n                6\n            ],\n            \"teacher_roles\": [\n                1,// ผู้ดูแลระบบตัดเกรด\n                2 // กรอกคะแนน\n            //  3 // ตัดเกรด\n            ]\n        }\n    ],\n    \"message\": \"Login successfully\"\n}"
+				},
+				{
+					"name": "Login Admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\", // required, อีเมล\r\n    \"password\": \"patdoepass\"    // required, รหัสผ่าน\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arriving/v1/auth/login/email-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arriving",
+								"v1",
+								"auth",
+								"login",
+								"email-password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 15 Apr 2025 16:31:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "774"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "53b9c4c2-d0fc-40f9-9aa9-1fb13871cfa0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"id\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n            \"title\": \"Mr\",\n            \"first_name\": \"Pat\",\n            \"last_name\": \"Doe\",\n            \"school_id\": \"1\",\n            \"school_code\": \"C-123\",\n            \"school_name\": \"โรงเรียนสาธิตมัธยม\",\n            \"school_image_url\": \"https://my-bucket-name.obs.ap-southeast-1.myhuaweicloud.com/https://www.example.com/dummy-url\",\n            \"image_url\": null,\n            \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiIxZTVmM2FmNC1mMmVhLTRhMzAtYmY4YS02ZGVmMmU4ZWFmMTAiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc1MDczNDY0NSwibmJmIjoxNzQ0NzM0NzA1LCJpYXQiOjE3NDQ3MzQ3MDUsImp0aSI6IjQzMTg1OTg2LTFmMmEtNGUyNy05ZDVlLTI2YjA1MmNiMjJhMiJ9.OJl-kvNQEaHuUuIwYyruplnjYXyK7k3PGLo2EJd8SPQ\",\n            \"roles\": [\n                1,\n                2,\n                3,\n                4,\n                5\n            ],\n            \"teacher_roles\": []\n        }\n    ],\n    \"message\": \"Login successfully\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

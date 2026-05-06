@@ -1,0 +1,178 @@
+/* ============================================================
+   Figma Specs — Reconsile (All Nodes Combined)
+   ============================================================
+   WARNING: This is a REFERENCE file. DO NOT link as a stylesheet.
+   Copy values to the actual CSS files as needed.
+   font-family: 'Pridi' → implement as 'bss-pridi'
+   ============================================================ */
+
+/* --- Section: Page Title (Node 1:18004) --- */
+.title {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.2em;
+    letter-spacing: 0.675px;
+    color: #212121;
+}
+
+/* --- Section: Top Panel (Node 1:18004) --- */
+.top-panel {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 8px 8px 16px;
+    gap: 8px;
+}
+
+.info-card {
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 8px 24px;
+}
+
+.info-badge {
+    background: #E4E6E9;
+    padding: 4px 12px;
+    border-radius: 8px;
+    width: 152px;
+}
+
+/* --- Section: Radio Group (Node 1:18004) --- */
+.radio-item {
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    gap: 16px;
+}
+
+.radio-label {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+}
+
+/* --- Section: Denom Chips (Node 1:18004) --- */
+.denom-chips { gap: 16px; }
+
+.denom-badge {
+    width: 47px;
+    height: 24px;
+    border-radius: 8px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 13px;
+}
+
+/* Per-denomination */
+.denom-1000 { background: #FBF8F4; border: 2px solid #9F7D57; color: #4F3E2B; }
+.denom-500  { background: #F8F5FF; border: 2px solid #6A509D; color: #3D2E5B; }
+.denom-100  { background: #FFF5F5; border: 2px solid #C07575; color: #991B1B; }
+.denom-50   { background: #F0F8FF; border: 2px solid #35A0FD; color: #025CAB; }
+.denom-20   { background: #F1F9F1; border: 2px solid #55B254; color: #3B7E3A; }
+
+/* --- Section: Form Fields (Node 1:18004) --- */
+.select-input {
+    border: 1px solid #CED4DA;
+    border-radius: 8px;
+    padding: 8px 12px 8px 16px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 300;
+    font-size: 20px;
+    color: #212529;
+}
+
+.text-input {
+    border: 1px solid #CED4DA;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.text-input:focus {
+    border-color: #86B7FE;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+/* --- Section: Save Button (Node 1:18004) --- */
+.save-button {
+    width: 300px;
+    padding: 8px 16px;
+    background: #198754;
+    border-radius: 8px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    align-self: flex-end;
+}
+
+/* --- Section: Summary Table (Node 1:18004) --- */
+.table-header {
+    background: #D6E0E0;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 13px;
+    color: #212121;
+    padding: 8px;
+}
+
+.table-cell {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 13px;
+    padding: 6px 8px;
+}
+
+.sort-icon { font-size: 12px; color: #6C757D; margin-left: 2px; }
+
+.action-button {
+    width: 20px; height: 20px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+.action-icon { font-size: 14px; color: #000000; }
+
+/* --- Section: Bottom Buttons (Node 1:18004) --- */
+.cancel-button {
+    width: 300px; padding: 8px 16px; border-radius: 8px;
+    background: #6C757D; border: 1px solid #6C757D;
+    font-family: 'Pridi'; /* → 'bss-pridi' */ font-weight: 500; font-size: 20px; color: #FFFFFF;
+}
+
+.reconcile-button {
+    width: 300px; padding: 8px 16px; border-radius: 8px;
+    background: #003366; border: 1px solid #003366;
+    font-family: 'Pridi'; /* → 'bss-pridi' */ font-weight: 500; font-size: 20px; color: #FFFFFF;
+}
+
+/* --- Section: Edit Modal (Node 1:21677) --- */
+.edit-modal { border: 1px solid #EEEEEE; border-radius: 12px; }
+.edit-header { padding: 16px 16px 8px; border-bottom: 1px solid #CBD5E1; }
+.edit-title { font-family: 'Pridi'; font-weight: 500; font-size: 24px; color: #000000; }
+.edit-body { padding: 24px; gap: 16px; }
+.kv-text { font-family: 'Pridi'; font-weight: 400; font-size: 16px; color: #000000; }
+.edit-qty { width: 87px; border-radius: 6px; padding: 6px 12px; font-size: 16px; }
+.edit-footer { padding: 16px; border-top: 1px solid #CBD5E1; justify-content: space-between; }
+.edit-btn { width: 120px; padding: 6px 12px; border-radius: 6px; font-size: 16px; font-weight: 400; }
+
+/* --- Section: Delete Modal (Node 1:22404) --- */
+.confirm-icon { font-size: 48px; color: #FD7E14; }
+.confirm-title { font-family: 'Pridi'; font-weight: 500; font-size: 24px; color: #000000; }
+.confirm-message { font-family: 'Pridi'; font-weight: 400; font-size: 16px; color: #000000; }
+.confirm-footer { padding: 16px; gap: 24px; border-top: 1px solid #CBD5E1; }
+.btn-danger { background: #DC3545; border: 1px solid #DC3545; color: #FFFFFF; }
+
+/* --- Section: Success Modal (Node 1:22426) --- */
+.success-icon { font-size: 48px; color: #198754; }
+.success-title { font-family: 'Pridi'; font-weight: 500; font-size: 24px; color: #000000; }
+.success-message { font-family: 'Pridi'; font-weight: 500; font-size: 20px; color: #000000; text-align: center; }
+.success-btn { width: 160px; background: #198754; border: 1px solid #198754; }
+
+/* --- Shared Modal Tokens --- */
+.modal-btn-cancel { background: #6C757D; border: 1px solid #6C757D; color: #FFFFFF; }
+.modal-btn { padding: 6px 12px; border-radius: 6px; font-family: 'Pridi'; font-weight: 400; font-size: 16px; }

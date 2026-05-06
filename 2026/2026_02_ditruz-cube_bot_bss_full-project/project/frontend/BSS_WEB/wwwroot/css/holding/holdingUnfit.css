@@ -1,0 +1,362 @@
+/* ============================================================
+   Holding Detail UNFIT — Page Styles
+   Layout: 6 panels (2 cols × 3 rows), full 92vh
+   ============================================================ */
+
+/* ── Title bar: cancel global negative margin that causes table overlap ── */
+.main-title {
+    position: relative;
+    z-index: 20;
+    margin-bottom: 8px !important;
+}
+
+.title-section h1 {
+    font-family: 'Pridi', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #212121;
+    letter-spacing: 0.675px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.title-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ── Title bar center info ── */
+.title-center {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title-info-grid {
+    display: grid;
+    /* 2 rows × 2 pairs */
+    grid-template-columns: auto auto;
+    column-gap: 0;
+    row-gap: 10px;
+    align-items: center;
+}
+
+.info-pair {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.info-pair.separator {
+    padding-left: 32px;
+}
+
+/* ── Date highlight ── */
+.info-pair.date-highlight {
+    background: #FEE2E2;
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin-left: -10px;
+    width: fit-content;
+}
+
+.title-info-label {
+    color: #212121;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.title-info-value {
+    color: #212121;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.title-info-value .alert-icon {
+    flex-shrink: 0;
+}
+
+/* ── Nav buttons (dark navy filled) ── */
+.btn-nav-filled {
+    height: 36px;
+    padding: 0 16px;
+    background: #003366;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn-nav-filled:hover {
+    background: #002244;
+    transform: translateY(-1px);
+}
+
+/* ── Main 6-panel grid ── */
+.hd-grid {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.hd-col {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hd-col:first-child { flex: 0 0 calc(60% - 6px); }
+.hd-col:last-child  { flex: 0 0 calc(40% - 6px); }
+
+/* ── Each Panel Card ── */
+.hd-panel {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* ── Panel Header Row ── */
+.hd-panel-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px 8px 18px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #cbd5e1;
+    flex-shrink: 0;
+}
+
+.hd-panel-title {
+    font-family: 'Pridi', serif;
+    font-size: 16px;
+    font-weight: 500 !important;
+    font-style: normal;
+    line-height: 120%;
+    letter-spacing: 0.4px;
+    color: #212121 !important;
+    white-space: nowrap;
+}
+
+.hd-panel-title.is-orange {
+    color: #DC3545 !important;
+}
+
+.hd-panel-count {
+    font-size: 12px;
+    color: #718096;
+    white-space: nowrap;
+}
+
+.hd-panel-count strong {
+    color: #212121;
+    font-weight: 700 !important;
+}
+
+.hd-panel-count strong.is-orange {
+    color: #DC3545 !important;
+}
+
+.hd-panel-count strong.is-green {
+    color: #198754;
+}
+
+.hd-panel-count strong.is-warning {
+    color: #b45309 !important;
+}
+
+/* ── Table scroll area inside panel ── */
+.hd-table-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    overflow-x: hidden;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ffffff 0px, #ffffff 36px,
+        #f2f6f6 36px, #f2f6f6 72px
+    );
+    background-position-y: 36px; /* offset for thead */
+}
+.hd-table-scroll.has-scroll {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* ── Panel Table ── */
+.hd-table {
+    width: 100%;
+    background: transparent;
+    border-collapse: separate;   /* separate required for position:sticky on thead */
+    border-spacing: 0;
+    font-size: 13px;
+    table-layout: fixed;         /* honour explicit column widths */
+}
+
+.hd-table tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+.hd-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: #D6E0E0;
+    padding: 8px 8px 8px 18px !important;
+    border: none !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    font-family: 'Pridi', serif;
+    font-weight: 500 !important;
+    font-size: 13px;
+    letter-spacing: 2.3px;
+    line-height: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    color: #212121 !important;
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hd-table thead th:last-child { border-right: none !important; }
+
+.hd-table thead th.text-center { text-align: center; }
+.hd-table thead th.text-right  { text-align: right; }
+
+.hd-table tbody td {
+    padding: 7px 8px 7px 18px !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #CBD5E1 !important;
+    font-family: 'Pridi', serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #212529;
+    letter-spacing: 0.286px;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hd-table tbody td:last-child { border-right: none !important; }
+
+.hd-table tbody tr {
+    height: 36px;
+    cursor: pointer;
+}
+
+.hd-table tbody tr:nth-child(even) {
+    background: #f2f6f6;
+}
+
+.hd-table tbody tr:hover {
+    background: #f1f5f9;
+}
+
+.hd-table tbody tr.active-row:hover {
+    background: #d1e5fa !important;
+}
+
+.hd-table tbody tr.hd-empty-row {
+    height: 36px;
+    cursor: default;
+}
+.hd-table tbody tr.hd-empty-row td {
+    border: none !important;
+}
+
+/* Selected/active row (blue highlight — matches Manual Key-In style) */
+.hd-table tbody tr.active-row {
+    background: #d1e5fa !important;
+    outline: 2px solid #297ed4;
+    outline-offset: -2px;
+}
+
+.hd-table tbody tr.active-row td {
+    background-color: #d1e5fa !important;
+}
+
+/* Sortable column header */
+.th-sort {
+    cursor: pointer;
+    user-select: none;
+}
+
+.th-sort:hover {
+    background-color: #c5d0d0;
+}
+
+.sort-icon {
+    color: #6C757D !important;
+    font-size: 12px;
+}
+
+/* ── Denomination Badge (same as Manual Key-In / Reconcile p02 spec) ── */
+.qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.325px;
+    line-height: 1.55em;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 0;
+    background-image: none !important;
+}
+
+.qty-badge::before {
+    content: '';
+    position: absolute;
+    top: -158px;
+    left: -110px;
+    width: 445px;
+    height: 435px;
+    background-image: url("/images/image_pattern_figma.png") !important;
+    background-size: 445px 435px !important;
+    background-repeat: no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.qty-100 { color: #991B1B !important; }
+.qty-20  { color: #3B7E3A !important; }
+
+/* ── No data row ── */
+.hd-no-data td {
+    text-align: center;
+    color: #9ca3af;
+    padding: 20px !important;
+    font-size: 13px;
+}
+
+/* ── Text align helpers ── */
+.text-center { text-align: center !important; }
+.text-right  { text-align: right  !important; }
+.text-left   { text-align: left   !important; }

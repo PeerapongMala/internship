@@ -1,0 +1,19 @@
+{
+  "status_code": 200,
+  "_pagination": {
+    "page": 1,
+    "limit": 10,
+    "total_count": 2
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "คณิตศาสตร์"
+    },
+    {
+      "id": 2,
+      "name": "ภาษาอังกฤษ"
+    }
+  ],
+  "message": "Data retrieved"
+}

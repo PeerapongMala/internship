@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "42e9469a-e774-491a-96fa-303029fc8b87",
+		"name": "bo-g03-d03-07-teacher-student-group-research-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27214153"
+	},
+	"item": [
+		{
+			"name": "[A07] GetLevelsParams",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/params/level?sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"params",
+						"level"
+					],
+					"query": [
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetTTestPairModelStatList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/research-t-test-pair-model-stat/list?search=เชื้อ2&lesson_id=1&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"research-t-test-pair-model-stat",
+						"list"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "เชื้อ2"
+						},
+						{
+							"key": "lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetTTestPairModelStatCsv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/research-t-test-pair-model-stat/csv?search=เชื้อ2&lesson_id=1&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"research-t-test-pair-model-stat",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "เชื้อ2"
+						},
+						{
+							"key": "lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "start_date",
+							"value": "2025-01-12",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-31",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetTTestPairModelStatResult",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/research-t-test-pair-model-stat/result?lesson_id=1&sub_lesson_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"research-t-test-pair-model-stat",
+						"result"
+					],
+					"query": [
+						{
+							"key": "lesson_id",
+							"value": "1"
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetDDRScoreResult",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/ddr/score?level_id=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"ddr",
+						"score"
+					],
+					"query": [
+						{
+							"key": "level_id",
+							"value": "2"
+						},
+						{
+							"key": "search",
+							"value": "เชื้อ2",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetDDRScoreResultCsv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/ddr/score/csv?level_id=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"ddr",
+						"score",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "level_id",
+							"value": "2"
+						},
+						{
+							"key": "search",
+							"value": "เชื้อ2",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetDDRSummaryResult",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/ddr/summary?level_id=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"ddr",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "level_id",
+							"value": "2"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A07] GetDDRSummaryResultCsv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/ddr/summary/csv?level_id=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"ddr",
+						"summary",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "level_id",
+							"value": "2"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

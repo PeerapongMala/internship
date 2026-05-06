@@ -1,0 +1,15 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Force LF for shell scripts (must work in Linux containers)
+*.sh text eol=lf
+
+# Force CRLF for Windows batch/cmd files
+*.cmd text eol=crlf
+
+# Force LF for other files that run in Linux
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.md text eol=lf

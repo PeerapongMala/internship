@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+.font-noto-sans-thai {
+  font-family: 'Noto Sans Thai', sans-serif;
+}
+
+.text-title {
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-weight: 600;
+  color: #333333;
+}
+
+.text-subtitle {
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-weight: 400;
+  color: #333333;
+}
+
+.text-tab {
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-weight: 700;
+  color: #333333;
+}
+
+.text-account-name {
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-weight: 700;
+  color: #333333;
+}
+
+.text-account-date {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
+  color: #333333;
+}
+
+.text-device-id {
+  font-family: 'Prompt', sans-serif;
+  font-weight: 400;
+  color: #333333;
+}
+.text-shadow-white {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* Customize size and opacity */
+}

@@ -1,0 +1,314 @@
+[
+  {
+    "subjectId": "1",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "1",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "2",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "2",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "3",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "3",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "4",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "4",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "5",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ไม่ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "5",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "6",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ไม่ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "1",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "7",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ไม่ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "1",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subjectId": "8",
+    "lessonCode": "00000001",
+    "course": "มภร. สวนสุนันทา",
+    "subjectName": "คณิตศาสตร์",
+    "year": "ป.4",
+    "usedStatus": "ไม่ใช้งาน",
+    "lessons": [
+      {
+        "lessonsId": "1",
+        "lessonsName": "บทเรียน 1 จำนวนนับ",
+        "checkpoint": "1",
+        "sublessons": [
+          {
+            "sublessonsId": "1",
+            "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+            "typeQuestion": "แบบฝึกหัด",
+            "level": [
+              {
+                "levelId": "00001",
+                "levelName": "ด่านนี้นะ",
+                "tier": "ง่าย"
+              },
+              {
+                "levelId": "00002",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ปานกลาง"
+              },
+              {
+                "levelId": "00003",
+                "levelName": "ด่านนี้นะจ้ะ",
+                "tier": "ยาก"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

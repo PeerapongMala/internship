@@ -1,0 +1,261 @@
+/* ===== Portfolio Page ===== */
+.portfolio-content {
+  max-width: 1100px;
+}
+
+/* ===== Banner ===== */
+.port-banner {
+  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.port-banner-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 8px;
+  color: #FCD34D;
+}
+
+.port-banner-title {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* ===== Shared Card ===== */
+.port-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.port-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 16px;
+}
+
+/* ===== Middle Grid: Donut + Details ===== */
+.port-middle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* ===== Donut Chart Card ===== */
+.port-chart-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.port-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.port-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.port-legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ===== Details Card ===== */
+.port-details-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.port-return-box {
+  border: 1.5px solid var(--primary-200);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  background: var(--primary-50);
+}
+
+.port-return-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin-bottom: 4px;
+}
+
+.port-return-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #F59E0B;
+  margin-bottom: 2px;
+}
+
+.port-return-unit {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ===== Bottom Grid: Simulator + Chart ===== */
+.port-bottom-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ===== Simulator Card ===== */
+.port-sim-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.port-sim-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.port-sim-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.port-sim-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.port-sim-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--gray-800);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.port-sim-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+/* ===== Simulator Buttons ===== */
+.port-sim-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.port-sim-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.port-sim-btn .material-icons-outlined {
+  font-size: 18px;
+}
+
+.port-sim-btn.edit {
+  width: 100%;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+.port-sim-btn.edit:hover {
+  background: var(--gray-50);
+}
+
+.port-sim-btn.save {
+  flex: 1;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+}
+
+.port-sim-btn.save:hover {
+  opacity: 0.9;
+}
+
+.port-sim-btn.cancel {
+  flex: 1;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+.port-sim-btn.cancel:hover {
+  background: var(--gray-50);
+}
+
+/* ===== Area Chart Card ===== */
+.port-area-card {
+  display: flex;
+  align-items: center;
+}
+
+.port-area-wrapper {
+  width: 100%;
+  aspect-ratio: 600 / 320;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .port-middle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .port-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .port-banner-title {
+    font-size: 28px;
+  }
+
+  .port-chart-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .port-return-value {
+    font-size: 22px;
+  }
+}

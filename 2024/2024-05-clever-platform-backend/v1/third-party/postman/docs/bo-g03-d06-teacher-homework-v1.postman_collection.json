@@ -1,0 +1,967 @@
+{
+	"info": {
+		"_postman_id": "c703e20b-7187-4e38-8d87-cb3a10d620fb",
+		"name": "bo-g03-d06-teacher-homework-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "G03D06A01SubjectList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/subject-list/:schoolId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"subject-list",
+						":schoolId"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "G03D06A01SubjectList",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-homework/v1/subject-list/:schoolId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-homework",
+								"v1",
+								"subject-list",
+								":schoolId"
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 06 Feb 2025 16:51:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "280"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "18298037-f1ad-41bd-adbb-7d21d191f54f"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"subject_id\": 1,\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"curriculum_group_name\": \"มหาวิทยาลัยราชภัฎสวนสุนันทา\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "G03D06A02HowmeworkTemplateList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-template-list/:schoolId/:subjectId?lession_name=Lesson 1&page=1&limit=100&status=enabled&search=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-template-list",
+						":schoolId",
+						":subjectId"
+					],
+					"query": [
+						{
+							"key": "lession_name",
+							"value": "Lesson 1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "status",
+							"value": "enabled"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1"
+						},
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "G03D06A02HowmeworkTemplateList",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-homework/v1/homework-template-list/:schoolId/:subjectId?lession_name=Lesson 1&year_short_name=ป.4&subject_name=ภาษาอังกฤษ&lession_name=Lesson 1&search=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-homework",
+								"v1",
+								"homework-template-list",
+								":schoolId",
+								":subjectId"
+							],
+							"query": [
+								{
+									"key": "lession_name",
+									"value": "Lesson 1"
+								},
+								{
+									"key": "year_short_name",
+									"value": "ป.4"
+								},
+								{
+									"key": "subject_name",
+									"value": "ภาษาอังกฤษ"
+								},
+								{
+									"key": "lession_name",
+									"value": "Lesson 1"
+								},
+								{
+									"key": "search",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "schoolId",
+									"value": "1"
+								},
+								{
+									"key": "subjectId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 06 Feb 2025 17:05:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "309"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "7d26f9ad-5ba2-49ad-b6e5-e29f63ad94e0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"year_name\": \"ประถมศึกษาปีที่ 4\",\n            \"year_short_name\": \"ป.4\",\n            \"subject_name\": \"ภาษาอังกฤษ\",\n            \"lession_id\": 1,\n            \"lession_name\": \"Lesson 1\",\n            \"level_count\": 1\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "G03D06A03HomeworkList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-list/:schoolId/:subjectId?search=ภาษาอังกฤษ&started_at_start=2024-12-16&started_at_end=2024-12-18&close_at_end&room_id&study_group_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-list",
+						":schoolId",
+						":subjectId"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "ภาษาอังกฤษ"
+						},
+						{
+							"key": "started_at_start",
+							"value": "2024-12-16"
+						},
+						{
+							"key": "started_at_end",
+							"value": "2024-12-18"
+						},
+						{
+							"key": "due_at_start",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "due_at_end",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "close_at_start",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "close_at_end",
+							"value": null
+						},
+						{
+							"key": "year_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "room_id",
+							"value": null
+						},
+						{
+							"key": "study_group_id",
+							"value": null
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1"
+						},
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A04HomeworkTemplateCreate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"homework_template_name\": \"template2\",\n    \"subject_id\": 1,\n    \"year_id\": 1,\n    \"lesson_id\": 1,\n    \"status\": \"draft\",\n    \"level_ids\": [1, 2, 3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-template",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-template"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A05HomeworkTemplateUpdate",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // template\n    \"homework_template_name\": \"template2\",\n    \"homework_template_subject_id\": 1,\n    \"homework_template_year_id\": 1,\n    \"homework_template_lesson_id\": 1,\n    \"homework_template_status\": \"draft\",\n    \"level_ids\": [1, 2, 3],\n\n    // homework\n    \"name\": \"การบ้านภาษาอังกฤษครั้งที่ -3\",\n    \"subject_id\": 1,\n    \"year_id\": 1,\n    \"started_at\": \"2006-01-02 15:04\",\n    \"due_at\": \"2006-01-02 15:04\",\n    \"closed_at\": \"2006-01-02 15:04\",\n    \"status\": \"enabled\",\n    \"assigned_to\": {\n        \"class_ids\": [\n            1\n        ],\n        \"study_group_ids\": [],\n        \"seed_year_ids\": []\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-template/:homeworkTemplateId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-template",
+						":homeworkTemplateId"
+					],
+					"variable": [
+						{
+							"key": "homeworkTemplateId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A06HomeworkTemplateGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"homework_template_name\": \"templatexxxx\",\n    \"year_id\": 1,\n    \"lesson_id\": 1,\n    \"status\": \"draft\",\n    \"level_ids\": [1, 2, 3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-template/:homeworkTemplateId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-template",
+						":homeworkTemplateId"
+					],
+					"variable": [
+						{
+							"key": "homeworkTemplateId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "G03D06A06HomeworkTemplateGet Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-homework/v1/homework-template/:homeworkTemplateId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-homework",
+								"v1",
+								"homework-template",
+								":homeworkTemplateId"
+							],
+							"variable": [
+								{
+									"key": "homeworkTemplateId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 09 Feb 2025 06:47:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "339"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "7026fd19-9d7e-4679-a9dc-035839d2cde9"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"subject_id\": 1,\n        \"year_id\": 1,\n        \"lesson_id\": 1,\n        \"teacher_id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n        \"homework_template_name\": \"\",\n        \"status\": \"enabled\",\n        \"created_at\": \"2024-12-16T06:50:07.699Z\",\n        \"created_by\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\",\n        \"updated_at\": null,\n        \"updated_by\": null,\n        \"level_ids\": [\n            1\n        ]\n    },\n    \"status_code\": 200,\n    \"message\": \"Success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "G03D06A07SubLessonLevelGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"homework_template_name\": \"templatexxxx\",\n    \"year_id\": 1,\n    \"lesson_id\": 1,\n    \"status\": \"draft\",\n    \"level_ids\": [1, 2, 3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-template/sub-lesson-level/:lessonId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-template",
+						"sub-lesson-level",
+						":lessonId"
+					],
+					"variable": [
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A09HomeworkTemplateBulkEdit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"id\": 1,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 2,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 3,\n            \"status\": \"enabled\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-template/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-template",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A10HomeworkCreate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // template\n    \"homework_template_name\": \"template2\",\n    \"homework_template_subject_id\": 1,\n    \"homework_template_year_id\": 1,\n    \"homework_template_lesson_id\": 1,\n    \"homework_template_status\": \"draft\",\n    \"level_ids\": [1, 2, 3],\n\n    // homework\n    \"name\": \"การบ้านภาษาอังกฤษครั้งที่ -2\",\n    \"subject_id\": 1,\n    \"year_id\": 1,\n    \"started_at\": \"2006-01-02 15:04\",\n    \"due_at\": \"2006-01-02 15:04\",\n    \"closed_at\": \"2006-01-02 15:04\",\n    \"status\": \"enabled\",\n    \"assigned_to\": {\n        \"class_ids\": [\n            1\n        ],\n        \"study_group_ids\": [],\n        \"seed_year_ids\": []\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A11HomeworkUpdate",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // template\n    \"homework_template_name\": \"template2\",\n    \"homework_template_subject_id\": 1,\n    \"homework_template_year_id\": 1,\n    \"homework_template_lesson_id\": 4,\n    \"homework_template_status\": \"enabled\",\n    \"level_ids\": [1],\n\n    // homework\n    \"name\": \"การบ้านภาษาอังกฤษครั้งที่ -3\",\n    \"subject_id\": 1,\n    \"year_id\": 1,\n    \"started_at\": \"2006-01-02 15:04\",\n    \"due_at\": \"2006-01-02 15:04\",\n    \"closed_at\": \"2006-01-02 15:04\",\n    \"status\": \"enabled\",\n    \"assigned_to\": {\n        \"class_ids\": [\n            1\n        ],\n        \"study_group_ids\": [],\n        \"seed_year_ids\": []\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework/:homeworkId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework",
+						":homeworkId"
+					],
+					"variable": [
+						{
+							"key": "homeworkId",
+							"value": "35"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A12HomeworkGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework/:homeworkId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework",
+						":homeworkId"
+					],
+					"variable": [
+						{
+							"key": "homeworkId",
+							"value": "35"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-homework/v1/homework/:homeworkId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-homework",
+								"v1",
+								"homework",
+								":homeworkId"
+							],
+							"variable": [
+								{
+									"key": "homeworkId",
+									"value": "35"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 03 Jun 2025 03:48:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "922"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "b15388d4-add7-4dc9-9fba-a4495e504e8e"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 35,\n        \"name\": \"การบ้านภาษาอังกฤษครั้งที่ -2\",\n        \"subject_id\": 1,\n        \"year_id\": 1,\n        \"homework_template_id\": 10,\n        \"started_at\": \"2006-01-02T15:04:00Z\",\n        \"due_at\": \"2006-01-02T15:04:00Z\",\n        \"closed_at\": \"2006-01-02T15:04:00Z\",\n        \"status\": \"enabled\",\n        \"created_at\": \"2025-06-03T03:36:18.056855Z\",\n        \"created_by\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n        \"updated_at\": null,\n        \"updated_by\": null,\n        \"assigned_to\": {\n            \"class_ids\": [\n                1\n            ],\n            \"study_group_ids\": [],\n            \"seed_year_ids\": []\n        },\n        \"homework_template\": {\n            \"id\": 10,\n            \"homework_template_subject_id\": 1,\n            \"homework_template_year_id\": 1,\n            \"homework_template_lesson_id\": 1,\n            \"teacher_id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n            \"homework_template_name\": \"template2\",\n            \"homework_template_status\": \"draft\",\n            \"created_at\": \"2025-06-03T03:36:18.056855Z\",\n            \"created_by\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n            \"updated_at\": null,\n            \"updated_by\": null,\n            \"level_ids\": [\n                1,\n                2,\n                3\n            ]\n        }\n    },\n    \"status_code\": 200,\n    \"message\": \"Success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "G03D06A13AssignToTargetListGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/assign-to-target-list/:schoolId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"assign-to-target-list",
+						":schoolId"
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A14HomeworkBulkEdit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"id\": 1,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 2,\n            \"status\": \"enabled\"\n        },\n        {\n            \"id\": 3,\n            \"status\": \"enabled\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A15HomeworkDetailListGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework/:homeworkId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework",
+						":homeworkId"
+					],
+					"variable": [
+						{
+							"key": "homeworkId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A16HomeworkSubmitDetailListGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-submit-detail-list/:homeworkId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-submit-detail-list",
+						":homeworkId"
+					],
+					"variable": [
+						{
+							"key": "homeworkId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "G03D06A17HomeworkSubmitStudentListGet",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/homework-submit-student-list/:studentId/:homeworkId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"homework-submit-student-list",
+						":studentId",
+						":homeworkId"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "cd1592be-7302-4805-a172-86956b0bf2a1"
+						},
+						{
+							"key": "homeworkId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a18-api-level-case-list-student-answer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/level-play-logs/:levelPlayLogId?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"level-play-logs",
+						":levelPlayLogId"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, default = 10"
+						}
+					],
+					"variable": [
+						{
+							"key": "levelPlayLogId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a19-api-level-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-homework/v1/levels/:levelId?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-homework",
+						"v1",
+						"levels",
+						":levelId"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "list_questions",
+							"value": "true",
+							"description": "optional, default = false",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "levelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

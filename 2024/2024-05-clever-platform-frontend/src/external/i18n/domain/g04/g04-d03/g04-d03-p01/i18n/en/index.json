@@ -1,0 +1,116 @@
+{
+  "test": "g001-g002-en",
+  "template1": {
+    "questionTitle": "Q1. Group according to the specified conditions",
+    "questionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec odio vitae nunc."
+  },
+  "template2": {
+    "questionTitle": "Q1. Group according to the specified conditions",
+    "answers": {
+      "fish": "Fish",
+      "cat": "Cat",
+      "dog": "Dog",
+      "bird": "Bird Bird Bird"
+    },
+    "firstParagraph": "Lorem ipsum dolor sit amet,",
+    "secondText": "elit. Donec nec odio vitae nunc.",
+    "thirdText": "ipsum dolor sit amet,",
+    "fourthText": "adipiscing elit.",
+    "fifthText": "vitae"
+  },
+  "pageFinish": {
+    "title": "Game Over",
+    "completionMessage": "You have completed this level",
+    "homeButton": "Back to Home"
+  },
+  "pageAnswer": {
+    "correctAnswerTitle": "Correct Answer",
+    "wrongAnswerTitle": "Incorrect Answer",
+    "correctAnswerText": "Your answer is correct",
+    "wrongAnswerText": "Your answer is incorrect",
+    "correctAnswerLabel": "The correct answer is",
+    "understandButton": "I understand",
+    "correctImage": "Correct answer image",
+    "wrongImage": "Wrong answer image",
+    "petImage": "Pet image"
+  },
+  "modalTimeout": {
+    "warn": {
+      "title": "Time's Up",
+      "message": "Sorry, time's up. You can continue playing this game.",
+      "continueWithoutTimeLimit": "Continue without time limit",
+      "playAgain": "Play again"
+    },
+    "end": {
+      "title": "Time's Up",
+      "messageSorry": "Sorry, time's up",
+      "messageTryAgain": "You didn't pass this level. Try again.",
+      "exitGame": "Exit game",
+      "tryAgain": "Try again"
+    },
+    "icons": {
+      "play": "Play icon",
+      "forward": "Forward icon",
+      "home": "Home icon"
+    }
+  },
+  "modalNotFound": {
+    "title": "Data Not Found",
+    "message": "Level data not found",
+    "backToLevelSelect": "Back to level",
+    "tryAgain": "Try again",
+    "icons": {
+      "home": "Home icon",
+      "forward": "Forward icon"
+    }
+  },
+  "modalInput": {
+    "titles": {
+      "textInput": "Type Answer",
+      "speechInput": "Speak Answer"
+    },
+    "buttons": {
+      "confirm": "Confirm"
+    },
+    "text": {
+      "hint": "Hint: The answer has {{count}} characters",
+      "placeholder": "Type your answer..."
+    },
+    "speech": {
+      "youSaid": "You said",
+      "listening": "Listening...",
+      "tapToStart": "Tap to start speaking",
+      "processing": "Processing..."
+    },
+    "errors": {
+      "speechToTextFailed": "Could not convert your speech to text. Please try again.",
+      "somethingWentWrong": "Something went wrong"
+    },
+    "icons": {
+      "mic": "Microphone icon",
+      "refresh": "Refresh icon"
+    }
+  },
+  "header": {
+    "setting": "Setting",
+    "teacher": "Teacher",
+    "lessonInfo": "Lesson info",
+    "score": "Score",
+    "sword": "Sword"
+  },
+  "titles": {
+    "defaultTitle": "",
+    "hintButton": "Hint button"
+  },
+  "questionInputList": {
+    "soundButton": "Sound button",
+    "answerField": "Answer field",
+    "micButton": "Microphone button",
+    "blankPlaceholder": "___ {{count}} ___"
+  },
+  "groupOrDrop": {
+    "dragAnswerHere": "Drag your answer here",
+    "noAnswers": "No answers",
+    "emptyGroupImage": "Empty group image"
+  }
+}

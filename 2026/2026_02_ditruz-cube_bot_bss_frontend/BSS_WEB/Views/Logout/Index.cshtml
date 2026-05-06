@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap-icons/font/bootstrap-icons.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/bss-login.css")" />
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <title>Log Out</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container">
+            <form>
+                <dev class="landing-logo">
+                    <img src="@Url.Content("~/images/landing_page_logo.svg")" />
+                </dev>
+                <div class="landing-name">
+                    <p>ระบบงานนับคัดธนบัตร</p>
+                </div>
+                <div class="landing-version">
+                    <p>Version 1.0.0</p>
+                </div>
+                <div id="logout-success-icon" class="logout-success-icon">
+                    <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <div id="unauthorized-title" class="unauthorized-title">
+                    <p>ออกจากระบบสำเร็จ</p>
+                </div>
+                <div class="unauthorized-text-second">
+                    <p>กรุณาลองลงชื่อเข้าใช้อีกครั้งกรุณาปิดหน้าต่างนี้เพื่อเข้าสู่ระบบใหม่อีกครั้ง</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--end::Page Scripts -->
+    <!-- ================== BEGIN HELPERS JS ================== -->
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+    <!-- ================== END HELPERS JS ================== -->
+</body>
+</html>

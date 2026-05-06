@@ -1,0 +1,2053 @@
+{
+	"info": {
+		"_postman_id": "0c74fa83-a7cf-4e40-9c49-a88ac642479b",
+		"name": "bo-g03-d04-teacher-student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "[A00] GetSchoolHeaderInfo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/school",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"school"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A03] GetStudentListByTeacherId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"students"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A03] SetStudentPin",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"new_pin\": \"sads\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/students/:studentId/pin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"students",
+						":studentId",
+						"pin"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A03] GetStudentProfile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/students/:studentId/profile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"students",
+						":studentId",
+						"profile"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A03] GetFamilyInfoByStudentId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/students/:studentId/family",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"students",
+						":studentId",
+						"family"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetAcademicYearListByTeacherId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-years",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-years"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetYearListByTeacherIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-years/:academicYear/years",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-years",
+						":academicYear",
+						"years"
+					],
+					"variable": [
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetClassListByTeacherIdAndYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-years/:academicYear/years/:year/classes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-years",
+						":academicYear",
+						"years",
+						":year",
+						"classes"
+					],
+					"variable": [
+						{
+							"key": "academicYear",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetCirriculumGroupList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/curriculum-groups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"curriculum-groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetSubjectListByCirriculumGroupId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/:curriculumGroupId/subjects",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						":curriculumGroupId",
+						"subjects"
+					],
+					"variable": [
+						{
+							"key": "curriculumGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown]  GetLessonListBySubjectId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/:subjectId/lessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						":subjectId",
+						"lessons"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetSubLessonListByLessonId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/:subjectId/lessons",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						":subjectId",
+						"lessons"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A03] GetStudentsCsvByTeacherId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/students/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"students",
+						"download",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A03] GetClassListByStudentId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/students/:studentId/levels/classes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"students",
+						":studentId",
+						"levels",
+						"classes"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "-1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A01] GetStudentStatListByTeacherId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/class/level-stat",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"class",
+						"level-stat"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "-1",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A01] GetStudentStatCsvByTeacherId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/class/level-stat/download/csv?subject_id=9&academic_year=2568",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"class",
+						"level-stat",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "subject_id",
+							"value": "9"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/teacher-student/v1/class/level-stat/download/csv?subject_id=9&academic_year=2568",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student",
+								"v1",
+								"class",
+								"level-stat",
+								"download",
+								"csv"
+							],
+							"query": [
+								{
+									"key": "subject_id",
+									"value": "9"
+								},
+								{
+									"key": "academic_year",
+									"value": "2568"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 17 Jul 2025 09:51:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv; charset=utf-8"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "2b6d1d03-2509-476f-b93b-6a9b982e72ad"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=\"lesson_stat.csv\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "#,รหัสนักเรียน/รหัสผู้ใช้งาน,คำนำหน้า,ชื่อ,สกุล,ปีการศึกษา,ชั้นปี,ห้อง,ด่านที่ผ่าน (ด่าน),คะแนนรวม (คะแนน),ทำข้อสอบ (ครั้ง),เวลาเฉลี่ย/ข้อ (วินาที),เข้าสู่ระบบล่าสุด\n1,9707,เด็กชาย,แสง,-,2568,ป.5,1,0/2233,0/6699,0,,\n2,9470,เด็กหญิง,กัญญาภัค,พรมสุวรรณ,2568,ป.6,2,22/2233,42/6699,33,36.89,13 ก.ค. 2568 15:22\n3,9439,เด็กหญิง,กนกกัญญ์,กางรัมย์,2568,ป.6,1,129/2233,285/6699,165,21.15,13 ก.ค. 2568 09:42\n4,9601,เด็กชาย,ทาย,-,2568,ป.5,1,0/2233,0/6699,0,,12 ก.ค. 2568 13:17\n5,9599,เด็กชาย,ภัทรกร,สอนเฒ่า,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 18:18\n6,9417,เด็กชาย,บูรพา,คำหาญ,2568,ป.6,1,0/2233,0/6699,0,,10 ก.ค. 2568 08:53\n7,9473,เด็กหญิง,ณาวาพร,แก้วประเสริฐ,2568,ป.6,2,25/2233,69/6699,46,7.00,8 ก.ค. 2568 21:55\n8,9939,เด็กหญิง,ณัฐฐาพร,ศรีเพชร,2568,ป.6,1,54/2233,146/6699,99,26.20,13 ก.ค. 2568 19:35\n9,9700,เด็กชาย,ณัฐรัตน์,เพชรพรรณ,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 14:59\n10,9460,เด็กชาย,เจ้าพระยา,พลสงคราม,2568,ป.6,2,0/2233,0/6699,0,,\n11,9837,เด็กชาย,สุทธิเกียรติ,สายสมบูรณ์,2568,ป.5,1,0/2233,0/6699,0,,9 ก.ค. 2568 21:50\n12,9659,เด็กหญิง,น้ำฝน,-,2568,ป.6,1,0/2233,0/6699,0,,\n13,10078,เด็กชาย,เมธาสิตธิ์,ทองดี,2568,ป.5,2,0/2233,0/6699,0,,15 ก.ค. 2568 17:11\n14,10075,เด็กหญิง,พิมลวรรณ,ลอองพราว,2568,ป.5,1,0/2233,0/6699,0,,13 ก.ค. 2568 21:14\n15,9632,เด็กชาย,ฝันดี,-,2568,ป.5,2,0/2233,0/6699,0,,\n16,9472,เด็กหญิง,มณฑาทิพย์,บัวสาย,2568,ป.6,2,12/2233,24/6699,14,43.96,8 ก.ค. 2568 19:48\n17,9825,เด็กชาย,ณัฎฐ์ปวินท์,ฤทธิ์สุทธิ์,2568,ป.5,2,0/2233,0/6699,0,,12 ก.ค. 2568 20:48\n18,9616,เด็กหญิง,กุลนาถ,ธิสาคร,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 20:32\n19,9876,เด็กหญิง,กรองแก้ว,แซ่ตั้ง,2568,ป.6,1,0/2233,0/6699,0,,4 ก.ค. 2568 17:21\n20,10195,เด็กชาย,เธียร,พัฒนกลั่น,2568,ป.6,1,0/2233,0/6699,0,,\n21,9610,เด็กหญิง,วราภรณ์,ชาวปราการ,2568,ป.5,1,0/2233,0/6699,0,,12 ก.ค. 2568 08:51\n22,9459,เด็กชาย,สุรศักดิ์,แป้นคุ้มญาติ,2568,ป.6,2,26/2233,58/6699,32,26.24,14 ก.ค. 2568 20:47\n23,10162,เด็กหญิง,กิตติกานต์,ใจเอื้อ,2568,ป.6,1,0/2233,0/6699,0,,11 ก.ค. 2568 13:22\n24,9641,เด็กหญิง,ธณัญภรณ์,โตเหล็ก,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 17:09\n25,9619,เด็กชาย,ประดิทรรศณ์,กงมหา,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 23:04\n26,9635,เด็กหญิง,ณัฐนิชา,ฤกษ์ไชย,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 14:16\n27,9442,เด็กหญิง,สุภาพร,เกิดกิจ,2568,ป.6,1,0/2233,0/6699,0,,\n28,9640,เด็กหญิง,พิยะดา,วงษ์หงษ์,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 18:45\n29,9475,เด็กหญิง,สุรารักษ์,แซ่อั้ง,2568,ป.6,2,0/2233,0/6699,0,,10 ก.ค. 2568 18:19\n30,9597,เด็กชาย,จิรายุ,อินทร์เมือง,2568,ป.5,1,0/2233,0/6699,0,,14 ก.ค. 2568 20:54\n31,9443,เด็กหญิง,วิดาพร,ภักตะพงศ์พันธ์,2568,ป.6,1,26/2233,55/6699,54,27.40,13 ก.ค. 2568 13:46\n32,9453,เด็กชาย,นิลทกร,วรจิตต์,2568,ป.6,2,38/2233,87/6699,52,12.89,8 ก.ค. 2568 21:09\n33,9703,เด็กชาย,ภควัต,เขียวสลับ,2568,ป.5,1,0/2233,0/6699,0,,12 ก.ค. 2568 13:24\n34,9592,เด็กชาย,นิรัน,จันทรัตน์,2568,ป.5,1,0/2233,0/6699,0,,13 ก.ค. 2568 13:21\n35,9468,เด็กหญิง,วัลลภา,พรมเมือง,2568,ป.6,2,0/2233,0/6699,0,,8 ก.ค. 2568 19:36\n36,9603,เด็กชาย,ณัฐวัฒน์,คุณเจริญ,2568,ป.5,1,0/2233,0/6699,0,,\n37,10051,เด็กหญิง,จิดาภา,มาลัยลอย,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 15:23\n38,9436,เด็กหญิง,พรนัชชา,ชัยศรี,2568,ป.6,1,0/2233,0/6699,0,,9 ก.ค. 2568 19:56\n39,9607,เด็กหญิง,ณิชาภัทร,แซ่พ่าน,2568,ป.5,1,0/2233,0/6699,0,,11 ก.ค. 2568 11:48\n40,9591,เด็กชาย,ปิยะวัฒน์,ไกรจันทร์,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 16:55\n41,9633,เด็กชาย,ธนพล,จันทร์นาค,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 18:13\n42,9608,เด็กหญิง,กมลชนก,จันทร์ฉาย,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 19:04\n43,9415,เด็กชาย,อรรคพล,ปุลาสกา,2568,ป.6,1,31/2233,82/6699,31,35.01,11 ก.ค. 2568 17:35\n44,10077,เด็กหญิง,สายฝน,มูลปราโมกท์,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 18:30\n45,9630,เด็กชาย,โชคชัย,นิลสม,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 15:10\n46,9629,เด็กชาย,ภควัต,แย้มอาภา,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 20:08\n47,9643,เด็กหญิง,เกวลิน,เปลี่ยนประเสริฐ,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 19:50\n48,9593,เด็กชาย,นพรัตน์,ปาลกะวงศ์ ณ อยุธยา,2568,ป.5,1,0/2233,0/6699,0,,13 ก.ค. 2568 19:11\n49,9821,เด็กชาย,ด.ช.ธีระเดช,ทรัพย์นาค,2568,ป.5,1,0/2233,0/6699,0,,12 ก.ค. 2568 13:31\n50,9880,เด็กหญิง,ด.ญ.พฤกษา,ทรัพย์นาค,2568,ป.6,1,32/2233,81/6699,39,17.93,12 ก.ค. 2568 13:44\n51,9877,เด็กชาย,ฉัตรตภูมิ,แสวงทอง,2568,ป.6,1,0/2233,0/6699,0,,\n52,9663,เด็กชาย,เกริกวิชย์,สิทธิรุ่ง,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 14:20\n53,10081,เด็กชาย,ธีรธร,ประกอบกิจ,2568,ป.6,2,44/2233,117/6699,66,20.86,10 ก.ค. 2568 19:32\n54,9649,เด็กหญิง,เบญจา,มณีแจ่ม,2568,ป.6,1,0/2233,0/6699,0,,12 ก.ค. 2568 16:10\n55,10048,เด็กหญิง,ณัฐนันท์,บุญสอน,2568,ป.5,1,0/2233,0/6699,0,,11 ก.ค. 2568 10:02\n56,9622,เด็กชาย,วรพล,โทบุตร,2568,ป.5,2,0/2233,0/6699,0,,\n57,9602,เด็กชาย,ณัฐวุฒิ,เจริญพงษ์,2568,ป.5,1,0/2233,0/6699,0,,\n58,9609,เด็กหญิง,สุธิดา,มีประโคน,2568,ป.5,1,0/2233,0/6699,0,,11 ก.ค. 2568 21:57\n59,9874,เด็กหญิง,กนกพร,อสุระพงษ์,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 18:50\n60,9639,เด็กหญิง,กมลวรรณ,ทรงฉาย,2568,ป.5,2,0/2233,0/6699,0,,15 ก.ค. 2568 18:03\n61,9935,เด็กหญิง,กัญญาภัค,เรี่ยมรัตน์,2568,ป.6,2,0/2233,0/6699,0,,9 ก.ค. 2568 06:33\n62,9695,เด็กชาย,อัษฎา,สำเริง,2568,ป.6,1,0/2233,0/6699,0,,\n63,9638,เด็กหญิง,สุวรรณษา,จำปาคง,2568,ป.5,2,0/2233,0/6699,0,,11 ก.ค. 2568 20:12\n64,9645,เด็กหญิง,นริศรา,เดชะคำพู,2568,ป.5,2,0/2233,0/6699,0,,11 ก.ค. 2568 21:10\n65,9612,เด็กหญิง,พรชิตา,พูลเพรียบพร้อม,2568,ป.5,1,0/2233,0/6699,0,,13 ก.ค. 2568 09:58\n66,9416,เด็กชาย,ณัฐวุฒิ,เสม็ดดี,2568,ป.6,1,0/2233,0/6699,0,,\n67,9420,เด็กชาย,รณพีร์,พงศ์ปรีชา,2568,ป.6,1,28/2233,63/6699,31,40.91,13 ก.ค. 2568 08:55\n68,9623,เด็กชาย,อาทิตย์,รุ่งทิม,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 12:55\n69,10049,เด็กหญิง,ธนิดา,ไทประสงค์ศักดิ์,2568,ป.5,1,0/2233,0/6699,0,,13 ก.ค. 2568 22:23\n70,9437,เด็กหญิง,พรรษา,แก้วทองพันธุ์,2568,ป.6,1,31/2233,84/6699,32,22.39,13 ก.ค. 2568 11:09\n71,9879,เด็กชาย,ประวีร์,เชิดชูสกุลชัย,2568,ป.6,2,0/2233,0/6699,0,,8 ก.ค. 2568 16:39\n72,9594,เด็กชาย,ณัฐภูมิ,แก้วยก,2568,ป.5,1,0/2233,0/6699,0,,11 ก.ค. 2568 15:33\n73,9454,เด็กชาย,ธีรภัทร,แสนเสนาะ,2568,ป.6,2,4/2233,10/6699,4,21.26,10 ก.ค. 2568 19:27\n74,10194,เด็กหญิง,เกษมศรี,หงษ์ชาติ,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 16:47\n75,9426,เด็กชาย,ณดลพร,บัวคำ,2568,ป.6,1,47/2233,139/6699,51,11.12,13 ก.ค. 2568 13:34\n76,9620,เด็กชาย,ปวรนันท์,พูลนุช,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 22:11\n77,10079,เด็กหญิง,ศิริรัก,กงกาเรียน,2568,ป.6,1,0/2233,0/6699,0,,\n78,9467,เด็กหญิง,แพรวรุ่ง,เวียนทอง,2568,ป.6,2,30/2233,80/6699,31,13.43,15 ก.ค. 2568 06:53\n79,9463,เด็กชาย,ธนาภูมิ,คำแสนเดช,2568,ป.6,2,39/2233,108/6699,49,27.86,13 ก.ค. 2568 10:31\n80,9824,เด็กหญิง,สุพรรณสา,แซ่เตีย,2568,ป.5,2,0/2233,0/6699,0,,\n81,10053,เด็กหญิง,กัญญาพัชร์,คำศรีสุข,2568,ป.6,2,21/2233,41/6699,57,18.24,11 ก.ค. 2568 19:02\n82,9655,เด็กหญิง,รดาวรินทร์,พุทธิเภษัช,2568,ป.6,2,0/2233,0/6699,0,,8 ก.ค. 2568 17:58\n83,9440,เด็กหญิง,ธัญญาลักษณ์,โสดาดวง,2568,ป.6,1,20/2233,51/6699,21,56.46,12 ก.ค. 2568 18:34\n84,10065,เด็กหญิง,ณัชชาภรณ์,องอาจ,2568,ป.6,2,0/2233,0/6699,0,,\n85,9704,เด็กชาย,ธาราเทพ,พุทธพงษ์,2568,ป.5,1,0/2233,0/6699,0,,13 ก.ค. 2568 10:10\n86,9691,เด็กหญิง,จันทนิภา,ดูระยับ,2568,ป.6,2,38/2233,82/6699,54,14.44,13 ก.ค. 2568 19:57\n87,9634,เด็กหญิง,ธุติมันต์,ศรทอง,2568,ป.5,2,0/2233,0/6699,0,,\n88,9431,เด็กชาย,สุทิวัส,ฤทธิ์กระบือ,2568,ป.6,1,0/2233,0/6699,0,,\n89,9624,เด็กชาย,ธนพล,ทองใบ,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 10:48\n90,9647,เด็กหญิง,ณฐินี,ศิริภักดิ์,2568,ป.5,2,0/2233,0/6699,0,,14 ก.ค. 2568 23:03\n91,9478,เด็กหญิง,ธัญพิชชา,แสนสำราญ,2568,ป.6,2,0/2233,0/6699,0,,\n92,9823,เด็กชาย,ธนกร,รอดพ่วงสกุล,2568,ป.5,2,0/2233,0/6699,0,,16 ก.ค. 2568 15:30\n93,9428,เด็กชาย,ตุลา,กัญญาเงิน,2568,ป.6,1,0/2233,0/6699,0,,\n94,10056,เด็กหญิง,ศิริพัชร์,ชาตะรักษ์,2568,ป.6,2,2/2233,3/6699,8,6.16,10 ก.ค. 2568 22:07\n95,9446,เด็กหญิง,ณัฐนิชา,รัชดาวิวัฒน์,2568,ป.6,1,2/2233,5/6699,4,24.50,13 ก.ค. 2568 19:58\n96,10069,เด็กชาย,สมัคร,คำจันทร์,2568,ป.6,1,25/2233,54/6699,31,16.19,13 ก.ค. 2568 15:29\n97,9452,เด็กชาย,ธนาพัฒน์,พิมพ์ชัยยศ,2568,ป.6,2,4/2233,12/6699,4,6.33,9 ก.ค. 2568 16:51\n98,9448,เด็กชาย,นภัทร,อาจตา,2568,ป.6,2,26/2233,55/6699,31,40.10,13 ก.ค. 2568 11:44\n99,9878,เด็กหญิง,อภิชญา,โกมินทร์,2568,ป.6,2,14/2233,29/6699,18,41.42,13 ก.ค. 2568 17:54\n100,9590,เด็กชาย,ธีรนนท์,เหลาเลิศ,2568,ป.5,1,0/2233,0/6699,0,,\n101,9447,เด็กชาย,ประวีร์,สำเนาการ,2568,ป.6,2,5/2233,15/6699,5,16.33,10 ก.ค. 2568 09:01\n102,9693,เด็กหญิง,ปาริฉัตร,ไชยวาน,2568,ป.6,2,0/2233,0/6699,0,,\n103,9418,เด็กชาย,ชยทร,สุวรรณ์ทา,2568,ป.6,1,83/2233,236/6699,134,17.58,10 ก.ค. 2568 15:40\n104,10061,เด็กหญิง,ธัญรดา,แฝงด่านกลาง,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 15:19\n105,9600,เด็กชาย,พชรดนัย,แก้วเกตุสี,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 15:08\n106,9948,เด็กหญิง,จิราภรณ์,คนึงนึก,2568,ป.6,2,0/2233,0/6699,0,,8 ก.ค. 2568 20:19\n107,9653,เด็กชาย,ชานุวัฒน์,ดอกมะลิ,2568,ป.6,2,0/2233,0/6699,0,,\n108,9605,เด็กหญิง,สุธิดา,เจริญพงษ์,2568,ป.5,1,0/2233,0/6699,0,,11 ก.ค. 2568 23:29\n109,9828,เด็กชาย,เตชินท์,ก้านขาว,2568,ป.6,2,24/2233,48/6699,31,18.69,11 ก.ค. 2568 11:09\n110,9646,เด็กหญิง,ณฐิตา,ศิริภักดิ์,2568,ป.5,2,0/2233,0/6699,0,,15 ก.ค. 2568 00:18\n111,9621,เด็กชาย,ธนายุต,แท่นแก้ว,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 15:13\n112,9628,เด็กชาย,ศักดินนท์,อิ่มมา,2568,ป.5,2,0/2233,0/6699,0,,13 ก.ค. 2568 13:31\n113,9827,เด็กชาย,ณดล,อุดมสม,2568,ป.5,2,0/2233,0/6699,0,,\n114,9875,เด็กหญิง,กนิษฐรินทร์,บุญเวียง,2568,ป.6,1,0/2233,0/6699,0,,10 ก.ค. 2568 15:51\n115,9949,เด็กชาย,ธนากร,สุวรรณโคตร,2568,ป.6,1,6/2233,13/6699,8,76.03,13 ก.ค. 2568 14:03\n116,9648,เด็กหญิง,วิกาญดา,ศรีตองอ่อน,2568,ป.5,2,0/2233,0/6699,0,,10 ก.ค. 2568 18:00\n117,9642,เด็กหญิง,พิชชาภา,จันฉนวน,2568,ป.5,2,0/2233,0/6699,0,,12 ก.ค. 2568 18:44\n118,10055,เด็กชาย,นพกร,หลงทอง,2568,ป.6,2,7/2233,15/6699,9,9.59,10 ก.ค. 2568 09:07\n119,9598,เด็กชาย,พรศักดิ์,ใจศิริ,2568,ป.5,1,0/2233,0/6699,0,,10 ก.ค. 2568 20:08\n120,9424,เด็กชาย,รณพีร์,กลัดพุด,2568,ป.6,1,1/2233,2/6699,2,28.46,11 ก.ค. 2568 12:11\n121,9423,เด็กชาย,วายุ,แซ่เฮ้อ,2568,ป.6,1,32/2233,80/6699,40,19.76,14 ก.ค. 2568 07:10\n122,9445,เด็กหญิง,ลภาภัทร,แก้วกนกวิจิตร,2568,ป.6,1,0/2233,0/6699,0,,13 ก.ค. 2568 23:32\n123,10054,เด็กหญิง,วรนิษฐา,กิตติระวีวัฒน์,2568,ป.6,2,0/2233,0/6699,0,,9 ก.ค. 2568 22:57\n124,9596,เด็กชาย,เมธาสิทธิ์,ศรีโยธา,2568,ป.5,1,0/2233,0/6699,0,,14 ก.ค. 2568 07:24\n125,9631,เด็กชาย,ไทย,-,2568,ป.5,2,0/2233,0/6699,0,,\n"
+				}
+			]
+		},
+		{
+			"name": "[A02] GetStudentStatListByTeacherIdAndAcademicYear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"academic_year\": 2567\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-year/level-stat?limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-year",
+						"level-stat"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetStudentStatCsvByTeacherIdAndAcademicYear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"academic_year\": 2567\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-year/level-stat/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-year",
+						"level-stat",
+						"download",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetClassListByStudentId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"academic_year\": 2567\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level/classes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level",
+						"classes"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "-1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetLessonStatListByStudentIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/academicYear/:academicYear",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"academicYear",
+						":academicYear"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "ป.",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetLessonStatCsvByStudentIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/academicYear/:academicYear/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"academicYear",
+						":academicYear",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetOptionsByAcademicYearAndStudentId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/options/academicYear/:academicYear?option_type=lesson",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"options",
+						"academicYear",
+						":academicYear"
+					],
+					"query": [
+						{
+							"key": "option_type",
+							"value": "lesson",
+							"description": "curriculum-group/subject/lesson"
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetSubLessonStatListByStudentIdAndSubjectId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/lessonId/:lessonId?search= sub &page=1&limit=3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"lessonId",
+						":lessonId"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": " sub "
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "start_date",
+							"value": "2024-01-01",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetSubLessonStatCsvByStudentIdAndSubjectId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/lessonId/:lessonId/download/csv?start_date=2024-01-31&end_date=2024-02-01",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"lessonId",
+						":lessonId",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2024-01-31"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-02-01"
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetOptionsByStudentIdAndLessonId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/options/lessonId/:lessonId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"options",
+						"lessonId",
+						":lessonId"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetLevelStatListByStudentIdAndSubLessonId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/subLesson/:subLessonId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"subLesson",
+						":subLessonId"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-01-01",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-01",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "subLessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetLevelStatCsvByStudentIdAndSubLessonId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/subLesson/:subLessonId/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"subLesson",
+						":subLessonId",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2023-01-01",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-01",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "subLessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetLevelLogListByStudentIdAndLevelId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/level/:levelId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"level",
+						":levelId"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "levelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetLevelLogCsvByStudentIdAndLevelId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/level-stat/level/:levelId/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"level-stat",
+						"level",
+						":levelId",
+						"download",
+						"csv"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "levelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetRewardListByStudentIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/rewards/academicYear/:academicYear?search=ครู4 ครู4&curriculum_group_id=1&subject_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"rewards",
+						"academicYear",
+						":academicYear"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "ครู4 ครู4"
+						},
+						{
+							"key": "start_date",
+							"value": "2025-02-06",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-02-05",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1"
+						},
+						{
+							"key": "subject_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetRewardCsvByStudentIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/rewards/academicYear/:academicYear/download/csv?start_date=2025-01-06&end_date=2025-03-05",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"rewards",
+						"academicYear",
+						":academicYear",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "ครู4 ครู4",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2025-01-06"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-03-05"
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetStudyGroupListByStudentIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/groups/academicYear/:academicYear?search=clever",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"groups",
+						"academicYear",
+						":academicYear"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "clever"
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetStudyGroupCsvByStudentIdAndAcademicYear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/groups/academicYear/:academicYear/download/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"groups",
+						"academicYear",
+						":academicYear",
+						"download",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "ครู4 ครู4",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2025-02-06",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-02-05",
+							"disabled": true
+						},
+						{
+							"key": "curriculum_group_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[DropDown] GetCommentOptionByStudentId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/comment/options?option_type=level",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"comment",
+						"options"
+					],
+					"query": [
+						{
+							"key": "option_type",
+							"value": "level",
+							"description": "academic-year/curriculum-group/seed-year/subject/lesson/sub-lesson/level"
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] CreateNewCommentByStudentId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"student_id\": \"17340\",\n    \"level_id\": 2,\n    \"text\": \"TestTestTestTestTestTestTestTestTestTestTestTestTestTestTest22\",\n    \"academic_year\": 2567,\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/comment/new",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						"comment",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] GetCommentListByStudentIdAndAcademicYear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/:studentId/comments/academicYear/:academicYear?end_date=2025-02-14&subject_id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						":studentId",
+						"comments",
+						"academicYear",
+						":academicYear"
+					],
+					"query": [
+						{
+							"key": "end_date",
+							"value": "2025-02-14"
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "17340"
+						},
+						{
+							"key": "academicYear",
+							"value": "2567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] UpdateComment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"UpdateUpdateUpdateUpdateUpdate\",\n    \"admin_login_as\": \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/comment/:commentId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						"comment",
+						":commentId"
+					],
+					"variable": [
+						{
+							"key": "commentId",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A02] DeleteComment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/student/comment/:commentId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"student",
+						"comment",
+						":commentId"
+					],
+					"variable": [
+						{
+							"key": "commentId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-academic-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-year-ranges?page=1&limit=10&school_Id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-year-ranges"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "school_Id",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-academic-year-range-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_id\": 1,\r\n    \"name\": \"2569\",\r\n    \"start_date\": \"2025-02-26T12:34:56Z\",\r\n    \"end_date\": \"2025-02-26T12:34:56Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-year-ranges",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-year-ranges"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-academic-year-range-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/academic-year-ranges/:academicYearRangeId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"academic-year-ranges",
+						":academicYearRangeId"
+					],
+					"variable": [
+						{
+							"key": "academicYearRangeId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-teacher-class-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/classes?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"classes"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "academic_year",
+							"value": "2568",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"description": "optional",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student/v1/years?page=1&limit=-1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student",
+						"v1",
+						"years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1 "
+						},
+						{
+							"key": "limit",
+							"value": "-1",
+							"description": "optional, default = 10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

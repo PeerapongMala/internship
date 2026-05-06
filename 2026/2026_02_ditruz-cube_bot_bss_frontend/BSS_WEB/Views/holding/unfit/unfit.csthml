@@ -1,0 +1,484 @@
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Holding Detail UNFIT";
+	ViewData["NavColorClass"] = "nav-blue-light";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/holding/holdingUnfit.css")" asp-append-version="true" />
+
+@Html.AntiForgeryToken()
+<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+<input type="hidden" id="currentUserFullName"
+	   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+
+		<!-- ─── Title Bar ─── -->
+		<div class="main-title">
+			<div class="title-left">
+				<div class="title-section">
+					<h1>Holding Detail UNFIT</h1>
+				</div>
+			</div>
+
+			<!-- Center info: 2×2 grid -->
+			<div class="title-center">
+				<div class="title-info-grid">
+					<span class="title-info-label">Date:</span>
+					<span class="title-info-value">
+						<span id="infoDate">-</span>
+						<svg class="alert-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z" fill="#DC3545"/>
+						</svg>
+					</span>
+
+					<span class="title-info-label">Supervisor:</span>
+					<span class="title-info-value" id="infoSupervisor">-</span>
+
+					<span class="title-info-label">Sorting Machine:</span>
+					<span class="title-info-value" id="infoMachine">-</span>
+
+					<span class="title-info-label">Shift:</span>
+					<span class="title-info-value" id="infoShift">-</span>
+				</div>
+			</div>
+
+			<div class="title-right">
+				<button class="btn-nav-filled" onclick="goToReconcileTransaction()">Reconcile Transaction</button>
+				<button class="btn-nav-filled" onclick="goToHolding()">Holding</button>
+			</div>
+		</div>
+
+		<!-- ─── 6-Panel Grid: 2 cols × 3 rows ─── -->
+		<div class="hd-grid">
+
+			<!-- ══ Left Column ══ -->
+			<div class="hd-col">
+
+				<!-- Panel 1: มัดครบจำนวน ครบมูลค่า -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">มัดครบจำนวน ครบมูลค่า</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p1Count">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="1" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th>ชนิดราคา</th>
+									<th class="th-sort" data-panel="1" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="1" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p1Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 2: มัดรวมครบจำนวน ครบมูลค่า -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">มัดรวมครบจำนวน ครบมูลค่า</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p2Count">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="2" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th>ชนิดราคา</th>
+									<th class="th-sort" data-panel="2" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="2" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p2Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 3: รายละเอียดตาม Header Card -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title">รายละเอียดตาม Header Card</span>
+						<span class="hd-panel-count">จำนวนธนบัตร: <strong id="p3Count">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="3" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="3" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="3" data-col="type">ประเภท <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="3" data-col="series">แบบ <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-center" data-panel="3" data-col="count">จำนวนฉบับ <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="3" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p3Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<!-- ── end Left Column ── -->
+
+			<!-- ══ Right Column ══ -->
+			<div class="hd-col">
+
+				<!-- Panel 4: มัดยาด-เกิน -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดยาด-เกิน</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p4Count" class="is-orange">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="4" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="4" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="4" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="4" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p4Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 5: มัดรวมยาด-เกิน -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดรวมยาด-เกิน</span>
+						<span class="hd-panel-count">จำนวน: <strong id="p5Count" class="is-orange">-</strong> ฉบับ</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="5" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="5" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="5" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="5" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p5Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Panel 6: มัดเกินโดยยอดจากเครื่องจักร -->
+				<div class="hd-panel">
+					<div class="hd-panel-hdr">
+						<span class="hd-panel-title is-orange">มัดเกินโดยยอดจากเครื่องจักร</span>
+						<span class="hd-panel-count">
+							จำนวน: <strong id="p6Count" class="is-orange">-</strong> ฉบับ
+							เกิน: <strong id="p6Excess" class="is-orange">-</strong> ฉบับ
+						</span>
+					</div>
+					<div class="hd-table-scroll">
+						<table class="hd-table">
+							<thead>
+								<tr>
+									<th class="th-sort" data-panel="6" data-col="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="6" data-col="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-panel="6" data-col="sortDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort text-right" data-panel="6" data-col="value">มูลค่า <i class="bi bi-chevron-expand sort-icon"></i></th>
+								</tr>
+							</thead>
+							<tbody id="p6Body"></tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<!-- ── end Right Column ── -->
+
+		</div>
+		<!-- ── end hd-grid ── -->
+
+	</div>
+	</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     Modal: Error / Alert
+     ══════════════════════════════════════════ -->
+<div class="modal fade" id="errorModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4" style="font-size:56px;color:#F59E0B;line-height:1;">
+					<i class="bi bi-exclamation-diamond-fill"></i>
+				</div>
+				<h3 class="fw-bold mb-3">การแจ้งเตือน</h3>
+				<h6 class="mb-4" id="errorMessage">เกิดข้อผิดพลาด</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-primary px-4" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+<script>
+// ─── State ────────────────────────────────────────────────
+const sortState = {}; // { panelN: { col, asc } }
+let selectedP1Row = null; // currently selected header card in panel 1
+
+// ─── Init ─────────────────────────────────────────────────
+$(document).ready(function () {
+    startClock();
+    loadPageInfo();
+    loadAllPanels();
+    bindSortHeaders();
+    bindP1RowClick();
+});
+
+// ─── Clock ────────────────────────────────────────────────
+function startClock() {
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+function updateClock() {
+    const now = new Date();
+    const opts = {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+    };
+    $('#infoDate').text(now.toLocaleString('th-TH', opts));
+}
+
+// ─── Page Info ────────────────────────────────────────────
+function loadPageInfo() {
+    // TODO: replace with server-side model values if available
+    // Example: passed via hidden inputs or ViewBag
+    $('#infoSupervisor').text($('#currentUserFullName').val() || '-');
+    $('#infoMachine').text('-');
+    $('#infoShift').text('-');
+}
+
+// ─── Load All Panels ─────────────────────────────────────
+function loadAllPanels() {
+    callApi('/Reconcilation/GetHoldingDetailAsync', {}, function (result) {
+        if (!result || !result.is_success) {
+            showError(result?.msg_desc || 'โหลดข้อมูลไม่สำเร็จ');
+            return;
+        }
+        const d = result.data || {};
+
+        // Left panels
+        renderP1(d.completeBundles     || []);
+        renderP2(d.combinedComplete    || []);
+        renderP3(d.headerCardDetails   || []);
+
+        // Right panels
+        renderP4(d.excessBundles       || []);
+        renderP5(d.combinedExcess      || []);
+        renderP6(d.machineExcess       || [], d.machineExcessCount);
+    });
+}
+
+// ─── Panel 1: มัดครบจำนวน ครบมูลค่า ─────────────────────
+function renderP1(rows) {
+    const total = rows.reduce((s, r) => s + (r.value || 0), 0);
+    $('#p1Count').text(formatNum(total));
+    const html = rows.length
+        ? rows.map((r, i) => `
+            <tr data-hc="${escHtml(r.headerCard)}" ${i === 0 ? 'class="active-row"' : ''}>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p1Body').html(html);
+
+    // load detail for first row by default
+    if (rows.length > 0) {
+        selectedP1Row = rows[0].headerCard;
+        loadP3Detail(selectedP1Row);
+    }
+}
+
+// ─── Panel 2: มัดรวมครบจำนวน ครบมูลค่า ─────────────────
+function renderP2(rows) {
+    const total = rows.reduce((s, r) => s + (r.value || 0), 0);
+    $('#p2Count').text(formatNum(total));
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p2Body').html(html);
+}
+
+// ─── Panel 3: รายละเอียดตาม Header Card ─────────────────
+function renderP3(rows) {
+    const total = rows.reduce((s, r) => s + (r.sheetCount || 0), 0);
+    $('#p3Count').text(formatNum(total));
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.type)}</td>
+                <td class="text-center">${escHtml(r.series)}</td>
+                <td class="text-center">${formatNum(r.sheetCount)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(6);
+    $('#p3Body').html(html);
+}
+
+function loadP3Detail(headerCard) {
+    if (!headerCard) return;
+    callApi('/Reconcilation/GetHoldingDetailByHcAsync?headerCard=' + encodeURIComponent(headerCard), null, function (result) {
+        if (result && result.is_success) {
+            renderP3(result.data || []);
+        }
+    }, 'GET');
+}
+
+// ─── Panel 4: มัดยาด-เกิน ────────────────────────────────
+function renderP4(rows) {
+    const total = rows.reduce((s, r) => s + (r.value || 0), 0);
+    $('#p4Count').text(formatNum(total));
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p4Body').html(html);
+}
+
+// ─── Panel 5: มัดรวมยาด-เกิน ─────────────────────────────
+function renderP5(rows) {
+    const total = rows.reduce((s, r) => s + (r.value || 0), 0);
+    $('#p5Count').text(formatNum(total));
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p5Body').html(html);
+}
+
+// ─── Panel 6: มัดเกินโดยยอดจากเครื่องจักร ───────────────
+function renderP6(rows, excessCount) {
+    const total = rows.reduce((s, r) => s + (r.value || 0), 0);
+    $('#p6Count').text(formatNum(total));
+    $('#p6Excess').text(excessCount != null ? formatNum(excessCount) : '-');
+    const html = rows.length
+        ? rows.map(r => `
+            <tr>
+                <td>${escHtml(r.headerCard)}</td>
+                <td class="text-center">${denomBadge(r.denomination)}</td>
+                <td>${escHtml(r.sortDate)}</td>
+                <td class="text-right">${formatNum(r.value)}</td>
+            </tr>`).join('')
+        : noDataRow(4);
+    $('#p6Body').html(html);
+}
+
+// ─── Row click in Panel 1 → load Panel 3 detail ──────────
+function bindP1RowClick() {
+    $(document).on('click', '#p1Body tr', function () {
+        $('#p1Body tr').removeClass('active-row');
+        $(this).addClass('active-row');
+        const hc = $(this).data('hc');
+        if (hc) {
+            selectedP1Row = hc;
+            loadP3Detail(hc);
+        }
+    });
+}
+
+// ─── Sort headers ─────────────────────────────────────────
+function bindSortHeaders() {
+    $(document).on('click', '.th-sort', function () {
+        const panel = $(this).data('panel');
+        const col   = $(this).data('col');
+        if (!panel || !col) return;
+
+        const key = 'p' + panel;
+        const prev = sortState[key] || { col: null, asc: true };
+        const asc  = (prev.col === col) ? !prev.asc : true;
+        sortState[key] = { col, asc };
+        // TODO: re-sort the in-memory data and re-render
+    });
+}
+
+// ─── Navigation ───────────────────────────────────────────
+function goToReconcileTransaction() {
+    window.location.href = '/Reconcilation/ReconcileTransaction';
+}
+
+function goToHolding() {
+    window.history.back();
+}
+
+// ─── API helper ──────────────────────────────────────────
+function callApi(url, data, onSuccess, method) {
+    const m = method || 'POST';
+    $.ajax({
+        url: url,
+        type: m,
+        data: m === 'GET' ? data : JSON.stringify(data),
+        contentType: m === 'GET' ? undefined : 'application/json; charset=utf-8',
+        headers: { 'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() },
+        success: onSuccess,
+        error: function () { showError('เกิดข้อผิดพลาดในการเชื่อมต่อ'); }
+    });
+}
+
+// ─── Helpers ─────────────────────────────────────────────
+function denomBadge(denom) {
+    const cls = { '20':'qty-20','50':'qty-50','100':'qty-100','500':'qty-500','1000':'qty-1000' };
+    const c = cls[String(denom)] || '';
+    return `<span class="qty-badge ${c}">${escHtml(String(denom || '-'))}</span>`;
+}
+
+function noDataRow(cols) {
+    return `<tr class="hd-no-data"><td colspan="${cols}">ไม่พบข้อมูล</td></tr>`;
+}
+
+function formatNum(val) {
+    if (val == null || val === '') return '-';
+    return Number(val).toLocaleString('th-TH');
+}
+
+function escHtml(str) {
+    if (str == null) return '-';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function showError(msg) {
+    $('#errorMessage').text(msg);
+    $('#errorModal').modal('show');
+}
+</script>
+}

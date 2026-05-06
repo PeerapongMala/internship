@@ -1,0 +1,595 @@
+/* ==========================================================
+ * Figma Design Specs — Reconciliation Transaction
+ * Source: Figma MCP get_design_context
+ * Generated: 2026-02-18 (converted from css-specs-from-figma.md)
+ *
+ * ★ ไฟล์นี้เป็น REFERENCE เท่านั้น — ห้าม link เป็น stylesheet
+ * ★ ใช้เป็นต้นฉบับ copy ค่าไปใส่ใน production CSS
+ * ★ font-family: 'Pridi' จาก Figma → ต้อง map เป็น 'bss-pridi' ตอน implement
+ * ========================================================== */
+
+
+/* --- Section 1: Title Bar (Node 32:26438) --- */
+
+.main-title h1 {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 600;            /* SemiBold */
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: 0.675px;
+    color: #212121;              /* --texts/text-neutral-primary */
+}
+
+.main-title p {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;            /* Regular */
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.45px;
+    color: #212121;
+}
+
+.btn-nav-screen2 {
+    background: #003366;         /* Primary */
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;            /* Regular */
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-nav-holding {
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 500;            /* Medium */
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+/* --- Section 2: Scanner Section (Node 32:26461) --- */
+
+.scanner-section {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    overflow: clip;
+}
+
+.scanner-title {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 500;            /* Medium */
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 0.352px;
+    color: #212121;
+}
+
+.scanner-main-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+}
+
+.scanner-field-label {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    color: #212121;
+}
+
+.scanner-input-wrapper {
+    border: 5px solid rgba(41, 126, 212, 0.5);
+    border-radius: 8px;
+    width: 390.5px;
+    height: 41px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.scanner-input {
+    background: #d1e5fa;
+    border: 3px solid #297ed4;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 100%;
+    flex: 1 0 0;
+    overflow: clip;
+}
+
+.scanner-count-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.scanner-count-row span {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    color: #212121;
+}
+
+.count-badge {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 700;            /* Bold */
+    color: #b45309;              /* --texts/text-warning-primary */
+    text-align: right;
+    font-size: 20px;
+}
+
+.scanner-location-row {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 500;
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 0.352px;
+    color: #212121;
+}
+
+.scanner-actions {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.btn-filter,
+.btn-refresh {
+    background: #003366;
+    color: white;
+    border: none;
+    height: 41px;
+    padding: 4px 16px;
+    border-radius: 4px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: clip;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+}
+
+.filter-row {
+    background: white;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    width: 100%;
+    overflow: clip;
+}
+
+.filter-item label {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    color: #212121;
+    white-space: nowrap;
+}
+
+.filter-select {
+    background: white;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px 13px 5px 9px;
+    cursor: pointer;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+    color: #6c757d;
+}
+
+.btn-clear-filter {
+    background: #003366;
+    border: 1px solid #003366;
+    color: white;
+    height: 31px;
+    padding: 5px 17px;
+    border-radius: 4px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: clip;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.35px;
+}
+
+
+/* --- Section 3: Panel Header (Node 32:29199) --- */
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid #cbd5e1;
+    background: white;
+    flex-shrink: 0;
+}
+
+.panel-title {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 500;            /* Medium */
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    color: #212121;
+    flex: 1 0 0;
+}
+
+
+/* --- Section 4: Table Header (Node 32:29202) --- */
+
+.data-table thead tr {
+    background: #d6e0e0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 0 8px;
+}
+
+.data-table thead th {
+    background: #d6e0e0;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 500;            /* Medium (NOT 600) */
+    font-size: 13px;
+    line-height: normal;
+    letter-spacing: 0.299px;
+    color: #212121;
+    text-align: center;
+    padding: 8px;
+    white-space: nowrap;
+    border: none;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.th-sort {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sort-icon {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    opacity: 0.5;
+}
+
+/* Column Widths (Preparation table - left panel) */
+/* Header Card:  105px */
+/* วันเวลา:     120px */
+/* ชนิดราคา:    110px */
+/* Action:       78px  */
+
+
+/* --- Section 5: Table Body (Node 32:29217) --- */
+
+.data-table tbody {
+    padding: 0 8px;
+}
+
+.data-table tbody td {
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    font-size: 13px;
+    line-height: normal;
+    letter-spacing: 0.286px;
+    color: #013661;
+    padding: 6px 8px;
+    vertical-align: middle;
+    border: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.data-table tbody td.td-datetime {
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.264px;
+    color: #013661;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    width: 92px;
+}
+
+.data-table tbody tr:nth-child(odd) {
+    background: white;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: #f2f6f6;
+}
+
+.action-btns {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+}
+
+.btn-action {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: clip;
+    cursor: pointer;
+}
+
+.btn-action .bi {
+    font-size: 10px;
+}
+
+
+/* --- Section 6: Denomination Badge (Node 32:26806) --- */
+
+.denom-badge {
+    width: 47px;
+    height: 24px;
+    border: 2px solid;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: clip;
+    position: relative;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 700;            /* Bold */
+    font-size: 13px;
+    line-height: normal;
+    text-align: center;
+}
+
+/* Default */
+.denom-badge {
+    background: #e9ecef;
+    border-color: #7d7c7c;
+    color: #7d7c7c;
+}
+
+.denom-badge-20 {
+    background: #f1f9f1;
+    border-color: #55b254;
+    color: #55b254;
+}
+
+.denom-badge-50 {
+    background: #f0f8ff;
+    border-color: #35a0fd;
+    color: #015cab;
+}
+
+.denom-badge-100 {
+    background: #fff5f5;
+    border-color: #c07575;
+    color: #8f4242;
+}
+
+.denom-badge-500 {
+    background: #f8f5ff;
+    border-color: #6a509d;
+    color: #3d2e5b;
+}
+
+.denom-badge-1000 {
+    background: #fbf8f4;
+    border-color: #9f7d57;
+    color: #4f3e2b;
+}
+
+
+/* --- Section 7: Info Card (Node 32:26512) --- */
+
+.info-card {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px;
+    border-radius: 12px;
+    overflow: clip;
+}
+
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 4px;
+    width: 100%;
+    font-family: 'Pridi', sans-serif;   /* → implement เป็น 'bss-pridi' */
+    font-weight: 400;
+    font-size: 13px;
+    line-height: normal;
+    letter-spacing: 0.325px;
+    color: #212121;
+}
+
+.info-row-label {
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+.info-row span:last-child {
+    text-align: right;
+    width: 100px;
+    white-space: pre-wrap;
+}
+
+.info-row:first-child {
+    background: #f8d7da;        /* Theme/Danger light */
+    border-radius: 4px;
+    padding: 0 4px;
+}
+
+
+/* --- Section 8: Panel Container --- */
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Section 9: Page Layout (Node 32:26437) --- */
+
+.page-columns {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.col-left {
+    flex: 7;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.col-right {
+    flex: 3;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tables-row {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.panel-left {
+    flex: 3;
+    min-width: 0;
+}
+
+.panel-center {
+    flex: 4;
+    min-width: 0;
+}
+
+.panel-right {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+}
+
+
+/* --- Section 10: Table Scroll Container --- */
+
+.panel-table-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    min-height: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        white 0px, white 40px,
+        #f2f6f6 40px, #f2f6f6 80px
+    );
+    background-position-y: 30px;
+}
+
+
+/* ==========================================================
+ * Design Tokens Summary
+ * ========================================================== */
+
+/* Colors:
+ * --texts/text-neutral-primary:    #212121
+ * --texts/text-warning-primary:    #b45309
+ * --texts/text-negative-primary:   #991b1b
+ * --color/neutral-text-primary:    #212121
+ * --icons/icon-black:              black
+ * --gray-300 (Gray/300):           #cbd5e1
+ * Primary:                         #003366
+ * Gray/600:                        #6c757d
+ * Gray/400:                        #ced4da
+ * Theme/Danger:                    #dc3545
+ * Table body text:                 #013661
+ * Table header bg:                 #d6e0e0
+ * Even row bg:                     #f2f6f6
+ * Scanner input bg:                #d1e5fa
+ * Scanner input border:            #297ed4
+ * Scanner glow border:             rgba(41,126,212,0.5)
+ * Danger light bg:                 #f8d7da
+ */
+
+/* Spacing tokens:
+ * --space/s-lg:      24px
+ * --space/s-md:      16px
+ * --space/s-xsm:     8px
+ * --space/s-xxxsm:   4px
+ * --space/s-xxxxsm:  2px
+ * --space/s-zero:    0px
+ * --rounded/r-sm:    12px
+ */

@@ -1,0 +1,30 @@
+CREATE TABLE bss_txn_reconcile (
+    reconcile_id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    reconcile_tran_id BIGINT NOT NULL,
+    bn_type NVARCHAR(10) NOT NULL,
+    denom_series NVARCHAR(10) NOT NULL,
+    deno_price INTEGER NOT NULL,
+    qty INTEGER NOT NULL,
+    total_value INTEGER NOT NULL,
+    is_replace_t BIT  DEFAULT 0,
+    is_replace_c BIT  DEFAULT 0,
+    adjust_type NVARCHAR(5) NULL,
+    is_normal BIT NULL,
+    is_addon BIT NULL,
+    is_endjam BIT NULL,
+    adjust_by INTEGER NULL,
+    adjust_date DATETIME NULL,
+    manual_by INTEGER NULL,
+    manual_date DATETIME NULL,
+    verify_by INTEGER NULL,
+    verify_date DATETIME NULL,
+    is_send_cbms BIT DEFAULT 0,
+    is_active BIT NULL,
+    created_by INTEGER NULL,
+    created_date DATETIME NOT NULL DEFAULT GETDATE(),
+    updated_by INTEGER NULL,
+    updated_date DATETIME NULL,
+
+    -- Foreign Key Constraint
+    CONSTRAINT FK_reconcile_tran_id_reconcile FOREIGN KEY (reconcile_tran_id) REFERENCES bss_txn_reconcile_tran(reconcile_tran_id)
+);

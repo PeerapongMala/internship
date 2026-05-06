@@ -1,0 +1,43 @@
+{
+  "dialog_1": "ฟังประโยคและเติมคำตอบให้ถูกต้อง",
+  "dialog_2": "พิมพ์คำตอบลงในกล่องข้อความ",
+  "dialog_3": "กดที่ไมค์และพูดคำตอบ",
+  "dialog_card_title": "พิมพ์คำตอบ",
+  "dialog_card_question": "คำใบ้คำตอบมี 4 ตัวอักษร",
+  "dialog_card_placeholder": "          พิมพ์คำตอบ...",
+  "question": "ฟังประโยค และพิมพ์คำตอบ",
+  "answer": "คำตอบ",
+
+  "question_box": "กล่องคำถาม",
+  "countdown_timer": "ตัวจับเวลานับถอยหลัง",
+  "click_use_hint": "คลิกเมื่อต้องการใช้คำใบ้",
+  "click_access_all_lesson": "คลิกเพื่อเข้าสู่บทเรียนทั้งหมด",
+  "stage_status_bar": "แถบสถานะของด่าน",
+  "click_select_correct_answer": "คลิกเลือกคำตอบที่ถูกต้อง โดยจะมีเพียงคำตอบเดียว",
+  "click_fight_to_check_answer": "คลิกปุ่ม ต่อสู้ เพื่อตรวจคำตอบ",
+
+  "choose_correct_answer": "จงเลือกคำตอบที่ถูกต้อง",
+  "sample_lesson_title": "1-1) จำนวนนับ",
+  "stage": "ID",
+  "tutorial_multiple_choice_question_body": "กานดาได้รับเงินเดือนเดือนละ 52,680 บาท ในเดือนนี้เขาได้รับเงินเดือนรวมกับเงินโบนัส 111,350 บาท “กานดาได้รับเงินโบนัสกี่บาท” ",
+  "tutorial_multiple_choice_question_hightlight": "เขียนเป็นประโยคสัญลักษณ์ได้อย่างไร?",
+  "level_type": {
+    "test": "แบบฝึกหัด",
+    "sub-lesson-post-test": "ทดสอบหลังเรียน",
+    "pre-post-test": "ทดสอบก่อนเรียน",
+    "pre-test": "ทดสอบก่อนเรียน",
+    "post-test": "ทดสอบหลังเรียน"
+  },
+
+  "tutorial_sort_question_body": "เรียงลำดับประโยค",
+  "drag_n_drop_to_answer_box": "กดลากคำตอบและวางในกล่องคำตอบ",
+  "drag_answer_here": "ลากและวางคำตอบที่นี่",
+
+  "timer_second_prefix": "วิ",
+  "answer_1_prefix": "A.",
+  "answer_2_prefix": "B.",
+  "answer_3_prefix": "C.",
+  "answer_4_prefix": "D.",
+  "answer_5_prefix": "E.",
+  "no_correct_answer": "ไม่มีข้อใดถูก."
+}

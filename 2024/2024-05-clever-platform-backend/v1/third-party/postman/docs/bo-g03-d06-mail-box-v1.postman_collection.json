@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "9dcc89b2-1931-457a-8b79-44b6977d0028",
+		"name": "bo-g03-d06-mail-box-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38042661"
+	},
+	"item": [
+		{
+			"name": "api-mail-box-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\" : \"z01\",\r\n    \"announcement_id\" : 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/user-announcements",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"user-announcements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-mail-box-Update-Received",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"user_id\":\"z01\",\r\n   \"announcement_id\" : 6\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/received",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"received"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-mail-box-Update-Delete-Read",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"user_id\":\"z01\",\r\n   \"announcement_id\" : 6\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/delete-read",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"delete-read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-mail-box-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"user_id\":\"z01\",\r\n   \"announcement_id\" : 6\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/delete-user-announcement",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"delete-user-announcement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-mail-box-Read-Event",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login_time\": \"2024-11-04T10:30:00Z\",\r\n    \"school_id\": 1234,\r\n    \"user_id\": \"z01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/event",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-mail-box-Read-Reward",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login_time\": \"2024-11-04T10:30:00Z\",\r\n    \"school_id\": 1234,\r\n    \"user_id\": \"z01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/reward",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"reward"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-mail-box-Read-Notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login_time\": \"2024-11-04T10:30:00Z\",\r\n    \"school_id\": 1234,\r\n    \"user_id\": \"z01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/mail-box/v1/notification",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"mail-box",
+						"v1",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

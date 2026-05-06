@@ -1,0 +1,12 @@
+{
+  "contact_us": "Contact us",
+  "display_role": "Role: {{ role }}",
+  "copy": "Copy",
+  "edit_account": "Edit account",
+  "edit_password": "Edit password",
+  "upload_history": "Upload history",
+  "account_info_title": "Account information:",
+  "account_info_uuid": "Account ID (UUID): {{ uuid }}",
+  "account_info_student_id": "Student ID: {{ studentId }}",
+  "account_info_school": "School: {{ schoolName }} ({{ schoolId }})"
+}

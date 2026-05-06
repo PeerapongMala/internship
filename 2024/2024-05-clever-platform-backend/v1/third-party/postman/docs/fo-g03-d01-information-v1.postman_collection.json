@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "3c1c7406-e9e1-472b-b4c0-6d2b7366cfa6",
+		"name": "fo-g03-d01-information-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40289851"
+	},
+	"item": [
+		{
+			"name": "get-inventory-information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/inventory-information",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"inventory-information"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-inventory-information",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/information/v1/inventory-information",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"information",
+								"v1",
+								"inventory-information"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 03 Feb 2025 04:33:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "80"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "ae222c92-a7de-4aee-934f-d92049544fe3"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"student_id\": \"17340\",\n        \"gold_coin\": 100,\n        \"arcade_coin\": 203,\n        \"ice\": 3\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get-count-checkin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/count-checkin/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"count-checkin",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-count-unread-announcement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/count-unread-announcement",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"count-unread-announcement"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-count-unread-announcement",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/information/v1/count-unread-announcement",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"information",
+								"v1",
+								"count-unread-announcement"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 03 Feb 2025 04:34:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "b1222c92-a7de-4aee-934f-d92049544fe3"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"name\": \"anouncement\",\n        \"count\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get-homework-by-subject-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/homework/subject/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"homework",
+						"subject",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-homework",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/homework/:subjectId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"homework",
+								":subjectId"
+							],
+							"variable": [
+								{
+									"key": "subjectId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 15:44:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "217"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"homework_id\": 1,\n            \"subject_id\": 1,\n            \"homework_template_id\": 1,\n            \"home_work_name\": \"การบ้าน 1\",\n            \"due_at\": \"2024-12-16T06:50:07.699Z\",\n            \"closed_at\": \"2024-12-16T06:50:07.699Z\",\n            \"total_level\": 1,\n            \"pass_level\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get-achivement-by-subject-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/achivement/subject/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"achivement",
+						"subject",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-achivement",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/achivement/:subLessonId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"achivement",
+								":subLessonId"
+							],
+							"variable": [
+								{
+									"key": "subLessonId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Jan 2025 15:44:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "305"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"level_special_reward_id\": 2,\n            \"amount\": 2,\n            \"type\": \"badge\",\n            \"name\": \"item badge 2\",\n            \"description\": \"item badge 2 description\",\n            \"image_url\": \"https://w7.pngwing.com/pngs/15/560/png-transparent-verified-badge-symbol-computer-icons-twitter-discord-flat-icon-blue-text-logo-thumbnail.png\",\n            \"received_at\": null\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get-leaderboard-by-subject-id.go",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/leaderboard/subject/:subjectId?filterType=all&startDate=2024-01-01&endDate=2025-12-31",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"leaderboard",
+						"subject",
+						":subjectId"
+					],
+					"query": [
+						{
+							"key": "filterType",
+							"value": "all",
+							"description": "\"all\", \"affiliation\", \"school\", \"class\""
+						},
+						{
+							"key": "startDate",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-12-31"
+						}
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get-leaderboard-by-subject-id.go",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/level/v1/leaderboard/subject/:subLessonId?filterType=all&startDate=2024-01-01&endDate=2025-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"level",
+								"v1",
+								"leaderboard",
+								"subject",
+								":subLessonId"
+							],
+							"query": [
+								{
+									"key": "filterType",
+									"value": "all",
+									"description": "\"all\", \"affiliation\", \"school\", \"class\""
+								},
+								{
+									"key": "startDate",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-12-31"
+								}
+							],
+							"variable": [
+								{
+									"key": "subLessonId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 21 Jan 2025 07:21:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "434"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "1d0ff51a-f6fc-45cf-a5ac-19bcd27f3c36"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"no\": 1,\n            \"level_id\": 3,\n            \"user_id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\n            \"user_name\": \"เชื้อ อภิชาติ\",\n            \"user_image_url\": \"https://example.com/dummy.png\",\n            \"star\": 10,\n            \"time_used\": 20,\n            \"me_flag\": false\n        },\n        {\n            \"no\": 2,\n            \"level_id\": 3,\n            \"user_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"user_name\": \"อภิชาติ เชื้อ\",\n            \"user_image_url\": \"https://example.com/dummy.png\",\n            \"star\": 6,\n            \"time_used\": 30,\n            \"me_flag\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "api-get-latest-annoucement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/announcement/school/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"announcement",
+						"school",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-get-inventory-profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/inventory-profile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"inventory-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-get-account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/information/v1/account",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"information",
+						"v1",
+						"account"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

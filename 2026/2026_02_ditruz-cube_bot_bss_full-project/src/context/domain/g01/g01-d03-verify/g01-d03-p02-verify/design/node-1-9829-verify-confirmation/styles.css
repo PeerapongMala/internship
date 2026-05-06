@@ -1,0 +1,328 @@
+/* ============================================
+ * Verify Confirmation — Node 1:9829
+ * Date: 2026-02-20
+ * Source: Figma MCP (metadata + variables + screenshot) + SVG export
+ *
+ * IMPORTANT: font-family must be 'bss-pridi' (not 'Pridi')
+ * due to @font-face registration in the project.
+ * Style.css forces font-weight: normal on *, so use
+ * class selector + !important to override.
+ * ============================================ */
+
+/* ============================================
+ * WRAPPER
+ * Centered single-column layout (640px)
+ * ============================================ */
+
+.vc-wrapper {
+  max-width: 640px; /* Figma: main content frame 640px wide */
+  margin: 0 auto;
+  padding: 16px 0 24px; /* Space/s-md top, Space/s-lg bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* SVG verified: ~7-8px between cards */
+  font-family: 'bss-pridi', sans-serif;
+}
+
+/* ============================================
+ * TITLE BAR
+ * ============================================ */
+
+.vc-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px; /* Space/s-xxxsm */
+}
+
+.vc-page-title {
+  font-family: 'bss-pridi', sans-serif;
+  font-size: 30px;
+  font-weight: 600; /* SemiBold */
+  color: #212121; /* Texts/text-neutral-primary */
+  letter-spacing: 0.675px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.vc-btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space/s-xsm */
+  background: #003366; /* Primary */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-family: 'bss-pridi', sans-serif;
+  font-size: 14px; /* Body */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.vc-btn-print:hover {
+  background: #002244;
+}
+
+.vc-btn-print i {
+  font-size: 16px;
+}
+
+/* ============================================
+ * INFO CARD
+ * Figma: 640 x 104px, padding 16px vertical
+ * 3 rows × 24px each
+ * ============================================ */
+
+.vc-info-card {
+  background: #fff; /* Gray/White */
+  border: 1px solid #cbd5e1; /* Separators/seprator-opaque */
+  border-radius: 12px; /* Rounded/r-sm */
+  overflow: hidden;
+  padding: 16px 0; /* Figma verified */
+}
+
+.vc-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 20px; /* SVG verified: ~20px horizontal */
+  height: 24px;
+  box-sizing: border-box;
+  font-family: 'bss-pridi', sans-serif;
+  font-size: 16px; /* Heading/H6 size */
+  font-weight: 400;
+  color: #212121; /* Texts/text-neutral-primary */
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.vc-info-row:last-child {
+  border-bottom: none;
+}
+
+.vc-info-row--date {
+  background: #f8d7da; /* Alert/date highlight */
+}
+
+.vc-info-label {
+  font-weight: 500;
+}
+
+.vc-info-value {
+  font-weight: 400;
+}
+
+.vc-alert-icon {
+  margin-left: 8px; /* Space/s-xsm */
+  flex-shrink: 0;
+}
+
+/* ============================================
+ * DETAIL TABLE CARD
+ * ============================================ */
+
+.vc-detail-card {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px; /* Rounded/r-sm */
+  overflow: hidden;
+}
+
+.vc-detail-title {
+  font-family: 'bss-pridi', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+  padding: 8px 8px; /* Figma: 35px height */
+  height: 35px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+/* ============================================
+ * TABLE
+ * Figma: column widths 83, 83, 83, 125, 125, 125
+ * Header height: 30px, Row height: 34px
+ * ============================================ */
+
+.vc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'bss-pridi', sans-serif;
+}
+
+.vc-table thead tr {
+  background: #D6E0E0; /* SVG verified */
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.vc-table th {
+  font-size: 13px; /* Font Size/text-md-base */
+  font-weight: 600;
+  color: #4a5568;
+  padding: 4.5px 8px; /* Figma: 30px header height */
+  height: 30px;
+  box-sizing: border-box;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.vc-sort-icon {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-left: 4px; /* Space/s-xxxsm */
+}
+
+/* Column widths — Figma metadata verified */
+.vc-th-denom   { width: 83px; }
+.vc-th-type    { width: 83px; }
+.vc-th-series  { width: 83px; }
+.vc-th-qty     { width: 125px; text-align: right; }
+.vc-th-shortage { width: 125px; text-align: center; }
+.vc-th-excess  { width: 125px; text-align: center; }
+
+.vc-table tbody tr {
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.vc-table tbody tr:nth-child(even) {
+  background: #F2F6F6; /* SVG verified */
+}
+
+.vc-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.vc-table td {
+  font-size: 14px; /* Body */
+  font-weight: 400;
+  color: #212121;
+  padding: 7.5px 8px; /* Figma: 34px row height */
+  height: 34px;
+  box-sizing: border-box;
+}
+
+.vc-table td.vc-td-qty {
+  text-align: right;
+  font-weight: 500;
+}
+
+.vc-table td.vc-td-center {
+  text-align: center;
+  color: #6c757d; /* Gray/600 */
+}
+
+/* Empty rows for visual spacing */
+.vc-table tbody tr.vc-empty-row td {
+  height: 34px;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+/* ============================================
+ * SUMMARY CARD
+ * Figma: 640 x 243px, padding 16px 12px
+ * Row height: 25px, gap: 4px
+ * ============================================ */
+
+.vc-summary-card {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px; /* Rounded/r-sm */
+  padding: 16px 12px; /* Figma verified */
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Figma: 4px between rows */
+}
+
+.vc-summary-row {
+  display: flex;
+  align-items: center;
+  padding: 4px 4px; /* Figma: 25px row height */
+  height: 25px;
+  box-sizing: border-box;
+  font-family: 'bss-pridi', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #212121;
+}
+
+.vc-summary-label {
+  flex: 1;
+}
+
+.vc-summary-value {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 700;
+  margin-right: 8px; /* Space/s-xsm */
+}
+
+.vc-summary-unit {
+  width: 40px;
+  text-align: left;
+  color: #4a5568;
+}
+
+.vc-summary-row--danger .vc-summary-value {
+  color: #DC2626; /* Texts/text-negative-secondary */
+}
+
+.vc-summary-row--total {
+  border-top: 1px solid #cbd5e1;
+  margin-top: 8px;
+  padding-top: 8px;
+  height: 33px; /* Figma verified */
+}
+
+.vc-summary-row--total .vc-summary-label {
+  font-weight: 700;
+}
+
+.vc-summary-row--total .vc-summary-value {
+  font-size: 18px;
+}
+
+/* ============================================
+ * FOOTER BUTTONS
+ * Figma: 290 x 48px each, 60px gap, r-sm radius
+ * ============================================ */
+
+.vc-footer {
+  display: flex;
+  gap: 61px; /* SVG verified: 61px between buttons */
+  margin-top: 8px; /* Space/s-xsm */
+}
+
+.vc-btn-back,
+.vc-btn-verify {
+  width: 289px; /* SVG verified */
+  height: 47px; /* SVG verified */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7.5px; /* SVG verified: rx=7.5 */
+  font-family: 'bss-pridi', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.vc-btn-back {
+  background: #6c757d; /* Gray/600 / Theme Colors/Secondary */
+  border: 1px solid #6c757d;
+  color: #fff;
+}
+
+.vc-btn-back:hover {
+  background: #5a6268;
+}
+
+.vc-btn-verify {
+  background: #003366; /* Primary */
+  border: 1px solid #003366;
+  color: #fff;
+}
+
+.vc-btn-verify:hover {
+  background: #002244;
+}

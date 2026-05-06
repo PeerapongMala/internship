@@ -1,0 +1,21 @@
+{
+  "sublesson_title": "学科{{subjectName}} {{subjectShortYear}}",
+  "menu-header-all-tab": "全部",
+  "menu-header-downloaded-tab": "已下载",
+  "menu-header-undownloaded-tab": "未下载",
+  "amount_of_sublesson_downloaded": "已下载{{downloadedCount}}/{{totalCount}}个子课程",
+  "lesson_has_update_please_download": "有可用更新 - 请重新下载",
+
+  "delete_lesson_modal_title": "删除本地备份数据",
+  "delete_lesson_confirm_message": "您确定要删除此课程吗？",
+
+  "clear_lesson_data_modal_title": "清除未完成的下载数据",
+  "clear_lesson_incomplete_download_message": "您确定要清除此课程的未完成下载数据吗？",
+
+  "delete_lesson_info_message": "删除内容数据<strong>不会影响您的播放历史</strong><br/>您可以随时重新下载。<br/>将内容数据保存在设备上可以让您继续无缝访问内容。",
+  "delete_lesson_confirm_btn": "确认删除本地数据",
+
+  "delete_lesson_success_title": "课程删除成功",
+  "delete_lesson_success_message": "课程备份数据已成功删除。",
+  "delete_lesson_ok": "确定"
+}

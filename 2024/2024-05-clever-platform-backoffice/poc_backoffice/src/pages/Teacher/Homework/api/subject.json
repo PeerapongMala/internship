@@ -1,0 +1,14 @@
+[
+    {
+        "subjectId": "1",
+        "subjectName": "คณิตศาสตร์"
+    },
+    {
+        "subjectId": "2",
+        "subjectName": "วิทยาศาสตร์"
+    },
+    {
+        "subjectId": "3",
+        "subjectName": "ภาษาไทย"
+    }
+]

@@ -1,0 +1,87 @@
+{
+  "name": "skillvir-architecture-helper",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build && tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@tanstack/react-router": "^1.98.4",
+    "@tanstack/router-devtools": "^1.98.4",
+    "@types/node": "^22.12.0",
+    "@types/react": "^18.3.18",
+    "@types/three": "^0.169.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "esbuild": "^0.24.0",
+    "i18next": "^23.16.4",
+    "react-i18next": "^15.4.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "skillvir-game-core": "file:../skillvir-game-core",
+    "skillvir-universal-helper": "file:../skillvir-universal-helper",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.14",
+    "vite-plugin-dts": "^4.3.0",
+    "zustand": "^5.0.3"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "three": "^0.170.0"
+  },
+  "exports": {
+    "./frontend/core": {
+      "import": "./dist/frontend/core/index.es.js",
+      "require": "./dist/frontend/core/index.cjs.js",
+      "types": "./dist/frontend/core/index.d.ts"
+    },
+    "./frontend/domain": {
+      "import": "./dist/frontend/domain/index.es.js",
+      "require": "./dist/frontend/domain/index.cjs.js",
+      "types": "./dist/frontend/domain/index.d.ts"
+    },
+    "./library/universal-helper/i18next": {
+      "import": "./dist/library/universal-helper/i18next/index.es.js",
+      "require": "./dist/library/universal-helper/i18next/index.cjs.js",
+      "types": "./dist/library/universal-helper/i18next/index.d.ts"
+    },
+    "./library/universal-helper/zustand": {
+      "import": "./dist/library/universal-helper/zustand/index.es.js",
+      "require": "./dist/library/universal-helper/zustand/index.cjs.js",
+      "types": "./dist/library/universal-helper/zustand/index.d.ts"
+    },
+    "./library/universal-helper/tanstack-router": {
+      "import": "./dist/library/universal-helper/tanstack-router/index.es.js",
+      "require": "./dist/library/universal-helper/tanstack-router/index.cjs.js",
+      "types": "./dist/library/universal-helper/tanstack-router/index.d.ts"
+    },
+    "./library/game-core": {
+      "import": "./dist/library/game-core/main/index.es.js",
+      "require": "./dist/library/game-core/main/index.cjs.js",
+      "types": "./dist/library/game-core/main/index.d.ts"
+    },
+    "./library/game-core/engine/three": {
+      "import": "./dist/library/game-core/engine/three/index.es.js",
+      "require": "./dist/library/game-core/engine/three/index.cjs.js",
+      "types": "./dist/library/game-core/engine/three/index.d.ts"
+    },
+    "./library/game-core/helper/scene-manager": {
+      "import": "./dist/library/game-core/helper/scene-manager/index.es.js",
+      "require": "./dist/library/game-core/helper/scene-manager/index.cjs.js",
+      "types": "./dist/library/game-core/helper/scene-manager/index.d.ts"
+    },
+    "./library/game-core/helper/canvas-scaler": {
+      "import": "./dist/library/game-core/helper/canvas-scaler/index.es.js",
+      "require": "./dist/library/game-core/helper/canvas-scaler/index.cjs.js",
+      "types": "./dist/library/game-core/helper/canvas-scaler/index.d.ts"
+    },
+    "./library/game-core/helper/responsive-scaler": {
+      "import": "./dist/library/game-core/helper/responsive-scaler/index.es.js",
+      "require": "./dist/library/game-core/helper/responsive-scaler/index.cjs.js",
+      "types": "./dist/library/game-core/helper/responsive-scaler/index.d.ts"
+    }
+  }
+}

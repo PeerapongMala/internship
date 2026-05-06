@@ -1,0 +1,56 @@
+@model BSS_WEB.Views.Reconcilation.SecondScreenReconsile.IndexModel
+@{
+    Layout = "~/Views/Shared/_LayoutSecondScreen.cshtml";
+    ViewData["Title"] = "Display Two Reconciliation";
+}
+
+@Html.AntiForgeryToken()
+<div class="d2-container">
+    <div class="second-screen-card" id="d2Card">
+        <div class="second-screen-card-inner">
+            <!-- Initial state: title text -->
+            <div class="d2-initial-title" id="d2InitialTitle">
+                <div>Reconciliation</div>
+                <div>Display 2</div>
+            </div>
+
+            <!-- Data rows: billboard layout (used for inprogress + post-process) -->
+            <div class="d2-data-area" id="d2DataArea">
+                <!-- Row 1: Bank Code (large left) + Machine/Cashpoint (smaller right) -->
+                <div class="d2-row d2-row-1">
+                    <span class="d2-bank-code" id="d2BankCode"></span>
+                    <span class="d2-machine-name" id="d2MachineName"></span>
+                </div>
+                <!-- Row 2: Branch Name (large center, marquee) -->
+                <div class="d2-row d2-row-2">
+                    <span class="marquee-content" id="d2BranchName"></span>
+                </div>
+                <!-- Row 3: ฿Denom (colored left) + HC Code (navy right) -->
+                <div class="d2-row d2-row-3">
+                    <span class="d2-denom" id="d2Denom"></span>
+                    <span class="d2-hc-code" id="d2HeaderCard"></span>
+                </div>
+                <!-- Row 4: Reject Count (shown after reconcile via CSS state) -->
+                <div class="d2-row d2-row-4" id="d2RejectRow">
+                    <span class="d2-reject-label">Reject:</span>
+                    <span class="d2-reject-count" id="d2RejectCount"></span>
+                </div>
+            </div>
+
+            <!-- Badge area: full-width bar at bottom -->
+            <div id="d2BadgeArea" class="d2-badge-area"></div>
+        </div>
+    </div>
+    <!-- Debug: show current state -->
+    <div id="d2DebugState" style="position:fixed;top:8px;right:12px;z-index:9999;font-size:13px;font-family:monospace;background:rgba(0,0,0,0.6);color:#0f0;padding:3px 10px;border-radius:4px;pointer-events:none;">state: initial</div>
+    <input type="hidden" id="d2State" value="initial" />
+    <input type="hidden" id="d2Cashpoint" value="" />
+    <input type="hidden" id="d2ParentHc" value="" />
+    <button type="button" id="btnRefreshSecondScreen" onclick="refreshScreen()" style="display:none;"></button>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="@Url.Content("~/css/reconsile/secondScreenReconsile.css")" asp-append-version="true" />
+    <script src="@Url.Content("~/js/master/secondScreen.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/js/reconsile/secondScreenReconsile.js")" asp-append-version="true"></script>
+}

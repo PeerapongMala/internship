@@ -1,0 +1,3 @@
+.table-no-bg-color .mantine-datatable-row-selector-cell:before {
+  background-color: white !important;
+}

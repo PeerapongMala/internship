@@ -1,0 +1,198 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:57818",
+      "sslPort": 44381
+    }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5064",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:7037;http://localhost:5064",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "BSS.API.APP_NAME": "BSS_API",
+        "BSS.API.PATH_BASE": "BSS_API",
+        //"BSS.API.DB_CONNECTION": "Server=.;Initial Catalog=BSSDEVDB;Integrated Security=True;TrustServerCertificate=True",
+        "BSS.API.DB_CONNECTION": "Data Source=26.255.205.67;Initial Catalog=BSSDEVDB;User ID=sa;Password=P@ssw0rd;TrustServerCertificate=True",
+        "BSS.API.EF_RETRY_ENABLE": "Y",
+        "BSS.API.EF_RETRY_MAX": "5",
+        "BSS.API.EF_RETRY_DELAY_SEC": "10",
+        "BSS.API.DB_COMMAND_TIMEOUT": "600",
+        "BSS.API.SYSTEM_CODE": "BSSAPI",
+        "BSS.API.SYSTEM_NAME": "BSS API",
+        "BSS.API.PRIVATE_KEY": "BSSAPIKEYP@ssw0rd2025",
+        "BSS.API.LOAD_TEST_FLAG": "N",
+        "BSS.API.IS_MOCK_FLAG": "Y",
+        "BSS.API.X_API_KEY.BSS_WEB": "dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6",
+        "BSS.API.X_API_KEY.CBMS": "Ybf23d1fa369f1118960b645e28738790a5434334c16edc7334a80d6cb6477814",
+        "BSS.API.X_API_KEY.BMS": "69b5c9fdf3c909cdeab373c28a2f210240d1c2f79fcc83c6bb143bc802e8b27b",
+        "BSS.API.JWT_VALID_ISSUER": "https://localhost:7037;http://localhost:5064",
+        "BSS.API.JWT_VALID_AUDIENCE": "https://localhost:7037;http://localhost:5064",
+        "BSS.API.X_API_KEY": "dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6",
+        "BSS.API.SERVICE_BASE_ADDRESS": "http://localhost:7037",
+        "BSS.API.SERVICE_API_KEY": "38f324db-b37d-4281-80f5-02f1ee78375a",
+        "BSS.API.JWT_ISSUER_SIGNING_KEY": "SuperSecreatkey12345!@#$%^&*()_+67890",
+        "BSS.API.JWT_EXPIRY_MINUTES": "60",
+        "BSS.API.LOG.APP.OUTPUT_TYPE": "CONSOLE",
+        //CONSOLE OR FILE
+        "BSS.API.LOG.APP.FILE_PATH": "../BSS_API/logs/bot_bss_webapi-.log",
+        "BSS.API.LOG.APP.MIN_LEVEL": "Information",
+        //Information
+        "BSS.API.LOG.APP.ROLLING_INTERVAL": "DAY",
+        //for FILE only
+        "BSS.API.LOG.APP.FILE_SIZE": "5MB",
+        //(e.g., "5MB", "1048576")
+        "BSS.API.LOG.APP.LOG_FORMAT": "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{AppName}] [{Environment}] [{CustomRequestId}] [{TraceId}] [{Level:u3}] {Message:lj}{NewLine}{Exception}",
+        "BSS.API.LOG.TXN.OUTPUT_TYPE": "FILE",
+        //CONSOLE OR FILE
+        "BSS.API.LOG.TXN.FILE_PATH": "../BSS_API/logs/bot_bss_txn-.log",
+        "BSS.API.LOG.TXN.ROLLING_INTERVAL": "HOUR",
+        //for FILE only
+        "BSS.API.LOG.TXN.FILE_SIZE": "5MB",
+        //(e.g., "5MB", "1048576")
+
+        "BSS.API.LOG.EF.OUTPUT_TYPE": "FILE",
+        //CONSOLE OR FILE
+        "BSS.API.LOG.EF.FILE_PATH": "../BSS_API/logs/ef-.log",
+        "BSS.API.LOG.EF.ROLLING_INTERVAL": "HOUR",
+        //for FILE only
+        "BSS.API.LOG.EF.FILE_SIZE": "5MB",
+        //(e.g., "5MB", "1048576")
+
+        "BSS.API.BOT_AD_WS_BASE_URL": "http://botad-wb-d1.testbot.or.th/AD_WS/AD_WS.asmx",
+        "BSS.API.BOT_AD_WS_GET_BY_LOGON_NAME": "getUserByLogonName",
+        "BSS.API.BOT_AD_WS_GET_BY_DEPARTMENT": "getUsersByDepartment",
+        "BSS.API.BOT_AD_WS_GET_BY_GUID": "getUsersByGUIDs",
+        "BSS.API.BOT_AD_WS_GET_BY_DISPLAY_NAME": "getUsersByDisplayNameAndDepartments",
+        "BSS.API.BOT_AD_WS_GET_ALL_BY_DISPLAY_NAME": "getAllInOUAccountByDisplayNames",
+        "BSS.API.BOT_AUTHEN_BASE_URL": "https://authen-ap1-t1.bot.or.th/authnsvc-dev/inquiryservice.asmx",
+        "BSS.API.BOT_AUTHEN_GET_ACTIVE_PERSON_BY_CERT": "GetActivePersonByCert",
+        "BSS.API.BOT_AUTHEN_GET_PERSON_BY_SEARCH_NAME": "GetPersonListBySearchName",
+        "BSS.API.BOT_AUTHEN_GET_PERSON_BY_REGID": "GetPersonListByRegID",
+        "BSS.API.BOT_AUTHEN_GET_ACTIVE_PERSON_BY_INST": "GetActivePersonListByInst",
+        "BSS.API.BOT_AUTHEN_GET_CERTIFICATE_BY_REGID": "GetCertificate",
+        "BSS.API.BOT_AUTHEN_CHECK_CRL_VALID_CERT": "CheckCRLValidCert",
+        "BSS.API.CACHE.DEFAULT.EXP.MINUTE": "30",
+        "BSS.API.CACHE.EXAMPLE_DATA.EXP.MINUTE": "60",
+        //Add item if separate data expiration value, 0 is no cache,
+
+        "BSS.MAIL.SMTP_HOST": "26.255.205.67",
+        "BSS.MAIL.SMTP_PORT": "25",
+        "BSS.MAIL.SMTP_USER": "bss_user@smtp4dev",
+        "BSS.MAIL.SMTP_PASSWORD": "bss_pass@smtp4dev",
+        "BSS.MAIL.SMTP_USE_TLS": "true",
+        "BSS.MAIL.SMTP_OTP_EXPIRE": "5",
+        "BSS.MAIL.SMTP_IGNORE_VALIDATE_CERT": "true",
+        "BSS.API.REFRESH_TOKEN_EXPIRY_DAYS": "7"
+      }
+    },
+    "remote_test": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://26.176.125.16:7037;http://26.176.125.16:5064",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "BSS.API.APP_NAME": "BSS_API",
+        "BSS.API.PATH_BASE": "BSS_API",
+        //"BSS.API.DB_CONNECTION": "Data Source=.\\SQLEXPRESS02;Initial Catalog=BSSDEVDB;Integrated Security=True;TrustServerCertificate=True",
+        "BSS.API.DB_CONNECTION": "Data Source=26.255.205.67;Initial Catalog=BSSDEVDB;User ID=sa;Password=P@ssw0rd;TrustServerCertificate=True",
+        "BSS.API.EF_RETRY_ENABLE": "Y",
+        "BSS.API.EF_RETRY_MAX": "5",
+        "BSS.API.EF_RETRY_DELAY_SEC": "10",
+        "BSS.API.DB_COMMAND_TIMEOUT": "600",
+        "BSS.API.SYSTEM_CODE": "BSSAPI",
+        "BSS.API.SYSTEM_NAME": "BSS API",
+        "BSS.API.PRIVATE_KEY": "BSSAPIKEYP@ssw0rd2025",
+        "BSS.API.LOAD_TEST_FLAG": "N",
+        "BSS.API.IS_MOCK_FLAG": "Y",
+        "BSS.API.X_API_KEY.BSS_WEB": "dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6",
+        "BSS.API.X_API_KEY.CBMS": "Ybf23d1fa369f1118960b645e28738790a5434334c16edc7334a80d6cb6477814",
+        "BSS.API.X_API_KEY.BMS": "69b5c9fdf3c909cdeab373c28a2f210240d1c2f79fcc83c6bb143bc802e8b27b",
+        "BSS.API.JWT_VALID_ISSUER": "http://26.176.125.16:7037;http://26.176.125.16:5064",
+        "BSS.API.JWT_VALID_AUDIENCE": "http://26.176.125.16:7037;http://26.176.125.16:5064",
+        "BSS.API.X_API_KEY": "dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6",
+        "BSS.API.SERVICE_BASE_ADDRESS": "https://26.176.125.16:7037",
+        "BSS.API.SERVICE_API_KEY": "38f324db-b37d-4281-80f5-02f1ee78375a",
+        "BSS.API.JWT_ISSUER_SIGNING_KEY": "SuperSecreatkey12345!@#$%^&*()_+67890",
+        "BSS.API.JWT_EXPIRY_MINUTES": "60",
+        "BSS.API.LOG.APP.OUTPUT_TYPE": "CONSOLE",
+        //CONSOLE OR FILE
+        "BSS.API.LOG.APP.FILE_PATH": "../BSS_API/logs/bot_bss_webapi-.log",
+        "BSS.API.LOG.APP.MIN_LEVEL": "Information",
+        //Information
+        "BSS.API.LOG.APP.ROLLING_INTERVAL": "DAY",
+        //for FILE only
+        "BSS.API.LOG.APP.FILE_SIZE": "5MB",
+        //(e.g., "5MB", "1048576")
+        "BSS.API.LOG.APP.LOG_FORMAT": "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{AppName}] [{Environment}] [{CustomRequestId}] [{TraceId}] [{Level:u3}] {Message:lj}{NewLine}{Exception}",
+        "BSS.API.LOG.TXN.OUTPUT_TYPE": "FILE",
+        //CONSOLE OR FILE
+        "BSS.API.LOG.TXN.FILE_PATH": "../BSS_API/logs/bot_bss_txn-.log",
+        "BSS.API.LOG.TXN.ROLLING_INTERVAL": "HOUR",
+        //for FILE only
+        "BSS.API.LOG.TXN.FILE_SIZE": "5MB",
+        //(e.g., "5MB", "1048576")
+
+        "BSS.API.LOG.EF.OUTPUT_TYPE": "FILE",
+        //CONSOLE OR FILE
+        "BSS.API.LOG.EF.FILE_PATH": "../BSS_API/logs/ef-.log",
+        "BSS.API.LOG.EF.ROLLING_INTERVAL": "HOUR",
+        //for FILE only
+        "BSS.API.LOG.EF.FILE_SIZE": "5MB",
+        //(e.g., "5MB", "1048576")
+
+        "BSS.API.BOT_AD_WS_BASE_URL": "https://botad-wb-d1.testbot.or.th/AD_WS/AD_WS.asmx",
+        "BSS.API.BOT_AD_WS_GET_BY_LOGON_NAME": "getUserByLogonName",
+        "BSS.API.BOT_AD_WS_GET_BY_DEPARTMENT": "getUsersByDepartment",
+        "BSS.API.BOT_AD_WS_GET_BY_GUID": "getUsersByGUIDs",
+        "BSS.API.BOT_AD_WS_GET_BY_DISPLAY_NAME": "getUsersByDisplayNameAndDepartments",
+        "BSS.API.BOT_AUTHEN_BASE_URL": "https://authen-ap1-t1.bot.or.th/authnsvc-dev/inquiryservice.asmx",
+        "BSS.API.BOT_AUTHEN_GET_ACTIVE_PERSON_BY_CERT": "GetActivePersonByCert",
+        "BSS.API.BOT_AUTHEN_GET_PERSON_BY_SEARCH_NAME": "GetPersonListBySearchName",
+        "BSS.API.BOT_AUTHEN_GET_PERSON_BY_REGID": "GetPersonListByRegID",
+        "BSS.API.BOT_AUTHEN_GET_ACTIVE_PERSON_BY_INST": "GetActivePersonListByInst",
+        "BSS.API.BOT_AUTHEN_GET_CERTIFICATE_BY_REGID": "GetCertificate",
+        "BSS.API.BOT_AUTHEN_CHECK_CRL_VALID_CERT": "CheckCRLValidCert",
+        "BSS.API.CACHE.DEFAULT.EXP.MINUTE": "30",
+        "BSS.API.CACHE.EXAMPLE_DATA.EXP.MINUTE": "60",
+        //Add item if separate data expiration value, 0 is no cache
+
+        "BSS.MAIL.SMTP_HOST": "26.255.205.67",
+        "BSS.MAIL.SMTP_PORT": "25",
+        "BSS.MAIL.SMTP_USER": "bss_user@smtp4dev",
+        "BSS.MAIL.SMTP_PASSWORD": "bss_pass@smtp4dev",
+        "BSS.MAIL.SMTP_USE_TLS": "true",
+        "BSS.MAIL.SMTP_OTP_EXPIRE": "5",
+        "BSS.MAIL.SMTP_IGNORE_VALIDATE_CERT": "true",
+        "BSS.API.REFRESH_TOKEN_EXPIRY_DAYS": "7"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

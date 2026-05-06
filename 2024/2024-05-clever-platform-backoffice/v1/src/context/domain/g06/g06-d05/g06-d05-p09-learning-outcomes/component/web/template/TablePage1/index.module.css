@@ -1,0 +1,16 @@
+.table th,
+.table td {
+  @apply whitespace-nowrap border px-1 text-center text-xs;
+}
+
+.table {
+  @apply w-full table-fixed;
+}
+
+.table tr:has(td):nth-child(even) {
+  @apply bg-white-light/20 dark:bg-[#1a2941]/40;
+}
+
+.fix-width {
+  @apply w-40 min-w-40 max-w-xs truncate;
+}

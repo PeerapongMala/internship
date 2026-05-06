@@ -1,0 +1,39 @@
+{
+  "status_code": 200,
+  "_pagination": { "page": 1, "limit": 10, "total_count": 2 },
+  "data": [
+    {
+      "bug_id": 1,
+      "created_at": "2025-03-09T00:00:00Z",
+      "type": "bug",
+      "description": "CLMS มีปัญหา",
+      "created_by": "cd1592be-7302-4805-a172-86956b0bf2a1",
+      "status": "รอตรวจสอบ"
+    },
+    {
+      "bug_id": 2,
+      "created_at": "2025-03-10T00:00:00Z",
+      "type": "bug",
+      "description": "CLMS Line มีปัญหา",
+      "created_by": "cd1592be-7302-4805-a172-86956b0bf2a1",
+      "status": "แก้ไขสำเร็จ"
+    },
+    {
+      "bug_id": 3,
+      "created_at": "2025-03-09T00:00:00Z",
+      "type": "bug",
+      "description": "CLMS มีปัญหา",
+      "created_by": "cd1592be-7302-4805-a172-86956b0bf2a1",
+      "status": "กำลังแก้ไข"
+    },
+    {
+      "bug_id": 4,
+      "created_at": "2025-03-10T00:00:00Z",
+      "type": "bug",
+      "description": "CLMS Line มีปัญหา",
+      "created_by": "cd1592be-7302-4805-a172-86956b0bf2a1",
+      "status": "ปิดงาน"
+    }
+  ],
+  "Message": "Data retrieved"
+}

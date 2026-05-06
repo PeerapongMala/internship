@@ -1,0 +1,99 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0">
+    <title>
+        401 Unauthorized
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D3D3D3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .error-container {
+            width:500px;
+            height:300px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: #003865;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #003865;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 3px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+            a:hover {
+                background-color: #003865;
+            }
+
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <h1> 401 </h1>
+        <p>
+            Unauthorized
+        </p>
+        <p>Sorry, You don't have access there...</p>
+        <a href="~/Home/Index">
+            Go Back to Home
+        </a>
+        @* <h1> <marquee direction="left">503:Service Unavailable</marquee> </h1> *@
+    </div>
+
+    @*
+    <div>
+        
+        
+        <marquee behavior="alternate">Bouncing text.</marquee>
+        <marquee scrollamount="10">Faster scrolling text.</marquee>
+        <marquee loop="3">This will loop 3 times.</marquee>
+        <marquee bgcolor="yellow">Text with a yellow background.</marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="5" loop="infinite" bgcolor="#f0f0f0">
+            Important Announcement: This text is continuously scrolling from right to left!
+        </marquee>
+    </div> *@
+</body>
+
+</html>

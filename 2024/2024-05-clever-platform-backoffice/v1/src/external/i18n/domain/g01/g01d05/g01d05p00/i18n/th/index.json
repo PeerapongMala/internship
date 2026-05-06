@@ -1,0 +1,77 @@
+{
+  "breadcrumb": {
+    "admin": "สำหรับแอดมิน",
+    "manageSchool": "จัดการโรงเรียน"
+  },
+  "button": {
+    "copy": "คัดลอก",
+    "cancel": "ยกเลิก",
+    "import": "CSV",
+    "export": "CSV",
+    "archive": "จัดเก็บข้อมูล"
+  },
+  "modal": {
+    "header": {
+      "copy": "คัดลอกห้องเรียน",
+      "export": "ส่งออกข้อมูล",
+      "import": "นำเข้าข้อมูล",
+      "archive": "จัดเก็บถาวร"
+    },
+    "body": {
+      "archiveDescription": "ข้อมูลจะถูกซ่อนจากหน้านี้ถาวร และจัดเก็บในฐานข้อมูล  คุณไม่สามารถเรียกคืนข้อมูลที่จัดเก็บมาแสดงในหน้านี้ได้อีก"
+    }
+  },
+  "schoolCard": {
+    "code": "รหัสโรงเรียน",
+    "shortCode": "ตัวย่อ"
+  },
+  "status": {
+    "name": "สถานะ",
+    "all": "ทั้งหมด",
+    "draft": "แบบร่าง",
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน"
+  },
+  "tab": {
+    "schoolDetail": "ข้อมูลโรงเรียน",
+    "manageDocument": "จัดการสัญญา",
+    "manageCourse": "จัดการหลักสูตร",
+    "manageUser": "จัดการผู้ใช้งาน",
+    "manageClassroom": "จัดการห้องเรียน",
+    "manageTeacher": "จัดการครูประจำวิชา"
+  },
+  "table": {
+    "header": {
+      "button": {
+        "bulkEdit": "Bulk Edit",
+        "addClassroom": "เพิ่มห้องเรียน"
+      },
+      "searchBox": {
+        "placeholder": "ค้นหา"
+      },
+      "filter": {
+        "academic_year": "ปีการศึกษา",
+        "year": "ชั้นปี"
+      }
+    },
+    "body": {
+      "header": {
+        "no": "#",
+        "edittedDate": "แก้ไขล่าสุด",
+        "edittedBy": "แก้ไขล่าสุดโดย",
+        "descriptionBtn": "รายละเอียด",
+        "copyBtn": "คัดลอก",
+        "editBtn": "แก้ไข",
+        "archiveBtn": "จัดเก็บ"
+      }
+    }
+  },
+  "word": {
+    "schoolYear": "ปีการศึกษา",
+    "classCode": "รหัสห้องเรียน",
+    "class": "ชั้นปี",
+    "room": "ห้อง",
+    "dateFrom": "ตั้งแต่วันที่",
+    "dateTo": "ถึงวันที่"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "subject": {
+    "math4": "วิชาคณิตศาสตร์ ป.4"
+  },
+  "filter": {
+    "all": "ทั้งหมด",
+    "downloaded": "ดาวน์โหลดแล้ว",
+    "notDownloaded": "ยังไม่ได้ดาวน์โหลด"
+  },
+  "lessons": {
+    "lesson1": {
+      "title": "บทเรียน 1",
+      "description": "จำนวนบับ"
+    },
+    "lesson2": {
+      "title": "บทเรียน 2",
+      "description": "การเขียนตัวเลขแสดงจำนวนบับ"
+    },
+    "lesson3": {
+      "title": "บทเรียน 3",
+      "description": "จำนวนนับ"
+    },
+    "lesson4": {
+      "title": "บทเรียน 4",
+      "description": "การเขียนตัวเลขแสดงจำนวนบับ"
+    },
+    "lesson5": {
+      "title": "บทเรียน 5",
+      "description": "Lorem ipsum doior sit amet"
+    },
+    "lesson6": {
+      "title": "บทเรียน 6",
+      "description": "Lorem ipsum doior sit amet"
+    },
+    "lesson7": {
+      "title": "บทเรียน 7",
+      "description": "การเขียนตัวเลขแสดงจำนวนบับ"
+    },
+    "lesson8": {
+      "title": "บทเรียน 8",
+      "description": "การเขียนตัวเลขแสดงจำนวนบับ"
+    }
+  },
+  "buttons": {
+    "back": "กลับ"
+  }
+}

@@ -1,0 +1,113 @@
+pipeline {
+    agent any
+
+    environment {
+        // GitLab
+        GITLAB_REPO   = 'git@git_lab:bss-project/frontend.git'
+        GITLAB_BRANCH = 'main'
+
+        // Docker
+        IMAGE_NAME     = "bss_web"
+        CONTAINER_NAME = "bss_web_dev"
+        PORT           = "7050"
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git(
+                    url: "${GITLAB_REPO}",
+                    branch: "${GITLAB_BRANCH}",
+                )
+            }
+        }
+        
+        /*stage('SonarQube Analysis') {
+            environment {
+                SONAR_HOST_URL = 'http://26.255.205.67:9000/'
+                SONAR_TOKEN = credentials('SonarQubeToken')
+            }
+
+        steps {
+            sh '''
+                dotnet sonarscanner begin \
+                    /k:"Frontend" \
+                    /d:sonar.host.url=$SONAR_HOST_URL \
+                    /d:sonar.login=$SONAR_TOKEN
+
+                dotnet build BSS_WEB/BSS_WEB.sln
+
+                dotnet sonarscanner end \
+                    /d:sonar.login=$SONAR_TOKEN
+                '''
+            }
+        }*/
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    def fullImage = "${CONTAINER_NAME}"
+                    sh "docker build -t ${fullImage} ."
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    def fullImage = "${CONTAINER_NAME}"
+
+                    sh """
+                        docker stop ${CONTAINER_NAME} || true
+                        docker rm   ${CONTAINER_NAME} || true
+
+                        docker run --rm -v /app/bss-web/logs:/logs alpine chown -R 5678:5678 /logs
+
+                        docker run -d \\
+                          --name ${CONTAINER_NAME} \\
+                          --restart unless-stopped \\
+                          -p ${PORT}:${PORT} \\
+                          -v /app/bss-web/logs:/app/BSS_WEB/logs \\
+                          -e ASPNETCORE_ENVIRONMENT=Development \\
+                          -e 'BSS.WEB.APP_NAME=BSS_WEB' \\
+                          -e 'BSS.WEB.PATH_BASE=BSS_WEB' \\
+                          -e 'BSS.WEB.SYSTEM_CODE=BSSWEB' \\
+                          -e 'BSS.WEB.SYSTEM_NAME=BOT BSS System' \\
+                          -e 'BSS.WEB.PRIVATE_KEY=BSSWEBAPPKEYP@ssw0rd2025' \\
+                          -e 'BSS.WEB.TEST_FLAG=N' \\
+                          -e 'BSS.WEB.BSS_API_BASE_URL=http://26.255.205.67:7037/BSS_API' \\
+                          -e 'BSS.WEB.BSS_API_KEY=dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6' \\
+                          -e 'BSS.WEB.LOG.APP.OUTPUT_TYPE=CONSOLE' \\
+                          -e 'BSS.WEB.LOG.APP.FILE_PATH=BSS_WEB/logs/bot_bss_web-.log' \\
+                          -e 'BSS.WEB.LOG.APP.MIN_LEVEL=Information' \\
+                          -e 'BSS.WEB.LOG.APP.ROLLING_INTERVAL=DAY' \\
+                          -e 'BSS.WEB.LOG.APP.FILE_SIZE=5MB' \\
+                          -e 'BSS.WEB.LOG.APP.LOG_FORMAT=[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{AppName}] [{Environment}] [{RequestId}] [{Level:u3}] {Message:lj}{NewLine}{Exception}' \\
+                          -e 'BSS.WEB.SESSION_TIMEOUT=30' \\
+                          -e 'BSS.WEB.IS_EXTERNAL_WEB=N' \\
+                          -e 'BSS.WEB.JWT_ISSUER_SIGNING_KEY=BssWebSuperSecreatkey12345!@#\$%^&*()_+67890' \\
+                          -e 'BSS.WEB.JWT_VALID_ISSUER=BOTBSSWEB' \\
+                          -e 'BSS.WEB.JWT_VALID_AUDIENCE=BOTBSSWEB' \\
+                          -e 'BSS.WEB.JWT_EXPIRY_MINUTES=30' \\
+                          -e 'BSS.WEB.IS_MOCK_USER_AUTHEN=Y' \\
+                          ${fullImage}
+                    """
+                }
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo "✅ Deploy SUCCESS — ${CONTAINER_NAME} is running on port ${PORT}"
+        }
+        failure {
+            echo "❌ Pipeline FAILED"
+        }
+        always {
+            sh "docker image prune -f"
+        }
+    }
+}

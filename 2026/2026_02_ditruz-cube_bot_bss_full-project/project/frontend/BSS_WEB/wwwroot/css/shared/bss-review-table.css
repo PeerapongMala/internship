@@ -1,0 +1,74 @@
+/* ============================================
+   BSS Shared — Review Table (inside Modals)
+   ใช้ร่วมกัน: Verify, Reconcile (OTP/Delete modals)
+   Figma: Node 2:41247 "Popup 20251105"
+   ============================================ */
+
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'bss-pridi', sans-serif !important;
+    margin-bottom: 16px;
+}
+
+.review-table thead th {
+    background: #d6e0e0;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    letter-spacing: 0.299px;
+    padding: 5px 8px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #cbd5e1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.review-table tbody td {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #013661 !important;
+    letter-spacing: 0.286px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.review-table tbody tr {
+    height: 36px;
+}
+
+.review-table tbody tr:nth-child(even) {
+    background: #f2f6f6;
+}
+
+.review-table tbody tr:nth-child(odd) {
+    background: white;
+}
+
+.review-table .td-warning-icon {
+    width: 30px;
+    text-align: center;
+}
+
+.review-table .qty-badge {
+    width: 47px !important;
+    height: 24px !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+}
+
+/* ── Checkbox column in review table ── */
+.review-table .td-checkbox {
+    width: 36px;
+    text-align: center;
+}
+
+.review-table .td-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}

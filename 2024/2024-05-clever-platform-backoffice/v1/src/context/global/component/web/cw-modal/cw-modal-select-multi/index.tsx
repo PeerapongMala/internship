@@ -1,0 +1,220 @@
+import WCADropdown from '@component/web/atom/wc-a-dropdown/WCADropdown.tsx'; // ปุ่ม Dropdown
+import CWButton from '@component/web/cw-button'; // ปุ่ม
+import CWPagination from '@component/web/cw-pagination'; // สำหรับ Pagination
+import IconSearch from '@core/design-system/library/component/icon/IconSearch.tsx'; // นำเข้า Modal component ที่ใช้งาน
+import React, { useEffect, useState } from 'react';
+import API from '@domain/g01/g01-d08/local/api';
+import { FamilyMemberListByParentResponse } from '@domain/g01/g01-d08/local/api/group/admin-family/type';
+
+import Modal from '../Modal';
+import usePagination from '@global/hooks/usePagination';
+import config from '@core/config';
+
+interface CWModalSelectProps<T> {
+  open: boolean;
+  onClose: () => void;
+  setSelectItems: (items: T[]) => void;
+  renderRow: (item: T) => React.ReactNode; // ฟังก์ชันในการ render ข้อมูลในแต่ละแถว
+  title: string; // ชื่อหัวข้อ modal
+  dropdownOptions?: {
+    [key: string]: {
+      options: string[];
+      placeholder: string;
+      onSelect: (value: string) => void;
+    };
+  };
+}
+
+const CWModalSelectMulti = <T extends {}>({
+  open,
+  onClose,
+  setSelectItems,
+  renderRow,
+  title,
+  dropdownOptions = {}, // Default เป็น empty object
+}: CWModalSelectProps<T>) => {
+  const [searchQuery, setSearchQuery] = useState<string>(''); // ค่าค้นหา
+  const { pagination, setPagination } = usePagination();
+
+  const [parentsList, setParentsList] = useState<FamilyMemberListByParentResponse[]>([]);
+  // เพิ่มตัวแปร state ใหม่สำหรับเก็บสถานะ checkbox ในโมดัล
+  const [internalSelectedItems, setInternalSelectedItems] = useState<T[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await API.adminFamily.GetParentList({
+        page: pagination.page,
+        limit: pagination.limit,
+        search: searchQuery,
+      });
+      if (response.status_code === 200) {
+        // add filed is_owner in response.data
+        const updatedData = response.data.map((item: any) => ({
+          ...item,
+          is_owner: true,
+        }));
+        setParentsList(updatedData);
+
+        setPagination({
+          page: response._pagination.page,
+          limit: response._pagination.limit,
+          total_count: response._pagination.total_count,
+        });
+      }
+    };
+    if (open) {
+      fetchData();
+    }
+  }, [open, pagination.page, pagination.limit, searchQuery]);
+
+  // clear data when modal is closed
+  useEffect(() => {
+    if (open) {
+      setInternalSelectedItems([]);
+    } else {
+      setParentsList([]);
+      setPagination({ page: 1, limit: config.pagination.itemsPerPage, total_count: 0 });
+      setSearchQuery('');
+      setInternalSelectedItems([]); // reset selected items when modal is closed
+    }
+  }, [open, setSelectItems]);
+
+  const handleSelectItem = (item: T) => {
+    const isSelected = internalSelectedItems.some(
+      (selectedItem) => JSON.stringify(selectedItem) === JSON.stringify(item),
+    );
+    if (isSelected) {
+      setInternalSelectedItems(
+        internalSelectedItems.filter(
+          (selectedItem) => JSON.stringify(selectedItem) !== JSON.stringify(item),
+        ),
+      );
+    } else {
+      setInternalSelectedItems([...internalSelectedItems, item]);
+    }
+  };
+
+  const handleConfirmSelection = () => {
+    onClose();
+    setSelectItems(internalSelectedItems);
+    setParentsList([]);
+    setPagination({ page: 1, limit: config.pagination.itemsPerPage, total_count: 0 });
+    setSearchQuery('');
+    setInternalSelectedItems([]); // reset selected items when modal is closed
+  };
+
+  const handlePageChange = (page: number) => {
+    setPagination((prev) => ({ ...prev, page }));
+  };
+
+  const handleItemsPerPageChange = (limit: number) => {
+    setPagination((prev) => ({ ...prev, limit, page: 1 }));
+  };
+
+  return (
+    <Modal open={open} onClose={onClose} title={title} className="h-auto w-3/4">
+      <div className="flex w-full flex-col gap-4">
+        {/* ช่องค้นหาพร้อมแว่นขยาย */}
+        <div className="relative w-full">
+          <input
+            className={`form-input w-full`}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="ค้นหา"
+            value={searchQuery}
+          />
+          <button
+            type="button"
+            className="!absolute right-0 top-0.5 mr-2 h-full"
+            onClick={() => {}}
+          >
+            <IconSearch className="!h-5 !w-5" />
+          </button>
+        </div>
+
+        {/* แสดง dropdown ถ้าผู้ใช้กำหนด options */}
+        {Object.keys(dropdownOptions).length > 0 && (
+          <div className="grid grid-cols-4 gap-4">
+            {Object.keys(dropdownOptions).map((key) => {
+              const dropdown = dropdownOptions[key];
+              // ตรวจสอบว่า options มีข้อมูลหรือไม่
+              if (dropdown.options && dropdown.options.length > 0) {
+                return (
+                  <WCADropdown
+                    key={key}
+                    placeholder={dropdown.placeholder}
+                    options={dropdown.options}
+                    onSelect={(value) => {
+                      dropdown.onSelect(value);
+                    }}
+                  />
+                );
+              }
+              return null; // ถ้าไม่มี options หรือ options เป็น empty array จะไม่แสดง
+            })}
+          </div>
+        )}
+
+        <div className="border-b-2" />
+        {/* แสดงข้อมูลที่กรอง */}
+        {parentsList?.length > 0 ? (
+          <>
+            {parentsList.map((item: any, index: number) => (
+              <div className="flex" key={index}>
+                <input
+                  type="checkbox"
+                  checked={internalSelectedItems.some(
+                    (selectedItem) =>
+                      JSON.stringify(selectedItem) === JSON.stringify(item),
+                  )} // เชื่อมโยงสถานะการเลือก
+                  onChange={() => handleSelectItem(item)} // เมื่อเปลี่ยนสถานะ checkbox
+                  className="mr-3" // เพิ่มการจัดการระยะห่าง
+                />
+                <div
+                  className={`flex h-auto w-full flex-row items-center justify-between rounded-md border px-4 py-2 ${
+                    internalSelectedItems.some(
+                      (selectedItem) =>
+                        JSON.stringify(selectedItem) === JSON.stringify(item),
+                    )
+                      ? 'border-primary' // เพิ่ม border-primary เมื่อเลือก
+                      : ''
+                  }`}
+                >
+                  {renderRow(item as T)}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div className="flex min-h-[200px] flex-col items-center justify-center rounded-lg bg-gray-50">
+            <span className="text-lg font-medium text-gray-600">ไม่พบข้อมูล</span>
+            <span className="text-sm text-gray-400">
+              โปรดตรวจสอบข้อมูลที่คุณเลือกใหม่อีกครั้ง
+            </span>
+          </div>
+        )}
+
+        {/* Pagination */}
+        <CWPagination
+          currentPage={pagination.page}
+          totalPages={Math.ceil(pagination.total_count / pagination.limit)}
+          onPageChange={handlePageChange}
+          pageSize={pagination.limit}
+          setPageSize={handleItemsPerPageChange}
+        />
+
+        {/* ปุ่มเลือกและยกเลิก */}
+        <div className="flex w-full justify-between">
+          <CWButton outline title="ยกเลิก" onClick={onClose} className="w-1/6" />
+          <CWButton
+            title="เลือก"
+            onClick={handleConfirmSelection}
+            disabled={internalSelectedItems.length === 0}
+            className="w-1/6"
+          />
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
+export default CWModalSelectMulti;

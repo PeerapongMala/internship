@@ -1,0 +1,12 @@
+{
+  "contact_us": "ติดต่อเรา",
+  "display_role": "Role: {{ role }}",
+  "copy": "คัดลอก",
+  "edit_account": "แก้ไขบัญชี",
+  "edit_password": "แก้ไขรหัสผ่าน",
+  "upload_history": "ประวัติอัพโหลด",
+  "account_info_title": "ข้อมูลบัญชี:",
+  "account_info_uuid": "รหัสบัญชี (uuid): {{ uuid }}",
+  "account_info_student_id": "รหัสนักเรียน: {{ studentId }}",
+  "account_info_school": "โรงเรียน: {{ schoolName }} ({{ schoolId }})"
+}

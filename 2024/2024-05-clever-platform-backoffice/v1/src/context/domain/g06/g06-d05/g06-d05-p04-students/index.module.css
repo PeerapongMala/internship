@@ -1,0 +1,4 @@
+.table td,
+.table th {
+  @apply items-center border text-center;
+}

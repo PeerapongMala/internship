@@ -1,0 +1,8 @@
+{
+  "zombie_normal": {
+    "HP": 10,
+    "speed": 0.2,
+    "damage": 1,
+    "exp": 2
+  }
+}

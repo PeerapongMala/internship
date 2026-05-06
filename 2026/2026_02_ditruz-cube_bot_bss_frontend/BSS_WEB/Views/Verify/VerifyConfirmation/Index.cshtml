@@ -1,0 +1,182 @@
+@model BSS_WEB.Views.Verify.VerifyConfirmation.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "VerifyConfirmation";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/verify/verifyConfirmation.css")" asp-append-version="true" />
+@if (Model.CssVariantClass == "verify-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-unsort-cc.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "verify-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-ca-member.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "verify-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/verify/verify-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+
+<input type="hidden" id="cssVariantClass" value="@Model.CssVariantClass" />
+<input type="hidden" id="bnTypeCode" value="@Model.BnTypeCode" />
+
+<!-- TITLE BAR (outside main wrapper) -->
+<div class="vc-title-bar">
+	<h1 class="vc-page-title">Verify @Model.BnTypeName</h1>
+	<button class="vc-btn-print" onclick="printData()">
+		<i class="bi bi-printer"></i>
+		<span>Print Data</span>
+	</button>
+</div>
+
+<div class="vc-wrapper">
+
+	<!-- INFO CARD — Date, Supervisor, Sorting Machine -->
+	<div class="vc-info-card">
+		<div class="vc-info-row vc-info-row--date">
+			<span class="vc-info-label">Date:</span>
+			<div>
+				<span class="vc-info-value" id="infoDate">-</span>
+				<img src="data:image/svg+xml,%3Csvg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z' fill='%23DC3545'/%3E%3C/svg%3E"
+					width="14" height="14" alt="" class="vc-alert-icon" />
+			</div>
+		</div>
+		<div class="vc-info-row">
+			<span class="vc-info-label">Supervisor:</span>
+			<span class="vc-info-value" id="infoSupervisor">-</span>
+		</div>
+		<div class="vc-info-row">
+			<span class="vc-info-label">Sorting Machine:</span>
+			<span class="vc-info-value" id="infoSortingMachine">-</span>
+		</div>
+	</div>
+
+	<!-- DETAIL TABLE รายละเอียดธนบัตร-->
+	<div class="vc-detail-card">
+		<div class="vc-detail-title">รายละเอียดธนบัตร</div>
+		<div class="vc-table-scroll">
+			<table class="vc-table">
+				<thead>
+					<tr>
+						<th class="vc-th-denom">ชนิดราคา <i class="bi bi-chevron-expand vc-sort-icon"></i></th>
+						<th class="vc-th-type">ประเภท <i class="bi bi-chevron-expand vc-sort-icon"></i></th>
+						<th class="vc-th-series">แบบ <i class="bi bi-chevron-expand vc-sort-icon"></i></th>
+						<th class="vc-th-qty">จำนวนฉบับ <i class="bi bi-chevron-expand vc-sort-icon"></i></th>
+						<th class="vc-th-shortage">จำนวนขาด(ฉบับ) <i class="bi bi-chevron-expand vc-sort-icon"></i></th>
+						<th class="vc-th-excess">จำนวนเกิน(ฉบับ) <i class="bi bi-chevron-expand vc-sort-icon"></i></th>
+					</tr>
+				</thead>
+				<tbody id="detailTableBody">
+					<!-- JS will populate rows -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- SUMMARY CARD — ยอดรวม-->
+	<div class="vc-summary-card">
+		<div class="vc-summary-row">
+			<span class="vc-summary-label">รวมธนบัตร ดี/เสีย/ทำลาย ทั้งสิ้น (+)</span>
+			<span class="vc-summary-value" id="sumGood">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+		<div class="vc-summary-row vc-summary-row--danger">
+			<span class="vc-summary-label">รวมธนบัตร Reject จำนวนทั้งสิ้น (+)</span>
+			<span class="vc-summary-value" id="sumReject">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+		<div class="vc-summary-row vc-summary-row--danger">
+			<span class="vc-summary-label">รวมธนขาด จำนวนทั้งสิ้น (+)</span>
+			<span class="vc-summary-value" id="sumShortage">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+		<div class="vc-summary-row vc-summary-row--danger">
+			<span class="vc-summary-label">รวมธนบัตรเกิน จำนวนทั้งสิ้น (-)</span>
+			<span class="vc-summary-value" id="sumExcess">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+		<div class="vc-summary-row">
+			<span class="vc-summary-label">ธนบัตรชำรุด จำนวนทั้งสิ้น (O)</span>
+			<span class="vc-summary-value" id="sumDamaged">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+		<div class="vc-summary-row">
+			<span class="vc-summary-label">ธนบัตรปลอม จำนวนทั้งสิ้น (O)</span>
+			<span class="vc-summary-value" id="sumCounterfeit">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+		<div class="vc-summary-row vc-summary-row--total">
+			<span class="vc-summary-label">รวมทั้งสิ้น</span>
+			<span class="vc-summary-value" id="sumTotal">-</span>
+			<span class="vc-summary-unit">ฉบับ</span>
+		</div>
+	</div>
+
+	<!-- FOOTER BUTTONS -->
+	<div class="vc-footer">
+		<button class="vc-btn-back" onclick="goBackToAutoSelling()">กลับไปหน้า Auto Selling</button>
+		<button class="vc-btn-verify" onclick="verifyAction()">Verify</button>
+	</div>
+
+</div>
+
+<!-- MODAL: Confirm Verify -->
+<div class="modal fade" id="verifyConfirmModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered" style="max-width:560px;">
+		<div class="modal-content vc-modal-alert">
+			<div class="vc-modal-top">
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='%233D8BFD' viewBox='0 0 16 16'%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.399l-.502.001-.04-.188 2.084-.376h.025zm-.502-1.588a.98.98 0 1 1 0-1.96.98.98 0 0 1 0 1.96'/%3E%3C/svg%3E"
+					 width="48" height="48" alt="" class="vc-modal-icon" />
+				<h5 class="vc-modal-title">Verify</h5>
+			</div>
+			<div class="vc-modal-body">
+				<p class="vc-modal-message">คุณแน่ใจหรือไม่ที่ต้องการ Verify ข้อมูลนี้</p>
+			</div>
+			<div class="vc-modal-footer">
+				<button class="vc-modal-btn vc-modal-btn--cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="vc-modal-btn vc-modal-btn--confirm" onclick="confirmVerify(event)">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: Success -->
+<div class="modal fade" id="verifySuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered" style="max-width:560px;">
+		<div class="modal-content vc-modal-alert">
+			<div class="vc-modal-top">
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='%23198754' viewBox='0 0 16 16'%3E%3Cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3E%3C/svg%3E"
+					 width="48" height="48" alt="" class="vc-modal-icon" />
+				<h5 class="vc-modal-title">สำเร็จ</h5>
+			</div>
+			<div class="vc-modal-body">
+				<p class="vc-modal-message" id="verifySuccessMessage">บันทึกข้อมูลสำเร็จ</p>
+			</div>
+			<div class="vc-modal-footer">
+				<button class="vc-modal-btn vc-modal-btn--success" onclick="closeSuccessModal()">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- MODAL: Error -->
+<div class="modal fade" id="verifyErrorModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered" style="max-width:560px;">
+		<div class="modal-content vc-modal-alert">
+			<div class="vc-modal-top">
+				<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='%23DC3545' viewBox='0 0 16 16'%3E%3Cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2'/%3E%3C/svg%3E"
+					 width="48" height="48" alt="" class="vc-modal-icon" />
+				<h5 class="vc-modal-title">การแจ้งเตือน</h5>
+			</div>
+			<div class="vc-modal-body">
+				<p class="vc-modal-message" id="verifyErrorMessage">มีข้อผิดพลาดในการ Verify</p>
+			</div>
+			<div class="vc-modal-footer">
+				<button class="vc-modal-btn vc-modal-btn--confirm" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="@Url.Content("~/js/verify/verifyConfirmation.js")" asp-append-version="true"></script>
+}

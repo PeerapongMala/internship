@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.figma.com)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(dir:*)",
+      "Bash(npx tsc:*)",
+      "Bash(copy \"e:\\\\ZM\\\\2026_01_zettamerge_internal_product-poc_multi-project\\\\2026_01_zettamerge_internal_insurance\\\\Financial Planner\\\\ZettaPlan_Arm\\\\Screenshot\\\\ZPLogocollapse.png\" \"e:\\\\ZM\\\\2026_01_zettamerge_internal_product-poc_multi-project\\\\2026_01_zettamerge_internal_insurance\\\\Financial Planner\\\\ZettaPlan_Arm\\\\app\\\\public\\\\favicon.png\")"
+    ]
+  }
+}

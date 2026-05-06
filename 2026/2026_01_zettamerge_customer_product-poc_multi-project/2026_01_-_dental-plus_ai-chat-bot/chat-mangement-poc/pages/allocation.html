@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Allocation Settings - Dental Plus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4",
+                400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e",
+                800: "#115e59", 900: "#134e4a",
+              },
+            },
+            fontFamily: { sans: ["Noto Sans Thai", "system-ui", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 h-screen overflow-hidden">
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white border-r border-gray-200 flex flex-col shadow-sm">
+        <div class="p-5 border-b border-gray-100">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-dental-500 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-dental-700">Dental Plus</h1>
+              <p class="text-xs text-gray-400">Chat Management</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+          <div class="px-4 py-2 mb-2">
+            <span class="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded-full font-medium">Admin View</span>
+          </div>
+
+          <a href="dispatch.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            <span class="font-medium">Dispatch Center</span>
+          </a>
+
+          <div class="border-t border-gray-200 my-3"></div>
+
+          <a href="dashboard.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <span class="font-medium">Dashboard</span>
+          </a>
+
+          <a href="analytics.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span class="font-medium">Analytics</span>
+          </a>
+
+          <a href="settings.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="font-medium">Settings</span>
+          </a>
+
+          <a href="allocation.html" class="sidebar-menu-item active-menu w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            <span class="font-medium">Allocation</span>
+          </a>
+
+          <a href="quick-replies.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+            <span class="font-medium">Quick Replies</span>
+          </a>
+
+          <a href="message-logs.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-medium">Message Logs</span>
+          </a>
+
+          <a href="inbox.html" class="sidebar-menu-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 transition-all hover:bg-dental-50 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+            </svg>
+            <span class="font-medium">Inbox</span>
+          </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-100">
+          <div class="flex items-center gap-3 px-3 py-2">
+            <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+              <span class="text-orange-700 font-semibold">A</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium text-gray-800">Admin Ann</p>
+              <p class="text-xs text-orange-500">Head Admin</p>
+            </div>
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="flex-1 overflow-y-auto bg-gray-50 p-8">
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold text-gray-800">Allocation Settings</h1>
+          <p class="text-gray-500 mt-1">ตั้งค่าการกระจายงานอัตโนมัติ</p>
+        </div>
+
+        <!-- Mode Toggle -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
+          <h2 class="text-lg font-bold text-gray-800 mb-4">โหมดการกระจายงาน</h2>
+          <div class="grid grid-cols-2 gap-4">
+            <label class="allocation-mode cursor-pointer">
+              <input type="radio" name="allocation-mode" value="round-robin" checked class="sr-only peer" />
+              <div class="p-6 border-2 border-gray-200 rounded-2xl peer-checked:border-dental-500 peer-checked:bg-dental-50 transition-all">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-gray-800">Round Robin</h3>
+                    <p class="text-sm text-gray-500">แจกงานวนรอบตามลำดับ</p>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-600">ระบบจะแจกงานให้พนักงานแต่ละคนสลับกันไปเรื่อยๆ ตามลำดับที่กำหนด เหมาะสำหรับทีมที่ต้องการความเท่าเทียม</p>
+              </div>
+            </label>
+
+            <label class="allocation-mode cursor-pointer">
+              <input type="radio" name="allocation-mode" value="performance" class="sr-only peer" />
+              <div class="p-6 border-2 border-gray-200 rounded-2xl peer-checked:border-dental-500 peer-checked:bg-dental-50 transition-all">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-gray-800">Performance-based</h3>
+                    <p class="text-sm text-gray-500">แจกตามผลงาน</p>
+                  </div>
+                </div>
+                <p class="text-xs text-gray-600">ระบบจะแจกงานให้พนักงานที่มี Conversion Rate สูงกว่าได้รับงานมากกว่า เหมาะสำหรับทีมขาย</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Agent Queue -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-lg font-bold text-gray-800">ลำดับพนักงาน</h2>
+              <p class="text-sm text-gray-500">ลากเพื่อเรียงลำดับการรับงาน</p>
+            </div>
+            <button class="px-4 py-2 bg-dental-500 text-white rounded-xl font-medium hover:bg-dental-600">
+              บันทึกลำดับ
+            </button>
+          </div>
+
+          <div class="space-y-3" id="agent-queue">
+            <!-- Agent 1 -->
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-grab hover:shadow-md transition-all" draggable="true">
+              <div class="text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+              </div>
+              <span class="w-8 h-8 bg-dental-100 text-dental-700 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+              <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                <span class="text-pink-600 font-semibold">A</span>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">หมอแอน</p>
+                <p class="text-xs text-gray-500">ทันตกรรมทั่วไป • Conversion 78%</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Online</span>
+            </div>
+
+            <!-- Agent 2 -->
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-grab hover:shadow-md transition-all" draggable="true">
+              <div class="text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+              </div>
+              <span class="w-8 h-8 bg-dental-100 text-dental-700 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+              <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <span class="text-blue-600 font-semibold">B</span>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">หมอเบน</p>
+                <p class="text-xs text-gray-500">ทันตกรรมทั่วไป • Conversion 72%</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Online</span>
+            </div>
+
+            <!-- Agent 3 -->
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-grab hover:shadow-md transition-all" draggable="true">
+              <div class="text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+              </div>
+              <span class="w-8 h-8 bg-dental-100 text-dental-700 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+              <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                <span class="text-purple-600 font-semibold">C</span>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">หมอแคท</p>
+                <p class="text-xs text-gray-500">จัดฟัน • Conversion 85%</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Online</span>
+            </div>
+
+            <!-- Agent 4 -->
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-grab hover:shadow-md transition-all" draggable="true">
+              <div class="text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+              </div>
+              <span class="w-8 h-8 bg-dental-100 text-dental-700 rounded-full flex items-center justify-center font-bold text-sm">4</span>
+              <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <span class="text-green-600 font-semibold">D</span>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">หมอเดวิด</p>
+                <p class="text-xs text-gray-500">ศัลยกรรม • Conversion 68%</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Online</span>
+            </div>
+
+            <!-- Agent 5 (Offline) -->
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 cursor-grab hover:shadow-md transition-all opacity-60" draggable="true">
+              <div class="text-gray-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+              </div>
+              <span class="w-8 h-8 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm">5</span>
+              <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center">
+                <span class="text-cyan-600 font-semibold">F</span>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">หมอฟ้า</p>
+                <p class="text-xs text-gray-500">จัดฟัน • Conversion 80%</p>
+              </div>
+              <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Offline</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Rules -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h2 class="text-lg font-bold text-gray-800 mb-4">กฎเพิ่มเติม</h2>
+
+          <div class="space-y-4">
+            <!-- Working Hours -->
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">เฉพาะเวลาทำงาน</p>
+                  <p class="text-xs text-gray-500">แจกงานเฉพาะ 09:00 - 18:00</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer" />
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div>
+              </label>
+            </div>
+
+            <!-- Skip Offline -->
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">ข้ามคนที่ออฟไลน์</p>
+                  <p class="text-xs text-gray-500">ไม่แจกงานให้คนที่ไม่ออนไลน์</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer" />
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div>
+              </label>
+            </div>
+
+            <!-- VIP Routing -->
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">VIP Routing</p>
+                  <p class="text-xs text-gray-500">ส่งลูกค้า VIP ให้คนเฉพาะ (หมอแอน)</p>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" />
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-dental-500"></div>
+              </label>
+            </div>
+
+            <!-- Max Queue -->
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-800">จำกัดคิวสูงสุด</p>
+                  <p class="text-xs text-gray-500">ไม่แจกงานถ้ามีงานเกิน 10 ชิ้น</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <input type="number" value="10" class="w-16 px-3 py-2 border border-gray-200 rounded-lg text-center text-sm" />
+                <span class="text-sm text-gray-500">ชิ้น</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/allocation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1.1",
+    "lesson_id": "1",
+    "indicator_id": "math_addition_basics",
+    "index": 1,
+    "name": "การบวกเลขหลักเดียว",
+    "status": "active",
+    "created_at": "2025-01-13T08:30:00.000Z",
+    "created_by": "admin",
+    "updated_at": null,
+    "updated_by": null,
+    "admin_login_as": null,
+    "indicator_name": "การบวกเลข"
+  },
+  {
+    "id": "2.1",
+    "lesson_id": "2",
+    "indicator_id": "sci_plant_parts",
+    "index": 1,
+    "name": "ใบและรากของพืช",
+    "status": "active",
+    "created_at": "2025-01-13T09:00:00.000Z",
+    "created_by": "admin",
+    "updated_at": "2025-01-13T09:30:00.000Z",
+    "updated_by": "admin",
+    "admin_login_as": null,
+    "indicator_name": "ส่วนประกอบพืช"
+  },
+  {
+    "id": "4.1",
+    "lesson_id": "4",
+    "indicator_id": "eng_abc_part1",
+    "index": 1,
+    "name": "ตัวอักษร A-M",
+    "status": "active",
+    "created_at": "2025-01-13T09:15:00.000Z",
+    "created_by": "admin",
+    "updated_at": null,
+    "updated_by": null,
+    "admin_login_as": null,
+    "indicator_name": "ตัวอักษรภาษาอังกฤษ"
+  },
+  {
+    "id": "4.2",
+    "lesson_id": "4",
+    "indicator_id": "eng_abc_part2",
+    "index": 2,
+    "name": "ตัวอักษร N-Z",
+    "status": "active",
+    "created_at": "2025-01-13T09:30:00.000Z",
+    "created_by": "admin",
+    "updated_at": "2025-01-13T09:45:00.000Z",
+    "updated_by": "admin",
+    "admin_login_as": null,
+    "indicator_name": "ตัวอักษรภาษาอังกฤษ"
+  }
+]

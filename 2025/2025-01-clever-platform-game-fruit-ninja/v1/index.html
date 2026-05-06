@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Slicer</title>
+    <link
+      rel="icon"
+      href="/public/3D_and_Picture/unnamed.png"
+      type="image/png"
+    />
+    <!-- ตรวจสอบว่าไฟล์นี้มีอยู่จริง -->
+
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        /* background: black; */
+        /* background: url("/image/background/main-menu-bg.png"); */
+        overflow: hidden;
+      }
+      .dot {
+        height: 24px;
+        width: 24px;
+        border-radius: 24px;
+        /* background-color: #ffffff; */
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999; /* so that it stays on top of all other elements */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="root">
+        <script type="module" src="src/main.tsx"></script>
+        <script>
+          const dots = [];
+          const cursor = {
+            x: 0,
+            y: 0,
+          };
+          let isMousePressed = false;
+
+          for (let i = 0; i < 35; i++) {
+            const dot = document.createElement("div");
+            dot.className = "dot";
+            document.body.appendChild(dot);
+            dots.push(dot);
+          }
+
+          document.addEventListener("mousemove", (e) => {
+            cursor.x = e.clientX;
+            cursor.y = e.clientY;
+          });
+
+          document.addEventListener("mousedown", () => {
+            isMousePressed = true;
+          });
+          document.addEventListener("mouseup", () => {
+            isMousePressed = false;
+          });
+
+          function draw() {
+            let x = cursor.x;
+            let y = cursor.y;
+
+            dots.forEach((dot, index) => {
+              const nextDot = dots[index + 1] || dots[0];
+              dot.style.left = x + "px";
+              dot.style.top = y + "px";
+              dot.style.scale = (dots.length - index) / dots.length;
+
+              x += (nextDot.offsetLeft - dot.offsetLeft) * 0.25;
+              y += (nextDot.offsetTop - dot.offsetTop) * 0.25;
+              dot.style.display = isMousePressed ? "block" : "none";
+            });
+            requestAnimationFrame(draw);
+          }
+
+          draw();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

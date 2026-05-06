@@ -1,0 +1,65 @@
+{
+  "breadcrumb": {
+    "game": "ระบบเกม",
+    "item": "จัดการไอเทม",
+    "itemCreate": "สร้างไอเทม"
+  },
+  "status": {
+    "name": "สถานะ",
+    "all": "ทั้งหมด",
+    "draft": "แบบร่าง",
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน",
+    "publish": "เผยแพร่",
+    "unpublish": "ไม่เผยแพร่"
+  },
+  "itemType": {
+    "name": "ประเภทไอเทม",
+    "frame": "กรอบรูป",
+    "badge": "โล่",
+    "coupon": "คูปอง"
+  },
+  "field": {
+    "item": {
+      "id": "รหัสไอเทม",
+      "imageURLs": ["รูปภาพ", "รูปโล่", "รูปภาพ"],
+      "name": "ชื่อไอเทม",
+      "type": "รูปแบบโล่",
+      "description": "คำอธิบาย",
+      "status": "เปืดใช้งาน",
+      "text": "ข้อความที่แสดงในโล่",
+      "template": "รูปแบบ"
+    },
+    "modifiedDate": "แก้ไขล่าสุด",
+    "modifiedBy": "แก้ไขล่าสุดโดย",
+    "editBtn": "แก้ไข",
+    "archiveBtn": "จัดเก็บ",
+    "imageURL": "รูปไอเทม",
+    "textSize": "ความยาวไม่เกิน x ตัวอักษร",
+    "example": "ตัวอย่าง",
+    "within": "ขนาดไม่เกิน",
+    "badgeBackground": "พื้นหลัง"
+  },
+  "button": {
+    "save": "บันทึก",
+    "upload": "อัพโหลด",
+    "template": "เลือกรูปแบบ",
+    "back": "ย้อนกลับ",
+    "choose": "เลือก"
+  },
+  "word": {
+    "description": "รายละเอียด",
+    "optional": "ถ้ามี",
+    "empty": "ไม่มีรายการ"
+  },
+  "modal": {
+    "template": {
+      "title": "เลือกรูปแบบ (Template)"
+    }
+  },
+  "pagination": {
+    "display": "แสดง",
+    "from": "จาก",
+    "page": "หน้า"
+  }
+}

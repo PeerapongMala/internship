@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "25315864-5f25-4411-80a8-dd9322f6a2bb",
+		"name": "fo-g03-d10-settings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40289851"
+	},
+	"item": [
+		{
+			"name": "a01-get-account-info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/settings/v1/account",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"settings",
+						"v1",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-get-family-info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/settings/v1/family",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"settings",
+						"v1",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-change-pin",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pin\": \"1122\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/settings/v1/change-pin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"settings",
+						"v1",
+						"change-pin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	}
+}

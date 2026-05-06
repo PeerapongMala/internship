@@ -1,0 +1,162 @@
+pipeline {
+    agent any
+
+    environment {
+        // GitLab
+        GITLAB_REPO   = 'git@git_lab:bss-project/backend.git'
+        GITLAB_BRANCH = 'main'
+
+        // Docker
+        IMAGE_NAME     = "bss_api"
+        CONTAINER_NAME = "bss_api_dev"
+        PORT           = "7037"
+        SMTP_HOST      = "smtp4dev"
+        SMTP_PORT      = "25"
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git(
+                    url: "${GITLAB_REPO}",
+                    branch: "${GITLAB_BRANCH}",
+                )
+            }
+        }
+        
+       /*stage('SonarQube Analysis') {
+            environment {
+                SONAR_HOST_URL = 'http://26.255.205.67:9000/'
+                SONAR_TOKEN = credentials('SonarQubeToken')
+            }
+
+        steps {
+            sh '''
+                dotnet sonarscanner begin \
+                    /k:"Backend" \
+                    /d:sonar.host.url=$SONAR_HOST_URL \
+                    /d:sonar.login=$SONAR_TOKEN
+
+                dotnet build BSS_API/BSS_API.sln
+
+                dotnet sonarscanner end \
+                    /d:sonar.login=$SONAR_TOKEN
+                '''
+            }
+        }*/
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    def fullImage = "${CONTAINER_NAME}"
+                    sh "docker build -t ${fullImage} ."
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    def fullImage = "${CONTAINER_NAME}"
+
+                    // Resolve Layer 2 service IPs from within dind container
+                    // so Layer 3 container can reach them via --add-host
+                    def sqlServerIp = sh(
+                        script: "getent hosts sql_server | awk '{print \$1}' | head -1",
+                        returnStdout: true
+                    ).trim()
+                    def smtpHostIp = sh(
+                        script: "getent hosts ${SMTP_HOST} | awk '{print \$1}' | head -1",
+                        returnStdout: true
+                    ).trim()
+
+                    sh """
+                        docker stop ${CONTAINER_NAME} || true
+                        docker rm   ${CONTAINER_NAME} || true
+
+                        docker run -d \\
+                          --name ${CONTAINER_NAME} \\
+                          --restart unless-stopped \\
+                          --add-host sql_server:${sqlServerIp} \\
+                          --add-host ${SMTP_HOST}:${smtpHostIp} \\
+                          -p ${PORT}:${PORT} \\
+                          -v /app/bss-api/logs:/app/BSS_API/logs \\
+                          -e ASPNETCORE_ENVIRONMENT=Development \\
+                          -e 'BSS.API.APP_NAME=BSS_API' \\
+                          -e 'BSS.API.PATH_BASE=BSS_API' \\
+                          -e 'BSS.API.DB_CONNECTION=Data Source=sql_server;Initial Catalog=BSSDEVDB;User ID=sa;Password=P@ssw0rd;TrustServerCertificate=True' \\
+                          -e 'BSS.API.EF_RETRY_ENABLE=Y' \\
+                          -e 'BSS.API.EF_RETRY_MAX=5' \\
+                          -e 'BSS.API.EF_RETRY_DELAY_SEC=10' \\
+                          -e 'BSS.API.DB_COMMAND_TIMEOUT=600' \\
+                          -e 'BSS.API.SYSTEM_CODE=BSSAPI' \\
+                          -e 'BSS.API.SYSTEM_NAME=BSS API' \\
+                          -e 'BSS.API.PRIVATE_KEY=BSSAPIKEYP@ssw0rd2025' \\
+                          -e 'BSS.API.LOAD_TEST_FLAG=N' \\
+                          -e 'BSS.API.IS_MOCK_FLAG=Y' \\
+                          -e 'BSS.API.X_API_KEY.BSS_WEB=dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6' \\
+                          -e 'BSS.API.X_API_KEY.CBMS=Ybf23d1fa369f1118960b645e28738790a5434334c16edc7334a80d6cb6477814' \\
+                          -e 'BSS.API.X_API_KEY.BMS=69b5c9fdf3c909cdeab373c28a2f210240d1c2f79fcc83c6bb143bc802e8b27b' \\
+                          -e "BSS.API.JWT_VALID_ISSUER=http://${CONTAINER_NAME}:${PORT}" \\
+                          -e "BSS.API.JWT_VALID_AUDIENCE=http://${CONTAINER_NAME}:${PORT}" \\
+                          -e 'BSS.API.X_API_KEY=dlYzpOd7gpqITSuHEMuO4ShXKS1IzEuXhWhkHlTjjEo9F4pbFQmHExE0OLXo7mG6' \\
+                          -e "BSS.API.SERVICE_BASE_ADDRESS=http://${CONTAINER_NAME}:${PORT}" \\
+                          -e 'BSS.API.SERVICE_API_KEY=38f324db-b37d-4281-80f5-02f1ee78375a' \\
+                          -e 'BSS.API.JWT_ISSUER_SIGNING_KEY=SuperSecreatkey12345!@#\$%^&*()_+67890' \\
+                          -e 'BSS.API.JWT_EXPIRY_MINUTES=60' \\
+                          -e 'BSS.API.LOG.APP.OUTPUT_TYPE=CONSOLE' \\
+                          -e 'BSS.API.LOG.APP.FILE_PATH=../BSS_API/logs/bot_bss_webapi-.log' \\
+                          -e 'BSS.API.LOG.APP.MIN_LEVEL=Information' \\
+                          -e 'BSS.API.LOG.APP.ROLLING_INTERVAL=DAY' \\
+                          -e 'BSS.API.LOG.APP.FILE_SIZE=5MB' \\
+                          -e 'BSS.API.LOG.APP.LOG_FORMAT=[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{AppName}] [{Environment}] [{CustomRequestId}] [{TraceId}] [{Level:u3}] {Message:lj}{NewLine}{Exception}' \\
+                          -e 'BSS.API.LOG.TXN.OUTPUT_TYPE=FILE' \\
+                          -e 'BSS.API.LOG.TXN.FILE_PATH=../BSS_API/logs/bot_bss_txn-.log' \\
+                          -e 'BSS.API.LOG.TXN.ROLLING_INTERVAL=HOUR' \\
+                          -e 'BSS.API.LOG.TXN.FILE_SIZE=5MB' \\
+                          -e 'BSS.API.LOG.EF.OUTPUT_TYPE=FILE' \\
+                          -e 'BSS.API.LOG.EF.FILE_PATH=../BSS_API/logs/ef-.log' \\
+                          -e 'BSS.API.LOG.EF.ROLLING_INTERVAL=HOUR' \\
+                          -e 'BSS.API.LOG.EF.FILE_SIZE=5MB' \\
+                          -e 'BSS.API.BOT_AD_WS_BASE_URL=https://botad-wb-d1.testbot.or.th/AD_WS/AD_WS.asmx' \\
+                          -e 'BSS.API.BOT_AD_WS_GET_BY_LOGON_NAME=getUserByLogonName' \\
+                          -e 'BSS.API.BOT_AD_WS_GET_BY_DEPARTMENT=getUsersByDepartment' \\
+                          -e 'BSS.API.BOT_AD_WS_GET_BY_GUID=getUsersByGUIDs' \\
+                          -e 'BSS.API.BOT_AD_WS_GET_BY_DISPLAY_NAME=getUsersByDisplayNameAndDepartments' \\
+                          -e 'BSS.API.BOT_AUTHEN_BASE_URL=https://authen-ap1-t1.bot.or.th/authnsvc-dev/inquiryservice.asmx' \\
+                          -e 'BSS.API.BOT_AUTHEN_GET_ACTIVE_PERSON_BY_CERT=GetActivePersonByCert' \\
+                          -e 'BSS.API.BOT_AUTHEN_GET_PERSON_BY_SEARCH_NAME=GetPersonListBySearchName' \\
+                          -e 'BSS.API.BOT_AUTHEN_GET_PERSON_BY_REGID=GetPersonListByRegID' \\
+                          -e 'BSS.API.BOT_AUTHEN_GET_ACTIVE_PERSON_BY_INST=GetActivePersonListByInst' \\
+                          -e 'BSS.API.BOT_AUTHEN_GET_CERTIFICATE_BY_REGID=GetCertificate' \\
+                          -e 'BSS.API.BOT_AUTHEN_CHECK_CRL_VALID_CERT=CheckCRLValidCert' \\
+                          -e 'BSS.API.CACHE.DEFAULT.EXP.MINUTE=30' \\
+                          -e 'BSS.API.CACHE.EXAMPLE_DATA.EXP.MINUTE=60' \\
+                          -e "BSS.MAIL.SMTP_HOST=${SMTP_HOST}" \\
+                          -e "BSS.MAIL.SMTP_PORT=${SMTP_PORT}" \\
+                          -e 'BSS.MAIL.SMTP_USER=bss_user@smtp4dev' \\
+                          -e 'BSS.MAIL.SMTP_PASSWORD=bss_pass@smtp4dev' \\
+                          -e 'BSS.MAIL.SMTP_USE_TLS=true' \\
+                          -e 'BSS.MAIL.SMTP_OTP_EXPIRE=5' \\
+                          -e 'BSS.MAIL.SMTP_IGNORE_VALIDATE_CERT=true' \\
+                          ${fullImage}
+                    """
+                }
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo "✅ Deploy SUCCESS — ${CONTAINER_NAME} is running on port ${PORT}"
+        }
+        failure {
+            echo "❌ Pipeline FAILED"
+        }
+        always {
+            sh "docker image prune -f"
+        }
+    }
+}

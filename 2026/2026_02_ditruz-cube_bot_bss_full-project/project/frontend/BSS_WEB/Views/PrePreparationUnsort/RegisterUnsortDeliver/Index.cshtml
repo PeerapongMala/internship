@@ -1,0 +1,270 @@
+﻿@model BSS_WEB.Views.Preparation.PreparationUnsoftCC.IndexModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "RegisterUnsortDeliver";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/preparation/unsortCC.css")" asp-append-version="true" />
+
+<!--<link rel="stylesheet" href="@Url.Content("~/css/registerUnsortcc/RegisterUnsortDeliver.css")" />-->
+
+<div class="main-wrapper">
+    <div class="sub-wrapper">
+        <div class="layout">
+
+            <div class="main-title mb-1 mt-1">
+                <div class="title-left">
+                    <div class="title-section">
+                        <h1>ส่งมอบ UNSORT CC</h1>
+                    </div>
+                </div>
+                <div class="title-right d-flex gap-2">
+                    <button class="btn-blue" onclick="createDeliveryBill()">
+                        <i class="bi bi-plus-circle"></i> สร้างใบนำส่ง
+                    </button>
+                    <button class="btn-blue" onclick="toggleFilter()">
+                        <i class="bi bi-filter-circle"></i> Filter
+                    </button>
+                </div>
+            </div>
+
+            <div class="white-card mb-2" id="filterCard" style="display: none;">
+
+                <div class="row g-3 align-items-center row-cols-1 row-cols-lg-4">
+                    <div class="col">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">รหัสใบนำส่ง:  </label>
+                            </div>
+                            <div class="col">
+                                <select id="filterDeliveryCode" class="form-select" onchange="onSelectWaybill()">
+                                    <option value="">-- ทั้งหมด --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">ธนาคาร: </label>
+                            </div>
+                            <div class="col">
+                                <select id="filterBank" class="form-select" onchange="applyLocalFilter()">
+                                    <option value="">-- ทั้งหมด --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row g-2 align-items-center flex-nowrap">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">วันที่ส่งมอบ: </label>
+                            </div>
+                            <div class="col">
+                                <div class="date-range-wrapper">
+                                    <div class="date-range-input-group d-flex align-items-center border rounded p-1 bg-white">
+
+                                        <input type="text" id="filterDateStart"
+                                               class="form-control form-control-sm border-0 bg-transparent flex-fill text-center min-w-0"
+                                               placeholder="dd/mm/yyyy" readonly>
+
+                                        <span class="px-1 small text-muted">ถึง</span>
+
+                                        <input type="text" id="filterDateEnd"
+                                               class="form-control form-control-sm border-0 bg-transparent flex-fill text-center min-w-0"
+                                               placeholder="dd/mm/yyyy" readonly>
+
+                                        <button type="button" class="btn btn-link btn-sm p-0 ms-1" onclick="resetDateToNow()">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-3">
+                        <label class="form-label fw-semibold">วันที่ส่งมอบ</label>
+                        <div class="date-range-wrapper">
+                            <div class="date-range-input-group">
+                                <i class="bi bi-calendar3 date-range-icon"></i>
+                                <input type="text" id="filterDateStart" class="form-control date-range-input" placeholder="dd/mm/yyyy" readonly>
+                                <span class="date-range-separator">ถึง</span>
+                                <input type="text" id="filterDateEnd" class="form-control date-range-input" placeholder="dd/mm/yyyy" readonly>
+                                <button type="button" class="date-range-today-btn" onclick="resetDateToNow()" title="วันที่ปัจจุบัน">
+                                    <i class="bi bi-calendar-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>-->
+
+
+                    <div class="col">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-auto">
+                                <label class="form-label fw-semibold mb-0 text-nowrap">สถานะ: </label>
+                            </div>
+                            <div class="col">
+                                <select id="filterStatus" class="form-select" onchange="applyFilter()">
+                                    <option value="">-- ทั้งหมด --</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content-pt3 mb-2 main-content-border">
+                <div class="row">
+
+                    <div class="full-panel">
+
+                        <div class="white-card">
+                            <div class="table-controls">
+                                <div class="wc-header-left">
+                                    <span class="card-title">รายการส่งมอบ UNSORT CC</span>
+                                </div>
+                                <div class="wc-header-right">
+                                </div>
+                            </div>
+
+                            <div id="containerScroll" class="main-table-preparation-scroll">
+                                <table class="data-table preparationREGISTER_UNSORT_CC_DL">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)"></th>
+                                            <th>รหัสใบนำส่ง</th>
+                                            <th>วันที่ส่งมอบ</th>
+                                            <th>หมายเหตุการส่งคืน</th>
+                                            <th>สถานะ</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableContainer"></tbody>
+                                </table>
+                            </div>
+
+                            <div class="row">
+                                <div class="btn-wrapper">
+                                    <button id="btnConfirmSubmit" class="btn-blue" onclick="Save()" disabled>ยืนยันส่งมอบ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content-pt3">
+                <div class="row">
+                    <div class="full-panel">
+
+                        <div class="white-card">
+
+                            <div class="table-controls">
+                                <div class="wc-header-left">
+                                    <span class="card-title">รายการบาร์โค้ดภาชนะตามใบนำส่งที่เลือก</span>
+                                </div>
+                                <div class="wc-header-right">
+                                    <span class="card-title">จำนวนมัด: <strong id="selectedBundleCount" class="status-count">0</strong> มัด</span>
+                                </div>
+                            </div>
+
+                            <div id="tableBodyScroll" class="main-table-preparation-scroll">
+                                <table class="data-table preparationREGISTER_UNSORT_CC_DL_SUB">
+                                    <thead>
+                                        <tr>
+                                            <th>บาร์โค้ดภาชนะ</th>
+                                            <th>วันที่ลงทะเบียน</th>
+                                            <th>จำนวนมัด</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+@* ลบภาชนะ *@
+<div class="modal fade" id="DeleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="text-black fw-bold mb-3">ลบข้อมูลบาร์โค้ดภาชนะ</h3>
+                <h6 class="text-muted mb-4">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้</h6>
+            </div>
+            <div class="modal-footer d-flex justify-content-center gap-2">
+                <button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+                <button class="btn btn-red px-4" onclick="confirmDelete()">ยืนยัน</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Success Modal แบบใช้ร่วมกัน *@
+<div class="modal fade" id="commonSuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-success-title">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3">สำเร็จ!</h3>
+                <h6 id="successModalMessage" class="mb-4">ดำเนินการเรียบร้อยแล้ว</h6>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button class="btn btn-green px-5" data-bs-dismiss="modal" onclick="onSuccessDone()">
+                    <i class="bi bi-check-lg"></i> ตกลง
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal error จากการ validate -->
+<div class="modal fade" id="ErrorModal" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabindex="-1" aria-labelledby="barcodeErrorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="mb-4">
+                    <div class="modal-warning-title">
+                        <i class="bi bi-exclamation-diamond-fill"></i>
+                    </div>
+                </div>
+                <h3 class="fw-bold mb-3" id="barcodeErrorModalLabel">การแจ้งเตือน</h3>
+                <h6 class="mb-4" id="errorMessage">ข้อความผิดพลาด</h6>
+            </div>
+            <div class="modal-footer justify-content-center gap-2">
+                <button type="button" class="btn btn-blue" data-bs-dismiss="modal">ตกลง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/main/bss-status-constants.js")"></script>
+    <script src="@Url.Content("~/js/registerUnsortCC/RegisterUnsortDeliver.js?v=1")" asp-append-version="true"></script>
+}
+

@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "a7c469d2-cde2-403e-b97e-cab1e0eb7ec1",
+		"name": "ga-g00-d00-global-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38042661"
+	},
+	"item": [
+		{
+			"name": "clever-game",
+			"item": [
+				{
+					"name": "g00-d00-a01-get-token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{logn_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/platform/arcade/:arcadeGameId/buy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"platform",
+								"arcade",
+								":arcadeGameId",
+								"buy"
+							],
+							"variable": [
+								{
+									"key": "arcadeGameId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "g00-d00-a04-session-check",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{logn_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/platform/arcade/:arcadeGameId/check",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"platform",
+								"arcade",
+								":arcadeGameId",
+								"check"
+							],
+							"variable": [
+								{
+									"key": "arcadeGameId",
+									"value": "1",
+									"description": "Id ของ arcade-game"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "g00-d00-a05-increase-arcade-coin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{logn_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"arcade_coin\" : 100000\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/platform/arcade-coin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"platform",
+								"arcade-coin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "arcade-game",
+			"item": [
+				{
+					"name": "g00-d00-a02-get-data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{play_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/arcade-game/data",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"arcade-game",
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "g00-d00-a03-play-log-create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{play_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"score\":10000,\r\n    \"time_used\":1324,\r\n    \"wave\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/arcade-game/score",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"arcade-game",
+								"score"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "g00-d00-a06-asset-get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{play_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "image/png",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/arcade-game/v1/arcade-game/asset",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"arcade-game",
+								"v1",
+								"arcade-game",
+								"asset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

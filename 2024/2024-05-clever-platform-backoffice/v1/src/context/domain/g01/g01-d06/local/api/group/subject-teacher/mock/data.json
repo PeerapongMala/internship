@@ -1,0 +1,98 @@
+[
+  {
+    "id": "000001",
+    "school_affiliation_group": "สพฐ",
+    "name": "สำนักงานเขตพื้นที่การศึกษามัธยมศึกษากรุงเทพมหานคร เขต 1",
+    "short_name": "สพม.กท ๑",
+    "inspection_area": "1",
+    "area_office": "สพป. กรุงเทพมหานคร",
+    "type": "รัฐ",
+    "status": "enabled",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Admin Name"
+  },
+  {
+    "id": "000002",
+    "school_affiliation_group": "สพฐ",
+    "name": "สำนักงานเขตพื้นที่การศึกษามัธยมศึกษากรุงเทพมหานคร เขต 2",
+    "short_name": "สพม.กท ๒",
+    "type": "รัฐ",
+    "inspection_area": "1",
+    "area_office": "สพป. กรุงเทพมหานคร",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Admin Name",
+    "status": "enabled"
+  },
+  {
+    "id": "000003",
+    "school_affiliation_group": "สนศ. กทม.",
+    "name": "สังกัด ค",
+    "short_name": "AA",
+    "type": "รัฐ",
+    "district": "ป้อมปราบศัตรูพ่าย",
+    "district_zone": "กรุงเทพกลาง",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Admin Name",
+    "status": "draft"
+  },
+  {
+    "id": "000004",
+    "school_affiliation_group": "สนศ. กทม.",
+    "name": "สังกัด ง",
+    "short_name": "AA",
+    "type": "รัฐ",
+    "district": "พญาไท",
+    "district_zone": "กรุงเทพกลาง",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Alice",
+    "status": "disabled"
+  },
+  {
+    "id": "000005",
+    "school_affiliation_group": "สช",
+    "name": "สังกัด ก",
+    "short_name": "AA",
+    "type": "รัฐ",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Alice",
+    "status": "draft"
+  },
+  {
+    "id": "000006",
+    "school_affiliation_group": "อื่นๆ",
+    "name": "สังกัด ข",
+    "short_name": "AA",
+    "type": "เอกชน",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Bob",
+    "status": "disabled"
+  },
+  {
+    "id": "000007",
+    "school_affiliation_group": "อปท",
+    "name": "สังกัด ข",
+    "short_name": "AA",
+    "type": "รัฐ",
+    "lao_type": "อบจ",
+    "province": "นนทบุรี",
+    "district": "",
+    "sub_district": "",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Bob",
+    "status": "disabled"
+  },
+  {
+    "id": "000008",
+    "school_affiliation_group": "อปท",
+    "name": "สังกัด ค",
+    "short_name": "AA",
+    "type": "รัฐ",
+    "lao_type": "อบต",
+    "province": "นนทบุรี",
+    "district": "บางกรวย",
+    "sub_district": "ศาลากลาง",
+    "updated_at": "2024-11-15T16:00:00.000Z",
+    "updated_by": "Carol",
+    "status": "disabled"
+  }
+]

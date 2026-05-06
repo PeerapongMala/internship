@@ -1,0 +1,381 @@
+{
+	"info": {
+		"_postman_id": "9a9cef8c-00f0-4de4-90c3-ab28573956f5",
+		"name": "bo-g01-d06-subject-teacher-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-school-subject-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/:schoolId/subjects?page=1&limit=10&id=1&name=ภาษา&curriculum_group=สวนสุนัน&year=ป.4&contract_name=สัญญา",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						":schoolId",
+						"subjects"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"description": "optional, subject id"
+						},
+						{
+							"key": "name",
+							"value": "ภาษา",
+							"description": "optional"
+						},
+						{
+							"key": "curriculum_group",
+							"value": "สวนสุนัน",
+							"description": "optional"
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"description": "optional"
+						},
+						{
+							"key": "contract_name",
+							"value": "สัญญา",
+							"description": "optional"
+						},
+						{
+							"key": "contract_status",
+							"value": "enabled",
+							"description": "optional",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-subject-teacher-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/:schoolId/subjects/:subjectId/teachers?page=1&limit=10&academic_year=2570&title&first_name&last_name&email",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						":schoolId",
+						"subjects",
+						":subjectId",
+						"teachers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2570",
+							"description": "optional"
+						},
+						{
+							"key": "title",
+							"value": null,
+							"description": "optional"
+						},
+						{
+							"key": "first_name",
+							"value": null,
+							"description": "optional"
+						},
+						{
+							"key": "last_name",
+							"value": null,
+							"description": "optional"
+						},
+						{
+							"key": "email",
+							"value": null,
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						},
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-seed-academic-year-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/seed-academic-years?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						"seed-academic-years"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-subject-teacher-case-bulk-edit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bulk_edit_list\": [ // required\r\n        {\r\n            \"teacher_id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\r\n            \"academic_year\": 2569\r\n        },\r\n        {\r\n            \"teacher_id\": \"00f1b13e-0e62-45d2-9718-099cd545b3ac\",\r\n            \"academic_year\": 2568\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/subjects/:subjectId/teachers/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						"subjects",
+						":subjectId",
+						"teachers",
+						"bulk-edit"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a05-api-subject-teacher-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject_id\": 1,\r\n    \"teacher_ids\": [\"00f1b13e-0e62-45d2-9718-099cd545b3ac\", \"1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10\"],\r\n    \"academic_year\": 2569\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/subjects/:subjectId/teachers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						"subjects",
+						":subjectId",
+						"teachers"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a06-api-school-teacher-list.go",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/:schoolId/teachers?page=1&limit=10&id=1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10&title=Mr&first_name=Pat&last_name=Doe",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						":schoolId",
+						"teachers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional, default = 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional, default = 10"
+						},
+						{
+							"key": "id",
+							"value": "1e5f3af4-f2ea-4a30-bf8a-6def2e8eaf10",
+							"description": "optional"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"description": "optional"
+						},
+						{
+							"key": "first_name",
+							"value": "Pat",
+							"description": "optional"
+						},
+						{
+							"key": "last_name",
+							"value": "Doe",
+							"description": "optional"
+						}
+					],
+					"variable": [
+						{
+							"key": "schoolId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a07-api-subject-get.go",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/subject-teacher/v1/subjects/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"subject-teacher",
+						"v1",
+						"subjects",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

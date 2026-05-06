@@ -1,0 +1,24 @@
+package postgres
+
+import (
+	"github.com/jmoiron/sqlx"
+	"github.com/pkg/errors"
+	"log"
+)
+
+func (postgresRepository *postgresRepository) LevelTagCreate(tx *sqlx.Tx, tagId, levelId int) error {
+	query := `
+		INSERT INTO "level"."level_tag" (
+			"level_id",
+			"tag_id"
+		)
+		VALUES ($1, $2)
+	`
+	_, err := tx.Exec(query, levelId, tagId)
+	if err != nil {
+		log.Printf("%+v", errors.WithStack(err))
+		return err
+	}
+
+	return nil
+}

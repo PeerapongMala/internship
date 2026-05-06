@@ -1,0 +1,206 @@
+﻿/* ===== Body ===== */
+
+@font-face {
+    font-family: "Pridi";
+    src: url("/fonts/Pridi-Light.ttf") format("truetype");
+    font-weight: normal;
+}
+
+#report-body {
+    font-family: "Pridi", sans-serif;
+    color: #000;
+}
+
+/* ===== Headings ===== */
+h2 {
+    margin-bottom: 15px;
+}
+
+h4 {
+    margin: 0;
+}
+
+/* ===== Table ===== */
+table {
+    max-width: 792px;
+    width: 100%;
+    font-size: 10px;
+    border-collapse: collapse;
+}
+
+    table thead tr th {
+        
+    }
+
+    th {
+        background-color: #f0f0f0;
+    }
+
+th, td {
+    border: 1px solid #999;
+    padding: 6px;
+    text-align: center;
+}
+
+/* แถบปุ่มล่างสุด */
+.print-toolbar {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+    .print-toolbar button {
+        padding: 6px 18px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+/* ไม่ให้แสดงตอนพิมพ์ */
+@media print {
+    .print-toolbar {
+        display: none;
+    }
+}
+
+.btn-print {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-export {
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ===== Top Toolbar ===== */
+.top-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toolbar-left h3 {
+    margin: 0;
+}
+
+/* ซ่อนตอนสั่งพิมพ์ */
+@media print {
+    .top-toolbar {
+        display: none;
+    }
+}
+
+.export-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    .export-options label {
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+.report-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.info-left, .info-right {
+    font-size: 16px;
+    color: #333;
+}
+
+.info-left {
+    flex: 1;
+}
+
+.info-right {
+    text-align: right;
+}
+
+.label {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.value {
+    display: inline-block;
+}
+
+
+.font-weight{
+    font-weight: bold;
+}
+
+/* === Summary === */
+
+.table-summary{
+    font-size: 13px;
+}
+
+    .table-summary th,
+    .table-summary td {
+        text-align: center;
+        border: none !important;
+        border-collapse: collapse;
+        background-color: white;
+    }
+
+
+.signature-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.signature-box {
+    width: 45%;
+    font-size: 14px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 600;
+}
+
+.line {
+    display: flex;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+    .line span:first-child {
+        width: 60px;
+    }
+
+.blank {
+    flex: 1;
+    border-bottom: 1px solid #000;
+    margin-left: 8px;
+}
+

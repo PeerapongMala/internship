@@ -1,0 +1,17 @@
+﻿body {
+}
+
+
+/* Preparation UNFIT */
+.preparationUNFIT td:nth-child(1),
+.preparationUNFIT td:nth-child(4),
+.preparationUNFIT td:nth-child(5),
+.preparationUNFIT td:nth-child(7),
+.preparationUNFIT td:nth-child(9),
+.preparationUNFIT td:nth-child(10) {
+    text-align: center !important;
+}
+
+.preparationUNFIT_SUB td:nth-child(2) {
+    text-align: center !important;
+}

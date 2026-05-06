@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "title": "นาย",
+    "first_name": "ณัฐกรณ์",
+    "last_name": "พูนเพิ่ม",
+    "email": "myemail@gmail.com",
+    "status": "draft",
+    "created_at": "2022-02-20T15:22:00.000Z",
+    "created_by": null,
+    "updated_at": "2022-02-24T15:22:00.000Z",
+    "updated_by": null,
+    "last_login": null
+  },
+  {
+    "id": "2",
+    "title": "นาย",
+    "first_name": "ณัฐกรณ์",
+    "last_name": "พูนเพิ่ม",
+    "email": "myemail@gmail.com",
+    "status": "enabled",
+    "created_at": "2022-02-20T15:22:00.000Z",
+    "created_by": null,
+    "updated_at": "2022-02-27T15:22:00.000Z",
+    "updated_by": null,
+    "viewData": null
+  },
+  {
+    "id": "3",
+    "title": "นาย",
+    "first_name": "ณัฐกรณ์",
+    "last_name": "พูนเพิ่ม",
+    "email": "myemail@gmail.com",
+    "status": "disabled",
+    "created_at": "2022-02-20T15:22:00.000Z",
+    "created_by": null,
+    "updated_at": null,
+    "updated_by": null,
+    "viewData": null
+  }
+]

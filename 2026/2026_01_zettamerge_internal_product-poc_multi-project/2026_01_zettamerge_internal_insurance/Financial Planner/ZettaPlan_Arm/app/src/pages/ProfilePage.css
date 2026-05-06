@@ -1,0 +1,41 @@
+/* ===== เนื้อหาหลัก ===== */
+.content {
+  flex: 1;
+  padding: 32px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ===== กริดรายละเอียด ===== */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ===== ส่วนท้าย ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: var(--gray-400);
+}
+
+@media (max-width: 1024px) {
+  .content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

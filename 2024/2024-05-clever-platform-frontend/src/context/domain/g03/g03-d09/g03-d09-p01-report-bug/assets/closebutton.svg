@@ -1,0 +1,14 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="icon-24/cancel-circle" clip-path="url(#clip0_2774_3503)">
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM3.33333 11.7333L4.26667 12.6667L8 8.93333L11.7333 12.6667L12.6667 11.7333L8.93333 8L12.6667 4.26667L11.7333 3.33333L8 7.06667L4.26667 3.33333L3.33333 4.26667L7.06667 8L3.33333 11.7333Z" fill="#CC0000"/>
+<path id="Vector" d="M4.26634 12.6667L3.33301 11.7333L7.06634 8L3.33301 4.26667L4.26634 3.33333L7.99967 7.06667L11.733 3.33333L12.6663 4.26667L8.93301 8L12.6663 11.7333L11.733 12.6667L7.99967 8.93333L4.26634 12.6667Z" fill="url(#paint0_linear_2774_3503)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2774_3503" x1="7.99967" y1="8" x2="7.99967" y2="12.6667" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+</linearGradient>
+<clipPath id="clip0_2774_3503">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

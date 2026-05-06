@@ -1,0 +1,768 @@
+{
+	"info": {
+		"_postman_id": "8c927a8c-7572-4202-b875-ba5feb7fa868",
+		"name": "bo-g03-d03-teacher-student-group-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41862974"
+	},
+	"item": [
+		{
+			"name": "a01-get-study-group-lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-groups",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-groups"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "class_ids",
+							"value": "1",
+							"description": "optional | 1,2,3",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.1",
+							"description": "optional | string",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "1",
+							"description": "optional | int ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-groups",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-groups"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "class_ids",
+									"value": "2",
+									"description": "optional | 1,2,3",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "ป.1",
+									"description": "optional | string",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "1",
+									"description": "optional | int ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 09:48:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "309"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "841195ea-9954-47bc-bcf0-c448bfb39399"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"status_code\": 200,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"subject_id\": 1,\n            \"class_id\": 1,\n            \"class_name\": \"1\",\n            \"name\": \"Group\",\n            \"year\": \"ป.4\",\n            \"academic_year\": \"2567\",\n            \"created_at\": \"2024-12-16T06:50:07.699Z\",\n            \"created_by\": \"Pat\",\n            \"updated_at\": null,\n            \"updated_by\": null\n        }\n    ]\n}"
+				},
+				{
+					"name": "SUCESS EMPTY",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-student-group/v1/study-groups?class_ids=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-student-group",
+								"v1",
+								"study-groups"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "class_ids",
+									"value": "2",
+									"description": "optional | 1,2,3"
+								},
+								{
+									"key": "year",
+									"value": "ป.1",
+									"description": "optional | string",
+									"disabled": true
+								},
+								{
+									"key": "academic_year",
+									"value": "1",
+									"description": "optional | int ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 09:48:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "101"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "851195ea-9954-47bc-bcf0-c448bfb39399"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 0\n    },\n    \"status_code\": 200,\n    \"message\": \"success\",\n    \"data\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "[A04] GetStatOptions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/options",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"options"
+					],
+					"query": [
+						{
+							"key": "option_type",
+							"value": "lesson",
+							"description": "academic-year/lesson/sub-lesson",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A04] GetLessonStatList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2025-12-12",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A04] GetLessonStatCsv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "subject_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "lesson_id",
+							"value": "1",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A04] GetSubLessonStatList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/lessonId/:lessonId/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"lessonId",
+						":lessonId",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2026-01-01",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-01",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						},
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A04] GetSubLessonStatCsv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/lessonId/:lessonId/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"lessonId",
+						":lessonId",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						},
+						{
+							"key": "lessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A04] GetLevelStatList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/subLessonId/:subLessonId/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"subLessonId",
+						":subLessonId",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2026-01-01",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-01",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						},
+						{
+							"key": "subLessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A04] GetLevelStatCsv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/stat/subLessonId/:subLessonId/csv",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"stat",
+						"subLessonId",
+						":subLessonId",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "sub_lesson_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "start_date",
+							"value": "2026-01-01",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-01",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						},
+						{
+							"key": "subLessonId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A05] GetPlayLogStatList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/play-stat/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"play-stat",
+						"list"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-12",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-31",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "ติ4",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[A05] GetPlayLogStatCsv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-student-group/v1/study-group/:studyGroupId/play-stat/csv?search=ติ4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-student-group",
+						"v1",
+						"study-group",
+						":studyGroupId",
+						"play-stat",
+						"csv"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-12-12",
+							"disabled": true
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-31",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "ติ4"
+						}
+					],
+					"variable": [
+						{
+							"key": "studyGroupId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+  "amount_of_sublesson_label": "Number of Sub-lessons",
+  "amount_of_lesson_file_size_label": "File Size",
+  "download_lesson_btn_label": "Download Lesson",
+  "delete_local_lesson_data_btn_label": "Delete Local Data",
+  "delete_local_lesson_data_modal_title": "Delete Local Lesson Data",
+  "delete_local_lesson_data_modal_message": "Do you want to delete the lesson data from your device?<br/>Deleting lesson data will <strong>not affect your play history</strong>.<br/><br/>Keeping the lesson data on your device allows you to play in offline mode, and you can download the data again when you connect to the internet.",
+  "confirm_delete_local_lesson_data_modal_btn_label": "Confirm Deletion",
+  "view_sublesson_btn_label": "Select Lesson",
+  "about_lesson": "About Lesson"
+}

@@ -1,0 +1,21 @@
+{
+  "homework": "การบ้าน",
+  "todo": "ยังไม่ได้ทำ",
+  "late": "เลยกำหนดส่ง",
+  "completed": "ส่งแล้ว",
+  "lesson": {
+    "stages": "ด่าน",
+    "dueDate": "กำหนดส่ง",
+    "submitted": "ส่งแล้ว",
+    "pastDue": "เลยกำหนดส่ง"
+  },
+  "button": {
+    "restart": "Button restart Icon",
+    "start": "Button start Icon"
+  },
+  "achievement": {
+    "prize": "รางวัล",
+    "notReceived": "ยังไม่ได้รับ",
+    "received": "ได้รับแล้ว"
+  }
+}

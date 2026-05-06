@@ -1,0 +1,953 @@
+@model BSS_WEB.Views.Reconcilation.ReconcileTransaction.IndexModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "ReconcileTransaction";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/master/all.css")" asp-append-version="true" />
+<link rel="stylesheet" href="@Url.Content("~/css/reconcile/reconcileTransaction.css")" asp-append-version="true" />
+@if (Model.CssVariantClass == "reconcile-unsort-cc") {
+	<link rel="stylesheet" href="@Url.Content("~/css/reconcile/reconcile-unsort-cc.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "reconcile-ca-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/reconcile/reconcile-ca-member.css")" asp-append-version="true" />
+} else if (Model.CssVariantClass == "reconcile-ca-non-member") {
+	<link rel="stylesheet" href="@Url.Content("~/css/reconcile/reconcile-ca-non-member.css")" asp-append-version="true" />
+}
+
+@Html.AntiForgeryToken()
+
+<div class="main-wrapper">
+	<div class="sub-wrapper">
+	<div class="layout">
+		<div class="main-title">
+			<div class="title-left">
+				<div class="title-section">
+					<h1>Reconciliation Transaction @Model.BnTypeName</h1>
+					<p>@Model.BnTypeNameDisplay</p>
+				</div>
+				<input type="hidden" id="currentUserId" value="@User.FindFirst("UserID")?.Value" />
+				<input type="hidden" id="currentUserFullName"
+					   value="@( (User.FindFirst("FirstName")?.Value ?? "") + " " + (User.FindFirst("Lastname")?.Value ?? "") )" />
+<<<<<<< HEAD
+=======
+				<input type="hidden" id="currentDepartmentId" value="@(User.FindFirst("DepartmentID")?.Value ?? User.FindFirst("DepartmentId")?.Value)" />
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+				<input type="hidden" id="cssVariantClass" value="@Model.CssVariantClass" />
+			</div>
+			<div class="title-right">
+				<button class="btn-nav" onclick="openSecondScreen()">เปิดหน้าจอ 2</button>
+				<button class="btn-nav" onclick="openHoldingPage()">Holding</button>
+				<button class="btn-nav" onclick="openHoldingDetailPage()">Holding Detail</button>
+			</div>
+		</div>
+
+		<!-- 2-Column Layout: Left (Scanner + 2 Tables) | Right (Info + HC Table) -->
+		<div class="page-columns">
+			<!-- Left Column: Scanner on top, Preparation + Prep+Machine below -->
+			<div class="col-left">
+				<!-- Scanner Section (matching Figma node 32:26461) -->
+				<div class="scanner-section">
+					<div class="scanner-title">สแกน Header Card เพื่อกระทบยอดธนบัตรประเภท @Model.BnTypeName</div>
+					<div class="scanner-main-row">
+						<div class="scanner-input-group">
+							<label class="scanner-field-label">Header Card</label>
+							<div class="scanner-input-wrapper">
+								<input type="text" id="scanHeaderCardInput" class="scanner-input" placeholder="" autocomplete="off" maxlength="30">
+							</div>
+						</div>
+						<div class="scanner-center-info">
+							<div class="scanner-count-row">
+								<span>กระทบยอดแล้วทั้งหมด</span>
+								<strong id="totalReconciledCount" class="count-badge">0</strong>
+								<span>มัด</span>
+							</div>
+							<div class="scanner-location-row">
+								<span>@Model.SortingMachine</span>
+								<span class="shift-text" id="shiftDisplay">@Model.ShiftName</span>
+							</div>
+						</div>
+						<div class="scanner-actions">
+							<button class="btn-filter" id="btnToggleFilter" onclick="toggleFilter()">
+								<i class="bi bi-funnel-fill"></i> Filter
+							</button>
+							<button class="btn-refresh" onclick="refreshData()">
+								<i class="bi bi-arrow-clockwise"></i> Refresh
+							</button>
+						</div>
+					</div>
+					<!-- Filter row (inside scanner card, matching Figma) -->
+					<div class="filter-row" id="filterSection" style="display:none;">
+						<div class="filter-items">
+							<div class="filter-item">
+								<label>Header Card</label>
+								<select class="filter-select" id="filterHeaderCard">
+									<option value="">Please select</option>
+								</select>
+							</div>
+							<div class="filter-item">
+								<label>ชนิดราคา</label>
+								<select class="filter-select" id="filterDenomination">
+									<option value="">Please select</option>
+<<<<<<< HEAD
+=======
+									<option value="20">20</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+									<option value="500">500</option>
+									<option value="1000">1000</option>
+								</select>
+							</div>
+							<div class="filter-item">
+								<label>ธนาคาร</label>
+								<select class="filter-select" id="filterBank">
+									<option value="">Please select</option>
+								</select>
+							</div>
+							<div class="filter-item">
+								<label>ศูนย์เงินสด</label>
+								<select class="filter-select" id="filterCashCenter">
+									<option value="">Please select</option>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+								</select>
+							</div>
+						</div>
+						<button class="btn-clear-filter" onclick="clearFilter()">Clear Filter</button>
+					</div>
+				</div>
+
+				<!-- 2 Tables side by side below scanner -->
+				<div class="tables-row">
+					<!-- Left Panel: Preparation -->
+					<div class="panel panel-left">
+						<div class="panel-header @Model.CssVariantClass">
+							<span class="panel-title">Preparation</span>
+						</div>
+						<div class="panel-table-scroll">
+							<table class="data-table reconcile-table-left">
+								<thead>
+									<tr>
+										<th class="col-spacer"></th>
+										<th class="th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="th-sort" data-sort="datetime">วันเวลาเตรียม <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="th-sort" data-sort="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody id="prepTableBody"></tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- Center Panel: Preparation + Data from Machine -->
+					<div class="panel panel-center">
+						<div class="panel-header @Model.CssVariantClass">
+							<span class="panel-title">Preparation + Data from Machine</span>
+						</div>
+						<div class="panel-table-scroll">
+							<table class="data-table reconcile-table-center">
+								<thead>
+									<tr>
+										<th class="col-spacer"></th>
+										<th class="th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="th-sort" data-sort="prepDate">วันเวลาเตรียม <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="th-sort" data-sort="createdDate">วันเวลานับคัด <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th class="th-sort" data-sort="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody id="machineTableBody"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right Column: Info Card on top, Header Card from Machine below -->
+			<div class="col-right">
+				<!-- Info Card (Figma node 32:25503 — pixel-perfect) -->
+				<div class="info-card">
+					<div class="info-row info-row-date">
+						<div class="info-label-wrap"><p>Date:</p></div>
+						<div class="info-date-value-area">
+							<div class="info-date-text"><p id="info-current-datetime">-</p></div>
+							<div class="info-date-icon-wrap"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.72 0a.44.44 0 0 1 .31.128l3.845 3.845a.44.44 0 0 1 .128.308v5.438a.44.44 0 0 1-.128.308l-3.845 3.845a.44.44 0 0 1-.31.128H4.283a.44.44 0 0 1-.308-.128L.13 10.027A.44.44 0 0 1 .002 9.72V4.28a.44.44 0 0 1 .128-.308L3.975.128A.44.44 0 0 1 4.283 0h5.437ZM7.003 8.75a.875.875 0 1 0 0 1.75.875.875 0 0 0 0-1.75Zm-.001-5.25c-.468 0-.835.405-.788.871l.307 3.068a.483.483 0 0 0 .481.436.483.483 0 0 0 .482-.436l.306-3.068c.047-.466-.32-.871-.788-.871Z" fill="#DC3545"/></svg></div>
+						</div>
+					</div>
+					<div class="info-row">
+						<div class="info-label-wrap"><p>Sorter:</p></div>
+						<div class="info-value-wrap"><p>@Model.Reconciliator</p></div>
+					</div>
+					<div class="info-row">
+						<div class="info-label-wrap"><p>Reconciliator:</p></div>
+						<div class="info-value-wrap"><p>@Model.Reconciliator</p></div>
+					</div>
+					<div class="info-row info-row-machine">
+						<div class="info-label-wrap"><p>Sorting Machine:</p></div>
+						<div class="info-value-nowrap"><p>@Model.SortingMachine</p></div>
+					</div>
+					<div class="info-row">
+						<div class="info-label-wrap"><p>Shift:</p></div>
+						<div class="info-value-wrap"><p>@Model.ShiftName</p></div>
+					</div>
+				</div>
+
+				<!-- Right Panel: Header Card from Machine -->
+				<div class="panel panel-right">
+					<div class="panel-header @Model.CssVariantClass">
+						<span class="panel-title">Header Card from Machine</span>
+					</div>
+					<div class="panel-table-scroll">
+						<table class="data-table reconcile-table-right">
+							<thead>
+								<tr>
+									<th class="col-spacer col-spacer-sm"></th>
+									<th class="th-sort" data-sort="headerCard">Header Card <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort th-datetime-wrap" data-sort="datetime">วันเวลา<br>นับคัด<i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th class="th-sort" data-sort="denom">ชนิดราคา <i class="bi bi-chevron-expand sort-icon"></i></th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody id="machineHcTableBody"></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!-- Alert Tooltip Card (shows on hover of red Header Card text) -->
+<div class="alert-tooltip" id="alertTooltip">
+	<div class="alert-tooltip-header">
+		<img src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L1 21h22L12 2z' fill='%23DC3545'/%3E%3Cpath d='M12 15a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-.5-6v4.5h1V9h-1z' fill='white'/%3E%3C/svg%3E" width="24" height="24" alt="" class="alert-tooltip-icon">
+		<span class="alert-tooltip-title">Reconcile Transaction</span>
+	</div>
+	<div class="alert-tooltip-body">
+		<p class="alert-tooltip-message" id="alertTooltipMessage"></p>
+	</div>
+</div>
+
+<!-- Modal 1: Edit Header Card -->
+<div class="modal fade" id="editReconcileModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">แก้ไขข้อมูล Header Card</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<input type="hidden" id="editReconcileTranId">
+				<div class="row g-4">
+					<div class="col-md-6">
+						<div class="mb-3">
+							<label class="form-label">Header Card (เก่า)</label>
+							<input type="text" class="form-control" id="editOldHeaderCard" disabled>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mb-3">
+							<label class="form-label">Header Card (ใหม่)</label>
+							<input type="text" class="form-control" id="editNewHeaderCard">
+						</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label class="form-label">เหตุผล <span class="text-danger">*</span></label>
+					<input type="text" class="form-control" id="editRemark" placeholder="ระบุเหตุผล">
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn btn-blue px-4" onclick="submitEditReconcileTran()">บันทึก</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 2: Reconcile Detail (Denomination Breakdown) -->
+<div class="modal fade" id="reconcileDetailModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">รายละเอียดการกระทบยอด</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<div class="mb-3">
+					<strong>Header Card:</strong> <span id="detailHeaderCard">-</span>
+				</div>
+				<div style="overflow-x:auto;">
+					<table class="table table-bordered align-middle text-center table-striped">
+						<thead class="table-dark">
+							<tr>
+								<th>#</th>
+								<th>ประเภทธนบัตร</th>
+								<th>ชุด</th>
+								<th>จำนวน</th>
+								<th>มูลค่ารวม</th>
+								<th>ปกติ</th>
+								<th>เพิ่ม</th>
+								<th>ค้าง</th>
+							</tr>
+						</thead>
+						<tbody id="detailTableBody"></tbody>
+						<tfoot>
+							<tr class="fw-bold">
+								<td colspan="3">รวม</td>
+								<td id="detailTotalQty">0</td>
+								<td id="detailTotalValue">0</td>
+								<td colspan="3"></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ปิด</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 3: OTP Supervisor Verification -->
+<div class="modal fade" id="otpReconcileModal" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title fw-bold">ยืนยัน OTP</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<div class="mb-3">
+					<label class="form-label">เลือก Supervisor <span class="text-danger">*</span></label>
+					<select class="form-select" id="reconcileSupervisorSelect">
+						<option value="">- เลือก -</option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label class="form-label fw-bold">Supervisor กรอกรหัส OTP / Refcode : <span id="reconcileOtpRefcode">XXXXXX</span></label>
+					<input type="text" id="reconcileOtpInput" class="form-control" placeholder="กรอกรหัส OTP 6 หลัก" maxlength="6" disabled>
+					<small id="reconcileOtpErrorMsg" class="text-danger fw-bold"></small>
+					<div class="d-flex align-items-center gap-3 mt-2">
+						<button id="btnReconcileSendOtp" class="btn-blue btn-sm" onclick="sendReconcileOtp()">
+							<i class="bi bi-envelope"></i> ส่งรหัส OTP
+						</button>
+						<span id="reconcileOtpTimer" class="text-danger fw-bold"></span>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-between">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button id="btnReconcileConfirmOtp" class="btn btn-green px-4" disabled onclick="submitReconcileOtp()">
+					<i class="bi bi-check-circle"></i> ยืนยัน OTP
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 4: Success -->
+<div class="modal fade" id="reconcileSuccessModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-success-title">
+						<i class="bi bi-check-circle-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">สำเร็จ!</h3>
+				<h6 class="mb-4" id="successMessage">ดำเนินการสำเร็จ</h6>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button class="btn btn-green px-5" onclick="closeAllReconcileModals()">
+					<i class="bi bi-check-lg"></i> ตกลง
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 5: Delete / Cancel Reconcile -->
+<div class="modal fade" id="deleteReconcileModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="text-black fw-bold mb-3" id="deleteModalTitle">ลบข้อมูล</h3>
+				<h6 class="text-muted mb-4" id="deleteModalMessage">คุณแน่ใจหรือไม่ที่ต้องการลบข้อมูลนี้</h6>
+				<div class="mb-3 text-start" style="max-width:400px; margin:0 auto;">
+					<label class="form-label">เหตุผล <span class="text-danger">*</span></label>
+					<input type="text" class="form-control" id="deleteRemark" placeholder="ระบุเหตุผล">
+				</div>
+			</div>
+			<div class="modal-footer d-flex justify-content-center gap-2">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn btn-red px-4" onclick="confirmDeleteReconcileTran()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal 6: Warning Alert (Quality/Output Mismatch) -->
+<div class="modal fade" id="warningAlertModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+						<i class="bi bi-exclamation-triangle-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">แจ้งเตือน</h3>
+				<h6 class="mb-4" id="warningAlertMessage">พบความไม่ตรงกันของข้อมูล</h6>
+			</div>
+			<div class="modal-footer justify-content-center gap-2">
+				<button class="btn btn-gray px-4" data-bs-dismiss="modal">ปิด</button>
+				<button class="btn btn-blue px-4" onclick="proceedManualKeyIn()">Manual Key-in</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal error -->
+<div class="modal fade" id="reconcileErrorModal" data-bs-backdrop="static" data-bs-keyboard="false"
+	 tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body text-center py-5">
+				<div class="mb-4">
+					<div class="modal-warning-title">
+<<<<<<< HEAD
+						<i class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3">การแจ้งเตือน</h3>
+=======
+						<i id="reconcileErrorIcon" class="bi bi-exclamation-diamond-fill"></i>
+					</div>
+				</div>
+				<h3 class="fw-bold mb-3" id="reconcileErrorTitle">การแจ้งเตือน</h3>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+				<h6 class="mb-4" id="reconcileErrorMessage">ข้อความผิดพลาด</h6>
+			</div>
+			<div class="modal-footer justify-content-center gap-2">
+				<button type="button" class="btn btn-blue px-4" data-bs-dismiss="modal">ตกลง</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     POPUP MODALS — Edit & Delete Flows (Figma Section 2:41247)
+     ══════════════════════════════════════════════════════ -->
+
+<!-- Modal: Edit Form — Simple (Figma node 2:41649, 600px) -->
+<div class="modal fade modal-popup modal-edit-form" id="editFormModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-top-bar">
+				<h5 class="modal-title">แก้ไขข้อมูล Header Card</h5>
+			</div>
+			<div class="form-area">
+				<input type="hidden" id="editFormReconcileTranId">
+				<input type="hidden" id="editFormIsAlert" value="0">
+				<div class="form-row-fields">
+					<div class="form-field form-field-half">
+<<<<<<< HEAD
+						<label>Header Card (ใหม่)</label>
+						<select class="form-select" id="editFormNewHc">
+							<option value="">-- เลือก --</option>
+							<option value="0054941209">0054941209</option>
+							<option value="0054941210">0054941210</option>
+							<option value="0054941211">0054941211</option>
+						</select>
+						<div class="popup-inline-error" id="editFormError">กรุณาเลือก Header Card ใหม่</div>
+					</div>
+					<div class="form-field form-field-half">
+						<label>Header Card (เก่า)</label>
+						<input type="text" class="form-control" id="editFormOldHc" readonly>
+					</div>
+=======
+						<label>Header Card (เก่า)</label>
+						<input type="text" class="form-control" id="editFormOldHc" readonly>
+					</div>
+					<div class="form-field form-field-half">
+						<label>Header Card (ใหม่)</label>
+						<input type="text" class="form-control" id="editFormNewHc" placeholder="กรอก Header Card ใหม่">
+						<div class="popup-inline-error" id="editFormError">กรุณากรอก Header Card ใหม่</div>
+					</div>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+				</div>
+			</div>
+			<div class="modal-action-bar">
+				<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn-popup btn-popup-confirm" onclick="submitEditForm()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<<<<<<< HEAD
+<!-- Modal: Edit Alert Form — 6 fields (Figma node 2:41257, 600px) -->
+<div class="modal fade modal-popup modal-edit-alert" id="editAlertFormModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-top-bar">
+				<h5 class="modal-title">แก้ไขข้อมูล Header Card</h5>
+			</div>
+			<div class="form-area">
+				<input type="hidden" id="editAlertReconcileTranId">
+				<div class="form-grid">
+					<div class="form-field">
+						<label>Header Card (เก่า) #1</label>
+						<input type="text" class="form-control" id="editAlertOldHc1" readonly>
+					</div>
+					<div class="form-field">
+						<label>ชนิดราคา #1</label>
+						<input type="text" class="form-control" id="editAlertDenom1" readonly>
+					</div>
+					<div class="form-field">
+						<label>Header Card (ใหม่) #1</label>
+						<select class="form-select" id="editAlertNewHc1">
+							<option value="">-- เลือก --</option>
+							<option value="0054941209">0054941209</option>
+							<option value="0054941210">0054941210</option>
+						</select>
+					</div>
+					<div class="form-field">
+						<label>Header Card (เก่า) #2</label>
+						<input type="text" class="form-control" id="editAlertOldHc2" readonly>
+					</div>
+					<div class="form-field">
+						<label>ชนิดราคา #2</label>
+						<input type="text" class="form-control" id="editAlertDenom2" readonly>
+					</div>
+					<div class="form-field">
+						<label>Header Card (ใหม่) #2</label>
+						<select class="form-select" id="editAlertNewHc2">
+							<option value="">-- เลือก --</option>
+							<option value="0054941211">0054941211</option>
+							<option value="0054941212">0054941212</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="popup-inline-error" id="editAlertFormError" style="margin-top:8px">กรุณาเลือก Header Card ใหม่ทั้ง 2 รายการ</div>
+			</div>
+			<div class="modal-action-bar">
+				<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+				<button class="btn-popup btn-popup-confirm" onclick="submitEditAlertForm()">ยืนยัน</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Edit Review / OTP (Figma nodes 2:41680→2:41761→2:41846, 1334px) -->
+<div class="modal fade modal-popup modal-otp-template" id="editReviewModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Review -->
+			<div class="modal-step active" id="editReviewStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+					<div class="modal-subtitle" id="editReviewSubtitle">เตรียมแก้ไขข้อมูล 1 รายการ</div>
+				</div>
+				<div class="otp-content">
+					<table class="review-table" id="editReviewTable">
+						<thead>
+							<tr>
+								<th style="width:30px">#</th>
+								<th class="td-warning-icon" style="width:30px">Warning</th>
+								<th>Header Card (เก่า)</th>
+								<th>Header Card (ใหม่)</th>
+								<th style="width:100px">ชนิดราคา</th>
+								<th>Container Barcode</th>
+								<th>ผู้เตรียม</th>
+								<th>แหล่งที่มา</th>
+							</tr>
+						</thead>
+						<tbody id="editReviewTableBody"></tbody>
+					</table>
+					<div class="otp-confirm-section">
+						<div class="section-title">ยืนยันการแก้ไข</div>
+=======
+<!-- Modal: Edit Review / OTP (Supervisor only) -->
+<div class="modal fade modal-popup modal-otp-template" id="editReviewModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Review + Remark -->
+			<div class="modal-step active" id="editReviewStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+				</div>
+				<div class="otp-content">
+					<div class="otp-confirm-section">
+						<div class="confirm-form-row" style="margin-bottom:12px">
+							<div class="confirm-field" style="display:flex;gap:16px">
+								<div style="flex:1">
+									<label>Header Card (เก่า)</label>
+									<input type="text" class="form-control" id="editReviewOldHc" readonly>
+								</div>
+								<div style="flex:1">
+									<label>Header Card (ใหม่)</label>
+									<input type="text" class="form-control" id="editReviewNewHc" readonly>
+								</div>
+							</div>
+						</div>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+						<div class="confirm-form-row">
+							<div class="confirm-field">
+								<label>เหตุผล <span class="text-danger">*</span></label>
+								<textarea class="form-control" id="editReviewRemark" rows="2" placeholder="ระบุเหตุผลการแก้ไข"></textarea>
+								<div class="popup-inline-error" id="editReviewRemarkError">กรุณาระบุเหตุผลการแก้ไข</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmEditReview()">ยืนยัน</button>
+				</div>
+			</div>
+
+<<<<<<< HEAD
+			<!-- Step B: OTP Supervisor -->
+			<div class="modal-step" id="editReviewStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+				</div>
+				<div class="otp-step active">
+					<div class="otp-role-label">ยืนยัน Supervisor</div>
+					<div class="otp-role-sublabel">กดปุ่มยืนยันเพื่อดำเนินการต่อ (Mock — ไม่ต้องกรอก OTP)</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmEditSupervisorOtp()">ยืนยัน</button>
+				</div>
+			</div>
+
+			<!-- Step C: OTP Manager -->
+			<div class="modal-step" id="editReviewStepC">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ตรวจสอบการแก้ไข</h5>
+				</div>
+				<div class="otp-step active">
+					<div class="otp-role-label">ยืนยัน Manager</div>
+					<div class="otp-role-sublabel">กดปุ่มยืนยันเพื่อดำเนินการต่อ (Mock — ไม่ต้องกรอก OTP)</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="confirmEditManagerOtp()">ยืนยัน</button>
+=======
+			<!-- Step B: Supervisor OTP -->
+			<div class="modal-step" id="editReviewStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ยืนยัน Supervisor OTP</h5>
+				</div>
+				<div class="otp-content">
+					<div class="otp-confirm-section">
+						<div class="confirm-form-row" style="margin-bottom:12px">
+							<div class="confirm-field">
+								<label>ผู้อนุมัติ (Supervisor) <span class="text-danger">*</span></label>
+								<select class="form-select" id="editHcSupervisorSelect">
+									<option value="">-- เลือกผู้อนุมัติ --</option>
+								</select>
+								<div class="popup-inline-error" id="editSupervisorError">กรุณาเลือกผู้อนุมัติ</div>
+							</div>
+						</div>
+						<div class="confirm-form-row" style="margin-bottom:8px">
+							<button class="btn-popup btn-popup-confirm" id="btnEditSendOtp" onclick="sendEditOtp()">ส่งรหัส OTP</button>
+						</div>
+						<div class="confirm-form-row" style="margin-bottom:4px">
+							<span class="otp-role-sublabel">Ref Code: <strong id="editOtpRefCode">-</strong></span>
+						</div>
+						<div class="confirm-form-row" style="margin-bottom:8px">
+							<div class="confirm-field" style="display:flex;gap:8px;align-items:flex-end">
+								<div style="flex:1">
+									<label>รหัส OTP (6 หลัก)</label>
+									<input type="text" class="form-control" id="editOtpInput" maxlength="6" placeholder="กรอกรหัส OTP" disabled>
+								</div>
+							</div>
+							<div id="editOtpTimer" style="font-size:12px;color:#888;margin-top:4px"></div>
+							<div class="popup-inline-error" id="editOtpError"></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" id="btnEditConfirmOtp" onclick="submitEditOtp()" disabled>ยืนยัน</button>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<<<<<<< HEAD
+<!-- Modal: Delete Confirm Table (Figma nodes 2:42573→2:42697, 1334px) -->
+<div class="modal fade modal-popup modal-otp-template" id="deleteConfirmTableModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Initial Confirm -->
+=======
+<!-- Modal: Delete Confirm Table (Figma nodes 2:42573->2:42697, 1334px) -->
+<div class="modal fade modal-popup modal-otp-template" id="deleteConfirmTableModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Select items + Confirm -->
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+			<div class="modal-step active" id="deleteStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ลบข้อมูล</h5>
+				</div>
+				<div class="otp-content">
+					<div class="delete-table-instruction">เลือกรายการ Header Card เพื่อทำการลบข้อมูล</div>
+					<table class="review-table" id="deleteConfirmTable">
+						<thead>
+							<tr>
+<<<<<<< HEAD
+								<th style="width:30px">#</th>
+=======
+								<th style="width:36px"><input type="checkbox" id="deleteCheckAll" onchange="toggleDeleteCheckAll(this)"></th>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+								<th>Header Card</th>
+								<th style="width:100px">ชนิดราคา</th>
+								<th>วันเวลานับคัด</th>
+								<th>แหล่งที่มา</th>
+							</tr>
+						</thead>
+						<tbody id="deleteConfirmTableBody"></tbody>
+					</table>
+<<<<<<< HEAD
+					<div class="delete-remark-section">
+						<label>เหตุผล <span class="text-danger">*</span></label>
+						<textarea class="form-control" id="deleteConfirmRemark" rows="2" placeholder="ระบุเหตุผลการลบ"></textarea>
+						<div class="popup-inline-error" id="deleteConfirmRemarkError">กรุณาระบุเหตุผลการลบ</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-danger" onclick="confirmDeleteTable()">ยืนยัน</button>
+				</div>
+			</div>
+
+			<!-- Step B: Reconfirm -->
+=======
+					<div class="popup-inline-error" id="deleteCheckboxError">กรุณาเลือกรายการที่ต้องการลบ</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-danger" onclick="confirmDeleteTable()">ดำเนินการต่อ</button>
+				</div>
+			</div>
+
+			<!-- Step B: Reconfirm + Supervisor + Remark -->
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+			<div class="modal-step" id="deleteStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">Reconfirm ลบข้อมูล</h5>
+				</div>
+				<div class="otp-content">
+					<table class="review-table" id="deleteReconfirmTable">
+						<thead>
+							<tr>
+								<th style="width:30px">#</th>
+								<th>Header Card</th>
+								<th style="width:100px">ชนิดราคา</th>
+								<th>วันเวลานับคัด</th>
+								<th>แหล่งที่มา</th>
+							</tr>
+						</thead>
+						<tbody id="deleteReconfirmTableBody"></tbody>
+					</table>
+<<<<<<< HEAD
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-danger" onclick="confirmDeleteReconfirm()">ยืนยัน</button>
+				</div>
+			</div>
+
+			<!-- Step C: OTP Supervisor -->
+			<div class="modal-step" id="deleteStepC">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ลบข้อมูล</h5>
+				</div>
+				<div class="otp-step active">
+					<div class="otp-role-label">ยืนยัน Supervisor</div>
+					<div class="otp-role-sublabel">กดปุ่มยืนยันเพื่อดำเนินการต่อ (Mock — ไม่ต้องกรอก OTP)</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-danger" onclick="confirmDeleteSupervisor()">ยืนยัน</button>
+				</div>
+			</div>
+
+			<!-- Step D: OTP Manager -->
+			<div class="modal-step" id="deleteStepD">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ลบข้อมูล</h5>
+				</div>
+				<div class="otp-step active">
+					<div class="otp-role-label">ยืนยัน Manager</div>
+					<div class="otp-role-sublabel">กดปุ่มยืนยันเพื่อดำเนินการต่อ (Mock — ไม่ต้องกรอก OTP)</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-danger" onclick="confirmDeleteManager()">ยืนยัน</button>
+=======
+					<div class="otp-confirm-section" style="margin-top:12px">
+						<div class="confirm-form-row" style="margin-bottom:12px">
+							<div class="confirm-field">
+								<label>ผู้อนุมัติ (Supervisor) <span class="text-danger">*</span></label>
+								<select class="form-select" id="deleteSupervisorSelect">
+									<option value="">-- เลือกผู้อนุมัติ --</option>
+								</select>
+								<div class="popup-inline-error" id="deleteSupervisorError">กรุณาเลือกผู้อนุมัติ</div>
+							</div>
+						</div>
+						<div class="confirm-form-row" style="margin-bottom:12px">
+							<div class="confirm-field">
+								<label>เหตุผล <span class="text-danger">*</span></label>
+								<textarea class="form-control" id="deleteConfirmRemark" rows="2" placeholder="ระบุเหตุผลการลบ"></textarea>
+								<div class="popup-inline-error" id="deleteConfirmRemarkError">กรุณาระบุเหตุผลการลบ</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-danger" onclick="confirmDeleteReconfirm()">ส่งคำขออนุมัติ</button>
+				</div>
+			</div>
+
+			<!-- Step C: OTP Supervisor (Mock) -->
+			<div class="modal-step" id="deleteStepC">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ยืนยัน Supervisor OTP</h5>
+				</div>
+				<div class="otp-content">
+					<div class="otp-confirm-section">
+						<div class="confirm-form-row" style="margin-bottom:4px">
+							<span class="otp-role-sublabel">Ref Code: <strong id="deleteOtpRefCode">-</strong></span>
+						</div>
+						<div class="confirm-form-row" style="margin-bottom:8px">
+							<div class="confirm-field" style="display:flex;gap:8px;align-items:flex-end">
+								<div style="flex:1">
+									<label>รหัส OTP (6 หลัก)</label>
+									<input type="text" class="form-control" id="deleteOtpInput" maxlength="6" placeholder="กรอกรหัส OTP">
+								</div>
+							</div>
+							<div id="deleteOtpTimer" style="font-size:12px;color:#888;margin-top:4px"></div>
+							<div class="popup-inline-error" id="deleteOtpError"></div>
+						</div>
+						<div class="confirm-form-row">
+							<button class="btn-popup btn-popup-confirm" id="btnDeleteResendOtp" onclick="sendDeleteOtp()" style="display:none">ส่งรหัส OTP อีกครั้ง</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" id="btnDeleteConfirmOtp" onclick="submitDeleteOtp()">ยืนยัน</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Unlock (Mock — Supervisor + OTP) -->
+<div class="modal fade modal-popup modal-otp-template" id="unlockModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<!-- Step A: Supervisor select -->
+			<div class="modal-step active" id="unlockStepA">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ปลดล็อค (Unlock)</h5>
+				</div>
+				<div class="otp-content">
+					<div class="otp-confirm-section">
+						<div class="confirm-form-row" style="margin-bottom:12px">
+							<div class="confirm-field">
+								<label>ผู้อนุมัติ (Supervisor) <span class="text-danger">*</span></label>
+								<select class="form-select" id="unlockSupervisorSelect">
+									<option value="">-- เลือกผู้อนุมัติ --</option>
+								</select>
+								<div class="popup-inline-error" id="unlockSupervisorError">กรุณาเลือกผู้อนุมัติ</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" onclick="sendUnlockOtp()">ส่งคำขออนุมัติ</button>
+				</div>
+			</div>
+			<!-- Step B: OTP -->
+			<div class="modal-step" id="unlockStepB">
+				<div class="modal-top-bar">
+					<h5 class="modal-title">ยืนยัน Supervisor OTP</h5>
+				</div>
+				<div class="otp-content">
+					<div class="otp-confirm-section">
+						<div class="confirm-form-row" style="margin-bottom:4px">
+							<span class="otp-role-sublabel">Ref Code: <strong id="unlockOtpRefCode">-</strong></span>
+						</div>
+						<div class="confirm-form-row" style="margin-bottom:8px">
+							<div class="confirm-field" style="display:flex;gap:8px;align-items:flex-end">
+								<div style="flex:1">
+									<label>รหัส OTP (6 หลัก)</label>
+									<input type="text" class="form-control" id="unlockOtpInput" maxlength="6" placeholder="กรอกรหัส OTP">
+								</div>
+							</div>
+							<div id="unlockOtpTimer" style="font-size:12px;color:#888;margin-top:4px"></div>
+							<div class="popup-inline-error" id="unlockOtpError"></div>
+						</div>
+						<div class="confirm-form-row">
+							<button class="btn-popup btn-popup-confirm" id="btnUnlockResendOtp" onclick="sendUnlockOtp()" style="display:none">ส่งรหัส OTP อีกครั้ง</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-action-bar">
+					<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+					<button class="btn-popup btn-popup-confirm" id="btnUnlockConfirmOtp" onclick="submitUnlockOtp()">ยืนยัน</button>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal: Print Report (Figma node 2:42846, 1346px) -->
+<div class="modal fade modal-popup modal-print-report" id="printReportModal" tabindex="-1" data-bs-backdrop="static">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="report-top-bar">
+				<span class="report-title">Print Cancel Reconcile Report</span>
+				<span class="report-subtitle">Branch Summary Report</span>
+			</div>
+			<div class="report-preview">
+				<div class="report-preview-box" id="reportPreviewContent">
+					<!-- Mock report content inserted by JS -->
+				</div>
+			</div>
+			<div class="modal-action-bar">
+<<<<<<< HEAD
+				<button class="btn-popup btn-popup-cancel" data-bs-dismiss="modal">ยกเลิก</button>
+=======
+				<button class="btn-popup btn-popup-cancel" onclick="closePrintAndGoBack()">ย้อนกลับ</button>
+>>>>>>> bd16f561348fd0fd7dac18a74df6a46eb3d8635f
+				<button class="btn-popup btn-popup-primary" onclick="printReport()">พิมพ์</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="@Url.Content("~/js/reconcile/reconcileTransaction.js")" asp-append-version="true"></script>
+}

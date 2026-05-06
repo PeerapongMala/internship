@@ -1,0 +1,72 @@
+{
+  "waveList": [
+    {
+      "name": "wave1",
+      "waveDuration": 3,
+      "spawnList": [
+        {
+          "timeAt": 1,
+          "objectList": [
+            {
+              "type": "zombie_normal",
+              "amount": 2,
+              "statMultiplier": 1,
+              "scoreMultiplier": 2
+            }
+          ]
+        },
+        {
+          "timeAt": 2,
+          "objectList": [
+            {
+              "type": "zombie_normal",
+              "amount": 5,
+              "statMultiplier": 1,
+              "scoreMultiplier": 2
+            }
+          ]
+        },
+        {
+          "timeAt": 3,
+          "objectList": [
+            {
+              "type": "zombie_normal",
+              "amount": 1,
+              "statMultiplier": 1,
+              "scoreMultiplier": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wave2",
+      "spawnList": [
+        {
+          "timeAt": 1,
+          "objectList": [
+            {
+              "type": "zombie_normal",
+              "amount": 5,
+              "statMultiplier": 1,
+              "scoreMultiplier": 2
+            }
+          ]
+        },
+
+        {
+          "timeAt": 2,
+          "objectList": [
+            {
+              "type": "zombie_normal",
+              "amount": 5,
+              "statMultiplier": 1,
+              "scoreMultiplier": 2
+            }
+          ]
+        }
+      ],
+      "waveDuration": 5
+    }
+  ]
+}

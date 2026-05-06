@@ -1,0 +1,106 @@
+{
+  "tab_menu_setting": "设置",
+  "tab_menu_download": "下载",
+  "tab_menu_account": "账户",
+  "tab_menu_about_us": "关于我们",
+  "label_background_music": "背景音乐",
+  "label_sfx_music": "音效",
+  "label_text_language": "游戏语言",
+  "label_sound_language": "语音语言",
+  "label_font_size": "字体大小",
+  "label_sound_music": "旁白",
+  "label_enable_gameplay_model_renderer": "显示战斗场景",
+  "label_enable_particle": "显示背景特效",
+  "option_label_language_th": "泰语",
+  "option_label_language_en": "英语",
+  "option_label_language_cn": "中文",
+  "footer_version": "版本 {{ version }}",
+  "footer_update": "更新",
+  "footer_logout_game": "登出",
+  "section_tab_menu_account": "账户",
+  "section_tab_menu_family_qrcode": "扫描二维码 / 家庭",
+  "account_display_role": "角色: {{ role }}",
+  "account_button_copy_uuid": "复制 UUID",
+  "account_info_title": "账户信息:",
+  "account_info_uuid": "账户ID (UUID): {{ uuid }}",
+  "account_info_student_id": "学生ID: {{ studentId }}",
+  "account_info_school": "学校: {{ schoolName }} ({{ schoolId }})",
+  "account_footer_button_bug_report": "回報錯誤",
+  "account_footer_button_change_pin": "修改PIN碼",
+  "account_footer_button_share_profile": "分享个人资料",
+  "student_uuid": "学生UUID: {{ id }}",
+  "family_id": "家庭: {{ id }}",
+  "family_owner": "账户拥有者: {{ name }}",
+  "family_line_description": "扫描加入家庭使用 Line @Clever",
+  "section_tab_menu_waiting_upload": "等待上传",
+  "section_tab_menu_uploaded_history": "上传记录",
+  "section_tab_waiting_upload_subtitle": "设备连接互联网后数据将自动上传",
+  "btn_account_list_last_login": "上次登录: {{ date }}",
+  "btn_account_list_latest_uploaded": "上次上传: {{ date }}",
+  "section_tab_menu_about_us": "关于我们",
+  "section_tab_menu_contact_us": "联系我们",
+  "about_us_content": {
+    "title": "关于 Clever",
+    "content": "Clever Platform 是由泰国 Nextgen Education Co., Ltd. 开发的教育游戏平台，<br>旨在通过易于理解且安全的科技，促进创造性学习。<br>适合所有年龄段的学习者，通过游戏体验快乐学习。<br>该系统可在学校、家庭或学习中心使用，并配备了进度跟踪功能，<br>帮助教师和家长持续了解学习者的学习进展。<br>我们致力于开发支持数字时代学习的优质平台，<br>为每个人提供优质的学习机会。"
+  },
+  "language": "中文",
+  "confirm": "確認",
+  "privacy_policy": "隐私政策",
+  "terms_of_use": "服务条款",
+  "privacy_policy_content": {
+    "title": "Clever Platform 隐私政策",
+    "summary_title": "概述",
+    "summary_content": "本隐私政策说明了泰国 Nextgen Education Co., Ltd.（以下简称“公司”）收集、使用和存储的个人信息（以下简称“个人信息”）类型，以及在符合《泰国个人信息保护法》（PDPA 2019）的前提下向第三方披露信息的情况。<br><br>公司保留不时更新或更改本政策的权利，以符合法律要求及商业目的，更新后的内容将通过公司官网公告通知。",
+
+    "1_title": "1. 我们收集的个人信息",
+    "1_content": "公司收集的个人信息包括：用户名、PIN码、设备ID、应用程序版本、用户资料信息、分数或使用结果、在应用程序内的使用记录及活动信息。",
+
+    "2_title": "2. 个人信息的使用目的，公司将您的个人信息用于：",
+    "2_1_content": "提供与 Clever Platform 相关的资讯和活动；",
+    "2_2_content": "开发和提升服务质量；",
+    "2_3_content": "维护信息安全，防止欺诈行为；",
+    "2_4_content": "内部目的，例如分析和研究以改进服务；",
+
+    "3_title": "3. 个人信息保护",
+    "3_content": "公司采取适当的措施保护个人信息，例如使用数据加密技术（TLS），并仅限授权人员访问相关信息。",
+
+    "4_title": "4. 自动决策与用户画像",
+    "4_content": "公司不会进行任何会对用户产生重大影响的自动决策或建立用户画像的行为。",
+
+    "5_title": "5. 数据主体的权利",
+    "5_content": "您有权访问、更正、删除或更新公司持有的您的个人信息，公司在处理您的请求前可能需要进一步验证您的身份。",
+
+    "6_title": "6. 个人信息的存储期限",
+    "6_content": "公司将在为提供服务所必需的期间内保存您的个人信息，如无继续保存的必要，公司将立即删除或销毁您的个人信息。",
+
+    "7_title": "7. 儿童隐私",
+    "7_content": "公司重视对13岁以下儿童个人信息的保护，收集信息前将取得家长或法定监护人的同意。如发现未经同意收集的信息，公司将立即删除。",
+
+    "8_title": "8. 公司对数据保护的承诺",
+    "8_content": "公司已向所有员工宣导并培训，要求严格遵守本隐私政策，以保障用户个人信息的安全。",
+
+    "9_title": "9. 联系方式与投诉渠道",
+    "9_content": "如您对个人信息管理有任何疑问或投诉，可通过以下方式联系公司：<br><br>电子邮件：nextgen@nextgen-education.com<br>电话：099-805-4987<br>官网：https://nextgen-education.com"
+  },
+  "date": "日期：{{date}}",
+  "downloadContent": {
+    "title": {
+      "preset": "下载速度设置 - 预设",
+      "asset": "下载设置 - 资源",
+      "sublesson": "下载设置 - 子课程",
+      "level": "下载设置 - 关卡"
+    },
+    "preset": {
+      "slow": "慢",
+      "normal": "普通",
+      "fast": "快",
+      "turbo": "极速",
+      "custom": "自定义"
+    },
+    "assetConcurrency": "图片下载数量",
+    "sublessonConcurrency": "子课程下载数量",
+    "sublessonDelay": "子课程下载延迟 (毫秒)",
+    "levelDelay": "关卡下载延迟 (毫秒)",
+    "questionDelay": "题目下载延迟 (毫秒)"
+  }
+}

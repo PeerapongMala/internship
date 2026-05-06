@@ -1,0 +1,13 @@
+{
+  "status_code": 200,
+  "message": "success",
+  "data": [
+    {
+      "inventory_id": 1,
+      "is_equipped": true,
+      "pet_id": 1,
+      "model_id": "1"
+    }
+  ],
+  "error": null
+}

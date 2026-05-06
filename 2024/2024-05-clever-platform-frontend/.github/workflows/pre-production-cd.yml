@@ -1,0 +1,39 @@
+name: PRE_PRODUCTION-CD
+
+on:
+  push:
+    branches: ['pre_production']
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Deploy
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/docker-build.yml@main
+    with:
+      working-dir: .
+      image-name: frontend
+
+    secrets:
+      DOCKER_REGISTRY: ${{secrets.PROD_DOCKER_REGISTRY}}
+      DOCKER_USERNAME: ${{secrets.PROD_DOCKER_USERNAME}}
+      DOCKER_PASSWORD: ${{secrets.PROD_DOCKER_PASSWORD}}
+      BUILD_ARGS: |
+        VITE_API_BASE_URL=${{secrets.PRE_PROD_VITE_API_BASE_URL}}
+        VITE_DEBUG_API_IS_MOCK=${{secrets.PRE_PROD_VITE_DEBUG_API_IS_MOCK}}
+        VITE_CLMS_BASE_URL=${{secrets.PRE_PROD_VITE_CLMS_BASE_URL}}
+        VITE_LINK_LINE_OA_URL=${{secrets.PRE_PROD_VITE_LINK_LINE_OA_URL}}
+        VITE_REPLACE_URL_FROM=${{secrets.PRE_PROD_VITE_REPLACE_URL_FROM}}
+        VITE_REPLACE_URL_TO=${{secrets.PRE_PROD_VITE_REPLACE_URL_TO}}
+  deploy:
+    name: Deploy
+    needs: build
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/docker-deploy.yml@main
+    with:
+      container-name: frontend-gamebase
+      namespace-name: production # due poc naming
+
+    secrets:
+      KUBE_CONFIG: ${{secrets.PROD_KUBE_CONFIG}}
+      OVPN_CONFIG: ${{secrets.PROD_OVPN_CONFIG}}
+      VPN_USERNAME: ${{secrets.PROD_VPN_USERNAME}}
+      VPN_PASSWORD: ${{secrets.PROD_VPN_PASSWORD}}

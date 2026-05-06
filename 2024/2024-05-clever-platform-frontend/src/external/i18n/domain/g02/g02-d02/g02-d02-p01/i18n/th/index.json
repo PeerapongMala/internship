@@ -1,0 +1,7 @@
+{
+  "header_announce_date": "วันที่: {{ date }}",
+  "announce_from_school": "ประกาศจากโรงเรียน",
+  "announce_from_system": "ประกาศจากระบบ",
+  "no_announcement_from_school": "ยังไม่มีประกาศจากโรงเรียน",
+  "no_announcement_from_system": "ยังไม่มีประกาศจากระบบ"
+}

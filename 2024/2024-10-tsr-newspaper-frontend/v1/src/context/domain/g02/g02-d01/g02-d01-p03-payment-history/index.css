@@ -1,0 +1,29 @@
+/* In your global CSS or Tailwind configuration */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
+
+#root {
+  margin: 0 auto;
+}
+@layer utilities {
+  .dark-scrollbar {
+    scrollbar-color: #cecece transparent;
+    scrollbar-width: thin;
+  }
+
+  .dark-scrollbar::-webkit-scrollbar {
+    @apply dark:bg-transparent w-2;
+  }
+
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    @apply dark:bg-gray-600 rounded-full;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about_sublesson_title": "เกี่ยวกับบทเรียนย่อย",
+  "amount_of_level_label": "จำนวนด่าน",
+  "amount_of_sublesson_file_size_label": "ขนาดไฟล์",
+  "download_sublesson_sound_btn_label": "ดาวน์โหลดเสียงบรรยาย",
+  "download_sublesson_btn_label": "ดาวน์โหลดไฟล์เสียง",
+  "download_audio_files_btn_label": "ดาวน์โหลดไฟล์เสียง ({{count}} ไฟล์)",
+  "files_label": "ไฟล์",
+  "delete_local_sublesson_data_btn_label": "ลบข้อมูลเสียงจากเครื่อง",
+  "delete_local_sublesson_data_modal_title": "ลบข้อมูลเสียงจากเครื่อง",
+  "delete_local_sublesson_data_modal_message": "คุณต้องการลบข้อมูลเสียงบรรยายจากเครื่อง ?<br/>การลบข้อมูลเสียงจะ<strong>ไม่มีผลต่อประวัติการเล่นของคุณ</strong><br/><br/>การเก็บข้อมูลเสียงไว้ในเครื่อง ทำให้คุณสามารถเล่นโหมดออฟไลน์ได้และคุณสามารถดาวน์โหลดข้อมูลใหม่ได้อีกครั้ง เมื่อคุณเชื่อมต่ออินเตอร์เน็ต",
+  "confirm_delete_local_sublesson_data_modal_btn_label": "ยืนยันการลบ",
+  "play_btn_label": "เริ่มเล่น",
+  "checkbox_language_th_label": "ภาษาไทย",
+  "checkbox_language_en_label": "ภาษาอังกฤษ",
+  "checkbox_language_cn_label": "ภาษาจีน"
+}

@@ -1,0 +1,11 @@
+{
+  "redeem_header": "กรอกโค้ดรับรางวัล",
+  "redeem_placeholder": "กรอกโค้ดรับรางวัล...",
+  "redeem_code_incorrect": "รหัสไม่ถูกต้อง กรุณาลองอีกครั้ง",
+  "redeem_code_already_used": "รหัสนี้ถูกใช้งานไปแล้ว กรุณาลองรหัสอื่น",
+  "redeem_confirm": "รับรางวัล",
+
+  "reward_received": "สำเร็จ ได้รับรางวัลเเล้ว",
+  "sent_to_inventory": "รางวัลของคุณถูกกส่งไปยังคลังเก็บของแล้ว",
+  "inventory": "คลังเก็บของ"
+}

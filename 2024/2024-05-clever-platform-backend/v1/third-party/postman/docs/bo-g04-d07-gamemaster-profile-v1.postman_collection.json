@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "1725c289-31bd-49c7-bf20-b828cfed3677",
+		"name": "bo-g04-d07-gamemaster-profile-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-gamemaster-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/gamemaster-profile/v1/gamemaster",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gamemaster-profile",
+						"v1",
+						"gamemaster"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-gamemaster-update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "dr",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "doe",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "pat",
+							"description": "optional",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"description": "optional",
+							"type": "file",
+							"src": "/C:/Users/patwanich/Pictures/test/hint.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/gamemaster-profile/v1/gamemaster",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gamemaster-profile",
+						"v1",
+						"gamemaster"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-gamemaster-case-update-password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"patdoepass\" // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/gamemaster-profile/v1/gamemaster/password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"gamemaster-profile",
+						"v1",
+						"gamemaster",
+						"password"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

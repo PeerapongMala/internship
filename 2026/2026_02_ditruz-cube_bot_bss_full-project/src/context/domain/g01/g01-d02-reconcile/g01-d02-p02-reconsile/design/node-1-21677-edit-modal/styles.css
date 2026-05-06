@@ -1,0 +1,86 @@
+/* ============================================================
+   Figma Reference CSS — Node 1:21677 (Edit Modal)
+   WARNING: Reference only. font-family: 'Pridi' → 'bss-pridi'
+   ============================================================ */
+
+.modal-content {
+    background: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+}
+
+.modal-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #CBD5E1;
+}
+
+.modal-title {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+}
+
+.modal-body {
+    padding: 24px;
+    gap: 16px;
+}
+
+.kv-container {
+    padding: 8px;
+    gap: 8px;
+}
+
+.kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kv-label, .kv-value {
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+.qty-input {
+    width: 87px;
+    border: 1px solid #86B7FE;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+}
+
+.modal-footer {
+    padding: 16px;
+    border-top: 1px solid #CBD5E1;
+    justify-content: space-between;
+}
+
+.btn-cancel {
+    width: 120px;
+    padding: 6px 12px;
+    background: #6C757D;
+    border: 1px solid #6C757D;
+    border-radius: 6px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.btn-save {
+    width: 120px;
+    padding: 6px 12px;
+    background: #198754;
+    border: 1px solid #198754;
+    border-radius: 6px;
+    font-family: 'Pridi'; /* → 'bss-pridi' */
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}

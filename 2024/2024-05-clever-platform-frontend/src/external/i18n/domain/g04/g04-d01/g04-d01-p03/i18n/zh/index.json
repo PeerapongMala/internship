@@ -1,0 +1,11 @@
+{
+  "amount_of_sublesson_label": "子课程数量",
+  "amount_of_lesson_file_size_label": "文件大小",
+  "download_lesson_btn_label": "下载课程",
+  "delete_local_lesson_data_btn_label": "删除本地数据",
+  "delete_local_lesson_data_modal_title": "删除本地课程数据",
+  "delete_local_lesson_data_modal_message": "您确定要从设备中删除课程数据吗？<br/>删除课程数据<strong>不会影响您的游戏记录</strong>。<br/><br/>将课程数据保留在设备上可以让您在离线模式下学习，连接互联网后可重新下载数据。",
+  "confirm_delete_local_lesson_data_modal_btn_label": "确认删除",
+  "view_sublesson_btn_label": "选择课程",
+  "about_lesson": "关于课程"
+}

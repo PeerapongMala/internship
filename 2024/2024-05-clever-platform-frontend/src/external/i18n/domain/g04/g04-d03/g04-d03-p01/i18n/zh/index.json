@@ -1,0 +1,115 @@
+{
+  "template1": {
+    "questionTitle": "Q1. 按规定条件分组",
+    "questionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec odio vitae nunc."
+  },
+  "template2": {
+    "questionTitle": "Q1. 按规定条件分组",
+    "answers": {
+      "fish": "鱼",
+      "cat": "猫",
+      "dog": "狗",
+      "bird": "鸟 鸟 鸟"
+    },
+    "firstParagraph": "Lorem ipsum dolor sit amet,",
+    "secondText": "elit. Donec nec odio vitae nunc.",
+    "thirdText": "ipsum dolor sit amet,",
+    "fourthText": "adipiscing elit.",
+    "fifthText": "vitae"
+  },
+  "pageFinish": {
+    "title": "游戏结束",
+    "completionMessage": "您已完成此关卡",
+    "homeButton": "返回主页"
+  },
+  "pageAnswer": {
+    "correctAnswerTitle": "回答正确",
+    "wrongAnswerTitle": "回答错误",
+    "correctAnswerText": "您的答案是正确的",
+    "wrongAnswerText": "您的答案不正确",
+    "correctAnswerLabel": "正确答案是",
+    "understandButton": "我明白了",
+    "correctImage": "回答正确图片",
+    "wrongImage": "回答错误图片",
+    "petImage": "宠物图片"
+  },
+  "modalTimeout": {
+    "warn": {
+      "title": "时间到",
+      "message": "抱歉，时间已经用完了。您可以继续玩这个游戏。",
+      "continueWithoutTimeLimit": "无时间限制继续",
+      "playAgain": "重新开始"
+    },
+    "end": {
+      "title": "时间到",
+      "messageSorry": "抱歉，时间已经用完了",
+      "messageTryAgain": "您没有通过这个关卡。请再试一次。",
+      "exitGame": "退出游戏",
+      "tryAgain": "再试一次"
+    },
+    "icons": {
+      "play": "播放图标",
+      "forward": "前进图标",
+      "home": "主页图标"
+    }
+  },
+  "modalNotFound": {
+    "title": "未找到数据",
+    "message": "未找到关卡数据",
+    "backToLevelSelect": "返回选择关卡",
+    "tryAgain": "再试一次",
+    "icons": {
+      "home": "主页图标",
+      "forward": "前进图标"
+    }
+  },
+  "modalInput": {
+    "titles": {
+      "textInput": "输入答案",
+      "speechInput": "语音答案"
+    },
+    "buttons": {
+      "confirm": "确认"
+    },
+    "text": {
+      "hint": "提示：答案有 {{count}} 个字符",
+      "placeholder": "输入您的答案..."
+    },
+    "speech": {
+      "youSaid": "您说的是",
+      "listening": "正在聆听...",
+      "tapToStart": "点击开始说话",
+      "processing": "处理中..."
+    },
+    "errors": {
+      "speechToTextFailed": "无法将您的语音转换为文字，请重试。",
+      "somethingWentWrong": "出了点问题"
+    },
+    "icons": {
+      "mic": "麦克风图标",
+      "refresh": "刷新图标"
+    }
+  },
+  "header": {
+    "setting": "设置",
+    "teacher": "老师",
+    "lessonInfo": "课程信息",
+    "score": "分数",
+    "sword": "剑"
+  },
+  "titles": {
+    "defaultTitle": "",
+    "hintButton": "提示按钮"
+  },
+  "questionInputList": {
+    "soundButton": "声音按钮",
+    "answerField": "答案字段",
+    "micButton": "麦克风按钮",
+    "blankPlaceholder": "___ {{count}} ___"
+  },
+  "groupOrDrop": {
+    "dragAnswerHere": "将答案拖到这里",
+    "noAnswers": "没有答案",
+    "emptyGroupImage": "空组图像"
+  }
+}

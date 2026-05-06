@@ -1,0 +1,2004 @@
+{
+	"info": {
+		"_postman_id": "acc54259-0eac-41b4-b2ce-eff8eac4af15",
+		"name": "bo-g03-d01-teacher-dashboard-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "g03-d01-a01-api-academic-year-filters",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/academic-year-filters?page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"academic-year-filters"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a01-api-academic-year-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/academic-year-filters?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"academic-year-filters"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:42:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "214"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "67cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"academic_year\": 2567,\n            \"start_date\": \"2023-01-01T17:25:19.821779Z\",\n            \"end_date\": \"2024-01-01T17:25:19.821779Z\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a02-api-year-filters",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/year-filters?academic_year=2567&page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"year-filters"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a02-api-year-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/year-filters?academic_year=2567&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"year-filters"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:47:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6bcfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"year\": \"ป.4\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a03-api-class-filters",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/class-filters?academic_year=2567&year=ป.4&page=1&limit=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"class-filters"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a03-api-class-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/class-filters?academic_year=2567&year=ป.4&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"class-filters"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:47:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6ccfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"class_id\": 1,\n            \"name\": \"1\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a04-api-total-students",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/total-students?study_group_ids=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"total-students"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"disabled": true
+						},
+						{
+							"key": "class_id",
+							"value": "1",
+							"description": "if this query is present other query is ignore",
+							"disabled": true
+						},
+						{
+							"key": "study_group_ids",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a04-api-total-students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/total-students?academic_year=2567&year=ป.4&class_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"total-students"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_id",
+									"value": "1",
+									"description": "if this query is present other query is ignore"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:47:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6dcfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"student_count\": 1\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a05-api-latest-homework-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/latest-homework-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"latest-homework-overview"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						},
+						{
+							"key": "study_group_ids",
+							"value": "1",
+							"description": "optional | 1,2,3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a05-api-latest-homework-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/latest-homework-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"latest-homework-overview"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "325"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6ecfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"homework_name\": \"การบ้าน 1\",\n            \"homework_level_ids\": [\n                1,\n                2\n            ],\n            \"started_at\": \"2024-12-16T06:50:07.699Z\",\n            \"closed_at\": \"2024-12-16T06:50:07.699Z\",\n            \"due_at\": \"2024-12-16T06:50:07.699Z\",\n            \"not_start\": 2,\n            \"in_progress\": 0,\n            \"submitted\": 0,\n            \"submitted_late\": 0,\n            \"total_submission\": 2\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a06-api-level-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/level-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"level-overview"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						},
+						{
+							"key": "study_group_ids",
+							"value": "1",
+							"description": "optional | 1,2,3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a06-api-level-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/level-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"level-overview"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6fcfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"total_level\": 4,\n            \"passed_level\": 4,\n            \"failed_level\": 0\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a07-api-score-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/score-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"score-overview"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						},
+						{
+							"key": "study_group_ids",
+							"value": "1",
+							"description": "optional | 1,2,3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a07-api-score-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/score-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"score-overview"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "70cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"total_score\": 12,\n            \"student_score\": 1\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a08-api-question-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/question-overview?academic_year=2567&year=ป.4&class_ids=1,2&study_group_ids=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"question-overview"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						},
+						{
+							"key": "study_group_ids",
+							"value": "5",
+							"description": "optional | 1,2,3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a08-api-question-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/question-overview?academic_year=2567&year=ป.4&class_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"question-overview"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "71cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"total_question\": 13,\n            \"total_level\": 4,\n            \"level_submitted\": 4\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a9-api-subject-filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/subject-filters?academic_year=2567&year=ป.4&class_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"subject-filters"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a9-api-subject-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/subject-filters?academic_year=2567&year=ป.4&class_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"subject-filters"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "221"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "72cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 2\n    },\n    \"data\": [\n        {\n            \"subject_id\": 1,\n            \"name\": \"ภาษาอังกฤษ\"\n        },\n        {\n            \"subject_id\": 1,\n            \"name\": \"ภาษาอังกฤษ\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a10-api-lesson-filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/lesson-filters?academic_year=2567&year=ป.4&class_ids=1,2&subject_ids=1,2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"lesson-filters"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						},
+						{
+							"key": "subject_ids",
+							"value": "1,2",
+							"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a10-api-lesson-filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/lesson-filters?academic_year=2567&year=ป.4&class_ids=1,2&subject_ids=1,2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"lesson-filters"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								},
+								{
+									"key": "subject_ids",
+									"value": "1,2",
+									"description": "- This parameter can be sent in two ways:\n    1. As a **comma-separated list**: `?class_ids=1,2,3`\n    2. As **repeated keys**: `?class_ids=1&class_ids=2&class_ids=3`\n  - The backend will parse both formats correctly."
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "156"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "73cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"subject_id\": 1,\n            \"lesson_id\": 1,\n            \"name\": \"Lesson 1\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a11-api-top-students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/top-students?class_ids=1&subject_ids=1&lesson_ids=1&limit=10&study_group_ids=6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"top-students"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"disabled": true
+						},
+						{
+							"key": "class_ids",
+							"value": "1"
+						},
+						{
+							"key": "subject_ids",
+							"value": "1"
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a11-api-top-students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/top-students?academic_year=2567&year=ป.4&class_ids=1,2&subject_ids=1,2&lesson_ids=1,2&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"top-students"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "subject_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "74cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"name\": \"อภิชาติ เชื้อ\",\n            \"score\": 5\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a12-api-bottom-students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/bottom-students?study_group_ids=6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"bottom-students"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"disabled": true
+						},
+						{
+							"key": "class_ids",
+							"value": "1,2",
+							"disabled": true
+						},
+						{
+							"key": "subject_ids",
+							"value": "1,2",
+							"disabled": true
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1,2",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "study_group_ids",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a12-api-bottom-students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/bottom-students?academic_year=2567&year=ป.4&class_ids=1,2&subject_ids=1,2&lesson_ids=1,2&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"bottom-students"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "class_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "subject_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1,2"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "75cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n            \"name\": \"อภิชาติ เชื้อ\",\n            \"score\": 5\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a13-api-lesson-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/lesson-overview?academic_year=2567&start_at=2025-02-01T14:51:19.821779Z&end_at=2025-03-01T14:51:19.821779Z&year=ป.4&subject_ids=1&class_ids=1&study_group_ids=6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"lesson-overview"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "start_at",
+							"value": "2025-02-01T14:51:19.821779Z",
+							"description": "this field is a academic year range"
+						},
+						{
+							"key": "end_at",
+							"value": "2025-03-01T14:51:19.821779Z",
+							"description": "this field is a academic year range"
+						},
+						{
+							"key": "year",
+							"value": "ป.4"
+						},
+						{
+							"key": "subject_ids",
+							"value": "1"
+						},
+						{
+							"key": "class_ids",
+							"value": "1"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a13-api-lesson-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/lesson-overview?academic_year=2567&start_at=2025-02-01T14:51:19.821779Z&end_at=2025-03-01T14:51:19.821779Z&year=ป.4&subject_ids=1&class_ids=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"lesson-overview"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "start_at",
+									"value": "2025-02-01T14:51:19.821779Z",
+									"description": "this field is a academic year range"
+								},
+								{
+									"key": "end_at",
+									"value": "2025-03-01T14:51:19.821779Z",
+									"description": "this field is a academic year range"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "subject_ids",
+									"value": "1"
+								},
+								{
+									"key": "class_ids",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "76cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"scope\": \"Lesson 1\",\n            \"progress\": 100\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a14-api-sub-lesson-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/sub-lesson-overview?academic_year=2567&start_at=2025-02-01T14:51:19.821779Z&end_at=2025-03-01T14:51:19.821779Z&subject_ids=1&class_ids=1&lesson_ids=1&study_group_ids=6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"sub-lesson-overview"
+					],
+					"query": [
+						{
+							"key": "academic_year",
+							"value": "2567"
+						},
+						{
+							"key": "start_at",
+							"value": "2025-02-01T14:51:19.821779Z",
+							"description": "this field is a academic year range"
+						},
+						{
+							"key": "end_at",
+							"value": "2025-03-01T14:51:19.821779Z",
+							"description": "this field is a academic year range"
+						},
+						{
+							"key": "year",
+							"value": "ป.4",
+							"disabled": true
+						},
+						{
+							"key": "subject_ids",
+							"value": "1"
+						},
+						{
+							"key": "class_ids",
+							"value": "1"
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a14-api-sub-lesson-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/sub-lesson-overview?academic_year=2567&start_at=2025-02-01T14:51:19.821779Z&end_at=2025-03-01T14:51:19.821779Z&year=ป.4&subject_ids=1&class_ids=1&lesson_ids=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"sub-lesson-overview"
+							],
+							"query": [
+								{
+									"key": "academic_year",
+									"value": "2567"
+								},
+								{
+									"key": "start_at",
+									"value": "2025-02-01T14:51:19.821779Z",
+									"description": "this field is a academic year range"
+								},
+								{
+									"key": "end_at",
+									"value": "2025-03-01T14:51:19.821779Z",
+									"description": "this field is a academic year range"
+								},
+								{
+									"key": "year",
+									"value": "ป.4"
+								},
+								{
+									"key": "subject_ids",
+									"value": "1"
+								},
+								{
+									"key": "class_ids",
+									"value": "1"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 07 Apr 2025 09:48:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "147"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "77cfb340-0c9c-430c-927c-6b1c9b02d953"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"scope\": \"Sub-lesson 1\",\n            \"progress\": 100\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a15-api-homework-overview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/homework-overview?start_at=2025-02-01T14:51:19.821779Z&end_at=2025-03-01T14:51:19.821779Z&class_ids=1&lesson_ids=1&study_group_ids=6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"homework-overview"
+					],
+					"query": [
+						{
+							"key": "start_at",
+							"value": "2025-02-01T14:51:19.821779Z",
+							"description": "required, this field is a academic year range"
+						},
+						{
+							"key": "end_at",
+							"value": "2025-03-01T14:51:19.821779Z",
+							"description": "required, this field is a academic year range"
+						},
+						{
+							"key": "class_ids",
+							"value": "1",
+							"description": "required"
+						},
+						{
+							"key": "lesson_ids",
+							"value": "1",
+							"description": "required"
+						},
+						{
+							"key": "study_group_ids",
+							"value": "6",
+							"description": "optional | 1,2,3"
+						},
+						{
+							"key": "start_date_start_at",
+							"value": "2025-12-15T01:01:01.821779Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "start_date_end_at",
+							"value": "2024-12-17T01:01:01.821779Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "due_date_start_at",
+							"value": "2024-12-15T01:01:01.821779Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "due_date_end_at",
+							"value": "2024-12-17T01:01:01.821779Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "closed_date_start_at",
+							"value": "2024-12-15T01:01:01.821779Z",
+							"description": "optional",
+							"disabled": true
+						},
+						{
+							"key": "closed_date_end_at",
+							"value": "2024-12-17T01:01:01.821779Z",
+							"description": "optional",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "g03-d01-a15-api-homework-overview",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/homework-overview?start_at=2025-02-01T14:51:19.821779Z&end_at=2025-03-01T14:51:19.821779Z&class_ids=1&lesson_ids=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"homework-overview"
+							],
+							"query": [
+								{
+									"key": "start_at",
+									"value": "2025-02-01T14:51:19.821779Z",
+									"description": "required, this field is a academic year range"
+								},
+								{
+									"key": "end_at",
+									"value": "2025-03-01T14:51:19.821779Z",
+									"description": "required, this field is a academic year range"
+								},
+								{
+									"key": "class_ids",
+									"value": "1",
+									"description": "required"
+								},
+								{
+									"key": "lesson_ids",
+									"value": "1",
+									"description": "required"
+								},
+								{
+									"key": "start_date_start_at",
+									"value": "2025-12-15T01:01:01.821779Z",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "start_date_end_at",
+									"value": "2024-12-17T01:01:01.821779Z",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "due_date_start_at",
+									"value": "2024-12-15T01:01:01.821779Z",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "due_date_end_at",
+									"value": "2024-12-17T01:01:01.821779Z",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "closed_date_start_at",
+									"value": "2024-12-15T01:01:01.821779Z",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "closed_date_end_at",
+									"value": "2024-12-17T01:01:01.821779Z",
+									"description": "optional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 10 Apr 2025 13:08:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "117"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8894bb95-308e-44dc-8a6e-5a80c6f284e1"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"data\": [\n        {\n            \"total_homework\": 1,\n            \"not_start\": 0,\n            \"in_progress\": 50,\n            \"done\": 50\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "g03-d01-a16-api-teacher-subject-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/teacher-dashboard/v1/teacher-subjects",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teacher-dashboard",
+						"v1",
+						"teacher-subjects"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/teacher-dashboard/v1/teacher-subjects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"teacher-dashboard",
+								"v1",
+								"teacher-subjects"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 23 Jun 2025 08:16:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "156"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "d98830fc-9e2f-4641-9766-9c57ed4d3ec1"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"_pagination\": {\n        \"page\": 1,\n        \"limit\": -1,\n        \"total_count\": 1\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"ภาษาอังกฤษ\"\n        }\n    ],\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

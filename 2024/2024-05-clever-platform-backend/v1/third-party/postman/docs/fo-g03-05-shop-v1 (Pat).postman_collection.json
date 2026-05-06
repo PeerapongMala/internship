@@ -1,0 +1,554 @@
+{
+	"info": {
+		"_postman_id": "c716f7ae-2a64-4467-93b3-e17002f3d657",
+		"name": "fo-g03-05-shop-v1 (Pat)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "shop-avatar-get-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/main-menu/shop/v1/avatar",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"avatar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "shop-avatar-get-list response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/avatar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"avatar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 09:24:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "210"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f2bedc52-f728-43f6-bd31-6fdc51fd0d78"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"model_id\": \"model id 1\",\n            \"is_equipped\": true,\n            \"is_bought\": true,\n            \"price\": 22\n        },\n        {\n            \"id\": 2,\n            \"model_id\": \"model id 2\",\n            \"is_equipped\": false,\n            \"is_bought\": false,\n            \"price\": 33\n        }\n    ],\n    \"message\": \"success\",\n    \"status_code\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "shop-pet-get-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/main-menu/shop/v1/pet",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"pet"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "shop-pet-get-list-response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/pet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"pet"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 09:23:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "213"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f1bedc52-f728-43f6-bd31-6fdc51fd0d78"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"model_id\": \"pet model 1\",\n            \"is_equipped\": true,\n            \"is_bought\": true,\n            \"price\": 10\n        },\n        {\n            \"id\": 2,\n            \"model_id\": \"pet model 2\",\n            \"is_equipped\": false,\n            \"is_bought\": false,\n            \"price\": 122\n        }\n    ],\n    \"message\": \"success\",\n    \"status_code\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "shop-item-get-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/main-menu/shop/v1/item?subject_id=1&type=coupon",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item"
+					],
+					"query": [
+						{
+							"key": "subject_id",
+							"value": "1",
+							"description": "required"
+						},
+						{
+							"key": "type",
+							"value": "coupon",
+							"description": "required, (frame, badge, coupon)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "shop-item-get-list response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/item?subject_id=1&type=badge",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"item"
+							],
+							"query": [
+								{
+									"key": "subject_id",
+									"value": "1",
+									"description": "required"
+								},
+								{
+									"key": "type",
+									"value": "badge",
+									"description": "required, (frame, badge, coupon)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 08:07:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "531"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8fa96456-84d7-4d89-a689-841d83ad060e"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"stock\": 20,\n            \"initial_stock\": 100,\n            \"price\": 32,\n            \"item_id\": 1,\n            \"name\": \"item badge 1\",\n            \"description\": \"item badge 1 description\",\n            \"image_url\": \"https://e7.pngegg.com/pngimages/626/893/png-clipart-blue-and-white-check-logo-facebook-social-media-verified-badge-logo-vanity-url-blue-checkmark-blue-angle-thumbnail.png\",\n            \"template_path\": \"/path/to/badge-template\",\n            \"badge_description\": \"นักเรียนเรียนรู้เร็ว\",\n            \"amount\": 2,\n            \"is_bought\": true,\n            \"is_equipped\": true\n        }\n    ],\n    \"message\": \"success\",\n    \"status_code\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "shop-item-buy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shop_item_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/main-menu/shop/v1/item/buy",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"item",
+						"buy"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "bought",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shop_item_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/buy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"buy"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 09:17:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "25f277a4-79c7-4a6d-9cf7-8b84c9492451"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Bought\"\n}"
+				},
+				{
+					"name": "failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shop_item_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/buy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"buy"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 09:21:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "125"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a6cef3a4-2e03-4651-a908-4d5276d3fcdc"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 409,\n    \"message\": \"Out of stock or not in selling period\",\n    \"error_message\": \"Out of stock or not in selling period\"\n}"
+				}
+			]
+		},
+		{
+			"name": "avatar-buy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"avatar_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/main-menu/shop/v1/avatar/buy",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"avatar",
+						"buy"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "bought",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"avatar_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/avatar/buy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"avatar",
+								"buy"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 09:42:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "e5032fbd-49c7-43a8-89c4-7d8544014cb0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Bought\"\n}"
+				}
+			]
+		},
+		{
+			"name": "pet-buy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pet_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/main-menu/shop/v1/pet/buy",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"main-menu",
+						"shop",
+						"v1",
+						"pet",
+						"buy"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "bought",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pet_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/main-menu/shop/v1/pet/buy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"main-menu",
+								"shop",
+								"v1",
+								"pet",
+								"buy"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 18 Mar 2025 09:47:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "4f4e46b9-f030-42a5-9bd9-776083c89b44"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"Bought\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

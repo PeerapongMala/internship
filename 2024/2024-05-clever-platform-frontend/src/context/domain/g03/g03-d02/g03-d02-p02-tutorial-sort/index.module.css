@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wdth,wght@62.5..100,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap');
+
+/* root */
+.body {
+  font-family: 'Noto Sans Thai';
+}
+
+.ghost {
+  @apply !w-fit min-w-16 z-10;
+}
+
+.ghost-placeholder-list {
+  @apply !absolute z-10;
+}

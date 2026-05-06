@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wdth,wght@62.5..100,100..900&display=swap');
+
+/* modal-outer */
+.body {
+  font-family: 'Noto Sans Thai';
+}
+
+.text-shadow {
+  @apply [text-shadow:0px_3px_5px_var(--tw-shadow-color)] shadow-black/40;
+}
+
+.transition-bottom-to-top {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  /* transform: translateY(10%); */
+  opacity: 0;
+}
+
+.transition-bottom-to-top-loaded {
+  /* transform: translateY(0); */
+  opacity: 1;
+}
+
+.modal-transition {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.transition-top-to-center {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.transition-top-to-center-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}

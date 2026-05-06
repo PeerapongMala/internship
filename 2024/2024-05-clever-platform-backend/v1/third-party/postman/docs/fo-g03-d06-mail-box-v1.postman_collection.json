@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "13ad0d29-77f1-4515-a4c9-e947d6b75487",
+		"name": "fo-g03-d06-mail-box-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38042661"
+	},
+	"item": [
+		{
+			"name": "g03-d06-a01-event-announce-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTMyNzA3MCwibmJmIjoxNzM5MjQwNjcwLCJpYXQiOjE3MzkyNDA2NzAsImp0aSI6IjM5MWY5M2ZjLTQyZTctNGVmNS1iMGE3LTk1YzE3YzJlNjYyNCJ9.riIRhLQyflWrcVOOBrHeZN0R_wMDbDtuOLpJ8YDRyYw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/event",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"event"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "Id ของ วิชาที่เลือกเข้ามา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a02-reward-announce-list Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"reward"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "Id ของ วิชาที่เลือกเข้ามา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a03-system-announce-list Copy 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDQ2MTAwMCwibmJmIjoxNzQwMzc0NjAwLCJpYXQiOjE3NDAzNzQ2MDAsImp0aSI6IjNiYzQ5Y2FhLTA1MTktNDdhMS1hZWY0LTIyODJkNDgyZjE1OCJ9.sSL1jeunAoUD0568NenxDhCSYOb5NZ9Cu88BQVNgc8k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/system",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"system"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "Id ของ วิชาที่เลือกเข้ามา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a04-user-announcement-create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:announceId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "22",
+							"description": "id ของประกาศ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a05-user-announcement-delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:announceId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "announceId",
+							"value": "49",
+							"description": "id ของประกาศ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a06-item-received",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/reward/:announceId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"reward",
+						":announceId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "Id ของ วิชาที่เลือกเข้ามา"
+						},
+						{
+							"key": "announceId",
+							"value": "45",
+							"description": "id ของประกาศ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a07-reward-announcement-delete-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"reward"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "id ของวิชาที่เลือกเข้ามา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a08-system-announcement-delete-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/system",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"system"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1",
+							"description": "id ของวิชาที่เลือกเข้ามา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a09-event-announce-read-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/event",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"event"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a10-system-announce-read-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/system",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"system"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a11-reward-announce-read-received-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTczOTcyMjczNiwibmJmIjoxNzM5NjM2MzM2LCJpYXQiOjE3Mzk2MzYzMzYsImp0aSI6IjBmMWE3ODE5LTFkYzUtNDIzOC05Yjc1LWM0YjQ1NTRkMjYzZSJ9.94Ceit8YZLZ2-cFbndCjsq6_bf_bhSh6dwEDu7HE-vs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"reward"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a12-teacher-reward-list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDcyNjkyMCwibmJmIjoxNzQwNjQwNTIwLCJpYXQiOjE3NDA2NDA1MjAsImp0aSI6IjlmZmMzNzRhLWEwNzEtNGViOS1iYjVmLTJiNzc2MDJmY2U5YyJ9.-O4w7tHZfNZSpqU-QZFqdDL267XoiDjEkv0n4j98nnA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/teacher-reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"teacher-reward"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "2",
+							"description": "id วิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a13-teacher-reward-received-by-reward-id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDcyNjkyMCwibmJmIjoxNzQwNjQwNTIwLCJpYXQiOjE3NDA2NDA1MjAsImp0aSI6IjlmZmMzNzRhLWEwNzEtNGViOS1iYjVmLTJiNzc2MDJmY2U5YyJ9.-O4w7tHZfNZSpqU-QZFqdDL267XoiDjEkv0n4j98nnA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/teacher-reward/:rewardId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"teacher-reward",
+						":rewardId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "2",
+							"description": "id วิชา"
+						},
+						{
+							"key": "rewardId",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a14-teacher-reward-delete-by-reward-id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDcyNjkyMCwibmJmIjoxNzQwNjQwNTIwLCJpYXQiOjE3NDA2NDA1MjAsImp0aSI6IjlmZmMzNzRhLWEwNzEtNGViOS1iYjVmLTJiNzc2MDJmY2U5YyJ9.-O4w7tHZfNZSpqU-QZFqdDL267XoiDjEkv0n4j98nnA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/teacher-reward/:rewardId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"teacher-reward",
+						":rewardId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "2",
+							"description": "id วิชา"
+						},
+						{
+							"key": "rewardId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a15-teacher-reward-received-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDcyNjkyMCwibmJmIjoxNzQwNjQwNTIwLCJpYXQiOjE3NDA2NDA1MjAsImp0aSI6IjlmZmMzNzRhLWEwNzEtNGViOS1iYjVmLTJiNzc2MDJmY2U5YyJ9.-O4w7tHZfNZSpqU-QZFqdDL267XoiDjEkv0n4j98nnA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/teacher-reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"teacher-reward"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "2",
+							"description": "id วิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "g03-d06-a16-teacher-reward-delete-all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc0MDcyNjkyMCwibmJmIjoxNzQwNjQwNTIwLCJpYXQiOjE3NDA2NDA1MjAsImp0aSI6IjlmZmMzNzRhLWEwNzEtNGViOS1iYjVmLTJiNzc2MDJmY2U5YyJ9.-O4w7tHZfNZSpqU-QZFqdDL267XoiDjEkv0n4j98nnA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mail-box/v1/announcement/:subjectId/teacher-reward",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mail-box",
+						"v1",
+						"announcement",
+						":subjectId",
+						"teacher-reward"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "2",
+							"description": "id วิชา"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

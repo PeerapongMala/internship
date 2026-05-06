@@ -1,0 +1,43 @@
+{
+  "dialog_1": "聆聽句子並填寫正確答案",
+  "dialog_2": "在文本框中輸入答案",
+  "dialog_3": "按下麥克風並說出答案",
+  "dialog_card_title": "輸入答案",
+  "dialog_card_question": "答案提示有 4 個字母",
+  "dialog_card_placeholder": "          輸入答案...",
+  "question": "聆聽句子並輸入答案",
+  "answer": "答案",
+
+  "question_box": "問題框",
+  "countdown_timer": "倒數計時器",
+  "click_use_hint": "點擊以使用提示",
+  "click_access_all_lesson": "點擊以進入所有課程",
+  "stage_status_bar": "關卡狀態列",
+  "click_select_correct_answer": "點擊選擇正確答案，僅有一個正確答案",
+  "click_fight_to_check_answer": "點擊戰鬥按鈕以檢查答案",
+
+  "choose_correct_answer": "選擇正確答案",
+  "sample_lesson_title": "1-1) 自然數",
+  "stage": "ID",
+  "tutorial_multiple_choice_question_body": "Kanda的薪水是52,680泰銖。這個月，她總共拿到了111,350泰銖。 “她的獎金是多少？”",
+  "tutorial_multiple_choice_question_hightlight": "這如何表達為符號句子？",
+  "level_type": {
+    "test": "練習題",
+    "sub-lesson-post-test": "子課程後測練習",
+    "pre-post-test": "課前和課後測驗",
+    "pre-test": "課前測驗",
+    "post-test": "課後測驗"
+  },
+
+  "tutorial_sort_question_body": "排列句子順序",
+  "drag_n_drop_to_answer_box": "拖放並將答案排序到答案框中",
+  "drag_answer_here": "將答案拖放到此處",
+
+  "timer_second_prefix": "秒",
+  "answer_1_prefix": "A.",
+  "answer_2_prefix": "B.",
+  "answer_3_prefix": "C.",
+  "answer_4_prefix": "D.",
+  "answer_5_prefix": "E.",
+  "no_correct_answer": "沒有正確答案。"
+}

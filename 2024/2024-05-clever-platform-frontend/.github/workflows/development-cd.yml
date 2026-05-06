@@ -1,0 +1,31 @@
+name: DEVELOPMENT-CD
+
+on:
+  push:
+    branches: ['main']
+  # pull_request:
+  #   branches: ['main']
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Deploy
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/frontend-build-deploy.yml@main
+    with:
+      version: '22.14.0'
+      build-output-path: dist
+      build-output-name: clever-frontend-build
+      working-dir: .
+      script-name: build:no-tsc
+      destination: /var/www/clever-development-frontend
+
+    secrets:
+      VITE_API_BASE_URL: ${{secrets.DEV_VITE_API_BASE_URL}}
+      VITE_DEBUG_API_IS_MOCK: ${{secrets.DEV_VITE_DEBUG_API_IS_MOCK}}
+      VITE_CLMS_BASE_URL: ${{secrets.DEV_VITE_CLMS_BASE_URL}}
+      VITE_LINK_LINE_OA_URL: ${{secrets.DEV_VITE_LINK_LINE_OA_URL}}
+      SERVER_USER: ${{ secrets.HOST_STAGING_USERNAME }}
+      SERVER_HOST: ${{ secrets.HOST_STAGING_IP }}
+      SSH_PRIVATE_KEY: ${{ secrets.HOST_STAGING_SSH_KEY }}
+      VITE_REPLACE_URL_FROM: ${{vars.DEV_VITE_REPLACE_URL_FROM}}
+      VITE_REPLACE_URL_TO: ${{vars.DEV_VITE_REPLACE_URL_TO}}

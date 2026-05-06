@@ -1,0 +1,31 @@
+import { FC } from 'react';
+
+const IconBook: FC<{ className?: string }> = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M3.33203 16.2503C3.33203 15.6978 3.55152 15.1679 3.94223 14.7772C4.33293 14.3865 4.86283 14.167 5.41536 14.167H16.6654"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.41536 1.66699H16.6654V18.3337H5.41536C4.86283 18.3337 4.33293 18.1142 3.94223 17.7235C3.55152 17.3328 3.33203 16.8029 3.33203 16.2503V3.75033C3.33203 3.19779 3.55152 2.66789 3.94223 2.27719C4.33293 1.88649 4.86283 1.66699 5.41536 1.66699V1.66699Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export default IconBook;

@@ -1,0 +1,134 @@
+/* ============================================
+   BSS Shared — OTP Template Modal
+   ใช้ร่วมกัน: Verify, Reconcile
+   Figma: "Template - Modal Dialog - OTP"
+   ============================================ */
+
+/* ── OTP Template Modal — 1334px ── */
+.modal-otp-template .modal-dialog {
+    max-width: 560px;
+}
+
+.modal-otp-template .modal-content {
+    min-height: 400px;
+}
+
+.modal-otp-template .modal-subtitle {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    letter-spacing: 0.35px;
+    margin-top: 4px;
+}
+
+.modal-otp-template .otp-content {
+    padding: 16px 24px;
+}
+
+/* ── Confirm/OTP Section ── */
+.otp-confirm-section {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.otp-confirm-section .section-title {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    margin-bottom: 12px;
+}
+
+.otp-confirm-section .confirm-form-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.otp-confirm-section .confirm-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.otp-confirm-section .confirm-field label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 0;
+}
+
+.otp-confirm-section .confirm-field .form-control,
+.otp-confirm-section .confirm-field .form-select,
+.otp-confirm-section textarea.form-control {
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* ── OTP Step Sections (Supervisor / Manager) ── */
+.otp-step {
+    display: none;
+    padding: 24px;
+    text-align: center;
+}
+
+.otp-step.active {
+    display: block;
+}
+
+.otp-step .otp-role-label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #212121 !important;
+    margin-bottom: 16px;
+}
+
+.otp-step .otp-role-sublabel {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #6c757d !important;
+    margin-bottom: 24px;
+}
+
+/* ── Delete Confirm ── */
+.delete-table-instruction {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 12px;
+}
+
+.delete-remark-section {
+    margin-top: 16px;
+}
+
+.delete-remark-section label {
+    font-family: 'bss-pridi', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #212529 !important;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.delete-remark-section textarea {
+    width: 100%;
+    min-height: 60px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+    resize: vertical;
+}

@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "cea8e4d1-7947-40e7-a5ff-0db86f29a3a0",
+		"name": "fo-g02-d03-01-streak-login-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13929754"
+	},
+	"item": [
+		{
+			"name": "api-subject-reward-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/streak-login/v1/subject-reward/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"streak-login",
+						"v1",
+						"subject-reward",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-subject-reward-get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/streak-login/v1/subject-reward/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"streak-login",
+								"v1",
+								"subject-reward",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 30 Jan 2025 13:54:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2554"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "94e218e0-4930-48eb-b6f2-8d5c2843fde6"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"subject_id\": 1,\n            \"day\": 1,\n            \"item_id\": 1,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": 1,\n            \"ice_amount\": 1,\n            \"item_amount\": 1,\n            \"type\": \"badge\",\n            \"name\": \"item badge 1\",\n            \"description\": \"item badge 1 description\",\n            \"image_url\": \"https://e7.pngegg.com/pngimages/626/893/png-clipart-blue-and-white-check-logo-facebook-social-media-verified-badge-logo-vanity-url-blue-checkmark-blue-angle-thumbnail.png\"\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 2,\n            \"item_id\": null,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 3,\n            \"item_id\": null,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 4,\n            \"item_id\": null,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 5,\n            \"item_id\": null,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 6,\n            \"item_id\": null,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 7,\n            \"item_id\": null,\n            \"gold_coin_amount\": 1,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 8,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 9,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 10,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 11,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 12,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 13,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 14,\n            \"item_id\": 1,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": 1,\n            \"type\": \"badge\",\n            \"name\": \"item badge 1\",\n            \"description\": \"item badge 1 description\",\n            \"image_url\": \"https://e7.pngegg.com/pngimages/626/893/png-clipart-blue-and-white-check-logo-facebook-social-media-verified-badge-logo-vanity-url-blue-checkmark-blue-angle-thumbnail.png\"\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 15,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        },\n        {\n            \"subject_id\": 1,\n            \"day\": 16,\n            \"item_id\": null,\n            \"gold_coin_amount\": 2,\n            \"arcade_coin_amount\": null,\n            \"ice_amount\": null,\n            \"item_amount\": null\n        }\n    ],\n    \"status_code\": 200,\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-subject-reward-status-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/streak-login/v1/subject-reward-status/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"streak-login",
+						"v1",
+						"subject-reward-status",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-user-stat-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/streak-login/v1/user-stat/:subjectId",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"streak-login",
+						"v1",
+						"user-stat",
+						":subjectId"
+					],
+					"variable": [
+						{
+							"key": "subjectId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-user-stat-get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/streak-login/v1/user-stat/:subjectId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"streak-login",
+								"v1",
+								"user-stat",
+								":subjectId"
+							],
+							"variable": [
+								{
+									"key": "subjectId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 30 Jan 2025 14:33:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "0c328225-5792-4b7e-ad8e-d1e95db0d8ca"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"student_id\": \"cd1592be-7302-4805-a172-86956b0bf2a1\",\n        \"subject_id\": 1,\n        \"last_checkin\": \"2025-01-30T00:00:00Z\",\n        \"current_streak\": 0,\n        \"highest_streak\": 0\n    },\n    \"status_code\": 200,\n    \"message\": \"Data retrieved\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-check-in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject_id\": 1,\n    \"check_in_date\": \"2025-01-31\",\n    \"reset_flag\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/streak-login/v1/check-in",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"streak-login",
+						"v1",
+						"check-in"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-check-in",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject_id\": 1,\n    \"check_in_date\": \"2025-01-31\",\n    \"reset_flag\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/streak-login/v1/check-in",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"streak-login",
+								"v1",
+								"check-in"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 30 Jan 2025 16:12:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "1c78c021-f909-4728-be8b-e44fe3c21eb0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api-check-in-bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bulk_edit_list\": [\n        {\n            \"subject_id\": 1,\n            \"check_in_date\": \"2025-03-07\",\n            \"reset_flag\": false,\n            \"is_check_in\": true\n        },\n        {\n            \"subject_id\": 1,\n            \"check_in_date\": \"2025-03-08\",\n            \"reset_flag\": false,\n            \"is_check_in\": false\n        },\n        {\n            \"subject_id\": 1,\n            \"check_in_date\": \"2025-03-09\",\n            \"reset_flag\": false,\n            \"is_check_in\": true\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/streak-login/v1/check-in/bulk-edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"streak-login",
+						"v1",
+						"check-in",
+						"bulk-edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-use-item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject_id\": 1,\n    \"use_coin_flag\": true,\n    \"use_item_flag\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/streak-login/v1/use-item",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"streak-login",
+						"v1",
+						"use-item"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "api-use-item",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject_id\": 1,\n    \"use_coin_flag\": true,\n    \"gold_coin_amount\": 10,\n    \"use_item_flag\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/streak-login/v1/use-item",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"streak-login",
+								"v1",
+								"use-item"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 30 Jan 2025 16:37:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "f538343b-5097-4a58-97dc-0bfe56217c3e"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status_code\": 200,\n    \"message\": \"success\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJDbGV2ZXIgUGxhdGZvcm0iLCJzdWIiOiJjZDE1OTJiZS03MzAyLTQ4MDUtYTE3Mi04Njk1NmIwYmYyYTEiLCJhdWQiOlsiYXBpIl0sImV4cCI6MTc3NTM4MDI4OSwibmJmIjoxNzM5MzgwMjg5LCJpYXQiOjE3MzkzODAyODksImp0aSI6IjUzYzQzZGU3LTUyMDMtNGU5Zi1hOTdkLTZkNjI0ZTU3ZmE0MyJ9.fx4z_DC4qfrK--XYQZAiYXo47AQbf5UhocbgcrvQzjI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

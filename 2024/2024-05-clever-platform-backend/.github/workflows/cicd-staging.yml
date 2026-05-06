@@ -1,0 +1,34 @@
+name: CICD-STAGING
+
+on:
+  push:
+    branches: ["staging"]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/docker-build.yml@main
+    with:
+      working-dir: v1
+      image-name: backend-staging
+
+    secrets:
+      DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+      DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      DOCKER_REGISTRY: ${{secrets.DOCKER_REGISTRY}}
+
+  deploy:
+    name: Deploy
+    needs: build
+    uses: ZettaMerge/2024-05-clever-platform-cicd/.github/workflows/docker-deploy.yml@main
+    with:
+      container-name: backend-staging
+      namespace-name: backend
+
+    secrets:
+      KUBE_CONFIG: ${{secrets.KUBE_CONFIG}}
+      OVPN_CONFIG: ${{secrets.OVPN_CONFIG}}
+      VPN_USERNAME: ${{secrets.VPN_USERNAME}}
+      VPN_PASSWORD: ${{secrets.VPN_PASSWORD}}

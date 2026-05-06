@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "4c794082-990a-4c01-b493-83cd8438752a",
+		"name": "g05-d00-line-arriving-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17185477"
+	},
+	"item": [
+		{
+			"name": "a01-api-auth-case-login-with-oauth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider_access_token\": \"eyJhbGciOiJIUzI1NiJ9.YwpCum9bn5NH6x57IfY6MIrR0oRliPVe4dBiwbieE2KmO7B214lObYTE_pveYurH8T5PUWtpKhh5HHlK6er9sBLieIAPwksTrSaFEyKvNc0nHBt4VG5SCGBnYL5s3J_kTeS7UeatDY5nL-RpajVuSKCzuxH3hIAquEujm8kNeZI.wrooAGb1vQFlk1XV_XaHStX5Dc-f8j4FmIr86jw0Dc8\"  // required\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/line-arriving/v1/oauth/:provider/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"login"
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "line",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a02-api-auth-case-bind-student-with-oauth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_code\": \"C-123\", // required\r\n    \"student_id\": \"17340\", // required\r\n    \"pin\": \"1234\", // required\r\n    \"provider_access_token\": \"ya29.a0ARW5m75VIHgsBfxzRtv0CFoTnw-bEwiO6Se757BWHfpuD9uSSMQxbpkzYd-EK0BPi94HHE83TluS30LpmTkP8EZUaivc_rD-SE_vOhIU9CHh39BKanYAUO2v2Bmec3BRxMSRZG6PbKTwU9gVhxkgf6DwZivg6Q2N95zTMZ77aCgYKAYASARMSFQHGX2MifcXAsw85Tp68_Lfp_5_lwg0175\" // required\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/line-arriving/v1/oauth/:provider/bind",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"bind"
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "line",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a03-api-auth-case-bind-user-with-oauth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\", // required\r\n    \"password\": \"patdoepass\", // required\r\n    \"provider_access_token\": \"eyJhbGciOiJIUzI1NiJ9.YwpCum9bn5NH6x57IfY6MIrR0oRliPVe4dBiwbieE2KmO7B214lObYTE_pveYurH8T5PUWtpKhh5HHlK6er9sBLieIAPwksTrSaFEyKvNc0nHBt4VG5SCGBnYL5s3J_kTeS7UeatDY5nL-RpajVuSKCzuxH3hIAquEujm8kNeZI.wrooAGb1vQFlk1XV_XaHStX5Dc-f8j4FmIr86jw0Dc8\" // required\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/line-arriving/v1/oauth/:provider/bind/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-arriving",
+						"v1",
+						"oauth",
+						":provider",
+						"bind",
+						"user"
+					],
+					"variable": [
+						{
+							"key": "provider",
+							"value": "line",
+							"description": "required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "a04-api-parent-case-register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider\": \"line\", // required\r\n    \"provider_access_token\": \"eyJhbGciOiJIUzI1NiJ9.YwpCum9bn5NH6x57IfY6MIrR0oRliPVe4dBiwbieE2KmO7B214lObYTE_pveYurH8T5PUWtpKhh5HHlK6er9sBLieIAPwksTrSaFEyKvNc0nHBt4VG5SCGBnYL5s3J_kTeS7UeatDY5nL-RpajVuSKCzuxH3hIAquEujm8kNeZI.wrooAGb1vQFlk1XV_XaHStX5Dc-f8j4FmIr86jw0Dc8\",  // required\r\n    \"title\": \"mr\", // required\r\n    \"first_name\": \"pat\", // required\r\n    \"last_name\": \"doe\", // required\r\n    \"email\": \"patdoe@email.com\", // required\r\n    \"phone_no\": \"191\", // required\r\n    \"birth_date\": \"2025-02-18T12:34:56Z\",\r\n    \"relationship\": \"mom\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/line-arriving/v1/parent/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"line-arriving",
+						"v1",
+						"parent",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

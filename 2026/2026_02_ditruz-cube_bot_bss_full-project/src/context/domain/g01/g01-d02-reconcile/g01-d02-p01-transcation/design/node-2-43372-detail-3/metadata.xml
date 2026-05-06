@@ -1,0 +1,2072 @@
+<section id="2:43372" name="Reconciliation Transaction - Unfit - Table Notifications" x="156" y="5184" width="4816" height="1299">
+  <frame id="32:54692" name="Reconciliation Transaction - Unfit" x="100" y="306" width="1440" height="900">
+    <frame id="32:54693" name="Background" x="0" y="0" width="1440" height="900">
+      <rounded-rectangle id="32:54694" name="Background" x="0" y="0" width="1440.4970703125" height="899.07568359375" />
+      <frame id="32:54695" name="Forground Color" x="0" y="0" width="1440" height="450">
+        <rounded-rectangle id="32:54696" name="Chrome" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="32:54697" name="Gradient Forground" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="32:54698" name="image 1" x="-450.04296875" y="-439.94024658203125" width="901.0858154296875" height="880.9402465820312" />
+        <rounded-rectangle id="32:54699" name="image 1" x="949.25" y="-476.28955078125" width="980.5001220703125" height="958.5791625976562" />
+      </frame>
+    </frame>
+    <instance id="32:54700" name="Navigation Header" x="0" y="0" width="1440" height="40" />
+    <frame id="32:54701" name="Frame" x="0" y="40" width="1435" height="860">
+      <frame id="32:54702" name="Frame 6126" x="16" y="8" width="1403" height="62">
+        <frame id="32:54703" name="Frame 6127" x="0" y="0" width="1035" height="62">
+          <frame id="32:54704" name="Frame 6135" x="0" y="0" width="1035" height="59">
+            <text id="32:54705" name="Reconciliation Transaction UNFIT" x="0" y="0" width="1035" height="36" />
+            <text id="32:54706" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1035" height="24" />
+          </frame>
+        </frame>
+        <frame id="32:54707" name="Frame 6153" x="1035" y="13" width="368" height="36">
+          <frame id="32:54708" name="button" x="0" y="0" width="115" height="36">
+            <instance id="32:54709" name="icon" x="8" y="10" width="16" height="16" />
+            <frame id="32:54710" name="text" x="32" y="7.5" width="75" height="21">
+              <text id="32:54711" name="text" x="0" y="0" width="75" height="21" />
+            </frame>
+            <instance id="32:54712" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="32:54713" name="button" x="131" y="0" width="85" height="36">
+            <instance id="32:54714" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="32:54715" name="text" x="12" y="6" width="61" height="24">
+              <text id="32:54716" name="text" x="0" y="0" width="61" height="24" />
+            </frame>
+            <instance id="32:54717" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="32:54718" name="button" x="232" y="0" width="136" height="36">
+            <instance id="32:54719" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="32:54720" name="text" x="12" y="6" width="112" height="24">
+              <text id="32:54721" name="text" x="0" y="0" width="112" height="24" />
+            </frame>
+            <instance id="32:54722" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:54723" name="Frame 6127" x="11" y="77" width="1403" height="774">
+        <frame id="32:54724" name="Frame 6116" x="0" y="0" width="1071" height="774">
+          <frame id="32:54725" name="Frame 6115" x="0" y="0" width="1071" height="205">
+            <text id="32:54726" name="สแกน Header Card เพื่อกระทบยอดธนบัตรประเภท UNFIT" x="24" y="16" width="389" height="25" />
+            <frame id="32:54727" name="Frame 6151" x="24" y="49" width="1023" height="67">
+              <frame id="32:54728" name="Frame" x="0" y="0" width="390.5" height="67">
+                <frame id="32:54729" name="Frame" x="0" y="0" width="390.5" height="22">
+                  <text id="32:54730" name="Label" x="0" y="0" width="82" height="22" />
+                  <text id="32:54731" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                </frame>
+                <frame id="32:54732" name="Frame 6143" x="0" y="26" width="390.5" height="41">
+                  <frame id="32:54733" name="Frame 6134" x="0" y="0" width="390.5" height="41">
+                    <frame id="32:54734" name="Group" x="0" y="0" width="390.5" height="41">
+                      <text id="32:54735" name="BK12345" x="169.25" y="8" width="52" height="20" hidden="true" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:54736" name="Frame 6144" x="398.5" y="0" width="390.5" height="67">
+                <frame id="32:54737" name="Frame 6155" x="64.75" y="12" width="261" height="55">
+                  <frame id="32:54738" name="Frame 6154" x="0" y="0" width="261" height="30">
+                    <text id="32:54739" name="กระทบยอดแล้วทั้งหมด" x="0" y="0" width="184" height="30" />
+                    <text id="32:54740" name="100" x="192" y="0" width="36" height="30" />
+                    <text id="32:54741" name="มัด" x="236" y="0" width="25" height="30" />
+                  </frame>
+                  <frame id="32:54742" name="Frame 6154" x="0" y="30" width="261" height="25">
+                    <text id="32:54743" name="กรุงเทพฯ M7-1 ศกท." x="17" y="0" width="139" height="25" />
+                    <text id="32:54744" name="ผลัดบ่าย" x="188" y="0" width="56" height="25" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:54745" name="Frame 6157" x="797" y="0" width="226" height="67">
+                <frame id="32:54746" name="button" x="0" y="26" width="93" height="41">
+                  <instance id="32:54747" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="32:54748" name="text" x="40" y="10" width="37" height="21">
+                    <text id="32:54749" name="text" x="0" y="0" width="37" height="21" />
+                  </frame>
+                  <instance id="32:54750" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+                <frame id="32:54751" name="button" x="117" y="26" width="109" height="41">
+                  <instance id="32:54752" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="32:54753" name="text" x="40" y="10" width="53" height="21">
+                    <text id="32:54754" name="text" x="0" y="0" width="53" height="21" />
+                  </frame>
+                  <instance id="32:54755" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54756" name="Frame 6114" x="24" y="124" width="1023" height="65">
+              <frame id="32:54757" name="Frame 6150" x="464" y="8" width="425" height="57">
+                <frame id="32:54758" name="Frame 6145" x="0.5" y="0" width="200" height="57">
+                  <frame id="32:54759" name="Frame" x="0" y="0" width="200" height="57">
+                    <frame id="32:54760" name="Frame" x="0" y="0" width="200" height="22">
+                      <text id="32:54761" name="Label" x="0" y="0" width="82" height="22" />
+                      <text id="32:54762" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="32:54763" name="select" x="0" y="26" width="200" height="31" />
+                  </frame>
+                </frame>
+                <frame id="32:54764" name="Frame 6149" x="224.5" y="0" width="200" height="57">
+                  <frame id="32:54765" name="Frame" x="50" y="0" width="150" height="57">
+                    <frame id="32:54766" name="Frame" x="0" y="0" width="150" height="22">
+                      <text id="32:54767" name="Label" x="0" y="0" width="54" height="22" />
+                      <text id="32:54768" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="32:54769" name="select" x="0" y="26" width="150" height="31" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:54770" name="Frame 6152" x="913" y="8" width="110" height="57">
+                <frame id="32:54771" name="button" x="0" y="26" width="110" height="31">
+                  <instance id="32:54772" name="icon" x="9" y="7.5" width="16" height="16" hidden="true" />
+                  <instance id="32:54773" name="text" x="17" y="5" width="76" height="21" />
+                  <instance id="32:54774" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:54775" name="Frame 6117" x="1087" y="0" width="316" height="774">
+          <frame id="32:54776" name="Frame 6113" x="0" y="0" width="316" height="123">
+            <frame id="32:54777" name="Frame" x="12" y="16" width="292" height="20">
+              <text id="32:54778" name="Label" x="4" y="0" width="31" height="20" />
+              <text id="32:54779" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <frame id="32:54780" name="Frame 6156" x="112.5" y="0" width="175.5" height="20">
+                <text id="32:54781" name="Label" x="59.5" y="0" width="98" height="20" />
+                <instance id="32:54782" name="icon-wrapper" x="161.5" y="3" width="14" height="14" />
+              </frame>
+            </frame>
+            <frame id="32:54783" name="Frame" x="12" y="36" width="292" height="20">
+              <text id="32:54784" name="Label" x="4" y="0" width="42" height="20" />
+              <text id="32:54785" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:54786" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="32:54787" name="Frame" x="12" y="56" width="292" height="20">
+              <text id="32:54788" name="Label" x="4" y="0" width="86" height="20" />
+              <text id="32:54789" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:54790" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="32:54791" name="Frame" x="12" y="76" width="292" height="20">
+              <text id="32:54792" name="Label" x="4" y="0" width="105" height="20" />
+              <text id="32:54793" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:54794" name="Label" x="175" y="0" width="113" height="20" />
+            </frame>
+            <frame id="32:54795" name="Frame" x="12" y="96" width="292" height="20">
+              <text id="32:54796" name="Label" x="4" y="0" width="33" height="20" />
+              <text id="32:54797" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:54798" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+          </frame>
+          <frame id="32:54799" name="Table" x="0" y="139" width="316" height="635">
+            <frame id="32:54800" name="List Header" x="0" y="0" width="316" height="39">
+              <text id="32:54801" name="Header Card from Machine" x="16" y="8" width="238" height="23" />
+            </frame>
+            <frame id="32:54802" name="List Header" x="0" y="39" width="316" height="30">
+              <frame id="32:54803" name="Header" x="4" y="0" width="98" height="30">
+                <text id="32:54804" name="Header Card" x="4" y="6.5" width="65" height="17" />
+                <instance id="32:54805" name="icon" x="71" y="9" width="12" height="12" />
+                <instance id="32:54806" name="Icon Wrapper" x="96" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="32:54807" name="Header" x="102" y="0" width="74" height="30">
+                <text id="32:54808" name="วันเวลา นับคัด" x="4" y="1" width="32" height="28" />
+                <instance id="32:54809" name="icon" x="38" y="9" width="12" height="12" />
+                <instance id="32:54810" name="Icon Wrapper" x="96" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="32:54811" name="Header" x="176" y="0" width="68" height="30">
+                <text id="32:54812" name="ชนิดราคา" x="7" y="6.5" width="43" height="17" />
+                <instance id="32:54813" name="icon" x="52" y="9" width="12" height="12" />
+              </frame>
+              <frame id="32:54814" name="Header" x="244" y="0" width="68" height="30">
+                <text id="32:54815" name="Action" x="16.5" y="6.5" width="35" height="17" />
+              </frame>
+            </frame>
+            <frame id="32:54816" name="List" x="0" y="69" width="316" height="40">
+              <frame id="32:54817" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:54818" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:54819" name="0054941220" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:54820" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:54821" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:54822" name="content" x="164" y="0" width="68" height="40">
+                  <frame id="32:54823" name="Frame 6125" x="17" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:54824" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:54825" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:54826" name="Frame" x="232" y="4" width="58" height="32">
+                  <instance id="32:54827" name="button" x="6" y="6" width="20" height="20" />
+                  <instance id="32:54828" name="button" x="32" y="6" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54829" name="List" x="0" y="109" width="316" height="40">
+              <frame id="32:54830" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:54831" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:54832" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="32:54833" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="32:54834" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:54835" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:54836" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:54837" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:54838" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:54839" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:54840" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:54841" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:54842" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54843" name="List" x="0" y="149" width="316" height="40">
+              <frame id="32:54844" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:54845" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:54846" name="0054941228" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:54847" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:54848" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:54849" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:54850" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:54851" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:54852" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:54853" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:54854" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:54855" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54856" name="List" x="0" y="189" width="316" height="40">
+              <frame id="32:54857" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:54858" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:54859" name="0054941230" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:54860" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:54861" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:54862" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:54863" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:54864" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:54865" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:54866" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:54867" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:54868" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54869" name="List" x="0" y="229" width="316" height="40">
+              <frame id="32:54870" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:54871" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:54872" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="32:54873" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="32:54874" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:54875" name="21/7/2568 14:02" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:54876" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:54877" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:54878" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:54879" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:54880" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:54881" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:54882" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54883" name="List" x="0" y="269" width="316" height="40">
+              <frame id="32:54884" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54885" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54886" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54887" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54888" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54889" name="List" x="0" y="309" width="316" height="40">
+              <frame id="32:54890" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54891" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54892" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54893" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54894" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54895" name="List" x="0" y="349" width="316" height="40">
+              <frame id="32:54896" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54897" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54898" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54899" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54900" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54901" name="List" x="0" y="389" width="316" height="40">
+              <frame id="32:54902" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54903" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54904" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54905" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54906" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54907" name="List" x="0" y="429" width="316" height="40">
+              <frame id="32:54908" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54909" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54910" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54911" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54912" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54913" name="List" x="0" y="469" width="316" height="40">
+              <frame id="32:54914" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54915" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54916" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54917" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54918" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54919" name="List" x="0" y="509" width="316" height="40">
+              <frame id="32:54920" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54921" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54922" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54923" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54924" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54925" name="List" x="0" y="549" width="316" height="40">
+              <frame id="32:54926" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54927" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54928" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54929" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54930" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54931" name="List" x="0" y="589" width="316" height="40">
+              <frame id="32:54932" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54933" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54934" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54935" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54936" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54937" name="List" x="0" y="629" width="316" height="40">
+              <frame id="32:54938" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:54939" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:54940" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:54941" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:54942" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:54943" name="Frame 6130" x="308" y="73.427734375" width="8" height="561">
+              <rounded-rectangle id="32:54944" name="Rectangle 2" x="2" y="2" width="4" height="186.5443115234375" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:54945" name="Table" x="11" y="298" width="445" height="553">
+        <frame id="32:54946" name="List Header" x="0" y="0" width="445" height="35">
+          <frame id="32:54947" name="Frame 6118" x="16" y="8" width="413" height="19">
+            <text id="32:54948" name="Preparation" x="0" y="0" width="91" height="19" />
+          </frame>
+        </frame>
+        <frame id="32:54949" name="List Header" x="0" y="35" width="445" height="30">
+          <frame id="32:54950" name="Header" x="8" y="0" width="105" height="30">
+            <text id="32:54951" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="32:54952" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="32:54953" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:54954" name="Header" x="113" y="0" width="120" height="30">
+            <text id="32:54955" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="32:54956" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:54957" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:54958" name="Header" x="233" y="0" width="110" height="30">
+            <text id="32:54959" name="ชนิดราคา" x="23" y="5" width="50" height="20" />
+            <instance id="32:54960" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:54961" name="icon" x="75" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:54962" name="Header" x="343" y="0" width="78" height="30">
+            <text id="32:54963" name="Action" x="18" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="32:54964" name="List" x="0" y="65" width="445" height="40">
+          <frame id="32:54965" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:54966" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:54967" name="0054941124" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:54968" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:54969" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:54970" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:54971" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:54972" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:54973" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:54974" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:54975" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:54976" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:54977" name="List" x="0" y="105" width="445" height="40">
+          <frame id="32:54978" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:54979" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:54980" name="0054941125" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:54981" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:54982" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:54983" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:54984" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:54985" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:54986" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:54987" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:54988" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:54989" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:54990" name="List" x="0" y="145" width="445" height="40">
+          <frame id="32:54991" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:54992" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:54993" name="0054941126" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:54994" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:54995" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:54996" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:54997" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:54998" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:54999" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55000" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:55001" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:55002" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55003" name="List" x="0" y="185" width="445" height="40">
+          <frame id="32:55004" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:55005" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:55006" name="0054941127" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:55007" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55008" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55009" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:55010" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55011" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55012" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55013" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:55014" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:55015" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55016" name="List" x="0" y="225" width="445" height="40">
+          <frame id="32:55017" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:55018" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:55019" name="0054941128" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:55020" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55021" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55022" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:55023" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55024" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55025" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55026" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:55027" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:55028" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55029" name="List" x="0" y="265" width="445" height="40" />
+        <frame id="32:55030" name="List" x="0" y="305" width="445" height="40" />
+        <frame id="32:55031" name="List" x="0" y="345" width="445" height="40" />
+        <frame id="32:55032" name="List" x="0" y="385" width="445" height="40" />
+        <frame id="32:55033" name="List" x="0" y="425" width="445" height="40" />
+        <frame id="32:55034" name="List" x="0" y="465" width="445" height="40" />
+        <frame id="32:55035" name="List" x="0" y="505" width="445" height="40" />
+        <frame id="32:55036" name="Frame 6131" x="437" y="64" width="8" height="489">
+          <rounded-rectangle id="32:55037" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <frame id="32:55038" name="Table" x="475" y="298" width="607" height="553">
+        <frame id="32:55039" name="List Header" x="0" y="0" width="607" height="35">
+          <frame id="32:55040" name="Frame 6118" x="16" y="8" width="575" height="19">
+            <text id="32:55041" name="Preparation + Data from Machine" x="0" y="0" width="257" height="19" />
+          </frame>
+        </frame>
+        <frame id="32:55042" name="List Header" x="0" y="35" width="607" height="30">
+          <frame id="32:55043" name="Header" x="8" y="0" width="105" height="30">
+            <text id="32:55044" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="32:55045" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="32:55046" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55047" name="Header" x="113" y="0" width="120" height="30">
+            <text id="32:55048" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="32:55049" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:55050" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55051" name="Header" x="233" y="0" width="120" height="30">
+            <text id="32:55052" name="วันเวลานับคัด" x="17.5" y="5" width="71" height="20" />
+            <instance id="32:55053" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:55054" name="icon" x="90.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55055" name="Header" x="353" y="0" width="105" height="30">
+            <text id="32:55056" name="ชนิดราคา" x="20.5" y="5" width="50" height="20" />
+            <instance id="32:55057" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:55058" name="icon" x="72.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55059" name="Header" x="458" y="0" width="105" height="30">
+            <text id="32:55060" name="Action" x="31.5" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="32:55061" name="List" x="0" y="65" width="607" height="40">
+          <frame id="32:55062" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="32:55063" name="content" x="0" y="4" width="105" height="32">
+              <text id="32:55064" name="0054941201" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="32:55065" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55066" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55067" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:55068" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55069" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:55070" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55071" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55072" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55073" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:55074" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:55075" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55076" name="List" x="0" y="105" width="607" height="40">
+          <frame id="32:55077" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="32:55078" name="content" x="0" y="4" width="105" height="32">
+              <text id="32:55079" name="0054941203" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="32:55080" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55081" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55082" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:55083" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55084" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:55085" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55086" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55087" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55088" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:55089" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:55090" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55091" name="List" x="0" y="145" width="607" height="40">
+          <frame id="32:55092" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:55093" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:55094" name="0054941205" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:55095" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55096" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55097" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:55098" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55099" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:55100" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55101" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55102" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55103" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:55104" name="button" x="42.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55105" name="List" x="0" y="185" width="607" height="40">
+          <frame id="32:55106" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:55107" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:55108" name="0054941212" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:55109" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55110" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55111" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:55112" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55113" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:55114" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55115" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55116" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55117" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:55118" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:55119" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55120" name="List" x="0" y="225" width="607" height="40">
+          <frame id="32:55121" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:55122" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:55123" name="0054941206" x="8" y="10" width="76" height="20" />
+              <instance id="32:55124" name="icon-wrapper" x="88" y="13" width="14" height="14" />
+            </frame>
+            <frame id="32:55125" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55126" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55127" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:55128" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55129" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:55130" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:55131" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:55132" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:55133" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:55134" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:55135" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55136" name="List" x="0" y="265" width="607" height="40" />
+        <frame id="32:55137" name="List" x="0" y="305" width="607" height="40" />
+        <frame id="32:55138" name="List" x="0" y="345" width="607" height="40" />
+        <frame id="32:55139" name="List" x="0" y="385" width="607" height="40" />
+        <frame id="32:55140" name="List" x="0" y="425" width="607" height="40" />
+        <frame id="32:55141" name="List" x="0" y="465" width="607" height="40" />
+        <frame id="32:55142" name="List" x="0" y="505" width="607" height="40" />
+        <frame id="32:55143" name="Frame 6132" x="599" y="64.427734375" width="8" height="488">
+          <rounded-rectangle id="32:55144" name="Rectangle 3" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <instance id="32:57779" name="Cursors / Link &amp; Status" x="548" y="495" width="24" height="24" />
+      <frame id="32:57780" name="Tool Tip" x="400" y="301" width="285" height="197">
+        <frame id="32:57781" name="Frame 6163" x="0" y="0" width="285" height="50">
+          <instance id="32:57782" name="icon-wrapper" x="14" y="13" width="24" height="24" />
+          <text id="32:57783" name="Reconcile Transaction" x="52" y="15.5" width="172" height="19" />
+        </frame>
+        <frame id="32:57784" name="Frame 6164" x="0" y="50" width="285" height="140">
+          <text id="32:57785" name="มีข้อผิดพลาดในข้อมูล Quality และ Output ของ Header Card 0054941212: มี Output ที่ระบบไม่รู้จัก [SHREDDED] หากมีข้อผิดพลาดจริงให้ลบข้อมูล Header Card นี้ ออกจากระบบ แล้ว Manual Key-in เข้าระบบแทน" x="16" y="16" width="253" height="108" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="32:55721" name="Reconciliation Transaction - Unfit" x="1688" y="306" width="1440" height="900">
+    <frame id="32:55722" name="Background" x="0" y="0" width="1440" height="900">
+      <rounded-rectangle id="32:55723" name="Background" x="0" y="0" width="1440.4970703125" height="899.07568359375" />
+      <frame id="32:55724" name="Forground Color" x="0" y="0" width="1440" height="450">
+        <rounded-rectangle id="32:55725" name="Chrome" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="32:55726" name="Gradient Forground" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="32:55727" name="image 1" x="-450.04296875" y="-439.94024658203125" width="901.0858154296875" height="880.9402465820312" />
+        <rounded-rectangle id="32:55728" name="image 1" x="949.25" y="-476.28955078125" width="980.5001220703125" height="958.5791625976562" />
+      </frame>
+    </frame>
+    <instance id="32:55729" name="Navigation Header" x="0" y="0" width="1440" height="40" />
+    <frame id="32:55730" name="Frame" x="9" y="40" width="1435" height="860">
+      <frame id="32:55731" name="Frame 6126" x="16" y="8" width="1403" height="62">
+        <frame id="32:55732" name="Frame 6127" x="0" y="0" width="1035" height="62">
+          <frame id="32:55733" name="Frame 6135" x="0" y="0" width="1035" height="59">
+            <text id="32:55734" name="Reconciliation Transaction UNFIT" x="0" y="0" width="1035" height="36" />
+            <text id="32:55735" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1035" height="24" />
+          </frame>
+        </frame>
+        <frame id="32:55736" name="Frame 6153" x="1035" y="13" width="368" height="36">
+          <frame id="32:55737" name="button" x="0" y="0" width="115" height="36">
+            <instance id="32:55738" name="icon" x="8" y="10" width="16" height="16" />
+            <frame id="32:55739" name="text" x="32" y="7.5" width="75" height="21">
+              <text id="32:55740" name="text" x="0" y="0" width="75" height="21" />
+            </frame>
+            <instance id="32:55741" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="32:55742" name="button" x="131" y="0" width="85" height="36">
+            <instance id="32:55743" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="32:55744" name="text" x="12" y="6" width="61" height="24">
+              <text id="32:55745" name="text" x="0" y="0" width="61" height="24" />
+            </frame>
+            <instance id="32:55746" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="32:55747" name="button" x="232" y="0" width="136" height="36">
+            <instance id="32:55748" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="32:55749" name="text" x="12" y="6" width="112" height="24">
+              <text id="32:55750" name="text" x="0" y="0" width="112" height="24" />
+            </frame>
+            <instance id="32:55751" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:55752" name="Frame 6127" x="11" y="77" width="1403" height="774">
+        <frame id="32:55753" name="Frame 6116" x="0" y="0" width="1071" height="774">
+          <frame id="32:55754" name="Frame 6115" x="0" y="0" width="1071" height="205">
+            <text id="32:55755" name="สแกน Header Card เพื่อกระทบยอดธนบัตรประเภท UNFIT" x="24" y="16" width="389" height="25" />
+            <frame id="32:55756" name="Frame 6151" x="24" y="49" width="1023" height="67">
+              <frame id="32:55757" name="Frame" x="0" y="0" width="390.5" height="67">
+                <frame id="32:55758" name="Frame" x="0" y="0" width="390.5" height="22">
+                  <text id="32:55759" name="Label" x="0" y="0" width="82" height="22" />
+                  <text id="32:55760" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                </frame>
+                <frame id="32:55761" name="Frame 6143" x="0" y="26" width="390.5" height="41">
+                  <frame id="32:55762" name="Frame 6134" x="0" y="0" width="390.5" height="41">
+                    <frame id="32:55763" name="Group" x="0" y="0" width="390.5" height="41">
+                      <text id="32:55764" name="BK12345" x="169.25" y="8" width="52" height="20" hidden="true" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:55765" name="Frame 6144" x="398.5" y="0" width="390.5" height="67">
+                <frame id="32:55766" name="Frame 6155" x="64.75" y="12" width="261" height="55">
+                  <frame id="32:55767" name="Frame 6154" x="0" y="0" width="261" height="30">
+                    <text id="32:55768" name="กระทบยอดแล้วทั้งหมด" x="0" y="0" width="184" height="30" />
+                    <text id="32:55769" name="100" x="192" y="0" width="36" height="30" />
+                    <text id="32:55770" name="มัด" x="236" y="0" width="25" height="30" />
+                  </frame>
+                  <frame id="32:55771" name="Frame 6154" x="0" y="30" width="261" height="25">
+                    <text id="32:55772" name="กรุงเทพฯ M7-1 ศกท." x="17" y="0" width="139" height="25" />
+                    <text id="32:55773" name="ผลัดบ่าย" x="188" y="0" width="56" height="25" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:55774" name="Frame 6157" x="797" y="0" width="226" height="67">
+                <frame id="32:55775" name="button" x="0" y="26" width="93" height="41">
+                  <instance id="32:55776" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="32:55777" name="text" x="40" y="10" width="37" height="21">
+                    <text id="32:55778" name="text" x="0" y="0" width="37" height="21" />
+                  </frame>
+                  <instance id="32:55779" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+                <frame id="32:55780" name="button" x="117" y="26" width="109" height="41">
+                  <instance id="32:55781" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="32:55782" name="text" x="40" y="10" width="53" height="21">
+                    <text id="32:55783" name="text" x="0" y="0" width="53" height="21" />
+                  </frame>
+                  <instance id="32:55784" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55785" name="Frame 6114" x="24" y="124" width="1023" height="65">
+              <frame id="32:55786" name="Frame 6150" x="464" y="8" width="425" height="57">
+                <frame id="32:55787" name="Frame 6145" x="0.5" y="0" width="200" height="57">
+                  <frame id="32:55788" name="Frame" x="0" y="0" width="200" height="57">
+                    <frame id="32:55789" name="Frame" x="0" y="0" width="200" height="22">
+                      <text id="32:55790" name="Label" x="0" y="0" width="82" height="22" />
+                      <text id="32:55791" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="32:55792" name="select" x="0" y="26" width="200" height="31" />
+                  </frame>
+                </frame>
+                <frame id="32:55793" name="Frame 6149" x="224.5" y="0" width="200" height="57">
+                  <frame id="32:55794" name="Frame" x="50" y="0" width="150" height="57">
+                    <frame id="32:55795" name="Frame" x="0" y="0" width="150" height="22">
+                      <text id="32:55796" name="Label" x="0" y="0" width="54" height="22" />
+                      <text id="32:55797" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="32:55798" name="select" x="0" y="26" width="150" height="31" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:55799" name="Frame 6152" x="913" y="8" width="110" height="57">
+                <frame id="32:55800" name="button" x="0" y="26" width="110" height="31">
+                  <instance id="32:55801" name="icon" x="9" y="7.5" width="16" height="16" hidden="true" />
+                  <instance id="32:55802" name="text" x="17" y="5" width="76" height="21" />
+                  <instance id="32:55803" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:55804" name="Frame 6117" x="1087" y="0" width="316" height="774">
+          <frame id="32:55805" name="Frame 6113" x="0" y="0" width="316" height="123">
+            <frame id="32:55806" name="Frame" x="12" y="16" width="292" height="20">
+              <text id="32:55807" name="Label" x="4" y="0" width="31" height="20" />
+              <text id="32:55808" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <frame id="32:55809" name="Frame 6156" x="112.5" y="0" width="175.5" height="20">
+                <text id="32:55810" name="Label" x="59.5" y="0" width="98" height="20" />
+                <instance id="32:55811" name="icon-wrapper" x="161.5" y="3" width="14" height="14" />
+              </frame>
+            </frame>
+            <frame id="32:55812" name="Frame" x="12" y="36" width="292" height="20">
+              <text id="32:55813" name="Label" x="4" y="0" width="42" height="20" />
+              <text id="32:55814" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:55815" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="32:55816" name="Frame" x="12" y="56" width="292" height="20">
+              <text id="32:55817" name="Label" x="4" y="0" width="86" height="20" />
+              <text id="32:55818" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:55819" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="32:55820" name="Frame" x="12" y="76" width="292" height="20">
+              <text id="32:55821" name="Label" x="4" y="0" width="105" height="20" />
+              <text id="32:55822" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:55823" name="Label" x="175" y="0" width="113" height="20" />
+            </frame>
+            <frame id="32:55824" name="Frame" x="12" y="96" width="292" height="20">
+              <text id="32:55825" name="Label" x="4" y="0" width="33" height="20" />
+              <text id="32:55826" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:55827" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+          </frame>
+          <frame id="32:55828" name="Table" x="0" y="139" width="316" height="635">
+            <frame id="32:55829" name="List Header" x="0" y="0" width="316" height="39">
+              <text id="32:55830" name="Header Card from Machine" x="16" y="8" width="238" height="23" />
+            </frame>
+            <frame id="32:55831" name="List Header" x="0" y="39" width="316" height="30">
+              <frame id="32:55832" name="Header" x="4" y="0" width="98" height="30">
+                <text id="32:55833" name="Header Card" x="4" y="6.5" width="65" height="17" />
+                <instance id="32:55834" name="icon" x="71" y="9" width="12" height="12" />
+                <instance id="32:55835" name="Icon Wrapper" x="96" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="32:55836" name="Header" x="102" y="0" width="74" height="30">
+                <text id="32:55837" name="วันเวลา นับคัด" x="4" y="1" width="32" height="28" />
+                <instance id="32:55838" name="icon" x="38" y="9" width="12" height="12" />
+                <instance id="32:55839" name="Icon Wrapper" x="96" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="32:55840" name="Header" x="176" y="0" width="68" height="30">
+                <text id="32:55841" name="ชนิดราคา" x="7" y="6.5" width="43" height="17" />
+                <instance id="32:55842" name="icon" x="52" y="9" width="12" height="12" />
+              </frame>
+              <frame id="32:55843" name="Header" x="244" y="0" width="68" height="30">
+                <text id="32:55844" name="Action" x="16.5" y="6.5" width="35" height="17" />
+              </frame>
+            </frame>
+            <frame id="32:55845" name="List" x="0" y="69" width="316" height="40">
+              <frame id="32:55846" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:55847" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:55848" name="0054941220" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:55849" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:55850" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:55851" name="content" x="164" y="0" width="68" height="40">
+                  <frame id="32:55852" name="Frame 6125" x="17" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:55853" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:55854" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:55855" name="Frame" x="232" y="4" width="58" height="32">
+                  <instance id="32:55856" name="button" x="6" y="6" width="20" height="20" />
+                  <instance id="32:55857" name="button" x="32" y="6" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55858" name="List" x="0" y="109" width="316" height="40">
+              <frame id="32:55859" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:55860" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:55861" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="32:55862" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="32:55863" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:55864" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:55865" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:55866" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:55867" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:55868" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:55869" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:55870" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:55871" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55872" name="List" x="0" y="149" width="316" height="40">
+              <frame id="32:55873" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:55874" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:55875" name="0054941228" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:55876" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:55877" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:55878" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:55879" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:55880" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:55881" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:55882" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:55883" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:55884" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55885" name="List" x="0" y="189" width="316" height="40">
+              <frame id="32:55886" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:55887" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:55888" name="0054941230" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:55889" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:55890" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:55891" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:55892" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:55893" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:55894" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:55895" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:55896" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:55897" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55898" name="List" x="0" y="229" width="316" height="40">
+              <frame id="32:55899" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:55900" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:55901" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="32:55902" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="32:55903" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:55904" name="21/7/2568 14:02" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:55905" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:55906" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:55907" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:55908" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:55909" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:55910" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:55911" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55912" name="List" x="0" y="269" width="316" height="40">
+              <frame id="32:55913" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55914" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55915" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55916" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55917" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55918" name="List" x="0" y="309" width="316" height="40">
+              <frame id="32:55919" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55920" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55921" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55922" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55923" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55924" name="List" x="0" y="349" width="316" height="40">
+              <frame id="32:55925" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55926" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55927" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55928" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55929" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55930" name="List" x="0" y="389" width="316" height="40">
+              <frame id="32:55931" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55932" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55933" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55934" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55935" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55936" name="List" x="0" y="429" width="316" height="40">
+              <frame id="32:55937" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55938" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55939" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55940" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55941" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55942" name="List" x="0" y="469" width="316" height="40">
+              <frame id="32:55943" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55944" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55945" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55946" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55947" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55948" name="List" x="0" y="509" width="316" height="40">
+              <frame id="32:55949" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55950" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55951" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55952" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55953" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55954" name="List" x="0" y="549" width="316" height="40">
+              <frame id="32:55955" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55956" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55957" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55958" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55959" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55960" name="List" x="0" y="589" width="316" height="40">
+              <frame id="32:55961" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55962" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55963" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55964" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55965" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55966" name="List" x="0" y="629" width="316" height="40">
+              <frame id="32:55967" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:55968" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:55969" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:55970" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:55971" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:55972" name="Frame 6130" x="308" y="73.427734375" width="8" height="561">
+              <rounded-rectangle id="32:55973" name="Rectangle 2" x="2" y="2" width="4" height="186.5443115234375" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:55974" name="Table" x="11" y="298" width="445" height="553">
+        <frame id="32:55975" name="List Header" x="0" y="0" width="445" height="35">
+          <frame id="32:55976" name="Frame 6118" x="16" y="8" width="413" height="19">
+            <text id="32:55977" name="Preparation" x="0" y="0" width="91" height="19" />
+          </frame>
+        </frame>
+        <frame id="32:55978" name="List Header" x="0" y="35" width="445" height="30">
+          <frame id="32:55979" name="Header" x="8" y="0" width="105" height="30">
+            <text id="32:55980" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="32:55981" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="32:55982" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55983" name="Header" x="113" y="0" width="120" height="30">
+            <text id="32:55984" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="32:55985" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:55986" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55987" name="Header" x="233" y="0" width="110" height="30">
+            <text id="32:55988" name="ชนิดราคา" x="23" y="5" width="50" height="20" />
+            <instance id="32:55989" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:55990" name="icon" x="75" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:55991" name="Header" x="343" y="0" width="78" height="30">
+            <text id="32:55992" name="Action" x="18" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="32:55993" name="List" x="0" y="65" width="445" height="40">
+          <frame id="32:55994" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:55995" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:55996" name="0054941124" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:55997" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:55998" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:55999" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:56000" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56001" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56002" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56003" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:56004" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:56005" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56006" name="List" x="0" y="105" width="445" height="40">
+          <frame id="32:56007" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:56008" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56009" name="0054941125" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:56010" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56011" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56012" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:56013" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56014" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56015" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56016" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:56017" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:56018" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56019" name="List" x="0" y="145" width="445" height="40">
+          <frame id="32:56020" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:56021" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56022" name="0054941126" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:56023" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56024" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56025" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:56026" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56027" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56028" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56029" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:56030" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:56031" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56032" name="List" x="0" y="185" width="445" height="40">
+          <frame id="32:56033" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:56034" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56035" name="0054941127" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:56036" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56037" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56038" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:56039" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56040" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56041" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56042" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:56043" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:56044" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56045" name="List" x="0" y="225" width="445" height="40">
+          <frame id="32:56046" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:56047" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56048" name="0054941128" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:56049" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56050" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56051" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:56052" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56053" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56054" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56055" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:56056" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:56057" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56058" name="List" x="0" y="265" width="445" height="40" />
+        <frame id="32:56059" name="List" x="0" y="305" width="445" height="40" />
+        <frame id="32:56060" name="List" x="0" y="345" width="445" height="40" />
+        <frame id="32:56061" name="List" x="0" y="385" width="445" height="40" />
+        <frame id="32:56062" name="List" x="0" y="425" width="445" height="40" />
+        <frame id="32:56063" name="List" x="0" y="465" width="445" height="40" />
+        <frame id="32:56064" name="List" x="0" y="505" width="445" height="40" />
+        <frame id="32:56065" name="Frame 6131" x="437" y="64" width="8" height="489">
+          <rounded-rectangle id="32:56066" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <frame id="32:56067" name="Table" x="475" y="298" width="607" height="553">
+        <frame id="32:56068" name="List Header" x="0" y="0" width="607" height="35">
+          <frame id="32:56069" name="Frame 6118" x="16" y="8" width="575" height="19">
+            <text id="32:56070" name="Preparation + Data from Machine" x="0" y="0" width="257" height="19" />
+          </frame>
+        </frame>
+        <frame id="32:56071" name="List Header" x="0" y="35" width="607" height="30">
+          <frame id="32:56072" name="Header" x="8" y="0" width="105" height="30">
+            <text id="32:56073" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="32:56074" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="32:56075" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:56076" name="Header" x="113" y="0" width="120" height="30">
+            <text id="32:56077" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="32:56078" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:56079" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:56080" name="Header" x="233" y="0" width="120" height="30">
+            <text id="32:56081" name="วันเวลานับคัด" x="17.5" y="5" width="71" height="20" />
+            <instance id="32:56082" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:56083" name="icon" x="90.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:56084" name="Header" x="353" y="0" width="105" height="30">
+            <text id="32:56085" name="ชนิดราคา" x="20.5" y="5" width="50" height="20" />
+            <instance id="32:56086" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:56087" name="icon" x="72.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:56088" name="Header" x="458" y="0" width="105" height="30">
+            <text id="32:56089" name="Action" x="31.5" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="32:56090" name="List" x="0" y="65" width="607" height="40">
+          <frame id="32:56091" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="32:56092" name="content" x="0" y="4" width="105" height="32">
+              <text id="32:56093" name="0054941201" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="32:56094" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56095" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56096" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:56097" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56098" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:56099" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56100" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56101" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56102" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:56103" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:56104" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56105" name="List" x="0" y="105" width="607" height="40">
+          <frame id="32:56106" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="32:56107" name="content" x="0" y="4" width="105" height="32">
+              <text id="32:56108" name="0054941203" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="32:56109" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56110" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56111" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:56112" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56113" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:56114" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56115" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56116" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56117" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:56118" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:56119" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56120" name="List" x="0" y="145" width="607" height="40">
+          <frame id="32:56121" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:56122" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56123" name="0054941205" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:56124" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56125" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56126" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:56127" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56128" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:56129" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56130" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56131" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56132" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:56133" name="button" x="42.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56134" name="List" x="0" y="185" width="607" height="40">
+          <frame id="32:56135" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:56136" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56137" name="0054941212" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:56138" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56139" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56140" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:56141" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56142" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:56143" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56144" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56145" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56146" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:56147" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:56148" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56149" name="List" x="0" y="225" width="607" height="40">
+          <frame id="32:56150" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:56151" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:56152" name="0054941206" x="8" y="10" width="76" height="20" />
+              <instance id="32:56153" name="icon-wrapper" x="88" y="13" width="14" height="14" />
+            </frame>
+            <frame id="32:56154" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:56155" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56156" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:56157" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:56158" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:56159" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:56160" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:56161" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:56162" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:56163" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:56164" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56165" name="List" x="0" y="265" width="607" height="40" />
+        <frame id="32:56166" name="List" x="0" y="305" width="607" height="40" />
+        <frame id="32:56167" name="List" x="0" y="345" width="607" height="40" />
+        <frame id="32:56168" name="List" x="0" y="385" width="607" height="40" />
+        <frame id="32:56169" name="List" x="0" y="425" width="607" height="40" />
+        <frame id="32:56170" name="List" x="0" y="465" width="607" height="40" />
+        <frame id="32:56171" name="List" x="0" y="505" width="607" height="40" />
+        <frame id="32:56172" name="Frame 6132" x="599" y="64.427734375" width="8" height="488">
+          <rounded-rectangle id="32:56173" name="Rectangle 3" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <frame id="32:57796" name="Tool Tip" x="417" y="409" width="285" height="108">
+        <frame id="32:57797" name="Frame 6163" x="0" y="0" width="285" height="50">
+          <instance id="32:57798" name="icon-wrapper" x="14" y="13" width="24" height="24" />
+          <text id="32:57799" name="Reconcile Transaction" x="52" y="15.5" width="172" height="19" />
+        </frame>
+        <frame id="32:57800" name="Frame 6164" x="0" y="50" width="285" height="50">
+          <text id="32:57801" name="Header Card นี้ข้อมูลมากกว่า 1 มัด" x="16" y="16" width="253" height="18" />
+        </frame>
+      </frame>
+      <instance id="32:57802" name="Cursors / Link &amp; Status" x="572" y="535" width="24" height="24" />
+    </frame>
+  </frame>
+  <frame id="32:56750" name="Reconciliation Transaction - Unfit" x="3276" y="310" width="1440" height="900">
+    <frame id="32:56751" name="Background" x="0" y="0" width="1440" height="900">
+      <rounded-rectangle id="32:56752" name="Background" x="0" y="0" width="1440.4970703125" height="899.07568359375" />
+      <frame id="32:56753" name="Forground Color" x="0" y="0" width="1440" height="450">
+        <rounded-rectangle id="32:56754" name="Chrome" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="32:56755" name="Gradient Forground" x="0" y="0" width="1440" height="450" />
+        <rounded-rectangle id="32:56756" name="image 1" x="-450.04296875" y="-439.94024658203125" width="901.0858154296875" height="880.9402465820312" />
+        <rounded-rectangle id="32:56757" name="image 1" x="949.25" y="-476.28955078125" width="980.5001220703125" height="958.5791625976562" />
+      </frame>
+    </frame>
+    <instance id="32:56758" name="Navigation Header" x="0" y="0" width="1440" height="40" />
+    <frame id="32:56759" name="Frame" x="9" y="40" width="1435" height="860">
+      <frame id="32:56760" name="Frame 6126" x="16" y="8" width="1403" height="62">
+        <frame id="32:56761" name="Frame 6127" x="0" y="0" width="1035" height="62">
+          <frame id="32:56762" name="Frame 6135" x="0" y="0" width="1035" height="59">
+            <text id="32:56763" name="Reconciliation Transaction UNFIT" x="0" y="0" width="1035" height="36" />
+            <text id="32:56764" name="กระทบยอดธนบัตรประเภท UNFIT" x="0" y="35" width="1035" height="24" />
+          </frame>
+        </frame>
+        <frame id="32:56765" name="Frame 6153" x="1035" y="13" width="368" height="36">
+          <frame id="32:56766" name="button" x="0" y="0" width="115" height="36">
+            <instance id="32:56767" name="icon" x="8" y="10" width="16" height="16" />
+            <frame id="32:56768" name="text" x="32" y="7.5" width="75" height="21">
+              <text id="32:56769" name="text" x="0" y="0" width="75" height="21" />
+            </frame>
+            <instance id="32:56770" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="32:56771" name="button" x="131" y="0" width="85" height="36">
+            <instance id="32:56772" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="32:56773" name="text" x="12" y="6" width="61" height="24">
+              <text id="32:56774" name="text" x="0" y="0" width="61" height="24" />
+            </frame>
+            <instance id="32:56775" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+          <frame id="32:56776" name="button" x="232" y="0" width="136" height="36">
+            <instance id="32:56777" name="icon" x="12" y="10" width="16" height="16" hidden="true" />
+            <frame id="32:56778" name="text" x="12" y="6" width="112" height="24">
+              <text id="32:56779" name="text" x="0" y="0" width="112" height="24" />
+            </frame>
+            <instance id="32:56780" name="icon-2" x="104" y="11" width="16" height="16" hidden="true" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:56781" name="Frame 6127" x="11" y="77" width="1403" height="774">
+        <frame id="32:56782" name="Frame 6116" x="0" y="0" width="1071" height="774">
+          <frame id="32:56783" name="Frame 6115" x="0" y="0" width="1071" height="205">
+            <text id="32:56784" name="สแกน Header Card เพื่อกระทบยอดธนบัตรประเภท UNFIT" x="24" y="16" width="389" height="25" />
+            <frame id="32:56785" name="Frame 6151" x="24" y="49" width="1023" height="67">
+              <frame id="32:56786" name="Frame" x="0" y="0" width="390.5" height="67">
+                <frame id="32:56787" name="Frame" x="0" y="0" width="390.5" height="22">
+                  <text id="32:56788" name="Label" x="0" y="0" width="82" height="22" />
+                  <text id="32:56789" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                </frame>
+                <frame id="32:56790" name="Frame 6143" x="0" y="26" width="390.5" height="41">
+                  <frame id="32:56791" name="Frame 6134" x="0" y="0" width="390.5" height="41">
+                    <frame id="32:56792" name="Group" x="0" y="0" width="390.5" height="41">
+                      <text id="32:56793" name="BK12345" x="169.25" y="8" width="52" height="20" hidden="true" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:56794" name="Frame 6144" x="398.5" y="0" width="390.5" height="67">
+                <frame id="32:56795" name="Frame 6155" x="64.75" y="12" width="261" height="55">
+                  <frame id="32:56796" name="Frame 6154" x="0" y="0" width="261" height="30">
+                    <text id="32:56797" name="กระทบยอดแล้วทั้งหมด" x="0" y="0" width="184" height="30" />
+                    <text id="32:56798" name="100" x="192" y="0" width="36" height="30" />
+                    <text id="32:56799" name="มัด" x="236" y="0" width="25" height="30" />
+                  </frame>
+                  <frame id="32:56800" name="Frame 6154" x="0" y="30" width="261" height="25">
+                    <text id="32:56801" name="กรุงเทพฯ M7-1 ศกท." x="17" y="0" width="139" height="25" />
+                    <text id="32:56802" name="ผลัดบ่าย" x="188" y="0" width="56" height="25" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:56803" name="Frame 6157" x="797" y="0" width="226" height="67">
+                <frame id="32:56804" name="button" x="0" y="26" width="93" height="41">
+                  <instance id="32:56805" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="32:56806" name="text" x="40" y="10" width="37" height="21">
+                    <text id="32:56807" name="text" x="0" y="0" width="37" height="21" />
+                  </frame>
+                  <instance id="32:56808" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+                <frame id="32:56809" name="button" x="117" y="26" width="109" height="41">
+                  <instance id="32:56810" name="icon" x="16" y="12.5" width="16" height="16" />
+                  <frame id="32:56811" name="text" x="40" y="10" width="53" height="21">
+                    <text id="32:56812" name="text" x="0" y="0" width="53" height="21" />
+                  </frame>
+                  <instance id="32:56813" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56814" name="Frame 6114" x="24" y="124" width="1023" height="65">
+              <frame id="32:56815" name="Frame 6150" x="464" y="8" width="425" height="57">
+                <frame id="32:56816" name="Frame 6145" x="0.5" y="0" width="200" height="57">
+                  <frame id="32:56817" name="Frame" x="0" y="0" width="200" height="57">
+                    <frame id="32:56818" name="Frame" x="0" y="0" width="200" height="22">
+                      <text id="32:56819" name="Label" x="0" y="0" width="82" height="22" />
+                      <text id="32:56820" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="32:56821" name="select" x="0" y="26" width="200" height="31" />
+                  </frame>
+                </frame>
+                <frame id="32:56822" name="Frame 6149" x="224.5" y="0" width="200" height="57">
+                  <frame id="32:56823" name="Frame" x="50" y="0" width="150" height="57">
+                    <frame id="32:56824" name="Frame" x="0" y="0" width="150" height="22">
+                      <text id="32:56825" name="Label" x="0" y="0" width="54" height="22" />
+                      <text id="32:56826" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+                    </frame>
+                    <instance id="32:56827" name="select" x="0" y="26" width="150" height="31" />
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="32:56828" name="Frame 6152" x="913" y="8" width="110" height="57">
+                <frame id="32:56829" name="button" x="0" y="26" width="110" height="31">
+                  <instance id="32:56830" name="icon" x="9" y="7.5" width="16" height="16" hidden="true" />
+                  <instance id="32:56831" name="text" x="17" y="5" width="76" height="21" />
+                  <instance id="32:56832" name="icon-2" x="90" y="7.5" width="16" height="16" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:56833" name="Frame 6117" x="1087" y="0" width="316" height="774">
+          <frame id="32:56834" name="Frame 6113" x="0" y="0" width="316" height="123">
+            <frame id="32:56835" name="Frame" x="12" y="16" width="292" height="20">
+              <text id="32:56836" name="Label" x="4" y="0" width="31" height="20" />
+              <text id="32:56837" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <frame id="32:56838" name="Frame 6156" x="112.5" y="0" width="175.5" height="20">
+                <text id="32:56839" name="Label" x="59.5" y="0" width="98" height="20" />
+                <instance id="32:56840" name="icon-wrapper" x="161.5" y="3" width="14" height="14" />
+              </frame>
+            </frame>
+            <frame id="32:56841" name="Frame" x="12" y="36" width="292" height="20">
+              <text id="32:56842" name="Label" x="4" y="0" width="42" height="20" />
+              <text id="32:56843" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:56844" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="32:56845" name="Frame" x="12" y="56" width="292" height="20">
+              <text id="32:56846" name="Label" x="4" y="0" width="86" height="20" />
+              <text id="32:56847" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:56848" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+            <frame id="32:56849" name="Frame" x="12" y="76" width="292" height="20">
+              <text id="32:56850" name="Label" x="4" y="0" width="105" height="20" />
+              <text id="32:56851" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:56852" name="Label" x="175" y="0" width="113" height="20" />
+            </frame>
+            <frame id="32:56853" name="Frame" x="12" y="96" width="292" height="20">
+              <text id="32:56854" name="Label" x="4" y="0" width="33" height="20" />
+              <text id="32:56855" name="Description" x="0" y="24" width="402" height="16" hidden="true" />
+              <text id="32:56856" name="Label" x="188" y="0" width="100" height="20" />
+            </frame>
+          </frame>
+          <frame id="32:56857" name="Table" x="0" y="139" width="316" height="635">
+            <frame id="32:56858" name="List Header" x="0" y="0" width="316" height="39">
+              <text id="32:56859" name="Header Card from Machine" x="16" y="8" width="238" height="23" />
+            </frame>
+            <frame id="32:56860" name="List Header" x="0" y="39" width="316" height="30">
+              <frame id="32:56861" name="Header" x="4" y="0" width="98" height="30">
+                <text id="32:56862" name="Header Card" x="4" y="6.5" width="65" height="17" />
+                <instance id="32:56863" name="icon" x="71" y="9" width="12" height="12" />
+                <instance id="32:56864" name="Icon Wrapper" x="96" y="9" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="32:56865" name="Header" x="102" y="0" width="74" height="30">
+                <text id="32:56866" name="วันเวลา นับคัด" x="4" y="1" width="32" height="28" />
+                <instance id="32:56867" name="icon" x="38" y="9" width="12" height="12" />
+                <instance id="32:56868" name="Icon Wrapper" x="96" y="10" width="16" height="16" hidden="true" />
+              </frame>
+              <frame id="32:56869" name="Header" x="176" y="0" width="68" height="30">
+                <text id="32:56870" name="ชนิดราคา" x="7" y="6.5" width="43" height="17" />
+                <instance id="32:56871" name="icon" x="52" y="9" width="12" height="12" />
+              </frame>
+              <frame id="32:56872" name="Header" x="244" y="0" width="68" height="30">
+                <text id="32:56873" name="Action" x="16.5" y="6.5" width="35" height="17" />
+              </frame>
+            </frame>
+            <frame id="32:56874" name="List" x="0" y="69" width="316" height="40">
+              <frame id="32:56875" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:56876" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:56877" name="0054941220" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:56878" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:56879" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:56880" name="content" x="164" y="0" width="68" height="40">
+                  <frame id="32:56881" name="Frame 6125" x="17" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:56882" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:56883" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:56884" name="Frame" x="232" y="4" width="58" height="32">
+                  <instance id="32:56885" name="button" x="6" y="6" width="20" height="20" />
+                  <instance id="32:56886" name="button" x="32" y="6" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56887" name="List" x="0" y="109" width="316" height="40">
+              <frame id="32:56888" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:56889" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:56890" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="32:56891" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="32:56892" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:56893" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:56894" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:56895" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:56896" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:56897" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:56898" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:56899" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:56900" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56901" name="List" x="0" y="149" width="316" height="40">
+              <frame id="32:56902" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:56903" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:56904" name="0054941228" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:56905" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:56906" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:56907" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:56908" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:56909" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:56910" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:56911" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:56912" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:56913" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56914" name="List" x="0" y="189" width="316" height="40">
+              <frame id="32:56915" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:56916" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:56917" name="0054941230" x="4" y="10.5" width="80" height="19" />
+                </frame>
+                <frame id="32:56918" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:56919" name="21/7/2568 14:00" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:56920" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:56921" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:56922" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:56923" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:56924" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:56925" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:56926" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56927" name="List" x="0" y="229" width="316" height="40">
+              <frame id="32:56928" name="Frame" x="4" y="0" width="308" height="40">
+                <frame id="32:56929" name="content" x="0" y="0" width="98" height="40">
+                  <text id="32:56930" name="0054941226" x="4" y="10.5" width="69" height="19" />
+                  <instance id="32:56931" name="icon-wrapper" x="75" y="14" width="12" height="12" />
+                </frame>
+                <frame id="32:56932" name="content" x="98" y="0" width="66" height="40">
+                  <text id="32:56933" name="21/7/2568 14:02" x="4" y="7" width="58" height="26" />
+                </frame>
+                <frame id="32:56934" name="content" x="164" y="0" width="70" height="40">
+                  <frame id="32:56935" name="Frame 6125" x="19" y="8" width="47" height="24">
+                    <rounded-rectangle id="32:56936" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                    <text id="32:56937" name="Label" x="12" y="3" width="22" height="19" />
+                  </frame>
+                </frame>
+                <frame id="32:56938" name="Frame" x="234" y="0" width="58" height="40">
+                  <instance id="32:56939" name="button" x="6" y="10" width="20" height="20" />
+                  <instance id="32:56940" name="button" x="32" y="10" width="20" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56941" name="List" x="0" y="269" width="316" height="40">
+              <frame id="32:56942" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56943" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56944" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56945" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56946" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56947" name="List" x="0" y="309" width="316" height="40">
+              <frame id="32:56948" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56949" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56950" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56951" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56952" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56953" name="List" x="0" y="349" width="316" height="40">
+              <frame id="32:56954" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56955" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56956" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56957" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56958" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56959" name="List" x="0" y="389" width="316" height="40">
+              <frame id="32:56960" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56961" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56962" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56963" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56964" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56965" name="List" x="0" y="429" width="316" height="40">
+              <frame id="32:56966" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56967" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56968" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56969" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56970" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56971" name="List" x="0" y="469" width="316" height="40">
+              <frame id="32:56972" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56973" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56974" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56975" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56976" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56977" name="List" x="0" y="509" width="316" height="40">
+              <frame id="32:56978" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56979" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56980" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56981" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56982" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56983" name="List" x="0" y="549" width="316" height="40">
+              <frame id="32:56984" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56985" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56986" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56987" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56988" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56989" name="List" x="0" y="589" width="316" height="40">
+              <frame id="32:56990" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56991" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56992" name="0020023400000099559" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56993" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:56994" name="0" x="66" y="10" width="9" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:56995" name="List" x="0" y="629" width="316" height="40">
+              <frame id="32:56996" name="Frame" x="8" y="0" width="300" height="40">
+                <frame id="32:56997" name="content" x="0" y="0" width="171" height="40">
+                  <text id="32:56998" name="0020023400000099555" x="8" y="10" width="152" height="20" hidden="true" />
+                </frame>
+                <frame id="32:56999" name="content" x="171" y="0" width="129" height="40">
+                  <text id="32:57000" name="1" x="69" y="10" width="6" height="20" hidden="true" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="32:57001" name="Frame 6130" x="308" y="73.427734375" width="8" height="561">
+              <rounded-rectangle id="32:57002" name="Rectangle 2" x="2" y="2" width="4" height="186.5443115234375" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:57003" name="Table" x="11" y="298" width="445" height="553">
+        <frame id="32:57004" name="List Header" x="0" y="0" width="445" height="35">
+          <frame id="32:57005" name="Frame 6118" x="16" y="8" width="413" height="19">
+            <text id="32:57006" name="Preparation" x="0" y="0" width="91" height="19" />
+          </frame>
+        </frame>
+        <frame id="32:57007" name="List Header" x="0" y="35" width="445" height="30">
+          <frame id="32:57008" name="Header" x="8" y="0" width="105" height="30">
+            <text id="32:57009" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="32:57010" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="32:57011" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57012" name="Header" x="113" y="0" width="120" height="30">
+            <text id="32:57013" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="32:57014" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:57015" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57016" name="Header" x="233" y="0" width="110" height="30">
+            <text id="32:57017" name="ชนิดราคา" x="23" y="5" width="50" height="20" />
+            <instance id="32:57018" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:57019" name="icon" x="75" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57020" name="Header" x="343" y="0" width="78" height="30">
+            <text id="32:57021" name="Action" x="18" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="32:57022" name="List" x="0" y="65" width="445" height="40">
+          <frame id="32:57023" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:57024" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57025" name="0054941124" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57026" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57027" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57028" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:57029" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57030" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57031" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57032" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:57033" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:57034" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57035" name="List" x="0" y="105" width="445" height="40">
+          <frame id="32:57036" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:57037" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57038" name="0054941125" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57039" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57040" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57041" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:57042" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57043" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57044" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57045" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:57046" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:57047" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57048" name="List" x="0" y="145" width="445" height="40">
+          <frame id="32:57049" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:57050" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57051" name="0054941126" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57052" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57053" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57054" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:57055" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57056" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57057" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57058" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:57059" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:57060" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57061" name="List" x="0" y="185" width="445" height="40">
+          <frame id="32:57062" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:57063" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57064" name="0054941127" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57065" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57066" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57067" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:57068" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57069" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57070" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57071" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:57072" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:57073" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57074" name="List" x="0" y="225" width="445" height="40">
+          <frame id="32:57075" name="Frame" x="8" y="0" width="429" height="40">
+            <frame id="32:57076" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57077" name="0054941128" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57078" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57079" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57080" name="Frame" x="225" y="2" width="100" height="36">
+              <frame id="32:57081" name="Frame 6125" x="26.5" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57082" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57083" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57084" name="Frame" x="325" y="4" width="100" height="32">
+              <instance id="32:57085" name="button" x="27" y="6" width="20" height="20" />
+              <instance id="32:57086" name="button" x="53" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57087" name="List" x="0" y="265" width="445" height="40" />
+        <frame id="32:57088" name="List" x="0" y="305" width="445" height="40" />
+        <frame id="32:57089" name="List" x="0" y="345" width="445" height="40" />
+        <frame id="32:57090" name="List" x="0" y="385" width="445" height="40" />
+        <frame id="32:57091" name="List" x="0" y="425" width="445" height="40" />
+        <frame id="32:57092" name="List" x="0" y="465" width="445" height="40" />
+        <frame id="32:57093" name="List" x="0" y="505" width="445" height="40" />
+        <frame id="32:57094" name="Frame 6131" x="437" y="64" width="8" height="489">
+          <rounded-rectangle id="32:57095" name="Rectangle 2" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <frame id="32:57096" name="Table" x="475" y="298" width="607" height="553">
+        <frame id="32:57097" name="List Header" x="0" y="0" width="607" height="35">
+          <frame id="32:57098" name="Frame 6118" x="16" y="8" width="575" height="19">
+            <text id="32:57099" name="Preparation + Data from Machine" x="0" y="0" width="257" height="19" />
+          </frame>
+        </frame>
+        <frame id="32:57100" name="List Header" x="0" y="35" width="607" height="30">
+          <frame id="32:57101" name="Header" x="8" y="0" width="105" height="30">
+            <text id="32:57102" name="Header Card" x="7.5" y="5" width="76" height="20" />
+            <instance id="32:57103" name="Icon Wrapper" x="89" y="10" width="16" height="16" hidden="true" />
+            <instance id="32:57104" name="icon" x="85.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57105" name="Header" x="113" y="0" width="120" height="30">
+            <text id="32:57106" name="วันเวลาเตรียม" x="17" y="5" width="72" height="20" />
+            <instance id="32:57107" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:57108" name="icon" x="91" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57109" name="Header" x="233" y="0" width="120" height="30">
+            <text id="32:57110" name="วันเวลานับคัด" x="17.5" y="5" width="71" height="20" />
+            <instance id="32:57111" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:57112" name="icon" x="90.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57113" name="Header" x="353" y="0" width="105" height="30">
+            <text id="32:57114" name="ชนิดราคา" x="20.5" y="5" width="50" height="20" />
+            <instance id="32:57115" name="Icon Wrapper" x="54" y="9" width="16" height="16" hidden="true" />
+            <instance id="32:57116" name="icon" x="72.5" y="9" width="12" height="12" />
+          </frame>
+          <frame id="32:57117" name="Header" x="458" y="0" width="105" height="30">
+            <text id="32:57118" name="Action" x="31.5" y="5" width="42" height="20" />
+          </frame>
+        </frame>
+        <frame id="32:57119" name="List" x="0" y="65" width="607" height="40">
+          <frame id="32:57120" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="32:57121" name="content" x="0" y="4" width="105" height="32">
+              <text id="32:57122" name="0054941201" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="32:57123" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57124" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57125" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:57126" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57127" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:57128" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57129" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57130" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57131" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:57132" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:57133" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57134" name="List" x="0" y="105" width="607" height="40">
+          <frame id="32:57135" name="Frame" x="8" y="0" width="540" height="40">
+            <frame id="32:57136" name="content" x="0" y="4" width="105" height="32">
+              <text id="32:57137" name="0054941203" x="8" y="6" width="146" height="20" />
+            </frame>
+            <frame id="32:57138" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57139" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57140" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:57141" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57142" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:57143" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57144" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57145" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57146" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:57147" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:57148" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57149" name="List" x="0" y="145" width="607" height="40">
+          <frame id="32:57150" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:57151" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57152" name="0054941205" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57153" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57154" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57155" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:57156" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57157" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:57158" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57159" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57160" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57161" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:57162" name="button" x="42.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57163" name="List" x="0" y="185" width="607" height="40">
+          <frame id="32:57164" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:57165" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57166" name="0054941212" x="8" y="10" width="89" height="20" />
+            </frame>
+            <frame id="32:57167" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57168" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57169" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:57170" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57171" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:57172" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57173" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57174" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57175" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:57176" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:57177" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57178" name="List" x="0" y="225" width="607" height="40">
+          <frame id="32:57179" name="Frame" x="8" y="0" width="591" height="40">
+            <frame id="32:57180" name="content" x="0" y="0" width="105" height="40">
+              <text id="32:57181" name="0054941206" x="8" y="10" width="76" height="20" />
+              <instance id="32:57182" name="icon-wrapper" x="88" y="13" width="14" height="14" />
+            </frame>
+            <frame id="32:57183" name="content" x="105" y="0" width="120" height="40">
+              <text id="32:57184" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57185" name="content" x="225" y="0" width="120" height="40">
+              <text id="32:57186" name="21/7/2568 14:00" x="14" y="13.5" width="92" height="13" />
+            </frame>
+            <frame id="32:57187" name="Frame" x="345" y="2" width="105" height="36">
+              <frame id="32:57188" name="Frame 6125" x="29" y="6" width="47" height="24">
+                <rounded-rectangle id="32:57189" name="image 1" x="-109.84794616699219" y="-158.4684295654297" width="444.5859069824219" height="434.6463317871094" />
+                <text id="32:57190" name="Label" x="12" y="2" width="23" height="20" />
+              </frame>
+            </frame>
+            <frame id="32:57191" name="Frame" x="450" y="4" width="105" height="32">
+              <instance id="32:57192" name="button" x="29.5" y="6" width="20" height="20" />
+              <instance id="32:57193" name="button" x="55.5" y="6" width="20" height="20" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:57194" name="List" x="0" y="265" width="607" height="40" />
+        <frame id="32:57195" name="List" x="0" y="305" width="607" height="40" />
+        <frame id="32:57196" name="List" x="0" y="345" width="607" height="40" />
+        <frame id="32:57197" name="List" x="0" y="385" width="607" height="40" />
+        <frame id="32:57198" name="List" x="0" y="425" width="607" height="40" />
+        <frame id="32:57199" name="List" x="0" y="465" width="607" height="40" />
+        <frame id="32:57200" name="List" x="0" y="505" width="607" height="40" />
+        <frame id="32:57201" name="Frame 6132" x="599" y="64.427734375" width="8" height="488">
+          <rounded-rectangle id="32:57202" name="Rectangle 3" x="2" y="2" width="4" height="52" />
+        </frame>
+      </frame>
+      <instance id="32:57813" name="Cursors / Link &amp; Status" x="972" y="461" width="24" height="24" />
+      <frame id="32:57814" name="Tool Tip" x="666" y="304" width="285" height="161">
+        <frame id="32:57815" name="Frame 6163" x="0" y="0" width="285" height="50">
+          <instance id="32:57816" name="icon-wrapper" x="14" y="13" width="24" height="24" />
+          <text id="32:57817" name="Reconcile Transaction" x="52" y="15.5" width="172" height="19" />
+        </frame>
+        <frame id="32:57818" name="Frame 6164" x="0" y="50" width="285" height="104">
+          <text id="32:57819" name="HeaderCard นี้มีการ Reconcilation เกิน 3 ครั้ง กรุณาแจ้ง Supervisor เพื่อปลด Lock" x="16" y="16" width="253" height="72" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</section>

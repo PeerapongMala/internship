@@ -1,0 +1,13 @@
+{
+  "modal-install": {
+    "title": "Install Game",
+    "description": "You can install the game on your device for faster access.",
+    "continue-browser-btn": "Play in Browser",
+    "install-btn": "Install Game"
+  },
+  "modal-play-browser": {
+    "title": "Cannot Install Game",
+    "description": "Your browser does not support installing the game on your device.",
+    "continue-browser-btn": "Play in Browser"
+  }
+}

@@ -1,0 +1,40 @@
+[
+    {
+        "subjectId": "1",
+        "subjectName": "คณิตศาสตร์",
+        "lessons": [
+            {
+                "lessonsId": "1",
+                "lessonsName": "บทเรียน 1 จำนวนนับ",
+                "checkpoint":"1",
+                "sublessons": [
+                    {
+                        "sublessonsId": "1",
+                        "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+                        "typeQuestion":"แบบฝึกหัด",
+                        "tier":"ง่าย"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "subjectId": "2",
+        "subjectName": "วิทยาศาสตร์",
+        "lessons": [
+            {
+                "lessonsId": "1",
+                "lessonsName": "บทเรียน 1 จำนวนนับ",
+                "checkpoint":"1",
+                "sublessons": [
+                    {
+                        "sublessonsId": "1",
+                        "sublessonsName": "บทเรียนย่อย 1-1 จำนวนนับ",
+                        "typeQuestion":"แบบฝึกหัด",
+                        "tier":"ง่าย"
+                    }
+                ]
+            }
+        ]
+    }
+]

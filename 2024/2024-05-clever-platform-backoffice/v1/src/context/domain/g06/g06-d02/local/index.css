@@ -1,0 +1,12 @@
+body {
+  @apply bg-[#fafafa] font-noto-sans-thai;
+}
+
+.th-rotate {
+  @apply h-32 min-h-32 -rotate-90 items-center text-nowrap !p-0 text-center;
+}
+
+.th-fixed th,
+.td-fixed {
+  @apply !p-0 text-center;
+}
